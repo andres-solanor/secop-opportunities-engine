@@ -160,7 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalPipeline = items.reduce((acc, curr) => acc + (curr.precio || 0), 0);
     const avgScore = items.length ? Math.round(items.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / items.length) : 0;
 
-    kpiTotalPipeline.textContent = `$${Math.round(totalPipeline / 1_000_000).toLocaleString('es-CO')} M`;
+    // Format pipeline value clearly in Colombian currency terms
+    if (totalPipeline >= 1_000_000_000_000) {
+      kpiTotalPipeline.textContent = `$${(totalPipeline / 1_000_000_000_000).toFixed(2).replace('.', ',')} Billones COP`;
+    } else if (totalPipeline >= 1_000_000_000) {
+      kpiTotalPipeline.textContent = `$${(totalPipeline / 1_000_000_000).toFixed(1).replace('.', ',')} Mil Millones COP`;
+    } else {
+      kpiTotalPipeline.textContent = `$${Math.round(totalPipeline / 1_000_000).toLocaleString('es-CO')} Millones COP`;
+    }
     kpiTotalOpps.textContent = items.length;
     kpiAvgScore.textContent = `${avgScore} / 100`;
 

@@ -1,49 +1,5 @@
 window.PROSPECTS_DATA = [
   {
-    "id": "CO1.REQ.11047670",
-    "referencia": "ESAL-MSS-006-2026",
-    "entidad": "ALCALDIA MUNICIPIO DE SATIVASUR",
-    "nit_entidad": "8000994412",
-    "departamento": "Boyacá",
-    "ciudad": "Sativasur",
-    "precio": 100481483980.0,
-    "precio_formateado": "$100,481,483,980 COP",
-    "modalidad": "Contratación régimen especial (con ofertas)",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "AUNAR ESFUERZOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A LOS ESTUDIANTES DE LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE SATIVASUR, EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO No. 2612 DE 2026 SUSCRITO ENTRE EL MUNICIPIO DE SATIVASUR Y EL DEPARTAMENTO DE BOYACÁ  PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DURANTE EL SEGUNDO SEMESTRE DE 2026",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 100481483.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 95,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775"
-  },
-  {
     "id": "CO1.REQ.10381967",
     "referencia": "SE-LP-001-2026 (Presentación de oferta)",
     "entidad": "DEPARTAMENTO DE CORDOBA",
@@ -73,8 +29,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CONSORCIO CORDOBA NUTRE",
@@ -117,8 +73,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "Fundacion Accion Solidaria Por Colombia",
@@ -161,8 +117,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "La Provincia de La Paz",
@@ -205,8 +161,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -249,8 +205,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -293,8 +249,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -306,50 +262,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 90,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917086"
-  },
-  {
-    "id": "CO1.REQ.10643483",
-    "referencia": "CMM-2026-000071",
-    "entidad": "UNAD",
-    "nit_entidad": "860512780",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 1745000000.0,
-    "precio_formateado": "$1,745,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "REALIZAR LA CIMENTACIÓN, ASÍ COMO EL DISEÑO, FABRICACIÓN E INSTALACIÓN DE RIOSTRAS, CERCHAS Y COLUMNAS EN ESTRUCTURA METÁLICA PARA LA CONSTRUCCIÓN DE ESTRUCTURAS DE PROTECCIÓN SUPERIOR EN ZONAS DEPORTIVAS DEL CCAV PITALITO Y CCAV PUERTO COLOMBIA DE LA UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA, GARANTIZANDO CONDICIONES ADECUADAS DE ESTABILIDAD ESTRUCTURAL, FUNCIONALIDAD, SEGURIDAD Y DURABILIDAD DE LAS INTERVENCIONES.; DE CONFORMIDAD CON LOS PRESENTES TERMINOS DE REFERENCIADE LA INVITACIÓN DIRECT",
-    "fecha_publicacion": "2026-07-11T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica",
-          "cerchas"
-        ],
-        "relevance_score": 36.0
-      }
-    ],
-    "materiales_detectados": [
-      "cerchas",
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10498575"
   },
   {
     "id": "CO1.REQ.11043283",
@@ -381,8 +293,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -394,50 +306,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 90,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10898394"
-  },
-  {
-    "id": "CO1.REQ.10996910",
-    "referencia": "LP-002 DE 2026",
-    "entidad": "MUNICIPIO DE FRONTINO",
-    "nit_entidad": "890983706",
-    "departamento": "Antioquia",
-    "ciudad": "Frontino",
-    "precio": 1309415109.0,
-    "precio_formateado": "$1,309,415,109 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "SUMINISTRO DE MANERA OPORTUNA LOS BIENES Y SERVICIOS PARA LA EJECUCIÓN E IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRICULA OFICIAL EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO 4600019305 SUSCRITO ENTRE EL DEPARTAMENTO DE ANTIOQUIA Y EL MUNICIPIO DE FRONTINO- ANTIOQUIA",
-    "fecha_publicacion": "2026-09-07T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10852576"
   },
   {
     "id": "CO1.REQ.10964839",
@@ -469,8 +337,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "alumbrado publico"
+      "alumbrado publico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -528,94 +396,6 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891535"
   },
   {
-    "id": "CO1.REQ.11023650",
-    "referencia": "LP-003-2026",
-    "entidad": "ALCALDIA MUNICIPIO DE SONSON",
-    "nit_entidad": "890980357",
-    "departamento": "Antioquia",
-    "ciudad": "Sonson",
-    "precio": 1030819911.0,
-    "precio_formateado": "$1,030,819,911 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "CONTRATAR LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE VIGENCIA 2026 EN EL MUNICIPIO DE SONSÓN, ANTIOQUIA.",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10877902"
-  },
-  {
-    "id": "CO1.REQ.10361018",
-    "referencia": "SA-MC-01-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "Rama Judicial  Dirección Seccional de Administración Judicial de Pereira",
-    "nit_entidad": "800165940",
-    "departamento": "Risaralda",
-    "ciudad": "Pereira",
-    "precio": 792913997.0,
-    "precio_formateado": "$792,913,997 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Suministros",
-    "descripcion": "Contratar, en nombre de la Nación - Consejo Superior de la Judicatura - Dirección Seccional de Administración Judicial de Pereira - Risaralda, el suministro, instalación, pruebas y puesta en funcionamiento de los sistemas de energía solar fotovoltaica para los Palacios de Justicia de Pereira y Pueblo Rico",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "energía solar",
-          "fotovoltaica"
-        ],
-        "relevance_score": 37.5
-      }
-    ],
-    "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
-    ],
-    "contratista": {
-      "nombre": "VHZ INGENIERIA S.A.S",
-      "nit": "900151289",
-      "es_consorcio": false,
-      "valor_adjudicado": 737042388.0,
-      "departamento_proveedor": "Risaralda",
-      "ciudad_proveedor": "Pereira"
-    },
-    "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921"
-  },
-  {
     "id": "CO1.REQ.11014161",
     "referencia": "CD-CLD-1010-005-2026",
     "entidad": "SENA REGIONAL CALDAS Grupo de Apoyo Administrativo Mixto",
@@ -645,8 +425,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "eficiencia energética",
-      "fotovoltaico"
+      "fotovoltaico",
+      "eficiencia energética"
     ],
     "contratista": {
       "nombre": "PROMOTORA ENERGÉTICA DEL CENTRO S.A.S E.S.P",
@@ -658,6 +438,50 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 88,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10868233"
+  },
+  {
+    "id": "CO1.REQ.10361018",
+    "referencia": "SA-MC-01-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "Rama Judicial  Dirección Seccional de Administración Judicial de Pereira",
+    "nit_entidad": "800165940",
+    "departamento": "Risaralda",
+    "ciudad": "Pereira",
+    "precio": 737042388.0,
+    "precio_formateado": "$737,042,388 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Contratar, en nombre de la Nación - Consejo Superior de la Judicatura - Dirección Seccional de Administración Judicial de Pereira - Risaralda, el suministro, instalación, pruebas y puesta en funcionamiento de los sistemas de energía solar fotovoltaica para los Palacios de Justicia de Pereira y Pueblo Rico",
+    "fecha_publicacion": null,
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "energía solar",
+          "fotovoltaica"
+        ],
+        "relevance_score": 37.5
+      }
+    ],
+    "materiales_detectados": [
+      "energía solar",
+      "fotovoltaica"
+    ],
+    "contratista": {
+      "nombre": "VHZ INGENIERIA S.A.S",
+      "nit": "900151289",
+      "es_consorcio": false,
+      "valor_adjudicado": 737042388.0,
+      "departamento_proveedor": "Risaralda",
+      "ciudad_proveedor": "Pereira"
+    },
+    "score_calidad": 88,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921"
   },
   {
     "id": "CO1.REQ.11028510",
@@ -689,8 +513,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PROSERVIRTE",
@@ -710,8 +534,8 @@ window.PROSPECTS_DATA = [
     "nit_entidad": "890982321",
     "departamento": "Antioquia",
     "ciudad": "Betulia",
-    "precio": 576730100.0,
-    "precio_formateado": "$576,730,100 COP",
+    "precio": 576515292.0,
+    "precio_formateado": "$576,515,292 COP",
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "Ejecución del Programa de Alimentación Escolar (PAE) para los niños, niñas y adolescentes, estudiantes de las instituciones educativas oficiales del Municipio de Betulia",
@@ -733,8 +557,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACION FUERZA Y DESARROLLO",
@@ -777,8 +601,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PRECOOPVIVERES",
@@ -822,9 +646,9 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
+      "fotovoltaico",
       "alumbrado publico",
-      "luminarias led",
-      "fotovoltaico"
+      "luminarias led"
     ],
     "contratista": {
       "nombre": "M&M MONTAJES SAS",
@@ -867,8 +691,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACION, ARTE CULTURA Y DESARROLLO LIBRE",
@@ -911,8 +735,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACIÓN BIENESTAR POR EL FUTURO",
@@ -955,8 +779,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACION PROSPECTAR",
@@ -968,94 +792,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 88,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10817115"
-  },
-  {
-    "id": "CO1.REQ.9495433",
-    "referencia": "MP-LP-004-2025",
-    "entidad": "MUNICIPIO DE PURIFICACION",
-    "nit_entidad": "890701077",
-    "departamento": "Tolima",
-    "ciudad": "No Definido",
-    "precio": 699095760.0,
-    "precio_formateado": "$699,095,760 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE) A LOS ESTUDIANTES MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE PURIFICACIÓN TOLIMA",
-    "fecha_publicacion": "2025-12-29T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9347920"
-  },
-  {
-    "id": "CO1.REQ.10989183",
-    "referencia": "LP-002-2026",
-    "entidad": "MUNICIPIO DE BARBOSA",
-    "nit_entidad": "890980445",
-    "departamento": "Antioquia",
-    "ciudad": "Barbosa",
-    "precio": 670380479.0,
-    "precio_formateado": "$670,380,479 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "INTEGRAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE BARBOSA ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN, PARA LA VIGENCIA 2026 - 2.",
-    "fecha_publicacion": "2026-09-04T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10843730"
   },
   {
     "id": "CO1.REQ.11014762",
@@ -1087,8 +823,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1131,8 +867,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1175,8 +911,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1219,8 +955,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1263,8 +999,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -1276,50 +1012,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 83,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918117"
-  },
-  {
-    "id": "CO1.REQ.10544714",
-    "referencia": "4100000839",
-    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
-    "nit_entidad": "890904996",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 313886112.0,
-    "precio_formateado": "$313,886,112 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "Perfil cuadrado en acero uso metalmecanico 6m 1 1/2' x 1 1/2' x 3mm, varilla de acero lisa n°4 diametro 1/2' longitud 6m, varilla de acero lisa diametro 3/16' longitud 6m, varilla de acero carbon lisa 1/4' 6m uso metalmecanico, perfil cuadrado en acero uso metalmecanico 6m 1' x 1' calibre 18, perfil en l en acero estructural de 6m 1 1/2' x 1 1/2' x 6.35mm, perfil en l en acero estructural de 6m 1' x 1' x 4.8mm, platina acero a36 1/4'x1'x6m, varilla de acero carbon lisa  3/8' 6m uso metalmecanico",
-    "fecha_publicacion": "2026-06-22T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero",
-          "varilla"
-        ],
-        "relevance_score": 36.0
-      }
-    ],
-    "materiales_detectados": [
-      "varilla",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "Ferreteria Los Fierros",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
-    },
-    "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10400921"
   },
   {
     "id": "CO1.REQ.9045709",
@@ -1395,8 +1087,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1439,8 +1131,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1452,50 +1144,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 80,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386"
-  },
-  {
-    "id": "CO1.REQ.10388408",
-    "referencia": "LP-006-2026",
-    "entidad": "ALCALDIA DISTRITO DE RIOHACHA",
-    "nit_entidad": "892115007",
-    "departamento": "La Guajira",
-    "ciudad": "Riohacha",
-    "precio": 7012656000.0,
-    "precio_formateado": "$7,012,656,000 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE,\nMEDIANTE LA ENTREGA DE COMPLEMENTO ALIMENTARIO NUTRICIONAL\nDEPERMANENCIADENOMINADA, LÍNEA DE INTERVENCIÓN 1.2 HAMBRE CERO, FASE 2\nVIGENCIA 2026 EN EL DISTRITO DE RIOHACHA",
-    "fecha_publicacion": null,
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10250035"
   },
   {
     "id": "CO1.REQ.7372992",
@@ -1527,8 +1175,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1571,8 +1219,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1584,50 +1232,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 80,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480"
-  },
-  {
-    "id": "CO1.REQ.10388931",
-    "referencia": "RE-IQ-001-2026-1",
-    "entidad": "ASOCIACION DE CABILDO Y/O AUTORIDADES TRADICIONALES INDIGENAS INTY QUILLA3",
-    "nit_entidad": "900652849",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 2068201030.0,
-    "precio_formateado": "$2,068,201,030 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "ELABORACIÓN DE ESTUDIOS Y DISEÑOS PARA LA CONSTRUCCIÓN DE UNA CENTRAL DE GENERACIÓN DE ENERGÍA SOLAR FOTOVOLTAICA EN EL MUNICIPIO DE PUERTO CARREÑO, DEPARTAMENTO DEL VICHADA.",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "energía solar",
-          "fotovoltaica"
-        ],
-        "relevance_score": 37.5
-      }
-    ],
-    "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245338"
   },
   {
     "id": "CO1.REQ.11011357",
@@ -1659,8 +1263,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1703,8 +1307,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1747,8 +1351,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado publico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1791,8 +1395,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION ALIMENTANDO UNA NUEVA ESPERANZA",
@@ -1806,18 +1410,62 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850012"
   },
   {
-    "id": "CO1.REQ.10615213",
-    "referencia": "061-SASI-SUADQ-INTR-2026 (Presentación de oferta)",
-    "entidad": "EJERCITO DIRECCION DE ADQUISICIONES",
-    "nit_entidad": "800130632",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "No Definido",
-    "precio": 4088091079.0,
-    "precio_formateado": "$4,088,091,079 COP",
-    "modalidad": "Selección abreviada subasta inversa",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "ADQUISICIÓN DE DOTACIÓN BASICA INCORPORACIÓN (CINTURÓN CON HEBILLA - CUBIERTOS METALICOS - MARMITA EN ACERO)",
-    "fecha_publicacion": "2026-07-07T00:00:00.000",
+    "id": "CO1.REQ.11047670",
+    "referencia": "ESAL-MSS-006-2026",
+    "entidad": "ALCALDIA MUNICIPIO DE SATIVASUR",
+    "nit_entidad": "8000994412",
+    "departamento": "Boyacá",
+    "ciudad": "Sativasur",
+    "precio": 100481483.0,
+    "precio_formateado": "$100,481,483 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "AUNAR ESFUERZOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A LOS ESTUDIANTES DE LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE SATIVASUR, EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO No. 2612 DE 2026 SUSCRITO ENTRE EL MUNICIPIO DE SATIVASUR Y EL DEPARTAMENTO DE BOYACÁ  PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DURANTE EL SEGUNDO SEMESTRE DE 2026",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 100481483.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 80,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775"
+  },
+  {
+    "id": "CO1.REQ.10841213",
+    "referencia": "M-IP-008-2026",
+    "entidad": "METROLINEA S.A",
+    "nit_entidad": "830507387",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 11950220700.0,
+    "precio_formateado": "$11,950,220,700 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Otro",
+    "descripcion": "OBRA PÚBLICA PARA LA ADECUACIÓN, MEJORAMIENTO Y REHABILITACIÓN DE INSTALACIONES ELÉCTRICAS, ACCESOS, FACHADAS, CERRAMIENTOS, ESTRUCTURAS METÁLICAS, TABLEROS DE DISTRIBUCIÓN, REDES INTERNAS DE DISTRIBUCIÓN Y COMUNICACIONES, Y DEMÁS ELEMENTOS DE APOYO DE LAS ESTACIONES DEL SISTEMA INTEGRADO DE TRANSPORTE MASIVO, PARA FORTALECER SUS CONDICIONES DE FUNCIONAMIENTO, SEGURIDAD Y PRESTACIÓN DEL SERVICIO, EN EL MUNICIPIO DE BUCARAMANGA",
+    "fecha_publicacion": "2026-08-12T00:00:00.000",
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1828,75 +1476,24 @@ window.PROSPECTS_DATA = [
         "id": "acero_metalmecanica",
         "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "acero"
+          "estructuras metálicas"
         ],
         "relevance_score": 18.0
-      },
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "marmita"
-        ],
-        "relevance_score": 19.5
       }
     ],
     "materiales_detectados": [
-      "marmita",
-      "acero"
+      "estructuras metálicas"
     ],
     "contratista": {
-      "nombre": "U.T. MATERIAL ACERADO 2026",
-      "nit": "No Definido",
-      "es_consorcio": true,
-      "valor_adjudicado": 2913410535.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Bogotá"
-    },
-    "score_calidad": 79,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10470687"
-  },
-  {
-    "id": "CO1.REQ.10345452",
-    "referencia": "LP 002 DE 2026 (Presentación de oferta)",
-    "entidad": "ALCALDIA MUNICIPAL DE IPIALES",
-    "nit_entidad": "800099095",
-    "departamento": "Nariño",
-    "ciudad": "Ipiales",
-    "precio": 4053199212.0,
-    "precio_formateado": "$4,053,199,212 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "SERVICIO, SUMINISTRO Y ATENCIÓN CON COMPLEMENTOS ALIMENTARIOS, BAJO LAS MODALIDADES QUE SEÑALEN LOS LINEAMIENTOS DEL PROGRAMA DE ALIMENTACIÓN ESCAR (PAE), DIRIGIDO A TITULARES DE DERECHO FOCALIZADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DEL AREA URBANA Y RURAL DEL MUNICIPIO DE IPIALES DURANTE EL CALENDARIO ESCOLAR 2026",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "pae"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "UT SOCIAL ALIMENTOS",
-      "nit": "No Definido",
+      "nombre": "LEWIS SAS",
+      "nit": "901457705",
       "es_consorcio": false,
-      "valor_adjudicado": 4053083284.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Ipiales"
+      "valor_adjudicado": 11950220700.0,
+      "departamento_proveedor": "Santander",
+      "ciudad_proveedor": "Bucaramanga"
     },
-    "score_calidad": 79,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10205452"
+    "score_calidad": 78,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10696475"
   },
   {
     "id": "CO1.REQ.11038196",
@@ -1950,48 +1547,6 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140"
   },
   {
-    "id": "CO1.REQ.10551674",
-    "referencia": "LP-2026-4 (Fase de Selección (Presentación de ofertas))",
-    "entidad": "ALCALDIA DE PASTO",
-    "nit_entidad": "891280000",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 2481028667.0,
-    "precio_formateado": "$2,481,028,667 COP",
-    "modalidad": "Licitación pública Obra Publica",
-    "tipo_contrato": "Obra",
-    "descripcion": "EL CONTRATISTA SE COMPROMETE PARA CON EL MUNICIPIO DE PASTO - SECRETARÍA DE INFRAESTRUCTURA Y VALORIZACIÓN, A REALIZAR LA OBRA,  CONSTRUCCION DE ESTRUCTURA METALICA PARA  CUBIERTA EN LA ZONA URBANA DE POLIDEPORTIVO BARRIO LA ROSA, POLIDEPORTIVO BARRIO LA ESMERALDA, POLIDEPORTIVO BARRIO LAS MERCEDES,POLIDEPORTIVO SANTA MONICA , A PRECIOS UNITARIOS FIJOS (SURD-0028-013)",
-    "fecha_publicacion": "2026-06-23T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de Selección (Presentación de ofertas)",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metalica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metalica"
-    ],
-    "contratista": {
-      "nombre": "CONSORCIO CUBIERTA ID 2026",
-      "nit": "No Definido",
-      "es_consorcio": true,
-      "valor_adjudicado": 2339298298.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Pasto"
-    },
-    "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10408138"
-  },
-  {
     "id": "CO1.REQ.10357323",
     "referencia": "SASIP 004 DE 2026 (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPAL DE IPIALES",
@@ -2034,149 +1589,14 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573"
   },
   {
-    "id": "CO1.REQ.10171022",
-    "referencia": "LICITACION PUBLICA 002 -2026 (Fase de Selección (Presentación de ofertas))",
-    "entidad": "ALCALDIA MUNICIPAL DE GIRARDOT",
-    "nit_entidad": "890680378",
-    "departamento": "Cundinamarca",
-    "ciudad": "Girardot",
-    "precio": 1480048396.0,
-    "precio_formateado": "$1,480,048,396 COP",
-    "modalidad": "Licitación pública Obra Publica",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN DE CUBIERTA EN ESTRUCTURA METÁLICA Y MEJORAMIENTO DEL POLIDEPORTIVO UBICADO EN LA DIAGONAL 39 CON TRANSVERSAL 6 DEL BARRIO EL TRIUNFO DEL MUNICIPIO DE GIRARDOT, CUNDINAMARCA",
-    "fecha_publicacion": "2026-02-13T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de Selección (Presentación de ofertas)",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "PLATAFORMA INGENIERÍA Y ARQUITECTURA SAS",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 1395226819.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10028544"
-  },
-  {
-    "id": "CO1.REQ.10435772",
-    "referencia": "LP-003-2026 (Fase de Selección (Presentación de ofertas))",
-    "entidad": "MUNICIPIO DE AGUA DE DIOS",
-    "nit_entidad": "890680149",
-    "departamento": "Cundinamarca",
-    "ciudad": "Agua De Dios",
-    "precio": 1395850349.0,
-    "precio_formateado": "$1,395,850,349 COP",
-    "modalidad": "Licitación pública Obra Publica",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO NO. ICCU 843 DE 2025",
-    "fecha_publicacion": "2026-05-13T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de Selección (Presentación de ofertas)",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metalica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metalica"
-    ],
-    "contratista": {
-      "nombre": "CONSORCIO CONSTRUCCIONES HYM 2026",
-      "nit": "No Definido",
-      "es_consorcio": true,
-      "valor_adjudicado": 1326596388.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10292970"
-  },
-  {
-    "id": "CO1.REQ.10620947",
-    "referencia": "RE-REQ-055-2026",
-    "entidad": "EMPRESA SOCIAL DEL ESTADO HOSPITAL SAN RAFAEL DE TUNJA",
-    "nit_entidad": "891800231",
-    "departamento": "Boyacá",
-    "ciudad": "Tunja",
-    "precio": 1341669744.0,
-    "precio_formateado": "$1,341,669,744 COP",
-    "modalidad": "Contratación régimen especial (con ofertas)",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO E INSTALACIÓN DE CARPINTERIA EN MADERA, MUEBLES EN ACERO INOXIDABLE Y SEÑALETICA PARA LA PUESTA EN FUNCIONAMIENTO DE LA UNIDAD MATERNO INFANTIL DE LA E.S.E. HOSPITAL UNIVERSITARIO SAN RAFAEL DE TUNJA DEPARTAMENTO DE BOYACA",
-    "fecha_publicacion": "2026-07-08T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de ofertas",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "ARIKA INGENIERIA S.A.S.",
-      "nit": "901763600",
-      "es_consorcio": false,
-      "valor_adjudicado": 1341594766.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Medellín"
-    },
-    "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10478433"
-  },
-  {
     "id": "CO1.REQ.10383641",
     "referencia": "LP-001-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPIO DE MANZANARES",
     "nit_entidad": "890802505",
     "departamento": "Caldas",
     "ciudad": "Manzanares",
-    "precio": 1234111570.0,
-    "precio_formateado": "$1,234,111,570 COP",
+    "precio": 1197321600.0,
+    "precio_formateado": "$1,197,321,600 COP",
     "modalidad": "Licitación pública",
     "tipo_contrato": "Concesión",
     "descripcion": "CONCESIÓN PARA LA OPERACIÓN, ADMINISTRACIÓN, MANTENIMIENTO, REPOSICIÓN Y EXPANSIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO, EN EL MUNICIPIO DE MANZANARES, CALDAS",
@@ -2284,8 +1704,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2297,176 +1717,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 75,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918472"
-  },
-  {
-    "id": "CO1.REQ.10487703",
-    "referencia": "4100000708",
-    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
-    "nit_entidad": "890904996",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 146732116.0,
-    "precio_formateado": "$146,732,116 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "perfil cuadrado en acero estructural de 6m 1 1/2' x 1 1/2' x 3mm, varilla de acero lisa n°4 diametro 1/2' longitud 6m, varilla de acero corrugada n°4 diametro 1/2' longitud 6m, lamina acero hr 3/4'x1.22mx2.44m, platina hierro 1/4' x 2' x 6m, perfil estructural ipe 140 x 6m en acero al carbono, perfil estructural hea 100 x 6m en acero al carbono, varilla de acero lisa n°3 diametro 3/8' longitud 6m, varilla de acero lisa n°2 diametro 1/4' longitud 6m, varilla de acero corrugada n°3 diametro 3/8'",
-    "fecha_publicacion": "2026-06-02T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero",
-          "varilla"
-        ],
-        "relevance_score": 36.0
-      }
-    ],
-    "materiales_detectados": [
-      "varilla",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "Ferreteria Los Fierros",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
-    },
-    "score_calidad": 75,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10344003"
-  },
-  {
-    "id": "CO1.REQ.10873773",
-    "referencia": "LP013-2026",
-    "entidad": "GOBERNACION DE NARIÑO",
-    "nit_entidad": "800103923",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 15289296944.0,
-    "precio_formateado": "$15,289,296,944 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "ESTACION DEL SERVICIO PARA LA IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR EN 47 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DE NARINO DE CONFORMIDAD CON LA RESOLUCIÓN 003 DE 2026 MODIFICADA POR LA RESOLUCIÓN 0155 DE 2026 EXPEDIDAS POR LA UNIDAD ADMINISTRATIVA ESPECIAL DE ALIMENTACIÓN ESCOLAR ALIMENTOS PARA APRENDER (UAPA) Y DEMÁS NORMAS QUE LAS MODIFIQUEN ADICIONEN O SUSTITUYAN",
-    "fecha_publicacion": "2026-08-18T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 74,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10730290"
-  },
-  {
-    "id": "CO1.REQ.11046355",
-    "referencia": "LP-006-2026",
-    "entidad": "ALCALDÍA MUNICIPAL DE MADRID CUNDINAMARCA",
-    "nit_entidad": "899999325",
-    "departamento": "Cundinamarca",
-    "ciudad": "Madrid",
-    "precio": 4025000000.0,
-    "precio_formateado": "$4,025,000,000 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTACIÓN DE SERVICIOS PARA AMPLIAR COBERTURA DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR, A TRAVÉS DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO A NIÑOS, NIÑAS Y ADOLESCENTES REGISTRADOS EN EL SISTEMA INTEGRADO DE MATRÍCULA  SIMAT  EN LAS SEDES EDUCATIVAS PÚBLICAS DEL MUNICIPIO DE MADRID CUNDINAMARCA VIGENCIA 2026-2027",
-    "fecha_publicacion": "2026-09-16T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 74,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10911008"
-  },
-  {
-    "id": "CO1.REQ.10905692",
-    "referencia": "9677-PPAL001-1361-2025",
-    "entidad": "FONDO NACIONAL DE GESTIÓN DEL RIESGO DE DESASTRES - FNGRD",
-    "nit_entidad": "900978341",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 120000000000.0,
-    "precio_formateado": "$120,000,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTAR SERVICIOS PROFESIONALES AL\nORDENADOR DEL GASTO DEL FNGRD REALIZANDO ACOMPAÑAMIENTO EN LAS ACTIVIDADES\nLOGÍSTICAS QUE SE REQUIERAN EN EL MARCO DEL PROCESO DE MANEJO DE DESASTRES PARA\nEL CUMPLIMIENTO DE LOS OBJETIVOS DEL SISTEMA NACIONAL DE GESTIÓN DEL RIESGO DE\nDESASTRES SNGRD",
-    "fecha_publicacion": "2026-08-24T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10760416"
   },
   {
     "id": "CO1.REQ.10373444",
@@ -2595,48 +1845,6 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10879371"
   },
   {
-    "id": "CO1.REQ.10181795",
-    "referencia": "200.11.3-017-2026",
-    "entidad": "INSTITUTO DE FINANCIAMIENTO, PROMOCIÓN Y DESARROLLO DE TULUÁ",
-    "nit_entidad": "900061680",
-    "departamento": "Valle del Cauca",
-    "ciudad": "Tuluá",
-    "precio": 6081878702.0,
-    "precio_formateado": "$6,081,878,702 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "CONTRATO DE OBRA PARA PARA LA CONSTRUCCIÓN DE ESTRUCTURAS METÁLICAS, MAMPOSTERÍA Y MUROS DIVISORIOS, EL SUMINISTRO E INSTALACIÓN DE CUBIERTAS, APARATOS SANITARIOS Y GRIFERÍA, CARPINTERÍA ARQUITECTÓNICA, CERRADURAS Y HERRAJES, LA INSTALACIÓN DE EQUIPOS DE TRANSPORTE VERTICAL, LA EJECUCIÓN DE OBRAS EXTERIORES, Y LA IMPLEMENTACIÓN DEL PLAN DE GESTIÓN INTEGRAL DE OBRA (PGIO) Y DEL PLAN DE MANEJO DE TRÁNSITO (PMT) DE LA NUEVA BIBLIOTECA INSTITUCIONAL EUSTAQUIO PALACIOS DEL INTEP, EN EL MARCO DEL CONT",
-    "fecha_publicacion": "2026-02-20T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructuras metálicas"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructuras metálicas"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10054296"
-  },
-  {
     "id": "CO1.REQ.11056349",
     "referencia": "ARI.LP-021-2026 (Fase de Selección (Presentación de ofertas))",
     "entidad": "ARAUCA ILUMINADA SAS ESP",
@@ -2677,6 +1885,48 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 73,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10912288"
+  },
+  {
+    "id": "CO1.REQ.10369226",
+    "referencia": "CW384145",
+    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
+    "nit_entidad": "890904996",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 4277863440.0,
+    "precio_formateado": "$4,277,863,440 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Suministro de collarines, guardacabos, perchas y varillas de anclaje GRUPO 1 Y 3",
+    "fecha_publicacion": null,
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "varillas"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "varillas"
+    ],
+    "contratista": {
+      "nombre": "FUNDIHERRAJES DE COLOMBIA S.A.S",
+      "nit": "900131075",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "Boyacá",
+      "ciudad_proveedor": "Boyacá"
+    },
+    "score_calidad": 73,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226141"
   },
   {
     "id": "CO1.REQ.11023510",
@@ -2721,195 +1971,18 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10877374"
   },
   {
-    "id": "CO1.REQ.10313727",
-    "referencia": "OB-006-2026",
-    "entidad": "FONDO MIXTO DE ETNOCULTURA Y DESARROLLO SOCIAL -FONPACIFICO",
-    "nit_entidad": "9010396845",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 3000510580.0,
-    "precio_formateado": "$3,000,510,580 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN DE CUBIERTAS EN ESTRUCTURA METÁLICA PARA LOS CENTROS EDUCATIVOS DE LA ZONA RURAL DEL MUNICIPIO DE ACEVEDO - HUILA",
-    "fecha_publicacion": "2026-03-31T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "profesionales en asesorias capacitaciones obras civiles y transporte integrales sas",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10170335"
-  },
-  {
-    "id": "CO1.REQ.10609342",
-    "referencia": "INVITACION PUBLICA No 015-2026",
-    "entidad": "HOSPITAL DEPARTAMENTAL DE VILLAVICENCIO ESE",
-    "nit_entidad": "892000501",
-    "departamento": "Meta",
-    "ciudad": "Villavicencio",
-    "precio": 2989223052.0,
-    "precio_formateado": "$2,989,223,052 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "COMPRA DE INSTRUMENTAL QUIRURGICO DE ACERO INOXIDABLE PARA LA  ATENCION DE LOS PACIENTES QUIRURGICOS EN LA UNIDAD FUNCIONAL DE CIRUGIA",
-    "fecha_publicacion": "2026-07-06T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10464191"
-  },
-  {
-    "id": "CO1.REQ.10781072",
-    "referencia": "FT-MEV-005-2026",
-    "entidad": "FONDO MIXTO DE GESTION TERRITORIAL, CIENCIA, TECNOLOGIA Y CULTURA",
-    "nit_entidad": "901787002",
-    "departamento": "Cauca",
-    "ciudad": "Santander De Quilichao",
-    "precio": 1520150835.0,
-    "precio_formateado": "$1,520,150,835 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Obra",
-    "descripcion": "MEJORAMIENTO DE ESCENARIOS DEPORTIVOS MEDIANTE EL MEJORAMIENTO DE LAS LOSAS Y LA CONSTRUCCIÓN DE DOS CUBIERTAS EN ESTRUCTURA METÁLICA, UNA UBICADA EN LA CABECERA CORREGIMENTAL DE LA CARBONERA Y OTRA EN LA VEREDA MAZAMORRAS, SAN MIGUEL DEL MUNICIPIO DE BOLÍVAR, DEPARTAMENTO DEL CAUCA",
-    "fecha_publicacion": "2026-08-03T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escenarios deportivos"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "escenarios deportivos",
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10634853"
-  },
-  {
-    "id": "CO1.REQ.11037267",
-    "referencia": "LPMT-SI-004-2026 (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE TAURAMENA",
-    "nit_entidad": "800012873",
-    "departamento": "Casanare",
-    "ciudad": "Tauramena",
-    "precio": 1485900000.0,
-    "precio_formateado": "$1,485,900,000 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "FORTALECER LOS ESPACIOS PÚBLICOS DESTINADOS A LAS ACTIVIDADES NAVIDEÑAS DEL MUNICIPIO DE TAURAMENA MEDIANTE LA IMPLEMENTACIÓN DE INFRAESTRUCTURA TEMPORAL PARA EL ALUMBRADO PÚBLICO NAVIDEÑO, CONTRIBUYENDO A LA INTEGRACIÓN SOCIAL, EL APROVECHAMIENTO DEL ESPACIO PÚBLICO Y LA DINAMIZACIÓN DE LA ECONOMÍA LOCAL",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891421"
-  },
-  {
-    "id": "CO1.REQ.10657079",
-    "referencia": "CW391894",
+    "id": "CO1.REQ.10362031",
+    "referencia": "CW384147",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
     "departamento": "Antioquia",
     "ciudad": "Medellín",
-    "precio": 1050000000.0,
-    "precio_formateado": "$1,050,000,000 COP",
+    "precio": 2700736820.0,
+    "precio_formateado": "$2,700,736,820 COP",
     "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "Servicio especializado de Fitness-For-Service (FFS) para la conducción que incluye tramos con blindaje de acero y tramos con blindaje de concreto hidráulico y la tubería de presión de la PCH Riogrande I propiedad de EPM",
-    "fecha_publicacion": "2026-07-14T00:00:00.000",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Suministro de collarines, guardacabos, perchas y varillas de anclaje - GRUPO2",
+    "fecha_publicacion": null,
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2920,13 +1993,13 @@ window.PROSPECTS_DATA = [
         "id": "acero_metalmecanica",
         "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "acero"
+          "varillas"
         ],
         "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "acero"
+      "varillas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2937,51 +2010,7 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10511337"
-  },
-  {
-    "id": "CO1.REQ.10990553",
-    "referencia": "LP 005-2026 (Presentación de oferta)",
-    "entidad": "ALCALDIA MUNICIPAL DE MELGAR",
-    "nit_entidad": "890701933",
-    "departamento": "Tolima",
-    "ciudad": "Melgar",
-    "precio": 795348474.0,
-    "precio_formateado": "$795,348,474 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTACIÓN DEL SERVICIO DE ALIMENTACIÓN ESCOLAR  PAE  PARA LOS ESTUDIANTES MATRICULADOS Y PRIORIZADOS EN LAS SEDES DE LAS DIFERENTES INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE MELGAR - TOLIMA, DE ACUERDO CON LOS LINEAMIENTOS DEL MINISTERIO DE EDUCACIÓN NACIONAL Y LA UNIDAD ADMINISTRATIVA ESPECIAL DE ALIMENTACIÓN ESCOLAR UAPA, CONTRIBUYENDO A LA CALIDAD, COBERTURA Y FORTALECIMIENTO DE LA EDUCACIÓN INICIAL, PREESCOLAR, BÁSICA Y MEDIA SEGÚN EL PLAN DE DESARROLLO MUNICIPAL  MELGAR, BIENESTA",
-    "fecha_publicacion": "2026-09-04T00:00:00.000",
-    "estado_secop": "Abierto",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Abierto)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10845105"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218831"
   },
   {
     "id": "CO1.REQ.10977437",
@@ -3013,8 +2042,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3057,8 +2086,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3101,8 +2130,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3145,8 +2174,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3190,9 +2219,9 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "sistema fotovoltaico",
+      "fotovoltaico",
       "energia renovable",
-      "fotovoltaico"
+      "sistema fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3204,138 +2233,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 73,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
-  },
-  {
-    "id": "CO1.REQ.11036033",
-    "referencia": "009-SAMC-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE PUERTO TRIUNFO",
-    "nit_entidad": "890983906",
-    "departamento": "Antioquia",
-    "ciudad": "Puerto Triunfo",
-    "precio": 432927825.0,
-    "precio_formateado": "$432,927,825 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE) DE ACUERDO CON LOS LINEAMIENTOS TÉCNICOS-ADMINISTRATIVOS VIGENTES, DISPUESTOS POR EL MEN, PARA EL SUMINISTRO DE COMPLEMENTO ALIMENTARIO A LOS ALUMNOS MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE PUERTO TRIUNFO, AÑO 2026.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
-    "estado_secop": "Abierto",
-    "fase": "Fase de ofertas",
-    "etapa_comercial": "Proceso Activo (Abierto)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889950"
-  },
-  {
-    "id": "CO1.REQ.11025695",
-    "referencia": "009-SAMC-2026 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "MUNICIPIO DE PUERTO TRIUNFO",
-    "nit_entidad": "890983906",
-    "departamento": "Antioquia",
-    "ciudad": "Puerto Triunfo",
-    "precio": 432927825.0,
-    "precio_formateado": "$432,927,825 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE) DE ACUERDO CON LOS LINEAMIENTOS TÉCNICOS-ADMINISTRATIVOS VIGENTES, DISPUESTOS POR EL MEN, PARA EL SUMINISTRO DE COMPLEMENTO ALIMENTARIO A LOS ALUMNOS MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE PUERTO TRIUNFO, AÑO 2026.",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10879395"
-  },
-  {
-    "id": "CO1.REQ.10982376",
-    "referencia": "009-SAMC-2026",
-    "entidad": "MUNICIPIO DE PUERTO TRIUNFO",
-    "nit_entidad": "890983906",
-    "departamento": "Antioquia",
-    "ciudad": "Puerto Triunfo",
-    "precio": 432927825.0,
-    "precio_formateado": "$432,927,825 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE) DE ACUERDO CON LOS LINEAMIENTOS TÉCNICOS-ADMINISTRATIVOS VIGENTES, DISPUESTOS POR EL MEN, PARA EL SUMINISTRO DE COMPLEMENTO ALIMENTARIO A LOS ALUMNOS MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE PUERTO TRIUNFO, AÑO 2026.",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10835998"
   },
   {
     "id": "CO1.REQ.11068101",
@@ -3367,8 +2264,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3411,8 +2308,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3424,50 +2321,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 73,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918613"
-  },
-  {
-    "id": "CO1.REQ.10973474",
-    "referencia": "MRAM-SAMC-007-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE RAMIRIQUI",
-    "nit_entidad": "891801280",
-    "departamento": "Boyacá",
-    "ciudad": "Ramiriquí",
-    "precio": 345272421.0,
-    "precio_formateado": "$345,272,421 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "BRINDAR EL SERVICIO DE ALIMENTACIÓN ESCOLAR A LOS ESTUDIANTES MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES Y SUS RESPECTIVAS SEDES, PARA SEGUIR GARANTIZANDO EL PROGRAMA DE ALIMENTACION ESCOLAR (PAE) DURANTE EL SEGUNDO SEMESTRE ACADEMICO 2026 EN EL MUNICIPIO DE RAMIRIQUI BOYACÁ",
-    "fecha_publicacion": "2026-09-02T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10826363"
   },
   {
     "id": "CO1.REQ.11021132",
@@ -3499,8 +2352,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3543,8 +2396,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3558,107 +2411,14 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10804904"
   },
   {
-    "id": "CO1.REQ.10379155",
-    "referencia": "LP-001-2026 (Presentación de oferta)",
-    "entidad": "ALCALDIA DE FLANDES",
-    "nit_entidad": "8001000556",
-    "departamento": "Tolima",
-    "ciudad": "Flandes",
-    "precio": 744680300.0,
-    "precio_formateado": "$744,680,300 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "CONTRATAR LA PRESTACION DE SERVICIOS PARA LA IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR (PAE) A TRAVES DE LA ENTREGA DE COMPLEMENTOS ALIMENTARIOS A ESTUDIANTES DEL GRADO JARDIN A GRADO QUINTO, EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE FLANDES, TOLIMA",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "pae"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "UNION TEMPORAL FUTURO FLANDES",
-      "nit": "902069192",
-      "es_consorcio": true,
-      "valor_adjudicado": 744680300.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Ibagué"
-    },
-    "score_calidad": 72,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10236312"
-  },
-  {
-    "id": "CO1.REQ.10279879",
-    "referencia": "0086-ARC-CBNL06-2026 (Presentación de oferta)",
-    "entidad": "ARMADA NACIONAL BASE NAVAL No. 6 ARC BOGOTA",
-    "nit_entidad": "800141644",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 500000000.0,
-    "precio_formateado": "$500,000,000 COP",
-    "modalidad": "Selección abreviada subasta inversa",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "CONTRATAR LA ADQUISICIÓN DE MARMITA INDIVIDUAL EN ACERO INOXIDABLE PARA USO DE LOS INFANTES DE MARINA.",
-    "fecha_publicacion": "2026-03-18T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "marmita"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "marmita",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "ALSAVA SAS",
-      "nit": "901302518",
-      "es_consorcio": false,
-      "valor_adjudicado": 499957920.0,
-      "departamento_proveedor": "Distrito Capital de Bogotá",
-      "ciudad_proveedor": "Bogotá"
-    },
-    "score_calidad": 72,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10137804"
-  },
-  {
     "id": "CO1.REQ.10347509",
     "referencia": "CM-SSECD-001-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA DE GUAMAL - META",
     "nit_entidad": "800098193",
     "departamento": "Meta",
     "ciudad": "Guamal",
-    "precio": 449964295.0,
-    "precio_formateado": "$449,964,295 COP",
+    "precio": 448409225.0,
+    "precio_formateado": "$448,409,225 COP",
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA Y CONTABLE AL CONTRATO DE IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS ESTUDIANTES DE LAS SEDES EDUCATIVAS RURALES DE LA INSTITUCION EDUCATIVA NICOLAS DE FEDERMAN DEL MUNICIPIO DE GUAMAL - META",
@@ -3693,56 +2453,14 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528"
   },
   {
-    "id": "CO1.REQ.10375823",
-    "referencia": "SAMC-SGR-0003-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "GOBERNACION DEL DEPARTAMENTO DEL CESAR",
-    "nit_entidad": "892399999",
-    "departamento": "Cesar",
-    "ciudad": "Valledupar",
-    "precio": 400000000.0,
-    "precio_formateado": "$400,000,000 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "MANTENIMIENTO PREVENTIVO, CORRECTIVO Y SUMINISTROS DE REPUESTOS DE EQUIPOS DE LOS AIRES CENTRAL, MINI SPLIT y TIPO VENTANA PARA LAS DIFERENTES OFICINAS Y DEPENDENCIAS ADSCRITAS A LA GOBERNACIÓN DEL CESAR,  INCLUYE  EL SUMINISTRO E INSTALACION DE AIRES ACONDICIONADOS CENTRAL, MINI SPLIT, PISO TECHOS, TIPO CASSETE Y ASI COMO EL  MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE LOS EQUIPOS QUE ASEGURAN LA CONSERVACIÓN DE LOS BIOLÓGICOS DEL CUARTO FRÍO UBICADO EN LA SECRETARÍA DE SALUD DEPARTAMENTAL",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "cuarto frío"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "cuarto frío"
-    ],
-    "contratista": {
-      "nombre": "CONSORCIO SH GESTION CLIMATICA",
-      "nit": "902066453",
-      "es_consorcio": true,
-      "valor_adjudicado": 400000000.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Valledupar"
-    },
-    "score_calidad": 72,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10232727"
-  },
-  {
     "id": "CO1.REQ.10944512",
     "referencia": "MP-LOP-002 DE 2026 (Fase de Selección (Presentación de ofertas))",
     "entidad": "MUNICIPIO DE PAYA",
     "nit_entidad": "800065411",
     "departamento": "Boyacá",
     "ciudad": "Paya",
-    "precio": 823627492.0,
-    "precio_formateado": "$823,627,492 COP",
+    "precio": 815296808.0,
+    "precio_formateado": "$815,296,808 COP",
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCION DE CORRALES GANADEROS COMUNITARIOS CON ESTRUCTURA METALICA Y CUBIERTA EN LAS VEREDAS LA UNION Y ABEJON, ASÍ COMO EL MANTENIMIENTO DE LA MANGA DE COLEO Y LA PLAZA DE FERIAS DEL MUNICIPIO DE PAYA - BOYACA.",
@@ -3775,57 +2493,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 71,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128"
-  },
-  {
-    "id": "CO1.REQ.10260227",
-    "referencia": "Invitación Privada N 010-2026",
-    "entidad": "Empresa de Desarrollo Urbano Rural Integral",
-    "nit_entidad": "901956792",
-    "departamento": "Antioquia",
-    "ciudad": "Sonson",
-    "precio": 807347044.0,
-    "precio_formateado": "$807,347,044 COP",
-    "modalidad": "Contratación régimen especial (con ofertas)",
-    "tipo_contrato": "Obra",
-    "descripcion": "Construcción de la cubierta metálica de la placa polideportiva de la Escuela Rural de la Vereda Tasajo, en el Municipio de Sonsón, Antioquia",
-    "fecha_publicacion": "2026-03-12T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "cubierta metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escuela"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "cubierta metálica",
-      "escuela"
-    ],
-    "contratista": {
-      "nombre": "R-3 CONSULTRIV S.A.S",
-      "nit": "901209640",
-      "es_consorcio": false,
-      "valor_adjudicado": 807347044.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Rionegro"
-    },
-    "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10117754"
   },
   {
     "id": "CO1.REQ.10387971",
@@ -3864,8 +2531,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "hospital",
-      "vigas"
+      "vigas",
+      "hospital"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -3879,88 +2546,46 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399"
   },
   {
-    "id": "CO1.REQ.10854267",
-    "referencia": "26001384 H3 DE 2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "AEROCIVIL",
-    "nit_entidad": "899999059",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "No Definido",
-    "precio": 500000000.0,
-    "precio_formateado": "$500,000,000 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "REALIZAR EL MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE LAS ESTRUCTURAS METÁLICAS DE LA TWR EN CARTAGENA, BARRANQUILLA Y RIOHACHA, ASÍ COMO DE LAS TORRES AUTOSOPORTADAS EN KENNEDY Y BARRANQUILLA.",
-    "fecha_publicacion": "2026-08-14T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructuras metálicas"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructuras metálicas"
-    ],
-    "contratista": {
-      "nombre": "LUIS GUARDELA SAS",
-      "nit": "900566036",
-      "es_consorcio": false,
-      "valor_adjudicado": 484575140.0,
-      "departamento_proveedor": "Cundinamarca",
-      "ciudad_proveedor": "Chía"
-    },
-    "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10708874"
-  },
-  {
-    "id": "CO1.REQ.10663906",
-    "referencia": "4181.010.26.1.447-2026 (Presentación de oferta)",
-    "entidad": "SANTIAGO DE CALI DISTRITO ESPECIAL- UNIDAD ADMINISTRATIVA ESPECIAL DE GESTION DE BIENES Y SERVICIOS - CALI",
-    "nit_entidad": "890399011",
+    "id": "CO1.REQ.10963368",
+    "referencia": "C26-126",
+    "entidad": "HUV - HOSPITAL UNIVERSITARIO DEL VALLE EVARISTO GARCIA E.S.E.",
+    "nit_entidad": "890303461",
     "departamento": "Valle del Cauca",
     "ciudad": "Cali",
-    "precio": 361505880.0,
-    "precio_formateado": "$361,505,880 COP",
-    "modalidad": "Concurso de méritos abierto",
-    "tipo_contrato": "Interventoría",
-    "descripcion": "CONTRATAR LA INTERVENTORIA TÉCNICA PARA REALIZAR EL CAMBIO DEL MATERIAL DE CUBIERTA Y EL MANTENIMIENTO DE LA ESTRUCTURA METÁLICA, RENOVACIÓN DE LA RED ELÉCTRICA, SANITARIA Y  ENLUCIMIENTO DE SUPERFICIES DEL HANGAR DE MAQUINARIA DE LOS TALLERES DEL DISTRITO DE SANTIAGO DE CALI.",
-    "fecha_publicacion": "2026-07-15T00:00:00.000",
-    "estado_secop": "Seleccionado",
+    "precio": 3200000000.0,
+    "precio_formateado": "$3,200,000,000 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "CONTRATAR LA EJECUCIÓN DE LAS OBRAS DE REPARACIÓN Y REHABILITACIÓN DE LA INFRAESTRUCTURA FÍSICA DE LAS ÁREAS DE ALTO RIESGO OBSTÉTRICO, GINECOOBSTETRICIA Y DEMÁS ÁREAS DE INFLUENCIA DEL PISO 6, PISO 2 Y CERRAMIENTO PERIMETRAL INTERNO DEL HOSPITAL UNIVERSITARIO DEL VALLE  EVARISTO GARCIA  E.S.E, CON OCASIÓN DEL SISMO OCURRIDO EL DÍA 10 DE AGOSTO DE 2026, EN EL MARCO DE LA DECLARATORIA DE LA URGENCIA MANIFIESTA Y DE CONFORMIDAD CON LA RESOLUCIÓN GG-1591 DEL 12 DE AGOSTO DE 2026",
+    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
     "sectores": [
       {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General",
         "matched_keywords": [
-          "estructura metálica"
+          "hospital"
         ],
-        "relevance_score": 18.0
+        "relevance_score": 15.0
       }
     ],
     "materiales_detectados": [
-      "estructura metálica"
+      "hospital"
     ],
     "contratista": {
-      "nombre": "DVINGA",
-      "nit": "900554705",
+      "nombre": "No Definido",
+      "nit": "No Definido",
       "es_consorcio": false,
-      "valor_adjudicado": 361505568.0,
-      "departamento_proveedor": "Valle del Cauca",
-      "ciudad_proveedor": "Cali"
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
     },
-    "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10519881"
+    "score_calidad": 70,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10817504"
   },
   {
     "id": "CO1.REQ.10972338",
@@ -4118,8 +2743,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
@@ -4131,267 +2756,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 70,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079"
-  },
-  {
-    "id": "CO1.REQ.10419831",
-    "referencia": "SPL 021 DE 2026",
-    "entidad": "FUNDACION MIXTA PROCOLOMBIA",
-    "nit_entidad": "901835501",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 985494740.0,
-    "precio_formateado": "$985,494,740 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Obra",
-    "descripcion": "MEJORAMIENTO Y CONSTRUCCIÓN DE LA PLACA DEPORTIVA Y DE LA CUBIERTA EN ESTRUCTURA METÁLICA DEL POLIDEPORTIVO DE LA VEREDA EL SALADO DEL MUNICIPIO DE LA UNIÓN, DEPARTAMENTO DE NARIÑO",
-    "fecha_publicacion": "2026-05-07T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10276094"
-  },
-  {
-    "id": "CO1.REQ.10181340",
-    "referencia": "B25-0678",
-    "entidad": "HOCOL S.A",
-    "nit_entidad": "860072134",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 876720460.0,
-    "precio_formateado": "$876,720,460 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "ADJUDICACION DIRECTA SUMINISTRO DE TUBERÍA EN ACERO AL CARBÓN LISA O RANURADA, CON O SIN REVESTIMIENTO, Y ACCESORIOS DE TUBERÍA",
-    "fecha_publicacion": "2026-02-17T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10038802"
-  },
-  {
-    "id": "CO1.REQ.10160771",
-    "referencia": "2025-CAD0008",
-    "entidad": "CENTRAL DE ABASTOS DE BUCARAMANGA S.A.",
-    "nit_entidad": "890208395",
-    "departamento": "Santander",
-    "ciudad": "Bucaramanga",
-    "precio": 875938581.0,
-    "precio_formateado": "$875,938,581 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Obra",
-    "descripcion": "No definido",
-    "fecha_publicacion": "2026-07-09T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metalica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metalica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10486011"
-  },
-  {
-    "id": "CO1.REQ.10239952",
-    "referencia": "SPL 009 DE 2026",
-    "entidad": "FUNDACION MIXTA PROCOLOMBIA",
-    "nit_entidad": "901835501",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 841808102.0,
-    "precio_formateado": "$841,808,102 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "CONSTRUCCIÓN DE CUBIERTA EN ESTRUCTURA METÁLICA Y PLACA \nDEPORTIVA EN CONCRETO, PARA LA VEREDA BAJO SINAÍ DEL MUNICIPIO DE POTOSÍ, \nDEPARTAMENTO DE NARIÑO",
-    "fecha_publicacion": "2026-03-05T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10097114"
-  },
-  {
-    "id": "CO1.REQ.10759478",
-    "referencia": "PAF-MININTERIOR-CS-1269-2026",
-    "entidad": "FINANCIERA DE DESARROLLO TERRITORIAL S.A.",
-    "nit_entidad": "800096329",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 740000000.0,
-    "precio_formateado": "$740,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Otro",
-    "descripcion": "CONVENIO SOLIDARIO PARA EL FORTALECIMIENTO DEL GOBIERNO \nPROPIO Y CULTURAL MEDIANTE LA IMPLEMENTACIÓN DE UNA CUBIERTA METÁLICA EN LA VEREDA SIBERIA DEL RESGUARDO INDÍGENA DE GUACHUCAL DEL MUNICIPIO DE GUACHUCAL, DEPARTAMENTO DE \nNARIÑO",
-    "fecha_publicacion": "2026-07-30T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "cubierta metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "cubierta metálica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10613584"
-  },
-  {
-    "id": "CO1.REQ.10337260",
-    "referencia": "Instalacion compuesta metalica",
-    "entidad": "ENTIDAD",
-    "nit_entidad": "891408269",
-    "departamento": "Risaralda",
-    "ciudad": "Pereira",
-    "precio": 522767562.0,
-    "precio_formateado": "$522,767,562 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "EL CONTRATISTA se obliga para con EL CONTRATANTE\na realizar, por su cuenta y riesgo, el diseño, suministro, transporte, instalación, montaje, integración, legalización, pruebas, puesta en marcha y entrega a satisfacción de una solución integral compuesta por cubierta metálica industrial y sistema solar fotovoltaico sobre cubierta para FRIGOPER S.A.S., incluyendo, entre otros, visita técnica, levantamiento de información, ingeniería de detalle, memorias y planos, suministro de cubierta metálica t",
-    "fecha_publicacion": "2026-04-10T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "cubierta metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "fotovoltaico"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "cubierta metálica",
-      "fotovoltaico"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10194482"
   },
   {
     "id": "CO1.REQ.11048321",
@@ -4478,18 +2842,18 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10238092"
   },
   {
-    "id": "CO1.REQ.10450439",
-    "referencia": "4100000609",
+    "id": "CO1.REQ.10911856",
+    "referencia": "4100001728",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
     "departamento": "Antioquia",
     "ciudad": "Medellín",
-    "precio": 434221113.0,
-    "precio_formateado": "$434,221,113 COP",
+    "precio": 413945000.0,
+    "precio_formateado": "$413,945,000 COP",
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
-    "descripcion": "casillero/locker metalico calibre 22 173x50x50cm 1 division para guardar pertiga, casillero/locker metalico lamina acero cold rolled calibre 20 99cmx50cmx180cm 3 compartimientos 3 puertas troqueladas, alfombra modular venturesome 983 roust about 60  x 60, paneleria vetro perfiles aluminio extruido acabado anonizado divisiones vidrio templado 1 puerta batiente altura 2.50m, sofa 4 puestos madera/espuma/metal 73cmx60cmx72cm costados aglomerados asiento en listones de pino apoyabrazos en los extre",
-    "fecha_publicacion": "2026-05-19T00:00:00.000",
+    "descripcion": "conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra, conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra, conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra",
+    "fecha_publicacion": "2026-08-24T00:00:00.000",
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -4500,13 +2864,13 @@ window.PROSPECTS_DATA = [
         "id": "acero_metalmecanica",
         "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "acero"
+          "varilla"
         ],
         "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "acero"
+      "varilla"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4517,7 +2881,7 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10307831"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10765364"
   },
   {
     "id": "CO1.REQ.11059046",
@@ -4560,6 +2924,48 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 66,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917211"
+  },
+  {
+    "id": "CO1.REQ.11050327",
+    "referencia": "SA 014 DE 2026",
+    "entidad": "MUNICIPIO DE DABEIBA",
+    "nit_entidad": "890980094",
+    "departamento": "Antioquia",
+    "ciudad": "Dabeiba",
+    "precio": 387574706.0,
+    "precio_formateado": "$387,574,706 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO Y TRANSPORTE DE MATERIALES PÉTREOS, ELEMENTOS DE FORMALETA, Y TRANSPORTE DE CEMENTO Y ACERO DE REFUERZO ADQUIRIDOS POR EL MUNICIPIO A TRAVÉS DE LA EMPRESA DE VIVIENDA DE ANTIOQUIA - VIVA, PARA SU ENTREGA A LAS COMUNIDADES RURALES EN EL MARCO DE LAS INICIATIVAS COMUNITARIAS DE MEJORAMIENTO DE VÍAS TERCIARIAS PRIORIZADAS POR EL MUNICIPIO DE DABEIBA, ANTIOQUIA.",
+    "fecha_publicacion": "2026-09-16T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero de refuerzo"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero de refuerzo"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 66,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10905786"
   },
   {
     "id": "CO1.REQ.11061576",
@@ -4646,353 +3052,6 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889964"
   },
   {
-    "id": "CO1.REQ.10955100",
-    "referencia": "4100001851",
-    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
-    "nit_entidad": "890904996",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 358500000.0,
-    "precio_formateado": "$358,500,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "medidor de gas ultrasonico caudal 50m3/h - 6500m3/h presion max 50bar acero astm a350 proteccion ip66/67 incluye accesorios, instalacion y puesta en operacion de sistema de medicion con medidor de gas ultrasonico 20-4000m3/h presion max 50bar acero astm a350 proteccion ip66/67",
-    "fecha_publicacion": "2026-08-31T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10809710"
-  },
-  {
-    "id": "CO1.REQ.10485093",
-    "referencia": "404-2026",
-    "entidad": "EMPRESA SOCIAL DEL ESTADO HOSPITAL SAN ANTONIO DE SESQUILE",
-    "nit_entidad": "899999158",
-    "departamento": "No Definido",
-    "ciudad": "No Definido",
-    "precio": 344213996.0,
-    "precio_formateado": "$344,213,996 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "CONTRATO DE OBRA PARA LA ADECUACION DE AREAS DE ACCESO Y VIGAS PARA EL CAMBIO DE PORTONES METALICOS DE INGRESOS DE LA ESE HOSPITAL SAN ANTNIO DE SESQUILE",
-    "fecha_publicacion": "2026-06-02T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "vigas"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital",
-      "vigas"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10346707"
-  },
-  {
-    "id": "CO1.REQ.10460063",
-    "referencia": "4100000637",
-    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
-    "nit_entidad": "890904996",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 341886000.0,
-    "precio_formateado": "$341,886,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "gabinete radio comunicacion acero 120vca intemperie ip65-ik5 gris 600x400x250mm",
-    "fecha_publicacion": "2026-05-21T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "COINSI S.A.S BIC",
-      "nit": "811012753",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Medellín"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10317051"
-  },
-  {
-    "id": "CO1.REQ.10378294",
-    "referencia": "UNAL-MAN-2026-421774",
-    "entidad": "UNIVERSIDAD NACIONAL DE COLOMBIA",
-    "nit_entidad": "899999063",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "No Definido",
-    "precio": 319914390.0,
-    "precio_formateado": "$319,914,390 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "Orden contractual superior de obra para realizar la modificación del primer piso en la nave central del bloque A1 del campus El Cable para el proyecto: librería, café y tienda universitaria, y mantenimiento de la estructura metálica\nexistente.",
-    "fecha_publicacion": "2026-04-23T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructura metálica"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructura metálica"
-    ],
-    "contratista": {
-      "nombre": "JEDOALVAREZ",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Caldas",
-      "ciudad_proveedor": "Manizales"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10235217"
-  },
-  {
-    "id": "CO1.REQ.10369667",
-    "referencia": "4100000114",
-    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
-    "nit_entidad": "890904996",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 318019360.0,
-    "precio_formateado": "$318,019,360 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "barrera de proteccion de acero galvanizado 180mm, barrera de proteccion de acero galvainzado 200mm, barrera de proteccion de acero galvanizado 180mm, barrera de proteccion de acero galvainzado 200mm",
-    "fecha_publicacion": null,
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "Proelectra de Colombia SAS",
-      "nit": "900531259",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226579"
-  },
-  {
-    "id": "CO1.REQ.10110636",
-    "referencia": "EAAB-ICSM-0400-2026",
-    "entidad": "EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTÁ - E.S.P.",
-    "nit_entidad": "899999094",
-    "departamento": "No Definido",
-    "ciudad": "No Definido",
-    "precio": 312553100.0,
-    "precio_formateado": "$312,553,100 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "ADQUISICIÓN DE TUBERÍA Y ACCESORIOS (PVC, CPVC, ACERO Y PVC-U)",
-    "fecha_publicacion": "2026-02-03T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9965835"
-  },
-  {
-    "id": "CO1.REQ.10799547",
-    "referencia": "C2026-00330",
-    "entidad": "INDUSTRIA LICORERA DE CALDAS",
-    "nit_entidad": "8908011678",
-    "departamento": "Caldas",
-    "ciudad": "Manizales",
-    "precio": 307400800.0,
-    "precio_formateado": "$307,400,800 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "CONTRATAR EL SUMINISTRO Y PUESTA EN MARCHA DE UN HOMOGENEIZADOR EN ACERO INOXIDABLE CON CAPACIDAD PARA DOS MIL LITROS HORA PARA EL PROCESO DE PREPARACION DE CREMA DE RON, INCLUYENDO LA BOMBA CENTRÍFUGA MONOBLOQUE Y LOS DEMÁS COMPONENTES NECESARIOS PARA SU CORRECTO FUNCIONAMIENTO",
-    "fecha_publicacion": "2026-08-05T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10652770"
-  },
-  {
-    "id": "CO1.REQ.10388753",
-    "referencia": "RE-IQ-002-2026",
-    "entidad": "ASOCIACION DE CABILDO Y/O AUTORIDADES TRADICIONALES INDIGENAS INTY QUILLA3",
-    "nit_entidad": "900652849",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 297138954.0,
-    "precio_formateado": "$297,138,954 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "INTERVENTORÍA TÉCNICA, LEGAL, ADMINISTRATIVA Y AMBIENTAL DE ESTUDIOS Y DISEÑOS PARA LA CONSTRUCCIÓN DE UNA CENTRAL DE GENERACIÓN DE ENERGÍA SOLAR FOTOVOLTAICA EN EL MUNICIPIO DE PUERTO CARREÑO, DEPARTAMENTO DEL VICHADA",
-    "fecha_publicacion": null,
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "energía solar",
-          "fotovoltaica"
-        ],
-        "relevance_score": 37.5
-      }
-    ],
-    "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245345"
-  },
-  {
     "id": "CO1.REQ.10370236",
     "referencia": "SASI-002-2026",
     "entidad": "ITTHUILA",
@@ -5022,8 +3081,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "sistema fotovoltaico",
-      "fotovoltaico"
+      "fotovoltaico",
+      "sistema fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5035,94 +3094,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 65,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230160"
-  },
-  {
-    "id": "CO1.REQ.11017067",
-    "referencia": "CP-S-004-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE EL COCUY",
-    "nit_entidad": "891857844",
-    "departamento": "Boyacá",
-    "ciudad": "El Cocuy",
-    "precio": 249003776.0,
-    "precio_formateado": "$249,003,776 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "IMPLEMENTACIÓN Y EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE EN EL MUNICIPIO DE EL COCUY, PARA GARANTIZAR SU CONTINUIDAD DURANTE EL SEGUNDO SEMESTRE DE LA VIGENCIA 2026",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
-    "estado_secop": "Abierto",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Abierto)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10871147"
-  },
-  {
-    "id": "CO1.REQ.11001482",
-    "referencia": "CP-S-004-2026 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "MUNICIPIO DE EL COCUY",
-    "nit_entidad": "891857844",
-    "departamento": "Boyacá",
-    "ciudad": "El Cocuy",
-    "precio": 249003776.0,
-    "precio_formateado": "$249,003,776 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "IMPLEMENTACIÓN Y EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE EN EL MUNICIPIO DE EL COCUY, PARA GARANTIZAR SU CONTINUIDAD DURANTE EL SEGUNDO SEMESTRE DE LA VIGENCIA 2026",
-    "fecha_publicacion": "2026-09-08T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10855855"
   },
   {
     "id": "CO1.REQ.11029830",
@@ -5154,8 +3125,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5198,8 +3169,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5211,6 +3182,182 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 65,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10842309"
+  },
+  {
+    "id": "CO1.REQ.1877057",
+    "referencia": "SJP-PE-ESAL-002/2021",
+    "entidad": "MUNICIPIO DE SAN JOSE DEL PALMAR",
+    "nit_entidad": "891680080",
+    "departamento": "Chocó",
+    "ciudad": "San José Del Palmar",
+    "precio": 207908200.0,
+    "precio_formateado": "$207,908,200 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "AUNAR ESFUERZOS ENTRE UNA ENTIDAD SIN ANIMO DE LUCRO Y EL MUNICIPIO DE SAN JOSÉ DEL PALMAR PARA IMPLEMENTAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DE ACUERDO CON LOS LINEAMIENTOS TECNICO ADMINISTRATIVOS EN DESARROLLO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE-, VIGENCIA 2021",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 65,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11026485",
+    "referencia": "CI-SECRD-007-2026",
+    "entidad": "ALCALDIA MUNICIPAL SAN PEDRO DE URABA",
+    "nit_entidad": "890983814",
+    "departamento": "Antioquia",
+    "ciudad": "San Pedro De Uraba",
+    "precio": 204586552.0,
+    "precio_formateado": "$204,586,552 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Suministros",
+    "descripcion": "FORTALECIMIENTO EN LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - (PAE) CON ENFOQUE DIFERENCIAL EN PUEBLOS INDÍGENAS, ATENDIENDO PAGO A PERSONAL MANIPULADOR DE ALIMENTOS, TRASPORTE, KIT DE ASEO, GAS PROPANO, COMPRA Y DISTRIBUCIÓN DE VÍVERES EN LA VIGENCIA  2026-2, EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO (4600019311) SUSCRITO ENTRE EL MUNICIPIO DE SAN PEDRO DE URABA, ANTIOQUIA, Y LA SECRETARIA EDUCACIÓN DE LA GOBERNACIÓN DE ANTIOQUIA",
+    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 65,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357"
+  },
+  {
+    "id": "CO1.REQ.11019723",
+    "referencia": "SAMC-002-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "ALCALDIA MUNICIPIO DE BETANIA",
+    "nit_entidad": "890980802",
+    "departamento": "Antioquia",
+    "ciudad": "Betania",
+    "precio": 178330859.0,
+    "precio_formateado": "$178,330,859 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Implementar el programa de alimentación escolar- PAE, para los niños, niñas y adolescentes de la matrícula oficial del Municipio de Betania - Antioquia para la vigencia 2026 - 2 .",
+    "fecha_publicacion": "2026-09-10T00:00:00.000",
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 65,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10873532"
+  },
+  {
+    "id": "CO1.REQ.10996158",
+    "referencia": "SAMC-002-2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "ALCALDIA MUNICIPIO DE BETANIA",
+    "nit_entidad": "890980802",
+    "departamento": "Antioquia",
+    "ciudad": "Betania",
+    "precio": 178330859.0,
+    "precio_formateado": "$178,330,859 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Implementar el programa de alimentación escolar- PAE, para los niños, niñas y adolescentes de la matrícula oficial del Municipio de Betania - Antioquia para la vigencia 2026 - 2 .",
+    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 65,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850289"
   },
   {
     "id": "CO1.REQ.11025488",
@@ -5242,8 +3389,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "alumbrado público"
+      "alumbrado público",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5301,44 +3448,35 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10892161"
   },
   {
-    "id": "CO1.REQ.10549238",
-    "referencia": "061-SASI-SUADQ-INTR-2026",
-    "entidad": "EJERCITO DIRECCION DE ADQUISICIONES",
-    "nit_entidad": "800130632",
+    "id": "CO1.REQ.5280445",
+    "referencia": "UPIT-LP-01-2023",
+    "entidad": "UNIDAD DE PLANEACIÓN DE INFRAESTRUCTURA DE TRANSPORTE",
+    "nit_entidad": "901525615",
     "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "No Definido",
-    "precio": 4088091079.0,
-    "precio_formateado": "$4,088,091,079 COP",
-    "modalidad": "Selección abreviada subasta inversa",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "ADQUISICIÓN DE DOTACIÓN BASICA INCORPORACIÓN (CINTURÓN CON HEBILLA - CUBIERTOS METALICOS - MARMITA EN ACERO)",
-    "fecha_publicacion": "2026-06-23T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "ciudad": "Bogotá",
+    "precio": 40367440181.0,
+    "precio_formateado": "$40,367,440,181 COP",
+    "modalidad": "Licitación pública",
+    "tipo_contrato": "Suministros",
+    "descripcion": "DESARROLLAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR, A TRAVÉS DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO, A NIÑOS, NIÑAS Y ADOLESCENTES REGISTRADOS EN EL SISTEMA INTEGRADO DE MATRICULA SIMAT DE MUNIC",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
     "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      },
       {
         "id": "horeca_industrial",
         "name": "HORECA & Maquinaria Gastronómica",
         "matched_keywords": [
-          "marmita"
+          "alimentación escolar"
         ],
         "relevance_score": 19.5
       }
     ],
     "materiales_detectados": [
-      "marmita",
-      "acero"
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5349,20 +3487,230 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10408714"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
   },
   {
-    "id": "CO1.REQ.5215134",
-    "referencia": "9431624",
-    "entidad": "EMPRESA COLOMBIANA DE PETROLEOS",
-    "nit_entidad": "899999068",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 6312578772.0,
-    "precio_formateado": "$6,312,578,772 COP",
-    "modalidad": "Contratación régimen especial",
+    "id": "CO1.REQ.10299438",
+    "referencia": "xxx-xxx",
+    "entidad": "ALCALDIA MUNICIPIO DE ARAUCA",
+    "nit_entidad": "800102504",
+    "departamento": "Arauca",
+    "ciudad": "Arauca",
+    "precio": 4683881881.0,
+    "precio_formateado": "$4,683,881,881 COP",
+    "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO DE TUBERIA EN ACERO AL CARBON LISA O RANURADA- CON O SIN REVESTIMIENTO- Y ACCESORIOS DE TUBERIA PARA ECOPETROL EN TODO EL TERRITORIO NACIONA",
+    "descripcion": "APOYO AL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS ESTUDIANTES DE LAS SEDES EDUCATIVAS OFICIALES DE LA ZONA URBANA EN EL MUNICIPIO DE ARAUCA, DEPARTAMENTO DE ARAUCA",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 64,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10369770",
+    "referencia": "GCSJ-CM-005-2026 (Presentación de oferta)",
+    "entidad": "DEPARTAMENTO DEL META",
+    "nit_entidad": "8920001488",
+    "departamento": "Meta",
+    "ciudad": "Villavicencio",
+    "precio": 2823224724.0,
+    "precio_formateado": "$2,823,224,724 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA Y JURÍDICA A LA PRESTACIÓN DEL SERVICIO PARA LA IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A TRAVÉS DEL SUMINISTRO DE COMPLEMENTOS ALIMENTARIOS Y SERVICIO DE ALIMENTACIÓN EN RESIDENCIAS ESCOLARES EN ESTABLECIMIENTOS EDUCATIVOS OFICIALES EN MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL META",
+    "fecha_publicacion": null,
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 64,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226921"
+  },
+  {
+    "id": "CO1.REQ.11030288",
+    "referencia": "CMA-0008-2026",
+    "entidad": "DEPARTAMENTO DEL ATLANTICO**",
+    "nit_entidad": "890102006",
+    "departamento": "Atlántico",
+    "ciudad": "Barranquilla",
+    "precio": 2240740346.0,
+    "precio_formateado": "$2,240,740,346 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA, FINANCIERA Y JURIDICA PARA EL PROYECTO FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE PARA LA ATENCION DE NIÑOS, NIÑAS Y ADOLESCENTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 20 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL ATLANTICO GRUPO1 Y GRUPO 2",
+    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Selección de ofertas (borrador)",
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "pae"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "pae"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 64,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10884682"
+  },
+  {
+    "id": "CO1.REQ.11064677",
+    "referencia": "CI-024-2026-SE",
+    "entidad": "MUNICIPIO DE ANDES",
+    "nit_entidad": "890980342",
+    "departamento": "Antioquia",
+    "ciudad": "Andes",
+    "precio": 1031298900.0,
+    "precio_formateado": "$1,031,298,900 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Otro",
+    "descripcion": "REALIZAR ACTIVIDADES OPERATIVAS, LOGISTICAS Y DE PRESTACIÓN DEL SERVICIO PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACION ESCOLAR (PAE), A TRAVES DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO A LOS NIÑOS, NIÑAS Y ADOLESCENTES CON MATRICULA OFICIAL DEL MUNICIPIO DE ANDES, PARA LA VIGENCIA 2026-2.",
+    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Fase de ofertas",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "pae"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "pae"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 64,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595"
+  },
+  {
+    "id": "CO1.REQ.11067977",
+    "referencia": "OP016-2026",
+    "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+    "nit_entidad": "8110303954",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 13153903873.0,
+    "precio_formateado": "$13,153,903,873 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO CON TECNOLOGÍA SOLAR Y MONITOREO DE ALTA TECNOLOGÍA EN BURITICÁ ANTIOQUIA. UNA ESTRATEGIA DE TRANSICIÓN ENERGÉTICA Y DESARROLLO REGIONAL MEDIANTE EL SUMINISTRO E INSTALACIÓN DE LUMINARIAS SOLARES EN LOS TRAMOS VIALES BURITICÁ PINGURO Y BURITICÁ TABACAL. ANTIOQUIA  e identificado con el Código BPIN 2026051130003",
+    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347"
+  },
+  {
+    "id": "CO1.REQ.9039867",
+    "referencia": "1.350-12.13-0435.2025",
+    "entidad": "DEPARTAMENTO DEL VALLE DEL CAUCA - SECRETARIA DE TURISMO",
+    "nit_entidad": "890399029",
+    "departamento": "Valle del Cauca",
+    "ciudad": "Cali",
+    "precio": 10860528438.0,
+    "precio_formateado": "$10,860,528,438 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "OBRA PÚBLICA PARA LA CONSTRUCCIÓN DEL BIOPARQUE  PUERTA DE ALCALÁ  EN EL MUNICIPIO DE ALCALÁ - VALLE DEL CAUCA, QUE INCLUYE OBRAS DE URBANISMO, PAISAJISMO, ESTRUCTURAS METÁLICAS, SENDEROS, PLAZOLETAS, RAMPAS, TERRAZAS MIRADOR Y JARDINES TEMÁTICOS, EN EL MARCO DEL PROYECTO IMPLEMENTACIÓN DE ESTRATEGIAS COMPETITIVAS EN EL DESTINO TURÍSTICO DEL VALLE DEL CAUCA",
     "fecha_publicacion": null,
     "estado_secop": "Borrador",
     "fase": null,
@@ -5374,13 +3722,13 @@ window.PROSPECTS_DATA = [
         "id": "acero_metalmecanica",
         "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "acero"
+          "estructuras metálicas"
         ],
         "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "acero"
+      "estructuras metálicas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5394,18 +3742,354 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
   },
   {
-    "id": "CO1.REQ.10471513",
-    "referencia": "LP-2026-4",
-    "entidad": "ALCALDIA DE PASTO",
-    "nit_entidad": "891280000",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 2481028667.0,
-    "precio_formateado": "$2,481,028,667 COP",
+    "id": "CO1.REQ.8273614",
+    "referencia": "IPMYC-002-2021",
+    "entidad": "EMPRESA DE SERVICIOS PUBLICOS DE PUERTO LEGUIZAMO",
+    "nit_entidad": "846000021",
+    "departamento": "Putumayo",
+    "ciudad": "Leguízamo",
+    "precio": 10460428930.0,
+    "precio_formateado": "$10,460,428,930 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA SOLAR FOTOVOLTAICAS EN POBLACIONES NO INTERCONECTADAS Y DISPERSAS EN LOS MUNICIPIOS DE ORITO, PUERTO LEGUIZAMO, VILLAGAZON EN EL DEPARTAMENTO DEL PUTUMAYO Y EN EL MPIO DE SOLANO EN EL DEPARTAMENTO DE CAQUETÁ",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "energía solar"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "energía solar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10958166",
+    "referencia": "ARI.LP-021-2026",
+    "entidad": "ARAUCA ILUMINADA SAS ESP",
+    "nit_entidad": "901552362",
+    "departamento": "Arauca",
+    "ciudad": "Arauca",
+    "precio": 5669365005.0,
+    "precio_formateado": "$5,669,365,005 COP",
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
-    "descripcion": "EL CONTRATISTA SE COMPROMETE PARA CON EL MUNICIPIO DE PASTO - SECRETARÍA DE INFRAESTRUCTURA Y VALORIZACIÓN, A REALIZAR LA OBRA,  CONSTRUCCION DE ESTRUCTURA METALICA PARA  CUBIERTA EN LA ZONA URBANA DE POLIDEPORTIVO BARRIO LA ROSA, POLIDEPORTIVO BARRIO LA ESMERALDA, POLIDEPORTIVO BARRIO LAS MERCEDES,POLIDEPORTIVO SANTA MONICA , A PRECIOS UNITARIOS FIJOS (SURD-0028-013)",
-    "fecha_publicacion": "2026-06-01T00:00:00.000",
+    "descripcion": "IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
+    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "fotovoltaica"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "fotovoltaica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10820151"
+  },
+  {
+    "id": "CO1.REQ.10832415",
+    "referencia": "OBR-SCC-020-2026",
+    "entidad": "FINVERPAZ",
+    "nit_entidad": "901783188",
+    "departamento": "Norte de Santander",
+    "ciudad": "Ocaña",
+    "precio": 5273964566.0,
+    "precio_formateado": "$5,273,964,566 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONSTRUCCION DEL ALUMBRADO PUBLICO SOLAR EN EL MUNICIPIO DE NOROSI BOLIVAR.",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10350460",
+    "referencia": "LP-003-2026",
+    "entidad": "CORPORACIÓN AUTÓNOMA REGIONAL DE LOS VALLES DEL SINÚ Y DEL SAN JORGE - CVS",
+    "nit_entidad": "891000627",
+    "departamento": "Córdoba",
+    "ciudad": "No Definido",
+    "precio": 5027719696.0,
+    "precio_formateado": "$5,027,719,696 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONSTRUCCIÓN DE POZOS PROFUNDOS ACCIONADOS CON ENERGÍA FOTOVOLTAICA COMO APORTE A LA TRANSICIÓN ENERGÉTICA Y LA REDUCCIÓN DE LAS EMISIONES DE GEI EN EL DEPARTAMENTO DE CÓRDOBA",
+    "fecha_publicacion": null,
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "fotovoltaica"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "fotovoltaica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10207487"
+  },
+  {
+    "id": "CO1.REQ.741620",
+    "referencia": "056",
+    "entidad": "EMPRESA DE SERVICIOS PUBLICOS DE PUERTO LEGUIZAMO",
+    "nit_entidad": "846000021",
+    "departamento": "Putumayo",
+    "ciudad": "Leguízamo",
+    "precio": 3900000000.0,
+    "precio_formateado": "$3,900,000,000 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Obra",
+    "descripcion": "INSTALACION DE PANELES SOLARES",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "paneles solares"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "paneles solares"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11034237",
+    "referencia": "SVO-2026-071",
+    "entidad": "EMPRESA DE SERVICIO DE ALUMBRADO PUBLICO DE YOPAL S.A.S. E.S.P.",
+    "nit_entidad": "901380793",
+    "departamento": "Casanare",
+    "ciudad": "Yopal",
+    "precio": 1803335484.0,
+    "precio_formateado": "$1,803,335,484 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Obra",
+    "descripcion": "AMPLIACIÓN DE LA COBERTURA DEL SISTEMA DE ALUMBRADO PUBLICO EN LA CALLEJUELA 4 DEL CORREGIMIENTO TACARIMENA Y LA CARRERA 34 ENTRE CALLE 11 Y 19A, DE LA VIA SIRIVANA DEL MUNICIPIO DE YOPAL, DEPARTAMENTO DE CASANARE.",
+    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888332"
+  },
+  {
+    "id": "CO1.REQ.5452645",
+    "referencia": "127-2023",
+    "entidad": "EMPRESA DE ENERGIA DEL GUAINIA LA CEIBA S.A. E.S.P",
+    "nit_entidad": "8430000578",
+    "departamento": "Guainía",
+    "ciudad": "Inírida",
+    "precio": 1749317397.0,
+    "precio_formateado": "$1,749,317,397 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONSTRUCCIÓN DE ALUMBRADO PÚBLICO RURAL, CON ENERGÍAS RENOVABLES EN LAS COMUNIDADES INDÍGENAS DE CARPINTERO, CHATARE, PARAÍSO, PICURE Y MURCIÉLAGO DEL MUNICIPIO DE BARRANCOMINAS, GUAINÍA.",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.4611750",
+    "referencia": "900-AA-0228-2023",
+    "entidad": "EMPRESAS MUNICIPALES DE CALI",
+    "nit_entidad": "890399003",
+    "departamento": "Valle del Cauca",
+    "ciudad": "Cali",
+    "precio": 1678452300.0,
+    "precio_formateado": "$1,678,452,300 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Otro",
+    "descripcion": "Realizar el alquiler de la licencia del Software SIAP para la gestión de la administración, operación, mantenimiento, expansión y modernización del sistema de alumbrado público del Distrito de Santiago de Cali.",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10353626",
+    "referencia": "LP-003-2026",
+    "entidad": "MUNICIPIO DE AGUA DE DIOS",
+    "nit_entidad": "890680149",
+    "departamento": "Cundinamarca",
+    "ciudad": "Agua De Dios",
+    "precio": 1395850349.0,
+    "precio_formateado": "$1,395,850,349 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO NO. ICCU 843 DE 2025",
+    "fecha_publicacion": null,
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5433,24 +4117,66 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10342136"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10210531"
   },
   {
-    "id": "CO1.REQ.10589341",
-    "referencia": "LP-2026-5 (Fase de Selección (Presentación de ofertas))",
-    "entidad": "ALCALDIA DE PASTO",
-    "nit_entidad": "891280000",
-    "departamento": "Nariño",
-    "ciudad": "Pasto",
-    "precio": 2358613209.0,
-    "precio_formateado": "$2,358,613,209 COP",
-    "modalidad": "Licitación pública Obra Publica",
+    "id": "CO1.REQ.10605754",
+    "referencia": "OBR-SCC-004-2026",
+    "entidad": "FINVERPAZ",
+    "nit_entidad": "901783188",
+    "departamento": "Norte de Santander",
+    "ciudad": "Ocaña",
+    "precio": 1148077900.0,
+    "precio_formateado": "$1,148,077,900 COP",
+    "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
-    "descripcion": "EL CONTRATISTA SE COMPROMETE PARA CON EL MUNICIPIO DE PASTO - SECRETARÍA DE INFRAESTRUCTURA Y VALORIZACIÓN, A REALIZAR LA OBRA, CONSTRUCCION DE ESTRUCTURA METALICA PARA CUBIERTA EN LA ZONA URBANA DE POLIDEPORTIVO BARRIO MIRAFLORES, POLIDEPORTIVO BARRIO PANDIACO, POLIDEPORTIVO BARRIO GRANADA, A PRECIOS UNITARIOS FIJOS (SURD-0028-014)",
-    "fecha_publicacion": "2026-07-02T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Fase de Selección (Presentación de ofertas)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "descripcion": "CONSTRUCCIÓN DE LA CUBIERTA METÁLICA Y GRADERÍA DE LA CANCHA\nPOLIDEPORTIVA EN LA VEREDA EL RECREO DEL MUNICIPIO DE SARDINATA,\nDEPARTAMENTO DE NORTE DE SANTANDER",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "cubierta metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "cubierta metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10388557",
+    "referencia": "CIP-ERUDM-2026-12",
+    "entidad": "EMPRESA DE RENOVACION URBANA DE LA DORADA Y EL MAGDALENA CENTRO",
+    "nit_entidad": "810004704",
+    "departamento": "Caldas",
+    "ciudad": "La Dorada",
+    "precio": 1047949118.0,
+    "precio_formateado": "$1,047,949,118 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO E INSTALACION DE ESTRUCTURA METALICA EN EL MARCO DE LA AMPLIACIÓN DE LA CENTRAL DE ABASTOS EN EL MUNICIPIO DE LA DORADA, CALDAS",
+    "fecha_publicacion": null,
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
     "tipo_oportunidad": "Monitoreo Comercial",
     "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
     "sectores": [
@@ -5475,38 +4201,38 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10443919"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427"
   },
   {
-    "id": "CO1.REQ.10190506",
-    "referencia": "OP-021-2026",
-    "entidad": "EMPRESA MUNICIPAL DE DESARROLLO URBANO, RURAL Y MINERO DE REMEDIOS",
-    "nit_entidad": "901972020",
+    "id": "CO1.REQ.10361347",
+    "referencia": "194-2026-IP",
+    "entidad": "ESO RIONEGRO S.A.S.",
+    "nit_entidad": "900984614",
     "departamento": "Antioquia",
-    "ciudad": "Remedios",
-    "precio": 916633128.0,
-    "precio_formateado": "$916,633,128 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONTRATO DE OBRA PARA MEJORAMIENTO, ADECUACION, DOTACION,\nAMPLIACION Y/O CONSTRUCCION DE LOS ESCENARIOS DEPORTIVOS Y\nRECREATIVOS DE LOS PROYECTOS PRESENTADOS POR EL MUNICIPIO\nDENOMINADOS CONSTRUCCION DE CUBIERTA METALICA PARA LA CANCHA\nPOLIDEPORTIVA LOS LIMONES DEL MUNICIPIO DE COCORNA-ANTIOQUIA EN\nCUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO No 25AS122C2712 DE 2025 CONTRATO INTERADMINISTRATIVO DE MANDATO SIN REPRESENTACION No 003 2026",
-    "fecha_publicacion": "2026-02-19T00:00:00.000",
-    "estado_secop": "Publicado",
+    "ciudad": "Rionegro",
+    "precio": 1042006569.0,
+    "precio_formateado": "$1,042,006,569 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO DE LUMINARIAS PARA LA INFRAESTRUCTURA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE RIONEGRO.",
+    "fecha_publicacion": null,
+    "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
     "sectores": [
       {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
         "matched_keywords": [
-          "escenarios deportivos"
+          "alumbrado público"
         ],
-        "relevance_score": 15.0
+        "relevance_score": 18.8
       }
     ],
     "materiales_detectados": [
-      "escenarios deportivos"
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5517,21 +4243,105 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10047890"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184"
   },
   {
-    "id": "CO1.REQ.10653733",
-    "referencia": "SVIV SAMC 08 DE 2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "ALCALDIA MUNICIPAL DE OCAÑA",
-    "nit_entidad": "890501102",
-    "departamento": "Norte de Santander",
-    "ciudad": "Ocaña",
-    "precio": 150015300.0,
-    "precio_formateado": "$150,015,300 COP",
+    "id": "CO1.REQ.10979561",
+    "referencia": "2026.079",
+    "entidad": "Empresa de Desarrollo Urbano de La Ceja",
+    "nit_entidad": "901105143",
+    "departamento": "Antioquia",
+    "ciudad": "La Ceja",
+    "precio": 1039019346.0,
+    "precio_formateado": "$1,039,019,346 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "CONSTRUCCIÓN DEL POLIDEPORTIVO DE LA SEDE EDUCATIVA RURAL SAN ANTONIO DE LA I.E.D NUESTRA SEÑORA DEL TRÁNSITO EN LA VEREDA SAN ANTONIO DEL MUNICIPIO DE GUACHETÁ, CUNDINAMARCA, MEDIANTE EL SUMINISTRO, FABRICACIÓN, TRANSPORTE Y MONTAJE DE CUBIERTA EN ESTRUCTURA METÁLICA Y EL MEJORAMIENTO DE LA CANCHA MÚLTIPLE, EN EL MARCO DEL PROYECTO DE INVERSIÓN BPIN 2026253170003, FINANCIADO CON RECURSOS DEL SISTEMA GENERAL DE REGALÍAS.",
+    "fecha_publicacion": null,
+    "estado_secop": "Aprobado",
+    "fase": null,
+    "etapa_comercial": "Proceso Activo (Aprobado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.4468983",
+    "referencia": "SI-SI-CD-000-2023",
+    "entidad": "MUNICIPIO DE BUCARAMANGA",
+    "nit_entidad": "890201222",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 1016096453.0,
+    "precio_formateado": "$1,016,096,453 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Otro",
+    "descripcion": "ACTIVIDADES DE PODA PARA EL DESPEJE DE LUMINARIAS Y REDES QUE INTERFIEREN CON EL ALUMBRADO PUBLICO DEL MUNICIPIO DE BUCARAMANGA",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10392709",
+    "referencia": "SAMC-004-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE RIOBLANCO",
+    "nit_entidad": "890702040",
+    "departamento": "Tolima",
+    "ciudad": "Rioblanco",
+    "precio": 236685085.0,
+    "precio_formateado": "$236,685,085 COP",
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN E INSTALACIÓN DE CUBIERTA METÁLICA PARA EL ESCENARIO DEPORTIVO DE LA INSTITUCIÓN EDUCATIVA COLEGIO LA SALLE DEL MUNICIPIO DE OCAÑA, NORTE DE SANTANDER",
-    "fecha_publicacion": "2026-07-14T00:00:00.000",
+    "descripcion": "SUMINISTRO E INSTALACION DE PANELES SOLARES EN LA ZONA RURAL DEL MUNICIPIO DE RIOBLANCO TOLIMA",
+    "fecha_publicacion": null,
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -5539,36 +4349,111 @@ window.PROSPECTS_DATA = [
     "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
     "sectores": [
       {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
         "matched_keywords": [
-          "cubierta metálica"
+          "paneles solares"
         ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "colegio"
-        ],
-        "relevance_score": 15.0
+        "relevance_score": 18.8
       }
     ],
     "materiales_detectados": [
-      "cubierta metálica",
-      "colegio"
+      "paneles solares"
     ],
     "contratista": {
-      "nombre": "GEOVANNY ORTIZ PEREZ",
-      "nit": "No Definido",
+      "nombre": "CONSTRU INNOVANDO SAS",
+      "nit": "900730010",
       "es_consorcio": false,
-      "valor_adjudicado": 149725182.0,
-      "departamento_proveedor": "Norte de Santander",
-      "ciudad_proveedor": "Ocaña"
+      "valor_adjudicado": 236685085.0,
+      "departamento_proveedor": "Tolima",
+      "ciudad_proveedor": "Ibagué"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10508022"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309"
+  },
+  {
+    "id": "CO1.REQ.10369192",
+    "referencia": "MC - FRL - SDAS - 003 - 2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE FORTUL",
+    "nit_entidad": "800136069",
+    "departamento": "Arauca",
+    "ciudad": "Fortul",
+    "precio": 199999220.0,
+    "precio_formateado": "$199,999,220 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "RENOVACIÓN Y MANTENIMIENTO AL SISTEMA DE ALUMBRADO PUBLICO DEL MUNICIPIO DE FORTUL, DEPARTAMENTO DE ARAUCA",
+    "fecha_publicacion": null,
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "CONSTRUCCIONES Y SUMINISTROS TRUJILLO DE LA FUENTE S.A.S",
+      "nit": "901878498",
+      "es_consorcio": false,
+      "valor_adjudicado": 199999220.0,
+      "departamento_proveedor": "Arauca",
+      "ciudad_proveedor": "Fortul"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589"
+  },
+  {
+    "id": "CO1.REQ.10967781",
+    "referencia": "MPR-SAMC-003-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "MUNICIPIO PAZ DE RIO**",
+    "nit_entidad": "891855015",
+    "departamento": "Boyacá",
+    "ciudad": "Paz De Río",
+    "precio": 121166021.0,
+    "precio_formateado": "$121,166,021 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "MANTENIMIENTO, MODERNIZACIÓN Y REPOTENCIACIÓN DEL SISTEMA DE ALUMBRADO PUBLICO DEL MUNICIPIO DE PAZ DE RIO",
+    "fecha_publicacion": "2026-09-02T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "INTERPROYECTOS",
+      "nit": "830128700",
+      "es_consorcio": false,
+      "valor_adjudicado": 121166021.0,
+      "departamento_proveedor": "Boyacá",
+      "ciudad_proveedor": "Duitama"
+    },
+    "score_calidad": 63,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10822106"
   },
   {
     "id": "CO1.REQ.10379467",
@@ -5613,6 +4498,48 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240025"
   },
   {
+    "id": "CO1.REQ.10388238",
+    "referencia": "PN MEPOY SA MC 057 DE 2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "POLICIA METROPOLITANA DE POPAYAN",
+    "nit_entidad": "900593683",
+    "departamento": "Cauca",
+    "ciudad": "No Definido",
+    "precio": 1220265000.0,
+    "precio_formateado": "$1,220,265,000 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO DE COMPONENTES ELÉCTRICOS, MATERIALES DE CONSTRUCCIÓN, FERRETERÍA, CARPINTERÍA PARA ESTRUCTURAS Y EDIFICACIONES, CABLEADO ESTRUCTURADO PARA REDES DE DATOS INTERNAS Y ACCESORIOS, CON DESTINO A LA REGIÓN DE POLICÍA NÚMERO CUATRO, POLICÍA METROPOLITANA DE POPAYÁN, DEPARTAMENTO DE POLICÍA CAUCA, COLEGIO NUESTRA SEÑORA DE FÁTIMA Y DEMÁS UNIDADES QUE DEPENDAN ADMINISTRATIVAMENTE DE LA POLICÍA METROPOLITANA DE POPAYÁN",
+    "fecha_publicacion": null,
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General",
+        "matched_keywords": [
+          "colegio"
+        ],
+        "relevance_score": 15.0
+      }
+    ],
+    "materiales_detectados": [
+      "colegio"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 60,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10246335"
+  },
+  {
     "id": "CO1.REQ.10883129",
     "referencia": "SA-022-2026",
     "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
@@ -5653,132 +4580,6 @@ window.PROSPECTS_DATA = [
     },
     "score_calidad": 60,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10738594"
-  },
-  {
-    "id": "CO1.REQ.10659625",
-    "referencia": "SA-018-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
-    "nit_entidad": "800194096",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 1138082877.0,
-    "precio_formateado": "$1,138,082,877 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-07-15T00:00:00.000",
-    "estado_secop": "Abierto",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Abierto)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escenarios deportivos"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "escenarios deportivos"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10513956"
-  },
-  {
-    "id": "CO1.REQ.10615058",
-    "referencia": "SA-018-2026 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
-    "nit_entidad": "800194096",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 1138082877.0,
-    "precio_formateado": "$1,138,082,877 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-07-09T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escenarios deportivos"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "escenarios deportivos"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10486173"
-  },
-  {
-    "id": "CO1.REQ.10560963",
-    "referencia": "SA-018-2026",
-    "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
-    "nit_entidad": "800194096",
-    "departamento": "Antioquia",
-    "ciudad": "Medellín",
-    "precio": 1138082877.0,
-    "precio_formateado": "$1,138,082,877 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-06-25T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escenarios deportivos"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "escenarios deportivos"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10416863"
   },
   {
     "id": "CO1.REQ.10968722",
@@ -5865,44 +4666,79 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10789895"
   },
   {
-    "id": "CO1.REQ.10596004",
-    "referencia": "675-2026",
-    "entidad": "ESE HOSPITAL ORITO",
-    "nit_entidad": "846000474",
-    "departamento": "Putumayo",
-    "ciudad": "Orito",
-    "precio": 196480000.0,
-    "precio_formateado": "$196,480,000 COP",
+    "id": "CO1.REQ.3372299",
+    "referencia": "CPA-FP-2022-096",
+    "entidad": "DAPRE",
+    "nit_entidad": "899999083",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "Bogotá",
+    "precio": 147503126.0,
+    "precio_formateado": "$147,503,126 COP",
     "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "ADQUISICION DE ESTANTERÍA METÁLICA PARA ARCHIVO DOCUMENTAL Y CLÍNICO, Y UN MESÓN EN ACERO INOXIDABLE PARA EL SERVICIO DE ESTERILIZACIÓN DE LA E.S.E. HOSPITAL ORITO.",
-    "fecha_publicacion": "2026-07-03T00:00:00.000",
+    "tipo_contrato": "Otro",
+    "descripcion": "INTERVENTORÍA INTEGRAL: TÉCNICA, ADMINISTRATIVA, FINANCIERA, LEGAL Y AMBIENTAL PARA LA CONSTRUCCIÓN DE CUBIERTA PARA CANCHA MÚLTIPLE DEL COLEGIO NACIONALIZADO LOS CENTAUROS SEDE ESCUELA URBANA LA ESPERANZA EN EL MUNICIPIO DE VISTAHERMOSA, META",
+    "fecha_publicacion": null,
+    "estado_secop": "En aprobación",
+    "fase": null,
+    "etapa_comercial": "Proceso Activo (En aprobación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General",
+        "matched_keywords": [
+          "colegio",
+          "escuela"
+        ],
+        "relevance_score": 30.0
+      }
+    ],
+    "materiales_detectados": [
+      "escuela",
+      "colegio"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 60,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11032801",
+    "referencia": "STI-2026-307",
+    "entidad": "MUNICIPIO DE SEVILLA",
+    "nit_entidad": "800100527",
+    "departamento": "Valle del Cauca",
+    "ciudad": "Sevilla",
+    "precio": 273300000.0,
+    "precio_formateado": "$273,300,000 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO E INSTALACIÓN DE LUMINARIAS TIPO LED Y COMPONENTES ELÉCTRICOS DESTINADOS AL MEJORAMIENTO, FORTALECIMIENTO Y MODERNIZACIÓN DE LA INFRAESTRUCTURA DEL SISTEMA DE ALUMBRADO PÚBLICO PARA LA PRESTACIÓN EFICIENTE DEL SERVICIO EN EL MUNICIPIO DE SEVILLA, VALLE DEL CAUCA",
+    "fecha_publicacion": "2026-09-14T00:00:00.000",
     "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
+    "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
     "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
     "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
     "sectores": [
       {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
         "matched_keywords": [
-          "acero"
+          "alumbrado público"
         ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
+        "relevance_score": 18.8
       }
     ],
     "materiales_detectados": [
-      "hospital",
-      "acero"
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5913,21 +4749,441 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10451175"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888665"
   },
   {
-    "id": "CO1.REQ.10939658",
-    "referencia": "FT-CD-010-2026",
-    "entidad": "FONDO MIXTO DE GESTION TERRITORIAL, CIENCIA, TECNOLOGIA Y CULTURA",
-    "nit_entidad": "901787002",
-    "departamento": "Cauca",
-    "ciudad": "Santander De Quilichao",
-    "precio": 100359492.0,
-    "precio_formateado": "$100,359,492 COP",
+    "id": "CO1.REQ.11009961",
+    "referencia": "EMSET-DSP-033-2026",
+    "entidad": "EMPRESA MUNICIPAL DE SERVICIOS PÚBLICOS DE TAURAMENA SA ESP",
+    "nit_entidad": "844001456",
+    "departamento": "Casanare",
+    "ciudad": "Tauramena",
+    "precio": 255574070.0,
+    "precio_formateado": "$255,574,070 COP",
     "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, LEGAL Y FINANCIERA PARA LA EJECUCIÓN DEL PROYECTO  MEJORAMIENTO DE ESCENARIOS DEPORTIVOS MEDIANTE EL MEJORAMIENTO DE LAS LOSAS Y LA CONSTRUCCIÓN DE DOS CUBIERTAS EN ESTRUCTURA METÁLICA, UNA UBICADA EN LA CABECERA CORREGIMENTAL DE LA CARBONERA Y OTRA EN LA VEREDA MAZAMORRAS, SAN MIGUEL DEL MUNICIPIO DE BOLÍVAR, DEPARTAMENTO DEL CAUCA",
+    "tipo_contrato": "Obra",
+    "descripcion": "MANTENIMIENTO Y REHABILITACION DE LA INFRAESTRUCTURA DE ALCANTARILLADO SANITARIO MEDIANTE LA INTERVENCION DE POZOS DE INSPECCION (DEMOLICION Y RECONSTRUCCION DE PLACAS, PLACAS DE MANHOLE PARA TRAFICO PESADO, ACERO DE REFUERZO, ALISTADOS, IMPERMEABILIZACION ESPECIALIZADA Y MANEJO DE AGUAS) E INSTALACION Y PUESTA EN OPERACION DE MEDIDOR DE 8  DE TECNOLOGIA TIPO ELECTROMAGNETICA  EN INVENTARIO, DENTRO DEL MARCO DEL COSTO MEDIO DE INVERSION (CMI), EN EL MUNICIPIO DE TAURAMENA",
+    "fecha_publicacion": "2026-09-09T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero de refuerzo"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero de refuerzo"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864302"
+  },
+  {
+    "id": "CO1.REQ.10964515",
+    "referencia": "S015-2026",
+    "entidad": "ANTIOQUIA  EMPRESA DE SERVICIOS RETIRAR S.A E.S.P - EL RETIRO",
+    "nit_entidad": "811028985",
+    "departamento": "No Definido",
+    "ciudad": "No Definido",
+    "precio": 217279948.0,
+    "precio_formateado": "$217,279,948 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "ADQUISICIÓN DE VEHICULO REQUERIDO PARA EL MANTENIMIENTO DE REDES Y LUMINARIAS DEL ALUMBRADO PUBLICO A CARGO DE LA EMPRESA RETIRAR SA E.S.P, DEL MUNICIPIO DE EL RETIRO",
+    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10818504"
+  },
+  {
+    "id": "CO1.REQ.10944360",
+    "referencia": "4100001839",
+    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
+    "nit_entidad": "890904996",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 208461763.0,
+    "precio_formateado": "$208,461,763 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "sofa 2 puestos estructura metalica asiento y espaldar espuma inyectada bastidor interno madera tapizado vertigo con brazos 120cmx63cmx82cm, sofa modulo 3 puestos estructura tuberia rectangular 179.4cmx59.4cmx36.3cm asiento tablex 15mm espuma inyectada poliuretano 60cmx49.1cmx0.65cm espaldar triplex 18mm tablex 15mm espuma de poliuretano 60cmx80cmx110cm",
     "fecha_publicacion": "2026-08-28T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10797912"
+  },
+  {
+    "id": "CO1.REQ.10889199",
+    "referencia": "4100001701",
+    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
+    "nit_entidad": "890904996",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 195927096.0,
+    "precio_formateado": "$195,927,096 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "Rtd pt100 clase a -70 a 500°c 3 hilos rosca 1/2'npt bulbo acero inoxidable diametro 15mm longitud 590mm,Transmisor temperatura rtd pt100 -50 a 500â°c 3 hilos rosca 1/2â npt bulbo acero inoxidable diametro 3mm longitud 50mm,Rtd pt100 0-400°c 3 hilos bulbo acero inoxidable rosca npt 1/2' diametro 3/8' longitud 18cm,Rtd pt100 0-100°c 3 hilos bulbo acero inoxidable rosca 1/2'npt diametro 5/16' longitud 150mm,Rtd 2xpt100 0 a 180°c de 6 hilos bulbo recto conexion a proceso simple rosca npt 1/2' bulb",
+    "fecha_publicacion": "2026-08-20T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10744064"
+  },
+  {
+    "id": "CO1.REQ.11007891",
+    "referencia": "4100001962",
+    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
+    "nit_entidad": "890904996",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 153711960.0,
+    "precio_formateado": "$153,711,960 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "instalacion, prueba y puesta a punto de intercambiadores de calor para enfriador de amoniaco, intercambiador calor placas agua/lubricante 79°f/164.9°f salida 90.1°f/130°f acero inoxidable 11796lb/h",
+    "fecha_publicacion": "2026-09-08T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862189"
+  },
+  {
+    "id": "CO1.REQ.11050330",
+    "referencia": "PC-MS-SA-008-2026",
+    "entidad": "MUNICIPIO DE SOCOTA",
+    "nit_entidad": "800026911",
+    "departamento": "Boyacá",
+    "ciudad": "Socotá",
+    "precio": 149956950.0,
+    "precio_formateado": "$149,956,950 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "MANTENIMIENTO, ADECUACIÓN Y ADQUISICIÓN DE LAMPARAS Y DEMAS ELEMENTOS ELÉCTRICOS PARA EL ADECUADO FUNCIONAMIENTO DE LA RED DE ALUMBRADO PÚBLICO RURAL Y URBANO DEL MUNICIPIO DE SOCOTA DEPARTAMENTO DE BOYACÁ",
+    "fecha_publicacion": "2026-09-16T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10906499"
+  },
+  {
+    "id": "CO1.REQ.10837007",
+    "referencia": "4100001545",
+    "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
+    "nit_entidad": "890904996",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "precio": 141819578.0,
+    "precio_formateado": "$141,819,578 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Suministros",
+    "descripcion": "valvula compuerta sello metalico hierro ductil 2  580psi (40bar) bridada asme b16.5 clase 300 asiento acero inoxidable vastago ascendente cuerpo corto, valvula compuerta sello metalico 2  (50mm) 580psi (40bar) hierro ductil bridada asme b16.5 clase 300 vastago ascendente cuerpo corto con reductor y volante, valvula compuerta sello metalico hierro ductil 3  580psi (40bar) bridada asme b16.5 clase 300 asiento acero inoxidable vastago ascendente cuerpo corto con reductor y volante, valvula compuer",
+    "fecha_publicacion": "2026-08-11T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10691076"
+  },
+  {
+    "id": "CO1.REQ.10926537",
+    "referencia": "ODC-DAD-0052-2026",
+    "entidad": "UNIMAGDALENA",
+    "nit_entidad": "891780111",
+    "departamento": "Magdalena",
+    "ciudad": "Santa Marta",
+    "precio": 118451278.0,
+    "precio_formateado": "$118,451,278 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Otro",
+    "descripcion": "COMPRA E INSTALACIÓN DE UN SISTEMA DE TRATAMIENTO DE AGUA POTABLE CON ABLANDAMIENTO, FILTRACIÓN, OXIDES INFECCIÓN, OSMOSIS INVERSA Y DOS (2) DISPOSITIVOS DE DISPENSACIÓN REFRIGERADA EN ACERO INOXIDABLE PARA EL SUMINISTRO A TODA LA COMUNIDAD UNIVERSITARIA EN LA CAFETERÍA CENTRAL DE LA SEDE PRINCIPAL DE LA UNIVERSIDAD DEL MAGDALENA.",
+    "fecha_publicacion": "2026-08-26T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10780187"
+  },
+  {
+    "id": "CO1.REQ.11045554",
+    "referencia": "SAMC-022-2026",
+    "entidad": "MUNICIPIO DE CUBARA BOYACA",
+    "nit_entidad": "800099196",
+    "departamento": "Boyacá",
+    "ciudad": "No Definido",
+    "precio": 112195664.0,
+    "precio_formateado": "$112,195,664 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "MANTENIMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO EN LAS ZONAS URBANA Y RURAL DEL MUNICIPIO, MEDIANTE LA EJECUCIÓN DE LAS INTERVENCIONES REQUERIDAS PARA LA RECUPERACIÓN Y PUESTA EN FUNCIONAMIENTO DE LA INFRAESTRUCTURA EXISTENTE",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10901022"
+  },
+  {
+    "id": "CO1.REQ.11065135",
+    "referencia": "CM-005-2026 (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE AGUA DE DIOS",
+    "nit_entidad": "890680149",
+    "departamento": "Cundinamarca",
+    "ciudad": "Agua De Dios",
+    "precio": 104149650.0,
+    "precio_formateado": "$104,149,650 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, JURIDICA, FINANCIERA, SOCIAL Y AMBIENTAL, PARA LA CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO No. ICCU 843 DE 2025",
+    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920937"
+  },
+  {
+    "id": "CO1.REQ.10986709",
+    "referencia": "UNAL-MED-2026-454026",
+    "entidad": "UNIVERSIDAD NACIONAL DE COLOMBIA",
+    "nit_entidad": "899999063",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "No Definido",
+    "precio": 103209087.0,
+    "precio_formateado": "$103,209,087 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "Compra e instalación de estructura metálica para el ascensor del Bloque 46, Campus El Volador, Universidad Nacional de Colombia Sede Medellín",
+    "fecha_publicacion": "2026-09-04T00:00:00.000",
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5941,18 +5197,9 @@ window.PROSPECTS_DATA = [
           "estructura metálica"
         ],
         "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "escenarios deportivos"
-        ],
-        "relevance_score": 15.0
       }
     ],
     "materiales_detectados": [
-      "escenarios deportivos",
       "estructura metálica"
     ],
     "contratista": {
@@ -5964,123 +5211,21 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10793354"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10840483"
   },
   {
-    "id": "CO1.REQ.10277365",
-    "referencia": "SA26-147",
-    "entidad": "E.S.E. HOSPITAL UNIVERSITARIO ERASMO MEOZ",
-    "nit_entidad": "800014918",
-    "departamento": "Norte de Santander",
-    "ciudad": "Cúcuta",
-    "precio": 100000000.0,
-    "precio_formateado": "$100,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO, INSTALACION Y MANTENIMIENTO DE MATERIALES DE VIDRIO, ALUMINIO, ACERO Y ACABADOS EN PVC PARA LA ESE HOSPITAL UNIVERSITARIO ERASMO MEOZ",
-    "fecha_publicacion": "2026-03-18T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "INDUSTRIA METALICA RODRIGUEZ II SAS",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Norte de Santander",
-      "ciudad_proveedor": "Villa Del Rosario"
-    },
-    "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10134365"
-  },
-  {
-    "id": "CO1.REQ.10145020",
-    "referencia": "COM 001-2026",
-    "entidad": "HOSPITAL REGIONAL DE SOGAMOSO E.S.E",
-    "nit_entidad": "891855039",
-    "departamento": "Boyacá",
-    "ciudad": "Sogamoso",
-    "precio": 100000000.0,
-    "precio_formateado": "$100,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Compraventa",
-    "descripcion": "VENTA E INSTALACIÓN DE MOBILIARIO EN ACERO INOXIDABLE PARA EL MANTENIMIENTO DE DIFERENTES ÁREAS ASISTENCIALES DEL HOSPITAL REGIONAL DE SOGAMOSO EMPRESA SOCIAL DEL ESTADO",
-    "fecha_publicacion": "2026-02-09T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "acero"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital",
-      "acero"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10001319"
-  },
-  {
-    "id": "CO1.REQ.11041345",
-    "referencia": "CPS-870-2026",
-    "entidad": "EMPRESA SOCIAL DEL ESTADO HOSPITAL FRANCISCO LUIS JIMENEZ MARTINEZ",
-    "nit_entidad": "800227877",
-    "departamento": "No Definido",
-    "ciudad": "No Definido",
-    "precio": 270800002.0,
-    "precio_formateado": "$270,800,002 COP",
+    "id": "CO1.REQ.11065609",
+    "referencia": "2026.081",
+    "entidad": "Empresa de Desarrollo Urbano de La Ceja",
+    "nit_entidad": "901105143",
+    "departamento": "Antioquia",
+    "ciudad": "La Ceja",
+    "precio": 100113709.0,
+    "precio_formateado": "$100,113,709 COP",
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "PRESTAR LOS SERVICIOS DE APOYO LOGISTICO, TALENTO HUMANO DE APOYO A LA GESTION, TRANSPORTE (VEHICULO HABILITADOS PARA EL SERVICIO PUBLICO) SOPORTE TECNICO (PERSONAL ESPECIALIZADO EN REFRIGERACION) Y SUMINISTRO DE ALIMENTOS REQUERIDO PARA EN VIRTUD DEL CONVENIO INTERADMINISTRAIVO CI-428-2026 PARA LA EJECUCION DE LAS ACTIVIDADES DE SALUD PUBLICA SUSCRITO ENTRE EL MUNICIPIO DE APARTADO Y LA ESE HOSPITAL FRANCISCO LUIS JIMENEZ MARTINEZ",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA Y AMBIENTAL DEL PROYECTO DE CONSTRUCCIÓN DEL POLIDEPORTIVO DE LA SEDE EDUCATIVA RURAL SAN ANTONIO DE LA I.E.D NUESTRA SEÑORA DEL TRÁNSITO EN LA VEREDA SAN ANTONIO DEL MUNICIPIO DE GUACHETÁ, CUNDINAMARCA, MEDIANTE EL SUMINISTRO, FABRICACIÓN, TRANSPORTE Y MONTAJE DE CUBIERTA EN ESTRUCTURA METÁLICA Y EL MEJORAMIENTO DE LA CANCHA MÚLTIPLE.",
+    "fecha_publicacion": "2026-09-18T00:00:00.000",
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -6088,58 +5233,100 @@ window.PROSPECTS_DATA = [
     "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
     "sectores": [
       {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "hospital"
+          "estructura metálica"
         ],
-        "relevance_score": 15.0
+        "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "hospital"
+      "estructura metálica"
     ],
     "contratista": {
-      "nombre": "HUMANOS CONSULTORES EN SALUD",
+      "nombre": "Jorge Elvecio Baquero Diaz",
       "nit": "No Definido",
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Apartadó"
+      "departamento_proveedor": "Distrito Capital de Bogotá",
+      "ciudad_proveedor": "Bogotá"
     },
-    "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896153"
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10921090"
   },
   {
-    "id": "CO1.REQ.9820260",
-    "referencia": "PS-003-2026",
-    "entidad": "EMPRESAS PUBLICAS DE ARMENIA ESP",
-    "nit_entidad": "890000439",
+    "id": "CO1.REQ.9819592",
+    "referencia": "MP-0950-2026",
+    "entidad": "ALCALDÍA MUNICIPIO DE PALMIRA",
+    "nit_entidad": "891380007",
+    "departamento": "Valle del Cauca",
+    "ciudad": "Palmira",
+    "precio": 970349880.0,
+    "precio_formateado": "$970,349,880 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Otro",
+    "descripcion": "PRESTAR SERVICIOS DE GESTIÓN INTEGRAL, SOPORTE Y MANTENIMIENTO DEL SISTEMA DE INFORMACIÓN  SILIM  PARA EL EFECTIVO COBRO DEL IMPUESTO DE ALUMBRADO PÚBLICO VIGENCIA 2026",
+    "fecha_publicacion": null,
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621"
+  },
+  {
+    "id": "CO1.REQ.10977080",
+    "referencia": "LP-001-2026   (Fase de Selección (Presentación de ofertas))",
+    "entidad": "ALCALDIA MUNICIPAL LA TEBAIDA QUINDIO",
+    "nit_entidad": "890000564",
     "departamento": "Quindío",
-    "ciudad": "Armenia",
-    "precio": 204750000.0,
-    "precio_formateado": "$204,750,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTAR LOS SERVICIOS REQUERIDOS PARA LA ASISTENCIA PREVENTIVA Y/O CORRECTIVA INDUSTRIAL METÁLICA DE REPARACIONES A LAS CAJAS COMPACTADORAS, PLATONES DE CARGA, MECANISMOS HIDRÁULICOS Y CAJAS ESTACIONARIAS DEL PARQUE AUTOMOTOR DEL PROCESO DE ASEO DE EPA ESP",
-    "fecha_publicacion": "2026-01-21T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "ciudad": "La Tebaida",
+    "precio": 900000000.0,
+    "precio_formateado": "$900,000,000 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATO DE OBRA PARA EL MEJORAMIENTO DE LA INFRAESTRUCTURA FÍSICA DEL POLIDEPORTIVO DE LA INSTITUCIÓN EDUCATIVA LA POPA EN EL MUNICIPIO DE LA TEBAIDA, QUINDÍO, MEDIANTE LA CONSTRUCCIÓN DE UNA ESTRUCTURA METÁLICA PARA CUBIERTA",
+    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Fase de Selección (Presentación de ofertas)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
     "sectores": [
       {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "parque"
+          "estructura metálica"
         ],
-        "relevance_score": 15.0
+        "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "parque"
+      "estructura metálica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -6149,39 +5336,39 @@ window.PROSPECTS_DATA = [
       "departamento_proveedor": "No Definido",
       "ciudad_proveedor": "No Definido"
     },
-    "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9667970"
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836247"
   },
   {
-    "id": "CO1.REQ.10529316",
-    "referencia": "CS-008-2026",
-    "entidad": "EMPRESA SOCIAL DEL ESTADO HOSPITAL SAN NICOLAS",
-    "nit_entidad": "891000736",
-    "departamento": "Córdoba",
-    "ciudad": "Planeta Rica",
-    "precio": 174000000.0,
-    "precio_formateado": "$174,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO A LAS AMBULANCIAS Y VEHICULOS AL SERVICIO DE LA E.S.E HOSPITAL SAN NICOLAS",
-    "fecha_publicacion": "2026-06-17T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "id": "CO1.REQ.10861072",
+    "referencia": "LP-001-2026",
+    "entidad": "ALCALDIA MUNICIPAL LA TEBAIDA QUINDIO",
+    "nit_entidad": "890000564",
+    "departamento": "Quindío",
+    "ciudad": "La Tebaida",
+    "precio": 900000000.0,
+    "precio_formateado": "$900,000,000 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATO DE OBRA PARA EL MEJORAMIENTO DE LA INFRAESTRUCTURA FÍSICA DEL POLIDEPORTIVO DE LA INSTITUCIÓN EDUCATIVA LA POPA EN EL MUNICIPIO DE LA TEBAIDA, QUINDÍO, MEDIANTE LA CONSTRUCCIÓN DE UNA ESTRUCTURA METÁLICA PARA CUBIERTA",
+    "fecha_publicacion": "2026-08-20T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
     "sectores": [
       {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
         "matched_keywords": [
-          "hospital"
+          "estructura metálica"
         ],
-        "relevance_score": 15.0
+        "relevance_score": 18.0
       }
     ],
     "materiales_detectados": [
-      "hospital"
+      "estructura metálica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -6191,8 +5378,512 @@ window.PROSPECTS_DATA = [
       "departamento_proveedor": "No Definido",
       "ciudad_proveedor": "No Definido"
     },
-    "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10385719"
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10740633"
+  },
+  {
+    "id": "CO1.REQ.2090805",
+    "referencia": "SI-CM-008-2021",
+    "entidad": "MUNICIPIO DE BUCARAMANGA",
+    "nit_entidad": "890201222",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 831678124.0,
+    "precio_formateado": "$831,678,124 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Consultoría",
+    "descripcion": "INTERVENTORIA PARA LA PRIMERA FASE PARA LA ADQUISICIÓN, SUMINISTRO, IMPLEMENTACIÓN Y PUESTA EN FUNCIONAMIENTO DE PUNTOS DE GESTIÓN INTELIGENTE Y MEDIDAS PARA LA RED DE ALUMBRADO PÚBLICO DEL MUNICIPIO",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11007661",
+    "referencia": "CO-027-2026",
+    "entidad": "EDENORTE",
+    "nit_entidad": "901831522",
+    "departamento": "Antioquia",
+    "ciudad": "Yarumal",
+    "precio": 824077383.0,
+    "precio_formateado": "$824,077,383 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Obra",
+    "descripcion": "AMPLIACION, MANTENIMIENTO Y REPARACION DE LA RED DE ALUMBRADO PUBLICO DEL MUNICIPIO DE PUERTO NARE. EN CUMPLIMIENTO DE LO DISPUEST CONTRATO INTERADMINISTRATIVO No. CD-359-2026, CELEBRADO ENTRE EDENORTE Y EL MUNICIPIO DE PUERTO NARE - ANTIOQUIA.",
+    "fecha_publicacion": "2026-09-08T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado publico"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado publico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10861690"
+  },
+  {
+    "id": "CO1.REQ.10830576",
+    "referencia": "MP-LOP-002 DE 2026",
+    "entidad": "MUNICIPIO DE PAYA",
+    "nit_entidad": "800065411",
+    "departamento": "Boyacá",
+    "ciudad": "Paya",
+    "precio": 823627492.0,
+    "precio_formateado": "$823,627,492 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONSTRUCCION DE CORRALES GANADEROS COMUNITARIOS CON ESTRUCTURA METALICA Y CUBIERTA EN LAS VEREDAS LA UNION Y ABEJON, ASÍ COMO EL MANTENIMIENTO DE LA MANGA DE COLEO Y LA PLAZA DE FERIAS DEL MUNICIPIO DE PAYA - BOYACA.",
+    "fecha_publicacion": "2026-08-11T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10688598"
+  },
+  {
+    "id": "CO1.REQ.11034602",
+    "referencia": "MC-071-2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "MUNICIPIO DE MANIZALES",
+    "nit_entidad": "890801053",
+    "departamento": "Caldas",
+    "ciudad": "Manizales",
+    "precio": 817710284.0,
+    "precio_formateado": "$817,710,284 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
+    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888441"
+  },
+  {
+    "id": "CO1.REQ.10848484",
+    "referencia": "MC-071-2026",
+    "entidad": "MUNICIPIO DE MANIZALES",
+    "nit_entidad": "890801053",
+    "departamento": "Caldas",
+    "ciudad": "Manizales",
+    "precio": 817710284.0,
+    "precio_formateado": "$817,710,284 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
+    "fecha_publicacion": "2026-08-13T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10702899"
+  },
+  {
+    "id": "CO1.REQ.11022683",
+    "referencia": "D-482-2026",
+    "entidad": "MUNICIPIO DE PALERMO HUILA",
+    "nit_entidad": "891180021",
+    "departamento": "Huila",
+    "ciudad": "Palermo",
+    "precio": 515486901.0,
+    "precio_formateado": "$515,486,901 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Otro",
+    "descripcion": "AUNAR ESFUERZOS ENTRE EL MUNICIPIO DE PALERMO Y LAS EMPRESAS PÚBLICAS DE PALERMO EPP E.S.P. PARA REALIZAR EL MEJORAMIENTO DEL ALUMBRADO PÚBLICO EN LA ZONA URBANA DEL MUNICIPIO DE PALERMO HUILA",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482"
+  },
+  {
+    "id": "CO1.REQ.10958681",
+    "referencia": "LP-003-2026 (Fase de Selección (Presentación de ofertas))",
+    "entidad": "MUNICIPIO DE CUBARA BOYACA",
+    "nit_entidad": "800099196",
+    "departamento": "Boyacá",
+    "ciudad": "No Definido",
+    "precio": 511653617.0,
+    "precio_formateado": "$511,653,617 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "AMPLIACIÓN Y MODERNIZACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO DE LA VÍA PRINCIPAL DEL MUNICIPIO DE CUBARÁ, DEPARTAMENTO DE BOYACÁ",
+    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Fase de Selección (Presentación de ofertas)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10812693"
+  },
+  {
+    "id": "CO1.REQ.11013436",
+    "referencia": "003-S.A.M.C-2026",
+    "entidad": "UAE SETP AVANTE PASTO",
+    "nit_entidad": "900358918",
+    "departamento": "Nariño",
+    "ciudad": "Pasto",
+    "precio": 489829980.0,
+    "precio_formateado": "$489,829,980 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "EJECUCIÓN DE LAS OBRAS COMPLEMENTARIAS DE MANTENIMIENTO EN LOS PATIOS DE MIJITAYO, BRICEÑO, TALLER ARANDA Y TALLER CHAPAL, CONSISTENTES EN LA ADECUACIÓN, REPARACIÓN, REPOSICIÓN Y MEJORAMIENTO DE ELEMENTOS DE INFRAESTRUCTURA FÍSICA, INCLUYENDO CUBIERTAS, REDES DE DRENAJE, ESTRUCTURAS METÁLICAS, ÁREAS DE CIRCULACIÓN, CERRAMIENTOS Y DEMÁS COMPONENTES REQUERIDOS PARA GARANTIZAR EL CORRECTO FUNCIONAMIENTO OPERATIVO DE LOS PATIOS, BAJO LA MODALIDAD DE PRECIOS UNITARIOS FIJOS",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructuras metálicas"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructuras metálicas"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10379405",
+    "referencia": "SAMC-008-2026",
+    "entidad": "ALCALDÍA LIBANO",
+    "nit_entidad": "800100061",
+    "departamento": "Tolima",
+    "ciudad": "Líbano",
+    "precio": 488526870.0,
+    "precio_formateado": "$488,526,870 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "MODERNIZACIÓN DEL SISTEMA DE ILUMINACIÓN Y SUMINISTRO DE MATERIALES  ELÉCTRICOS PARA EL ADECUADO Y EFICIENTE FUNCIONAMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE LÍBANO, DEPARTAMENTO DEL TOLIMA",
+    "fecha_publicacion": null,
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10235897"
+  },
+  {
+    "id": "CO1.REQ.10978278",
+    "referencia": "SASI-02-2026",
+    "entidad": "ALCALDIA DE HONDA",
+    "nit_entidad": "800100058",
+    "departamento": "Tolima",
+    "ciudad": "Honda",
+    "precio": 480422043.0,
+    "precio_formateado": "$480,422,043 COP",
+    "modalidad": "Selección abreviada subasta inversa",
+    "tipo_contrato": "Suministros",
+    "descripcion": "ADQUISICIÓN Y SUMINISTRO DE MATERIALES Y ELEMENTOS PARA EL MANTENIMIENTO, CONSERVACIÓN, RECUPERACIÓN Y ADECUACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE HONDA - TOLIMA, Y PARA LA REPARACIÓN, RESTAURACIÓN, REPOSICIÓN DE COMPONENTES Y PUESTA EN SERVICIO DE LAS FIGURAS, ESTRUCTURAS E INSTALACIONES LUMINOSAS NAVIDEÑAS DE PROPIEDAD DEL MUNICIPIO, INCLUYENDO LOS INSUMOS ELÉCTRICOS, LUMINOSOS, METÁLICOS, DE FIJACIÓN Y DEMÁS ELEMENTOS REQUERIDOS PARA SU CONSERVACIÓN Y FUNCIONAMIENTO, DE AC...",
+    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10833639"
+  },
+  {
+    "id": "CO1.REQ.10922117",
+    "referencia": "SAMC 001-2026",
+    "entidad": "INSTITUTO PARA LA EDUCACION FISICA LA RECREACION Y EL DEPORTE DE DUITAMA",
+    "nit_entidad": "826000522",
+    "departamento": "No Definido",
+    "ciudad": "No Definido",
+    "precio": 402925701.0,
+    "precio_formateado": "$402,925,701 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "REALIZAR LAS OBRAS DE ADECUACIÓN, MANTENIMIENTO Y CONSERVACIÓN DE LA CUBIERTA Y ESTRUCTURA METÁLICA DE LA PISCINA OLÍMPICA DE DUITAMA, PARA MEJORAR LAS CONDICIONES DE FUNCIONAMIENTO Y CONSERVACIÓN DEL ESCENARIO DEPORTIVO",
+    "fecha_publicacion": "2026-08-26T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10775748"
+  },
+  {
+    "id": "CO1.REQ.8946703",
+    "referencia": "2024-CAD0005",
+    "entidad": "CENTRAL DE ABASTOS DE BUCARAMANGA S.A.",
+    "nit_entidad": "890208395",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 359943002.0,
+    "precio_formateado": "$359,943,002 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Obra",
+    "descripcion": "No definido",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
   },
   {
     "id": "CO1.REQ.11037533",
@@ -6237,188 +5928,35 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891448"
   },
   {
-    "id": "CO1.REQ.10062066",
-    "referencia": "CDOS-021-26",
-    "entidad": "ESE HOSPITAL LOCAL CARTAGENA DE INDIAS.*",
-    "nit_entidad": "806010305",
-    "departamento": "Bolívar",
-    "ciudad": "Cartagena",
-    "precio": 250000000.0,
-    "precio_formateado": "$250,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Otro",
-    "descripcion": "SUMINISTRO E INSTALACIÓN DE BIENES Y ELEMENTOS DE ACABADOS HOSPITALARIOS, INCLUIDA LA CARPINTERÍA METÁLICA Y EN PVC, MOBILIARIO EN MADERA, MESONES EN GRANITO Y CORTINAS HOSPITALARIAS PARA LOS CENTROS DE SALUD DE LA E.S.E. HOSPITAL LOCAL CARTAGENA DE INDIAS.",
-    "fecha_publicacion": "2026-01-30T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de ofertas",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "carpintería metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "carpintería metálica",
-      "hospital"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 48,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9913871"
-  },
-  {
-    "id": "CO1.REQ.10626926",
-    "referencia": "SVIV SAMC 08 DE 2026 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "ALCALDIA MUNICIPAL DE OCAÑA",
-    "nit_entidad": "890501102",
-    "departamento": "Norte de Santander",
-    "ciudad": "Ocaña",
-    "precio": 150015300.0,
-    "precio_formateado": "$150,015,300 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN E INSTALACIÓN DE CUBIERTA METÁLICA PARA EL ESCENARIO DEPORTIVO DE LA INSTITUCIÓN EDUCATIVA COLEGIO LA SALLE DEL MUNICIPIO DE OCAÑA, NORTE DE SANTANDER",
-    "fecha_publicacion": "2026-07-09T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "cubierta metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "colegio"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "cubierta metálica",
-      "colegio"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 48,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10481845"
-  },
-  {
-    "id": "CO1.REQ.10544644",
-    "referencia": "SVIV SAMC 08 DE 2026",
-    "entidad": "ALCALDIA MUNICIPAL DE OCAÑA",
-    "nit_entidad": "890501102",
-    "departamento": "Norte de Santander",
-    "ciudad": "Ocaña",
-    "precio": 150015300.0,
-    "precio_formateado": "$150,015,300 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN E INSTALACIÓN DE CUBIERTA METÁLICA PARA EL ESCENARIO DEPORTIVO DE LA INSTITUCIÓN EDUCATIVA COLEGIO LA SALLE DEL MUNICIPIO DE OCAÑA, NORTE DE SANTANDER",
-    "fecha_publicacion": "2026-06-22T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "cubierta metálica"
-        ],
-        "relevance_score": 18.0
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "colegio"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "cubierta metálica",
-      "colegio"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 48,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10400892"
-  },
-  {
-    "id": "CO1.REQ.10421613",
-    "referencia": "HLAP-CD-294-2026",
-    "entidad": "HOSPITAL MUNICIPAL LUIS ABLANQUE DE LA PLATA EMPRESA SOCIAL DEL ESTADO",
-    "nit_entidad": "835000972",
+    "id": "CO1.REQ.10996937",
+    "referencia": "MIC 200.1.094.2026",
+    "entidad": "UNIVERSIDAD DEL VALLE",
+    "nit_entidad": "890399010",
     "departamento": "Valle del Cauca",
     "ciudad": "No Definido",
-    "precio": 191183020.0,
-    "precio_formateado": "$191,183,020 COP",
+    "precio": 118500000.0,
+    "precio_formateado": "$118,500,000 COP",
     "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "ADQUISICIÓN DE SESENTA (60) ESCRITORIO, ESCRITORIO EN L TRES (3), BIBLIOTECA METALICA UNA (1), ARCHIVADOR METALICO DE CUATRO GAVETAS (01), LOKER METALICO DE DOCE PUESTOS (2), LOKER METALICO DE DOS PUESTOS (5), LOKER DE NUEVE PUESTO (01), SILLAS ERGONOMICA GERENCIAL CIEN (100) PARA LA RED DEL HOSPITAL LUIS ABLANQUE DE LA PLATA E.S.E DE BUENAVENTURA.",
-    "fecha_publicacion": "2026-05-13T00:00:00.000",
-    "estado_secop": "Seleccionado",
+    "tipo_contrato": "Otro",
+    "descripcion": "Realizar levantamientos topográficos, batimétricos y de estructuras Hidráulicas en los drenajes localizados en las zonas urbanas de Bugalagrande-Mestizal, San Pedro, Alcalá, Argelia y El Aguila, con el fin de generar insumos cartográficos técnicos que sirvan de base para la zonificación de amenazas por inundación y avenidas torrenciales en el marco de las actividades del laboratorio de Geoposicionamiento, Instrumentación y Metrología Geomática GOP de la Escuela de Ingeniería Civil y Geomática de",
+    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
     "sectores": [
       {
         "id": "obra_civil_general",
         "name": "Construcción & Obra Civil General",
         "matched_keywords": [
-          "hospital"
+          "escuela"
         ],
         "relevance_score": 15.0
       }
     ],
     "materiales_detectados": [
-      "hospital"
+      "escuela"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -6428,22 +5966,22 @@ window.PROSPECTS_DATA = [
       "departamento_proveedor": "No Definido",
       "ciudad_proveedor": "No Definido"
     },
-    "score_calidad": 45,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10295055"
+    "score_calidad": 55,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850675"
   },
   {
-    "id": "CO1.REQ.11014785",
-    "referencia": "2727-CDPS-2026",
-    "entidad": "HOSPITAL UNIVERSITARIO DEPARTAMENTAL DE NARIÑO",
-    "nit_entidad": "891200528",
-    "departamento": "Nariño",
-    "ciudad": "No Definido",
-    "precio": 60000000.0,
-    "precio_formateado": "$60,000,000 COP",
+    "id": "CO1.REQ.10982914",
+    "referencia": "081-2026",
+    "entidad": "E.S.E HOSPITAL BAUDILIO ACERO",
+    "nit_entidad": "891800857",
+    "departamento": "Boyacá",
+    "ciudad": "Turmequé",
+    "precio": 107500000.0,
+    "precio_formateado": "$107,500,000 COP",
     "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "Contratar la Prestación de servicios Profesionales de Neurólogo Clínico - Epileptologia, para cubrir las necesidades   y contingencias en los servicios o áreas que se requiera  según las necesidades del Hospital Universitario Departamental de Nariño E.S.E.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "CONTRATAR LA PRESTACION DE SERVICIOS DE UNA EMPRESA DE SERVICIOS TEMPORALES PARA EL ENVIO DE LOS TRABAJADORES EN MISION CON PERFIL PROFESIONAL Y TECNICO, PARA QUE EJECUTEN EN LAS AREAS ASISTENCIAL Y ADMINISTRATIVA CONFORME A LAS NECESIDADES DE LOS SERVICIOS QUE TIENE HABILITADOS LA EMPRESA SOCIAL DEL ESTADO HOSPITAL BAUDILIO ACERO DE TURMEQUE.",
+    "fecha_publicacion": "2026-09-03T00:00:00.000",
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -6470,8 +6008,386 @@ window.PROSPECTS_DATA = [
       "departamento_proveedor": "No Definido",
       "ciudad_proveedor": "No Definido"
     },
-    "score_calidad": 45,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889019"
+    "score_calidad": 55,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836366"
+  },
+  {
+    "id": "CO1.REQ.10996836",
+    "referencia": "266 COGFM DIADF 2026   (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "COMANDO GENERAL DE LAS FUERZAS MILITARES",
+    "nit_entidad": "800230729",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "Bogotá",
+    "precio": 187626138.0,
+    "precio_formateado": "$187,626,138 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATAR LA REMODELACION DEL ESTUDIO DE GRABACIÓN ÁREA DE MEDIOS AUDIOVISUALES COMES  INCLUYENDO SUMINISTRO, INSTALACIÓN, ADECUACIÓN, REMODELACION Y PUESTA EN FUNCIONAMIENTO INTEGRAL DE LA INFRAESTRUCTURA FÍSICA Y TECNOLÓGICA  DEL  SISTEMAS DE INSONORIZACIÓN Y ACONDICIONAMIENTO ACÚSTICO EN PAREDES Y TECHO, VENTANA DE VISUALIZACIÓN TÉCNICA, ACOMETIDAS ELÉCTRICAS Y SISTEMAS DE ALIMENTACIÓN, ESTRUCTURA METÁLICA EN TECHO Y PARED DEL ESTUDIO DE GRABACIÓN DEL ÁREA DE MEDIOS AUDIOVISUALES DEL COMANDO",
+    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850808"
+  },
+  {
+    "id": "CO1.REQ.10981173",
+    "referencia": "266 COGFM DIADF 2026   (Manifestación de interés (Menor Cuantía))",
+    "entidad": "COMANDO GENERAL DE LAS FUERZAS MILITARES",
+    "nit_entidad": "800230729",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "Bogotá",
+    "precio": 187626138.0,
+    "precio_formateado": "$187,626,138 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATAR LA REMODELACION DEL ESTUDIO DE GRABACIÓN ÁREA DE MEDIOS AUDIOVISUALES COMES  INCLUYENDO SUMINISTRO, INSTALACIÓN, ADECUACIÓN, REMODELACION Y PUESTA EN FUNCIONAMIENTO INTEGRAL DE LA INFRAESTRUCTURA FÍSICA Y TECNOLÓGICA  DEL  SISTEMAS DE INSONORIZACIÓN Y ACONDICIONAMIENTO ACÚSTICO EN PAREDES Y TECHO, VENTANA DE VISUALIZACIÓN TÉCNICA, ACOMETIDAS ELÉCTRICAS Y SISTEMAS DE ALIMENTACIÓN, ESTRUCTURA METÁLICA EN TECHO Y PARED DEL ESTUDIO DE GRABACIÓN DEL ÁREA DE MEDIOS AUDIOVISUALES DEL COMANDO",
+    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10835268"
+  },
+  {
+    "id": "CO1.REQ.10891731",
+    "referencia": "266 COGFM DIADF 2026",
+    "entidad": "COMANDO GENERAL DE LAS FUERZAS MILITARES",
+    "nit_entidad": "800230729",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "Bogotá",
+    "precio": 187626138.0,
+    "precio_formateado": "$187,626,138 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "CONTRATAR LA REMODELACION DEL ESTUDIO DE GRABACIÓN ÁREA DE MEDIOS AUDIOVISUALES COMES  INCLUYENDO SUMINISTRO, INSTALACIÓN, ADECUACIÓN, REMODELACION Y PUESTA EN FUNCIONAMIENTO INTEGRAL DE LA INFRAESTRUCTURA FÍSICA Y TECNOLÓGICA  DEL  SISTEMAS DE INSONORIZACIÓN Y ACONDICIONAMIENTO ACÚSTICO EN PAREDES Y TECHO, VENTANA DE VISUALIZACIÓN TÉCNICA, ACOMETIDAS ELÉCTRICAS Y SISTEMAS DE ALIMENTACIÓN, ESTRUCTURA METÁLICA EN TECHO Y PARED DEL ESTUDIO DE GRABACIÓN DEL ÁREA DE MEDIOS AUDIOVISUALES DEL COMANDO",
+    "fecha_publicacion": "2026-08-24T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10766159"
+  },
+  {
+    "id": "CO1.REQ.11039914",
+    "referencia": "IES-SAMC-001-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "INSTITUCIÓN EDUCATIVA DE SANTANDER",
+    "nit_entidad": "890212309",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 165910805.0,
+    "precio_formateado": "$165,910,805 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "Realizar el mejoramiento de la infraestructura física de la Institución Educativa de Santander, Sede D, en el marco de los Acuerdos Escolares vigencia 2023, consistente en el reemplazo de la cubierta y de la estructura metálica del bloque oriental de aulas de primaria, incluida la red de evacuación de aguas lluvias y la reposición del sistema de iluminación asociado.",
+    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10893929"
+  },
+  {
+    "id": "CO1.REQ.11001599",
+    "referencia": "IES-SAMC-001-2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "INSTITUCIÓN EDUCATIVA DE SANTANDER",
+    "nit_entidad": "890212309",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 165910805.0,
+    "precio_formateado": "$165,910,805 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "Realizar el mejoramiento de la infraestructura física de la Institución Educativa de Santander, Sede D, en el marco de los Acuerdos Escolares vigencia 2023, consistente en el reemplazo de la cubierta y de la estructura metálica del bloque oriental de aulas de primaria, incluida la red de evacuación de aguas lluvias y la reposición del sistema de iluminación asociado.",
+    "fecha_publicacion": "2026-09-08T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10855487"
+  },
+  {
+    "id": "CO1.REQ.10934597",
+    "referencia": "IES-SAMC-001-2026",
+    "entidad": "INSTITUCIÓN EDUCATIVA DE SANTANDER",
+    "nit_entidad": "890212309",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "precio": 165910805.0,
+    "precio_formateado": "$165,910,805 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "Realizar el mejoramiento de la infraestructura física de la Institución Educativa de Santander, Sede D, en el marco de los Acuerdos Escolares vigencia 2023, consistente en el reemplazo de la cubierta y de la estructura metálica del bloque oriental de aulas de primaria, incluida la red de evacuación de aguas lluvias y la reposición del sistema de iluminación asociado.",
+    "fecha_publicacion": "2026-08-28T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10792911"
+  },
+  {
+    "id": "CO1.REQ.10160028",
+    "referencia": "LICITACION PUBLICA 003-2026",
+    "entidad": "ALCALDIA MUNICIPAL DE GIRARDOT",
+    "nit_entidad": "890680378",
+    "departamento": "Cundinamarca",
+    "ciudad": "Girardot",
+    "precio": 109090909.0,
+    "precio_formateado": "$109,090,909 COP",
+    "modalidad": "Licitación pública Obra Publica",
+    "tipo_contrato": "Obra",
+    "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA Y FINANCIERA PARA LA CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA Y MEJORAMIENTO DEL POLIDEPORTIVO UBICADO EN LA DIAGONAL 39 CON TRASVERSAL 6 DEL BARRIO EL TRIUNFO DEL MUNICIPIO DE GIRARDOT, CUNDINAMARCA",
+    "fecha_publicacion": null,
+    "estado_secop": "Borrador",
+    "fase": null,
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.10917671",
+    "referencia": "CM-005-2026",
+    "entidad": "MUNICIPIO DE AGUA DE DIOS",
+    "nit_entidad": "890680149",
+    "departamento": "Cundinamarca",
+    "ciudad": "Agua De Dios",
+    "precio": 104149650.0,
+    "precio_formateado": "$104,149,650 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, JURIDICA, FINANCIERA, SOCIAL Y AMBIENTAL, PARA LA CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO No. ICCU 843 DE 2025",
+    "fecha_publicacion": "2026-08-25T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metalica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metalica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10772017"
+  },
+  {
+    "id": "CO1.REQ.10900494",
+    "referencia": "UNAL-MED-2026-444695",
+    "entidad": "UNIVERSIDAD NACIONAL DE COLOMBIA",
+    "nit_entidad": "899999063",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "No Definido",
+    "precio": 103209087.0,
+    "precio_formateado": "$103,209,087 COP",
+    "modalidad": "Contratación régimen especial",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "Compra e instalación de estructura metálica para el ascensor del Bloque 46, Campus El Volador, Universidad Nacional de Colombia Sede Medellín",
+    "fecha_publicacion": "2026-08-21T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Fase de ofertas",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "estructura metálica"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "estructura metálica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 48,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10754887"
   },
   {
     "id": "CO1.REQ.4325547",
@@ -6491,90 +6407,6 @@ window.PROSPECTS_DATA = [
     "etapa_comercial": "Proceso Activo (Aprobado)",
     "tipo_oportunidad": "Monitoreo Comercial",
     "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 35,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
-  },
-  {
-    "id": "CO1.REQ.10067748",
-    "referencia": "CDOS-022-26",
-    "entidad": "ESE HOSPITAL LOCAL CARTAGENA DE INDIAS.*",
-    "nit_entidad": "806010305",
-    "departamento": "Bolívar",
-    "ciudad": "Cartagena",
-    "precio": 77331000.0,
-    "precio_formateado": "$77,331,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTACIÓN DE SERVICIO DE MONITOREO DE TEMPERATURA  LAS 24 HORAS Y 7 DIAS DE LA SEMANA  A  EQUIPOS DE RED DE FRIO QUE CONTIENEN PRODUCTOS INMUNOBIOLOGICOS  DE LOS PUNTOS DE VACUNACIÓN, CUARTO FRIO Y CENTRO DE ACOPIO DE LA ESE HOSPITAL LOCAL CARTAGENA DE INDIAS A TRAVES DE  EQUIPOS HARDWARE CONSISTENTES EN DISPOSITIVOS  ELECTRONICOS DE MONITOREO EN CALIDAD DE COMODATO DE PROPIEDAD DEL CONTRATISTA CON TRANSMISIÓN DE DATOS E INSTALACIÓN DE SENSORES Y/O SOFTWARE DE MONITOREO A FIN DE CUMPLIR CON LAS",
-    "fecha_publicacion": null,
-    "estado_secop": "Aprobado",
-    "fase": null,
-    "etapa_comercial": "Proceso Activo (Aprobado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General",
-        "matched_keywords": [
-          "hospital"
-        ],
-        "relevance_score": 15.0
-      }
-    ],
-    "materiales_detectados": [
-      "hospital"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 35,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
-  },
-  {
-    "id": "CO1.REQ.10780706",
-    "referencia": "C-01072026-103",
-    "entidad": "E.S.E HOSPITAL LOCAL DE SAN FERNANDO, BOLIVAR",
-    "nit_entidad": "806007689",
-    "departamento": "Bolívar",
-    "ciudad": "San Fernando",
-    "precio": 64999998.0,
-    "precio_formateado": "$64,999,998 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Prestación de servicios",
-    "descripcion": "PRESTACION DE SERVICIOS  DE MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE LOS EQUIPOS BIOMÉDICOS, EQUIPOS INDUSTRIALES DE USO HOSPITALARIO, SISTEMAS DE REFRIGERACIÓN, SISTEMAS ELÉCTRICOS, SISTEMAS HIDRÁULICOS Y DE REDES, MUEBLES Y ENSERES E INFRAESTRUCTURA CONSIDERADOS COMO ADECUACIONES MENORES DE LA E.S.E. HOSPITAL LOCAL DE SAN FERNANDO.",
-    "fecha_publicacion": null,
-    "estado_secop": "Borrador",
-    "fase": null,
-    "etapa_comercial": "Borrador de Pliegos",
-    "tipo_oportunidad": "Oportunidad Pre-Licitación",
-    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
     "sectores": [
       {
         "id": "obra_civil_general",

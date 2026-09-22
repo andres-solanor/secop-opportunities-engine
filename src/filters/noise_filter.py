@@ -74,15 +74,30 @@ class NoiseFilter:
         if price < self.min_budget:
             return False, f"Price below threshold: ${price:,.0f} COP < ${self.min_budget:,.0f} COP"
 
-        # 2. Check Contract Type for OPS
+        # 2. Check Contract Type for OPS (Hard block Prestación de Servicios unconditionally)
         contract_type = str(record.get("tipo_de_contrato", "")).lower().strip()
         modality = str(record.get("modalidad_de_contratacion", "")).lower().strip()
+        description = str(record.get("descripci_n_del_procedimiento", "")).lower()
+        title = str(record.get("nombre_del_procedimiento", "")).lower()
 
-        # Reject pure OPS / Prestación de Servicios
+        # Hard reject all Prestación de Servicios
         if any(blocked in contract_type for blocked in self.BLOCKED_CONTRACT_TYPES):
-            # Check if it's a direct contracting modality (standard OPS pattern)
-            if "directa" in modality or not self.is_commercial_modality(modality):
-                return False, f"Identified as OPS/Prestación de servicios: {contract_type}"
+            return False, f"Hard blocked OPS: Prestación de servicios ({contract_type})"
+
+        # Hard reject common individual personnel phrasing
+        blocked_phrases = [
+            "prestar servicios profesionales",
+            "prestar los servicios profesionales",
+            "apoyo a la gestión",
+            "apoyo a la gestion",
+            "asesoría jurídica",
+            "asesoria juridica",
+            "médico especialista",
+            "neurólogo",
+            "persona natural",
+        ]
+        if any(phrase in description for phrase in blocked_phrases) or any(phrase in title for phrase in blocked_phrases):
+            return False, "Identified as individual professional service (OPS)"
 
         # 3. UNSPSC Category Guard
         cat_code = str(record.get("codigo_principal_de_categoria", "")).strip()

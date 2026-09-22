@@ -16,13 +16,15 @@ class ScopeExtractor:
         "acero_metalmecanica": {
             "name": "Acero & Metalmecánica",
             "keywords": [
-                "acero", "estructura metálica", "estructuras metálicas", "estructura metalica",
-                "estructuras metalicas", "vigas", "perfilería", "perfiles de acero",
-                "tubería estructural", "tuberia estructural", "varilla", "varillas",
-                "cubierta metálica", "cubiertas metálicas", "cercha", "cerchas",
-                "puente metálico", "puente vehicular", "lámina galvanizada", "lamina galvanizada",
-                "placa huella", "reforzamiento estructural", "soldadura", "hierro figurado",
-                "carpintería metálica", "cerramientos metálicos", "malla eslabonada"
+                "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
+                "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
+                "varilla", "varillas", "varilla de acero", "cubierta metálica", "cubiertas metálicas",
+                "estructura metálica", "estructuras metálicas", "estructura metalica",
+                "estructuras metalicas", "vigas", "perfilería", "perfiles", "lámina galvanizada",
+                "lamina galvanizada", "cercha", "cerchas", "puente metálico", "puente vehicular",
+                "reforzamiento estructural", "soldadura", "hierro figurado", "carpintería metálica",
+                "cerramientos metálicos", "malla eslabonada", "acero figurado", "acero inoxidable",
+                "suministro de acero"
             ],
             "unspsc_prefixes": ["3010", "3026", "7214", "7212", "7210"],
             "weight": 1.2
@@ -206,11 +208,33 @@ class ScopeExtractor:
         }
 
     def _parse_price(self, record: Dict[str, Any]) -> float:
-        raw = record.get("precio_base") or record.get("valor_total_adjudicacion") or 0
+        """Parses price, reconciles clerical 3-zero typos between base price and awarded price."""
         try:
-            return float(raw)
+            p_base = float(record.get("precio_base") or 0)
         except (ValueError, TypeError):
-            return 0.0
+            p_base = 0.0
+
+        try:
+            p_adj = float(record.get("valor_total_adjudicacion") or 0)
+        except (ValueError, TypeError):
+            p_adj = 0.0
+
+        # If contract has awarded amount, prioritize the real contract amount
+        if p_adj > 0:
+            # Detect 3-zero typo where base price was entered in thousands or cents
+            if p_base > (p_adj * 100):
+                return p_adj
+            return p_adj
+
+        # If base price has extreme clerical typo (e.g. municipal clerk enters $100B for small local contract)
+        if p_base > 50_000_000_000:
+            modalidad = str(record.get("modalidad_de_contratacion", "")).lower()
+            tipo = str(record.get("tipo_de_contrato", "")).lower()
+            # If not a mega-infrastructure tender, check for 1000x multiplier typo
+            if "licitación pública" not in modalidad and "obra" not in tipo:
+                return p_base / 1000.0
+
+        return p_base
 
     def _compute_lead_score(
         self,

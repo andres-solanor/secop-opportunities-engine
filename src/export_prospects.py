@@ -20,15 +20,18 @@ def harvest_target_records(client: SocrataClient) -> List[Dict[str, Any]]:
     seen_ids = set()
 
     queries = [
-        # Query 1: Steel & Metalwork
+        # Query 1: Steel & Metalwork (prevents matching surnames like 'Acero' in procedure titles)
         (
             "precio_base >= 100000000 AND ("
-            "upper(nombre_del_procedimiento) like '%ACERO%' OR "
-            "upper(nombre_del_procedimiento) like '%METALICA%' OR "
-            "upper(nombre_del_procedimiento) like '%METÁLICA%' OR "
-            "upper(descripci_n_del_procedimiento) like '%ESTRUCTURA MET%' OR "
+            "upper(nombre_del_procedimiento) like '%ESTRUCTURA%MET%' OR "
+            "upper(nombre_del_procedimiento) like '%VIGAS%' OR "
+            "upper(nombre_del_procedimiento) like '%CUBIERTA%MET%' OR "
+            "upper(nombre_del_procedimiento) like '%PERFILES%' OR "
+            "upper(descripci_n_del_procedimiento) like '%ACERO%' OR "
+            "upper(descripci_n_del_procedimiento) like '%ESTRUCTURA%MET%' OR "
             "upper(descripci_n_del_procedimiento) like '%VIGAS%' OR "
-            "upper(descripci_n_del_procedimiento) like '%CUBIERTA MET%' "
+            "upper(descripci_n_del_procedimiento) like '%CUBIERTA%MET%' OR "
+            "upper(descripci_n_del_procedimiento) like '%VARILLA%' "
             ")"
         ),
         # Query 2: HORECA & Industrial Gastronomy
