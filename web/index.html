@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SECOP II - Observatorio de Oportunidades & Leads B2B</title>
+  <meta name="description" content="Motor inteligente de extracción, filtrado de ruido y enriquecimiento de contratación pública colombiana (SECOP II) para licitantes y proveedores B2B.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div>
+        <h1 class="brand-title">SECOP <span>Engine</span></h1>
+      </div>
+      <span class="brand-badge">Live SECOP II</span>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn btn-outline" id="btnExportCsv">
+        <span>📥</span> Exportar CSV (50 Leads)
+      </button>
+      <button class="btn btn-primary" id="btnNewScan">
+        <span>🔄</span> Actualizar Datos
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Top KPIs -->
+    <section class="kpi-grid">
+      <div class="kpi-card kpi-emerald">
+        <div class="kpi-title">Pipeline Analizado</div>
+        <div class="kpi-value" id="kpiTotalPipeline">$312,240 M</div>
+        <div class="kpi-sub">Total en contratos calificados (COP)</div>
+      </div>
+      <div class="kpi-card kpi-cyan">
+        <div class="kpi-title">Oportunidades Curadas</div>
+        <div class="kpi-value" id="kpiTotalOpps">50</div>
+        <div class="kpi-sub">Filtradas de 376 candidatas (Sin OPS)</div>
+      </div>
+      <div class="kpi-card kpi-amber">
+        <div class="kpi-title">Sectores Clave</div>
+        <div class="kpi-value">Acero, Solar & HORECA</div>
+        <div class="kpi-sub">Metalmecánica, Energía & Gastronomía</div>
+      </div>
+      <div class="kpi-card kpi-violet">
+        <div class="kpi-title">Score de Calidad Promedio</div>
+        <div class="kpi-value" id="kpiAvgScore">82 / 100</div>
+        <div class="kpi-sub">Algoritmo de pertinencia comercial</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="view-tabs" aria-label="Vistas principales">
+      <button class="view-tab active" data-tab="proveedores" id="tabProveedores">
+        <span>🎯 Radar B2B para Proveedores</span>
+        <span class="badge-count" id="countProveedores">0</span>
+      </button>
+      <button class="view-tab" data-tab="observatorio" id="tabObservatorio">
+        <span>🔭 Observatorio de Licitaciones</span>
+        <span class="badge-count" id="countObservatorio">0</span>
+      </button>
+      <button class="view-tab" data-tab="crm" id="tabCrm">
+        <span>📋 Pipeline Comercial / CRM</span>
+        <span class="badge-count" id="countCrm">0</span>
+      </button>
+    </nav>
+
+    <!-- Search and Filters Bar -->
+    <section class="filter-bar" aria-label="Filtros">
+      <div class="search-input-group">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="input-search" placeholder="Buscar por palabra clave, entidad, contratista o NIT...">
+      </div>
+
+      <select id="sectorSelect" class="filter-select" aria-label="Filtrar por sector">
+        <option value="todos">Todos los Sectores</option>
+        <option value="acero_metalmecanica">Acero & Metalmecánica</option>
+        <option value="horeca_industrial">HORECA & Cocinas Industriales</option>
+        <option value="energia_solar_alumbrado">Energía Solar & Alumbrado Público</option>
+        <option value="obra_civil_general">Construcción & Obra Civil</option>
+      </select>
+
+      <select id="stageSelect" class="filter-select" aria-label="Filtrar por etapa">
+        <option value="todos">Todas las Etapas</option>
+        <option value="adjudicado">Adjudicado (Ganador Conocido)</option>
+        <option value="ofertas">En Ofertas / Abierto</option>
+        <option value="borrador">Borrador de Pliegos</option>
+      </select>
+
+      <select id="budgetSelect" class="filter-select" aria-label="Filtrar por presupuesto">
+        <option value="0">Cualquier Presupuesto</option>
+        <option value="200000000">> $200 Millones COP</option>
+        <option value="500000000">> $500 Millones COP</option>
+        <option value="1000000000">> $1,000 Millones COP</option>
+        <option value="5000000000">> $5,000 Millones COP</option>
+      </select>
+
+      <select id="departmentSelect" class="filter-select" aria-label="Filtrar por departamento">
+        <option value="todos">Todos los Departamentos</option>
+      </select>
+    </section>
+
+    <!-- Results Header -->
+    <div class="results-header">
+      <div class="results-count" id="resultsCount">Mostrando <b>50</b> oportunidades calificadas</div>
+      <button class="btn btn-outline" id="btnResetFilters" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+        Limpiar Filtros
+      </button>
+    </div>
+
+    <!-- Cards Grid (Default Views: Proveedores & Observatorio) -->
+    <section class="cards-grid" id="cardsGrid">
+      <!-- Dynamic Javascript Rendering -->
+    </section>
+
+    <!-- CRM Kanban View (Visible when CRM tab active) -->
+    <section class="crm-kanban" id="crmKanban" style="display: none;">
+      <div class="kanban-column" data-status="nuevo">
+        <div class="kanban-header">
+          <div class="kanban-title">📥 Leads Nuevos</div>
+          <span class="badge-count" id="countColNuevo">0</span>
+        </div>
+        <div class="kanban-cards" id="kanbanNuevo"></div>
+      </div>
+
+      <div class="kanban-column" data-status="contactado">
+        <div class="kanban-header">
+          <div class="kanban-title">📞 Contactados / En Outreach</div>
+          <span class="badge-count" id="countColContactado">0</span>
+        </div>
+        <div class="kanban-cards" id="kanbanContactado"></div>
+      </div>
+
+      <div class="kanban-column" data-status="negociacion">
+        <div class="kanban-header">
+          <div class="kanban-title">💼 En Cotización / Alianza</div>
+          <span class="badge-count" id="countColNegociacion">0</span>
+        </div>
+        <div class="kanban-cards" id="kanbanNegociacion"></div>
+      </div>
+
+      <div class="kanban-column" data-status="ganado">
+        <div class="kanban-header">
+          <div class="kanban-title">🏆 Ganado / Cerrado</div>
+          <span class="badge-count" id="countColGanado">0</span>
+        </div>
+        <div class="kanban-cards" id="kanbanGanado"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail & Pitch Generator Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalBody">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
