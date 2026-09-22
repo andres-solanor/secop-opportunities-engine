@@ -103,15 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const deptVal = departmentSelect.value;
 
     return rawData.filter(item => {
-      // Tab based filtering
+      // Tab based filtering: STRICTLY MUTUALLY EXCLUSIVE
+      const isAdjudicado = (item.etapa_comercial || '').toLowerCase().includes('adjudicado');
       if (currentTab === 'proveedores') {
-        // Focus on leads with materials/equipment needs (Adjudicados or Open Bids)
-        const hasSpecificMaterials = (item.materiales_detectados && item.materiales_detectados.length > 0);
-        if (!hasSpecificMaterials) return false;
+        // Radar B2B: Strictly for awarded contracts (direct supplier sales to the winning contractor)
+        if (!isAdjudicado) return false;
       } else if (currentTab === 'observatorio') {
-        // Focus on tenders open for bidding or in draft
-        const isBidding = item.etapa_comercial.includes('Licitación') || item.etapa_comercial.includes('Borrador') || item.etapa_comercial.includes('Activo');
-        if (!isBidding) return false;
+        // Observatorio: Strictly for open tenders & drafts (prospective bidding before tender closes)
+        if (isAdjudicado) return false;
       }
 
       // Keyword query
@@ -155,12 +154,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Update Top KPIs
-  function updateKpis(items) {
-    const totalPipeline = items.reduce((acc, curr) => acc + (curr.precio || 0), 0);
-    const avgScore = items.length ? Math.round(items.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / items.length) : 0;
+  // Update Top KPIs dynamically per active tab
+  function updateKpis() {
+    let targetItems = rawData;
+    let subtitle = 'Total en 150 contratos calificados (COP)';
 
-    // Format pipeline value clearly in Colombian currency terms
+    if (currentTab === 'proveedores') {
+      targetItems = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
+      subtitle = 'Presupuesto en contratos adjudicados para venta B2B';
+    } else if (currentTab === 'observatorio') {
+      targetItems = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
+      subtitle = 'Presupuesto oficial en licitaciones abiertas para ofertar';
+    } else if (currentTab === 'crm') {
+      targetItems = rawData.filter(i => crmState[i.id]);
+      subtitle = 'Monto en oportunidades activas en tu CRM';
+    }
+
+    const totalPipeline = targetItems.reduce((acc, curr) => acc + (curr.precio || 0), 0);
+    const avgScore = targetItems.length ? Math.round(targetItems.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / targetItems.length) : 0;
+
     if (totalPipeline >= 1_000_000_000_000) {
       kpiTotalPipeline.textContent = `$${(totalPipeline / 1_000_000_000_000).toFixed(2).replace('.', ',')} Billones COP`;
     } else if (totalPipeline >= 1_000_000_000) {
@@ -168,12 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       kpiTotalPipeline.textContent = `$${Math.round(totalPipeline / 1_000_000).toLocaleString('es-CO')} Millones COP`;
     }
-    kpiTotalOpps.textContent = items.length;
-    kpiAvgScore.textContent = `${avgScore} / 100`;
 
-    // Tab badges
-    const provCount = rawData.filter(i => i.materiales_detectados?.length > 0).length;
-    const obsCount = rawData.filter(i => i.etapa_comercial.includes('Licitación') || i.etapa_comercial.includes('Borrador') || i.etapa_comercial.includes('Activo')).length;
+    document.getElementById('kpiTotalOpps').textContent = targetItems.length;
+    document.getElementById('kpiAvgScore').textContent = `${avgScore} / 100`;
+    const subEl = document.querySelector('.kpi-emerald .kpi-sub');
+    if (subEl) subEl.textContent = subtitle;
+
+    // Tab badges (Zero duplication: Adjudicados vs Open Tenders)
+    const provCount = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
+    const obsCount = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
     const crmCount = Object.keys(crmState).length;
 
     document.getElementById('countProveedores').textContent = provCount;
@@ -183,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render View depending on current tab
   function renderView() {
+    updateKpis();
     if (currentTab === 'crm') {
       cardsGrid.style.display = 'none';
       crmKanban.style.display = 'grid';

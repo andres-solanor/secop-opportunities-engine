@@ -58,11 +58,22 @@ def harvest_target_records(client: SocrataClient) -> List[Dict[str, Any]]:
             "upper(descripci_n_del_procedimiento) like '%LUMINARIA%LED%'"
             ")"
         ),
-        # Query 4: Active High-Value Tenders (Licitaciones for Ally Consultants)
+        # Query 4: Recently Awarded Commercial Contracts (for B2B Suppliers)
+        (
+            "precio_base >= 100000000 AND "
+            "estado_del_procedimiento in ('Adjudicado', 'Celebrado') AND "
+            "modalidad_de_contratacion in ('Licitación pública', 'Selección abreviada menor cuantía', 'Subasta', 'Régimen especial') AND ("
+            "upper(descripci_n_del_procedimiento) like '%SUMINISTRO%' OR "
+            "upper(descripci_n_del_procedimiento) like '%OBRA%' OR "
+            "upper(descripci_n_del_procedimiento) like '%DOTACION%' OR "
+            "upper(descripci_n_del_procedimiento) like '%DOTACIÓN%'"
+            ")"
+        ),
+        # Query 5: Active High-Value Tenders (Licitaciones for Ally Consultants)
         (
             "precio_base >= 300000000 AND "
             "modalidad_de_contratacion in ('Licitación pública', 'Selección abreviada menor cuantía', 'Subasta') AND "
-            "estado_del_procedimiento in ('Presentación de ofertas', 'Convocado', 'Publicado', 'Adjudicado')"
+            "estado_del_procedimiento in ('Presentación de ofertas', 'Convocado', 'Publicado')"
         )
     ]
 
@@ -89,7 +100,7 @@ def harvest_target_records(client: SocrataClient) -> List[Dict[str, Any]]:
 
 
 def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150) -> List[Dict[str, Any]]:
-    """Applies NoiseFilter and ScopeExtractor, ranking and balancing qualified prospects."""
+    """Applies NoiseFilter and ScopeExtractor, balancing both by Sector and Commercial Stage (Adjudicado vs Open)."""
     noise_filter = NoiseFilter(min_budget=50_000_000)
     scope_extractor = ScopeExtractor()
 
@@ -107,17 +118,13 @@ def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150
     # Sort descending by score_calidad, then by precio
     passed_items.sort(key=lambda x: (x["score_calidad"], x["precio"]), reverse=True)
 
-    # Balance across verticals
-    steel_leads = [item for item in passed_items if any(s["id"] == "acero_metalmecanica" for s in item["sectores"])]
-    horeca_leads = [item for item in passed_items if any(s["id"] == "horeca_industrial" for s in item["sectores"])]
-    solar_leads = [item for item in passed_items if any(s["id"] == "energia_solar_alumbrado" for s in item["sectores"])]
-    civil_leads = [item for item in passed_items if any(s["id"] == "obra_civil_general" for s in item["sectores"])]
+    # Split into Adjudicados (B2B Leads) and Open Bids (Observatorio)
+    adjudicados = [item for item in passed_items if "adjudicado" in item["etapa_comercial"].lower()]
+    open_tenders = [item for item in passed_items if "adjudicado" not in item["etapa_comercial"].lower()]
 
-    print(f"[*] Post-filter qualified leads:")
-    print(f"    - Acero & Metalmecánica:         {len(steel_leads)}")
-    print(f"    - HORECA & Maquinaria:          {len(horeca_leads)}")
-    print(f"    - Energía Solar & Alumbrado:    {len(solar_leads)}")
-    print(f"    - Obra Civil & General:         {len(civil_leads)}")
+    print(f"[*] Post-filter qualified leads pool:")
+    print(f"    - Adjudicados (B2B Proveedores): {len(adjudicados)}")
+    print(f"    - Licitaciones Abiertas (Observatorio): {len(open_tenders)}")
 
     selected = []
     selected_ids = set()
@@ -132,13 +139,12 @@ def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150
                 selected_ids.add(item["id"])
                 count += 1
 
-    # Balanced distribution
-    add_from_list(steel_leads, 40)
-    add_from_list(horeca_leads, 35)
-    add_from_list(solar_leads, 35)
-    add_from_list(civil_leads, 40)
+    # Ensure robust balanced representation:
+    # Target ~60 Adjudicados for Proveedores and ~90 Open Tenders for Observatorio
+    add_from_list(adjudicados, 65)
+    add_from_list(open_tenders, 85)
 
-    # Fill any remaining slots up to target_count
+    # Fill remaining from pool if needed
     for item in passed_items:
         if len(selected) >= target_count:
             break
