@@ -154,37 +154,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Update Top KPIs dynamically per active tab
-  function updateKpis() {
-    let targetItems = rawData;
-    let subtitle = 'Total en 150 contratos calificados (COP)';
+  // Helper: Format currency in Colombian business terms
+  function formatCop(val) {
+    if (val >= 1_000_000_000_000) {
+      return `$${(val / 1_000_000_000_000).toFixed(2).replace('.', ',')} Billones COP`;
+    } else if (val >= 1_000_000_000) {
+      return `$${(val / 1_000_000_000).toFixed(1).replace('.', ',')} Mil Millones COP`;
+    } else {
+      return `$${Math.round(val / 1_000_000).toLocaleString('es-CO')} Millones COP`;
+    }
+  }
+
+  // Update Top KPIs dynamically per active tab AND active filters
+  function updateKpis(filteredItems = []) {
+    let tabBaseline = rawData;
+    let baseName = 'esta vista';
 
     if (currentTab === 'proveedores') {
-      targetItems = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
-      subtitle = 'Presupuesto en contratos adjudicados para venta B2B';
+      tabBaseline = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
+      baseName = 'contratos adjudicados';
     } else if (currentTab === 'observatorio') {
-      targetItems = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
-      subtitle = 'Presupuesto oficial en licitaciones abiertas para ofertar';
+      tabBaseline = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
+      baseName = 'licitaciones abiertas';
     } else if (currentTab === 'crm') {
-      targetItems = rawData.filter(i => crmState[i.id]);
-      subtitle = 'Monto en oportunidades activas en tu CRM';
+      tabBaseline = rawData.filter(i => crmState[i.id]);
+      baseName = 'oportunidades en CRM';
     }
 
-    const totalPipeline = targetItems.reduce((acc, curr) => acc + (curr.precio || 0), 0);
-    const avgScore = targetItems.length ? Math.round(targetItems.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / targetItems.length) : 0;
+    const baselineSum = tabBaseline.reduce((acc, curr) => acc + (curr.precio || 0), 0);
+    const filteredSum = filteredItems.reduce((acc, curr) => acc + (curr.precio || 0), 0);
+    const avgScore = filteredItems.length ? Math.round(filteredItems.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / filteredItems.length) : 0;
 
-    if (totalPipeline >= 1_000_000_000_000) {
-      kpiTotalPipeline.textContent = `$${(totalPipeline / 1_000_000_000_000).toFixed(2).replace('.', ',')} Billones COP`;
-    } else if (totalPipeline >= 1_000_000_000) {
-      kpiTotalPipeline.textContent = `$${(totalPipeline / 1_000_000_000).toFixed(1).replace('.', ',')} Mil Millones COP`;
-    } else {
-      kpiTotalPipeline.textContent = `$${Math.round(totalPipeline / 1_000_000).toLocaleString('es-CO')} Millones COP`;
+    const isFiltered = (filteredItems.length !== tabBaseline.length) || 
+                       searchInput.value.trim() !== '' || 
+                       sectorSelect.value !== 'todos' || 
+                       stageSelect.value !== 'todos' || 
+                       budgetSelect.value !== '0' || 
+                       departmentSelect.value !== 'todos';
+
+    // 1. Pipeline Total Card
+    kpiTotalPipeline.textContent = formatCop(filteredSum);
+    const kpiPipelineSub = document.querySelector('.kpi-emerald .kpi-sub');
+    if (kpiPipelineSub) {
+      if (isFiltered && baselineSum > 0) {
+        const pct = Math.round((filteredSum / baselineSum) * 100);
+        kpiPipelineSub.textContent = `de ${formatCop(baselineSum)} en ${baseName} (${pct}%)`;
+      } else {
+        kpiPipelineSub.textContent = `Total en ${tabBaseline.length} ${baseName}`;
+      }
     }
 
-    document.getElementById('kpiTotalOpps').textContent = targetItems.length;
+    // 2. Count Card
+    document.getElementById('kpiTotalOpps').textContent = filteredItems.length;
+    const kpiOppsSub = document.querySelector('.kpi-cyan .kpi-sub');
+    if (kpiOppsSub) {
+      kpiOppsSub.textContent = isFiltered ? `de ${tabBaseline.length} disponibles en ${baseName}` : `Calificadas sin OPS ni prestación de servicios`;
+    }
+
+    // 3. Sector / Filter Card
+    const kpiSecTitle = document.getElementById('kpiSectorTitle');
+    const kpiSecVal = document.getElementById('kpiSectorValue');
+    const kpiSecSub = document.getElementById('kpiSectorSub');
+    if (kpiSecTitle && kpiSecVal && kpiSecSub) {
+      if (sectorSelect.value !== 'todos') {
+        kpiSecTitle.textContent = 'Sector Filtrado';
+        kpiSecVal.textContent = sectorSelect.options[sectorSelect.selectedIndex].text;
+        kpiSecSub.textContent = `Visualizando este vertical específico`;
+      } else if (departmentSelect.value !== 'todos') {
+        kpiSecTitle.textContent = 'Región Filtrada';
+        kpiSecVal.textContent = departmentSelect.value;
+        kpiSecSub.textContent = `Filtro geográfico activo`;
+      } else {
+        kpiSecTitle.textContent = 'Sectores Clave';
+        kpiSecVal.textContent = 'Acero, Solar & HORECA';
+        kpiSecSub.textContent = 'Metalmecánica, Energía & Gastronomía';
+      }
+    }
+
+    // 4. Quality Score Card
     document.getElementById('kpiAvgScore').textContent = `${avgScore} / 100`;
-    const subEl = document.querySelector('.kpi-emerald .kpi-sub');
-    if (subEl) subEl.textContent = subtitle;
 
     // Tab badges (Zero duplication: Adjudicados vs Open Tenders)
     const provCount = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
@@ -198,7 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render View depending on current tab
   function renderView() {
-    updateKpis();
+    const filtered = getFilteredData();
+    updateKpis(filtered);
+
     if (currentTab === 'crm') {
       cardsGrid.style.display = 'none';
       crmKanban.style.display = 'grid';
@@ -206,13 +256,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       cardsGrid.style.display = 'grid';
       crmKanban.style.display = 'none';
-      renderCards();
+      renderCards(filtered);
     }
   }
 
   // Render Card Grid
-  function renderCards() {
-    const filtered = getFilteredData();
+  function renderCards(filtered = []) {
     resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas`;
 
     if (filtered.length === 0) {
