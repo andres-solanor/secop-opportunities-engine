@@ -29,8 +29,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CONSORCIO CORDOBA NUTRE",
@@ -73,8 +73,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "Fundacion Accion Solidaria Por Colombia",
@@ -100,7 +100,7 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "PRESTACIÓN DE SERVICIOS PARA LA IMPLEMENTACIÓN DEL PROGRAMA DE\nALIMENTACIÓN ESCOLAR PAE-, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA \nMATRICULA OFICIAL DEL MUNICIPIO DE CAUCASIA - ANTIOQUIA, PARA LA VIGENCIA\n2026-2",
     "fecha_publicacion": "2026-09-14T00:00:00.000",
-    "estado_secop": "Abierto",
+    "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
     "tipo_oportunidad": "Lead B2B de Venta Directa",
@@ -117,16 +117,16 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
+      "nombre": "FUNDACION PROTEGER",
+      "nit": "900242855",
       "es_consorcio": false,
       "valor_adjudicado": 3149207403.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "departamento_proveedor": "Córdoba",
+      "ciudad_proveedor": "Planeta Rica"
     },
     "score_calidad": 95,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480"
@@ -161,8 +161,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION ILUSION EN GRANDE",
@@ -205,8 +205,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "La Provincia de La Paz",
@@ -249,8 +249,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -308,6 +308,50 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10914544"
   },
   {
+    "id": "CO1.REQ.11073451",
+    "referencia": "LP-SEG-03292-2026",
+    "entidad": "Gobernación Norte de Santander*",
+    "nit_entidad": "800103927",
+    "departamento": "Norte de Santander",
+    "ciudad": "Cúcuta",
+    "precio": 8860068000.0,
+    "precio_formateado": "$8,860,068,000 COP",
+    "modalidad": "Licitación pública",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO DE ALIMENTACIÓN ESCOLAR A NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES DE INSTITUCIONES EDUCATIVAS OFICIALES DEL DEPARTAMENTO NORTE DE SANTANDER, DURANTE EL RECESO ESTUDIANTIL CORRESPONDIENTE AL MES DE DICIEMBRE DE LA VIGENCIA 2026, EN CUMPLIMIENTO  DE LA RESOLUCIÓN N° 121 DEL 18 DE FEBRERO DE 2026, ESPECÍFICAMENTE  EN SU ARTÍCULO 2 SOBRE LA ATENCIÓN DURANTE EL RECESO ESTUDIANTIL:  TENIENDO EN CUENTA EL ÍNDICE DE INSEGURIDAD ALIMENTARIA COMO CRITERIO PARA LA PRIORIZACIÓN DE LOS TERRITORIOS CA",
+    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 90,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935665"
+  },
+  {
     "id": "CO1.REQ.11061608",
     "referencia": "No. OB-039-2026",
     "entidad": "FONER",
@@ -352,50 +396,6 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917086"
   },
   {
-    "id": "CO1.REQ.11043283",
-    "referencia": "LP-004-2026 (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE CHIGORODO",
-    "nit_entidad": "890980998",
-    "departamento": "Antioquia",
-    "ciudad": "Chigorodó",
-    "precio": 1716380090.0,
-    "precio_formateado": "$1,716,380,090 COP",
-    "modalidad": "Licitación pública",
-    "tipo_contrato": "Suministros",
-    "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A TRAVÉS DEL CUAL SE BRINDE UNA RACIÓN ALIMENTICIA A LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LAS INSTITUCIONES OFICIALES (lEO) DEL MUNICIPIO DE CHIGORODÓ BENEFICIARIOS DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026, SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODÓ Y LA GOBERNACIÓN DE ANTIOQUIA PARA LA VIGENCIA 2026-2.",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10898394"
-  },
-  {
     "id": "CO1.REQ.10964839",
     "referencia": "500-OS- 2197-2026",
     "entidad": "EMPRESAS MUNICIPALES DE CALI",
@@ -425,8 +425,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
-      "alumbrado público"
+      "alumbrado público",
+      "alumbrado publico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -469,8 +469,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -513,8 +513,8 @@
       }
     ],
     "materiales_detectados": [
-      "fotovoltaico",
-      "eficiencia energética"
+      "eficiencia energética",
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "PROMOTORA ENERGÉTICA DEL CENTRO S.A.S E.S.P",
@@ -601,8 +601,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PROSERVIRTE",
@@ -645,8 +645,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACION FUERZA Y DESARROLLO",
@@ -689,8 +689,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PRECOOPVIVERES",
@@ -702,52 +702,6 @@
     },
     "score_calidad": 88,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842"
-  },
-  {
-    "id": "CO1.REQ.10955523",
-    "referencia": "SAMT-SI-001-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE TAURAMENA",
-    "nit_entidad": "800012873",
-    "departamento": "Casanare",
-    "ciudad": "Tauramena",
-    "precio": 482671254.0,
-    "precio_formateado": "$482,671,254 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "CONSTRUCCIÓN ALUMBRADO PUBLICO FOTOVOLTAICO TIPO OFF GRID PARA LUMINARIAS LED STAND ALONE, EN LAS VEREDA JAGÜITO, EN EL MUNICIPIO DE TAURAMENA, CASANARE",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "fotovoltaico",
-          "luminarias led",
-          "alumbrado publico"
-        ],
-        "relevance_score": 56.2
-      }
-    ],
-    "materiales_detectados": [
-      "luminarias led",
-      "alumbrado publico",
-      "fotovoltaico"
-    ],
-    "contratista": {
-      "nombre": "M&M MONTAJES SAS",
-      "nit": "900672506",
-      "es_consorcio": false,
-      "valor_adjudicado": 482671254.0,
-      "departamento_proveedor": "Casanare",
-      "ciudad_proveedor": "Tauramena"
-    },
-    "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10812049"
   },
   {
     "id": "CO1.REQ.10985765",
@@ -779,8 +733,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CORPORACION, ARTE CULTURA Y DESARROLLO LIBRE",
@@ -792,50 +746,6 @@
     },
     "score_calidad": 88,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10840390"
-  },
-  {
-    "id": "CO1.REQ.10977606",
-    "referencia": "ESAL N°. 003-2026",
-    "entidad": "MUNICIPIO DE VENECIA ANTIOQUIA",
-    "nit_entidad": "890980764",
-    "departamento": "Antioquia",
-    "ciudad": "Venecia",
-    "precio": 303175052.0,
-    "precio_formateado": "$303,175,052 COP",
-    "modalidad": "Contratación régimen especial (con ofertas)",
-    "tipo_contrato": "Decreto 092 de 2017",
-    "descripcion": "INTEGRAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE VENECIA  ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN - ANTIOQUIA, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de ofertas",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "CORPORACIÓN BIENESTAR POR EL FUTURO",
-      "nit": "9014208543",
-      "es_consorcio": false,
-      "valor_adjudicado": 303175052.0,
-      "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
-    },
-    "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10831622"
   },
   {
     "id": "CO1.REQ.11014762",
@@ -882,50 +792,6 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10868870"
   },
   {
-    "id": "CO1.REQ.11039443",
-    "referencia": "SUBASTA INVERSA No. 003/2026 (Presentación de oferta)",
-    "entidad": "MUNICIPIO DE PEQUE",
-    "nit_entidad": "890982301",
-    "departamento": "Antioquia",
-    "ciudad": "Peque",
-    "precio": 470460291.0,
-    "precio_formateado": "$470,460,291 COP",
-    "modalidad": "Selección abreviada subasta inversa",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO DE RACIÓN SEGUN MINUTA Y LA CONTRATACIÓN DEL PERSONAL MANIPULADOR DE ALIMENTOS DESTINADO A LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE), DIRIGIDO A NIÑOS, NIÑAS Y ADOLESCENTES CARACTERIZADOS EN LA MATRICULA OFICIAL DEL MUNICIPIO DE PEQUE-ANTIOQUIA PARA EL SEGUNDO SEMESTRE DE 2026.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Fase de ofertas",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10893555"
-  },
-  {
     "id": "CO1.REQ.11025273",
     "referencia": "SASI-009-2026",
     "entidad": "MUNICIPIO DE AMAGA",
@@ -955,8 +821,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -970,8 +836,8 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10881155"
   },
   {
-    "id": "CO1.REQ.11065962",
-    "referencia": "SAMC-014-2026 (Manifestación de interés (Menor Cuantía))",
+    "id": "CO1.REQ.11075418",
+    "referencia": "SAMC-014-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "CORMACARENA",
     "nit_entidad": "822000091",
     "departamento": "Meta",
@@ -981,9 +847,9 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "IMPLEMENTACIÓN DE SOLUCIONES ENERGÉTICAS RENOVABLES MEDIANTE ALUMBRADO PÚBLICO FOTOVOLTAICO, ORIENTADOS A FORTALECER LA INFRAESTRUCTURA COMUNITARIA A LOS RESGUARDOS INDÍGENAS DE EL TIGRE,  WALLIANAE (PUERTO GAITÁN), NAEXAL PUT (PUERTO CONCORDIA), DOKERA (LEJANÍAS) Y OKO MERA (SAN MARTÍN DE LOS LLANOS), DEPARTAMENTO DEL META.",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00.000",
     "estado_secop": "Publicado",
-    "fase": "Manifestación de interés (Menor Cuantía)",
+    "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
     "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
     "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
@@ -1011,7 +877,7 @@
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10922511"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931605"
   },
   {
     "id": "CO1.REQ.11061828",
@@ -1131,8 +997,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1219,8 +1085,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1232,6 +1098,50 @@
     },
     "score_calidad": 80,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11043283",
+    "referencia": "LP-004-2026 (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE CHIGORODO",
+    "nit_entidad": "890980998",
+    "departamento": "Antioquia",
+    "ciudad": "Chigorodó",
+    "precio": 1716380090.0,
+    "precio_formateado": "$1,716,380,090 COP",
+    "modalidad": "Licitación pública",
+    "tipo_contrato": "Suministros",
+    "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A TRAVÉS DEL CUAL SE BRINDE UNA RACIÓN ALIMENTICIA A LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LAS INSTITUCIONES OFICIALES (lEO) DEL MUNICIPIO DE CHIGORODÓ BENEFICIARIOS DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026, SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODÓ Y LA GOBERNACIÓN DE ANTIOQUIA PARA LA VIGENCIA 2026-2.",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 80,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10898394"
   },
   {
     "id": "CO1.REQ.2782798",
@@ -1263,8 +1173,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1307,8 +1217,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado publico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1320,6 +1230,50 @@
     },
     "score_calidad": 80,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11025488",
+    "referencia": "190-CONV-016-2026",
+    "entidad": "MUNICIPIO EL CARMEN DE VIBORAL",
+    "nit_entidad": "890982616",
+    "departamento": "Antioquia",
+    "ciudad": "El Carmen De Viboral",
+    "precio": 156492023.0,
+    "precio_formateado": "$156,492,023 COP",
+    "modalidad": "Contratación Directa (con ofertas)",
+    "tipo_contrato": "Otro",
+    "descripcion": "CONTRATO INTERADMINISTRATIVO DE ADMINISTRACIÓN DELEGADA PARA LA IMPLEMENTACIÓN DE SISTEMAS DE ALUMBRADO PÚBLICO SOSTENIBLE BASADOS EN ENERGÍA SOLAR, ORIENTADOS A FORTALECER LA COBERTURA Y SATISFACER LAS NECESIDADES DE ILUMINACIÓN EN LAS VÍAS RURALES DEL MUNICIPIO DE EL CARMEN DE VIBORAL, ANTIOQUIA.",
+    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "energía solar",
+          "alumbrado público"
+        ],
+        "relevance_score": 37.5
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público",
+      "energía solar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 156492023.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 80,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935338"
   },
   {
     "id": "CO1.REQ.10994040",
@@ -1351,8 +1305,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION ALIMENTANDO UNA NUEVA ESPERANZA",
@@ -1395,8 +1349,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
@@ -1408,48 +1362,6 @@
     },
     "score_calidad": 80,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775"
-  },
-  {
-    "id": "CO1.REQ.10841213",
-    "referencia": "M-IP-008-2026",
-    "entidad": "METROLINEA S.A",
-    "nit_entidad": "830507387",
-    "departamento": "Santander",
-    "ciudad": "Bucaramanga",
-    "precio": 11950220700.0,
-    "precio_formateado": "$11,950,220,700 COP",
-    "modalidad": "Contratación régimen especial (con ofertas)",
-    "tipo_contrato": "Otro",
-    "descripcion": "OBRA PÚBLICA PARA LA ADECUACIÓN, MEJORAMIENTO Y REHABILITACIÓN DE INSTALACIONES ELÉCTRICAS, ACCESOS, FACHADAS, CERRAMIENTOS, ESTRUCTURAS METÁLICAS, TABLEROS DE DISTRIBUCIÓN, REDES INTERNAS DE DISTRIBUCIÓN Y COMUNICACIONES, Y DEMÁS ELEMENTOS DE APOYO DE LAS ESTACIONES DEL SISTEMA INTEGRADO DE TRANSPORTE MASIVO, PARA FORTALECER SUS CONDICIONES DE FUNCIONAMIENTO, SEGURIDAD Y PRESTACIÓN DEL SERVICIO, EN EL MUNICIPIO DE BUCARAMANGA",
-    "fecha_publicacion": "2026-08-12T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica",
-        "matched_keywords": [
-          "estructuras metálicas"
-        ],
-        "relevance_score": 18.0
-      }
-    ],
-    "materiales_detectados": [
-      "estructuras metálicas"
-    ],
-    "contratista": {
-      "nombre": "LEWIS SAS",
-      "nit": "901457705",
-      "es_consorcio": false,
-      "valor_adjudicado": 11950220700.0,
-      "departamento_proveedor": "Santander",
-      "ciudad_proveedor": "Bucaramanga"
-    },
-    "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10696475"
   },
   {
     "id": "CO1.REQ.11038196",
@@ -1488,8 +1400,8 @@
       }
     ],
     "materiales_detectados": [
-      "obras civiles",
-      "alumbrado público"
+      "alumbrado público",
+      "obras civiles"
     ],
     "contratista": {
       "nombre": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
@@ -1660,8 +1572,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1704,8 +1616,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1717,6 +1629,48 @@
     },
     "score_calidad": 75,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929393"
+  },
+  {
+    "id": "CO1.REQ.11086135",
+    "referencia": "CMA-0008-2026 (Presentación de oferta)",
+    "entidad": "DEPARTAMENTO DEL ATLANTICO**",
+    "nit_entidad": "890102006",
+    "departamento": "Atlántico",
+    "ciudad": "Barranquilla",
+    "precio": 2223516227.0,
+    "precio_formateado": "$2,223,516,227 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA, FINANCIERA Y JURIDICA PARA EL PROYECTO FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE PARA LA ATENCION DE NIÑOS, NIÑAS Y ADOLESCENTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 20 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL ATLANTICO GRUPO1 Y GRUPO 2",
+    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "pae"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "pae"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 74,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10941580"
   },
   {
     "id": "CO1.REQ.10373444",
@@ -1761,8 +1715,8 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230443"
   },
   {
-    "id": "CO1.REQ.10954533",
-    "referencia": "LP-005-2026",
+    "id": "CO1.REQ.11076623",
+    "referencia": "LP-005-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE GACHANCIPA",
     "nit_entidad": "899999419",
     "departamento": "Cundinamarca",
@@ -1772,9 +1726,9 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Asociación Público Privada",
     "descripcion": "SELECCIONAR UN SOCIO ESTRATÉGICO PARA LA CONSTITUCIÓN DE UNA EMPRESA DE ECONOMÍA MIXTA DESCENTRALIZADA DEL ORDEN MUNICIPAL, CUYO OBJETO SERÁ LA PRESTACIÓN INTEGRAL DEL SERVICIO DE ALUMBRADO PÚBLICO EN EL MUNICIPIO DE GACHANCIPÁ, CUNDINAMARCA, INCLUYENDO LA ADMINISTRACIÓN, OPERACIÓN, MANTENIMIENTO, MODERNIZACIÓN, EXPANSIÓN Y DEMÁS ACTIVIDADES ASOCIADAS",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00.000",
     "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
+    "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
     "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
     "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
@@ -1800,7 +1754,7 @@
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10811764"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935310"
   },
   {
     "id": "CO1.REQ.11019988",
@@ -2013,6 +1967,50 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218831"
   },
   {
+    "id": "CO1.REQ.11075478",
+    "referencia": "CVI 001-2026",
+    "entidad": "ALCALDIA MUNICIPAL DE SANTA BARBARA",
+    "nit_entidad": "890980344",
+    "departamento": "Antioquia",
+    "ciudad": "Santa Bárbara",
+    "precio": 926436318.0,
+    "precio_formateado": "$926,436,318 COP",
+    "modalidad": "Contratación directa",
+    "tipo_contrato": "Otro",
+    "descripcion": "INTEGRAR ESFUERZOS INSTITUCIONALES, TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA GARANTÍA DEL DERECHO A LA EDUCACIÓN, A TRAVÉS DEL DESARROLLO DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DIRIGIDO A LOS NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES CON MATRÍCULA OFICIAL EN LOS ESTABLECIMIENTOS EDUCATIVOS DEL MUNICIPIO DE SANTA BÁRBARA, ANTIOQUIA, EN EL MARCO DEL CONVENIO INTERADMINISTRATIVO N.º 4600019354 SUSCRITO ENTRE EL DEPARTAMENTO DE ANTIOQUIA SECRETARÍA DE EDUCACIÓN Y EL MUNICIPIO DE SANTA BÁRBARA, A",
+    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Seleccionado)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 73,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460"
+  },
+  {
     "id": "CO1.REQ.11068701",
     "referencia": "CI009-2026",
     "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
@@ -2057,50 +2055,6 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073"
   },
   {
-    "id": "CO1.REQ.10977437",
-    "referencia": "CON-001-2026",
-    "entidad": "MUNICIPIO DE VEGACHI",
-    "nit_entidad": "890985285",
-    "departamento": "Antioquia",
-    "ciudad": "Vegachí",
-    "precio": 704290024.0,
-    "precio_formateado": "$704,290,024 COP",
-    "modalidad": "Contratación directa",
-    "tipo_contrato": "Otro",
-    "descripcion": "AUNAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR, PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRICULA OFICIAL DEL MUNICIPIO DE VEGACHI,  ANTIOQUIA, EN EL MARCO DEL CONVENIO INTERADMINISTRATIVO N.º 4600019378, SUSCRITO CON EL DEPARTAMENTO DE ANTIOQUIA, PARA LA VIGENCIA 2026, 2",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Seleccionado)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar",
-          "pae"
-        ],
-        "relevance_score": 39.0
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10831413"
-  },
-  {
     "id": "CO1.REQ.11007204",
     "referencia": "SI-011-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA DE EL PEÑOL",
@@ -2130,8 +2084,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2174,8 +2128,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2187,6 +2141,50 @@
     },
     "score_calidad": 73,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11039443",
+    "referencia": "SUBASTA INVERSA No. 003/2026 (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE PEQUE",
+    "nit_entidad": "890982301",
+    "departamento": "Antioquia",
+    "ciudad": "Peque",
+    "precio": 470460291.0,
+    "precio_formateado": "$470,460,291 COP",
+    "modalidad": "Selección abreviada subasta inversa",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO DE RACIÓN SEGUN MINUTA Y LA CONTRATACIÓN DEL PERSONAL MANIPULADOR DE ALIMENTOS DESTINADO A LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR (PAE), DIRIGIDO A NIÑOS, NIÑAS Y ADOLESCENTES CARACTERIZADOS EN LA MATRICULA OFICIAL DEL MUNICIPIO DE PEQUE-ANTIOQUIA PARA EL SEGUNDO SEMESTRE DE 2026.",
+    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Fase de ofertas",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 73,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10893555"
   },
   {
     "id": "CO1.REQ.10998733",
@@ -2218,8 +2216,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2263,9 +2261,9 @@
       }
     ],
     "materiales_detectados": [
-      "energia renovable",
       "sistema fotovoltaico",
-      "fotovoltaico"
+      "fotovoltaico",
+      "energia renovable"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2352,8 +2350,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2365,6 +2363,50 @@
     },
     "score_calidad": 73,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918613"
+  },
+  {
+    "id": "CO1.REQ.11065962",
+    "referencia": "SAMC-014-2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "CORMACARENA",
+    "nit_entidad": "822000091",
+    "departamento": "Meta",
+    "ciudad": "Villavicencio",
+    "precio": 332719049.0,
+    "precio_formateado": "$332,719,049 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "IMPLEMENTACIÓN DE SOLUCIONES ENERGÉTICAS RENOVABLES MEDIANTE ALUMBRADO PÚBLICO FOTOVOLTAICO, ORIENTADOS A FORTALECER LA INFRAESTRUCTURA COMUNITARIA A LOS RESGUARDOS INDÍGENAS DE EL TIGRE,  WALLIANAE (PUERTO GAITÁN), NAEXAL PUT (PUERTO CONCORDIA), DOKERA (LEJANÍAS) Y OKO MERA (SAN MARTÍN DE LOS LLANOS), DEPARTAMENTO DEL META.",
+    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "fotovoltaico",
+          "alumbrado público"
+        ],
+        "relevance_score": 37.5
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público",
+      "fotovoltaico"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 73,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10922511"
   },
   {
     "id": "CO1.REQ.11021132",
@@ -2546,48 +2588,6 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399"
   },
   {
-    "id": "CO1.REQ.10958681",
-    "referencia": "LP-003-2026 (Fase de Selección (Presentación de ofertas))",
-    "entidad": "MUNICIPIO DE CUBARA BOYACA",
-    "nit_entidad": "800099196",
-    "departamento": "Boyacá",
-    "ciudad": "No Definido",
-    "precio": 511553617.0,
-    "precio_formateado": "$511,553,617 COP",
-    "modalidad": "Licitación pública Obra Publica",
-    "tipo_contrato": "Obra",
-    "descripcion": "AMPLIACIÓN Y MODERNIZACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO DE LA VÍA PRINCIPAL DEL MUNICIPIO DE CUBARÁ, DEPARTAMENTO DE BOYACÁ",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
-    "estado_secop": "Seleccionado",
-    "fase": "Fase de Selección (Presentación de ofertas)",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "CARREÑO CONSTRUYE S.A.S",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 511553617.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10812693"
-  },
-  {
     "id": "CO1.REQ.10963368",
     "referencia": "C26-126",
     "entidad": "HUV - HOSPITAL UNIVERSITARIO DEL VALLE EVARISTO GARCIA E.S.E.",
@@ -2670,6 +2670,48 @@
     },
     "score_calidad": 70,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10854354"
+  },
+  {
+    "id": "CO1.REQ.11066736",
+    "referencia": "LP-007-2026-HOMIL",
+    "entidad": "HOSPITAL MILITAR CENTRAL",
+    "nit_entidad": "830040256",
+    "departamento": "Distrito Capital de Bogotá",
+    "ciudad": "No Definido",
+    "precio": 1285820141.0,
+    "precio_formateado": "$1,285,820,141 COP",
+    "modalidad": "Licitación pública",
+    "tipo_contrato": "Otro",
+    "descripcion": "ADQUISICIÓN DE LA SUSCRIPCIÓN, ACTUALIZACIÓN DEL LICENCIAMIENTO Y SOPORTE DE LA SOLUCIÓN DE FORTINET DEL HOSPITAL MILITAR CENTRAL",
+    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General",
+        "matched_keywords": [
+          "hospital"
+        ],
+        "relevance_score": 15.0
+      }
+    ],
+    "materiales_detectados": [
+      "hospital"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 70,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931384"
   },
   {
     "id": "CO1.REQ.11019488",
@@ -2785,8 +2827,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
@@ -2798,6 +2840,48 @@
     },
     "score_calidad": 70,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079"
+  },
+  {
+    "id": "CO1.REQ.11079753",
+    "referencia": "MC-071-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE MANIZALES",
+    "nit_entidad": "890801053",
+    "departamento": "Caldas",
+    "ciudad": "Manizales",
+    "precio": 817710284.0,
+    "precio_formateado": "$817,710,284 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
+    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 66,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935748"
   },
   {
     "id": "CO1.REQ.10381607",
@@ -2968,48 +3052,6 @@
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10905786"
   },
   {
-    "id": "CO1.REQ.11061576",
-    "referencia": "DHMP-SA-SPOP-010 DE 2026 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "ALCALDIA DE PAICOL HUILA",
-    "nit_entidad": "891180194",
-    "departamento": "Huila",
-    "ciudad": "Paicol",
-    "precio": 379784854.0,
-    "precio_formateado": "$379,784,854 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Obra",
-    "descripcion": "REALIZAR LA MODERNIZACIÓN Y EXPANSIÓN DEL ALUMBRADO PÚBLICO DEL MUNICIPIO DE PAICOL, DEPARTAMENTO DEL HUILA, PARA LA VIGENCIA 2026",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918191"
-  },
-  {
     "id": "CO1.REQ.11035001",
     "referencia": "S016-2026",
     "entidad": "ANTIOQUIA  EMPRESA DE SERVICIOS RETIRAR S.A E.S.P - EL RETIRO",
@@ -3125,8 +3167,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3169,8 +3211,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3213,8 +3255,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3257,8 +3299,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3301,8 +3343,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3345,8 +3387,8 @@
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3358,50 +3400,6 @@
     },
     "score_calidad": 65,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850289"
-  },
-  {
-    "id": "CO1.REQ.11025488",
-    "referencia": "190-CONV-016-2026",
-    "entidad": "MUNICIPIO EL CARMEN DE VIBORAL",
-    "nit_entidad": "890982616",
-    "departamento": "Antioquia",
-    "ciudad": "El Carmen De Viboral",
-    "precio": 156492023.0,
-    "precio_formateado": "$156,492,023 COP",
-    "modalidad": "Contratación Directa (con ofertas)",
-    "tipo_contrato": "Otro",
-    "descripcion": "CONTRATO INTERADMINISTRATIVO DE ADMINISTRACIÓN DELEGADA PARA LA IMPLEMENTACIÓN DE SISTEMAS DE ALUMBRADO PÚBLICO SOSTENIBLE BASADOS EN ENERGÍA SOLAR, ORIENTADOS A FORTALECER LA COBERTURA Y SATISFACER LAS NECESIDADES DE ILUMINACIÓN EN LAS VÍAS RURALES DEL MUNICIPIO DE EL CARMEN DE VIBORAL, ANTIOQUIA.",
-    "fecha_publicacion": null,
-    "estado_secop": "Borrador",
-    "fase": null,
-    "etapa_comercial": "Borrador de Pliegos",
-    "tipo_oportunidad": "Oportunidad Pre-Licitación",
-    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "energía solar",
-          "alumbrado público"
-        ],
-        "relevance_score": 37.5
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público",
-      "energía solar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
   },
   {
     "id": "CO1.REQ.11037818",
@@ -3433,8 +3431,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3586,7 +3584,7 @@
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA, FINANCIERA Y JURIDICA PARA EL PROYECTO FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE PARA LA ATENCION DE NIÑOS, NIÑAS Y ADOLESCENTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 20 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL ATLANTICO GRUPO1 Y GRUPO 2",
     "fecha_publicacion": "2026-09-11T00:00:00.000",
-    "estado_secop": "Publicado",
+    "estado_secop": "Evaluación",
     "fase": "Selección de ofertas (borrador)",
     "etapa_comercial": "Borrador de Pliegos",
     "tipo_oportunidad": "Oportunidad Pre-Licitación",
@@ -3614,6 +3612,48 @@
     },
     "score_calidad": 64,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10884682"
+  },
+  {
+    "id": "CO1.REQ.11044196",
+    "referencia": "PROCESO COMPETITIVO  005 DE 2026",
+    "entidad": "MUNICIPIO DE ARBOLETES",
+    "nit_entidad": "890985623",
+    "departamento": "Antioquia",
+    "ciudad": "Arboletes",
+    "precio": 1500672318.0,
+    "precio_formateado": "$1,500,672,318 COP",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Decreto 092 de 2017",
+    "descripcion": "IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE REGULAR Y JORNADA UNICA, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE ARBOLETES - ANTIOQUIA, PARA LA VIGENCIA 2026 - 2.",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "pae"
+        ],
+        "relevance_score": 19.5
+      }
+    ],
+    "materiales_detectados": [
+      "pae"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 64,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10900297"
   },
   {
     "id": "CO1.REQ.11064677",
@@ -3782,48 +3822,6 @@
     },
     "score_calidad": 63,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
-  },
-  {
-    "id": "CO1.REQ.10958166",
-    "referencia": "ARI.LP-021-2026",
-    "entidad": "ARAUCA ILUMINADA SAS ESP",
-    "nit_entidad": "901552362",
-    "departamento": "Arauca",
-    "ciudad": "Arauca",
-    "precio": 5669365005.0,
-    "precio_formateado": "$5,669,365,005 COP",
-    "modalidad": "Licitación pública Obra Publica",
-    "tipo_contrato": "Obra",
-    "descripcion": "IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "fotovoltaica"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "fotovoltaica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10820151"
   },
   {
     "id": "CO1.REQ.10832415",
@@ -4695,8 +4693,8 @@
       }
     ],
     "materiales_detectados": [
-      "escuela",
-      "colegio"
+      "colegio",
+      "escuela"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4708,48 +4706,6 @@
     },
     "score_calidad": 60,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
-  },
-  {
-    "id": "CO1.REQ.11032801",
-    "referencia": "STI-2026-307",
-    "entidad": "MUNICIPIO DE SEVILLA",
-    "nit_entidad": "800100527",
-    "departamento": "Valle del Cauca",
-    "ciudad": "Sevilla",
-    "precio": 273300000.0,
-    "precio_formateado": "$273,300,000 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO E INSTALACIÓN DE LUMINARIAS TIPO LED Y COMPONENTES ELÉCTRICOS DESTINADOS AL MEJORAMIENTO, FORTALECIMIENTO Y MODERNIZACIÓN DE LA INFRAESTRUCTURA DEL SISTEMA DE ALUMBRADO PÚBLICO PARA LA PRESTACIÓN EFICIENTE DEL SERVICIO EN EL MUNICIPIO DE SEVILLA, VALLE DEL CAUCA",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888665"
   },
   {
     "id": "CO1.REQ.11009961",
@@ -4792,48 +4748,6 @@
     },
     "score_calidad": 58,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864302"
-  },
-  {
-    "id": "CO1.REQ.10964515",
-    "referencia": "S015-2026",
-    "entidad": "ANTIOQUIA  EMPRESA DE SERVICIOS RETIRAR S.A E.S.P - EL RETIRO",
-    "nit_entidad": "811028985",
-    "departamento": "No Definido",
-    "ciudad": "No Definido",
-    "precio": 217279948.0,
-    "precio_formateado": "$217,279,948 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "ADQUISICIÓN DE VEHICULO REQUERIDO PARA EL MANTENIMIENTO DE REDES Y LUMINARIAS DEL ALUMBRADO PUBLICO A CARGO DE LA EMPRESA RETIRAR SA E.S.P, DEL MUNICIPIO DE EL RETIRO",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado publico"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado publico"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10818504"
   },
   {
     "id": "CO1.REQ.10944360",
@@ -5928,6 +5842,48 @@
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
   },
   {
+    "id": "CO1.REQ.11061576",
+    "referencia": "DHMP-SA-SPOP-010 DE 2026 (Manifestación de interés (Menor Cuantía))",
+    "entidad": "ALCALDIA DE PAICOL HUILA",
+    "nit_entidad": "891180194",
+    "departamento": "Huila",
+    "ciudad": "Paicol",
+    "precio": 379784854.0,
+    "precio_formateado": "$379,784,854 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "REALIZAR LA MODERNIZACIÓN Y EXPANSIÓN DEL ALUMBRADO PÚBLICO DEL MUNICIPIO DE PAICOL, DEPARTAMENTO DEL HUILA, PARA LA VIGENCIA 2026",
+    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "estado_secop": "Evaluación",
+    "fase": "Manifestación de interés (Menor Cuantía)",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918191"
+  },
+  {
     "id": "CO1.REQ.10991695",
     "referencia": "DHMP-SA-SPOP-010 DE 2026",
     "entidad": "ALCALDIA DE PAICOL HUILA",
@@ -6052,6 +6008,48 @@
     },
     "score_calidad": 56,
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+  },
+  {
+    "id": "CO1.REQ.11045110",
+    "referencia": "ARI.CM-022-2026",
+    "entidad": "ARAUCA ILUMINADA SAS ESP",
+    "nit_entidad": "901552362",
+    "departamento": "Arauca",
+    "ciudad": "Arauca",
+    "precio": 305855200.0,
+    "precio_formateado": "$305,855,200 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA, SOCIAL Y AMBIENTAL AL PROYECTO IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
+    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "estado_secop": "Publicado",
+    "fase": "Selección de ofertas (borrador)",
+    "etapa_comercial": "Borrador de Pliegos",
+    "tipo_oportunidad": "Oportunidad Pre-Licitación",
+    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "fotovoltaica"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "fotovoltaica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10902490"
   },
   {
     "id": "CO1.REQ.11037533",
