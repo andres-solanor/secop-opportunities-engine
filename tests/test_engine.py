@@ -95,5 +95,25 @@ class TestSecopEngine(unittest.TestCase):
         self.assertEqual(enriched["tipo_oportunidad"], "Lead B2B de Venta Directa")
 
 
+class TestTaxonomyExport(unittest.TestCase):
+
+    def test_export_taxonomy_matches_scope_extractor(self):
+        import json
+        import os
+        import tempfile
+        from src.export_prospects import export_taxonomy
+
+        with tempfile.TemporaryDirectory() as tmp:
+            export_taxonomy(tmp)
+            with open(os.path.join(tmp, "taxonomy.js"), encoding="utf-8") as f:
+                content = f.read()
+        prefix = "window.SECTOR_TAXONOMY = "
+        self.assertTrue(content.startswith(prefix))
+        exported = json.loads(content[len(prefix):].rstrip().rstrip(";"))
+        self.assertEqual(set(exported), set(ScopeExtractor.TAXONOMIES))
+        for key, data in ScopeExtractor.TAXONOMIES.items():
+            self.assertEqual(exported[key]["keywords"], data["keywords"])
+
+
 if __name__ == "__main__":
     unittest.main()
