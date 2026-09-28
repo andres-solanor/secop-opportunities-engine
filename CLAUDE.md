@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado.
+Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado. Para el razonamiento de diseño del sistema de perfiles (recorrido, modelo de afinidad, estrategia de desbloqueo, alternativas descartadas y preguntas abiertas), lee `docs/DISENO_PERFILES.md`.
 
 ## Qué es
 

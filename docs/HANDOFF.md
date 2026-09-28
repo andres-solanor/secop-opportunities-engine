@@ -2,6 +2,8 @@
 
 Última actualización: 2026-09-28 · Rama: `claude/gmail-oauth-account-creation-t7o73y` (sin PR, por decisión del dueño).
 
+> Documento de diseño detallado, con capturas, dirigido al revisor humano: [`DISENO_PERFILES.md`](./DISENO_PERFILES.md).
+
 ## Objetivo del producto
 
 Que las empresas creen cuentas con Google y perfiles completos para conectarlas con oportunidades de SECOP II. El "momento wow" debe llegar **antes** de conectar oportunidades externas: clarificar qué ofrece la empresa, qué necesita, qué busca y con quién debería conectarse, con suficiente valor para incentivar el registro y la activación.
