@@ -36,8 +36,8 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
 
 **Validación realizada**
-- `node --test tests/profile_engine.test.js`: 14 pruebas OK.
-- `python -m unittest discover tests`: 26 pruebas OK.
+- `node --test tests/profile_engine.test.js`: 15 pruebas OK.
+- `python -m unittest discover tests`: 32 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
 
 **Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
@@ -69,6 +69,14 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - el análisis de anexos (dataset `dmgg-8hin` verificado);
 - el perfil con skills;
 - los datasets confirmados por el diagnóstico: ofertas `wi7w-2nvm`, consorcios `ceth-n4bn`, PAA `9sue-ezhx` y multas `4n4q-k399`.
+
+**Fuentes abiertas gratuitas para la demo (2026-09-28).** `src/enrichers/open_sources.py`, verificado con datos reales:
+- **Ofertas por proceso:** 14 procesos con ofertas; badge "👥 N ofertas" y tabla de competencia con el ganador marcado.
+- **Integrantes de consorcios:** los 5 consorcios, con porcentaje, líder y trayectoria.
+- **Sanciones SECOP I:** 0 coincidencias hoy. Es SECOP I y puede no cubrir sanciones recientes.
+- **Compras planeadas del PAA:** 80 en los sectores del motor, en la pestaña "🗓️ Planeadas (PAA)". Una consulta por prefijo UNSPSC (una sola consulta excedía el tiempo de espera). Se descartan valores mayores a $1 billón, que son errores de digitación.
+- Cada fuente reporta su estado en el panel de sincronización y reutiliza la corrida anterior si falla.
+- **Siguientes pasos:** en [`PLAN_ITERACIONES.md`](./PLAN_ITERACIONES.md). **Guion de la demo:** en [`GUION_DEMO.md`](./GUION_DEMO.md).
 
 ## Pendiente del dueño (bloquea el login real)
 

@@ -2033,3 +2033,20 @@ body {
   color: var(--text-muted);
   font-weight: 600;
 }
+
+/* Compras planeadas (PAA) */
+.stage-pill.stage-planeada {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+.paa-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  align-self: center;
+}
+
+.detail-section .sync-table .badge {
+  cursor: default;
+}

@@ -477,6 +477,7 @@
 
   const BADGES = {
     contrato_suspendido: { icon: '⛔', label: 'Contrato suspendido', tone: 'risk', tip: 'El contrato está suspendido en SECOP II: espera su reactivación antes de ofrecer suministros.' },
+    sancion: { icon: '⚠️', label: 'Sanción registrada', tone: 'risk', tip: 'El contratista o un integrante del consorcio tiene multas o sanciones registradas en SECOP I. Revisa el detalle antes de aliarte o venderle a crédito.' },
     contrato_cancelado: { icon: '✖', label: 'Contrato cancelado', tone: 'risk', tip: 'El contrato fue cancelado o anulado.' },
     contrato_modificado: { icon: '✏️', label: 'Contrato modificado', tone: 'warn', tip: 'El contrato tuvo modificaciones (valor, plazo u objeto). Revisa el expediente.' },
     prorroga: { icon: '📆', label: 'Con prórroga', tone: 'warn', tip: 'Al contrato se le adicionaron días de ejecución.' },
@@ -486,6 +487,7 @@
     contratista_recurrente: { icon: '🔁', label: 'Contratista recurrente', tone: 'good', tip: 'El contratista tiene 5 o más contratos en SECOP II.' },
     gran_comprador: { icon: '📈', label: 'Gran comprador', tone: 'good', tip: 'La entidad contrató más de $100 mil millones en los últimos 12 meses.' },
     pagos_registrados: { icon: '💳', label: 'Registra pagos', tone: 'good', tip: 'La entidad registra en SECOP II pagos por el 80% o más de lo facturado en 12 meses.' },
+    ofertas: { icon: '👥', label: 'Ofertas recibidas', tone: 'info', tip: 'Número de ofertas presentadas en el proceso (SECOP II · ofertas por proceso): mide la competencia real.' },
     nueva: { icon: '🔔', label: 'Nueva', tone: 'good', tip: 'Apareció por primera vez en la última sincronización con SECOP II.' },
     sin_ganador: { icon: '👤', label: 'Sin ganador aún', tone: 'info', tip: 'El proceso todavía no tiene contratista seleccionado.' },
     consorcio: { icon: '🤝', label: 'Consorcio / UT', tone: 'info', tip: 'El ganador es un consorcio o unión temporal: las compras pueden hacerlas sus integrantes.' },
@@ -504,6 +506,7 @@
     const bw = bidWindow(item, now);
     const estado = normalize(c && c.estado);
 
+    if ((item.sanciones || []).length) ids.push('sancion');
     if (c) {
       if (estado.includes('suspend')) ids.push('contrato_suspendido');
       else if (['cancel', 'anulad', 'rechaz'].some(k => estado.includes(k))) ids.push('contrato_cancelado');
@@ -520,6 +523,7 @@
     }
 
     if (item.nueva) ids.push('nueva');
+    if (item.ofertas && item.ofertas.cantidad) ids.push('ofertas');
     if (bw.state !== 'adjudicado') ids.push('sin_ganador');
     const consortium = (item.contratista && item.contratista.es_consorcio) || (c && c.es_grupo);
     if (bw.state === 'adjudicado' && consortium) ids.push('consorcio');
@@ -528,8 +532,11 @@
     if (entity && entity.valor_12m >= 1e11) ids.push('gran_comprador');
     if (entity && entity.pagado_sobre_facturado_pct >= 80) ids.push('pagos_registrados');
 
+    const dynamicLabels = {
+      ofertas: () => `${item.ofertas.cantidad} ${item.ofertas.cantidad === 1 ? 'oferta' : 'ofertas'}`
+    };
     return ids
-      .map(id => ({ id, ...BADGES[id] }))
+      .map(id => ({ id, ...BADGES[id], ...(dynamicLabels[id] ? { label: dynamicLabels[id]() } : {}) }))
       .sort((a, b) => TONE_ORDER.indexOf(a.tone) - TONE_ORDER.indexOf(b.tone));
   }
 

@@ -84,6 +84,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO CORDOBA NUTRE",
       "nit_proveedor": "902067860",
+      "codigo_proveedor": "736321019",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10239350&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "MARTHA ISABEL HERNANDEZ GARAY",
@@ -127,6 +128,24 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "integrantes": [
+      {
+        "nombre": "FUNDACION SOCIAL FUTURO PARA TODOS",
+        "nit": "900171202",
+        "participacion": 95.0,
+        "lider": true
+      },
+      {
+        "nombre": "FUNDACION ILUSION EN GRANDE",
+        "nit": "900077592",
+        "participacion": 5.0,
+        "lider": false,
+        "contratos": 49,
+        "valor_total": 68660895114.59
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -220,6 +239,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "Fundacion Accion Solidaria Por Colombia",
       "nit_proveedor": "900569044",
+      "codigo_proveedor": "702125071",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9673718&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Johvany Loaiza Alvarez",
@@ -273,6 +293,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -366,6 +389,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNDACION PROTEGER",
       "nit_proveedor": "900242855",
+      "codigo_proveedor": "702281593",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "JOSE ENRIQUE HERRARA JIMENEZ",
@@ -419,6 +443,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION PROTEGER",
+          "nit": "900242855",
+          "valor": 3149207403.0,
+          "fecha": "2026-09-14T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -512,6 +550,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNDACION ILUSION EN GRANDE",
       "nit_proveedor": "900077592",
+      "codigo_proveedor": "712381425",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865716&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "OSCAR LUIS ESPITIA VERTEL",
@@ -549,6 +588,20 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION ILUSION EN GRANDE",
+          "nit": "900077592",
+          "valor": 1349652350.0,
+          "fecha": "2026-09-09T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -633,6 +686,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -721,6 +777,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -772,8 +831,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -793,6 +852,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -877,6 +939,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -928,8 +993,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -944,6 +1009,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -995,8 +1063,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "luminarias led"
+      "luminarias led",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "M&O DISTRIBUCIONES Y TECNOLOGIA S.A.S.",
@@ -1033,6 +1101,9 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1084,8 +1155,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
-      "sistemas fotovoltaicos"
+      "sistemas fotovoltaicos",
+      "alumbrado publico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1100,6 +1171,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1167,6 +1241,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1218,8 +1295,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -1257,6 +1334,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "VHZ INGENIERIA S.A.S",
       "nit_proveedor": "900151289",
+      "codigo_proveedor": "701727265",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LUIS ALBERTO TRIVIÑO MARTINEZ",
@@ -1310,6 +1388,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1402,6 +1483,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "PROSERVIRTE",
       "nit_proveedor": "900918168",
+      "codigo_proveedor": "711889139",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885910&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "JEISSON ANDRES PEÑA ROCHA",
@@ -1455,6 +1537,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "PROSERVIRTE",
+          "nit": "900918168",
+          "valor": 710407172.83,
+          "fecha": "2026-09-12T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1543,8 +1639,11 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": "2026-09-28T02:49:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10358371",
@@ -1629,6 +1728,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "PRECOOPVIVERES",
       "nit_proveedor": "900230819",
+      "codigo_proveedor": "707690152",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "COOPERATIVA PRECOOPVIVERES",
@@ -1682,6 +1782,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1733,8 +1836,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1754,6 +1857,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1842,6 +1948,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1926,6 +2035,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1977,8 +2089,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -1993,6 +2105,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2044,8 +2159,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "redes eléctricas",
-      "sistemas fotovoltaicos"
+      "sistemas fotovoltaicos",
+      "redes eléctricas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2081,6 +2196,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2171,6 +2289,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "UNION TEMPORAL CÉNIT",
       "nit_proveedor": null,
+      "codigo_proveedor": "736554866",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10343005&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ALEIDYS MARTINEZ SALAS",
@@ -2202,6 +2321,41 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "UNION TEMPORAL CÉNIT",
+          "nit": "902081982",
+          "valor": 9261946604.0,
+          "fecha": "2026-06-01T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "ALIMENTAR CAPITAL SAS",
+        "nit": "901191678",
+        "participacion": 46.0,
+        "lider": true
+      },
+      {
+        "nombre": "CORPORACION AGROSOCIAL",
+        "nit": "802010694",
+        "participacion": 45.0,
+        "lider": false,
+        "contratos": 15,
+        "valor_total": 35865264919.0
+      },
+      {
+        "nombre": "ADIS",
+        "nit": "901906194",
+        "participacion": 9.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2292,6 +2446,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
       "nit_proveedor": "811046428",
+      "codigo_proveedor": "707092730",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Luis Ovidio Cordoba Martinez",
@@ -2345,6 +2500,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2433,6 +2591,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2521,6 +2682,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2609,6 +2773,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2676,6 +2843,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2764,6 +2934,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2870,6 +3043,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EDUR",
+          "nit": "901521260",
+          "valor": 156492023.0,
+          "fecha": "2026-09-22T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2963,6 +3150,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
       "nit_proveedor": "900562400",
+      "codigo_proveedor": "703508150",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LEIDY TATIANA VALENCIA GARCIA",
@@ -3016,6 +3204,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+          "nit": "900562400",
+          "valor": 100481483.98,
+          "fecha": "2026-09-16T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3116,6 +3318,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
       "nit_proveedor": "9019238961",
+      "codigo_proveedor": "730757309",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "HERNAN DARIO SANCHEZ QUITIAQUEZ",
@@ -3143,6 +3346,20 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": 96.8,
       "proveedores_top": []
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
+          "nit": "9019238961",
+          "valor": 2830179333.0,
+          "fecha": "2026-09-15T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3234,6 +3451,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "ASC INGENIERIA SA ESP",
       "nit_proveedor": "8140029797",
+      "codigo_proveedor": "726215056",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DIDIER DELGADO",
@@ -3277,6 +3495,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3368,6 +3589,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO MANZANARES ILUMINADA",
       "nit_proveedor": null,
+      "codigo_proveedor": "736379348",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240326&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Santiago Rave Restrepo",
@@ -3399,6 +3621,24 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "integrantes": [
+      {
+        "nombre": "TEKNOVO",
+        "nit": "901520859",
+        "participacion": 75.0,
+        "lider": true,
+        "contratos": 2,
+        "valor_total": 110816733.47
+      },
+      {
+        "nombre": "PROICOM S.A.S",
+        "nit": "8903281956",
+        "participacion": 25.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3466,6 +3706,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3554,6 +3797,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3642,6 +3888,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3730,6 +3979,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3816,6 +4068,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3886,6 +4141,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": 75.6,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3968,6 +4226,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4033,6 +4294,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4098,6 +4362,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4184,6 +4451,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4245,6 +4515,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4331,6 +4604,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4417,6 +4693,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4478,6 +4757,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4570,6 +4852,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "MUNICIPIOS ASOCIADOS DEL NORDESTE Y MAGDALENA MEDIO",
       "nit_proveedor": "900246990",
+      "codigo_proveedor": "703873877",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "MARJI ESTELA ECHEVERRIA JIMENEZ",
@@ -4623,6 +4906,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4713,6 +4999,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "TRAZANDO S.A.S",
       "nit_proveedor": "900580755",
+      "codigo_proveedor": "708972120",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jefferson Yesid Arroyave Montoya",
@@ -4766,6 +5053,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4854,6 +5144,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4940,6 +5233,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5030,6 +5326,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "TRAZANDO S.A.S",
       "nit_proveedor": "900580755",
+      "codigo_proveedor": "708972120",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924505&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jefferson Yesid Arroyave Montoya",
@@ -5083,6 +5380,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5176,6 +5476,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "DEPARTAMENTO DE CUNDINAMARCA - SECRETARIA DE EDUCACION",
       "nit_proveedor": "899999114",
+      "codigo_proveedor": "702179409",
       "url": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
       "contactos": {
         "representante_legal": "LIZETH MAYERLYN SEPULVEDA ROJAS",
@@ -5229,6 +5530,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5313,6 +5617,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5401,6 +5708,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5489,6 +5799,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5577,6 +5890,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5665,6 +5981,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "EDELMIRA SIERRA GUTIERREZ",
       "nit_proveedor": "24227103",
+      "codigo_proveedor": "711857755",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "EDELMIRA SIERRA GUTIERREZ",
@@ -5713,6 +6030,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5804,6 +6124,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "SEPI LTDA",
       "nit_proveedor": "9000537522",
+      "codigo_proveedor": "722525078",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "SEPI LTDA",
@@ -5857,6 +6178,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "SEPI LTDA",
+          "nit": "9000537522",
+          "valor": 815296808.8,
+          "fecha": "2026-08-28T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5915,8 +6250,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "vigas",
-      "hospital"
+      "hospital",
+      "vigas"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -5956,6 +6291,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNPRIMAVERA",
       "nit_proveedor": "823001628",
+      "codigo_proveedor": "712094242",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ADALBERTO HERRERA BRIEVA",
@@ -6009,6 +6345,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6079,6 +6418,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6165,6 +6507,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6251,6 +6596,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6337,6 +6685,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6423,6 +6774,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6509,6 +6863,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6602,6 +6959,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
       "nit_proveedor": "811016502",
+      "codigo_proveedor": "717076103",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": null,
@@ -6655,6 +7013,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6741,6 +7102,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6802,6 +7166,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6863,6 +7230,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6924,6 +7294,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7006,6 +7379,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7092,6 +7468,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7178,6 +7557,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7243,6 +7625,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7324,6 +7709,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7412,6 +7800,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7479,6 +7870,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7572,6 +7966,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CABILDO MAYOR DEL RESGUARDO INDIGENA RIO ALTO SAN JUAN",
       "nit_proveedor": "901788315",
+      "codigo_proveedor": "729557108",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jaime Andres Rivera Donado",
@@ -7620,6 +8015,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7708,6 +8106,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7796,6 +8197,20 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EPSI",
+          "nit": "811042638",
+          "valor": 178330859.0,
+          "fecha": "2026-09-10T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7863,6 +8278,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7949,6 +8367,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8035,6 +8456,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8121,6 +8545,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8207,6 +8634,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8277,6 +8707,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8368,6 +8801,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
       "nit_proveedor": "901848014",
+      "codigo_proveedor": "727453276",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ESTEBAN ESPINAL CHAVARRIA",
@@ -8421,6 +8855,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8512,6 +8949,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
       "nit_proveedor": "811046428",
+      "codigo_proveedor": "707092730",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Luis Ovidio Cordoba Martinez",
@@ -8565,6 +9003,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8651,6 +9092,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8716,6 +9160,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8797,6 +9244,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8862,6 +9312,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8952,6 +9405,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO PERFOAGUAS",
       "nit_proveedor": null,
+      "codigo_proveedor": "736477035",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10256908&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ITC INTERCONSULTING SAS",
@@ -8983,6 +9437,43 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO PERFOAGUAS",
+          "nit": null,
+          "valor": 5022071888.0,
+          "fecha": "2026-04-30T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "PROINGDES S.A.S",
+        "nit": "901918974",
+        "participacion": 70.0,
+        "lider": true
+      },
+      {
+        "nombre": "MARIO ALBERTO ALMANZA SOLANO",
+        "nit": "10784507",
+        "participacion": 20.0,
+        "lider": false,
+        "contratos": 4,
+        "valor_total": 738586431.77
+      },
+      {
+        "nombre": "ITC INTERCONSULTING SAS",
+        "nit": "901448717",
+        "participacion": 10.0,
+        "lider": false,
+        "contratos": 1,
+        "valor_total": 348988374.0
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9048,6 +9539,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9113,6 +9607,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9178,6 +9675,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9243,6 +9743,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9330,6 +9833,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO CONSTRUCCIONES HYM 2026",
       "nit_proveedor": null,
+      "codigo_proveedor": "736635160",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10292970&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "CONSTRUCCIONES MONTREAL MR S.A.S CONSTRUCCIONES MONTREAL MR S.A.S",
@@ -9361,6 +9865,118 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 33,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO FAO ECOINNOVA INFRAESTRUCTURA",
+          "nit": null,
+          "valor": 1217629434.46,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO SOLUCION DEPORTIVA.",
+          "nit": null,
+          "valor": 1288250474.46,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO BETEL",
+          "nit": null,
+          "valor": 1296184462.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PLANTAR FUTURO INVERSIONES S.A.S.",
+          "nit": "900058982",
+          "valor": 1298721200.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO POLIDEPORTIVO 15",
+          "nit": null,
+          "valor": 1299426697.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSTRUCCIONES MASTER S.A.S",
+          "nit": "830004448",
+          "valor": 1301408955.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ESTRUCTURAS METALICAS 843",
+          "nit": null,
+          "valor": 1301549007.19,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO POLIDEPORTIVO AGUA DE DIOS",
+          "nit": null,
+          "valor": 1301840666.56,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "A.P.P. CONTROL INGENIERIA S.A.S",
+          "nit": "900446925",
+          "valor": 1309923362.03,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO BC AGUA DE DIOS 2026",
+          "nit": null,
+          "valor": 1310514148.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "SANABRIA SAS",
+          "nit": "901633148",
+          "valor": 1310642000.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "ICSSI S.A.S.",
+          "nit": "900819482",
+          "valor": 1310913652.21,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GRUPO IGNEA SAS",
+          "nit": "901166624",
+          "valor": 1311353738.33,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ADD26",
+          "nit": null,
+          "valor": 1312280789.16,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GMZ CONSTRUCTORES SAS",
+          "nit": "901639965",
+          "valor": 1313924237.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9426,6 +10042,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9516,6 +10135,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "INNOVAINGENIERIA SAS",
       "nit_proveedor": "901938856",
+      "codigo_proveedor": "731337192",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Tania Jhasbleidy Jurado Saavedra",
@@ -9569,6 +10189,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9659,6 +10282,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "ELECTRICAS DE MEDELLIN INGENIERIA Y SERVICIOS S.AS",
       "nit_proveedor": "890906413",
+      "codigo_proveedor": "704565340",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Astrid Johana Murillo Castro",
@@ -9712,6 +10336,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9777,6 +10404,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9863,6 +10493,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9954,6 +10587,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSTRU INNOVANDO SAS",
       "nit_proveedor": "900730010",
+      "codigo_proveedor": "704559111",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "CONTRUINNOVANDO SAS",
@@ -10007,6 +10641,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10095,6 +10732,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSTRUCCIONES Y SUMINISTROS TRUJILLO DE LA FUENTE S.A.S",
       "nit_proveedor": "901878498",
+      "codigo_proveedor": "729254409",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DIANA CAROLINA FUENTES MOJICA",
@@ -10143,6 +10781,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10229,6 +10870,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10319,6 +10963,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO SUMINISTRO ET",
       "nit_proveedor": "902069151",
+      "codigo_proveedor": "736468802",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10281632&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LISETH DAYANA CONTRERAS REY",
@@ -10362,6 +11007,48 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO SUMINISTRO ET",
+          "nit": "902069151",
+          "valor": 1722369204.0,
+          "fecha": "2026-05-09T00:00:00",
+          "ganador": true
+        },
+        {
+          "proveedor": "VENEPLAST LTDA",
+          "nit": "900019737",
+          "valor": 1722369204.0,
+          "fecha": "2026-05-09T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "SOLUCIONES SAN ALEJO SAS",
+        "nit": "901320169",
+        "participacion": 50.0,
+        "lider": false,
+        "contratos": 2,
+        "valor_total": 117393400.0
+      },
+      {
+        "nombre": "AGROFRUTTA INVEST GROUP S.A.S.",
+        "nit": "901997374",
+        "participacion": 45.0,
+        "lider": true
+      },
+      {
+        "nombre": "ASOCIACION PARA EL BIENESTAR SOCIAL Y CULTURAL DE LOS NIÑOS DE COLOMBIA",
+        "nit": "901761173",
+        "participacion": 5.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10450,6 +11137,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "Deicy Bravo Jojoa",
       "nit_proveedor": "59706955",
+      "codigo_proveedor": "703835827",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10271391&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DEICY BRAVO JOJOA",
@@ -10503,6 +11191,41 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 4,
+      "proveedores": [
+        {
+          "proveedor": "COMERCIALIZADORA FF SAS",
+          "nit": "901356559",
+          "valor": 1139645700.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "COMERCIALIZADORA Y ACABADOS DEL CAUCA",
+          "nit": "1061685623",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GRISMABSAS",
+          "nit": "901564855",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Deicy Bravo Jojoa",
+          "nit": "59706955",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10589,6 +11312,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10675,6 +11401,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10761,6 +11490,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10845,6 +11577,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10931,6 +11666,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11017,6 +11755,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11082,6 +11823,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11143,6 +11887,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11204,6 +11951,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11265,6 +12015,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11351,6 +12104,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11416,6 +12172,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11502,6 +12261,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11584,6 +12346,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11645,6 +12410,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11710,6 +12478,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11796,6 +12567,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11887,6 +12661,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "JIKKOSOFT S.A.S",
       "nit_proveedor": "900765378",
+      "codigo_proveedor": "712094200",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Juan David López Marín",
@@ -11940,6 +12715,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12026,6 +12804,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12112,6 +12893,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12198,6 +12982,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12284,6 +13071,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12370,6 +13160,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12457,6 +13250,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "EMPRESAS PUBLICAS DE PALERMO ESP",
       "nit_proveedor": "813002609",
+      "codigo_proveedor": "720657030",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Maria Jose Polania Caviedes",
@@ -12500,6 +13294,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12586,6 +13383,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12668,6 +13468,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12750,6 +13553,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12832,6 +13638,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12919,6 +13728,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "EL PUNTO ELECTRICO Y FERRETERO",
       "nit_proveedor": "71117007",
+      "codigo_proveedor": "713218709",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10275017&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Arley Jhoany Gomez Alzate",
@@ -12967,6 +13777,27 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "IMPORT RZ S.A.S",
+          "nit": "900426600",
+          "valor": 407044721.0,
+          "fecha": "2026-05-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EL PUNTO ELECTRICO Y FERRETERO",
+          "nit": "71117007",
+          "valor": 407153664.0,
+          "fecha": "2026-05-07T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13049,6 +13880,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13114,6 +13948,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13200,6 +14037,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13265,6 +14105,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13330,6 +14173,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13411,6 +14257,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13503,6 +14352,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13573,6 +14425,9 @@ window.PROSPECTS_DATA = [
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13638,6 +14493,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13729,6 +14587,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "V&S SUMINISTROS Y SOLUCIONES SAS",
       "nit_proveedor": "901421866",
+      "codigo_proveedor": "714402013",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230787&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "V&S SUMINISTROS Y SOLUCIONES SAS",
@@ -13782,6 +14641,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13873,6 +14735,7 @@ window.PROSPECTS_DATA = [
       "condiciones_entrega": null,
       "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
       "nit_proveedor": "811016502",
+      "codigo_proveedor": "717076103",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.2914944&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": null,
@@ -13905,6 +14768,9 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13991,26 +14857,29 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   }
 ];
-window.PROSPECTS_UPDATED_AT = "2026-09-28T02:49:57Z";
+window.PROSPECTS_UPDATED_AT = "2026-09-28T03:13:47Z";
 window.PROSPECTS_META = {
-  "generated_at": "2026-09-28T02:49:57Z",
-  "started_at": "2026-09-28T02:49:12Z",
-  "duracion_s": 44.6,
+  "generated_at": "2026-09-28T03:13:47Z",
+  "started_at": "2026-09-28T03:12:54Z",
+  "duracion_s": 52.7,
   "procesos_consultados": 681,
   "curadas": 150,
   "adjudicadas": 39,
-  "nuevas": 1,
-  "salieron": 1,
+  "nuevas": 0,
+  "salieron": 0,
   "nuevas_adjudicadas": 0,
   "cruce_contratos": "ok",
+  "compras_planeadas": 80,
+  "fuentes_con_error": [],
   "proxima_programada": "2026-09-28T11:00:00Z",
-  "ids_nuevas": [
-    "CO1.REQ.11007204"
-  ],
+  "ids_nuevas": [],
   "ids_nuevas_adjudicadas": [],
   "fuentes": {
     "procesos": {
@@ -14027,9 +14896,69 @@ window.PROSPECTS_META = {
       "promovidos": 17,
       "reutilizados": 0,
       "errores": []
+    },
+    "ofertas": {
+      "estado": "ok",
+      "registros": 14
+    },
+    "consorcios": {
+      "estado": "ok",
+      "registros": 5
+    },
+    "sanciones": {
+      "estado": "ok",
+      "registros": 0
+    },
+    "paa": {
+      "estado": "ok",
+      "registros": 80
     }
   },
   "historial": [
+    {
+      "generated_at": "2026-09-28T03:13:47Z",
+      "started_at": "2026-09-28T03:12:54Z",
+      "duracion_s": 52.7,
+      "procesos_consultados": 681,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 0,
+      "salieron": 0,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "ok",
+      "compras_planeadas": 80,
+      "fuentes_con_error": []
+    },
+    {
+      "generated_at": "2026-09-28T03:12:08Z",
+      "started_at": "2026-09-28T03:08:06Z",
+      "duracion_s": 242.6,
+      "procesos_consultados": 681,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 0,
+      "salieron": 0,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "parcial",
+      "compras_planeadas": 80,
+      "fuentes_con_error": []
+    },
+    {
+      "generated_at": "2026-09-28T03:06:51Z",
+      "started_at": "2026-09-28T03:05:07Z",
+      "duracion_s": 103.6,
+      "procesos_consultados": 681,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 0,
+      "salieron": 0,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "ok",
+      "compras_planeadas": 0,
+      "fuentes_con_error": [
+        "paa"
+      ]
+    },
     {
       "generated_at": "2026-09-28T02:49:57Z",
       "started_at": "2026-09-28T02:49:12Z",
@@ -14044,3 +14973,2386 @@ window.PROSPECTS_META = {
     }
   ]
 };
+window.PAA_DATA = [
+  {
+    "id": "MarketplaceCO1711313194",
+    "entidad": "MUNICIPIO DE ANDES",
+    "nit_entidad": "890980342",
+    "descripcion": "SUMINISTRO DE MATERIALES DE CONSTRUCCION Y MANO DE OBRA PARA REHABILITACION DE BIENES INMUEBLES AFECTADOS POR LA CALAMIDAD PUBLICA DECLARADA MEDIANTE DECRETO 00105 DEL 12 DE AGOSTO DE 2026",
+    "valor": 650000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "30111601",
+      "30102403",
+      "30131502",
+      "30151514",
+      "72101500",
+      "72103300"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873757",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1951 REALIZAR LA CONSTRUCCION DE LA TERMINAL DE PASAJEROS Y OBRAS COMPLEMENTARIAS DEL AEROPUERTO GOLFO DE MORROSQUILLO DE TOLU; SUCRE (VF)",
+    "valor": 174991380000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "1140 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873777",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1978 REALIZAR EL MEJORAMIENTO DE LA INFRAESTRUCTURA LADO AIRE DEL AERODROMO ALCIDES FERNANDEZ DE ACANDI CHOCO (VF)",
+    "valor": 114240161800.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "1620 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100",
+      "72141500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716861066",
+    "entidad": "GOBERNACION DEL MAGDALENA",
+    "nit_entidad": "800103920",
+    "descripcion": "ADECUACION Y MEJORAMIENTO LOCATIVOS EN LAS DIFERENTES SEDES DE LA GOBERNACION DELMAGDALENA CDP 2329",
+    "valor": 100007800034.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "26121600",
+      "27111500",
+      "27111700",
+      "27112100",
+      "27112800",
+      "30101800"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873758",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1952 REALIZAR LA CONSTRUCCION DE LAS CALLES DE RODAJE; PLATAFORMA Y OBRAS COMPLEMENTARIAS DEL LADO AIRE DEL AEROPUERTO GOLFO DE MORROSQUILLO DE TOLU; SUCRE (VF)",
+    "valor": 81313620000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "750 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711980682",
+    "entidad": "UNAD",
+    "nit_entidad": "860512780",
+    "descripcion": "ADQUISICION DE EQUIPOS DE LABORATORIO; SOFTWARE ACADEMICO Y DE AUTENTICACION; INSUMOS; MATERIALES Y SUMINISTROS ENTRE OTROS PARA EL FORTALECIMIENTO DE LOS PROCESOS ACADEMICOS DE LAS ESCUELAS; LAS VICERRECTORIAS; UNIDADES ACADEMICAS Y LAS REDES FUNCIONALES DE LA VIMEP; ORIENTADOS AL DESARROLLO Y FORTALECIMIENTO DE LOS PROCESOS DE FORMACION; INVESTIGACION E INNOVACION; ASI COMO EL ACCESO Y VALIDACION DE LOS ESTUDIANTES A LOS CURSOS VIRTUALES Y LABORATORIOS; DE ACUERDO CON LAS ESPECIFICACIONES CONTENIDAS EN EL ANEXO 3 DENOMINADA MATRIZ DE REQUERIMIENTOS DE EQUIPOS",
+    "valor": 80000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "23261507",
+      "26111701",
+      "26111702",
+      "26121616",
+      "27111728",
+      "41103312"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711987759",
+    "entidad": "MUNICIPIO DE RIONEGRO",
+    "nit_entidad": "890907317",
+    "descripcion": "CONSTRUCCION Y DOTACION DEL COMPLEJO CULTURAL DE ARTES ESCENICAS (TEATRO MUNICIPAL); PARA EL FOMENTO DE ESTAS EN EL TERRITORIO",
+    "valor": 60000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION DIRECTA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717110825",
+    "entidad": "INSTITUTO DE CAMINOS Y CONSTRUCCIONES DE CUNDINAMARCA - ICCU",
+    "nit_entidad": "900258711",
+    "descripcion": "MEJORAMIENTO Y REHABILITACION DE LA VIA TRONCAL DEL TURISMO; EN EL TRAMO LA MARIA  TOBIA  PASO EL REJO  NIMAIMA  NOCAIMA; EN EL DEPARTAMENTO DE CUNDINAMARCA",
+    "valor": 57283933201.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717110821",
+    "entidad": "INSTITUTO DE CAMINOS Y CONSTRUCCIONES DE CUNDINAMARCA - ICCU",
+    "nit_entidad": "900258711",
+    "descripcion": "MEJORAMIENTO Y/O REHABILITACION DE LA VIA DESDE EL SECTOR LA MARIA HACIA EL CASCO URBANO DEL MUNICIPIO DE NIMAIMA; DEPARTAMENTO DE CUNDINAMARCA",
+    "valor": 57283933201.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716186539",
+    "entidad": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARIA DE DESARROLLO ECONOMICO",
+    "nit_entidad": "890399011",
+    "descripcion": "EMPRESTITO: REALIZAR LA CONSTRUCCION DE LA FASE 2 DEL CENTRO DE CIENCIA; ARTE Y TECNOLOGIA EN LA CIUDAD DE SANTIAGO DE CALI EN EL MARCO DEL PROYECTO DE INVERSION BP 26005258 CONSTRUCCION Y OPERACION DEL CENTRO DE CIENCIA; ARTE Y TECNOLOGIA DE SANTIAGO DE CALI",
+    "valor": 51321534368.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos de credito",
+    "unspsc": [
+      "72121400",
+      "72151100",
+      "72151200",
+      "72151300",
+      "72151400",
+      "72151500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715547837",
+    "entidad": "GOBERNACIÓN DE BOLÍVAR//",
+    "nit_entidad": "890480059",
+    "descripcion": "MEJORAMIENTO DE VIAS URBANAS Y VIAS TERCIARIAS EN LOS MUNICIPIOS DE ARJONA; MAGANGUE; BARRANCO DE LOBA Y SANTA CATALINA; DEPARTAMENTO DE BOLIVAR",
+    "valor": 47180291002.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos de credito",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713676911",
+    "entidad": "GOBERNACION DEL DEPARTAMENTO DEL CESAR",
+    "nit_entidad": "892399999",
+    "descripcion": "MEJORAMIENTO DE LA INFRAESTRUCTURA EDUCATIVA EN DISTINTOS MUNICIPIOS DEL DEPARTAMENTO DEL CESAR",
+    "valor": 43825297837.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714602654",
+    "entidad": "MUNICIPIO DE YUMBO VALLE",
+    "nit_entidad": "890399025",
+    "descripcion": "CONTRUCCION DE LA VIA CALLE DEL ESTUDIANTE Y OBRAS COMPLEMENTARIAS DEL MUNICIPIO DE YUMBO - VALLE DEL CAUCA",
+    "valor": 43474537041.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos de credito",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1709717094",
+    "entidad": "FONDO NACIONAL DEL AHORRO S.A.",
+    "nit_entidad": "899999284",
+    "descripcion": "188*PRESTAR SERVICIOS PARA EL ARRENDAMIENTO POR DEMANDA DE EQUIPOS OFIMATICOS PARA EL FUNCIONAMIENTO DEL FONDO NACIONAL DEL AHORRO A NIVEL NACIONAL; CON SOPORTE TECNICO EN SITIO Y MANTENIMIENTO INTEGRAL",
+    "valor": 42735000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL (CON OFERTAS)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "81112502",
+      "39112000",
+      "45111616",
+      "43212100",
+      "81112401"
+    ],
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1704609058",
+    "entidad": "AGENCIA PARA LA REINCORPORACIÓN Y LA NORMALIZACIÓN",
+    "nit_entidad": "900477169",
+    "descripcion": "3312SERVICIOS TI (SERVICIOS DE GESTION DEL CENTRO DE SERVICIOS Y SOPORTE; GESTION DEL SERVICIO LA RED LAN /WLAN; TELEFONIA IP; SERVICIOS DE MONITOREO Y SEGURIDAD; GESTION DE ACTIVOS; SOPORTE Y MANTENIMIENTO DE EQUIPOS Y SERVICIOS CONEXOS)",
+    "valor": 41245797418.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "43191500",
+      "43201800",
+      "43221500",
+      "43222500",
+      "43222600",
+      "43222800"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716750441",
+    "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
+    "nit_entidad": "800194096",
+    "descripcion": "LOG - MANTENIMIENTO PLACAS CUBIERTAS UDAG - CONSTRUCCION_MANTENIMIENTO_ADECUACION_ESCENARIOS",
+    "valor": 40000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72103300",
+      "72141300",
+      "72153100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714418035",
+    "entidad": "EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTÁ - E.S.P.",
+    "nit_entidad": "899999094",
+    "descripcion": "I479-CONSTRUCCION DE LA LINEA MATRIZ DE REFUERZO DEL SECTOR HIDRAULICO S-01 DE LA LOCALIDAD DE BOSA EN LA CIUDAD DE BOGOTA DC",
+    "valor": 35716063195.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "81101500",
+      "72141100",
+      "72152700",
+      "72141500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717117923",
+    "entidad": "DEPARTAMENTO DEL META",
+    "nit_entidad": "8920001488",
+    "descripcion": "EDUCACION_COBERTURA_38 PRESTACION DEL SERVICIO PARA LA IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR A TRAVES DEL SUMINISTRO DE COMPLEMENTOS ALIMENTARIOS Y SERVICIO DE ALIMENTACION EN RESIDENCIAS ESCOLARES; EN ESTABLECIMIENTOS EDUCATIVOS OFICIALES EN MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL META",
+    "valor": 34980099988.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Regalias",
+    "unspsc": [
+      "85151505",
+      "85151506",
+      "85151508",
+      "85151605",
+      "85151701",
+      "85151704"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713672499",
+    "entidad": "EMPRESAS PÚBLICAS DE CUNDINAMARCA S.A. E.S.P.",
+    "nit_entidad": "900222346",
+    "descripcion": "CONSTRUCCION DE LA LINEA NUEVA DE CONDUCCION ENTRE LA PLANTA DE TRATAMIENTO REGIONAL Y EL TANQUE SAN ANTONIO DEL ACUEDUCTO DEL CASCO URBANO DEL MUNICIPIO DE ZIPAQUIRPA - CUNDINAMARCA",
+    "valor": 33000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141119"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714608275",
+    "entidad": "AGENCIA PARA LA GESTIÓN DEL PAISAJE EL PATRIMONIO Y LAS ALIANZAS PÚBLICO PRIVADAS - APP",
+    "nit_entidad": "900623766",
+    "descripcion": "EJERCER LA INTERVENTORIA INTEGRAL DEL CONTRATO DE CONCESION RESULTANTE DEL PROCESO DE SELECCION NO P251LP2026 QUE TIENE POR OBJETO LOS PARADEROS DE BUSES; ACOPIOS DE TAXIS Y DEMAS MOBILIARIO URBANO ASOCIADO AL TRANSPORTE PUBLICO DEL DISTRITO DE MEDELLIN; JUNTO CON SU EXPLOTACION COMERCIAL; COMPRENDIENDO EL SEGUIMIENTO TECNICO; ADMINISTRATIVO; JURIDICO; FINANCIERO Y CONTABLE; ASI COMO LA VERIFICACION DE LA CONTRAPRESTACION A FAVOR DE LA AGENCIA APP; EN TODAS LAS ETAPAS DEL CONTRATO Y HASTA SU LIQUIDACION",
+    "valor": 32715619714.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "56101600",
+      "82101506",
+      "81101500",
+      "80101600",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714880677",
+    "entidad": "ALCALDÍA MUNICIPAL DE CHAPARRAL",
+    "nit_entidad": "800100053",
+    "descripcion": "CONTRATAR LA EJECUCION DE ACTIVIDADES PROPIAS AL PROYECTO: PAVIMENTACION DE INFRAESTRUCTURA EN CONCRETO RIGIDO DE LA VIA QUE CONDUCE DEL MUNICIPIO DE CHAPARRAL AL MUNICIPIO DE ATACO  TOLIMA",
+    "valor": 31869950108.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "360 día(s)",
+    "origen_recursos": "Regalias",
+    "unspsc": [
+      "72141000",
+      "72141100",
+      "72141500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1712971000",
+    "entidad": "UNIDAD DE SERVICIOS PENITENCIARIOS Y CARCELARIOS - USPEC1",
+    "nit_entidad": "900523392",
+    "descripcion": "ID-315-2026-DINFRA-SUBCON: MANTENIMIENTO PREVENTIVO Y CORRECTIVO A LA INFRAESTRUCTURA DE LOS ESTABLECIMIENTOS DE RECLUSION DE ORDEN NACIONAL (ERON) DE ACUERDO A LAS NECESIDADES PRIORIZADAS POR EL INPEC PARA LA VIGENCIA 2026",
+    "valor": 30000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72101500",
+      "72102900",
+      "72141400",
+      "72151000",
+      "72151100",
+      "72151200"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711847937",
+    "entidad": "DEPARTAMENTO DE CORDOBA",
+    "nit_entidad": "800103935",
+    "descripcion": "0526-CONSTRUCCION DE CENTRO DE ALTO RENDIMIENTO DEPORTIVO EN LA CIUDAD DE MONTERIA; DEPARTAMENTO DE CORDOBA; FASE II",
+    "valor": 28037383178.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711847990",
+    "entidad": "DEPARTAMENTO DE CORDOBA",
+    "nit_entidad": "800103935",
+    "descripcion": "0616-MEJORAMIENTO DE LA INFRAESTRUCTURA VIAL URBANA Y RURAL AFECTADA POR EL FRENTE FRIO; MEDIANTE LA RECUPERACION DE LA MOVILIDAD; LA CONECTIVIDAD Y LA TRANSITABILIDAD EN EL DEPARTAMENTO DE CORDOBA",
+    "valor": 27000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717028178",
+    "entidad": "GOBERNACIÓN DE BOYACÁ",
+    "nit_entidad": "891800498",
+    "descripcion": "GC 7 -MEJORAMIENTO DE LA VIA TRANSVERSAL DE BOYACA RUTA 6007; EN EL MUNICIPIO DE PAUNA DEPARTAMENTO DE BOYACA",
+    "valor": 26000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos de credito",
+    "unspsc": [
+      "72101500",
+      "72141000"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1712885379",
+    "entidad": "MUNICIPIO DE MONTERIA",
+    "nit_entidad": "800096734",
+    "descripcion": "2072-REHABILITACION INTEGRAL DEL MERCADO CUATRO PATIOS EN EL MUNICIPIO DE MONTERIA",
+    "valor": 26000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713672706",
+    "entidad": "EMPRESAS PÚBLICAS DE CUNDINAMARCA S.A. E.S.P.",
+    "nit_entidad": "900222346",
+    "descripcion": "CONSTRUCCION Y/O OPTIMIZACION DE SISTEMAS DE ALCANTARILLADOS (SANITARIO Y PLUVIAL) Y PTAR EN EL DEPARTAMENTO DE CUNDINAMARCA POR LOTES - APROPIACION",
+    "valor": 25920432799.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141120",
+      "72121500",
+      "72141100",
+      "80101600",
+      "81101500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715756808",
+    "entidad": "EMPRESA DE SERVICIOS PÚBLICOS DEL META S.A. E.S.P.",
+    "nit_entidad": "822006587",
+    "descripcion": "OBRAS PARA EL MEJORAMIENTO DEL SISTEMA DE ALCANTARILLADO SANITARIO Y DEL MANEJO DE AGUAS LLUVIAS POR ESCORRENTIA SUPERFICIAL DEL AREA DE DRENAJE SECTOR GLORIETA AVENIDA CIRCUNVALAR CON AVENIDA PUERTO LOPEZ CON DESCOLE A CAÑO BUQUE; EN EL MUNICIPIO DE VILLAVICENCIO-META",
+    "valor": 25485767016.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141100",
+      "72141500",
+      "72152700",
+      "72153900",
+      "77101500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713132490",
+    "entidad": "ASOCIACION FONDO MIXTO DE LA ORINOQUIA",
+    "nit_entidad": "901845818",
+    "descripcion": "CONSTRUCCION DE PARQUE RECREATIVO Y ESPACIOS FISICOS; QUE PERMITA EL DESARROLLO DE DIFERENTES ACTIVIDADES DE TIPO LUDICAS Y/ O RECREATIVAS UBICADO EN LA VEREDA CUARTO UNETE; MUNICIPIO DE AGUAZUL; DEPARTAMENTO DE CASANARE; IDENTIFICADO CON CODIGO BPIN 202600000019064",
+    "valor": 23610317835.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Regalias",
+    "unspsc": [
+      "72101500",
+      "72141500",
+      "72151500",
+      "72103300"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1709564041",
+    "entidad": "ARMADA NACIONAL JEFATURA DE OPERACIONES LOGISTICAS",
+    "nit_entidad": "800141644",
+    "descripcion": "PRESTACION DE SERVICIOS DE MANTENIMIENTO; RECUPERACION; OVHERHAUL; REPARACION Y/O EXCHANGE; INCLUYENDO EL SUMIISTRO DE COMPONENTES Y REPUESTOS NECESARIOS PARA LA PUESTA EN LINEA A TODO COSTO DE LAS AERONAVES DE LA FLOTA BELL DE MATRICULAS ARC 213 ARC 226 Y ARC 228 ASI COMO EL SUMINISTRO DE COMPONENTESD PARA LAS AERONAVES NO TRIPULADAS V-BAT DE LA AVIACION NAVAL DE LA ARMADA NACIONAL",
+    "valor": 23040000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "25201600",
+      "26101500",
+      "78181800",
+      "78181900"
+    ],
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716386095",
+    "entidad": "IDRD - ENTIDAD OFICIAL.",
+    "nit_entidad": "860061099",
+    "descripcion": "1597-CONTRATAR EL AJUSTE; ACTUALIZACION Y COMPLEMENTACION DE LOS ESTUDIOS Y DISENOS EXISTENTES; ASI COMO LA ELABORACION DE LOS ESTUDIOS Y DISENOS COMPLEMENTARIOS Y LA CONSTRUCCION DEL PARQUE MILENTA TEJAR; IDENTIFICADO CON EL CODIGO 16-099",
+    "valor": 21857837766.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "390 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72102900",
+      "72141100",
+      "72153100",
+      "72141500",
+      "72151100",
+      "72151500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717052550",
+    "entidad": "ALCALDIA DISTRITAL BARRANCABERMEJA",
+    "nit_entidad": "890201900",
+    "descripcion": "CONSTRUCCION DEL ESTABLECIMIENTO EDUCATIVO OFICIAL LOS LAURELES DE LA ZONA RURAL DEL DISTRITO DE BARRANCABERMEJA; (BPIN 2025680810006); ASIGNADO BAJO LA RESOLUCION NO 5396 DE 2025 Y COMO ENTIDAD EJECUTORA EL FONDO MIXTO PARA EL DESARROLLO INTEGRAL DE LAS REGIONES DE COLOMBIA",
+    "valor": 20458345031.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION DIRECTA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72103300",
+      "72152700",
+      "81101500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": "130"
+  },
+  {
+    "id": "MarketplaceCO1711980610",
+    "entidad": "UNAD",
+    "nit_entidad": "860512780",
+    "descripcion": "REALIZAR LA FASE TRES (3) DE LAS OBRAS DE ADECUACION Y PUESTA A PUNTO DEL NUEVO CENTRO DE LA UNAD EN BUENAVENTURA; MEDIANTE LA EJECUCION DE LAS INTERVENCIONES FISICAS; TECNICAS Y COMPLEMENTARIAS REQUERIDAS PARA SU HABILITACION Y FUNCIONAMIENTO",
+    "valor": 20000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72153600"
+    ],
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711985624",
+    "entidad": "UNAD",
+    "nit_entidad": "860512780",
+    "descripcion": "REALIZAR LA TERCERA FASE DE LAS OBRAS DE ADECUACION Y AMPLIACION DEL CEAD TUNJA",
+    "valor": 18487809611.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72153600"
+    ],
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713676663",
+    "entidad": "GOBERNACION DEL DEPARTAMENTO DEL CESAR",
+    "nit_entidad": "892399999",
+    "descripcion": "FORTALECIMIENTO DEL SISTEMA INTEGRADO DE EMERGENCIA Y SEGURIDAD MEDIANTE EL AUMENTO DE LAS CAPACIDADES DE VIDEOVIGILANCIA MOVIL; RADIOCOMUNICACIONES; PROTECCION DE LA INFRAESTRUCTURA DIGITAL Y TECNOLOGIA DE LA POLICIA NACIONAL; EJERCITO NACIONAL Y LA ARMADA NACIONAL; EN EL DEPARTAMENTO DEL CESAR",
+    "valor": 17530477310.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "SELECCION ABREVIADA CON SUBASTA INVERSA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "26111700",
+      "32101600",
+      "43191500",
+      "43202200",
+      "43211500",
+      "43211700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717028576",
+    "entidad": "GOBERNACIÓN DE BOYACÁ",
+    "nit_entidad": "891800498",
+    "descripcion": "GC 7 - MEJORAMIENTO DEL CORREDOR VIAL PAEZ - CHAMEZA; EN EL MUNICIPIO DE PAEZ; BOYACA",
+    "valor": 17000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72141000"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716756472",
+    "entidad": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+    "nit_entidad": "800223337",
+    "descripcion": "CONSTRUCCION DEL JARDIN INFANTIL Y ESPACIO PUBLICO SANTA EUFRASIA EN EL DISTRITO ESPECIAL DE CIENCIA; TECNOLOGIA E INNOVACION DE MEDELLINCONSECUTIVO PAA 4663",
+    "valor": 16848249097.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72153900"
+    ],
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": "108"
+  },
+  {
+    "id": "MarketplaceCO1712235220",
+    "entidad": "CORMACARENA",
+    "nit_entidad": "822000091",
+    "descripcion": "OBRA DESCONTAMINACION PAA121",
+    "valor": 16441249568.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141120",
+      "83101503",
+      "76121700",
+      "81101500",
+      "77101500",
+      "72102900"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715807499",
+    "entidad": "INSTITUTO DE DESARROLLO URBANO",
+    "nit_entidad": "899999081",
+    "descripcion": "CONSTRUCCION PARA LA ADECUACION DE CALLE 13 AL SISTEMA DE TRANSPORTE PUBLICO MASIVO; CALZADAS DE TRAFICO MIXTO; NUEVAS CICLORRUTAS Y ESPACIO PUBLICO; DESDE LA CONEXION CON LA INTERSECCION DE PUENTE ARANDA (CRA 55) HASTA LA CRA 65 Y DESDE LA AVENIDA CONSTITUCION HASTA LA CRA 69F; INCLUIDAS LAS DEMAS OBRAS COMPLEMENTARIAS EN BOGOTA DC",
+    "valor": 558787402631.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "2610 día(s)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141000",
+      "72141100",
+      "72141600"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873774",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1972 REALIZAR ESTUDIOS; DISEÑOS Y OBRAS DE MEJORAMIENTO DE LA PISTA; CALLES DE RODAJE Y PLATAFORMA DEL AEROPUERTO INTERNACIONAL ALFONSO BONILLA ARAGON UE SIRVE A LA CIUDAD DE CALI (VF)",
+    "valor": 108416064000.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "1590 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "81101500",
+      "72141000",
+      "72103300",
+      "72141100",
+      "72101500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1711978226",
+    "entidad": "FISCALÍA GENERAL DE LA NACIÓN REGIONAL CENTRAL",
+    "nit_entidad": "800187567",
+    "descripcion": "LA FISCALIA GENERAL DE LA NACION A TRAVES DE LA SUBDIRECCION REGIONAL DE APOYO CENTRAL; REQUIERE CONTRATAR LOS SERVICIOS DE ASEO Y LIMPIEZA SEDES DE LA FISCALIA REGIONAL CENTRAL SECCIONALES BOGOTA; BOYACA; CUNDINAMARCA Y AMAZONAS",
+    "valor": 28984427660.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "SELECCION ABREVIADA CON SUBASTA INVERSA",
+    "duracion": "480 día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "76111500",
+      "76111600",
+      "90101700",
+      "72102900"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1707830911",
+    "entidad": "ADMINISTRADORA COLOMBIANA DE PENSIONES COLPENSIONES",
+    "nit_entidad": "900336004",
+    "descripcion": "64 ADECUACION Y TRASLADO PUNTO DE ATENCION TIPO A - B - C",
+    "valor": 23609085800.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121100",
+      "72121103",
+      "81101500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714847978",
+    "entidad": "FISCALÍA GENERAL DE LA NACIÓN REGIONAL CARIBE",
+    "nit_entidad": "800187568",
+    "descripcion": "PRESTAR EL SERVICIO INTEGRAL DE ASEO; MANTENIMIENTO Y CAFETERIA; INCLUIDOS TODOS LOS INSUMOS Y ELEMENTOS NECESARIOS PARA SU ATENCION EN LAS SEDES DE LA FISCALIA GENERAL DE LA NACION- REGIONAL CARIBE",
+    "valor": 20218991733.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72102900",
+      "76111500",
+      "76111600",
+      "90101700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716756104",
+    "entidad": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+    "nit_entidad": "800223337",
+    "descripcion": "CONSTRUCCION DE LA INSTITUCION EDUCATIVA BELLO ORIENTE Y ESPACIO PUBLICO ASOCIADO EN EL DISTRITO ESPECIAL DE CIENCIA; TECNOLOGIA E INNOVACION DE MEDELLINCONSECUTIVO PAA 4108",
+    "valor": 19638121210.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL (CON OFERTAS)",
+    "duracion": "510 día(s)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": "108"
+  },
+  {
+    "id": "MarketplaceCO1712386109",
+    "entidad": "SANTIAGO DE CALI DISTRITO ESPECIAL - UNIDAD ADMINISTRATIVA ESPECIAL DE SERVICIOS PUBLICOS",
+    "nit_entidad": "890399011",
+    "descripcion": "REALIZAR EL ALQUILER; MONTAJE; MANTENIMIENTO Y EL DESMONTAJE DE LOS ELEMENTOS DEL ALUMBRADO NAVIDEÑO",
+    "valor": 19508274309.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "39101600",
+      "39111600",
+      "73151500",
+      "81101700"
+    ],
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716407638",
+    "entidad": "MUNICIPIO DE PUERTO COLOMBIA",
+    "nit_entidad": "800094386",
+    "descripcion": "AMPLIACION CONDUCCION PLANTA DE TRATAMIENTO DE AGUA POTABLE LAS FLORES  TANQUE DE REBOMBEO SALGAR TRAMO LOS MANATIES  SALGAR (ISSA ABUCHAIBE) DEL SISTEMA DE ACUEDUCTO DEL MUNICIPIO DE PUERTO COLOMBIA",
+    "valor": 18640628309.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72141100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716407637",
+    "entidad": "MUNICIPIO DE PUERTO COLOMBIA",
+    "nit_entidad": "800094386",
+    "descripcion": "AMPLIACION CONDUCCION PLANTA DE TRATAMIENTO DE AGUA POTABLE LAS FLORES - TANQUE DE REBOMBEO SALGAR TRAMO LOS MANATIES - SALGAR (ISSA ABUCHAIBE) DEL SISTEMA DE ACUEDUCTO DEL MUNICIPIO DE PUERTO COLOMBIA",
+    "valor": 18640628309.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72141119"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1709717120",
+    "entidad": "FONDO NACIONAL DEL AHORRO S.A.",
+    "nit_entidad": "899999284",
+    "descripcion": "55*CONTRATAR LAS OBRAS DE REFORZAMIENTO PARA LA INTERVENCION DE LA INFRAESTRUCTURA DEL EDIFICIO DE PRESIDENCIA EN LA SEDE PRINCIPAL DEL FONDO NACIONAL DEL AHORRO SA",
+    "valor": 17000000000.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL (CON OFERTAS)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72102900",
+      "72103300",
+      "72151100",
+      "72151500",
+      "72151900"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713672485",
+    "entidad": "EMPRESAS PÚBLICAS DE CUNDINAMARCA S.A. E.S.P.",
+    "nit_entidad": "900222346",
+    "descripcion": "CONSTRUCCION DEL PLAN MAESTRO DE ACUEDUCTO Y ALCANTARILLADO CASCO URBANO MUNICIPIO DE FUSAGASUGA; INCLUYE DIAGNOSTICO; ESTUDIOS Y DISEÑOS DE LAS OBRAS DE OPTIMIZACION Y AMPLIACION O CONSTRUCCION DE LA PLANTA DE TRATAMIENTO DE AGUAS POTABLE Y AGUAS RESIDUALES DEL CASCO URBANO DEL MUNICIPIO DE FUSAGASUGA; CUNDINAMARCA",
+    "valor": 16569000000.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141119"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713847799",
+    "entidad": "HOSPITAL MILITAR CENTRAL",
+    "nit_entidad": "830040256",
+    "descripcion": "PAA2026-UCLB-119 - SUMINISTRO DE INSUMOS Y/O DISPOSITIVOS MEDICO-QUIRURGICOS REQUERIDOS DE LA SUBDIRECCION MEDICA DEL HOSPITAL MILITAR CENTRAL VF2027-2030",
+    "valor": 197521858600.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "42281501",
+      "42295400",
+      "42295433",
+      "42272500",
+      "42294705",
+      "42221500"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873768",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1965 REALIZAR EL MEJORAMIENTO DE LA INFRAESTRUCTURA LADO AIRE DEL AERODROMO DE EL CHARCO; DEPARTAMENTO DE NARIÑO (VF)",
+    "valor": 91478854852.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "1140 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141000",
+      "72141100",
+      "72141500"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715547612",
+    "entidad": "GOBERNACIÓN DE BOLÍVAR//",
+    "nit_entidad": "890480059",
+    "descripcion": "IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR PAE 2027 BOLIVAR",
+    "valor": 90000000000.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Regalias",
+    "unspsc": [
+      "90101600",
+      "90101800",
+      "85151600",
+      "85151700",
+      "93131600",
+      "80141700"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713847804",
+    "entidad": "HOSPITAL MILITAR CENTRAL",
+    "nit_entidad": "830040256",
+    "descripcion": "PAA2026-UCLB-144 - SUMINISTRO DE MATERIALES Y COMPONENTES PARA LA ELABORACION Y ADAPTACION DE DISPOSITIVOS MEDICOS SOBRE MEDIDA TIPO PROTESIS EXTERNA PARA EXTREMIDADES Y ORTESIS ORTOPEDICA; LIGADO AL SOPORTE TECNICO Y ASESORIA PARA USO; ADAPTACION Y MANTENIMIENTO DE LOS ELEMENTOS PARA EL PROGRAMA DE ATENCION DESCENTRALIZADA DEL PACIENTE AMPUTADO DEL HOSPITAL MILITAR CENTRAL VF2027-2030",
+    "valor": 68084499100.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "42321709",
+      "42242000",
+      "42242100",
+      "42242001",
+      "42311505",
+      "13102022"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716843898",
+    "entidad": "SECRETARIA DE EDUCACION DEL DISTRITO",
+    "nit_entidad": "8999990619",
+    "descripcion": "7949-2-8 (2026) PRESTAR LOS SERVICIOS DE TELECOMUNICACIONES A LA SECRETARIA DE EDUCACION EN LOS TRES NIVELES INSTITUCIONALES DE ACUERDO CON LA ZONA ADJUDICADA",
+    "valor": 58154380944.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "378 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "81112100",
+      "83112300",
+      "43222600",
+      "43232800",
+      "72151600"
+    ],
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": "234"
+  },
+  {
+    "id": "MarketplaceCO1713847808",
+    "entidad": "HOSPITAL MILITAR CENTRAL",
+    "nit_entidad": "830040256",
+    "descripcion": "PAA2026-UCLB-184 - SUMINISTRO DE ALIMENTACION PARA PACIENTES HOSPITALIZADOS Y MEDICOS RESIDENTES E INTERNOS DEL HOSPITAL MILITAR CENTRAL VF2027-2030",
+    "valor": 50220549500.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "90101500",
+      "90101600",
+      "90101700"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1697873755",
+    "entidad": "AEROCIVIL",
+    "nit_entidad": "899999059",
+    "descripcion": "66000C1943 REALIZAR OBRAS DE CONSTRUCCION DE LA TORRE DE CONTROL (TWR) Y DE LA BASE DE SERVICIOS DE EXTINCION DE INCENDIOS (SEI) DEL AEROPUERTO LA FLORIDA DE TUMACO (VF)",
+    "valor": 44350849556.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "1380 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121400",
+      "72141000"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713847806",
+    "entidad": "HOSPITAL MILITAR CENTRAL",
+    "nit_entidad": "830040256",
+    "descripcion": "PAA2026-UCLB-155 - SUMINISTRO DE REACTIVOS E INSUMOS PARA EL LABORATORIO CLINICO DEL HOSPITAL MILITAR CENTRAL VF2027-2030",
+    "valor": 43416929800.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "41116010",
+      "41116000",
+      "41116205",
+      "41116008",
+      "41116100",
+      "41116138"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716655030",
+    "entidad": "ALCALDIA MUNICIPAL DE LA JAGUA DE IBIRICO",
+    "nit_entidad": "800108683",
+    "descripcion": "CONSTRUCCION DE LA INFRAESTRUCTURA FISICA DE LA ESE JORGE ISAAC RINCON TORRES DEL MUNICIPIO DE LA JAGUA DE IBIRICO - CESAR",
+    "valor": 37939959003.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Regalias",
+    "unspsc": [
+      "72121400",
+      "72121403"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1712367561",
+    "entidad": "SECRETARIA DE EDUCACION DE CALI",
+    "nit_entidad": "890399011",
+    "descripcion": "EMPRESTITO - MEJORAMIENTO INTEGRAL DE LA INFRAESTRUCTURA EDUCATIVA OFICIAL EN SANTIAGO DE CALI EJECUTAR BAJO EL SISTEMA DE PRECIOS UNITARIOS FIJOS; SIN FORMULA DE REAJUSTE; LA CONSTRUCCION DE LAS OBRAS CORRESPONDIENTES DE LA IEO: REPUBLICA DE ARGENTINA SEDE PRINCIPAL REPUBLICA DE ARGENTINA SEDE POLICARPA SALAVARRIETA",
+    "valor": 37858422748.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72102900",
+      "72121400",
+      "72152600"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1712367559",
+    "entidad": "SECRETARIA DE EDUCACION DE CALI",
+    "nit_entidad": "890399011",
+    "descripcion": "EMPRESTITO_ MEJORAMIENTO INTEGRAL DE LA INFRAESTRUCTURA EDUCATIVA OFICIAL EN SANTIAGO DE CALI EJECUTAR BAJO EL SISTEMA DE PRECIOS UNITARIOS FIJOS; SIN FORMULA DE REAJUSTE; LOS AJUSTES DE LOS ESTUDIOS Y DISEÑOS PARA LA CONSTRUCCION DE LAS OBRAS CORRESPONDIENTES A LA IEO UBICADA EN LA ZONA DE EXPANSION DE CALI - LOTE VIVERO",
+    "valor": 32964288066.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72102900",
+      "72121400",
+      "72152600"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713672302",
+    "entidad": "EMPRESAS PÚBLICAS DE CUNDINAMARCA S.A. E.S.P.",
+    "nit_entidad": "900222346",
+    "descripcion": "CONSTRUCCION DE LA PTAR CORREDOR FUNZA - SIBERIA",
+    "valor": 30000000000.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141119"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1714210527",
+    "entidad": "CUNDINAMARCA-ALCALDIA MUNICIPIO MOSQUERA",
+    "nit_entidad": "899999342",
+    "descripcion": "1705ESTUDIOS; DISEÑOS; DEMOLICION Y CONSTRUCCION DEL COMANDO DEPARTAMENTAL DE LA SABANA Y ESTACION DE POLICIA EN EL MUNICIPIO DE MOSQUERA; CUNDINAMARCA",
+    "valor": 27053399558.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos de credito",
+    "unspsc": [
+      "72101500",
+      "72102900",
+      "72103300",
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716774478",
+    "entidad": "DILOF",
+    "nit_entidad": "800141397",
+    "descripcion": "CONSTRUCCION Y DOTACION DEL COMANDO DEPARTAMENTO DE POLICIA DE CALDAS Y AREA DE APOYO PARA LA POLICIA METROPOLITANA DE MANIZALES  FASE I; DE ACUERDO A ESPECIFICACIONES TECNICAS Y A PRECIOS UNITARIOS FIJOS SIN FORMULA DE REAJUSTE",
+    "valor": 26548060000.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72121400",
+      "81101500",
+      "95121700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716774502",
+    "entidad": "DILOF",
+    "nit_entidad": "800141397",
+    "descripcion": "PRIMERA FASE DE LAS OBRAS DE REFORZAMIENTO ESTRUCTURAL DE LA DIRECCION GENERAL DE LA POLICIA NACIONAL; DE CONFORMIDAD CON LOS ESTUDIOS; DISEÑOS; ESPECIFICACIONES TECNICAS Y DEMAS DOCUMENTOS DEL PROYECTO; BAJO LA MODALIDAD DE PRECIOS UNITARIOS FIJOS SIN FORMULA DE REAJUSTE",
+    "valor": 26092523000.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72121400",
+      "81101500",
+      "95121700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715212543",
+    "entidad": "FISCALÍA GENERAL DE LA NACIÓN REGIONAL PACÍFICO",
+    "nit_entidad": "800187575",
+    "descripcion": "PRESTAR EL SERVICIO INTEGRAL DE ASEO Y CAFETERIA CON SOPORTE DE EQUIPOS; SUMINISTRO DE INSUMOS Y ELEMENTOS PARA LAS SEDES DE LA FISCALIA GENERAL DE LA NACION - SUBDIRECCION REGIONAL DE APOYO DEL PACIFICO EN LOS DEPARTAMENTOS DEL CAUCA; VALLE DEL CAUCA Y NARIÑONUEVO CONTRATO",
+    "valor": 22262291037.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "750 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "76111500",
+      "72102100"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1709587333",
+    "entidad": "SECRETARIA DISTRITAL DE SEGURIDAD CONVIVENCIA Y JUSTICIA",
+    "nit_entidad": "899999061",
+    "descripcion": "11781-ADQUISICION DE CAMARAS MULTISENSOR Y UPS DE 1 KVA CON SUS ACCESORIOS PARA RENOVACION DE PUNTOS EXISTENTES A FIN DE FORTALECER EL SISTEMA DE VIDEOVIGILANCIA DE BOGOTA; POR OBSOLESCENCIA TECNOLOGICA",
+    "valor": 20325335249.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "SELECCION ABREVIADA CON SUBASTA INVERSA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "46171600",
+      "45121500",
+      "45121600",
+      "39121000",
+      "72151700",
+      "92121700"
+    ],
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1706018862",
+    "entidad": "DIRECCION DE IMPUESTOS Y ADUANAS NACIONALES*",
+    "nit_entidad": "800197268",
+    "descripcion": "584-F-100151190-SERVICIOS DE MANTENIMIENTO PREVENTIVO Y/O CORRECTIVO PARA LOS SISTEMAS DE AIRE ACONDICIONADO Y VENTILACION MECANICA DE LAS SEDES DE LA UAE DIAN A NIVEL NACIONAL; CON SUMINISTRO DE LOS INSUMOS; REPUESTOS Y COMPONENTES NECESARIOS PARA SU CORRECTO FUNCIONAMIENTO",
+    "valor": 20172605625.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "SELECCION ABREVIADA CON SUBASTA INVERSA",
+    "duracion": "1292 día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72101511",
+      "72151207"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1710673687",
+    "entidad": "ALCALDÍA DEL DISTRITO TURÍSTICO Y CULTURAL DE CARTAGENA DE INDIAS",
+    "nit_entidad": "890480184",
+    "descripcion": "CONTRATAR PRESTACION DE SERVICIOS DE ALUMBRADO NAVIDEÑO EN EL DISTRITO DE CARTAGENA",
+    "valor": 20000000000.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "39111605"
+    ],
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1706018448",
+    "entidad": "DIRECCION DE IMPUESTOS Y ADUANAS NACIONALES*",
+    "nit_entidad": "800197268",
+    "descripcion": "487-F-100190441-SERVICIO INTEGRAL DE ASEO Y CAFETERIA PARA LAS SEDES DEL NIVEL CENTRAL; MEDIANTE LA MODALIDAD DE ORDENES DE COMPRA A TRAVES DE LA AGENCIA NACIONAL DE CONTRATACION PUBLICA - COLOMBIA COMPRA EFICIENTE; AL AMPARO DEL ACUERDO MARCO VIGENTE",
+    "valor": 19998578704.0,
+    "mes_esperado": 11,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "570 día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "76111501",
+      "90101700"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1681733570",
+    "entidad": "Rama Judicial  Dirección Ejecutiva de Administración Judicial",
+    "nit_entidad": "800093816",
+    "descripcion": "GPEI-001GESTIONAR LA ADQUISICION DE INMUEBLES PARA LA RAMA JUDICIAL",
+    "valor": 145086727585.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "CONTRATACION DIRECTA",
+    "duracion": "día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "72121100",
+      "72121400",
+      "81101500",
+      "80101600",
+      "80131500",
+      "80111700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1712368914",
+    "entidad": "SECRETARIA DE EDUCACION DE CALI",
+    "nit_entidad": "890399011",
+    "descripcion": "CONTRATAR EL SUMINISTRO DE COMPLEMENTO ALIMENTARIO PARA EL PROGRAMA DE ALIMENTACION ESCOLAR - PAE DURANTE EL CALENDARIO ESCOLAR Y EN LA JORNADA ACADEMICA DE LOS NIÑOS; NIÑAS; ADOLESCENTES Y JOVENES MATRICULADOS EN LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL DISTRITO ESPECIAL DE SANTIAGO DE CALI LO ANTERIOR EN DESARROLLO DEL PROYECTO: FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR PARA LOS ESTUDIANTES DE LAS IEO DE SANTIAGO DE CALI BP-26005485 VIGENCIA 2027",
+    "valor": 121515820800.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "120 día(s)",
+    "origen_recursos": "Sistema General de Participaciones",
+    "unspsc": [
+      "50192600",
+      "50192700",
+      "50193000",
+      "90101500",
+      "90101600",
+      "90101800"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715526577",
+    "entidad": "SISTEMA ESTRATEGICO DE TRANSPORTE PUBLICO DE IBAGUE S.A.S",
+    "nit_entidad": "901287299",
+    "descripcion": "SUMINISTRO; INSTALACION Y PUESTA EN MARCHA DEL SISTEMA DE RECAUDO CENTRALIZADO EN EL MARCO DEL SISTEMA ESTRATEGICO DE TRANSPORTE PUBLICO DE IBAGUE SAS",
+    "valor": 43424128887.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "270 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72103300",
+      "72141000",
+      "72141100",
+      "81101500",
+      "81102200"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716751808",
+    "entidad": "GOBERNACIÓN DEL CAUCA",
+    "nit_entidad": "891580016",
+    "descripcion": "EL CONTRATISTA SE COMPROMETE CON EL DEPARTAMENTO DEL CAUCA - SECRETARIA DE EDUCACION Y CULTURA A PRESTAR EL SERVICIO DE ALIMENTACION ESCOLAR; PARA LOS NIÑOS; NIÑAS; ADOLESCENTES Y JOVENES REGISTRADOS; PRIORIZADOS Y FOCALIZADOS EN LA MATIRCULA SIMAT DE LAS INSTITUCIONES Y CENTROS EDUCATIVOS UBICADOS EN TERRITORIOS INDIGENAS O QUE ATIENDAN POBLACION MAYORITARIAMENTE INDIGENA DE LA ENTIDAD TERRITORIAL CERTIFICADA EN EDUCACION DEL DEPARTAMENTO DEL CAUCA; DE CONFORMIDAD CON LOS ESTUDIOS PREVIOS ELABORADOS POR LA ENTIDAD; LAS CONDICIONES TECNICAS; TIPOS Y MODALIDADES DEFINIDOS EN LOS LINEAMIENTOS TECNICOS ADMINISTRATIVOS PAE Y LAS RESOLUCIONES QUE LOS MODIFIQUEN; SUS DOCUMENTOS ANEXOS COMPLEMENTARIOS",
+    "valor": 36427603444.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "CONTRATACION DIRECTA",
+    "duracion": "107 día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "50193000",
+      "50193001",
+      "50193002",
+      "85151501",
+      "85151605",
+      "90101501"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": "DC-SED-CD-238-2026",
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9877588&isFromPublicArea=True&isModal=true&asPopupView=true",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715526573",
+    "entidad": "SISTEMA ESTRATEGICO DE TRANSPORTE PUBLICO DE IBAGUE S.A.S",
+    "nit_entidad": "901287299",
+    "descripcion": "OBRA AVENIDA FERROCARRIL",
+    "valor": 32034821875.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "180 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72103300",
+      "72141000",
+      "72141100",
+      "81101500",
+      "81102200"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1710931745",
+    "entidad": "UNIVERSIDAD DE LA GUAJIRA",
+    "nit_entidad": "892115029",
+    "descripcion": "CONSTRUCCION DE INFRAESTRUCTURA FISICA Y ESPACIOS COMPLEMENTARIOS EN LA UNIVERSIDAD DE LA GUAJIRA; SEDE RIOHACHA; DEPARTAMENTO DE LA GUAJIRA",
+    "valor": 28960509071.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72102900",
+      "72103300",
+      "72121507",
+      "95111617",
+      "95121503",
+      "95122302"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1660054798",
+    "entidad": "UNIMAGDALENA",
+    "nit_entidad": "891780111",
+    "descripcion": "PLAN DE ACCION - EDIFICIO DE AULAS RIO MAGDALENA",
+    "valor": 26651452627.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "39121900",
+      "39122000",
+      "39122100",
+      "40101700",
+      "72121400"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1715526578",
+    "entidad": "SISTEMA ESTRATEGICO DE TRANSPORTE PUBLICO DE IBAGUE S.A.S",
+    "nit_entidad": "901287299",
+    "descripcion": "SUMINISTRO; INSTALACION Y PUESTA EN MARCHA DEL SISTEMA DE GESTION Y CONTROL DE FLOTA Y DEL SISTEMA DE INFORMACION AL USUARIO EN EL MARCO DEL SISTEMA ESTRATEGICO DE TRANSPORTE PUBLICO DE IBAGUE SAS",
+    "valor": 25175871113.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "270 día(s)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72103300",
+      "72141000",
+      "72141100",
+      "81101500",
+      "81102200"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1710931449",
+    "entidad": "UNIVERSIDAD DE LA GUAJIRA",
+    "nit_entidad": "892115029",
+    "descripcion": "CONSTRUCCION E INTERVENTORIA DE VIAS; PARQUEADERO Y CERRAMIENTO DE LA UNIVERSIDAD DE LA GUAJIRA SEDE RIOHACHA",
+    "valor": 19400000000.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141001",
+      "72152708",
+      "30191617"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1666913843",
+    "entidad": "E.S.E HOSPITAL SAN RAFAEL DE PACHO",
+    "nit_entidad": "800099860",
+    "descripcion": "CONSTRUCCION Y SERVICIOS DE LA CONSTRUCCION",
+    "valor": 17263593285.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121403"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1681733606",
+    "entidad": "Rama Judicial  Dirección Ejecutiva de Administración Judicial",
+    "nit_entidad": "800093816",
+    "descripcion": "UA-029PRESTAR EL SERVICIO INTEGRAL DE ASEO Y CAFETERIA Y MANTENIMIENTO BASICO EN LAS SEDES DONDE FUNCIONAN LAS ALTAS CORTES (CONSTITUCIONAL; CONSEJO DE ESTADO; CORTE SUPREMA DE JUSTICIA); EL CONSEJO SUPERIOR DE LA JUDICATURA; COMISION NACIONAL DE DISCIPLINA JUDICIAL Y LA DIRECCION EJECUTIVA DE ADMINISTRACION JUDICIAL; INCLUIDOS INSUMOS; ELEMENTOS MAQUINARIA Y SERVICIOS ESPECIALES",
+    "valor": 16778703432.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "90101700",
+      "95121503",
+      "47131700",
+      "47131800",
+      "76111500",
+      "76111504"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  }
+];

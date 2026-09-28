@@ -84,6 +84,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO CORDOBA NUTRE",
       "nit_proveedor": "902067860",
+      "codigo_proveedor": "736321019",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10239350&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "MARTHA ISABEL HERNANDEZ GARAY",
@@ -127,6 +128,24 @@
         }
       ]
     },
+    "ofertas": null,
+    "integrantes": [
+      {
+        "nombre": "FUNDACION SOCIAL FUTURO PARA TODOS",
+        "nit": "900171202",
+        "participacion": 95.0,
+        "lider": true
+      },
+      {
+        "nombre": "FUNDACION ILUSION EN GRANDE",
+        "nit": "900077592",
+        "participacion": 5.0,
+        "lider": false,
+        "contratos": 49,
+        "valor_total": 68660895114.59
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -220,6 +239,7 @@
       "condiciones_entrega": null,
       "proveedor": "Fundacion Accion Solidaria Por Colombia",
       "nit_proveedor": "900569044",
+      "codigo_proveedor": "702125071",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9673718&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Johvany Loaiza Alvarez",
@@ -273,6 +293,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -366,6 +389,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNDACION PROTEGER",
       "nit_proveedor": "900242855",
+      "codigo_proveedor": "702281593",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "JOSE ENRIQUE HERRARA JIMENEZ",
@@ -419,6 +443,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION PROTEGER",
+          "nit": "900242855",
+          "valor": 3149207403.0,
+          "fecha": "2026-09-14T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -512,6 +550,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNDACION ILUSION EN GRANDE",
       "nit_proveedor": "900077592",
+      "codigo_proveedor": "712381425",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865716&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "OSCAR LUIS ESPITIA VERTEL",
@@ -549,6 +588,20 @@
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION ILUSION EN GRANDE",
+          "nit": "900077592",
+          "valor": 1349652350.0,
+          "fecha": "2026-09-09T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -633,6 +686,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -721,6 +777,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -772,8 +831,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -793,6 +852,9 @@
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -877,6 +939,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -928,8 +993,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -944,6 +1009,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -995,8 +1063,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "luminarias led"
+      "luminarias led",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "M&O DISTRIBUCIONES Y TECNOLOGIA S.A.S.",
@@ -1033,6 +1101,9 @@
       ]
     },
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1084,8 +1155,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
-      "sistemas fotovoltaicos"
+      "sistemas fotovoltaicos",
+      "alumbrado publico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1100,6 +1171,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1167,6 +1241,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1218,8 +1295,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -1257,6 +1334,7 @@
       "condiciones_entrega": null,
       "proveedor": "VHZ INGENIERIA S.A.S",
       "nit_proveedor": "900151289",
+      "codigo_proveedor": "701727265",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LUIS ALBERTO TRIVIÑO MARTINEZ",
@@ -1310,6 +1388,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1402,6 +1483,7 @@
       "condiciones_entrega": null,
       "proveedor": "PROSERVIRTE",
       "nit_proveedor": "900918168",
+      "codigo_proveedor": "711889139",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885910&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "JEISSON ANDRES PEÑA ROCHA",
@@ -1455,6 +1537,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "PROSERVIRTE",
+          "nit": "900918168",
+          "valor": 710407172.83,
+          "fecha": "2026-09-12T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1543,8 +1639,11 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": "2026-09-28T02:49:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10358371",
@@ -1629,6 +1728,7 @@
       "condiciones_entrega": null,
       "proveedor": "PRECOOPVIVERES",
       "nit_proveedor": "900230819",
+      "codigo_proveedor": "707690152",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "COOPERATIVA PRECOOPVIVERES",
@@ -1682,6 +1782,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1733,8 +1836,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1754,6 +1857,9 @@
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1842,6 +1948,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1926,6 +2035,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -1977,8 +2089,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -1993,6 +2105,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2044,8 +2159,8 @@
       }
     ],
     "materiales_detectados": [
-      "redes eléctricas",
-      "sistemas fotovoltaicos"
+      "sistemas fotovoltaicos",
+      "redes eléctricas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2081,6 +2196,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2171,6 +2289,7 @@
       "condiciones_entrega": null,
       "proveedor": "UNION TEMPORAL CÉNIT",
       "nit_proveedor": null,
+      "codigo_proveedor": "736554866",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10343005&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ALEIDYS MARTINEZ SALAS",
@@ -2202,6 +2321,41 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "UNION TEMPORAL CÉNIT",
+          "nit": "902081982",
+          "valor": 9261946604.0,
+          "fecha": "2026-06-01T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "ALIMENTAR CAPITAL SAS",
+        "nit": "901191678",
+        "participacion": 46.0,
+        "lider": true
+      },
+      {
+        "nombre": "CORPORACION AGROSOCIAL",
+        "nit": "802010694",
+        "participacion": 45.0,
+        "lider": false,
+        "contratos": 15,
+        "valor_total": 35865264919.0
+      },
+      {
+        "nombre": "ADIS",
+        "nit": "901906194",
+        "participacion": 9.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2292,6 +2446,7 @@
       "condiciones_entrega": null,
       "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
       "nit_proveedor": "811046428",
+      "codigo_proveedor": "707092730",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Luis Ovidio Cordoba Martinez",
@@ -2345,6 +2500,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2433,6 +2591,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2521,6 +2682,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2609,6 +2773,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2676,6 +2843,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2764,6 +2934,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2870,6 +3043,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EDUR",
+          "nit": "901521260",
+          "valor": 156492023.0,
+          "fecha": "2026-09-22T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -2963,6 +3150,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
       "nit_proveedor": "900562400",
+      "codigo_proveedor": "703508150",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LEIDY TATIANA VALENCIA GARCIA",
@@ -3016,6 +3204,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+          "nit": "900562400",
+          "valor": 100481483.98,
+          "fecha": "2026-09-16T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3116,6 +3318,7 @@
       "condiciones_entrega": null,
       "proveedor": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
       "nit_proveedor": "9019238961",
+      "codigo_proveedor": "730757309",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "HERNAN DARIO SANCHEZ QUITIAQUEZ",
@@ -3143,6 +3346,20 @@
       "pagado_sobre_facturado_pct": 96.8,
       "proveedores_top": []
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
+          "nit": "9019238961",
+          "valor": 2830179333.0,
+          "fecha": "2026-09-15T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3234,6 +3451,7 @@
       "condiciones_entrega": null,
       "proveedor": "ASC INGENIERIA SA ESP",
       "nit_proveedor": "8140029797",
+      "codigo_proveedor": "726215056",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DIDIER DELGADO",
@@ -3277,6 +3495,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3368,6 +3589,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO MANZANARES ILUMINADA",
       "nit_proveedor": null,
+      "codigo_proveedor": "736379348",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240326&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Santiago Rave Restrepo",
@@ -3399,6 +3621,24 @@
         }
       ]
     },
+    "ofertas": null,
+    "integrantes": [
+      {
+        "nombre": "TEKNOVO",
+        "nit": "901520859",
+        "participacion": 75.0,
+        "lider": true,
+        "contratos": 2,
+        "valor_total": 110816733.47
+      },
+      {
+        "nombre": "PROICOM S.A.S",
+        "nit": "8903281956",
+        "participacion": 25.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3466,6 +3706,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3554,6 +3797,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3642,6 +3888,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3730,6 +3979,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3816,6 +4068,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3886,6 +4141,9 @@
       "pagado_sobre_facturado_pct": 75.6,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -3968,6 +4226,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4033,6 +4294,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4098,6 +4362,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4184,6 +4451,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4245,6 +4515,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4331,6 +4604,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4417,6 +4693,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4478,6 +4757,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4570,6 +4852,7 @@
       "condiciones_entrega": null,
       "proveedor": "MUNICIPIOS ASOCIADOS DEL NORDESTE Y MAGDALENA MEDIO",
       "nit_proveedor": "900246990",
+      "codigo_proveedor": "703873877",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "MARJI ESTELA ECHEVERRIA JIMENEZ",
@@ -4623,6 +4906,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4713,6 +4999,7 @@
       "condiciones_entrega": null,
       "proveedor": "TRAZANDO S.A.S",
       "nit_proveedor": "900580755",
+      "codigo_proveedor": "708972120",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jefferson Yesid Arroyave Montoya",
@@ -4766,6 +5053,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4854,6 +5144,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -4940,6 +5233,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5030,6 +5326,7 @@
       "condiciones_entrega": null,
       "proveedor": "TRAZANDO S.A.S",
       "nit_proveedor": "900580755",
+      "codigo_proveedor": "708972120",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924505&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jefferson Yesid Arroyave Montoya",
@@ -5083,6 +5380,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5176,6 +5476,7 @@
       "condiciones_entrega": null,
       "proveedor": "DEPARTAMENTO DE CUNDINAMARCA - SECRETARIA DE EDUCACION",
       "nit_proveedor": "899999114",
+      "codigo_proveedor": "702179409",
       "url": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
       "contactos": {
         "representante_legal": "LIZETH MAYERLYN SEPULVEDA ROJAS",
@@ -5229,6 +5530,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5313,6 +5617,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5401,6 +5708,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5489,6 +5799,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5577,6 +5890,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5665,6 +5981,7 @@
       "condiciones_entrega": null,
       "proveedor": "EDELMIRA SIERRA GUTIERREZ",
       "nit_proveedor": "24227103",
+      "codigo_proveedor": "711857755",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "EDELMIRA SIERRA GUTIERREZ",
@@ -5713,6 +6030,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5804,6 +6124,7 @@
       "condiciones_entrega": null,
       "proveedor": "SEPI LTDA",
       "nit_proveedor": "9000537522",
+      "codigo_proveedor": "722525078",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "SEPI LTDA",
@@ -5857,6 +6178,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "SEPI LTDA",
+          "nit": "9000537522",
+          "valor": 815296808.8,
+          "fecha": "2026-08-28T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -5915,8 +6250,8 @@
       }
     ],
     "materiales_detectados": [
-      "vigas",
-      "hospital"
+      "hospital",
+      "vigas"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -5956,6 +6291,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNPRIMAVERA",
       "nit_proveedor": "823001628",
+      "codigo_proveedor": "712094242",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ADALBERTO HERRERA BRIEVA",
@@ -6009,6 +6345,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6079,6 +6418,9 @@
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6165,6 +6507,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6251,6 +6596,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6337,6 +6685,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6423,6 +6774,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6509,6 +6863,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6602,6 +6959,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
       "nit_proveedor": "811016502",
+      "codigo_proveedor": "717076103",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": null,
@@ -6655,6 +7013,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6741,6 +7102,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6802,6 +7166,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6863,6 +7230,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -6924,6 +7294,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7006,6 +7379,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7092,6 +7468,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7178,6 +7557,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7243,6 +7625,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7324,6 +7709,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7412,6 +7800,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7479,6 +7870,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7572,6 +7966,7 @@
       "condiciones_entrega": null,
       "proveedor": "CABILDO MAYOR DEL RESGUARDO INDIGENA RIO ALTO SAN JUAN",
       "nit_proveedor": "901788315",
+      "codigo_proveedor": "729557108",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Jaime Andres Rivera Donado",
@@ -7620,6 +8015,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7708,6 +8106,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7796,6 +8197,20 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EPSI",
+          "nit": "811042638",
+          "valor": 178330859.0,
+          "fecha": "2026-09-10T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7863,6 +8278,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -7949,6 +8367,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8035,6 +8456,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8121,6 +8545,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8207,6 +8634,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8277,6 +8707,9 @@
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8368,6 +8801,7 @@
       "condiciones_entrega": null,
       "proveedor": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
       "nit_proveedor": "901848014",
+      "codigo_proveedor": "727453276",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ESTEBAN ESPINAL CHAVARRIA",
@@ -8421,6 +8855,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8512,6 +8949,7 @@
       "condiciones_entrega": null,
       "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
       "nit_proveedor": "811046428",
+      "codigo_proveedor": "707092730",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Luis Ovidio Cordoba Martinez",
@@ -8565,6 +9003,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8651,6 +9092,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8716,6 +9160,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8797,6 +9244,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8862,6 +9312,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -8952,6 +9405,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO PERFOAGUAS",
       "nit_proveedor": null,
+      "codigo_proveedor": "736477035",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10256908&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "ITC INTERCONSULTING SAS",
@@ -8983,6 +9437,43 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO PERFOAGUAS",
+          "nit": null,
+          "valor": 5022071888.0,
+          "fecha": "2026-04-30T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "PROINGDES S.A.S",
+        "nit": "901918974",
+        "participacion": 70.0,
+        "lider": true
+      },
+      {
+        "nombre": "MARIO ALBERTO ALMANZA SOLANO",
+        "nit": "10784507",
+        "participacion": 20.0,
+        "lider": false,
+        "contratos": 4,
+        "valor_total": 738586431.77
+      },
+      {
+        "nombre": "ITC INTERCONSULTING SAS",
+        "nit": "901448717",
+        "participacion": 10.0,
+        "lider": false,
+        "contratos": 1,
+        "valor_total": 348988374.0
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9048,6 +9539,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9113,6 +9607,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9178,6 +9675,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9243,6 +9743,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9330,6 +9833,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO CONSTRUCCIONES HYM 2026",
       "nit_proveedor": null,
+      "codigo_proveedor": "736635160",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10292970&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "CONSTRUCCIONES MONTREAL MR S.A.S CONSTRUCCIONES MONTREAL MR S.A.S",
@@ -9361,6 +9865,118 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 33,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO FAO ECOINNOVA INFRAESTRUCTURA",
+          "nit": null,
+          "valor": 1217629434.46,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO SOLUCION DEPORTIVA.",
+          "nit": null,
+          "valor": 1288250474.46,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO BETEL",
+          "nit": null,
+          "valor": 1296184462.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PLANTAR FUTURO INVERSIONES S.A.S.",
+          "nit": "900058982",
+          "valor": 1298721200.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO POLIDEPORTIVO 15",
+          "nit": null,
+          "valor": 1299426697.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSTRUCCIONES MASTER S.A.S",
+          "nit": "830004448",
+          "valor": 1301408955.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ESTRUCTURAS METALICAS 843",
+          "nit": null,
+          "valor": 1301549007.19,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO POLIDEPORTIVO AGUA DE DIOS",
+          "nit": null,
+          "valor": 1301840666.56,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "A.P.P. CONTROL INGENIERIA S.A.S",
+          "nit": "900446925",
+          "valor": 1309923362.03,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO BC AGUA DE DIOS 2026",
+          "nit": null,
+          "valor": 1310514148.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "SANABRIA SAS",
+          "nit": "901633148",
+          "valor": 1310642000.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "ICSSI S.A.S.",
+          "nit": "900819482",
+          "valor": 1310913652.21,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GRUPO IGNEA SAS",
+          "nit": "901166624",
+          "valor": 1311353738.33,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ADD26",
+          "nit": null,
+          "valor": 1312280789.16,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GMZ CONSTRUCTORES SAS",
+          "nit": "901639965",
+          "valor": 1313924237.0,
+          "fecha": "2026-05-13T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9426,6 +10042,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9516,6 +10135,7 @@
       "condiciones_entrega": null,
       "proveedor": "INNOVAINGENIERIA SAS",
       "nit_proveedor": "901938856",
+      "codigo_proveedor": "731337192",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Tania Jhasbleidy Jurado Saavedra",
@@ -9569,6 +10189,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9659,6 +10282,7 @@
       "condiciones_entrega": null,
       "proveedor": "ELECTRICAS DE MEDELLIN INGENIERIA Y SERVICIOS S.AS",
       "nit_proveedor": "890906413",
+      "codigo_proveedor": "704565340",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Astrid Johana Murillo Castro",
@@ -9712,6 +10336,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9777,6 +10404,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9863,6 +10493,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -9954,6 +10587,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSTRU INNOVANDO SAS",
       "nit_proveedor": "900730010",
+      "codigo_proveedor": "704559111",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "CONTRUINNOVANDO SAS",
@@ -10007,6 +10641,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10095,6 +10732,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSTRUCCIONES Y SUMINISTROS TRUJILLO DE LA FUENTE S.A.S",
       "nit_proveedor": "901878498",
+      "codigo_proveedor": "729254409",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DIANA CAROLINA FUENTES MOJICA",
@@ -10143,6 +10781,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10229,6 +10870,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10319,6 +10963,7 @@
       "condiciones_entrega": null,
       "proveedor": "CONSORCIO SUMINISTRO ET",
       "nit_proveedor": "902069151",
+      "codigo_proveedor": "736468802",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10281632&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "LISETH DAYANA CONTRERAS REY",
@@ -10362,6 +11007,48 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO SUMINISTRO ET",
+          "nit": "902069151",
+          "valor": 1722369204.0,
+          "fecha": "2026-05-09T00:00:00",
+          "ganador": true
+        },
+        {
+          "proveedor": "VENEPLAST LTDA",
+          "nit": "900019737",
+          "valor": 1722369204.0,
+          "fecha": "2026-05-09T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
+    "integrantes": [
+      {
+        "nombre": "SOLUCIONES SAN ALEJO SAS",
+        "nit": "901320169",
+        "participacion": 50.0,
+        "lider": false,
+        "contratos": 2,
+        "valor_total": 117393400.0
+      },
+      {
+        "nombre": "AGROFRUTTA INVEST GROUP S.A.S.",
+        "nit": "901997374",
+        "participacion": 45.0,
+        "lider": true
+      },
+      {
+        "nombre": "ASOCIACION PARA EL BIENESTAR SOCIAL Y CULTURAL DE LOS NIÑOS DE COLOMBIA",
+        "nit": "901761173",
+        "participacion": 5.0,
+        "lider": false
+      }
+    ],
+    "sanciones": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10450,6 +11137,7 @@
       "condiciones_entrega": null,
       "proveedor": "Deicy Bravo Jojoa",
       "nit_proveedor": "59706955",
+      "codigo_proveedor": "703835827",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10271391&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "DEICY BRAVO JOJOA",
@@ -10503,6 +11191,41 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 4,
+      "proveedores": [
+        {
+          "proveedor": "COMERCIALIZADORA FF SAS",
+          "nit": "901356559",
+          "valor": 1139645700.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "COMERCIALIZADORA Y ACABADOS DEL CAUCA",
+          "nit": "1061685623",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GRISMABSAS",
+          "nit": "901564855",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Deicy Bravo Jojoa",
+          "nit": "59706955",
+          "valor": 1220265000.0,
+          "fecha": "2026-05-06T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10589,6 +11312,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10675,6 +11401,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10761,6 +11490,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10845,6 +11577,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -10931,6 +11666,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11017,6 +11755,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11082,6 +11823,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11143,6 +11887,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11204,6 +11951,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11265,6 +12015,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11351,6 +12104,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11416,6 +12172,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11502,6 +12261,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11584,6 +12346,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11645,6 +12410,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11710,6 +12478,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11796,6 +12567,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -11887,6 +12661,7 @@
       "condiciones_entrega": null,
       "proveedor": "JIKKOSOFT S.A.S",
       "nit_proveedor": "900765378",
+      "codigo_proveedor": "712094200",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Juan David López Marín",
@@ -11940,6 +12715,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12026,6 +12804,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12112,6 +12893,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12198,6 +12982,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12284,6 +13071,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12370,6 +13160,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12457,6 +13250,7 @@
       "condiciones_entrega": null,
       "proveedor": "EMPRESAS PUBLICAS DE PALERMO ESP",
       "nit_proveedor": "813002609",
+      "codigo_proveedor": "720657030",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Maria Jose Polania Caviedes",
@@ -12500,6 +13294,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12586,6 +13383,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12668,6 +13468,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12750,6 +13553,9 @@
         }
       ]
     },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12832,6 +13638,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -12919,6 +13728,7 @@
       "condiciones_entrega": null,
       "proveedor": "EL PUNTO ELECTRICO Y FERRETERO",
       "nit_proveedor": "71117007",
+      "codigo_proveedor": "713218709",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10275017&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "Arley Jhoany Gomez Alzate",
@@ -12967,6 +13777,27 @@
         }
       ]
     },
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "IMPORT RZ S.A.S",
+          "nit": "900426600",
+          "valor": 407044721.0,
+          "fecha": "2026-05-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EL PUNTO ELECTRICO Y FERRETERO",
+          "nit": "71117007",
+          "valor": 407153664.0,
+          "fecha": "2026-05-07T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13049,6 +13880,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13114,6 +13948,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13200,6 +14037,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13265,6 +14105,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13330,6 +14173,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13411,6 +14257,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13503,6 +14352,9 @@
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13573,6 +14425,9 @@
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13638,6 +14493,9 @@
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13729,6 +14587,7 @@
       "condiciones_entrega": null,
       "proveedor": "V&S SUMINISTROS Y SOLUCIONES SAS",
       "nit_proveedor": "901421866",
+      "codigo_proveedor": "714402013",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230787&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": "V&S SUMINISTROS Y SOLUCIONES SAS",
@@ -13782,6 +14641,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13873,6 +14735,7 @@
       "condiciones_entrega": null,
       "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
       "nit_proveedor": "811016502",
+      "codigo_proveedor": "717076103",
       "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.2914944&isFromPublicArea=True&isModal=true&asPopupView=true",
       "contactos": {
         "representante_legal": null,
@@ -13905,6 +14768,9 @@
       ]
     },
     "entidad_stats": null,
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   },
@@ -13991,6 +14857,9 @@
         }
       ]
     },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
     "primera_vez": null,
     "nueva": false
   }

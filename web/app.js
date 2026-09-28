@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnResetFilters = document.getElementById('btnResetFilters');
   const btnExportCsv = document.getElementById('btnExportCsv');
   const META = window.PROSPECTS_META || null;
+  // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
+  const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
+  const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   let onlyNew = false;
   const detailModal = document.getElementById('detailModal');
   const modalBody = document.getElementById('modalBody');
@@ -148,7 +151,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter Pipeline
+  function getPaaFiltered() {
+    const query = searchInput.value.toLowerCase().trim();
+    const sectorVal = sectorSelect.value;
+    const minBudget = parseFloat(budgetSelect.value) || 0;
+    return PAA.filter(item => {
+      if (query && ![item.entidad, item.descripcion, item.modalidad].join(' ').toLowerCase().includes(query)) return false;
+      if (sectorVal !== 'todos' && !(item.sectores || []).some(s => s.id === sectorVal)) return false;
+      if (minBudget > 0 && (item.valor || 0) < minBudget) return false;
+      return true;
+    });
+  }
+
   function getFilteredData() {
+    if (currentTab === 'paa') return getPaaFiltered();
     const query = searchInput.value.toLowerCase().trim();
     const sectorVal = sectorSelect.value;
     const stageVal = stageSelect.value;
@@ -323,6 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentTab === 'crm') {
       tabBaseline = rawData.filter(i => crmState[i.id]);
       baseName = 'oportunidades en CRM';
+    } else if (currentTab === 'paa') {
+      tabBaseline = PAA;
+      baseName = 'compras planeadas';
     }
 
     const baselineSum = tabBaseline.reduce((acc, curr) => acc + (curr.precio || 0), 0);
@@ -376,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Quality Score Card
-    document.getElementById('kpiAvgScore').textContent = `${avgScore} / 100`;
+    document.getElementById('kpiAvgScore').textContent = currentTab === 'paa' ? '—' : `${avgScore} / 100`;
 
     // Tab badges (Zero duplication: Adjudicados vs Open Tenders)
     const provCount = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
@@ -386,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countProveedores').textContent = provCount;
     document.getElementById('countObservatorio').textContent = obsCount;
     document.getElementById('countCrm').textContent = crmCount;
+    document.getElementById('countPaa').textContent = PAA.length;
     document.getElementById('countParaTi').textContent = Profile && Profile.getProfile() ? forYouItems().length : '✨';
   }
 
@@ -398,11 +418,57 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.style.display = 'none';
       crmKanban.style.display = 'grid';
       renderCrmKanban();
+    } else if (currentTab === 'paa') {
+      cardsGrid.style.display = 'grid';
+      crmKanban.style.display = 'none';
+      renderPaaCards(filtered);
     } else {
       cardsGrid.style.display = 'grid';
       crmKanban.style.display = 'none';
       renderCards(filtered);
     }
+  }
+
+  // ---------- Compras planeadas (PAA) ----------
+  function renderPaaCards(items) {
+    resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${items.length === 1 ? 'compra planeada' : 'compras planeadas'} en los sectores del motor · <span class="freshness">Plan Anual de Adquisiciones ${new Date().getFullYear()}</span>`;
+    if (!items.length) {
+      cardsGrid.innerHTML = `<div class="empty-foryou"><div style="font-size: 3rem;">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
+      return;
+    }
+    const nowMonth = new Date().getMonth() + 1;
+    cardsGrid.innerHTML = items.map(item => {
+      const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
+      const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
+      const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
+      // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
+      const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
+      const meta = [item.modalidad && item.modalidad !== 'No Definido' ? readableText(item.modalidad) : '', term].filter(Boolean).map(escapeHtml).join(' · ');
+      return `
+      <article class="opp-card">
+        <div>
+          <div class="opp-card-header">
+            <div>
+              <span class="stage-pill stage-planeada"><span class="pulse-dot"></span>Planeada · ${escapeHtml(monthName)}</span>
+              <div class="card-sectors">${(item.sectores || []).map(s => escapeHtml(s.name)).join(' • ')}</div>
+            </div>
+          </div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.valor || 0))}</div>
+          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
+          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || '')}</strong></div>
+          <div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${item.anio}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>
+          <div class="badge-row">
+            <span class="badge badge-info" title="Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.">🗓️ Plan Anual</span>
+            ${item.origen_recursos ? `<span class="badge badge-info" title="Origen de los recursos según el PAA">💰 ${escapeHtml(item.origen_recursos)}</span>` : ''}
+          </div>
+          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion))}</p>
+          <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>
+        </div>
+        <div class="card-actions">
+          ${item.url_proceso ? `<a href="${escapeHtml(item.url_proceso)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Proceso relacionado</a>` : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
+        </div>
+      </article>`;
+    }).join('');
   }
 
   // Render Card Grid
@@ -539,6 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="contractor-name">${escapeHtml(winner)}</div>
             ${legalRep ? `<div class="contractor-meta">Representante legal: ${escapeHtml(personName(legalRep))}</div>` : ''}
             ${history ? `<div class="contractor-meta">${escapeHtml(history)}</div>` : ''}
+            ${(item.integrantes || []).length ? `<div class="contractor-meta">🤝 Integrantes: ${item.integrantes.slice(0, 3).map(m => `${escapeHtml(m.nombre)}${m.participacion ? ` (${m.participacion}%${m.lider ? ', líder' : ''})` : ''}`).join(' · ')}${item.integrantes.length > 3 ? ` · +${item.integrantes.length - 3}` : ''}</div>` : ''}
           </div>` : '';
 
     const step = Engine.nextStep(item);
@@ -674,6 +741,33 @@ document.addEventListener('DOMContentLoaded', () => {
           </dl>
         </section>` : ''}
 
+        ${(item.integrantes || []).length ? `
+        <section class="detail-section">
+          <h3>Integrantes del consorcio o unión temporal</h3>
+          <table class="sync-table">
+            <thead><tr><th>Empresa</th><th>NIT</th><th>Participación</th><th>Trayectoria en SECOP II</th></tr></thead>
+            <tbody>${item.integrantes.map(m => `<tr><td>${escapeHtml(m.nombre)}${m.lider ? ' <span class="badge badge-info">Líder</span>' : ''}</td><td>${escapeHtml(m.nit || '—')}</td><td>${m.participacion != null ? `${m.participacion}%` : '—'}</td><td>${m.contratos ? `${m.contratos} contratos · ${money(m.valor_total)}` : '—'}</td></tr>`).join('')}</tbody>
+          </table>
+          <p class="legal-note">Fuente: SECOP II · Grupos de proveedores. Las compras del contrato suelen hacerlas los integrantes, sobre todo el líder.</p>
+        </section>` : ''}
+
+        ${item.ofertas ? `
+        <section class="detail-section">
+          <h3>Competencia: ${plural(item.ofertas.cantidad, 'oferta recibida', 'ofertas recibidas')}</h3>
+          <table class="sync-table">
+            <thead><tr><th>Proponente</th><th>NIT</th><th>Valor ofertado</th></tr></thead>
+            <tbody>${item.ofertas.proveedores.map(o => `<tr><td>${escapeHtml(o.proveedor || '—')}${o.ganador ? ' <span class="badge badge-good">Ganador</span>' : ''}</td><td>${escapeHtml(o.nit || '—')}</td><td>${o.valor ? money(o.valor) : '—'}</td></tr>`).join('')}</tbody>
+          </table>
+          <p class="legal-note">Fuente: SECOP II · Ofertas por proceso. Los proponentes que no ganaron son posibles aliados o competidores en procesos similares.</p>
+        </section>` : ''}
+
+        ${(item.sanciones || []).length ? `
+        <section class="detail-section">
+          <h3>⚠️ Sanciones registradas</h3>
+          <ul class="contact-list">${item.sanciones.map(s => `<li><b>${escapeHtml(s.sancionado || '')}</b><span>${escapeHtml(s.entidad || '')}${s.resolucion ? ` · ${escapeHtml(s.resolucion)}` : ''}${s.valor ? ` · ${money(s.valor)}` : ''}${s.fecha ? ` · ${d(s.fecha)}` : ''}${s.url ? ` · <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">ver</a>` : ''}</span></li>`).join('')}</ul>
+          <p class="legal-note">Fuente: SECOP I · Multas y sanciones (datos abiertos). Puede no incluir sanciones recientes registradas en otras plataformas.</p>
+        </section>` : ''}
+
         ${contacts.length ? `
         <section class="detail-section">
           <h3>Contactos por rol</h3>
@@ -796,6 +890,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ${detailRow('SECOP II · Procesos', `✅ ${META.procesos_consultados} registros <small>(p6dx-8zbt)</small>`)}
             ${detailRow('SECOP II · Contratos', `${escapeHtml(CROSS_STATES[META.cruce_contratos] || META.cruce_contratos)} <small>(jbjy-vk9h)</small><br><small>${c.contratos ?? 0} contratos · ${c.historial ?? 0} historiales · ${c.entidades ?? 0} entidades${c.promovidos ? ` · ${c.promovidos} procesos con contrato firmado pasaron a adjudicados` : ''}${c.reutilizados ? ` · ${c.reutilizados} datos reutilizados` : ''}</small>`)}
             ${(c.errores || []).length ? detailRow('Errores', c.errores.map(e => `<small>${escapeHtml(e)}</small>`).join('<br>')) : ''}
+            ${[['ofertas', 'SECOP II · Ofertas por proceso', 'wi7w-2nvm', 'procesos con ofertas'], ['consorcios', 'SECOP II · Grupos de proveedores', 'ceth-n4bn', 'consorcios con integrantes'], ['sanciones', 'SECOP I · Multas y sanciones', '4n4q-k399', 'procesos con sanciones'], ['paa', 'SECOP II · Plan Anual de Adquisiciones', '9sue-ezhx', 'compras planeadas']]
+              .filter(([k]) => META.fuentes?.[k])
+              .map(([k, label, ds, unit]) => {
+                const f = META.fuentes[k];
+                const state = f.estado === 'ok' ? '✅' : `⚠️ Error${f.reutilizados ? ` (se reutilizaron ${f.reutilizados} datos anteriores)` : ''}`;
+                return detailRow(label, `${state} ${f.registros} ${unit} <small>(${ds})</small>${f.error ? `<br><small>${escapeHtml(f.error)}</small>` : ''}`);
+              }).join('')}
           </dl>
         </section>
 
