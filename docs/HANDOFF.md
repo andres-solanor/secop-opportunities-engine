@@ -37,7 +37,7 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 
 **Validación realizada**
 - `node --test tests/profile_engine.test.js`: 14 pruebas OK.
-- `python -m unittest discover tests`: 18 pruebas OK.
+- `python -m unittest discover tests`: 20 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
 
 **Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
