@@ -93,6 +93,8 @@ def build_meta(
     finished_at: datetime,
     cross: Optional[Dict[str, Any]],
     history: List[Dict[str, Any]],
+    extra_sources: Optional[Dict[str, Dict[str, Any]]] = None,
+    paa_count: int = 0,
 ) -> Dict[str, Any]:
     """Resumen de la corrida para la web y para el historial de sincronizaciones."""
     prev_by_id = {p.get("id"): p for p in previous if p.get("id")}
@@ -125,6 +127,8 @@ def build_meta(
         "salieron": len([pid for pid in prev_by_id if pid not in current_ids]),
         "nuevas_adjudicadas": len(newly_awarded),
         "cruce_contratos": cross_state,
+        "compras_planeadas": paa_count,
+        "fuentes_con_error": [k for k, v in (extra_sources or {}).items() if v.get("estado") == "error"],
     }
 
     return {
@@ -136,6 +140,7 @@ def build_meta(
             "procesos": {"dataset": "p6dx-8zbt", "estado": "ok" if raw_count else "sin_datos", "registros": raw_count},
             "contratos": {"dataset": "jbjy-vk9h", "estado": cross_state, **{k: v for k, v in cross.items() if k != "errores"},
                           "errores": errors[:5]},
+            **(extra_sources or {}),
         },
         "historial": ([run] + [h for h in history if h.get("generated_at") != run["generated_at"]])[:HISTORY_KEEP],
     }

@@ -50,6 +50,7 @@ CONTRACT_FIELDS = {
     "destino_gasto": (["destino_gasto"], "destino_gasto"),
     "proveedor": (["proveedor_adjudicado"], "proveedor_adjudicado"),
     "documento_proveedor": (["documento_proveedor"], "documento_proveedor"),
+    "codigo_proveedor": (["codigo_proveedor"], "codigo_proveedor"),
     "representante_legal": (["nombre_representante_legal"], "nombre_representante_legal"),
     "ordenador_gasto": (["nombre_ordenador_del_gasto"], "nombre_ordenador_del_gasto"),
     "ordenador_pago": (["nombre_ordenador_de_pago"], "nombre_ordenador_de_pago"),
@@ -235,6 +236,7 @@ def summarize_contracts(raw_contracts: List[Dict[str, Any]]) -> Optional[Dict[st
         "condiciones_entrega": readable_text(main["condiciones_entrega"]),
         "proveedor": clean_name(main["proveedor"]),
         "nit_proveedor": normalize_nit(main["documento_proveedor"]),
+        "codigo_proveedor": clean_name(main["codigo_proveedor"]),
         "url": main["url"]["url"] if isinstance(main["url"], dict) else main["url"],
         "contactos": {
             "representante_legal": clean_name(main["representante_legal"]),

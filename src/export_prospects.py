@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 from src.enrichers.contract_enricher import ContractEnricher
+from src.enrichers.open_sources import OpenSourcesEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
 from src.services.socrata_client import SocrataClient
@@ -175,7 +176,8 @@ def report_field_coverage(prospects: List[Dict[str, Any]]) -> Dict[str, int]:
     return coverage
 
 
-def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str, meta: Dict[str, Any] = None):
+def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str, meta: Dict[str, Any] = None,
+                   paa: List[Dict[str, Any]] = None):
     """Exports dataset to JSON, CSV, Markdown, and web/data.js."""
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(web_dir, exist_ok=True)
@@ -197,6 +199,8 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str,
         f.write(f"window.PROSPECTS_UPDATED_AT = \"{generated_at}\";\n")
         if meta:
             f.write("window.PROSPECTS_META = " + json.dumps(meta, ensure_ascii=False, indent=2) + ";\n")
+        if paa is not None:
+            f.write("window.PAA_DATA = " + json.dumps(paa, ensure_ascii=False, indent=2) + ";\n")
     print(f"[+] Updated Web App data: {web_js_path}")
 
     # 3. CSV Export
@@ -293,19 +297,31 @@ def main():
     data_dir = os.path.join(base_dir, "data")
     web_dir = os.path.join(base_dir, "web")
 
+    # Fuentes abiertas gratuitas: ofertas (competencia), integrantes de consorcios,
+    # sanciones y compras planeadas del Plan Anual de Adquisiciones.
+    paa_path = os.path.join(data_dir, "paa.json")
+    open_sources = OpenSourcesEnricher(
+        client, ScopeExtractor.TAXONOMIES, previous=previous, previous_paa=load_json(paa_path, []),
+        history_fn=lambda nits: enricher.fetch_contractor_history(nits),
+    )
+    open_sources.enrich(prospects)
+    paa = open_sources.paa()
+    save_json(paa_path, paa)
+
     # Estado de la sincronización: nuevas (nunca vistas), salidas, nuevas adjudicadas e historial.
     seen_path = os.path.join(data_dir, "seen_ids.json")
     history_path = os.path.join(data_dir, "sync_history.json")
     finished_at = datetime.now(timezone.utc)
     seen = stamp_first_seen(prospects, load_json(seen_path, {}), previous, finished_at)
     meta = build_meta(prospects, previous, len(raw_records), started_at, finished_at,
-                      enricher.summary, load_json(history_path, []))
+                      enricher.summary, load_json(history_path, []),
+                      extra_sources=open_sources.summary, paa_count=len(paa))
     save_json(seen_path, seen)
     save_json(history_path, meta["historial"])
     print(f"[*] Sincronización: {meta['nuevas']} nuevas, {meta['salieron']} salieron, "
           f"{meta['nuevas_adjudicadas']} pasaron a adjudicadas, cruce de contratos: {meta['cruce_contratos']}.")
 
-    export_dataset(prospects, data_dir, web_dir, meta)
+    export_dataset(prospects, data_dir, web_dir, meta, paa)
     export_taxonomy(web_dir)
     print("[*] Pipeline completed successfully!")
 

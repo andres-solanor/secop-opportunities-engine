@@ -154,3 +154,17 @@ test('nextStep prioriza el inicio de ejecución futuro en adjudicados', () => {
   assert.strictEqual(step.date.getDate(), 5);
   assert.match(E.nextStep({ ...item, contrato: { estado: 'Suspendido' } }, now).text, /suspendido/);
 });
+
+test('badges: sanción es riesgo y las ofertas muestran su número', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = {
+    etapa_comercial: 'Adjudicado (Contrato firmado)',
+    sanciones: [{ sancionado: 'X SAS' }],
+    ofertas: { cantidad: 3, proveedores: [] }
+  };
+  const badges = E.cardBadges(item, now);
+  assert.strictEqual(badges[0].id, 'sancion');
+  const offers = badges.find(b => b.id === 'ofertas');
+  assert.strictEqual(offers.label, '3 ofertas');
+  assert.strictEqual(E.cardBadges({ ...item, ofertas: { cantidad: 1 } }, now).find(b => b.id === 'ofertas').label, '1 oferta');
+});
