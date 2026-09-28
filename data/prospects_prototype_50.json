@@ -831,8 +831,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -993,8 +993,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -1295,8 +1295,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -1836,8 +1836,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2089,8 +2089,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -3690,8 +3690,8 @@
       }
     ],
     "materiales_detectados": [
-      "soldadura",
-      "estructura metalica"
+      "estructura metalica",
+      "soldadura"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5195,9 +5195,9 @@
       }
     ],
     "materiales_detectados": [
+      "energia renovable",
       "sistema fotovoltaico",
-      "fotovoltaico",
-      "energia renovable"
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -11540,8 +11540,8 @@
       }
     ],
     "materiales_detectados": [
-      "colegio",
-      "escuela"
+      "escuela",
+      "colegio"
     ],
     "contratista": {
       "nombre": "No Definido",

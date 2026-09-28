@@ -831,8 +831,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -993,8 +993,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -1295,8 +1295,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -1836,8 +1836,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2089,8 +2089,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -3690,8 +3690,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "soldadura",
-      "estructura metalica"
+      "estructura metalica",
+      "soldadura"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5195,9 +5195,9 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
+      "energia renovable",
       "sistema fotovoltaico",
-      "fotovoltaico",
-      "energia renovable"
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -11540,8 +11540,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "colegio",
-      "escuela"
+      "escuela",
+      "colegio"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -14864,18 +14864,18 @@ window.PROSPECTS_DATA = [
     "nueva": false
   }
 ];
-window.PROSPECTS_UPDATED_AT = "2026-09-28T03:12:08Z";
+window.PROSPECTS_UPDATED_AT = "2026-09-28T03:13:47Z";
 window.PROSPECTS_META = {
-  "generated_at": "2026-09-28T03:12:08Z",
-  "started_at": "2026-09-28T03:08:06Z",
-  "duracion_s": 242.6,
+  "generated_at": "2026-09-28T03:13:47Z",
+  "started_at": "2026-09-28T03:12:54Z",
+  "duracion_s": 52.7,
   "procesos_consultados": 681,
   "curadas": 150,
   "adjudicadas": 39,
   "nuevas": 0,
   "salieron": 0,
   "nuevas_adjudicadas": 0,
-  "cruce_contratos": "parcial",
+  "cruce_contratos": "ok",
   "compras_planeadas": 80,
   "fuentes_con_error": [],
   "proxima_programada": "2026-09-28T11:00:00Z",
@@ -14889,15 +14889,13 @@ window.PROSPECTS_META = {
     },
     "contratos": {
       "dataset": "jbjy-vk9h",
-      "estado": "parcial",
+      "estado": "ok",
       "contratos": 37,
       "historial": 36,
       "entidades": 113,
       "promovidos": 17,
-      "reutilizados": 18,
-      "errores": [
-        "entidades: The read operation timed out"
-      ]
+      "reutilizados": 0,
+      "errores": []
     },
     "ofertas": {
       "estado": "ok",
@@ -14917,6 +14915,20 @@ window.PROSPECTS_META = {
     }
   },
   "historial": [
+    {
+      "generated_at": "2026-09-28T03:13:47Z",
+      "started_at": "2026-09-28T03:12:54Z",
+      "duracion_s": 52.7,
+      "procesos_consultados": 681,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 0,
+      "salieron": 0,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "ok",
+      "compras_planeadas": 80,
+      "fuentes_con_error": []
+    },
     {
       "generated_at": "2026-09-28T03:12:08Z",
       "started_at": "2026-09-28T03:08:06Z",
@@ -14962,162 +14974,6 @@ window.PROSPECTS_META = {
   ]
 };
 window.PAA_DATA = [
-  {
-    "id": "MarketplaceCO1717094570",
-    "entidad": "DEPARTAMENTO DEL ARAUCA",
-    "nit_entidad": "8001028385",
-    "descripcion": "FORTALECIMIENTO A LAS PEQUEÑAS Y MEDIANAS ASOCIACIONES DEDICADAS A LA PRODUCCION; TRASFORMACION Y COMERCIALIZACION DE LA LECHE EN LOS MUNICIPIOS PDET ARAUQUITA; TAME Y FORTUL DEL DEPARTAMENTO DE ARAUCA",
-    "valor": 6633749420032.0,
-    "mes_esperado": 9,
-    "anio": 2026,
-    "modalidad": null,
-    "duracion": "Mes(es)",
-    "origen_recursos": "Presupuesto de entidad nacional",
-    "unspsc": [
-      "21101900",
-      "23181700",
-      "27112000",
-      "52151900",
-      "40102000",
-      "41111500"
-    ],
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": "596"
-  },
-  {
-    "id": "MarketplaceCO1715547675",
-    "entidad": "GOBERNACIÓN DE BOLÍVAR//",
-    "nit_entidad": "890480059",
-    "descripcion": "RECUPERACION Y CONSERVACION DE AREAS DE IMPORTANCIA ESTRATEGICA DE LA ZONA DE INFLUENCIA DEL COMPLEJO CENAGOSO DE CASCALOA DE MAGANGUE; BOLIVAR",
-    "valor": 2814795147904.0,
-    "mes_esperado": 9,
-    "anio": 2026,
-    "modalidad": null,
-    "duracion": "Mes(es)",
-    "origen_recursos": "Recursos propios",
-    "unspsc": [
-      "72101500",
-      "72151400",
-      "72153900",
-      "81101500"
-    ],
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica"
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": null
-  },
-  {
-    "id": "MarketplaceCO1716750572",
-    "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
-    "nit_entidad": "800194096",
-    "descripcion": "LOG - CONCESION ESTADIO - MODERNIZACION_Y_OPERACION_DEL_ESTADIO_DISTRITAL",
-    "valor": 1159397606948.0,
-    "mes_esperado": 9,
-    "anio": 2026,
-    "modalidad": "CONTRATACION DIRECTA",
-    "duracion": "Mes(es)",
-    "origen_recursos": "Recursos propios",
-    "unspsc": [
-      "72101500",
-      "72103300",
-      "72121100",
-      "72141500",
-      "72153100",
-      "80131800"
-    ],
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica"
-      },
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica"
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": null
-  },
-  {
-    "id": "MarketplaceCO1716000581",
-    "entidad": "EMPRESA INDUSTRIAL Y COMERCIAL DEL ESTATO FARO DEL CATATUMBO SAS",
-    "nit_entidad": "901485464",
-    "descripcion": "MEJORAMIENTO DEL ESCENARIO DEPORTIVO DEL COLEGIO GREMIOS UNIDOS; MUNICIPIO DE SAN JOSE DE CUCUTA; DEPARTAMENTO NORTE DE SANTANDER",
-    "valor": 1069056091027.0,
-    "mes_esperado": 9,
-    "anio": 2026,
-    "modalidad": null,
-    "duracion": "Mes(es)",
-    "origen_recursos": "Regalias",
-    "unspsc": [
-      "72121400",
-      "72153100",
-      "72141300"
-    ],
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica"
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": null
-  },
-  {
-    "id": "MarketplaceCO1715998871",
-    "entidad": "EMPRESA INDUSTRIAL Y COMERCIAL DEL ESTATO FARO DEL CATATUMBO SAS",
-    "nit_entidad": "901485464",
-    "descripcion": "MEJORAMIENTO DEL SENDERO TURISTICO HACIA EL SANTUARIO DE LA VIRGEN DE BELEN EN EL MUNICIPIO DE SALAZAR DE LAS PALMAS",
-    "valor": 1013015409076.0,
-    "mes_esperado": 9,
-    "anio": 2026,
-    "modalidad": null,
-    "duracion": "Mes(es)",
-    "origen_recursos": "Recursos propios",
-    "unspsc": [
-      "72141100",
-      "72141500"
-    ],
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica"
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": null
-  },
   {
     "id": "MarketplaceCO1711313194",
     "entidad": "MUNICIPIO DE ANDES",
@@ -16129,22 +15985,109 @@ window.PAA_DATA = [
     "version_paa": null
   },
   {
-    "id": "MarketplaceCO1697873752",
-    "entidad": "AEROCIVIL",
-    "nit_entidad": "899999059",
-    "descripcion": "66000C1929 REALIZAR REVISION Y COMPLEMENTACION DE EYD; CONSTRUCCION AMPLIACION PISTA AL MAR; NIVELACION FRANJAS; AYUDAS VISUALES; DRENAJE; OBRAS COMPLEMENTARIAS; INCLUYE GESTION SOCIAL; PREDIAL; AMBIENTAL DEL AEROPUERTO SIMON BOLIVAR DE SANTA MARTA (VF)",
-    "valor": 1236124000000.0,
-    "mes_esperado": 10,
+    "id": "MarketplaceCO1713676663",
+    "entidad": "GOBERNACION DEL DEPARTAMENTO DEL CESAR",
+    "nit_entidad": "892399999",
+    "descripcion": "FORTALECIMIENTO DEL SISTEMA INTEGRADO DE EMERGENCIA Y SEGURIDAD MEDIANTE EL AUMENTO DE LAS CAPACIDADES DE VIDEOVIGILANCIA MOVIL; RADIOCOMUNICACIONES; PROTECCION DE LA INFRAESTRUCTURA DIGITAL Y TECNOLOGIA DE LA POLICIA NACIONAL; EJERCITO NACIONAL Y LA ARMADA NACIONAL; EN EL DEPARTAMENTO DEL CESAR",
+    "valor": 17530477310.0,
+    "mes_esperado": 9,
     "anio": 2026,
-    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
-    "duracion": "3420 día(s)",
+    "modalidad": "SELECCION ABREVIADA CON SUBASTA INVERSA",
+    "duracion": "Mes(es)",
     "origen_recursos": "Recursos propios",
     "unspsc": [
+      "26111700",
+      "32101600",
+      "43191500",
+      "43202200",
+      "43211500",
+      "43211700"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1717028576",
+    "entidad": "GOBERNACIÓN DE BOYACÁ",
+    "nit_entidad": "891800498",
+    "descripcion": "GC 7 - MEJORAMIENTO DEL CORREDOR VIAL PAEZ - CHAMEZA; EN EL MUNICIPIO DE PAEZ; BOYACA",
+    "valor": 17000000000.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72101500",
+      "72141000"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1716756472",
+    "entidad": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+    "nit_entidad": "800223337",
+    "descripcion": "CONSTRUCCION DEL JARDIN INFANTIL Y ESPACIO PUBLICO SANTA EUFRASIA EN EL DISTRITO ESPECIAL DE CIENCIA; TECNOLOGIA E INNOVACION DE MEDELLINCONSECUTIVO PAA 4663",
+    "valor": 16848249097.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72153900"
+    ],
+    "sectores": [
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": "108"
+  },
+  {
+    "id": "MarketplaceCO1712235220",
+    "entidad": "CORMACARENA",
+    "nit_entidad": "822000091",
+    "descripcion": "OBRA DESCONTAMINACION PAA121",
+    "valor": 16441249568.0,
+    "mes_esperado": 9,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA",
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72141120",
+      "83101503",
+      "76121700",
       "81101500",
-      "80101600",
-      "72141000",
-      "72141101",
-      "72141200"
+      "77101500",
+      "72102900"
     ],
     "sectores": [
       {
@@ -16426,27 +16369,60 @@ window.PAA_DATA = [
     "version_paa": null
   },
   {
-    "id": "MarketplaceCO1714418672",
-    "entidad": "EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTÁ - E.S.P.",
-    "nit_entidad": "899999094",
-    "descripcion": "F1830 CONTRATAR BAJO LA MODALIDAD DE CONCESION DE DERECHO PRIVADO TODAS LAS ACTIVIDADES NECESARIAS PARA LA FINANCIACION; LA ELABORACION Y ENTREGA DE LOS ESTUDIOS Y DISEÑOS; Y LA EJECUCION DE LAS UNIDADES DE EJECUCION; ASI COMO LA GESTION SOCIAL Y AMBIENTALLA PUESTA EN MARCHA; LA ESTABILIZACION; LA REVERSION PARCIAL; LA OPERACION; EL MANTENIMIENTO Y LA REVERSION DE LA PLANTA DE TRATAMIENTO DE AGUAS RESIDUALES DE CANOAS",
-    "valor": 5184037532742.0,
-    "mes_esperado": 11,
+    "id": "MarketplaceCO1709717120",
+    "entidad": "FONDO NACIONAL DEL AHORRO S.A.",
+    "nit_entidad": "899999284",
+    "descripcion": "55*CONTRATAR LAS OBRAS DE REFORZAMIENTO PARA LA INTERVENCION DE LA INFRAESTRUCTURA DEL EDIFICIO DE PRESIDENCIA EN LA SEDE PRINCIPAL DEL FONDO NACIONAL DEL AHORRO SA",
+    "valor": 17000000000.0,
+    "mes_esperado": 10,
     "anio": 2026,
-    "modalidad": "CONTRATACION REGIMEN ESPECIAL",
-    "duracion": "238 Mes(es)",
+    "modalidad": "CONTRATACION REGIMEN ESPECIAL (CON OFERTAS)",
+    "duracion": "Mes(es)",
     "origen_recursos": "Recursos propios",
     "unspsc": [
-      "81101500",
-      "80101600",
-      "81101700",
-      "81101600",
-      "72101500"
+      "72101500",
+      "72102900",
+      "72103300",
+      "72151100",
+      "72151500",
+      "72151900"
     ],
     "sectores": [
       {
         "id": "acero_metalmecanica",
         "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1713672485",
+    "entidad": "EMPRESAS PÚBLICAS DE CUNDINAMARCA S.A. E.S.P.",
+    "nit_entidad": "900222346",
+    "descripcion": "CONSTRUCCION DEL PLAN MAESTRO DE ACUEDUCTO Y ALCANTARILLADO CASCO URBANO MUNICIPIO DE FUSAGASUGA; INCLUYE DIAGNOSTICO; ESTUDIOS Y DISEÑOS DE LAS OBRAS DE OPTIMIZACION Y AMPLIACION O CONSTRUCCION DE LA PLANTA DE TRATAMIENTO DE AGUAS POTABLE Y AGUAS RESIDUALES DEL CASCO URBANO DEL MUNICIPIO DE FUSAGASUGA; CUNDINAMARCA",
+    "valor": 16569000000.0,
+    "mes_esperado": 10,
+    "anio": 2026,
+    "modalidad": "LICITACION PUBLICA (OBRA PUBLICA)",
+    "duracion": "Mes(es)",
+    "origen_recursos": null,
+    "unspsc": [
+      "72141119"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
       }
     ],
     "proceso_relacionado": null,
@@ -17037,35 +17013,6 @@ window.PAA_DATA = [
     "version_paa": null
   },
   {
-    "id": "MarketplaceCO1668100105",
-    "entidad": "MUNICIPIO DE ZARAGOZA",
-    "nit_entidad": "890981150",
-    "descripcion": "CONSTRUCCION; ADECUACUACION; MANTENIMIENTO; MEJORAMIENTO Y REHABILITACION DE VIAS URBANAS Y RURALES EN EL MUNICIPIO DE ZARAGOZA ANTIOQUIA",
-    "valor": 1200000000000.0,
-    "mes_esperado": 12,
-    "anio": 2026,
-    "modalidad": null,
-    "duracion": "Mes(es)",
-    "origen_recursos": "Regalias",
-    "unspsc": [
-      "72103300",
-      "72141000"
-    ],
-    "sectores": [
-      {
-        "id": "acero_metalmecanica",
-        "name": "Acero & Metalmecánica"
-      },
-      {
-        "id": "obra_civil_general",
-        "name": "Construcción & Obra Civil General"
-      }
-    ],
-    "proceso_relacionado": null,
-    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
-    "version_paa": null
-  },
-  {
     "id": "MarketplaceCO1681733570",
     "entidad": "Rama Judicial  Dirección Ejecutiva de Administración Judicial",
     "nit_entidad": "800093816",
@@ -17345,6 +17292,63 @@ window.PAA_DATA = [
       {
         "id": "obra_civil_general",
         "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1666913843",
+    "entidad": "E.S.E HOSPITAL SAN RAFAEL DE PACHO",
+    "nit_entidad": "800099860",
+    "descripcion": "CONSTRUCCION Y SERVICIOS DE LA CONSTRUCCION",
+    "valor": 17263593285.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "Mes(es)",
+    "origen_recursos": "Recursos propios",
+    "unspsc": [
+      "72121403"
+    ],
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica"
+      },
+      {
+        "id": "obra_civil_general",
+        "name": "Construcción & Obra Civil General"
+      }
+    ],
+    "proceso_relacionado": null,
+    "url_proceso": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+    "version_paa": null
+  },
+  {
+    "id": "MarketplaceCO1681733606",
+    "entidad": "Rama Judicial  Dirección Ejecutiva de Administración Judicial",
+    "nit_entidad": "800093816",
+    "descripcion": "UA-029PRESTAR EL SERVICIO INTEGRAL DE ASEO Y CAFETERIA Y MANTENIMIENTO BASICO EN LAS SEDES DONDE FUNCIONAN LAS ALTAS CORTES (CONSTITUCIONAL; CONSEJO DE ESTADO; CORTE SUPREMA DE JUSTICIA); EL CONSEJO SUPERIOR DE LA JUDICATURA; COMISION NACIONAL DE DISCIPLINA JUDICIAL Y LA DIRECCION EJECUTIVA DE ADMINISTRACION JUDICIAL; INCLUIDOS INSUMOS; ELEMENTOS MAQUINARIA Y SERVICIOS ESPECIALES",
+    "valor": 16778703432.0,
+    "mes_esperado": 12,
+    "anio": 2026,
+    "modalidad": null,
+    "duracion": "día(s)",
+    "origen_recursos": "Presupuesto de entidad nacional",
+    "unspsc": [
+      "90101700",
+      "95121503",
+      "47131700",
+      "47131800",
+      "76111500",
+      "76111504"
+    ],
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica"
       }
     ],
     "proceso_relacionado": null,
