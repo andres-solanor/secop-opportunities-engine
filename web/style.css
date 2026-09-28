@@ -1582,3 +1582,73 @@ body {
     flex-wrap: wrap;
   }
 }
+
+/* ==========================================================
+   Fechas en las fichas
+   ========================================================== */
+.stage-pill.stage-cerrada {
+  background: rgba(100, 116, 139, 0.18);
+  color: #cbd5e1;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+}
+
+.stage-pill.stage-cerrada .pulse-dot {
+  animation: none;
+  background: #94a3b8;
+}
+
+.card-dates {
+  margin: 0.2rem 0 0.85rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+}
+
+.date-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #a5f3fc;
+}
+
+.date-main span {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.date-main.soon {
+  color: #fcd34d;
+}
+
+.date-main.urgent {
+  color: #fda4af;
+}
+
+.date-main.won {
+  color: #6ee7b7;
+}
+
+.date-main.muted {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.date-meta {
+  margin-top: 0.35rem;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.date-meta .dot {
+  margin: 0 0.35rem;
+}
+
+.freshness {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

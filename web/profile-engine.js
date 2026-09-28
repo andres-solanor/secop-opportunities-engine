@@ -82,6 +82,48 @@
     return 'ofertas';
   }
 
+  function toDate(value) {
+    if (!value) return null;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  const DAY_MS = 24 * 3600 * 1000;
+  // Estados de SECOP II en los que ya no se reciben ofertas aunque no haya adjudicación.
+  const CLOSED_STATES = ['evaluacion', 'seleccionado', 'en aprobacion', 'aprobado', 'suspendido'];
+
+  /**
+   * Ventana de participación real de una oportunidad en la fecha `now`:
+   *  - 'adjudicado': ya hay ganador (vender al contratista).
+   *  - 'abierta': recibe ofertas (cierre futuro o, sin fecha, estado publicado/abierto).
+   *  - 'borrador': pliego en borrador; aún se pueden presentar observaciones.
+   *  - 'cerrada': ya no recibe ofertas (cierre vencido o estado de evaluación/selección).
+   * `days` son los días hasta el cierre (negativos si ya pasó).
+   */
+  function bidWindow(item, now = new Date()) {
+    const fechas = item.fechas || {};
+    const published = toDate(fechas.publicacion || item.fecha_publicacion);
+    const stage = stageOf(item);
+    if (stage === 'adjudicado') {
+      return { state: 'adjudicado', date: toDate(fechas.adjudicacion), published };
+    }
+    const closing = toDate(fechas.cierre_ofertas);
+    if (closing && stage !== 'borrador') {
+      const days = (closing - now) / DAY_MS;
+      return { state: days >= 0 ? 'abierta' : 'cerrada', date: closing, days, published };
+    }
+    const estado = normalize(item.estado_secop);
+    if (CLOSED_STATES.some(st => estado.includes(st))) {
+      return { state: 'cerrada', date: closing, published };
+    }
+    return { state: stage === 'borrador' ? 'borrador' : 'abierta', date: closing, days: closing ? (closing - now) / DAY_MS : null, published };
+  }
+
+  function isActionable(item, now) {
+    const st = bidWindow(item, now).state;
+    return st === 'abierta' || st === 'borrador';
+  }
+
   function uniqueByNormalized(list) {
     const seen = new Set();
     return list.filter(x => {
@@ -128,7 +170,7 @@
   }
 
   /** Puntaje 0-100 de afinidad entre el perfil y una oportunidad, con razones legibles. */
-  function matchOpportunity(profile, item, detected) {
+  function matchOpportunity(profile, item, detected, now = new Date()) {
     const reasons = [];
     let score = 0;
 
@@ -169,10 +211,15 @@
 
     const role = ROLES[profile.role];
     const stage = stageOf(item);
+    const bw = bidWindow(item, now);
     if (role) {
-      score += role.stageFit[stage];
-      if (role.stageFit[stage] >= 9) {
-        reasons.push(stage === 'adjudicado' ? 'Ganador conocido: vende directo' : 'Aún abierta: llegas a tiempo');
+      // Un proceso que ya no recibe ofertas solo sirve para monitorear: puntaje mínimo de etapa.
+      const fit = bw.state === 'cerrada' ? 2 : role.stageFit[stage];
+      score += fit;
+      if (fit >= 9) {
+        if (stage === 'adjudicado') reasons.push('Ganador conocido: vende directo');
+        else if (bw.state === 'abierta' && bw.days != null) reasons.push(`Cierra en ${Math.max(0, Math.ceil(bw.days))} días`);
+        else reasons.push('Aún abierta: llegas a tiempo');
       }
     }
 
@@ -236,7 +283,7 @@
   }
 
   /** Análisis completo del perfil: el "momento wow" antes de conectar oportunidades. */
-  function analyzeProfile(profile, data, taxonomy) {
+  function analyzeProfile(profile, data, taxonomy, now = new Date()) {
     const detected = detectSectors(profile, taxonomy);
     const role = ROLES[profile.role] || ROLES.proveedor;
     const detectedIds = new Set(detected.map(d => d.id));
@@ -249,7 +296,8 @@
     // --- Mercado direccionable ---
     const sum = list => list.reduce((a, it) => a + (it.precio || 0), 0);
     const adjudicados = inZone.filter(it => stageOf(it) === 'adjudicado');
-    const abiertas = inZone.filter(it => stageOf(it) !== 'adjudicado');
+    // Solo cuenta como abierto lo que todavía admite ofertas u observaciones.
+    const abiertas = inZone.filter(it => isActionable(it, now));
     // Los ganadores son compradores/aliados sin importar dónde ejecuten: se buscan a nivel nacional.
     const adjudicadosPais = inSector.filter(it => stageOf(it) === 'adjudicado');
     const market = {
@@ -383,7 +431,7 @@
     ]).slice(0, 8);
 
     const matches = data
-      .map(it => ({ item: it, ...matchOpportunity(profile, it, detected) }))
+      .map(it => ({ item: it, ...matchOpportunity(profile, it, detected, now) }))
       .filter(m => m.score >= 55)
       .sort((a, b) => b.score - a.score);
 
@@ -410,6 +458,8 @@
     TICKETS,
     normalize,
     stageOf,
+    bidWindow,
+    isActionable,
     offerCatalog,
     detectSectors,
     matchOpportunity,

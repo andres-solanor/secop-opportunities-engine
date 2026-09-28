@@ -82,3 +82,32 @@ test('perfil vacío no rompe el análisis', () => {
   assert.strictEqual(a.market.total, 0);
   assert.ok(a.strength.missing.length > 0);
 });
+
+test('bidWindow usa la fecha de cierre para decidir si sigue abierta', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const open = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', fechas: { cierre_ofertas: '2026-10-03T17:00:00' } };
+  const closed = { ...open, fechas: { cierre_ofertas: '2026-09-20T17:00:00' } };
+  const bwOpen = E.bidWindow(open, now);
+  assert.strictEqual(bwOpen.state, 'abierta');
+  assert.ok(bwOpen.days > 5 && bwOpen.days < 6);
+  assert.strictEqual(E.bidWindow(closed, now).state, 'cerrada');
+});
+
+test('bidWindow marca como cerrados los procesos en evaluación sin fecha de cierre', () => {
+  const item = { etapa_comercial: 'Proceso Activo (Evaluación)', estado_secop: 'Evaluación' };
+  assert.strictEqual(E.bidWindow(item).state, 'cerrada');
+  assert.strictEqual(E.isActionable(item), false);
+  assert.strictEqual(E.bidWindow({ etapa_comercial: 'Borrador de Pliegos', estado_secop: 'Borrador' }).state, 'borrador');
+});
+
+test('un proceso cerrado pierde puntaje de etapa y no se anuncia como abierto', () => {
+  const contratista = { ...steelProfile, role: 'contratista' };
+  const detected = E.detectSectors(contratista, TAXONOMY);
+  const now = new Date('2026-09-28T12:00:00');
+  const base = opp({ etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', contratista: { nombre: 'Pendiente por Adjudicar' } });
+  const abierta = E.matchOpportunity(contratista, { ...base, fechas: { cierre_ofertas: '2026-10-03T17:00:00' } }, detected, now);
+  const cerrada = E.matchOpportunity(contratista, { ...base, fechas: { cierre_ofertas: '2026-09-01T17:00:00' } }, detected, now);
+  assert.ok(abierta.score - cerrada.score === 8, `${abierta.score} vs ${cerrada.score}`);
+  assert.ok(abierta.reasons.includes('Cierra en 6 días'));
+  assert.ok(!cerrada.reasons.some(r => r.includes('abierta') || r.includes('Cierra')));
+});

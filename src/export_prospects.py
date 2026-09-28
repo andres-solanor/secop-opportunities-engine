@@ -7,6 +7,7 @@ import csv
 import json
 import os
 import sys
+from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 from src.enrichers.scope_extractor import ScopeExtractor
@@ -157,6 +158,21 @@ def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150
     return selected
 
 
+def report_field_coverage(prospects: List[Dict[str, Any]]) -> Dict[str, int]:
+    """Cuenta cuántas oportunidades traen cada fecha/señal. Se imprime en el log del pipeline
+    para detectar columnas de SECOP que cambiaron de nombre o dejaron de llegar."""
+    coverage: Dict[str, int] = {}
+    for p in prospects:
+        for group in ("fechas", "competencia"):
+            for key, value in (p.get(group) or {}).items():
+                coverage[f"{group}.{key}"] = coverage.get(f"{group}.{key}", 0) + (value is not None)
+        coverage["plazo"] = coverage.get("plazo", 0) + (p.get("plazo") is not None)
+    print(f"[*] Cobertura de campos ({len(prospects)} oportunidades):")
+    for key in sorted(coverage):
+        print(f"    - {key}: {coverage[key]}")
+    return coverage
+
+
 def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str):
     """Exports dataset to JSON, CSV, Markdown, and web/data.js."""
     os.makedirs(data_dir, exist_ok=True)
@@ -173,8 +189,10 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str)
     print(f"[+] Saved JSON dataset: {json_path}")
 
     # 2. Web JS Export (for GitHub Pages instant execution without CORS)
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(web_js_path, "w", encoding="utf-8") as f:
         f.write("window.PROSPECTS_DATA = " + json.dumps(prospects, ensure_ascii=False, indent=2) + ";\n")
+        f.write(f"window.PROSPECTS_UPDATED_AT = \"{generated_at}\";\n")
     print(f"[+] Updated Web App data: {web_js_path}")
 
     # 3. CSV Export
@@ -250,6 +268,10 @@ def main():
 
     prospects = build_curated_dataset(raw_records, target_count=150)
     print(f"[*] Successfully curated {len(prospects)} high-value prospects.")
+    report_field_coverage(prospects)
+    if raw_records:
+        date_like = sorted(k for k in raw_records[0] if k.startswith(("fecha", "duracion", "unidad_de")))
+        print(f"[*] Columnas de fecha/plazo en SECOP: {', '.join(date_like)}")
 
     base_dir = os.path.dirname(os.path.dirname(__file__))
     data_dir = os.path.join(base_dir, "data")

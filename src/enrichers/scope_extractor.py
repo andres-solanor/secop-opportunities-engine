@@ -12,6 +12,21 @@ from typing import Any, Dict, List, Optional
 class ScopeExtractor:
     """Classifies opportunities into industry verticals, extracts equipment/materials, and scores lead quality."""
 
+    # Candidatos de nombre de columna en el dataset p6dx-8zbt. Socrata recorta los nombres
+    # largos, así que se aceptan varias variantes y, como último recurso, un prefijo.
+    DATE_FIELDS = {
+        "publicacion": (["fecha_de_publicacion_del", "fecha_de_publicacion_del_proceso"], "fecha_de_publicacion_del"),
+        "ultima_actualizacion": (["fecha_de_ultima_publicaci", "fecha_de_ultima_publicacion"], "fecha_de_ultima_publica"),
+        "cierre_ofertas": (["fecha_de_recepcion_de", "fecha_de_recepcion_de_respuestas"], "fecha_de_recepcion"),
+        "apertura_ofertas": (["fecha_de_apertura_de_respuesta", "fecha_de_apertura_efectiva"], "fecha_de_apertura"),
+        "adjudicacion": (["fecha_adjudicacion", "fecha_de_adjudicacion"], "fecha_adjudicaci"),
+    }
+    COUNT_FIELDS = {
+        "interesados": (["proveedores_que_manifestaron", "proveedores_que_manifestaron_interes"], "proveedores_que_manifestaron"),
+        "ofertas": (["respuestas_al_procedimiento", "conteo_de_respuestas_a_ofertas"], "respuestas_al_procedimiento"),
+        "visualizaciones": (["visualizaciones_del", "visualizaciones_del_procedimiento"], "visualizaciones_del"),
+    }
+
     TAXONOMIES = {
         "acero_metalmecanica": {
             "name": "Acero & Metalmecánica",
@@ -129,6 +144,7 @@ class ScopeExtractor:
 
         # 5. Extract Direct Document Links
         url_proceso = self._extract_url(record.get("urlproceso"))
+        dates = self._extract_dates(record)
 
         return {
             "id": record.get("id_del_proceso") or record.get("referencia_del_proceso"),
@@ -142,7 +158,10 @@ class ScopeExtractor:
             "modalidad": record.get("modalidad_de_contratacion"),
             "tipo_contrato": record.get("tipo_de_contrato"),
             "descripcion": record.get("descripci_n_del_procedimiento") or record.get("nombre_del_procedimiento"),
-            "fecha_publicacion": record.get("fecha_de_publicacion_del"),
+            "fecha_publicacion": dates["publicacion"],
+            "fechas": dates,
+            "plazo": self._extract_duration(record),
+            "competencia": self._extract_counts(record),
             "estado_secop": record.get("estado_del_procedimiento"),
             "fase": record.get("fase"),
             "etapa_comercial": stage_info["stage_name"],
@@ -266,6 +285,66 @@ class ScopeExtractor:
             score += 10
 
         return min(100, max(1, score))
+
+    @staticmethod
+    def _first_value(record: Dict[str, Any], names: List[str], prefix: str) -> Any:
+        """Devuelve el primer valor no vacío entre los nombres candidatos o, si no hay, el de la
+        primera columna que empiece por `prefix`."""
+        for name in names:
+            if record.get(name) not in (None, ""):
+                return record[name]
+        for key in sorted(record):
+            if key.startswith(prefix) and record[key] not in (None, ""):
+                return record[key]
+        return None
+
+    @staticmethod
+    def _normalize_date(raw: Any) -> Optional[str]:
+        """Normaliza fechas SODA ('2026-09-25T00:00:00.000') a ISO sin milisegundos."""
+        if not raw or not isinstance(raw, str):
+            return None
+        value = raw.strip().replace("Z", "")
+        for fmt in ("%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"):
+            try:
+                parsed = datetime.strptime(value, fmt)
+            except ValueError:
+                continue
+            if parsed.year < 2000:  # SECOP usa fechas centinela (p. ej. 1900-01-01) para "sin fecha"
+                return None
+            return parsed.strftime("%Y-%m-%dT%H:%M:%S")
+        return None
+
+    def _extract_dates(self, record: Dict[str, Any]) -> Dict[str, Optional[str]]:
+        """Fechas clave del proceso: publicación, cierre de ofertas, adjudicación, etc."""
+        return {
+            key: self._normalize_date(self._first_value(record, names, prefix))
+            for key, (names, prefix) in self.DATE_FIELDS.items()
+        }
+
+    def _extract_duration(self, record: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Plazo de ejecución del contrato (duración + unidad)."""
+        raw = self._first_value(record, ["duracion"], "duracion")
+        unit = self._first_value(record, ["unidad_de_duracion"], "unidad_de_duracion")
+        try:
+            value = float(raw)
+        except (TypeError, ValueError):
+            return None
+        if value <= 0:
+            return None
+        value = int(value) if value.is_integer() else value
+        unit_text = str(unit or "").strip().lower()
+        return {"valor": value, "unidad": unit_text, "texto": f"{value} {unit_text}".strip()}
+
+    def _extract_counts(self, record: Dict[str, Any]) -> Dict[str, Optional[int]]:
+        """Señales de competencia: interesados, ofertas recibidas y visualizaciones."""
+        counts = {}
+        for key, (names, prefix) in self.COUNT_FIELDS.items():
+            raw = self._first_value(record, names, prefix)
+            try:
+                counts[key] = int(float(raw))
+            except (TypeError, ValueError):
+                counts[key] = None
+        return counts
 
     def _extract_url(self, raw_url: Any) -> str:
         """Extracts URL string from SODA response dict or string format."""

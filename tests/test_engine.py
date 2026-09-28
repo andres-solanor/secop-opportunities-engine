@@ -115,5 +115,45 @@ class TestTaxonomyExport(unittest.TestCase):
             self.assertEqual(exported[key]["keywords"], data["keywords"])
 
 
+
+class TestDateExtraction(unittest.TestCase):
+
+    def setUp(self):
+        self.extractor = ScopeExtractor()
+        self.base = {
+            "id_del_proceso": "CO1.REQ.1",
+            "nombre_del_procedimiento": "Suministro de estructura metálica",
+            "precio_base": "500000000",
+            "estado_del_procedimiento": "Publicado",
+        }
+
+    def test_extracts_key_dates_and_duration(self):
+        record = dict(self.base, **{
+            "fecha_de_publicacion_del": "2026-09-20T00:00:00.000",
+            "fecha_de_recepcion_de": "2026-10-03T17:00:00.000",
+            "duracion": "6",
+            "unidad_de_duracion": "Meses",
+            "proveedores_que_manifestaron": "12",
+        })
+        out = self.extractor.enrich(record)
+        self.assertEqual(out["fechas"]["publicacion"], "2026-09-20T00:00:00")
+        self.assertEqual(out["fechas"]["cierre_ofertas"], "2026-10-03T17:00:00")
+        self.assertEqual(out["fecha_publicacion"], "2026-09-20T00:00:00")
+        self.assertEqual(out["plazo"]["texto"], "6 meses")
+        self.assertEqual(out["competencia"]["interesados"], 12)
+
+    def test_sentinel_and_missing_dates_are_none(self):
+        record = dict(self.base, fecha_adjudicacion="1900-01-01T00:00:00.000", duracion="0")
+        out = self.extractor.enrich(record)
+        self.assertIsNone(out["fechas"]["adjudicacion"])
+        self.assertIsNone(out["fechas"]["cierre_ofertas"])
+        self.assertIsNone(out["plazo"])
+
+    def test_prefix_fallback_for_renamed_columns(self):
+        record = dict(self.base, fecha_de_recepcion_de_ofertas_nueva="2026-11-01T09:30:00.000")
+        out = self.extractor.enrich(record)
+        self.assertEqual(out["fechas"]["cierre_ofertas"], "2026-11-01T09:30:00")
+
+
 if __name__ == "__main__":
     unittest.main()

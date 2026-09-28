@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let rawData = window.PROSPECTS_DATA || [];
   let currentTab = 'proveedores'; // 'parati' | 'proveedores' | 'observatorio' | 'crm'
   const Profile = window.SecopProfile;
+  const Engine = window.ProfileEngine;
+  const sortSelect = document.getElementById('sortSelect');
   const MIN_MATCH_SCORE = 55;
   let matchCache = new Map();
   let crmState = JSON.parse(localStorage.getItem('secop_crm_state') || '{}');
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter input listeners
-  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect].forEach(el => {
+  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
   });
 
@@ -86,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stageSelect.value = 'todos';
     budgetSelect.value = '0';
     departmentSelect.value = 'todos';
+    sortSelect.value = 'relevancia';
     renderView();
     showToast('Filtros restablecidos', 'info');
   });
@@ -189,7 +192,97 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentTab === 'parati') {
       filtered.sort((a, b) => getMatch(b).score - getMatch(a).score || (b.precio || 0) - (a.precio || 0));
     }
-    return filtered;
+    return sortByDate(filtered);
+  }
+
+  // ---------- Fechas ----------
+  const DAY_MS = 24 * 3600 * 1000;
+
+  function startOfDay(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function hasTime(d) {
+    return d.getHours() !== 0 || d.getMinutes() !== 0;
+  }
+
+  function formatDate(d, { withTime = false } = {}) {
+    if (!d) return '';
+    const sameYear = d.getFullYear() === new Date().getFullYear();
+    let txt = d.toLocaleDateString('es-CO', { weekday: withTime ? 'short' : undefined, day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric' });
+    if (withTime && hasTime(d)) txt += `, ${d.toLocaleTimeString('es-CO', { hour: 'numeric', minute: '2-digit' })}`;
+    return txt;
+  }
+
+  function relativeDays(d) {
+    const days = Math.round((startOfDay(d) - startOfDay(new Date())) / DAY_MS);
+    if (days === 0) return 'hoy';
+    if (days === 1) return 'mañana';
+    if (days === -1) return 'ayer';
+    return days > 0 ? `en ${days} días` : `hace ${-days} días`;
+  }
+
+  const STATE_LABELS = {
+    abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
+    borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
+    cerrada: { text: 'Ofertas cerradas', cls: 'stage-cerrada' },
+    adjudicado: { text: 'Adjudicado', cls: 'stage-adjudicado' }
+  };
+
+  /** Bloque de fechas de la ficha: lo más accionable primero (cierre o adjudicación). */
+  function cardDatesHtml(item) {
+    const bw = Engine.bidWindow(item);
+    const rows = [];
+
+    if (bw.state === 'abierta' && bw.date) {
+      const urgency = bw.days < 3 ? 'urgent' : bw.days < 7 ? 'soon' : '';
+      rows.push(`<div class="date-main ${urgency}">⏳ Cierra ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date, { withTime: true }))}</span></div>`);
+    } else if (bw.state === 'abierta') {
+      rows.push('<div class="date-main muted">⏳ Cierre de ofertas: consúltalo en el pliego</div>');
+    } else if (bw.state === 'borrador') {
+      rows.push('<div class="date-main">📝 Borrador: aún puedes presentar observaciones<span>La fecha de cierre se fija en el pliego definitivo</span></div>');
+    } else if (bw.state === 'cerrada') {
+      rows.push(`<div class="date-main muted">🔒 Ya no recibe ofertas${bw.date ? `<span>Cerró el ${escapeHtml(formatDate(bw.date, { withTime: true }))}</span>` : '<span>En evaluación o selección del contratista</span>'}</div>`);
+    } else if (bw.state === 'adjudicado') {
+      rows.push(`<div class="date-main won">🏆 ${bw.date ? `Adjudicado ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date))}</span>` : 'Adjudicado<span>Fecha de adjudicación no reportada</span>'}</div>`);
+    }
+
+    const meta = [];
+    if (bw.published) meta.push(`📅 Publicado ${escapeHtml(formatDate(bw.published))} (${escapeHtml(relativeDays(bw.published))})`);
+    if (item.plazo && item.plazo.texto) meta.push(`⏱️ Plazo de ejecución: ${escapeHtml(item.plazo.texto)}`);
+    if (meta.length) rows.push(`<div class="date-meta">${meta.join('<span class="dot">·</span>')}</div>`);
+
+    return `<div class="card-dates">${rows.join('')}</div>`;
+  }
+
+  /** Orden por fechas cuando el usuario lo pide; si no, se respeta el orden de relevancia. */
+  function sortByDate(list) {
+    const mode = sortSelect.value;
+    if (mode === 'relevancia') return list;
+    const sorted = [...list];
+    if (mode === 'cierre') {
+      // Primero lo que cierra antes (y aún está abierto); después el resto por publicación.
+      const key = it => {
+        const bw = Engine.bidWindow(it);
+        return bw.state === 'abierta' && bw.date ? bw.date.getTime() : Infinity;
+      };
+      sorted.sort((a, b) => key(a) - key(b));
+    } else if (mode === 'recientes') {
+      const key = it => {
+        const bw = Engine.bidWindow(it);
+        return (bw.state === 'adjudicado' && bw.date ? bw.date : bw.published)?.getTime() || 0;
+      };
+      sorted.sort((a, b) => key(b) - key(a));
+    } else if (mode === 'valor') {
+      sorted.sort((a, b) => (b.precio || 0) - (a.precio || 0));
+    }
+    return sorted;
+  }
+
+  function freshnessText() {
+    const updated = window.PROSPECTS_UPDATED_AT ? new Date(window.PROSPECTS_UPDATED_AT) : null;
+    if (!updated || isNaN(updated.getTime())) return '';
+    return ` · <span class="freshness">Datos SECOP actualizados ${escapeHtml(formatDate(updated, { withTime: true }))}</span>`;
   }
 
   // Helper: Format currency in Colombian business terms
@@ -304,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Card Grid
   function renderCards(filtered = []) {
-    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas`;
+    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas${freshnessText()}`;
 
     if (currentTab === 'parati' && !(Profile && Profile.getProfile())) {
       resultsCount.innerHTML = 'Oportunidades ordenadas por afinidad con tu perfil';
@@ -360,9 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreClass = isHigh ? 'score-high' : 'score-med';
     const currentStatus = crmState[item.id]?.status || 'ninguno';
 
-    let stagePillClass = 'stage-ofertas';
-    if (item.etapa_comercial.includes('Adjudicado')) stagePillClass = 'stage-adjudicado';
-    if (item.etapa_comercial.includes('Borrador')) stagePillClass = 'stage-borrador';
+    const stateLabel = STATE_LABELS[Engine.bidWindow(item).state];
 
     const materialBadges = (item.materiales_detectados || []).map(mat => {
       const isSteel = ['acero', 'vigas', 'estructura metálica', 'cerchas', 'varilla'].some(k => mat.includes(k));
@@ -392,9 +483,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="opp-card-header">
             <div>
-              <span class="stage-pill ${stagePillClass}">
+              <span class="stage-pill ${stateLabel.cls}" title="${escapeHtml(item.etapa_comercial)} · Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">
                 <span class="pulse-dot"></span>
-                ${escapeHtml(item.etapa_comercial.split('(')[0].trim())}
+                ${stateLabel.text}
               </span>
               <div style="margin-top: 0.4rem;">${sectorsBadges}</div>
             </div>
@@ -412,6 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span>🏛️</span>
             <strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong>
           </div>
+          ${cardDatesHtml(item)}
           <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">
             📍 ${escapeHtml(item.ciudad || '')}, ${escapeHtml(item.departamento || '')} • Ref: <code>${escapeHtml(item.referencia || item.id)}</code>
           </div>
@@ -549,6 +641,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function openPitchModal(item) {
     const materials = (item.materiales_detectados || []).join(', ') || 'suministros y maquinaria técnica';
     const isAdjudicado = item.etapa_comercial.includes('Adjudicado');
+    const bw = Engine.bidWindow(item);
+    const closingLine = bw.state === 'abierta' && bw.date ? `\nCierre de ofertas: ${formatDate(bw.date, { withTime: true })} (${relativeDays(bw.date)})` : '';
     const contractor = item.contratista?.nombre || 'su equipo';
     const profile = Profile && Profile.getProfile();
     const company = profile?.companyName?.trim();
@@ -559,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAdjudicado) {
       pitchTemplate = `Apreciados señores de ${contractor},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${item.descripcion?.slice(0, 140)}...".\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
     } else {
-      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
+      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}${closingLine}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
     }
 
     modalBody.innerHTML = `
