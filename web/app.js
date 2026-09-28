@@ -6,7 +6,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   // State
   let rawData = window.PROSPECTS_DATA || [];
-  let currentTab = 'proveedores'; // 'proveedores' | 'observatorio' | 'crm'
+  let currentTab = 'proveedores'; // 'parati' | 'proveedores' | 'observatorio' | 'crm'
+  const Profile = window.SecopProfile;
+  const MIN_MATCH_SCORE = 55;
+  let matchCache = new Map();
   let crmState = JSON.parse(localStorage.getItem('secop_crm_state') || '{}');
 
   // DOM Elements
@@ -30,20 +33,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const kpiTotalOpps = document.getElementById('kpiTotalOpps');
   const kpiAvgScore = document.getElementById('kpiAvgScore');
 
+  window.showAppToast = showToast;
+
   // Initialize
   initDepartments();
+  if (Profile && Profile.getProfile()) activateTab('parati');
   updateKpis(rawData);
   renderView();
 
   // Tab listeners
   document.querySelectorAll('.view-tab').forEach(tabBtn => {
-    tabBtn.addEventListener('click', () => {
-      document.querySelectorAll('.view-tab').forEach(b => b.classList.remove('active'));
-      tabBtn.classList.add('active');
-      currentTab = tabBtn.dataset.tab;
+    tabBtn.addEventListener('click', () => activateTab(tabBtn.dataset.tab));
+  });
+
+  function activateTab(tab) {
+    document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    currentTab = tab;
+    renderView();
+  }
+
+  window.showForYouTab = () => {
+    activateTab('parati');
+    document.getElementById('tabParaTi').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  if (Profile) {
+    Profile.onChange(() => {
+      matchCache = new Map();
       renderView();
     });
-  });
+  }
+
+  // Afinidad perfil ↔ oportunidad (memoizada por perfil activo)
+  function getMatch(item) {
+    if (!Profile || !Profile.getProfile()) return null;
+    if (!matchCache.has(item.id)) matchCache.set(item.id, Profile.matchItem(item));
+    return matchCache.get(item.id);
+  }
+
+  function forYouItems() {
+    return rawData.filter(i => (getMatch(i)?.score || 0) >= MIN_MATCH_SCORE);
+  }
 
   // Filter input listeners
   [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect].forEach(el => {
@@ -102,10 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const minBudget = parseFloat(budgetSelect.value) || 0;
     const deptVal = departmentSelect.value;
 
-    return rawData.filter(item => {
+    const filtered = rawData.filter(item => {
       // Tab based filtering: STRICTLY MUTUALLY EXCLUSIVE
       const isAdjudicado = (item.etapa_comercial || '').toLowerCase().includes('adjudicado');
-      if (currentTab === 'proveedores') {
+      if (currentTab === 'parati') {
+        // Para Ti: ambas etapas, solo oportunidades con alta afinidad al perfil
+        if ((getMatch(item)?.score || 0) < MIN_MATCH_SCORE) return false;
+      } else if (currentTab === 'proveedores') {
         // Radar B2B: Strictly for awarded contracts (direct supplier sales to the winning contractor)
         if (!isAdjudicado) return false;
       } else if (currentTab === 'observatorio') {
@@ -152,6 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return true;
     });
+
+    if (currentTab === 'parati') {
+      filtered.sort((a, b) => getMatch(b).score - getMatch(a).score || (b.precio || 0) - (a.precio || 0));
+    }
+    return filtered;
   }
 
   // Helper: Format currency in Colombian business terms
@@ -170,7 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let tabBaseline = rawData;
     let baseName = 'esta vista';
 
-    if (currentTab === 'proveedores') {
+    if (currentTab === 'parati') {
+      tabBaseline = forYouItems();
+      baseName = 'oportunidades para ti';
+    } else if (currentTab === 'proveedores') {
       tabBaseline = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
       baseName = 'contratos adjudicados';
     } else if (currentTab === 'observatorio') {
@@ -242,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countProveedores').textContent = provCount;
     document.getElementById('countObservatorio').textContent = obsCount;
     document.getElementById('countCrm').textContent = crmCount;
+    document.getElementById('countParaTi').textContent = Profile && Profile.getProfile() ? forYouItems().length : '✨';
   }
 
   // Render View depending on current tab
@@ -263,6 +305,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Card Grid
   function renderCards(filtered = []) {
     resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas`;
+
+    if (currentTab === 'parati' && !(Profile && Profile.getProfile())) {
+      resultsCount.innerHTML = 'Oportunidades ordenadas por afinidad con tu perfil';
+      cardsGrid.innerHTML = `
+        <div class="empty-foryou">
+          <div style="font-size: 3rem; margin-bottom: 0.75rem;">✨</div>
+          <h3>Crea tu perfil y te mostramos solo lo que es para ti</h3>
+          <p>Cruzamos lo que ofreces, tu zona y tu tamaño con cada proceso de SECOP II y te explicamos por qué encaja.</p>
+          <button class="btn btn-primary btn-lg" id="emptyForYouStart">Crear mi perfil en 2 minutos</button>
+        </div>
+      `;
+      document.getElementById('emptyForYouStart').addEventListener('click', () => Profile && Profile.openWizard(0));
+      return;
+    }
 
     if (filtered.length === 0) {
       cardsGrid.innerHTML = `
@@ -323,6 +379,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const contractorName = item.contratista?.nombre || 'Pendiente por Adjudicar';
     const isConsortium = item.contratista?.es_consorcio;
+    const match = getMatch(item);
+    const matchBadge = match
+      ? `<span class="match-pill ${match.score >= 75 ? 'match-high' : match.score >= MIN_MATCH_SCORE ? '' : 'match-low'}" title="Afinidad con tu perfil">✨ ${match.score}%</span>`
+      : '';
+    const matchReasons = match && currentTab === 'parati' && match.reasons.length
+      ? `<ul class="match-reasons">${match.reasons.map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul>`
+      : '';
 
     return `
       <article class="opp-card" id="card-${item.id}">
@@ -335,10 +398,14 @@ document.addEventListener('DOMContentLoaded', () => {
               </span>
               <div style="margin-top: 0.4rem;">${sectorsBadges}</div>
             </div>
-            <div class="score-badge ${scoreClass}">
-              <span>⚡</span> ${item.score_calidad} pts
+            <div class="card-badges">
+              ${matchBadge}
+              <div class="score-badge ${scoreClass}">
+                <span>⚡</span> ${item.score_calidad} pts
+              </div>
             </div>
           </div>
+          ${matchReasons}
 
           <div class="opp-price">${escapeHtml(item.precio_formateado)}</div>
           <div class="opp-entity">
@@ -483,12 +550,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const materials = (item.materiales_detectados || []).join(', ') || 'suministros y maquinaria técnica';
     const isAdjudicado = item.etapa_comercial.includes('Adjudicado');
     const contractor = item.contratista?.nombre || 'su equipo';
+    const profile = Profile && Profile.getProfile();
+    const company = profile?.companyName?.trim();
+    const offer = profile?.offerTags?.length ? profile.offerTags.slice(0, 4).join(', ') : materials;
+    const signature = company ? `\n\nCordialmente,\n${company}${profile.nit ? ` · NIT ${profile.nit}` : ''}${profile.website ? `\n${profile.website}` : ''}` : '';
 
     let pitchTemplate = '';
     if (isAdjudicado) {
-      pitchTemplate = `Apreciados señores de ${contractor},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${item.descripcion?.slice(0, 140)}...".\n\nSomos especialistas en el suministro y entrega inmediata de ${materials}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?`;
+      pitchTemplate = `Apreciados señores de ${contractor},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${item.descripcion?.slice(0, 140)}...".\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
     } else {
-      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con nuestros suministros de ${materials}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.`;
+      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
     }
 
     modalBody.innerHTML = `

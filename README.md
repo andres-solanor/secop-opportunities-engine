@@ -51,6 +51,38 @@ flowchart LR
 
 ---
 
+## 👤 Cuentas con Google y Perfil de Oportunidades
+
+El valor llega **antes** del registro. Cualquier visitante responde 4 preguntas (rol, oferta, necesidades/conexiones, cobertura y tamaño) y mientras escribe ve en vivo cuántos procesos de SECOP II coinciden con su perfil. Al terminar recibe su **Perfil de Oportunidades**:
+
+* Propuesta de valor clarificada y pitch de 30 segundos listo para copiar.
+* Mercado direccionable en pesos, procesos abiertos y entidades compradoras en su zona.
+* Cliente ideal y las conexiones que busca (contratistas ganadores, entidades, aliados para consorcio, proveedores complementarios) con cifras reales.
+* Recomendaciones según lo que necesita (consorcio, experiencia RUP, capital, pólizas…).
+* Fuerza del perfil y qué completar para mejorarla.
+
+Los nombres de empresas y las oportunidades concretas se desbloquean al **guardar el perfil con Google**. Con la cuenta activa aparece la pestaña **✨ Para Ti** (oportunidades ordenadas por afinidad, con el porqué de cada una) y los pitches se firman con los datos de la empresa.
+
+| Archivo | Rol |
+|---|---|
+| `web/profile-engine.js` | Motor puro (sin DOM): detección de sector, análisis del perfil y puntaje de afinidad. Probado con `node --test tests/profile_engine.test.js`. |
+| `web/profile.js` | Onboarding, vista de perfil, banner y menú de cuenta. |
+| `web/auth.js` | Google Identity Services ("Sign in with Google"). |
+| `web/taxonomy.js` | Generado por el pipeline desde `ScopeExtractor.TAXONOMIES` (mismo vocabulario que Python). |
+| `web/config.js` | `GOOGLE_CLIENT_ID` público. |
+
+### Configurar Google OAuth
+1. En [Google Cloud Console](https://console.cloud.google.com/apis/credentials) crea un **ID de cliente OAuth 2.0** de tipo *Aplicación web*.
+2. En **Orígenes de JavaScript autorizados** agrega `https://andres-solanor.github.io` y `http://localhost:8000`.
+3. Configura la pantalla de consentimiento (alcances básicos: `openid`, `email`, `profile`).
+4. Pega el ID en `web/config.js` → `GOOGLE_CLIENT_ID`.
+
+Sin ID configurado, el botón funciona en **modo demo local** para poder probar el flujo completo.
+
+> ⚠️ **Limitación actual:** el sitio es estático, así que perfiles y sesión viven en `localStorage` del navegador y el token de Google se decodifica pero no se verifica en un servidor. Es suficiente para validar la activación; para perfiles multi-dispositivo, conexiones entre usuarios y alertas se necesita un backend (p. ej. Supabase/Firebase) que verifique el `credential` de Google.
+
+---
+
 ## 💻 Ejecución Local
 
 1. Clonar el repositorio:
@@ -62,6 +94,7 @@ cd secop-opportunities-engine
 2. Ejecutar pruebas unitarias:
 ```bash
 python -m unittest discover tests
+node --test tests/profile_engine.test.js
 ```
 
 3. Actualizar datos en vivo desde SECOP II:
@@ -85,6 +118,8 @@ python -m http.server 8000 --directory web
 - [x] Taxonomías de Acero, HORECA y Energía Solar.
 - [x] Tablero Web con Mini-CRM y generador de mensajes de contacto para WhatsApp/Email.
 - [x] Despliegue en GitHub Pages con actualización diaria automatizada vía GitHub Actions.
+- [x] Cuentas con Google y Perfil de Oportunidades con afinidad por oportunidad.
+- [ ] Backend de perfiles (verificación del token de Google, sincronización multi-dispositivo y conexiones entre perfiles).
 - [ ] Enriquecimiento automático de teléfonos y correos de contratistas cruzando con RUES.
 - [ ] Análisis de PDFs de pliegos y cantidades de obra con LLM.
 - [ ] Alertas automáticas por correo electrónico o WhatsApp diario.

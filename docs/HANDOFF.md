@@ -1,0 +1,82 @@
+# Handoff: Cuentas con Google y Perfil de Oportunidades
+
+Última actualización: 2026-09-28 · Rama: `claude/gmail-oauth-account-creation-t7o73y` (sin PR, por decisión del dueño).
+
+> Documento de diseño detallado, con capturas, dirigido al revisor humano: [`DISENO_PERFILES.md`](./DISENO_PERFILES.md).
+
+## Objetivo del producto
+
+Que las empresas creen cuentas con Google y perfiles completos para conectarlas con oportunidades de SECOP II. El "momento wow" debe llegar **antes** de conectar oportunidades externas: clarificar qué ofrece la empresa, qué necesita, qué busca y con quién debería conectarse, con suficiente valor para incentivar el registro y la activación.
+
+## Qué está hecho
+
+**Flujo de activación**
+1. Un visitante sin cuenta abre el onboarding desde el banner (`#profileHero`) o la pestaña "✨ Para Ti".
+2. Hay 4 pasos: rol → oferta (texto libre y sugerencias) → necesidades y conexiones → cobertura, ticket, experiencia y RUP.
+   - En el paso 2 el sector se detecta en vivo.
+   - En todos los pasos una barra muestra cuántos procesos y pesos coinciden con el perfil.
+3. Al terminar se abre el **Perfil de Oportunidades** con:
+   - Propuesta de valor, KPIs de mercado y cliente ideal.
+   - Conexiones identificadas y recomendaciones por necesidad.
+   - Pitch de 30 segundos, palabras clave para alertas, top 3 oportunidades y fuerza del perfil.
+4. Sin sesión, los nombres de empresas aparecen difuminados (`.soft-lock`, `.example-list.locked`). La llamada a la acción es guardar con Google.
+5. Al iniciar sesión, `adoptDraft` convierte el borrador en el perfil de la cuenta. Luego se desbloquea todo, se activa la pestaña "Para Ti" (umbral de afinidad `MIN_MATCH_SCORE = 55` en `app.js`) y los pitches se firman con los datos de la empresa.
+
+**Modelo de afinidad** (`matchOpportunity`, 0-100)
+- Sector compartido: +40.
+- Materiales coincidentes: hasta +15.
+- Zona: +15 si coincide, +10 si la cobertura es nacional o no está definida.
+- Ticket: +15 dentro del rango, +7 si lo supera hasta 3×, +8 si no está definido.
+- Etapa según rol (`ROLES[rol].stageFit`): hasta +10.
+- Sin sector compartido, el máximo es 35.
+
+**Decisiones clave**
+- El sitio es estático (GitHub Pages), así que la autenticación es del lado del cliente con Google Identity Services. El ID token se **decodifica pero no se verifica**: sirve para personalizar, no para autorizar.
+- Las conexiones (ganadores, consorcios, sectores complementarios) se calculan **a nivel nacional**. Los KPIs de mercado se calculan **en la zona** del perfil. Así una zona pequeña no deja el perfil vacío.
+- La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
+
+**Validación realizada**
+- `node --test tests/profile_engine.test.js`: 6 pruebas OK.
+- `python -m unittest discover tests`: 7 pruebas OK.
+- Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
+
+## Pendiente del dueño (bloquea el login real)
+
+- [ ] Crear un ID de cliente OAuth 2.0 tipo "Aplicación web" en Google Cloud Console.
+  - Orígenes autorizados: `https://andres-solanor.github.io` y `http://localhost:8000`.
+  - Pegar el ID en `web/config.js` → `GOOGLE_CLIENT_ID`.
+- [ ] Configurar la pantalla de consentimiento de OAuth (alcances `openid email profile`).
+
+Hasta entonces el botón funciona en **modo demo** (`id: 'demo:local'`).
+
+## Backlog priorizado
+
+1. **Backend de perfiles (Supabase o Firebase).** Es necesario para la promesa central de conectar perfiles entre sí.
+   - Verificar el `credential` de Google en el servidor.
+   - Persistir perfiles y CRM por usuario, con uso multi-dispositivo.
+   - Migrar los datos de `localStorage` en el primer inicio de sesión.
+   - Punto de integración: `saveProfile` y `getProfile` en `web/profile.js`, y `handleCredential` en `web/auth.js`.
+2. **Falsos positivos de taxonomía.**
+   - "varilla" coincide con "varilla puesta a tierra… cobre" (procesos de EPM) y los clasifica como acero.
+   - Revisar también "pae" y "vigas".
+   - Agregar términos de exclusión por sector en `ScopeExtractor`, con pruebas.
+3. **`fecha_publicacion` llega `null`** en `web/data.js`. Revisar el mapeo de campos en `scope_extractor.enrich` y en las consultas de `export_prospects`. Hace falta para mostrar urgencia ("cierra en N días").
+4. **Alertas diarias por correo** con `analysis.alertKeywords` del perfil. Requiere backend.
+5. **Contacto de contratistas ganadores cruzando con RUES.** Hoy el pitch no tiene destinatario.
+6. **Más datos:** el pipeline cura unos 150 procesos, así que perfiles de nicho o de zonas pequeñas ven poco mercado. Subir `limit` y cuotas en `build_curated_dataset`.
+7. **Mejoras menores del perfil:**
+   - Editar la propuesta de valor a mano.
+   - Compartir el perfil público por enlace.
+   - Guardar un CRM por usuario (hoy `secop_crm_state` es global).
+
+## Dónde tocar según la tarea
+
+| Tarea | Archivo / función |
+|---|---|
+| Cambiar pesos de afinidad | `web/profile-engine.js` → `matchOpportunity` (y ajustar `tests/profile_engine.test.js`) |
+| Nuevos textos o insights del perfil | `web/profile-engine.js` → `analyzeProfile` |
+| Nuevas necesidades o conexiones | `NEEDS` / `CONNECTIONS` en el motor, y sus builders en `analyzeProfile` |
+| Pasos del onboarding | `web/profile.js` → `STEPS`, `wizardStepHtml`, `canAdvance`, `bindWizard` |
+| Vista del perfil | `web/profile.js` → `openProfileView` |
+| Login y sesión | `web/auth.js` |
+| Pestaña "Para Ti" y tarjetas | `web/app.js` → `getFilteredData`, `createCardHtml`, `getMatch` |

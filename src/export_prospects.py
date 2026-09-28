@@ -227,6 +227,20 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str)
     print(f"[+] Saved Executive Summary: {summary_path}")
 
 
+def export_taxonomy(web_dir: str):
+    """Exports the sector taxonomy to web/taxonomy.js so profile matching in the browser
+    uses exactly the same vocabulary as the SECOP enrichment pipeline."""
+    os.makedirs(web_dir, exist_ok=True)
+    taxonomy = {
+        key: {"name": data["name"], "keywords": data["keywords"]}
+        for key, data in ScopeExtractor.TAXONOMIES.items()
+    }
+    path = os.path.join(web_dir, "taxonomy.js")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("window.SECTOR_TAXONOMY = " + json.dumps(taxonomy, ensure_ascii=False, indent=2) + ";\n")
+    print(f"[+] Updated Web taxonomy: {path}")
+
+
 def main():
     client = SocrataClient()
     raw_records = harvest_target_records(client)
@@ -241,6 +255,7 @@ def main():
     data_dir = os.path.join(base_dir, "data")
     web_dir = os.path.join(base_dir, "web")
     export_dataset(prospects, data_dir, web_dir)
+    export_taxonomy(web_dir)
     print("[*] Pipeline completed successfully!")
 
 

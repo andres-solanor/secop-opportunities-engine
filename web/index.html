@@ -29,10 +29,14 @@
       <button class="btn btn-primary" id="btnNewScan">
         <span>🔄</span> Actualizar Datos
       </button>
+      <div id="accountArea" class="account-area"></div>
     </div>
   </header>
 
   <main class="container">
+    <!-- Perfil de Oportunidades: onboarding / resumen del perfil -->
+    <section class="profile-hero" id="profileHero" aria-label="Tu perfil de oportunidades"></section>
+
     <!-- Top KPIs -->
     <section class="kpi-grid">
       <div class="kpi-card kpi-emerald">
@@ -59,6 +63,10 @@
 
     <!-- Navigation Tabs -->
     <nav class="view-tabs" aria-label="Vistas principales">
+      <button class="view-tab" data-tab="parati" id="tabParaTi">
+        <span>✨ Para Ti</span>
+        <span class="badge-count" id="countParaTi">0</span>
+      </button>
       <button class="view-tab active" data-tab="proveedores" id="tabProveedores">
         <span>🎯 Radar B2B para Proveedores</span>
         <span class="badge-count" id="countProveedores">0</span>
@@ -167,11 +175,24 @@
     </div>
   </div>
 
+  <!-- Perfil: onboarding, perfil de oportunidades e inicio de sesión -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal-content modal-wide">
+      <button class="modal-close" id="profileModalClose" aria-label="Cerrar">&times;</button>
+      <div id="profileModalBody"></div>
+    </div>
+  </div>
+
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Scripts -->
-  <script src="data.js?v=20260922_03"></script>
-  <script src="app.js?v=20260922_03"></script>
+  <script src="config.js?v=20260927_01"></script>
+  <script src="data.js?v=20260927_01"></script>
+  <script src="taxonomy.js?v=20260927_01"></script>
+  <script src="profile-engine.js?v=20260927_01"></script>
+  <script src="auth.js?v=20260927_01"></script>
+  <script src="app.js?v=20260927_01"></script>
+  <script src="profile.js?v=20260927_01"></script>
 </body>
 </html>
