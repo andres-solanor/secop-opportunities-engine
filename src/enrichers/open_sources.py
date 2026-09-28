@@ -33,6 +33,7 @@ MONTHS = {
     "agosto": 8, "septiembre": 9, "setiembre": 9, "octubre": 10, "noviembre": 11, "diciembre": 12,
 }
 PAA_MIN_VALUE = 200_000_000
+PAA_MAX_VALUE = 1_000_000_000_000  # por encima de $1 billón son errores de digitación típicos del PAA
 PAA_MAX_ITEMS = 80
 
 
@@ -232,7 +233,7 @@ class OpenSourcesEnricher:
             value = to_float(row.get("valor_total_esperado")) or 0
             month = month_number(row.get("fecha_esperada_de_recepcion")) or month_number(row.get("fecha_esperada_de_inicio"))
             desc = clean_name(row.get("descripcion"))
-            if value < PAA_MIN_VALUE or not desc or not month or month < self.today.month:
+            if value < PAA_MIN_VALUE or value > PAA_MAX_VALUE or not desc or not month or month < self.today.month:
                 continue
             key = (row.get("nit_entidad"), desc.upper()[:120], round(value, -6))
             if key in latest:  # filas repetidas por versiones del PAA: se queda la más reciente

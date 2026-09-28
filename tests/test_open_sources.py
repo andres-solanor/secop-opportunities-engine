@@ -37,6 +37,8 @@ PAA = [
      "fecha_esperada_de_recepcion": "Marzo", "valor_total_esperado": "900000000", "nit_entidad": "1"},
     {"id": "P3", "annio": "2026", "categorias_unspsc": "80111600", "descripcion": "Servicios personales",
      "fecha_esperada_de_recepcion": "Diciembre", "valor_total_esperado": "900000000", "nit_entidad": "2"},
+    {"id": "P5", "annio": "2026", "categorias_unspsc": "72141000", "descripcion": "Valor mal digitado",
+     "fecha_esperada_de_recepcion": "Diciembre", "valor_total_esperado": "6633749000000000", "nit_entidad": "4"},
     {"id": "P4", "annio": "2026", "categorias_unspsc": "39111500", "descripcion": "Luminarias pequeñas",
      "fecha_esperada_de_recepcion": "Diciembre", "valor_total_esperado": "50000000", "nit_entidad": "3"},
 ]
