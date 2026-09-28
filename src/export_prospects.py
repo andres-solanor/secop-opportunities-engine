@@ -303,6 +303,7 @@ def main():
     open_sources = OpenSourcesEnricher(
         client, ScopeExtractor.TAXONOMIES, previous=previous, previous_paa=load_json(paa_path, []),
         history_fn=lambda nits: enricher.fetch_contractor_history(nits),
+        paa_client=SocrataClient(timeout=120),
     )
     open_sources.enrich(prospects)
     paa = open_sources.paa()

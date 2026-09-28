@@ -55,12 +55,14 @@ class OpenSourcesEnricher:
     def __init__(self, client, taxonomy: Dict[str, Dict[str, Any]], log: Callable[[str], None] = print,
                  today: Optional[datetime] = None, previous: Optional[List[Dict[str, Any]]] = None,
                  previous_paa: Optional[List[Dict[str, Any]]] = None,
-                 history_fn: Optional[Callable[[List[str]], Dict[str, Dict[str, Any]]]] = None):
+                 history_fn: Optional[Callable[[List[str]], Dict[str, Dict[str, Any]]]] = None,
+                 paa_client=None):
         self.client = client
         self.taxonomy = taxonomy
         self.log = log
         self.today = today or datetime.utcnow()
         self.history_fn = history_fn
+        self.paa_client = paa_client  # cliente con timeout mayor: el PAA es un dataset pesado
         self.previous = {p.get("id"): p for p in previous or [] if p.get("id")}
         self.previous_paa = previous_paa or []
         self.summary: Dict[str, Dict[str, Any]] = {}
@@ -204,13 +206,26 @@ class OpenSourcesEnricher:
         prefixes = self.sector_prefixes()
         all_prefixes = sorted({pre for pres in prefixes.values() for pre in pres})
         year = str(self.today.year)
-        like = " OR ".join(f"categorias_unspsc like '%{pre}%'" for pre in all_prefixes)
-        rows = self._query(
-            PAA_DATASET,
-            where=f"annio = '{year}' AND ({like})",
-            order="fecha_version DESC",
-            limit=5000,
-        )
+        # Solo los meses que faltan del año: reduce mucho el volumen que filtra el servidor.
+        remaining = [name.upper() for name, n in MONTHS.items() if n >= self.today.month]
+        months = soql_in(remaining + [str(n) for n in range(self.today.month, 13)])
+        client = self.paa_client or self.client
+        # Una consulta por prefijo UNSPSC: una sola consulta con 12 condiciones excedía el tiempo de espera.
+        rows: List[Dict[str, Any]] = []
+        seen_ids = set()
+        for pre in all_prefixes:
+            batch = client.query(
+                dataset_id=PAA_DATASET,
+                where=f"annio = '{year}' AND categorias_unspsc like '%{pre}%' "
+                      f"AND upper(fecha_esperada_de_recepcion) in ({months})",
+                limit=2000,
+            )
+            for row in batch:
+                rid = row.get("id") or row.get("identificador_unico") or id(row)
+                if rid not in seen_ids:
+                    seen_ids.add(rid)
+                    rows.append(row)
+        rows.sort(key=lambda r: str(r.get("fecha_version") or ""), reverse=True)
 
         latest: Dict[tuple, Dict[str, Any]] = {}
         for row in rows:
