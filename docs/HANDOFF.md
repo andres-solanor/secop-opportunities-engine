@@ -36,7 +36,7 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
 
 **Validación realizada**
-- `node --test tests/`: 6 pruebas OK.
+- `node --test tests/profile_engine.test.js`: 6 pruebas OK.
 - `python -m unittest discover tests`: 7 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
 

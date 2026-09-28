@@ -27,7 +27,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 
 ```bash
 python -m unittest discover tests        # pruebas Python
-node --test tests/                       # pruebas del motor de perfiles (Node 18+)
+node --test tests/profile_engine.test.js   # pruebas del motor de perfiles (Node 18+)
 python -m src.export_prospects           # refrescar datos (requiere red a datos.gov.co)
 python -m http.server 8000 --directory web   # servir la web en http://localhost:8000
 ```

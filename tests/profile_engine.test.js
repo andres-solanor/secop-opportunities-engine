@@ -1,6 +1,6 @@
 /**
  * Pruebas del motor de perfiles (web/profile-engine.js).
- * Ejecutar: node --test tests/
+ * Ejecutar: node --test tests/profile_engine.test.js
  */
 const test = require('node:test');
 const assert = require('node:assert');

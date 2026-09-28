@@ -65,7 +65,7 @@ Los nombres de empresas y las oportunidades concretas se desbloquean al **guarda
 
 | Archivo | Rol |
 |---|---|
-| `web/profile-engine.js` | Motor puro (sin DOM): detección de sector, análisis del perfil y puntaje de afinidad. Probado con `node --test tests/`. |
+| `web/profile-engine.js` | Motor puro (sin DOM): detección de sector, análisis del perfil y puntaje de afinidad. Probado con `node --test tests/profile_engine.test.js`. |
 | `web/profile.js` | Onboarding, vista de perfil, banner y menú de cuenta. |
 | `web/auth.js` | Google Identity Services ("Sign in with Google"). |
 | `web/taxonomy.js` | Generado por el pipeline desde `ScopeExtractor.TAXONOMIES` (mismo vocabulario que Python). |
@@ -94,7 +94,7 @@ cd secop-opportunities-engine
 2. Ejecutar pruebas unitarias:
 ```bash
 python -m unittest discover tests
-node --test tests/
+node --test tests/profile_engine.test.js
 ```
 
 3. Actualizar datos en vivo desde SECOP II:
