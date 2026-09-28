@@ -52,6 +52,11 @@ CONTRACT_FIELDS = {
     "documento_proveedor": (["documento_proveedor"], "documento_proveedor"),
     "representante_legal": (["nombre_representante_legal"], "nombre_representante_legal"),
     "ordenador_gasto": (["nombre_ordenador_del_gasto"], "nombre_ordenador_del_gasto"),
+    "ordenador_pago": (["nombre_ordenador_de_pago"], "nombre_ordenador_de_pago"),
+    "direccion_ejecucion": (["direcci_n_de_ejecuci_n_del_contrato"], "direcci_n_de_ejecuci"),
+    "condiciones_entrega": (["condiciones_de_entrega"], "condiciones_de_entrega"),
+    "origen_texto": (["origen_de_los_recursos"], "origen_de_los_recursos"),
+    "valor_pendiente_pago": (["valor_pendiente_de_pago"], "valor_pendiente_de_pago"),
     "supervisor": (["nombre_supervisor"], "nombre_supervisor"),
     "url": (["urlproceso"], "urlproceso"),
 }
@@ -68,6 +73,13 @@ FUNDING_SOURCES = {
 
 EMPTY_VALUES = (None, "", "No Definido", "No definido", "NO DEFINIDO", "N/A", "Sin Descripcion")
 BATCH_SIZE = 40
+
+# Tipos de contrato relevantes para "proveedores principales" de una entidad: excluye créditos
+# bancarios y prestación de servicios de personas naturales (ruido y datos personales).
+SUPPLIER_CONTRACT_TYPES = ("Obra", "Suministros", "Compraventa", "Interventoría", "Consultoría")
+
+# Estados de contrato que invalidan la oportunidad de venta al contratista.
+INVALID_CONTRACT_STATES = ("borrador", "cancelado", "anulado", "rechazado")
 
 
 def first_value(record: Dict[str, Any], names: List[str], prefix: str) -> Any:
@@ -198,7 +210,11 @@ def summarize_contracts(raw_contracts: List[Dict[str, Any]]) -> Optional[Dict[st
         "es_pyme": to_bool(main["es_pyme"]),
         "es_grupo": to_bool(main["es_grupo"]),
         "destino_gasto": main["destino_gasto"],
-        "origen_recursos": sorted({s for r in parsed for s in r["_sources"]}),
+        "origen_recursos": sorted({s for r in parsed for s in r["_sources"]} | {
+            clean_name(r["origen_texto"]) for r in parsed if clean_name(r["origen_texto"])
+        }),
+        "direccion_ejecucion": clean_name(main["direccion_ejecucion"]),
+        "condiciones_entrega": clean_name(main["condiciones_entrega"]),
         "proveedor": clean_name(main["proveedor"]),
         "nit_proveedor": normalize_nit(main["documento_proveedor"]),
         "url": main["url"]["url"] if isinstance(main["url"], dict) else main["url"],
@@ -206,6 +222,7 @@ def summarize_contracts(raw_contracts: List[Dict[str, Any]]) -> Optional[Dict[st
             "representante_legal": clean_name(main["representante_legal"]),
             "ordenador_gasto": clean_name(main["ordenador_gasto"]),
             "supervisor": clean_name(main["supervisor"]),
+            "ordenador_pago": clean_name(main["ordenador_pago"]),
         },
     }
 
@@ -301,7 +318,8 @@ class ContractEnricher:
                     }
             top = self._query(
                 select="nit_entidad, proveedor_adjudicado, count(*) as contratos, sum(valor_del_contrato) as valor",
-                where=where, group="nit_entidad, proveedor_adjudicado", order="valor DESC", limit=3000,
+                where=f"{where} AND tipo_de_contrato in ({soql_in(SUPPLIER_CONTRACT_TYPES)})",
+                group="nit_entidad, proveedor_adjudicado", order="valor DESC", limit=3000,
             )
             for row in top:
                 nit = normalize_nit(row.get("nit_entidad"))
@@ -322,13 +340,39 @@ class ContractEnricher:
             self.log(f"[!] Cruce con contratos ({label}) falló: {exc}")
             return {}
 
+    @staticmethod
+    def promote_signed_contract(p: Dict[str, Any]) -> bool:
+        """Un proceso con contrato firmado ya tiene ganador aunque SECOP lo muestre en
+        'Seleccionado' o 'Evaluación': pasa a ser un lead B2B de venta directa."""
+        c = p.get("contrato")
+        if not c or not c.get("proveedor") or (c.get("estado") or "").lower() in INVALID_CONTRACT_STATES:
+            return False
+        contratista = p.setdefault("contratista", {})
+        if contratista.get("nombre") in EMPTY_VALUES or contratista.get("nombre") == "Pendiente por Adjudicar":
+            contratista["nombre"] = c["proveedor"]
+        if contratista.get("nit") in EMPTY_VALUES and c.get("nit_proveedor"):
+            contratista["nit"] = c["nit_proveedor"]
+        if c.get("es_grupo"):
+            contratista["es_consorcio"] = True
+        fechas = p.setdefault("fechas", {})
+        if not fechas.get("adjudicacion"):
+            fechas["adjudicacion"] = c.get("fecha_firma")
+        if "adjudicado" in (p.get("etapa_comercial") or "").lower():
+            return False
+        p["etapa_comercial"] = "Adjudicado (Contrato firmado)"
+        p["tipo_oportunidad"] = "Lead B2B de Venta Directa"
+        p["accion_sugerida"] = "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata."
+        return True
+
     def enrich(self, prospects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         contracts = self._safe("contratos", lambda: self.fetch_contracts(prospects))
 
+        promoted = 0
         for p in prospects:
             p["contrato"] = summarize_contracts(contracts.get(p["id"], []))
-            if p["contrato"] and not p.get("contratista", {}).get("nit_normalizado"):
-                p.setdefault("contratista", {})["nit_normalizado"] = p["contrato"]["nit_proveedor"]
+            promoted += self.promote_signed_contract(p)
+        if promoted:
+            self.log(f"[*] {promoted} procesos con contrato firmado pasan a adjudicados (leads B2B).")
 
         contractor_nits = sorted({
             nit for p in prospects

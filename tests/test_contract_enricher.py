@@ -58,6 +58,7 @@ class FakeClient:
             return [{"nit_entidad": "890900286", "contratos": "120", "valor": "90000000000",
                      "facturado": "40000000000", "pagado": "36000000000"}]
         if group == "nit_entidad, proveedor_adjudicado":
+            assert "tipo_de_contrato in" in where
             return [{"nit_entidad": "890900286", "proveedor_adjudicado": "CONSORCIO ACERO", "contratos": "2", "valor": "3000000000"}]
         return []
 
@@ -118,6 +119,24 @@ class TestContractEnricher(unittest.TestCase):
         self.assertEqual(p["entidad_stats"]["proveedores_top"][0]["nombre"], "CONSORCIO ACERO")
         self.assertIn("proceso_de_compra in ('CO1.BDOS.100')", client.calls[0]["where"])
         self.assertTrue(any("fecha_de_firma >= '2025-09-28" in (c["where"] or "") for c in client.calls))
+
+    def test_signed_contract_promotes_selected_process(self):
+        p = prospect()
+        p["etapa_comercial"] = "Proceso Activo (Seleccionado)"
+        p["contratista"] = {"nombre": "No Definido", "nit": "N/A"}
+        p["fechas"] = {"adjudicacion": None}
+        out = ContractEnricher(FakeClient(), log=lambda _: None).enrich([p])[0]
+        self.assertTrue(out["etapa_comercial"].startswith("Adjudicado"))
+        self.assertEqual(out["contratista"]["nombre"], "CONSORCIO ACERO")
+        self.assertTrue(out["contratista"]["es_consorcio"])
+        self.assertEqual(out["fechas"]["adjudicacion"], "2026-09-01T00:00:00")
+
+    def test_cancelled_contract_is_not_promoted(self):
+        p = prospect()
+        p["etapa_comercial"] = "Proceso Activo (Seleccionado)"
+        p["contrato"] = summarize_contracts([dict(RAW_CONTRACT, estado_contrato="Cancelado")])
+        self.assertFalse(ContractEnricher.promote_signed_contract(p))
+        self.assertEqual(p["etapa_comercial"], "Proceso Activo (Seleccionado)")
 
     def test_network_failure_does_not_break_pipeline(self):
         logs = []
