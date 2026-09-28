@@ -111,3 +111,15 @@ test('un proceso cerrado pierde puntaje de etapa y no se anuncia como abierto', 
   assert.ok(abierta.reasons.includes('Cierra en 6 días'));
   assert.ok(!cerrada.reasons.some(r => r.includes('abierta') || r.includes('Cierra')));
 });
+
+test('un cierre sin hora sigue abierto durante todo ese día', () => {
+  const item = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', fechas: { cierre_ofertas: '2026-10-03T00:00:00' } };
+  assert.strictEqual(E.bidWindow(item, new Date('2026-10-03T16:00:00')).state, 'abierta');
+  assert.strictEqual(E.bidWindow(item, new Date('2026-10-04T08:00:00')).state, 'cerrada');
+});
+
+test('formatTerm convierte las unidades de SECOP', () => {
+  assert.strictEqual(E.formatTerm({ valor: 107, unidad: 'día(s)' }), '107 días');
+  assert.strictEqual(E.formatTerm({ valor: 1, unidad: 'mes(es)' }), '1 mes');
+  assert.strictEqual(E.formatTerm(null), '');
+});

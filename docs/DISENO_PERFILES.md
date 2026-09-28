@@ -304,7 +304,7 @@ Para validar el diseño hace falta instrumentar el embudo. Se sugiere medir:
 
 ```bash
 python -m http.server 8000 --directory web   # abrir http://localhost:8000
-node --test tests/profile_engine.test.js      # 9 pruebas del motor
+node --test tests/profile_engine.test.js      # 11 pruebas del motor
 python -m unittest discover tests             # 9 pruebas Python
 ```
 

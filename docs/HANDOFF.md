@@ -36,9 +36,15 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
 
 **Validación realizada**
-- `node --test tests/profile_engine.test.js`: 9 pruebas OK.
+- `node --test tests/profile_engine.test.js`: 11 pruebas OK.
 - `python -m unittest discover tests`: 9 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
+
+**Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
+- El pipeline extrae el cierre de ofertas, la adjudicación, el plazo y señales de competencia (`fechas`, `plazo`, `competencia`), y registra en el log la cobertura de cada campo.
+- `ProfileEngine.bidWindow` decide el estado real de cada proceso: abierta, borrador, cerrada o adjudicado. Lo usan la ficha, el perfil y la afinidad.
+- Las fichas muestran una cuenta regresiva al cierre y marcan los adjudicados de más de 90 días como antiguos.
+- Hay orden por cierre, recientes o valor, y la cabecera muestra cuándo se actualizaron los datos.
 
 ## Pendiente del dueño (bloquea el login real)
 
@@ -60,7 +66,9 @@ Hasta entonces el botón funciona en **modo demo** (`id: 'demo:local'`).
    - "varilla" coincide con "varilla puesta a tierra… cobre" (procesos de EPM) y los clasifica como acero.
    - Revisar también "pae" y "vigas".
    - Agregar términos de exclusión por sector en `ScopeExtractor`, con pruebas.
-3. **`fecha_publicacion` llega `null`** en `web/data.js`. Revisar el mapeo de campos en `scope_extractor.enrich` y en las consultas de `export_prospects`. Hace falta para mostrar urgencia ("cierra en N días").
+3. **Fichas: rediseño y cruces** (fases 1–5 de [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md)). Primer paso sugerido: cruzar con SECOP II Contratos (`jbjy-vk9h`) para obtener las fechas de ejecución y el representante legal.
+   - Leads viejos: 12 de los 22 adjudicados tienen más de 90 días. La consulta 4 de `export_prospects` debería filtrar por `fecha_adjudicacion` reciente.
+   - Las fechas faltan en los borradores (22 de 23 sin publicación), lo cual es esperado.
 4. **Alertas diarias por correo** con `analysis.alertKeywords` del perfil. Requiere backend.
 5. **Contacto de contratistas ganadores cruzando con RUES.** Hoy el pitch no tiene destinatario.
 6. **Más datos:** el pipeline cura unos 150 procesos, así que perfiles de nicho o de zonas pequeñas ven poco mercado. Subir `limit` y cuotas en `build_curated_dataset`.

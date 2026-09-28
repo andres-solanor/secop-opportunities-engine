@@ -1652,3 +1652,7 @@ body {
   font-size: 0.78rem;
   color: var(--text-muted);
 }
+
+.date-main.won.aged {
+  color: var(--text-secondary);
+}

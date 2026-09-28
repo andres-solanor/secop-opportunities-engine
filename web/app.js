@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const Profile = window.SecopProfile;
   const Engine = window.ProfileEngine;
   const sortSelect = document.getElementById('sortSelect');
+  const DAY_MS = 24 * 3600 * 1000;
+  // Etiqueta de la ficha según la ventana real de participación (ProfileEngine.bidWindow).
+  const STATE_LABELS = {
+    abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
+    borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
+    cerrada: { text: 'Ofertas cerradas', cls: 'stage-cerrada' },
+    adjudicado: { text: 'Adjudicado', cls: 'stage-adjudicado' }
+  };
   const MIN_MATCH_SCORE = 55;
   let matchCache = new Map();
   let crmState = JSON.parse(localStorage.getItem('secop_crm_state') || '{}');
@@ -196,8 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- Fechas ----------
-  const DAY_MS = 24 * 3600 * 1000;
-
   function startOfDay(d) {
     return new Date(d.getFullYear(), d.getMonth(), d.getDate());
   }
@@ -222,13 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return days > 0 ? `en ${days} días` : `hace ${-days} días`;
   }
 
-  const STATE_LABELS = {
-    abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
-    borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
-    cerrada: { text: 'Ofertas cerradas', cls: 'stage-cerrada' },
-    adjudicado: { text: 'Adjudicado', cls: 'stage-adjudicado' }
-  };
-
   /** Bloque de fechas de la ficha: lo más accionable primero (cierre o adjudicación). */
   function cardDatesHtml(item) {
     const bw = Engine.bidWindow(item);
@@ -244,12 +243,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (bw.state === 'cerrada') {
       rows.push(`<div class="date-main muted">🔒 Ya no recibe ofertas${bw.date ? `<span>Cerró el ${escapeHtml(formatDate(bw.date, { withTime: true }))}</span>` : '<span>En evaluación o selección del contratista</span>'}</div>`);
     } else if (bw.state === 'adjudicado') {
-      rows.push(`<div class="date-main won">🏆 ${bw.date ? `Adjudicado ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date))}</span>` : 'Adjudicado<span>Fecha de adjudicación no reportada</span>'}</div>`);
+      // Un lead adjudicado hace más de 90 días probablemente ya compró sus insumos principales.
+      const aged = bw.date && (Date.now() - bw.date.getTime()) / DAY_MS > 90;
+      rows.push(`<div class="date-main won ${aged ? 'aged' : ''}">🏆 ${bw.date ? `Adjudicado ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date))}${aged ? ' · contrato probablemente avanzado' : ''}</span>` : 'Adjudicado<span>Fecha de adjudicación no reportada</span>'}</div>`);
     }
 
     const meta = [];
     if (bw.published) meta.push(`📅 Publicado ${escapeHtml(formatDate(bw.published))} (${escapeHtml(relativeDays(bw.published))})`);
-    if (item.plazo && item.plazo.texto) meta.push(`⏱️ Plazo de ejecución: ${escapeHtml(item.plazo.texto)}`);
+    const term = Engine.formatTerm(item.plazo);
+    if (term) meta.push(`⏱️ Plazo de ejecución: ${escapeHtml(term)}`);
     if (meta.length) rows.push(`<div class="date-meta">${meta.join('<span class="dot">·</span>')}</div>`);
 
     return `<div class="card-dates">${rows.join('')}</div>`;

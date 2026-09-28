@@ -132,7 +132,7 @@ class TestDateExtraction(unittest.TestCase):
             "fecha_de_publicacion_del": "2026-09-20T00:00:00.000",
             "fecha_de_recepcion_de": "2026-10-03T17:00:00.000",
             "duracion": "6",
-            "unidad_de_duracion": "Meses",
+            "unidad_de_duracion": "Mes(es)",
             "proveedores_que_manifestaron": "12",
         })
         out = self.extractor.enrich(record)

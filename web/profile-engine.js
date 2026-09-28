@@ -108,15 +108,29 @@
       return { state: 'adjudicado', date: toDate(fechas.adjudicacion), published };
     }
     const closing = toDate(fechas.cierre_ofertas);
+    // SECOP publica el cierre como fecha sin hora: se considera abierto hasta el final de ese día.
+    const deadline = closing && closing.getHours() === 0 && closing.getMinutes() === 0
+      ? new Date(closing.getTime() + DAY_MS - 1000)
+      : closing;
     if (closing && stage !== 'borrador') {
-      const days = (closing - now) / DAY_MS;
+      const days = (deadline - now) / DAY_MS;
       return { state: days >= 0 ? 'abierta' : 'cerrada', date: closing, days, published };
     }
     const estado = normalize(item.estado_secop);
     if (CLOSED_STATES.some(st => estado.includes(st))) {
       return { state: 'cerrada', date: closing, published };
     }
-    return { state: stage === 'borrador' ? 'borrador' : 'abierta', date: closing, days: closing ? (closing - now) / DAY_MS : null, published };
+    return { state: stage === 'borrador' ? 'borrador' : 'abierta', date: closing, days: deadline ? (deadline - now) / DAY_MS : null, published };
+  }
+
+  /** "107 día(s)" → "107 días"; "1 mes(es)" → "1 mes". Tolera datos ya normalizados. */
+  function formatTerm(plazo) {
+    if (!plazo || !plazo.valor) return '';
+    const unit = normalize(plazo.unidad).replace(/\(.*\)/, '').trim();
+    const forms = { dia: ['día', 'días'], mes: ['mes', 'meses'], ano: ['año', 'años'], semana: ['semana', 'semanas'] };
+    const key = Object.keys(forms).find(k => unit.startsWith(k));
+    if (!key) return plazo.texto || `${plazo.valor} ${plazo.unidad || ''}`.trim();
+    return `${plazo.valor} ${forms[key][plazo.valor === 1 ? 0 : 1]}`;
   }
 
   function isActionable(item, now) {
@@ -460,6 +474,7 @@
     stageOf,
     bidWindow,
     isActionable,
+    formatTerm,
     offerCatalog,
     detectSectors,
     matchOpportunity,

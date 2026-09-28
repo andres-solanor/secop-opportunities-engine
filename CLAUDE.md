@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado. Para el razonamiento de diseño del sistema de perfiles (recorrido, modelo de afinidad, estrategia de desbloqueo, alternativas descartadas y preguntas abiertas), lee `docs/DISENO_PERFILES.md`.
+Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado. Para el razonamiento de diseño del sistema de perfiles (recorrido, modelo de afinidad, estrategia de desbloqueo, alternativas descartadas y preguntas abiertas), lee `docs/DISENO_PERFILES.md`. Para las fichas de oportunidad (fechas, qué mostrar y cruces con otras fuentes), lee `docs/PROPUESTA_FICHAS.md`.
 
 ## Qué es
 
@@ -16,7 +16,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/export_prospects.py` | Pipeline: descarga → filtra → enriquece → exporta `data/*`, `web/data.js` y `web/taxonomy.js`. |
 | `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → auth → app → profile`. |
 | `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, CRM), filtros, KPIs, tarjetas, pitch, CSV. |
-| `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`. Exporta a `window.ProfileEngine` y CommonJS. |
+| `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`, `bidWindow` (estado real: abierta, borrador, cerrada o adjudicado). Exporta a `window.ProfileEngine` y CommonJS. |
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |

@@ -333,7 +333,18 @@ class ScopeExtractor:
             return None
         value = int(value) if value.is_integer() else value
         unit_text = str(unit or "").strip().lower()
-        return {"valor": value, "unidad": unit_text, "texto": f"{value} {unit_text}".strip()}
+        return {"valor": value, "unidad": unit_text, "texto": self._term_text(value, unit_text)}
+
+    @staticmethod
+    def _term_text(value: Any, unit: str) -> str:
+        """SECOP reporta unidades como 'día(s)' o 'mes(es)'; se convierten a singular/plural."""
+        forms = {"dia": ("día", "días"), "día": ("día", "días"), "mes": ("mes", "meses"),
+                 "año": ("año", "años"), "ano": ("año", "años"), "semana": ("semana", "semanas")}
+        base = re.sub(r"\(.*\)", "", unit).strip()
+        for prefix, (singular, plural) in forms.items():
+            if base.startswith(prefix):
+                return f"{value} {singular if value == 1 else plural}"
+        return f"{value} {unit}".strip()
 
     def _extract_counts(self, record: Dict[str, Any]) -> Dict[str, Optional[int]]:
         """Señales de competencia: interesados, ofertas recibidas y visualizaciones."""
