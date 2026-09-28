@@ -208,9 +208,9 @@ Antes de implementarlos hay que confirmar la llave de cruce entre procesos y con
 | Fase | Contenido | Estado |
 |---|---|---|
 | 0 | Fechas en la ficha, estado real (abierta o cerrada), orden por fecha, frescura de datos | ✅ Implementado |
-| 1 | Rediseño de la ficha según §3.3: por etapa, un solo puntaje, sin elementos vacíos o duplicados, próximo paso con fecha, competencia visible | Propuesto |
-| 2 | Cruce con contratos (fechas de ejecución, representante legal) e historial del contratista | Propuesto: validar la llave de cruce |
-| 3 | Vista de detalle del proceso, con el cronograma completo y el contexto de la entidad y del contratista | Propuesto |
+| 1 | Rediseño de la ficha según §3.3: un solo puntaje, sin elementos vacíos o duplicados, próximo paso con fecha, badges | ✅ Implementado (§9). La competencia queda fuera por falta de datos confiables (§7) |
+| 2 | Cruce con contratos (fechas de ejecución, representante legal) e historial del contratista | ✅ Implementado (§9) |
+| 3 | Vista de detalle del proceso, con el cronograma completo y el contexto de la entidad y del contratista | ✅ Implementado (§9) |
 | 4 | Contactos empresariales (proveedores registrados), proponentes por proceso, PAA | Propuesto: requiere backend para desbloquear por cuenta |
 | 5 | Señales de riesgo (sanciones, registro mercantil, estados financieros) | Propuesto: validar fuentes y términos |
 
@@ -237,8 +237,94 @@ Corrida del pipeline en GitHub Actions (run `36367795452`, 28-sep-2026, 150 opor
 
 ## 8. Preguntas para el revisor
 
+> Resueltas por el dueño (2026-09-28): primero el cruce, luego el rediseño; usar badges con una convención clara; aplicar las sugerencias de mostrar u ocultar.
+
 1. ¿Priorizamos el **rediseño de la ficha** (fase 1) o el **cruce con contratos** (fase 2)? La fase 2 alimenta a la 1.
 2. ¿Aceptamos mostrar **nombres de personas** (representante legal) en la ficha, o solo empresas y roles?
 3. ¿Los **contactos** deben ser la recompensa del registro (bloqueo duro)? Eso exige backend para que el bloqueo sea real.
 4. ¿Qué umbral de urgencia prefieren los usuarios (hoy: ámbar a menos de 7 días y rojo a menos de 3)?
 5. ¿Hay presupuesto para una fuente de datos de empresas (RUES u otro proveedor) si las fuentes abiertas no alcanzan?
+
+---
+
+## 9. Implementado: cruce con SECOP II Contratos y rediseño de la ficha
+
+### 9.1 Cruce con contratos (`src/enrichers/contract_enricher.py`)
+
+**Llave de cruce confirmada con datos reales:** `contratos.proceso_de_compra` = `procesos.id_del_portafolio` (se guarda como `id_portafolio`). Se hacen 5 consultas por lotes de 40 identificadores. Cualquier fallo se registra en el log y el refresco diario continúa sin el cruce.
+
+| Bloque | Contenido | Uso en la app |
+|---|---|---|
+| `contrato` | Estado; fechas de firma, inicio y fin de ejecución; valor, facturado y pagado; días adicionados; prórroga; origen de los recursos; destino del gasto; **lugar de ejecución**; condiciones de entrega; pyme o grupo; lotes | Badges, próximo paso, cronograma y detalle |
+| `contrato.contactos` | Representante legal del contratista; ordenador del gasto, supervisor y ordenador de pago de la entidad | Ficha (representante legal) y detalle (todos, por rol) |
+| `historial_contratista` | Contratos en SECOP II, valor total, primer y último contrato, 3 entidades con las que más contrata | "Contratista recurrente" / "Primer contrato" y trayectoria |
+| `entidad_stats` | Contratos y valor en 12 meses, % pagado sobre lo facturado, 3 principales contratistas de obra y suministro | "Gran comprador", "Registra pagos" y detalle |
+
+**Qué no se guarda (privacidad):** números de documento, datos bancarios (banco, tipo y número de cuenta), género, domicilio ni nacionalidad del representante legal. Tampoco los "principales contratistas" de tipo prestación de servicios, que suelen ser personas naturales, ni los créditos bancarios. Hay pruebas que verifican que esos datos no se filtran.
+
+**Procesos con contrato firmado → adjudicados.** Si un proceso tiene un contrato válido (no en borrador, cancelado ni anulado), pasa a "Adjudicado (Contrato firmado)" aunque SECOP lo muestre en *Seleccionado* o *Evaluación*. Se completan el contratista y la fecha de adjudicación (fecha de firma). En la corrida real, **17 procesos** pasaron a adjudicados: el Radar B2B pasó de **22 a 39 leads**.
+
+**Cobertura real** (run del 28-sep-2026, 150 oportunidades):
+
+| Dato | Cobertura |
+|---|---|
+| Oportunidades con contrato | 37 (18 de los 22 adjudicados originales + 19 con contrato firmado) |
+| Fecha de firma / fin de ejecución | 35 / 35 |
+| Inicio de ejecución | 24 (el dataset no trae la columna `fecha_de_inicio_de_ejecucion`; se usa `fecha_de_inicio_del_contrato`) |
+| Representante legal / ordenador del gasto / supervisor | 35 / 23 / 21 |
+| Facturado / pagado | 12 / 5: los pagos casi no se registran |
+| Anticipo | 0: no se usa |
+| Historial del contratista | 36 |
+| Estadísticas de la entidad | 113 |
+
+**Advertencia sobre pagos.** El "% pagado sobre lo facturado" de una entidad refleja también pagos **no registrados** en SECOP (una gobernación aparece con 4%). Por eso solo existe el badge positivo "Registra pagos" (80% o más) y no uno negativo; en el detalle se muestra con esa aclaración.
+
+### 9.2 Convención de badges
+
+**El color es el significado; el ícono es el tema.** Los badges se ordenan por importancia (riesgo primero). La ficha muestra hasta 4 y un "+N"; el detalle los muestra todos. La lógica vive en `ProfileEngine.cardBadges` (con pruebas) y la guía se abre con "ℹ️ Guía de badges", generada desde el mismo catálogo (`ProfileEngine.BADGES`).
+
+| Tono | Significado | Badges |
+|---|---|---|
+| 🔴 Riesgo | Algo bloquea o pone en duda la oportunidad | ⛔ Contrato suspendido · ✖ Contrato cancelado |
+| 🟠 Atención | Conviene revisarlo antes de actuar | ✏️ Contrato modificado · 📆 Con prórroga · 🆕 Primer contrato |
+| 🟢 A favor | Señal positiva para hacer negocio | 🚀 Inicia pronto · ▶️ En ejecución · 🔁 Contratista recurrente · 📈 Gran comprador · 💳 Registra pagos |
+| ⚪ Informativo | Dato neutro | 👤 Sin ganador aún · 🤝 Consorcio / UT · 🏪 Pyme · 🏛️ Regalías · 🏁 Contrato terminado |
+| 🟣 Afinidad | Relación con el perfil del usuario | ✨ 85% (reemplaza al puntaje de calidad cuando hay perfil) |
+
+"👤 Sin ganador aún" reemplaza el recuadro vacío "Contratista: No Definido". "📈 Gran comprador" usa el valor contratado (más de $100 mil millones en 12 meses, el ~20% superior), porque el número de contratos incluye prestación de servicios y no discrimina: la mediana es de 346 contratos al año.
+
+![Guía de badges](./img/15-guia-badges.png)
+
+### 9.3 La ficha nueva
+
+| Ficha adjudicada (Radar B2B) | Ficha abierta (Observatorio, por cierre) |
+|---|---|
+| ![Adjudicada](./img/12-ficha-adjudicada.png) | ![Abierta](./img/14-ficha-abierta.png) |
+
+Cambios aplicados respecto a §3.3:
+- **Valor corto** ("$818 millones") con **modalidad y plazo** debajo ("Menor cuantía · 2 meses").
+- **Un solo puntaje:** afinidad si hay perfil; si no, calidad.
+- **Descripción legible:** las MAYÚSCULAS se pasan a minúsculas conservando siglas (PAE, ESP, SAS…) y se limita a 2 líneas.
+- **Recuadro de contratista solo si hay ganador**, con NIT, **representante legal** y **trayectoria** ("38 contratos en SECOP II · $52,2 mil millones desde 2021").
+- **Próximo paso con fecha** (`ProfileEngine.nextStep`), en lugar del banner "Estrategia", que tenía 4 textos repetidos. Por ejemplo: "Contacta al contratista antes del inicio de la ejecución · 5 oct (en 7 días)" o "Contrato suspendido: espera su reactivación antes de ofrecer".
+- **Razones de afinidad** en una línea, en todas las pestañas.
+- **Se eliminó:** las etiquetas de materiales (duplicaban el sector), el recuadro vacío y la referencia (pasó al detalle).
+- **Acciones:** Pitch · Detalle · 🔗 SECOP · Guardar.
+- **El pitch a adjudicados** se dirige al representante legal por nombre y menciona el inicio de ejecución si aún no empieza.
+- **El CSV exportado** incluye el estado real, las fechas, el estado del contrato, el representante legal, la trayectoria y el próximo paso.
+
+**Vista de detalle** (🔎 Detalle): objeto completo, cronograma (publicación → cierre → adjudicación → firma → inicio → fin), contrato, contratista y su trayectoria, **contactos por rol** con fuente y nota legal, la entidad en 12 meses y todos los badges.
+
+![Detalle](./img/13-detalle.png)
+
+**Móvil:** se corrigió un desbordamiento horizontal que ya existía (pestañas y cuadrícula de fichas). Ahora la página mide 390 px y las pestañas se desplazan dentro de su fila.
+
+![Móvil](./img/16-movil-ficha.png)
+
+### 9.4 Pendiente
+
+- **Fase 4:** proveedores registrados (contactos de empresa), proponentes por proceso y PAA. Hay que verificar los IDs de esos datasets con una corrida del pipeline.
+- **Integrantes de consorcios:** el dataset de contratos no los trae y en consorcios la trayectoria casi siempre es "1 contrato". Hace falta otra fuente.
+- **Bloqueo por cuenta** de los contactos (ver `DISENO_PERFILES.md` §8): hoy son visibles para cualquiera, igual que en SECOP.
+- Revisar con asesoría legal la sección de contactos (§5.3).
+

@@ -127,6 +127,24 @@ def clean_name(raw: Any) -> Optional[str]:
     return name if len(name) > 2 else None
 
 
+def readable_text(raw: Any) -> Optional[str]:
+    """Descarta códigos internos de la plataforma (p. ej. 'NXTWY.DLVY.6')."""
+    text = clean_name(raw)
+    if not text or re.fullmatch(r"[A-Z0-9]+(\.[A-Z0-9]+)+", text):
+        return None
+    return text
+
+
+def funding_labels(parsed: List[Dict[str, Any]]) -> List[str]:
+    """Origen de recursos legible y sin duplicados ('Distribuido' no aporta información)."""
+    labels: Dict[str, str] = {}
+    for row in parsed:
+        for label in list(row["_sources"]) + [clean_name(row["origen_texto"])]:
+            if label and label.lower() != "distribuido":
+                labels.setdefault(label.lower(), label)
+    return sorted(labels.values())
+
+
 def normalize_nit(raw: Any) -> Optional[str]:
     """Deja solo dígitos y quita el dígito de verificación si viene separado por guion."""
     if raw in EMPTY_VALUES:
@@ -210,11 +228,9 @@ def summarize_contracts(raw_contracts: List[Dict[str, Any]]) -> Optional[Dict[st
         "es_pyme": to_bool(main["es_pyme"]),
         "es_grupo": to_bool(main["es_grupo"]),
         "destino_gasto": main["destino_gasto"],
-        "origen_recursos": sorted({s for r in parsed for s in r["_sources"]} | {
-            clean_name(r["origen_texto"]) for r in parsed if clean_name(r["origen_texto"])
-        }),
+        "origen_recursos": funding_labels(parsed),
         "direccion_ejecucion": clean_name(main["direccion_ejecucion"]),
-        "condiciones_entrega": clean_name(main["condiciones_entrega"]),
+        "condiciones_entrega": readable_text(main["condiciones_entrega"]),
         "proveedor": clean_name(main["proveedor"]),
         "nit_proveedor": normalize_nit(main["documento_proveedor"]),
         "url": main["url"]["url"] if isinstance(main["url"], dict) else main["url"],

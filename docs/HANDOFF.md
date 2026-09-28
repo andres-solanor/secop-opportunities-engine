@@ -36,8 +36,8 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
 
 **Validación realizada**
-- `node --test tests/profile_engine.test.js`: 11 pruebas OK.
-- `python -m unittest discover tests`: 9 pruebas OK.
+- `node --test tests/profile_engine.test.js`: 14 pruebas OK.
+- `python -m unittest discover tests`: 18 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
 
 **Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
@@ -45,6 +45,13 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - `ProfileEngine.bidWindow` decide el estado real de cada proceso: abierta, borrador, cerrada o adjudicado. Lo usan la ficha, el perfil y la afinidad.
 - Las fichas muestran una cuenta regresiva al cierre y marcan los adjudicados de más de 90 días como antiguos.
 - Hay orden por cierre, recientes o valor, y la cabecera muestra cuándo se actualizaron los datos.
+
+**Cruce con contratos y rediseño de fichas (2026-09-28)**. Detalle en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md) §9.
+- `src/enrichers/contract_enricher.py` cruza con SECOP II Contratos (`jbjy-vk9h`) por `proceso_de_compra = id_del_portafolio` y agrega `contrato`, `historial_contratista` y `entidad_stats`. No guarda documentos, datos bancarios ni género.
+- Los procesos con contrato firmado pasan a adjudicados: el Radar B2B pasó de 22 a 39 leads.
+- Ficha nueva con badges (`ProfileEngine.cardBadges`, convención por tono), próximo paso (`ProfileEngine.nextStep`), vista de detalle con cronograma y contactos por rol, y guía de badges.
+- No hay API de DeepSeek (ni de otro LLM) configurada en el repo ni en el entorno. La planeación se hizo sin ella.
+- **Aprendizaje:** en `app.js`, toda constante usada por las fichas debe declararse al inicio del callback, antes del primer `renderView()`. Si no, se produce un error de "temporal dead zone" y no se pinta ninguna ficha. Pasó dos veces.
 
 ## Pendiente del dueño (bloquea el login real)
 
@@ -66,7 +73,7 @@ Hasta entonces el botón funciona en **modo demo** (`id: 'demo:local'`).
    - "varilla" coincide con "varilla puesta a tierra… cobre" (procesos de EPM) y los clasifica como acero.
    - Revisar también "pae" y "vigas".
    - Agregar términos de exclusión por sector en `ScopeExtractor`, con pruebas.
-3. **Fichas: rediseño y cruces** (fases 1–5 de [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md)). Primer paso sugerido: cruzar con SECOP II Contratos (`jbjy-vk9h`) para obtener las fechas de ejecución y el representante legal.
+3. **Fichas: siguientes cruces** (fases 4–5 de [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md) §9.4): proveedores registrados, proponentes por proceso, PAA e integrantes de consorcios. Las fases 0–3 (fechas, cruce con contratos, rediseño con badges y detalle) ya están hechas.
    - Leads viejos: 12 de los 22 adjudicados tienen más de 90 días. La consulta 4 de `export_prospects` debería filtrar por `fecha_adjudicacion` reciente.
    - Las fechas faltan en los borradores (22 de 23 sin publicación), lo cual es esperado.
 4. **Alertas diarias por correo** con `analysis.alertKeywords` del perfil. Requiere backend.

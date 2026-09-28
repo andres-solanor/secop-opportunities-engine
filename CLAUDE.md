@@ -13,10 +13,11 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/services/socrata_client.py` | Cliente HTTP de la API SODA (solo biblioteca estándar). |
 | `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. |
 | `src/enrichers/scope_extractor.py` | `TAXONOMIES` (sectores y palabras clave), etapa comercial, score de calidad. **Fuente única del vocabulario de sectores.** |
+| `src/enrichers/contract_enricher.py` | Cruce con SECOP II Contratos (`jbjy-vk9h`): `contrato`, `historial_contratista`, `entidad_stats`. Promueve a adjudicados los procesos con contrato firmado. **Nunca** copia documentos, datos bancarios ni género. |
 | `src/export_prospects.py` | Pipeline: descarga → filtra → enriquece → exporta `data/*`, `web/data.js` y `web/taxonomy.js`. |
 | `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → auth → app → profile`. |
 | `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, CRM), filtros, KPIs, tarjetas, pitch, CSV. |
-| `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`, `bidWindow` (estado real: abierta, borrador, cerrada o adjudicado). Exporta a `window.ProfileEngine` y CommonJS. |
+| `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`, `bidWindow` (estado real: abierta, borrador, cerrada o adjudicado), `cardBadges` y `BADGES`/`TONES` (convención de badges), `nextStep`. Exporta a `window.ProfileEngine` y CommonJS. |
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |
@@ -44,6 +45,8 @@ Para regenerar solo la taxonomía web sin descargar datos:
 - **Cache busting:** al cambiar un JS/CSS, actualiza el sufijo `?v=AAAAMMDD_NN` en `web/index.html`.
 - **Taxonomía:** si cambias sectores o palabras clave, edita `ScopeExtractor.TAXONOMIES` y regenera `web/taxonomy.js`; nunca dupliques listas en JS.
 - La lógica de puntaje y análisis va en `profile-engine.js` (testeable con Node); la manipulación del DOM va en `profile.js`/`app.js`.
+- **Badges:** el tono es el significado (`risk`, `warn`, `good`, `info`). Un badge nuevo se agrega en `BADGES` (con `tip`) y en `cardBadges`; la guía de la UI se genera sola.
+- **`app.js`:** declara las constantes que usan las fichas al inicio del callback, antes del primer `renderView()`; si no, hay un error de "temporal dead zone" y la página queda sin fichas.
 
 ## Almacenamiento en el navegador (`localStorage`)
 

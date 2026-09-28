@@ -123,3 +123,34 @@ test('formatTerm convierte las unidades de SECOP', () => {
   assert.strictEqual(E.formatTerm({ valor: 1, unidad: 'mes(es)' }), '1 mes');
   assert.strictEqual(E.formatTerm(null), '');
 });
+
+test('badges: proceso sin ganador y gran comprador', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', entidad_stats: { contratos_12m: 120, valor_12m: 2e11, pagado_sobre_facturado_pct: 91 } };
+  const ids = E.cardBadges(item, now).map(b => b.id);
+  assert.deepStrictEqual(ids, ['gran_comprador', 'pagos_registrados', 'sin_ganador']);
+});
+
+test('badges: riesgo primero y consorcio sin marca de contratista nuevo', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = {
+    etapa_comercial: 'Adjudicado (Contratista Seleccionado)',
+    contratista: { es_consorcio: true },
+    contrato: { estado: 'Suspendido', dias_adicionados: 30, origen_recursos: ['Regalías (SGR)'], es_pyme: false },
+    historial_contratista: { contratos: 1 }
+  };
+  const badges = E.cardBadges(item, now);
+  assert.strictEqual(badges[0].id, 'contrato_suspendido');
+  assert.ok(badges.some(b => b.id === 'consorcio'));
+  assert.ok(!badges.some(b => b.id === 'contratista_nuevo'));
+  assert.ok(badges.every(b => E.TONES[b.tone]));
+});
+
+test('nextStep prioriza el inicio de ejecución futuro en adjudicados', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Adjudicado (Contrato firmado)', fechas: { adjudicacion: '2026-09-20T00:00:00' }, contrato: { estado: 'Aprobado', inicio_ejecucion: '2026-10-05T00:00:00' } };
+  const step = E.nextStep(item, now);
+  assert.match(step.text, /antes del inicio/);
+  assert.strictEqual(step.date.getDate(), 5);
+  assert.match(E.nextStep({ ...item, contrato: { estado: 'Suspendido' } }, now).text, /suspendido/);
+});

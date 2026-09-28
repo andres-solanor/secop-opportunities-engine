@@ -100,6 +100,13 @@ class TestContractSummary(unittest.TestCase):
         self.assertEqual(c["valor"], 1500000000)
         self.assertEqual(c["fin_ejecucion"], "2027-06-30T00:00:00")
 
+    def test_noise_is_cleaned(self):
+        raw = dict(RAW_CONTRACT, condiciones_de_entrega="NXTWY.DLVY.6", origen_de_los_recursos="Distribuido",
+                   recursos_propios="100")
+        c = summarize_contracts([raw])
+        self.assertIsNone(c["condiciones_entrega"])
+        self.assertEqual(c["origen_recursos"], ["Recursos propios", "Regalías (SGR)"])
+
     def test_helpers(self):
         self.assertEqual(normalize_nit("901.234.567-1"), "901234567")
         self.assertIsNone(normalize_nit("No Definido"))

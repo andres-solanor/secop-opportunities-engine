@@ -11,6 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const Engine = window.ProfileEngine;
   const sortSelect = document.getElementById('sortSelect');
   const DAY_MS = 24 * 3600 * 1000;
+  // Nota: las constantes usadas por las fichas deben declararse aquí, antes del primer renderView().
+  const ACRONYMS = ['PAE', 'ESP', 'E.S.P.', 'SAS', 'S.A.S.', 'LED', 'SGR', 'SGP', 'IPS', 'ESE', 'ICBF', 'SENA', 'EPM', 'UT', 'BPIN', 'CDP', 'INVIAS', 'ANI', 'IE', 'PTAR', 'PTAP', 'SENA', 'EDU'];
+  const MODALITY_LABELS = [
+    ['licitacion publica', 'Licitación pública'],
+    ['menor cuantia', 'Menor cuantía'],
+    ['subasta', 'Subasta inversa'],
+    ['concurso de meritos', 'Concurso de méritos'],
+    ['minima cuantia', 'Mínima cuantía'],
+    ['contratacion directa', 'Contratación directa'],
+    ['regimen especial', 'Régimen especial']
+  ];
+
   // Etiqueta de la ficha según la ventana real de participación (ProfileEngine.bidWindow).
   const STATE_LABELS = {
     abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
@@ -439,6 +451,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pitchBtn.addEventListener('click', () => openPitchModal(item));
       }
 
+      const detailBtn = cardEl.querySelector('.btn-detail');
+      if (detailBtn) detailBtn.addEventListener('click', () => openDetailModal(item));
+
       // CRM Status Selector
       const crmSelect = cardEl.querySelector('.crm-select');
       if (crmSelect) {
@@ -449,36 +464,87 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Ficha de oportunidad ----------
+
+  /** Pasa a minúsculas los textos en MAYÚSCULAS sostenidas, conservando siglas conocidas. */
+  function readableText(text) {
+    if (!text) return '';
+    const letters = text.replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ]/g, '');
+    const upper = letters.replace(/[^A-ZÁÉÍÓÚÑ]/g, '').length;
+    if (!letters.length || upper / letters.length < 0.7) return text;
+    let out = text.toLowerCase().replace(/\s+/g, ' ').trim();
+    ACRONYMS.forEach(ac => {
+      const re = new RegExp(`(^|[^a-záéíóúñ])${ac.toLowerCase().replace(/\./g, '\\.')}(?=[^a-záéíóúñ]|$)`, 'g');
+      out = out.replace(re, (m, pre) => pre + ac);
+    });
+    return out.charAt(0).toUpperCase() + out.slice(1);
+  }
+
+  /** "MARTHA ISABEL HERNANDEZ" → "Martha Isabel Hernandez". */
+  function personName(name) {
+    if (!name) return '';
+    return name.toLowerCase().replace(/(^|[\s-])([a-záéíóúñ])/g, (m, pre, ch) => pre + ch.toUpperCase());
+  }
+
+  function modalityLabel(item) {
+    const m = Engine.normalize(item.modalidad);
+    const found = MODALITY_LABELS.find(([k]) => m.includes(k));
+    return found ? found[1] : (item.modalidad || '');
+  }
+
+  function badgeHtml(b) {
+    return `<span class="badge badge-${b.tone}" title="${escapeHtml(b.tip)}">${b.icon} ${escapeHtml(b.label)}</span>`;
+  }
+
+  function winnerName(item) {
+    const n = item.contratista?.nombre;
+    return n && !['Pendiente por Adjudicar', 'No Definido', 'No definido'].includes(n) ? n : '';
+  }
+
+  function validNit(nit) {
+    return nit && !['N/A', 'No Definido', 'No definido'].includes(nit) ? nit : '';
+  }
+
+  function historyLine(h) {
+    if (!h || !h.contratos) return '';
+    const since = h.primero ? ` desde ${new Date(h.primero).getFullYear()}` : '';
+    return `${h.contratos} ${h.contratos === 1 ? 'contrato' : 'contratos'} en SECOP II · ${Engine.formatCopShort(h.valor_total || 0)}${since}`;
+  }
+
   // Create Card HTML Template
   function createCardHtml(item) {
-    const isHigh = item.score_calidad >= 80;
-    const scoreClass = isHigh ? 'score-high' : 'score-med';
     const currentStatus = crmState[item.id]?.status || 'ninguno';
-
-    const stateLabel = STATE_LABELS[Engine.bidWindow(item).state];
-
-    const materialBadges = (item.materiales_detectados || []).map(mat => {
-      const isSteel = ['acero', 'vigas', 'estructura metálica', 'cerchas', 'varilla'].some(k => mat.includes(k));
-      const isSolar = ['solar', 'fotovoltaic', 'alumbrado', 'luminaria', 'eléctrica', 'electrica', 'transformador'].some(k => mat.includes(k));
-      let tagClass = 'horeca';
-      if (isSteel) tagClass = 'steel';
-      else if (isSolar) tagClass = 'solar';
-      return `<span class="material-tag ${tagClass}">🏷️ ${escapeHtml(mat)}</span>`;
-    }).join('');
-
-    const sectorsBadges = (item.sectores || []).map(s => {
-      return `<span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">${escapeHtml(s.name)}</span>`;
-    }).join(' • ');
-
-    const contractorName = item.contratista?.nombre || 'Pendiente por Adjudicar';
-    const isConsortium = item.contratista?.es_consorcio;
+    const bw = Engine.bidWindow(item);
+    const stateLabel = STATE_LABELS[bw.state];
     const match = getMatch(item);
-    const matchBadge = match
+
+    // Un solo puntaje visible: afinidad si hay perfil; si no, calidad del lead.
+    const scoreBadge = match
       ? `<span class="match-pill ${match.score >= 75 ? 'match-high' : match.score >= MIN_MATCH_SCORE ? '' : 'match-low'}" title="Afinidad con tu perfil">✨ ${match.score}%</span>`
+      : `<div class="score-badge ${item.score_calidad >= 80 ? 'score-high' : 'score-med'}" title="Calidad del lead: sector, valor y etapa (0-100)">⚡ ${item.score_calidad} pts</div>`;
+
+    const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
+    const metaLine = [modalityLabel(item), Engine.formatTerm(item.plazo)].filter(Boolean).map(escapeHtml).join(' · ');
+    const badges = Engine.cardBadges(item);
+    const visibleBadges = badges.slice(0, 4);
+    const moreBadges = badges.length - visibleBadges.length;
+    const reasons = match && match.reasons.length
+      ? `<div class="match-line">✨ ${match.reasons.slice(0, 3).map(escapeHtml).join(' · ')}</div>`
       : '';
-    const matchReasons = match && currentTab === 'parati' && match.reasons.length
-      ? `<ul class="match-reasons">${match.reasons.map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul>`
-      : '';
+
+    const winner = winnerName(item);
+    const legalRep = item.contrato?.contactos?.representante_legal;
+    const history = historyLine(item.historial_contratista);
+    const contractorBlock = winner ? `
+          <div class="contractor-box">
+            <div class="contractor-box-title"><span>🏆 Contratista</span>${validNit(item.contratista?.nit) ? `<span>NIT ${escapeHtml(item.contratista.nit)}</span>` : ''}</div>
+            <div class="contractor-name">${escapeHtml(winner)}</div>
+            ${legalRep ? `<div class="contractor-meta">Representante legal: ${escapeHtml(personName(legalRep))}</div>` : ''}
+            ${history ? `<div class="contractor-meta">${escapeHtml(history)}</div>` : ''}
+          </div>` : '';
+
+    const step = Engine.nextStep(item);
+    const stepDate = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
 
     return `
       <article class="opp-card" id="card-${item.id}">
@@ -489,59 +555,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="pulse-dot"></span>
                 ${stateLabel.text}
               </span>
-              <div style="margin-top: 0.4rem;">${sectorsBadges}</div>
+              <div class="card-sectors">${sectors}</div>
             </div>
-            <div class="card-badges">
-              ${matchBadge}
-              <div class="score-badge ${scoreClass}">
-                <span>⚡</span> ${item.score_calidad} pts
-              </div>
-            </div>
+            <div class="card-badges">${scoreBadge}</div>
           </div>
-          ${matchReasons}
 
-          <div class="opp-price">${escapeHtml(item.precio_formateado)}</div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
+          ${metaLine ? `<div class="opp-meta">${metaLine}</div>` : ''}
           <div class="opp-entity">
             <span>🏛️</span>
             <strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong>
           </div>
+          <div class="opp-location">📍 ${escapeHtml([item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', '))}</div>
           ${cardDatesHtml(item)}
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-            📍 ${escapeHtml(item.ciudad || '')}, ${escapeHtml(item.departamento || '')} • Ref: <code>${escapeHtml(item.referencia || item.id)}</code>
-          </div>
+          ${visibleBadges.length ? `<div class="badge-row">${visibleBadges.map(badgeHtml).join('')}${moreBadges > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${moreBadges}</span>` : ''}</div>` : ''}
 
           <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">
-            ${escapeHtml(item.descripcion || 'Sin descripción detallada.')}
+            ${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}
           </p>
+          ${reasons}
+          ${contractorBlock}
 
-          ${materialBadges ? `<div class="material-tags">${materialBadges}</div>` : ''}
-
-          <div class="contractor-box">
-            <div class="contractor-box-title">
-              <span>Contratista / Adjudicatario</span>
-              ${isConsortium ? `<span class="consortium-tag">Consorcio</span>` : ''}
-            </div>
-            <div class="contractor-name">${escapeHtml(contractorName)}</div>
-            ${item.contratista?.nit && item.contratista.nit !== 'N/A' && item.contratista.nit !== 'No Definido' ? 
-              `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem;">NIT: ${escapeHtml(item.contratista.nit)}</div>` : ''}
-          </div>
-
-          <div class="action-banner">
-            <strong>🎯 Estrategia:</strong> ${escapeHtml(item.accion_sugerida)}
-          </div>
+          <div class="next-step">➜ ${escapeHtml(step.text)}${stepDate}</div>
         </div>
 
         <div class="card-actions">
-          <button class="btn btn-primary btn-pitch" style="padding: 0.5rem 0.75rem;">
-            <span>💬</span> Generar Pitch
-          </button>
-          ${item.url_secop ? `
-            <a href="${item.url_secop}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 0.75rem;" title="Abrir expediente en SECOP II">
-              <span>🔗</span> SECOP II
-            </a>
-          ` : ''}
-          <select class="filter-select crm-select" style="min-width: 130px; font-size: 0.75rem; padding: 0.4rem 0.6rem;">
-            <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar en CRM</option>
+          <button class="btn btn-primary btn-pitch">💬 Pitch</button>
+          <button class="btn btn-outline btn-detail">🔎 Detalle</button>
+          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>` : ''}
+          <select class="filter-select crm-select" aria-label="Guardar en CRM">
+            <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
             <option value="contactado" ${currentStatus === 'contactado' ? 'selected' : ''}>📞 Contactado</option>
             <option value="negociacion" ${currentStatus === 'negociacion' ? 'selected' : ''}>💼 En Cotización</option>
@@ -551,6 +594,144 @@ document.addEventListener('DOMContentLoaded', () => {
       </article>
     `;
   }
+
+  // ---------- Vista de detalle ----------
+  function detailRow(label, value) {
+    return value ? `<div class="dl-row"><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>` : '';
+  }
+
+  function openDetailModal(item) {
+    const bw = Engine.bidWindow(item);
+    const c = item.contrato;
+    const h = item.historial_contratista;
+    const e = item.entidad_stats;
+    const f = item.fechas || {};
+    const d = v => (v ? escapeHtml(formatDate(new Date(v))) : '');
+    const money = v => (v || v === 0 ? escapeHtml(Engine.formatCopShort(v)) : '');
+    const badges = Engine.cardBadges(item);
+    const step = Engine.nextStep(item);
+
+    const timeline = [
+      ['Publicación', f.publicacion],
+      ['Cierre de ofertas', f.cierre_ofertas],
+      ['Adjudicación', f.adjudicacion],
+      ['Firma del contrato', c?.fecha_firma],
+      ['Inicio de ejecución', c?.inicio_ejecucion],
+      ['Fin de ejecución', c?.fin_ejecucion]
+    ].filter(([, v]) => v).sort((a, b) => new Date(a[1]) - new Date(b[1]));
+    const now = Date.now();
+
+    const contacts = c ? [
+      ['Representante legal del contratista', c.contactos?.representante_legal, winnerName(item)],
+      ['Ordenador del gasto (entidad)', c.contactos?.ordenador_gasto, item.entidad],
+      ['Supervisor del contrato (entidad)', c.contactos?.supervisor, item.entidad],
+      ['Ordenador de pago (entidad)', c.contactos?.ordenador_pago, item.entidad]
+    ].filter(([, name]) => name) : [];
+
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="stage-pill ${STATE_LABELS[bw.state].cls}"><span class="pulse-dot"></span>${STATE_LABELS[bw.state].text}</span>
+        <h2 class="detail-title">${escapeHtml(item.entidad || '')}</h2>
+        <div class="detail-sub">${escapeHtml(Engine.formatCopShort(item.precio || 0))} · ${escapeHtml(modalityLabel(item))} · Ref. <code>${escapeHtml(item.referencia || item.id)}</code></div>
+        <div class="next-step">➜ ${escapeHtml(step.text)}${step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b>` : ''}</div>
+        ${badges.length ? `<div class="badge-row">${badges.map(b => `${badgeHtml(b)}`).join('')}</div>` : ''}
+
+        <section class="detail-section">
+          <h3>Objeto</h3>
+          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+        </section>
+
+        ${timeline.length ? `
+        <section class="detail-section">
+          <h3>Cronograma</h3>
+          <ol class="timeline">
+            ${timeline.map(([label, v]) => `<li class="${new Date(v).getTime() > now ? 'future' : ''}"><span>${escapeHtml(label)}</span><b>${d(v)}</b><em>${escapeHtml(relativeDays(new Date(v)))}</em></li>`).join('')}
+          </ol>
+        </section>` : ''}
+
+        ${c ? `
+        <section class="detail-section">
+          <h3>Contrato ${c.cantidad > 1 ? `(${c.cantidad} lotes)` : ''}</h3>
+          <dl>
+            ${detailRow('Estado', escapeHtml(c.estado || ''))}
+            ${detailRow('Valor', money(c.valor))}
+            ${detailRow('Facturado / pagado', c.valor_facturado || c.valor_pagado ? `${money(c.valor_facturado || 0)} / ${money(c.valor_pagado || 0)}` : '')}
+            ${detailRow('Días adicionados', c.dias_adicionados ? `${c.dias_adicionados} días` : '')}
+            ${detailRow('Origen de los recursos', escapeHtml((c.origen_recursos || []).join(', ')))}
+            ${detailRow('Destino del gasto', escapeHtml(c.destino_gasto || ''))}
+            ${detailRow('Lugar de ejecución', escapeHtml(c.direccion_ejecucion || ''))}
+            ${detailRow('Condiciones de entrega', escapeHtml(c.condiciones_entrega || ''))}
+          </dl>
+        </section>` : ''}
+
+        ${winnerName(item) ? `
+        <section class="detail-section">
+          <h3>Contratista</h3>
+          <dl>
+            ${detailRow('Nombre', escapeHtml(winnerName(item)))}
+            ${detailRow('NIT', escapeHtml(validNit(item.contratista?.nit)))}
+            ${detailRow('Trayectoria', escapeHtml(historyLine(h)))}
+            ${detailRow('Último contrato', h?.ultimo ? d(h.ultimo) : '')}
+            ${detailRow('Entidades con las que más contrata', h?.entidades_top?.length ? h.entidades_top.map(t => `${escapeHtml(t.nombre)} <small>(${t.contratos} · ${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : ''}
+
+        ${contacts.length ? `
+        <section class="detail-section">
+          <h3>Contactos por rol</h3>
+          <ul class="contact-list">
+            ${contacts.map(([role, name, org]) => `<li><b>${escapeHtml(personName(name))}</b><span>${escapeHtml(role)}${org ? ` · ${escapeHtml(org)}` : ''}</span></li>`).join('')}
+          </ul>
+          <p class="legal-note">Fuente: SECOP II · Contratos electrónicos (datos abiertos). Son datos públicos de la contratación (Ley 1712 de 2014); úsalos solo con finalidad comercial legítima (Ley 1581 de 2012). Las comunicaciones con la entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
+        </section>` : ''}
+
+        ${e ? `
+        <section class="detail-section">
+          <h3>La entidad en los últimos 12 meses</h3>
+          <dl>
+            ${detailRow('Contratos firmados', escapeHtml(String(e.contratos_12m)))}
+            ${detailRow('Valor contratado', money(e.valor_12m))}
+            ${detailRow('Pagos registrados', e.pagado_sobre_facturado_pct != null ? `${e.pagado_sobre_facturado_pct}% de lo facturado <small>(muchas entidades no registran todos sus pagos en SECOP)</small>` : '')}
+            ${detailRow('Principales contratistas (obra y suministro)', e.proveedores_top?.length ? e.proveedores_top.map(t => `${escapeHtml(t.nombre)} <small>(${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : ''}
+
+        <div class="detail-actions">
+          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
+          <button class="btn btn-primary" id="detailPitch">💬 Generar pitch</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('detailPitch').addEventListener('click', () => openPitchModal(item));
+    detailModal.classList.add('active');
+    detailModal.querySelector('.modal-content').scrollTop = 0;
+  }
+
+  // ---------- Guía de badges ----------
+  function openBadgeGuide() {
+    const byTone = Object.keys(Engine.TONES).map(tone => ({
+      tone,
+      ...Engine.TONES[tone],
+      items: Object.values(Engine.BADGES).filter(b => b.tone === tone)
+    }));
+    modalBody.innerHTML = `
+      <div class="detail">
+        <h2 class="detail-title">Cómo leer los badges</h2>
+        <p class="detail-sub">El color indica el significado y el ícono, el tema. En cada ficha los badges van ordenados de mayor a menor importancia.</p>
+        ${byTone.map(t => `
+          <section class="detail-section">
+            <h3><span class="badge badge-${t.tone}">${escapeHtml(t.label)}</span> ${escapeHtml(t.hint)}</h3>
+            <ul class="guide-list">${t.items.map(b => `<li>${badgeHtml(b)}<span>${escapeHtml(b.tip)}</span></li>`).join('')}</ul>
+          </section>`).join('')}
+        <section class="detail-section">
+          <h3><span class="match-pill">✨ 85%</span> Afinidad con tu perfil</h3>
+          <p>Aparece cuando creaste tu perfil. Sin perfil verás <span class="score-badge score-med">⚡ 66 pts</span>, la calidad general del lead.</p>
+        </section>
+      </div>`;
+    detailModal.classList.add('active');
+  }
+
+  document.getElementById('btnBadgeGuide').addEventListener('click', openBadgeGuide);
 
   // CRM Kanban Rendering
   function renderCrmKanban() {
@@ -646,6 +827,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const bw = Engine.bidWindow(item);
     const closingLine = bw.state === 'abierta' && bw.date ? `\nCierre de ofertas: ${formatDate(bw.date, { withTime: true })} (${relativeDays(bw.date)})` : '';
     const contractor = item.contratista?.nombre || 'su equipo';
+    const legalRep = item.contrato?.contactos?.representante_legal;
+    const start = item.contrato?.inicio_ejecucion ? new Date(item.contrato.inicio_ejecucion) : null;
+    const startLine = start && start.getTime() > Date.now() ? ` Entendemos que la ejecución inicia el ${formatDate(start)}, por lo que es un buen momento para planear el abastecimiento.` : '';
+    const greeting = legalRep ? `Apreciado(a) ${personName(legalRep)}, representante legal de ${contractor}` : `Apreciados señores de ${contractor}`;
     const profile = Profile && Profile.getProfile();
     const company = profile?.companyName?.trim();
     const offer = profile?.offerTags?.length ? profile.offerTags.slice(0, 4).join(', ') : materials;
@@ -653,9 +838,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let pitchTemplate = '';
     if (isAdjudicado) {
-      pitchTemplate = `Apreciados señores de ${contractor},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${item.descripcion?.slice(0, 140)}...".\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
+      pitchTemplate = `${greeting},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${readableText(item.descripcion)?.slice(0, 140)}...".${startLine}\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
     } else {
-      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}${closingLine}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
+      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}${closingLine}\nAlcance: "${readableText(item.descripcion)?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
     }
 
     modalBody.innerHTML = `
@@ -713,7 +898,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const headers = [
       'ID', 'Referencia', 'Score', 'Etapa Comercial', 'Tipo Oportunidad',
       'Sectores', 'Materiales Detectados', 'Valor COP', 'Entidad',
-      'Departamento', 'Ciudad', 'Contratista', 'NIT Contratista', 'Enlace SECOP'
+      'Departamento', 'Ciudad', 'Contratista', 'NIT Contratista', 'Enlace SECOP',
+      'Estado real', 'Cierre de ofertas', 'Adjudicación', 'Inicio de ejecución', 'Fin de ejecución',
+      'Estado del contrato', 'Representante legal (contratista)', 'Contratos previos del contratista', 'Próximo paso'
     ];
 
     const rows = dataToExport.map(item => [
@@ -730,7 +917,18 @@ document.addEventListener('DOMContentLoaded', () => {
       `"${item.ciudad || ''}"`,
       `"${(item.contratista?.nombre || '').replace(/"/g, '""')}"`,
       `"${item.contratista?.nit || ''}"`,
-      `"${item.url_secop || ''}"`
+      `"${item.url_secop || ''}"`,
+      ...[
+        STATE_LABELS[Engine.bidWindow(item).state].text,
+        (item.fechas?.cierre_ofertas || '').slice(0, 10),
+        (item.fechas?.adjudicacion || '').slice(0, 10),
+        (item.contrato?.inicio_ejecucion || '').slice(0, 10),
+        (item.contrato?.fin_ejecucion || '').slice(0, 10),
+        item.contrato?.estado || '',
+        personName(item.contrato?.contactos?.representante_legal || ''),
+        item.historial_contratista?.contratos ?? '',
+        Engine.nextStep(item).text
+      ].map(v => `"${String(v).replace(/"/g, '""')}"`)
     ]);
 
     const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
