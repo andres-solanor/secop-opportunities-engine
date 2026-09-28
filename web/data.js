@@ -126,7 +126,9 @@ window.PROSPECTS_DATA = [
           "valor": 22817574105.9
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9825062",
@@ -270,7 +272,9 @@ window.PROSPECTS_DATA = [
           "valor": 590000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11034299",
@@ -414,7 +418,9 @@ window.PROSPECTS_DATA = [
           "valor": 2203401884.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11011357",
@@ -542,7 +548,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 1349652350.0,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10716474",
@@ -624,7 +632,9 @@ window.PROSPECTS_DATA = [
           "valor": 22817574105.9
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11091903",
@@ -710,7 +720,9 @@ window.PROSPECTS_DATA = [
           "valor": 155307179290.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11057665",
@@ -780,7 +792,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 802219981.0,
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11073451",
@@ -862,7 +876,9 @@ window.PROSPECTS_DATA = [
           "valor": 51377748343.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11061608",
@@ -927,7 +943,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917086",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11100022",
@@ -1014,7 +1032,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11103641",
@@ -1079,7 +1099,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10959142",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11037225",
@@ -1129,8 +1151,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1144,7 +1166,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891535",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10361018",
@@ -1285,7 +1309,9 @@ window.PROSPECTS_DATA = [
           "valor": 939806023.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11028510",
@@ -1428,7 +1454,97 @@ window.PROSPECTS_DATA = [
           "valor": 250000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
+  },
+  {
+    "id": "CO1.REQ.11007204",
+    "id_portafolio": "CO1.BDOS.10755480",
+    "referencia": "SI-011-2026 (Presentación de oferta)",
+    "entidad": "ALCALDIA DE EL PEÑOL",
+    "nit_entidad": "890980917",
+    "departamento": "Antioquia",
+    "ciudad": "Peñol",
+    "precio": 629554392.0,
+    "precio_formateado": "$629,554,392 COP",
+    "modalidad": "Selección abreviada subasta inversa",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO RACIÓN TIPO ALMUERZO Y VÍVERES PARA GARANTIZAR LA DEBIDA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE EN EL MUNICIPIO DE EL PEÑOL COMO ESTRATEGIA DE ACCESO Y PERMANENCIA AL SISTEMA EDUCATIVO",
+    "fecha_publicacion": "2026-09-08T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-08T00:00:00",
+      "ultima_actualizacion": "2026-09-08T00:00:00",
+      "cierre_ofertas": "2026-09-16T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": "2026-09-25T00:00:00"
+    },
+    "plazo": {
+      "valor": 54,
+      "unidad": "día(s)",
+      "texto": "54 días"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 10
+    },
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "JORGE ARMANDO OSORIO VALLEJO",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 629554392.0,
+      "departamento_proveedor": "Antioquia",
+      "ciudad_proveedor": "Peñol"
+    },
+    "score_calidad": 88,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862734",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 584,
+      "valor_12m": 38203760570.21,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "Empresa Autonoma de El Peñol",
+          "contratos": 16,
+          "valor": 10586513715.0
+        },
+        {
+          "nombre": "JORGE ARMANDO OSORIO VALLEJO",
+          "contratos": 3,
+          "valor": 2373427022.0
+        },
+        {
+          "nombre": "Wilmar Cano",
+          "contratos": 6,
+          "valor": 531787749.0
+        }
+      ]
+    },
+    "primera_vez": "2026-09-28T02:49:57Z",
+    "nueva": true
   },
   {
     "id": "CO1.REQ.10358371",
@@ -1565,7 +1681,9 @@ window.PROSPECTS_DATA = [
           "valor": 2465656831.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11104011",
@@ -1635,7 +1753,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 802219981.0,
       "pagado_sobre_facturado_pct": 96.0,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11088646",
@@ -1685,8 +1805,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "alumbrado público"
+      "alumbrado público",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1721,7 +1841,9 @@ window.PROSPECTS_DATA = [
           "valor": 337277210.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11097146",
@@ -1803,7 +1925,9 @@ window.PROSPECTS_DATA = [
           "valor": 599540426.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11061828",
@@ -1868,7 +1992,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918117",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9045709",
@@ -1954,7 +2080,9 @@ window.PROSPECTS_DATA = [
           "valor": 11666502179.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10391024",
@@ -2073,7 +2201,9 @@ window.PROSPECTS_DATA = [
           "valor": 804446581.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11066961",
@@ -2214,7 +2344,9 @@ window.PROSPECTS_DATA = [
           "valor": 1463330135.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.7372992",
@@ -2300,7 +2432,9 @@ window.PROSPECTS_DATA = [
           "valor": 149326000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11043283",
@@ -2386,7 +2520,9 @@ window.PROSPECTS_DATA = [
           "valor": 650044968.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.2782798",
@@ -2472,7 +2608,9 @@ window.PROSPECTS_DATA = [
           "valor": 22817574105.9
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.5452641",
@@ -2537,7 +2675,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11029830",
@@ -2623,7 +2763,9 @@ window.PROSPECTS_DATA = [
           "valor": 770269767.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11025488",
@@ -2669,8 +2811,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "alumbrado público"
+      "alumbrado público",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "EDUR",
@@ -2727,7 +2869,9 @@ window.PROSPECTS_DATA = [
           "valor": 407153664.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11047670",
@@ -2871,7 +3015,9 @@ window.PROSPECTS_DATA = [
           "valor": 61000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11038196",
@@ -2996,7 +3142,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 504988612759.0,
       "pagado_sobre_facturado_pct": 96.8,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10357323",
@@ -3128,7 +3276,9 @@ window.PROSPECTS_DATA = [
           "valor": 1203790725.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10383641",
@@ -3248,7 +3398,9 @@ window.PROSPECTS_DATA = [
           "valor": 739281943.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10875617",
@@ -3313,7 +3465,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10731107",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11094380",
@@ -3399,7 +3553,9 @@ window.PROSPECTS_DATA = [
           "valor": 76422500.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11072551",
@@ -3485,7 +3641,9 @@ window.PROSPECTS_DATA = [
           "valor": 256166870.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11098814",
@@ -3571,7 +3729,9 @@ window.PROSPECTS_DATA = [
           "valor": 232882984.34
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11086135",
@@ -3655,7 +3815,9 @@ window.PROSPECTS_DATA = [
           "valor": 16429118457.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10373444",
@@ -3723,7 +3885,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 6080643334.0,
       "pagado_sobre_facturado_pct": 75.6,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11076623",
@@ -3803,7 +3967,9 @@ window.PROSPECTS_DATA = [
           "valor": 1664551337.44
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11019988",
@@ -3866,7 +4032,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10879371",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11099540",
@@ -3929,7 +4097,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10955256",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11091331",
@@ -4013,7 +4183,9 @@ window.PROSPECTS_DATA = [
           "valor": 1906896552.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10369226",
@@ -4072,7 +4244,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226141",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11091127",
@@ -4156,7 +4330,9 @@ window.PROSPECTS_DATA = [
           "valor": 100000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11023510",
@@ -4240,7 +4416,9 @@ window.PROSPECTS_DATA = [
           "valor": 226958447.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10362031",
@@ -4299,7 +4477,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218831",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11075478",
@@ -4442,7 +4622,9 @@ window.PROSPECTS_DATA = [
           "valor": 83500000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11068701",
@@ -4583,7 +4765,9 @@ window.PROSPECTS_DATA = [
           "valor": 1463330135.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.5532126",
@@ -4669,7 +4853,9 @@ window.PROSPECTS_DATA = [
           "valor": 1859018323.25
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.8700507",
@@ -4717,8 +4903,8 @@ window.PROSPECTS_DATA = [
     ],
     "materiales_detectados": [
       "energia renovable",
-      "fotovoltaico",
-      "sistema fotovoltaico"
+      "sistema fotovoltaico",
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4753,7 +4939,9 @@ window.PROSPECTS_DATA = [
           "valor": 2188068000.05
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11068101",
@@ -4894,7 +5082,9 @@ window.PROSPECTS_DATA = [
           "valor": 1463330135.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11062472",
@@ -5038,7 +5228,9 @@ window.PROSPECTS_DATA = [
           "valor": 3082074870.63
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11025273",
@@ -5120,7 +5312,9 @@ window.PROSPECTS_DATA = [
           "valor": 599540426.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11075418",
@@ -5206,7 +5400,9 @@ window.PROSPECTS_DATA = [
           "valor": 1526405699.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11065962",
@@ -5292,7 +5488,9 @@ window.PROSPECTS_DATA = [
           "valor": 1526405699.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11021132",
@@ -5378,7 +5576,9 @@ window.PROSPECTS_DATA = [
           "valor": 1526405699.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10347509",
@@ -5512,7 +5712,9 @@ window.PROSPECTS_DATA = [
           "valor": 1066719576.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10944512",
@@ -5654,7 +5856,9 @@ window.PROSPECTS_DATA = [
           "valor": 815296808.8
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10387971",
@@ -5711,8 +5915,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "hospital",
-      "vigas"
+      "vigas",
+      "hospital"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -5804,7 +6008,9 @@ window.PROSPECTS_DATA = [
           "valor": 392310000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10963368",
@@ -5872,7 +6078,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 838057770.0,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10972338",
@@ -5956,7 +6164,9 @@ window.PROSPECTS_DATA = [
           "valor": 2375866900.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11066736",
@@ -6040,7 +6250,9 @@ window.PROSPECTS_DATA = [
           "valor": 2375866900.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11052141",
@@ -6124,7 +6336,9 @@ window.PROSPECTS_DATA = [
           "valor": 500990000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11019488",
@@ -6208,7 +6422,9 @@ window.PROSPECTS_DATA = [
           "valor": 2375866900.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11030841",
@@ -6292,7 +6508,9 @@ window.PROSPECTS_DATA = [
           "valor": 335559694.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9138213",
@@ -6436,7 +6654,9 @@ window.PROSPECTS_DATA = [
           "valor": 12944981.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11079753",
@@ -6520,7 +6740,9 @@ window.PROSPECTS_DATA = [
           "valor": 15946420291.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11089248",
@@ -6579,7 +6801,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10944956",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10381607",
@@ -6638,7 +6862,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10238092",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10911856",
@@ -6697,7 +6923,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10765364",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11059046",
@@ -6777,7 +7005,9 @@ window.PROSPECTS_DATA = [
           "valor": 24763785.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11050327",
@@ -6861,7 +7091,9 @@ window.PROSPECTS_DATA = [
           "valor": 985226750.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11092763",
@@ -6945,7 +7177,9 @@ window.PROSPECTS_DATA = [
           "valor": 170000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11035001",
@@ -7008,7 +7242,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889964",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11093635",
@@ -7087,7 +7323,9 @@ window.PROSPECTS_DATA = [
           "valor": 155803200.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10370236",
@@ -7137,8 +7375,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaico",
-      "sistema fotovoltaico"
+      "sistema fotovoltaico",
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -7173,7 +7411,9 @@ window.PROSPECTS_DATA = [
           "valor": 140584605.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.1877057",
@@ -7238,7 +7478,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11026485",
@@ -7377,7 +7619,9 @@ window.PROSPECTS_DATA = [
           "valor": 2800000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11061270",
@@ -7463,7 +7707,9 @@ window.PROSPECTS_DATA = [
           "valor": 76422500.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11019723",
@@ -7549,7 +7795,9 @@ window.PROSPECTS_DATA = [
           "valor": 778000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11037818",
@@ -7599,8 +7847,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -7614,7 +7862,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10892161",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.5280445",
@@ -7698,7 +7948,9 @@ window.PROSPECTS_DATA = [
           "valor": 171865750.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10299438",
@@ -7782,7 +8034,9 @@ window.PROSPECTS_DATA = [
           "valor": 5536406995.8
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10369770",
@@ -7866,7 +8120,9 @@ window.PROSPECTS_DATA = [
           "valor": 8862377668.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11030288",
@@ -7950,7 +8206,9 @@ window.PROSPECTS_DATA = [
           "valor": 16429118457.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11044196",
@@ -8018,7 +8276,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 5227953067.0,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11064677",
@@ -8160,7 +8420,9 @@ window.PROSPECTS_DATA = [
           "valor": 100000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11067977",
@@ -8302,7 +8564,9 @@ window.PROSPECTS_DATA = [
           "valor": 1463330135.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9039867",
@@ -8386,7 +8650,9 @@ window.PROSPECTS_DATA = [
           "valor": 2000000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.8273614",
@@ -8449,7 +8715,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11056349",
@@ -8528,7 +8796,9 @@ window.PROSPECTS_DATA = [
           "valor": 155803200.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10832415",
@@ -8591,7 +8861,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10350460",
@@ -8710,7 +8982,9 @@ window.PROSPECTS_DATA = [
           "valor": 8159266669.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.741620",
@@ -8773,7 +9047,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11034237",
@@ -8836,7 +9112,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888332",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.5452645",
@@ -8899,7 +9177,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.4611750",
@@ -8962,7 +9242,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10353626",
@@ -9078,7 +9360,9 @@ window.PROSPECTS_DATA = [
           "valor": 1511475536.72
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10605754",
@@ -9141,7 +9425,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10388557",
@@ -9282,7 +9568,9 @@ window.PROSPECTS_DATA = [
           "valor": 1361285449.53
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10361347",
@@ -9423,7 +9711,9 @@ window.PROSPECTS_DATA = [
           "valor": 1277180844.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10979561",
@@ -9486,7 +9776,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.4468983",
@@ -9570,7 +9862,9 @@ window.PROSPECTS_DATA = [
           "valor": 21650734880.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10392709",
@@ -9712,7 +10006,9 @@ window.PROSPECTS_DATA = [
           "valor": 1247958543.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10369192",
@@ -9846,7 +10142,9 @@ window.PROSPECTS_DATA = [
           "valor": 940958886.59
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10996836",
@@ -9930,7 +10228,9 @@ window.PROSPECTS_DATA = [
           "valor": 2188068000.05
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10379467",
@@ -10061,7 +10361,9 @@ window.PROSPECTS_DATA = [
           "valor": 58837500.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10388238",
@@ -10200,7 +10502,9 @@ window.PROSPECTS_DATA = [
           "valor": 1326454000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10883129",
@@ -10284,7 +10588,9 @@ window.PROSPECTS_DATA = [
           "valor": 7139016594.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10968722",
@@ -10368,7 +10674,9 @@ window.PROSPECTS_DATA = [
           "valor": 7139016594.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10931112",
@@ -10452,7 +10760,9 @@ window.PROSPECTS_DATA = [
           "valor": 7139016594.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.3372299",
@@ -10534,7 +10844,9 @@ window.PROSPECTS_DATA = [
           "valor": 912499973.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11071115",
@@ -10618,7 +10930,9 @@ window.PROSPECTS_DATA = [
           "valor": 4607692682.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11084754",
@@ -10702,7 +11016,9 @@ window.PROSPECTS_DATA = [
           "valor": 167648563.84
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11009961",
@@ -10765,7 +11081,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864302",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10944360",
@@ -10824,7 +11142,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10797912",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10889199",
@@ -10883,7 +11203,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10744064",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11007891",
@@ -10942,7 +11264,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862189",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11090343",
@@ -11026,7 +11350,9 @@ window.PROSPECTS_DATA = [
           "valor": 495000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10926537",
@@ -11089,7 +11415,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10780187",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11091435",
@@ -11173,7 +11501,9 @@ window.PROSPECTS_DATA = [
           "valor": 1107549982.21
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11065135",
@@ -11253,7 +11583,9 @@ window.PROSPECTS_DATA = [
           "valor": 1511475536.72
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10986709",
@@ -11312,7 +11644,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10840483",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11065609",
@@ -11375,7 +11709,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10921090",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11080248",
@@ -11459,7 +11795,9 @@ window.PROSPECTS_DATA = [
           "valor": 962891559.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9819592",
@@ -11601,7 +11939,9 @@ window.PROSPECTS_DATA = [
           "valor": 7224479634.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10977080",
@@ -11685,7 +12025,9 @@ window.PROSPECTS_DATA = [
           "valor": 249949400.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10861072",
@@ -11769,7 +12111,9 @@ window.PROSPECTS_DATA = [
           "valor": 249949400.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.2090805",
@@ -11853,7 +12197,9 @@ window.PROSPECTS_DATA = [
           "valor": 21650734880.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11034602",
@@ -11937,7 +12283,9 @@ window.PROSPECTS_DATA = [
           "valor": 15946420291.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10848484",
@@ -12021,7 +12369,9 @@ window.PROSPECTS_DATA = [
           "valor": 15946420291.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11022683",
@@ -12149,7 +12499,9 @@ window.PROSPECTS_DATA = [
           "valor": 356804000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11013436",
@@ -12233,7 +12585,9 @@ window.PROSPECTS_DATA = [
           "valor": 69949390.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10379405",
@@ -12313,7 +12667,9 @@ window.PROSPECTS_DATA = [
           "valor": 1245304889.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11048321",
@@ -12393,7 +12749,9 @@ window.PROSPECTS_DATA = [
           "valor": 500000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10978278",
@@ -12473,7 +12831,9 @@ window.PROSPECTS_DATA = [
           "valor": 500000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10390627",
@@ -12606,7 +12966,9 @@ window.PROSPECTS_DATA = [
           "valor": 407153664.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10922117",
@@ -12686,7 +13048,9 @@ window.PROSPECTS_DATA = [
           "valor": 24763785.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.4471955",
@@ -12749,7 +13113,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11061576",
@@ -12833,7 +13199,9 @@ window.PROSPECTS_DATA = [
           "valor": 170000000.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.8946703",
@@ -12896,7 +13264,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10979275",
@@ -12959,7 +13329,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11045110",
@@ -13038,7 +13410,9 @@ window.PROSPECTS_DATA = [
           "valor": 155803200.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11037533",
@@ -13128,7 +13502,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 464125226.65,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10996937",
@@ -13196,7 +13572,9 @@ window.PROSPECTS_DATA = [
       "valor_12m": 0.0,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": []
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10982914",
@@ -13259,7 +13637,9 @@ window.PROSPECTS_DATA = [
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836366",
     "contrato": null,
     "historial_contratista": null,
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10373786",
@@ -13401,7 +13781,9 @@ window.PROSPECTS_DATA = [
           "valor": 76422500.0
         }
       ]
-    }
+    },
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.3619835",
@@ -13522,7 +13904,9 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
-    "entidad_stats": null
+    "entidad_stats": null,
+    "primera_vez": null,
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11091699",
@@ -13606,70 +13990,57 @@ window.PROSPECTS_DATA = [
           "valor": 650044968.0
         }
       ]
-    }
-  },
-  {
-    "id": "CO1.REQ.3914972",
-    "id_portafolio": "CO1.BDOS.3819474",
-    "referencia": "Contratación N°036 de 2023",
-    "entidad": "NUTRICERES S.A.S.",
-    "nit_entidad": "9014774410",
-    "departamento": "Antioquia",
-    "ciudad": "Rionegro",
-    "precio": 155000000.0,
-    "precio_formateado": "$155,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO DE CONTENEDORES ISOTÉRMICPS,ENTRE OTROS EN EL MARCO D ELOS CONTRATOS PARA SERVICIO DE ALIMENTACIÓN ESCOLAR Y CENTRO DE RECLUSIÓN TRANSITORIA",
-    "fecha_publicacion": null,
-    "fechas": {
-      "publicacion": null,
-      "ultima_actualizacion": null,
-      "cierre_ofertas": null,
-      "apertura_ofertas": null,
-      "adjudicacion": null
     },
-    "plazo": {
-      "valor": 11,
-      "unidad": "mes(es)",
-      "texto": "11 meses"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 0
-    },
-    "estado_secop": "Borrador",
-    "fase": null,
-    "etapa_comercial": "Borrador de Pliegos",
-    "tipo_oportunidad": "Oportunidad Pre-Licitación",
-    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 49,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
-    "contrato": null,
-    "historial_contratista": null,
-    "entidad_stats": null
+    "primera_vez": null,
+    "nueva": false
   }
 ];
-window.PROSPECTS_UPDATED_AT = "2026-09-28T02:43:58Z";
+window.PROSPECTS_UPDATED_AT = "2026-09-28T02:49:57Z";
+window.PROSPECTS_META = {
+  "generated_at": "2026-09-28T02:49:57Z",
+  "started_at": "2026-09-28T02:49:12Z",
+  "duracion_s": 44.6,
+  "procesos_consultados": 681,
+  "curadas": 150,
+  "adjudicadas": 39,
+  "nuevas": 1,
+  "salieron": 1,
+  "nuevas_adjudicadas": 0,
+  "cruce_contratos": "ok",
+  "proxima_programada": "2026-09-28T11:00:00Z",
+  "ids_nuevas": [
+    "CO1.REQ.11007204"
+  ],
+  "ids_nuevas_adjudicadas": [],
+  "fuentes": {
+    "procesos": {
+      "dataset": "p6dx-8zbt",
+      "estado": "ok",
+      "registros": 681
+    },
+    "contratos": {
+      "dataset": "jbjy-vk9h",
+      "estado": "ok",
+      "contratos": 37,
+      "historial": 36,
+      "entidades": 113,
+      "promovidos": 17,
+      "reutilizados": 0,
+      "errores": []
+    }
+  },
+  "historial": [
+    {
+      "generated_at": "2026-09-28T02:49:57Z",
+      "started_at": "2026-09-28T02:49:12Z",
+      "duracion_s": 44.6,
+      "procesos_consultados": 681,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 1,
+      "salieron": 1,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "ok"
+    }
+  ]
+};
