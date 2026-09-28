@@ -43,8 +43,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "CONSORCIO CORDOBA NUTRE",
@@ -197,8 +197,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "Fundacion Accion Solidaria Por Colombia",
@@ -347,8 +347,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION PROTEGER",
@@ -508,8 +508,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION ILUSION EN GRANDE",
@@ -649,8 +649,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -740,8 +740,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -902,8 +902,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1155,8 +1155,8 @@
       }
     ],
     "materiales_detectados": [
-      "sistemas fotovoltaicos",
-      "alumbrado publico"
+      "alumbrado publico",
+      "sistemas fotovoltaicos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1225,8 +1225,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1442,8 +1442,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "PROSERVIRTE",
@@ -1602,8 +1602,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "JORGE ARMANDO OSORIO VALLEJO",
@@ -1639,7 +1639,32 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 3,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-09-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "JORGE ARMANDO OSORIO VALLEJO",
+          "nit": "1041228221",
+          "valor": 629554392.0,
+          "fecha": "2026-09-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PROCOLCA SAS",
+          "nit": "900371908",
+          "valor": 629554392.0,
+          "fecha": "2026-09-09T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-28T02:49:57Z",
@@ -1689,8 +1714,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "PRECOOPVIVERES",
@@ -1998,8 +2023,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2250,8 +2275,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "UNION TEMPORAL CÉNIT",
@@ -2554,8 +2579,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2645,8 +2670,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2736,8 +2761,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2897,8 +2922,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "EPSI",
@@ -2934,7 +2959,53 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 6,
+      "proveedores": [
+        {
+          "proveedor": "EPSI",
+          "nit": "811042638",
+          "valor": 240000000.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PROCOLCA SAS",
+          "nit": "900371908",
+          "valor": 245500000.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PROCOLCA SAS",
+          "nit": "900371908",
+          "valor": 248002778.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "DISERMED COLOMBIA SAS",
+          "nit": "900846120",
+          "valor": 248002944.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CORPORACION PARA LA INFANCIA Y LA FAMILIA",
+          "nit": "900296423",
+          "valor": 248002944.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EPSI",
+          "nit": "811042638",
+          "valor": 248002944.0,
+          "fecha": "2026-09-11T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": null,
@@ -3108,8 +3179,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
@@ -3690,8 +3761,8 @@
       }
     ],
     "materiales_detectados": [
-      "estructura metalica",
-      "soldadura"
+      "soldadura",
+      "estructura metalica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3760,8 +3831,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3851,8 +3922,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3942,8 +4013,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4811,8 +4882,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPIOS ASOCIADOS DEL NORDESTE Y MAGDALENA MEDIO",
@@ -5107,8 +5178,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -5434,8 +5505,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "DEPARTAMENTO DE CUNDINAMARCA - SECRETARIA DE EDUCACION",
@@ -5580,8 +5651,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -6917,8 +6988,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
@@ -7854,8 +7925,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -7924,8 +7995,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "CABILDO MAYOR DEL RESGUARDO INDIGENA RIO ALTO SAN JUAN",
@@ -8069,8 +8140,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -8160,8 +8231,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -8262,8 +8333,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -10870,7 +10941,46 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 5,
+      "proveedores": [
+        {
+          "proveedor": "MAPPER CONSULTORA S.A.S.",
+          "nit": "901288767",
+          "valor": 174491352.0,
+          "fecha": "2026-09-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "INGSERVIS SM SAS",
+          "nit": "901619624",
+          "valor": 176649984.0,
+          "fecha": "2026-09-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EULHYN MAYRELL CORREA ORTIZ",
+          "nit": "31655741",
+          "valor": 177419305.45,
+          "fecha": "2026-09-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "GHS INGENIERIA SAS",
+          "nit": "9011261664",
+          "valor": 178019739.0,
+          "fecha": "2026-09-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "PROYECTAR INGENIERIA Y ARQUITECTURA S.A.S.",
+          "nit": "900782420",
+          "valor": 180365228.86,
+          "fecha": "2026-09-07T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": null,
@@ -11540,8 +11650,8 @@
       }
     ],
     "materiales_detectados": [
-      "escuela",
-      "colegio"
+      "colegio",
+      "escuela"
     ],
     "contratista": {
       "nombre": "No Definido",
