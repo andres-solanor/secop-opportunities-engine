@@ -12,6 +12,19 @@
     "tipo_contrato": "Suministros",
     "descripcion": "IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR -PAE- EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 27 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DE CÓRDOBA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-06T00:00:00",
+      "adjudicacion": "2026-05-19T00:00:00"
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 19
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -56,6 +69,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "Aunar esfuerzos técnicos, administrativos, financieros y logísticos para la ejecución del Programa de Alimentación Escolar (PAE) en el Municipio de Marinilla, Antioquia, a través del cual se brinda un complemento alimentario y nutricional a los niños, niñas y adolescentes beneficiarios del programa, conforme a los lineamientos y disposiciones vigentes aplicables.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-01-24T00:00:00",
+      "apertura_ofertas": "2026-01-24T00:00:00",
+      "adjudicacion": "2026-01-27T00:00:00"
+    },
+    "plazo": {
+      "valor": 107,
+      "unidad": "día(s)",
+      "texto": "107 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 1
+    },
     "estado_secop": "Seleccionado",
     "fase": "Fase de ofertas",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -99,7 +129,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "PRESTACIÓN DE SERVICIOS PARA LA IMPLEMENTACIÓN DEL PROGRAMA DE\nALIMENTACIÓN ESCOLAR PAE-, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA \nMATRICULA OFICIAL DEL MUNICIPIO DE CAUCASIA - ANTIOQUIA, PARA LA VIGENCIA\n2026-2",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": "2026-09-17T00:00:00",
+      "apertura_ofertas": "2026-09-17T00:00:00",
+      "adjudicacion": "2026-09-21T00:00:00"
+    },
+    "plazo": {
+      "valor": 35,
+      "unidad": "día(s)",
+      "texto": "35 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 2
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -143,7 +190,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Otro",
     "descripcion": "AUNAR ESFUERZOS TECNICOS ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - (PAE), PAR LOS NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES DE LA MATRICULA OFICIAL DEL MUNICIPIO DE SAN JUAN DE URABA, ANTIOQUIA EN EL AÑO 2026. EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO N° 4600019310 ENTRE EL MUNICIPIO DE SAN JUAN DE URABA, ANTIOQUIA Y LA GOBERNACIÓN DE ANTIOQUIA. PARA LA VIGENCIA FISCAL 2026-2",
-    "fecha_publicacion": "2026-09-09T00:00:00.000",
+    "fecha_publicacion": "2026-09-09T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-09T00:00:00",
+      "ultima_actualizacion": "2026-09-09T00:00:00",
+      "cierre_ofertas": "2026-09-15T00:00:00",
+      "apertura_ofertas": "2026-09-15T00:00:00",
+      "adjudicacion": "2026-09-21T00:00:00"
+    },
+    "plazo": {
+      "valor": 35,
+      "unidad": "día(s)",
+      "texto": "35 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 5
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -187,7 +251,20 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "descripcion": "IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE- EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 27 MUNICIPIOS NO\nCERTIFICADOS DEL DEPARTAMENTO DE CÓRDOBA",
-    "fecha_publicacion": "2026-07-24T00:00:00.000",
+    "fecha_publicacion": "2026-07-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-07-24T00:00:00",
+      "ultima_actualizacion": "2026-07-24T00:00:00",
+      "cierre_ofertas": "2026-08-21T00:00:00",
+      "apertura_ofertas": "2026-08-21T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 18
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -231,7 +308,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE COMPLEMENTOS ALIMENTARIOS A LOS ESTUDIANTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LAS ZONAS URBANAS Y RURALES EN EL MARCO DEL PROGRAMA DE ALIMENTACION ESCOLAR DESARROLLADO EN 24 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL CESAR, ACORDE A LOS LINEAMIENTOS TÉCNICO ADMINISTRATIVOS, LOS ESTANDARES Y CONDICIONES MINIMAS DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE (RESOLUCIÓN 0003 DE 2026 - AJUSTADA POR LA RESOLUCION 0155 DE ABRIL DE 2026 Y RESOLUCIÓN 051 DE 202",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-10-21T00:00:00",
+      "apertura_ofertas": "2026-10-21T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 40,
+      "unidad": "día(s)",
+      "texto": "40 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 3
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -275,7 +369,24 @@
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "INSTALACIÓN DE SISTEMAS DE ENERGÍA SOLAR FOTOVOLTAICA EN ZONAS NO INTERCONECTADAS DEL MUNICIPIO DE PUEBLO BELLO DEPARTAMENTO DEL CESAR",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": "2026-10-13T00:00:00",
+      "apertura_ofertas": "2026-10-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 12,
+      "unidad": "mes(es)",
+      "texto": "12 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 13
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -293,8 +404,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -319,7 +430,20 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE ALIMENTACIÓN ESCOLAR A NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES DE INSTITUCIONES EDUCATIVAS OFICIALES DEL DEPARTAMENTO NORTE DE SANTANDER, DURANTE EL RECESO ESTUDIANTIL CORRESPONDIENTE AL MES DE DICIEMBRE DE LA VIGENCIA 2026, EN CUMPLIMIENTO  DE LA RESOLUCIÓN N° 121 DEL 18 DE FEBRERO DE 2026, ESPECÍFICAMENTE  EN SU ARTÍCULO 2 SOBRE LA ATENCIÓN DURANTE EL RECESO ESTUDIANTIL:  TENIENDO EN CUENTA EL ÍNDICE DE INSEGURIDAD ALIMENTARIA COMO CRITERIO PARA LA PRIORIZACIÓN DE LOS TERRITORIOS CA",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-10-15T00:00:00",
+      "apertura_ofertas": "2026-10-15T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 1
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -363,7 +487,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE SISTEMAS AUTÓNOMOS DE GENERACIÓN DE ENERGÍA SOLAR FOTOVOLTAICA PARA LA ENERGIZACIÓN DE VIVIENDAS EN LAS ZONAS RURALES NO INTERCONECTADAS DEL MUNICIPIO DE CÉRTEGUI, CHOCÓ, IDENTIFICADO CON CÓDIGO BPIN NO. 2026271600001",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 4,
+      "unidad": "mes(es)",
+      "texto": "4 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -381,8 +522,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -407,7 +548,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE LUMINARIAS LED PARA ALUMBRADO\nPÚBLICO DEL MUNICIPIO DE PASTO DE POTENCIA\nMÁXIMA 46W - 52W.",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 60,
+      "unidad": "día(s)",
+      "texto": "60 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -425,8 +583,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "luminarias led"
+      "luminarias led",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "M&O DISTRIBUCIONES Y TECNOLOGIA S.A.S.",
@@ -451,7 +609,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATAR EL MANTENIMIENTO CORRECTIVO, PREVENTIVO Y AMPLIACION DEL SISTEMA DE ALUMBRADO PUBLICO INCLUYENDO LA ILUMINACION DE NUEVOS ESPACIOS VIALES Y DE ACCESO AL PUBLICO MEDIANTE SISTEMAS FOTOVOLTAICOS EN EL MUNICIPIO DE HOBO HUILA",
-    "fecha_publicacion": "2026-09-25T00:00:00.000",
+    "fecha_publicacion": "2026-09-25T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-25T00:00:00",
+      "ultima_actualizacion": "2026-09-25T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -495,7 +670,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE SISTEMAS DE ENERGIA SOLAR FOTOVOLTAICA EN ZONAS RURALES DEL MUNICIPIO DE SAN ANTONIO DE PALMITO, DEPARTAMENTO DE SUCRE.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -513,8 +705,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -540,6 +732,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "Contratar, en nombre de la Nación - Consejo Superior de la Judicatura - Dirección Seccional de Administración Judicial de Pereira - Risaralda, el suministro, instalación, pruebas y puesta en funcionamiento de los sistemas de energía solar fotovoltaica para los Palacios de Justicia de Pereira y Pueblo Rico",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-27T00:00:00",
+      "adjudicacion": "2026-05-20T00:00:00"
+    },
+    "plazo": {
+      "valor": 4,
+      "unidad": "mes(es)",
+      "texto": "4 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 4,
+      "visualizaciones": 61
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -557,8 +766,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -583,7 +792,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "AUNAR ESFUERZOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS EN LA IMPLEMENTACIÓN Y EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE, ENTRE EL DEPARTAMENTO DE BOYACÁ Y EL MUNICIPIO DE VILLA DE LEYVA, PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, DURANTE EL SEGUNDO SEMESTRE AÑO 2026",
-    "fecha_publicacion": "2026-09-12T00:00:00.000",
+    "fecha_publicacion": "2026-09-12T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-12T00:00:00",
+      "ultima_actualizacion": "2026-09-12T00:00:00",
+      "cierre_ofertas": "2026-09-16T00:00:00",
+      "apertura_ofertas": "2026-09-16T00:00:00",
+      "adjudicacion": "2026-09-19T00:00:00"
+    },
+    "plazo": {
+      "valor": 70,
+      "unidad": "día(s)",
+      "texto": "70 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 3
+    },
     "estado_secop": "Seleccionado",
     "fase": "Fase de ofertas",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -627,7 +853,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO RACIÓN TIPO ALMUERZO Y VÍVERES PARA GARANTIZAR LA DEBIDA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE EN EL MUNICIPIO DE EL PEÑOL COMO ESTRATEGIA DE ACCESO Y PERMANENCIA AL SISTEMA EDUCATIVO",
-    "fecha_publicacion": "2026-09-08T00:00:00.000",
+    "fecha_publicacion": "2026-09-08T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-08T00:00:00",
+      "ultima_actualizacion": "2026-09-08T00:00:00",
+      "cierre_ofertas": "2026-09-16T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": "2026-09-25T00:00:00"
+    },
+    "plazo": {
+      "valor": 54,
+      "unidad": "día(s)",
+      "texto": "54 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 10
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -672,6 +915,19 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "PRESTACIÓN DE SERVICIO DE ALIMENTACIÓN ESCOLAR (PAE) PARA NIÑOS, NIÑAS Y ADOLESCENTES DE LAS SEDES EDUCATIVAS DEL MUNICIPIO DE CHAPARRAL TOLIMA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-23T00:00:00",
+      "adjudicacion": "2026-05-05T00:00:00"
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 2
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -715,7 +971,24 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORIA TÉCNICA, ADMINISTRATIVA, FINANCIERA Y JURÍDICA A LA INSTALACIÓN DE SISTEMAS DE ENERGÍA SOLAR FOTOVOLTAICA EN ZONAS NO INTERCONECTADAS DEL MUNICIPIO DE PUEBLO BELLO DEPARTAMENTO DEL CESAR",
-    "fecha_publicacion": "2026-09-25T00:00:00.000",
+    "fecha_publicacion": "2026-09-25T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-25T00:00:00",
+      "ultima_actualizacion": "2026-09-25T00:00:00",
+      "cierre_ofertas": "2026-10-08T00:00:00",
+      "apertura_ofertas": "2026-10-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 12,
+      "unidad": "mes(es)",
+      "texto": "12 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 1
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -733,8 +1006,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -759,7 +1032,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "AMPLIACIÓN Y FORTALECIMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE MARIPÍ - BOYACÁ, MEDIANTE LA IMPLEMENTACIÓN Y OPTIMIZACIÓN DE INFRAESTRUCTURA DE ILUMINACIÓN CON SISTEMAS DE ALIMENTACIÓN HÍBRIDA, INTEGRANDO ENERGÍA ELÉCTRICA DE RED Y ENERGÍA SOLAR .",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-10-08T00:00:00",
+      "apertura_ofertas": "2026-10-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 6
+    },
     "estado_secop": "Publicado",
     "fase": "Clarification submission",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -803,7 +1093,20 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "INTEGRAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE AMAGÁ - ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": "2026-10-01T00:00:00",
+      "apertura_ofertas": "2026-10-01T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 2
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -847,7 +1150,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORÍA TÉCNICA, FINANCIERA, JURÍDICA, ADMINISTRATIVA Y SOCIAL DEL CONTRATO DE OBRA CONSTRUCCIÓN DE SISTEMAS AUTÓNOMOS DE GENERACIÓN DE ENERGÍA SOLAR FOTOVOLTAICA PARA LA ENERGIZACIÓN DE VIVIENDAS EN LAS ZONAS RURALES NO INTERCONECTADAS DEL MUNICIPIO DE CÉRTEGUI, CHOCÓ CÓDIGO BPIN: 2026271600001",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -865,8 +1185,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -892,6 +1212,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "AUNAR ESFUERZOS PARA LA CONSTRUCCIÓN E IMPLEMENTACIÓN DE SISTEMAS FOTOVOLTAICOS Y REDES ELÉCTRICAS A VIVIENDAS RURALES EN LOS MUNICIPIOS DE DEPARTAMENTO DEL META",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 6,
+      "unidad": "mes(es)",
+      "texto": "6 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -909,8 +1246,8 @@
       }
     ],
     "materiales_detectados": [
-      "redes eléctricas",
-      "sistemas fotovoltaicos"
+      "sistemas fotovoltaicos",
+      "redes eléctricas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -936,6 +1273,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE UN COMPLEMENTO ALIMENTARIO PARA LOS ESTUDIANTES DE LOS ESTABLECIMIENTOS EDUCATIVOS PRIORIZADOS EN EL PROGRAMA DE ALIMENTACIÓN ESCOLAR DEL MUNICIPIO DE CIÉNAGA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 72,
+      "unidad": "día(s)",
+      "texto": "72 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 15
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -979,7 +1333,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO SOLAR FOTOVOLTAICO MEDIANTE SUMINISTRO, INSTALACIÓN Y MONITOREO EN TRAMOS DE UNIÓN PANAMERICANA, CHOCÓ: 1. VÍA SAN PABLO; 2. EL DOS RASPADURA; 3. RASPADURA-QUIADÓ; 4. SALERO-LA YE; 5. LA YE CABECERA; 6. SECTOR DIVINO NIÑO HASTA I.E. SAN JOAQUÍN DE LAS ÁNIMAS. CHOCÓ e identificado con el Código BPIN 2026278100002",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 6,
+      "unidad": "mes(es)",
+      "texto": "6 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -997,8 +1368,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1024,6 +1395,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "No definido",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2025-01-03T00:00:00",
+      "apertura_ofertas": "2025-01-03T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 120,
+      "unidad": "día(s)",
+      "texto": "120 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -1067,7 +1455,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "descripcion": "OPERACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A TRAVÉS DEL CUAL SE BRINDE UNA RACIÓN ALIMENTICIA A LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LAS INSTITUCIONES OFICIALES (lEO) DEL MUNICIPIO DE CHIGORODÓ BENEFICIARIOS DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026, SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODÓ Y LA GOBERNACIÓN DE ANTIOQUIA PARA LA VIGENCIA 2026-2.",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-22T00:00:00",
+      "apertura_ofertas": "2026-09-22T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 28,
+      "unidad": "día(s)",
+      "texto": "28 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 6
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -1112,6 +1517,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "CONTRATO DE PRESTACIÓN DE LOS SERVICIOS DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE INDÍGENA DEL CABILDO MAYOR DEL RESGUARDO KARAGABY, VIGENCIA 2022",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2022-01-27T00:00:00",
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 330,
+      "unidad": "día(s)",
+      "texto": "330 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -1156,6 +1578,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "AMPLIACION DEL ALUMBRADO PUBLICO Y SOLAR FOTOVOLTAICO EN EL CASCO URBANO Y EN LA COMUNIDAD DE MINITAS DEL MUNICIPIO DE BARRANCOMINAS-GUAINÍA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "día(s)",
+      "texto": "8 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -1199,7 +1638,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "Contrato de suministro de alimentos incluido la contratación de manipuladoras de estos para la operación y ejecución del Programa de Alimentación Escolar PAE 2026 de la matrícula oficial del municipio de Jardín Antioquia, además de actividades operativas y logísticas para el correcto desarrollo de este.",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": "2026-09-17T00:00:00",
+      "apertura_ofertas": "2026-09-17T00:00:00",
+      "adjudicacion": "2026-09-23T00:00:00"
+    },
+    "plazo": {
+      "valor": 66,
+      "unidad": "día(s)",
+      "texto": "66 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 6,
+      "visualizaciones": 9
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1243,7 +1699,20 @@
     "modalidad": "Contratación Directa (con ofertas)",
     "tipo_contrato": "Otro",
     "descripcion": "CONTRATO INTERADMINISTRATIVO DE ADMINISTRACIÓN DELEGADA PARA LA IMPLEMENTACIÓN DE SISTEMAS DE ALUMBRADO PÚBLICO SOSTENIBLE BASADOS EN ENERGÍA SOLAR, ORIENTADOS A FORTALECER LA COBERTURA Y SATISFACER LAS NECESIDADES DE ILUMINACIÓN EN LAS VÍAS RURALES DEL MUNICIPIO DE EL CARMEN DE VIBORAL, ANTIOQUIA.",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-09-22T00:00:00",
+      "apertura_ofertas": "2026-09-22T00:00:00",
+      "adjudicacion": "2026-09-22T00:00:00"
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 1
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1287,7 +1756,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "AUNAR ESFUERZOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A LOS ESTUDIANTES DE LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE SATIVASUR, EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO No. 2612 DE 2026 SUSCRITO ENTRE EL MUNICIPIO DE SATIVASUR Y EL DEPARTAMENTO DE BOYACÁ  PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DURANTE EL SEGUNDO SEMESTRE DE 2026",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-17T00:00:00",
+      "apertura_ofertas": "2026-09-17T00:00:00",
+      "adjudicacion": "2026-09-18T00:00:00"
+    },
+    "plazo": {
+      "valor": 106,
+      "unidad": "día(s)",
+      "texto": "106 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 1
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1331,7 +1817,24 @@
     "modalidad": "Contratación Directa (con ofertas)",
     "tipo_contrato": "Otro",
     "descripcion": "CONTRATO INTERADMINISTRATIVO DE ADMINISTRACIÓN DELEGADA ENTRE EL MUNICIPIO DE ITAGÜÍ Y LA EMPRESA DE SERVICIOS PÚBLICOS DE ITAGÜÍ - EMSI S.A.S. E.S.P., PARA LA EJECUCIÓN DE LA FASE 2 DEL ALUMBRADO NAVIDEÑO  LAS PUERTAS DE LA NAVIDAD , CORRESPONDIENTE A LA VIGENCIA 2026, MEDIANTE LA EJECUCIÓN DE LAS OBRAS CIVILES, ELÉCTRICAS DE MONTAJE Y LAS DEMÁS REQUERIDAS EN EL MARCO DEL PROYECTO  AMPLIACIÓN Y FUNCIONAMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO EN EL MUNICIPIO DE ITAGÜÍ",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-15T00:00:00",
+      "apertura_ofertas": "2026-09-15T00:00:00",
+      "adjudicacion": "2026-09-15T00:00:00"
+    },
+    "plazo": {
+      "valor": 108,
+      "unidad": "día(s)",
+      "texto": "108 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1383,6 +1886,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE ENERGÍA ELÉCTRICA, CON DESTINO AL SISTEMA DE ALUMBRADO PÚBLICO EN EL ÁREA URBANA Y RURAL DEL MUNICIPIO DE IPIALES - NARIÑO.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-27T00:00:00",
+      "adjudicacion": "2026-04-28T00:00:00"
+    },
+    "plazo": {
+      "valor": 242,
+      "unidad": "día(s)",
+      "texto": "242 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 5
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1425,6 +1945,23 @@
     "tipo_contrato": "Concesión",
     "descripcion": "CONCESIÓN PARA LA OPERACIÓN, ADMINISTRACIÓN, MANTENIMIENTO, REPOSICIÓN Y EXPANSIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO, EN EL MUNICIPIO DE MANZANARES, CALDAS",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-05-12T00:00:00",
+      "apertura_ofertas": "2026-05-12T00:00:00",
+      "adjudicacion": "2026-05-28T00:00:00"
+    },
+    "plazo": {
+      "valor": 7,
+      "unidad": "año(s)",
+      "texto": "7 año(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 38
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -1466,7 +2003,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Compraventa",
     "descripcion": "ADQUISICION DE SILLAS UNIVERSITARIAS NTC 4734 CON ESTRUCTURA METALICA CUBIERTA EN PINTURA ELECTROSTATICA ASIENTO ESPALDAR Y BRAZO FIJO 4 ZURDOS 18 DIESTROS ELABORADOS EN TRIPLEX LACADO AL NATURAL SUPERFICIE SILLA TRIPLEX Y TERMINADO AL NATURAL ESTRUCTURA TUBO METALICO REDONDO DE 7/8 CALIBRE 18 ACABADOS ESTRUCTURA CUBIERTA EN PINTURA ELECTROSTATICA TERMO FIJADA AMARRES EN ASIENTO Y SOLDADURA MIG PARA LA SEDE CENTRAL DE LA UNIVERSIDAD FRANCISCO DE PAULA SANTANDER",
-    "fecha_publicacion": "2026-08-19T00:00:00.000",
+    "fecha_publicacion": "2026-08-19T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-19T00:00:00",
+      "ultima_actualizacion": "2026-08-19T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 120,
+      "unidad": "día(s)",
+      "texto": "120 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1510,7 +2064,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "EJECUCIÓN DEL PROGRAMA DE   ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE CISNEROS - ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN - ANTIOQUIA, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": "2026-09-30T00:00:00",
+      "apertura_ofertas": "2026-10-05T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 3
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1554,7 +2125,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "PRESTACIÓN DEL SERVICIO DE MANIPULACIÓN DE ALIMENTOS Y SUMINISTROS DE ALIMENTOS Y VÍVERES DE LA CANASTA FAMILIAR PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRICULA OFICIAL DEL MUNICIPIO DE BELMIRA  ANTIOQUIA VIGENCIA 2026.",
-    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-21T00:00:00",
+      "ultima_actualizacion": "2026-09-21T00:00:00",
+      "cierre_ofertas": "2026-10-02T00:00:00",
+      "apertura_ofertas": "2026-10-02T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 1
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1598,7 +2186,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "UNIR ESFUERZOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCION DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR, PAE, DIRIGIDO A LOS NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES CON MATRÍCULA OFICIAL DEL MUNICIPIO DE VALPARAISO, ANTIOQUIA, 32 DÍAS CALENDARIO VIGENCIA 2026 2",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": "2026-09-30T00:00:00",
+      "apertura_ofertas": "2026-09-30T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 32,
+      "unidad": "día(s)",
+      "texto": "32 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 1
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1642,7 +2247,24 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA, FINANCIERA Y JURIDICA PARA EL PROYECTO FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE PARA LA ATENCION DE NIÑOS, NIÑAS Y ADOLESCENTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 20 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL ATLANTICO GRUPO1 Y GRUPO 2",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 11
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1685,6 +2307,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "REALIZAR LA IMPLEMENTACIÓN DE SISTEMAS DE GENERACIÓN DE ENERGÍA ELÉCTRICA CON PANELES SOLARES FOTOVOLTAÍCOS UNIFAMILIAR DE 6,1 KW, EN EL MUNICIPIO DE UNGUÍA, DEPARTAMENTO DEL CHOCÓ",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1726,7 +2365,20 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Asociación Público Privada",
     "descripcion": "SELECCIONAR UN SOCIO ESTRATÉGICO PARA LA CONSTITUCIÓN DE UNA EMPRESA DE ECONOMÍA MIXTA DESCENTRALIZADA DEL ORDEN MUNICIPAL, CUYO OBJETO SERÁ LA PRESTACIÓN INTEGRAL DEL SERVICIO DE ALUMBRADO PÚBLICO EN EL MUNICIPIO DE GACHANCIPÁ, CUNDINAMARCA, INCLUYENDO LA ADMINISTRACIÓN, OPERACIÓN, MANTENIMIENTO, MODERNIZACIÓN, EXPANSIÓN Y DEMÁS ACTIVIDADES ASOCIADAS",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-10-06T00:00:00",
+      "apertura_ofertas": "2026-10-06T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 13
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1768,7 +2420,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "EJECUCION - CONSTRUCCIÓN DE SOLUCION FOTOVOLTAICA PARA LA GENERACION DE ENERGIA ELECTRICA EN VIVIENDAS RURALES DISPERSAS EN EL MUNICIPIO DE RIOHACHA, LA GUAJIRA",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 330,
+      "unidad": "día(s)",
+      "texto": "330 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1810,7 +2479,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "IMPLEMENTACIÓN DEL SISTEMA SOLAR FOTOVOLTAICO DE AUTOGENERACIÓN PARA EL ACUEDUCTO, EN EL MUNICIPIO DE MONTELÍBANO, CÓRDOBA.",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 4,
+      "unidad": "mes(es)",
+      "texto": "4 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1852,7 +2538,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "descripcion": "CONTRATAR EL SUMINISTRO, INSTALACIÓN, IMPLEMENTACIÓN Y PUESTA EN OPERACIÓN DEL SISTEMA CENTRAL DE GESTIÓN Y CONTROL DEL ALUMBRADO PÚBLICO DE IBAGUÉ, PARA EL INSTITUTO DE FINANCIAMIENTO, PROMOCIÓN Y DESARROLLO DE IBAGUÉ - INFIBAGUÉ.",
-    "fecha_publicacion": "2026-09-24T00:00:00.000",
+    "fecha_publicacion": "2026-09-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-24T00:00:00",
+      "ultima_actualizacion": "2026-09-24T00:00:00",
+      "cierre_ofertas": "2026-10-27T00:00:00",
+      "apertura_ofertas": "2026-10-27T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 180,
+      "unidad": "día(s)",
+      "texto": "180 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 9
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1895,6 +2598,19 @@
     "tipo_contrato": "Suministros",
     "descripcion": "Suministro de collarines, guardacabos, perchas y varillas de anclaje GRUPO 1 Y 3",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1936,7 +2652,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Concesión",
     "descripcion": "CONCESIÓN DE LA PRESTACIÓN INTEGRAL DEL SERVICIO DEL ALUMBRADO PUBLICO DEL MUNICIPIO DE ANDES- ANTIOQUIA ZONA URBANA Y RURAL, INCLUYENDO LA MODERNIZACION EN TECNOLOGIA, EXPANSION, ADMINISTRACIÓN, OPERACIÓN, MANTENIMIENTOS, OBRAS EXCLUSIVAS, DESARROLLOS TECNOLOGICOS ASOCIADOS AL MISMO Y ALUMBRADO NAVIDEÑO",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-10-23T00:00:00",
+      "apertura_ofertas": "2026-10-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 20,
+      "unidad": "año(s)",
+      "texto": "20 año(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 5
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -1978,7 +2711,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Concesión",
     "descripcion": "Contratar mediante la modalidad de licitación pública y el mecanismo de concesión la prestación integral y la optimización del servicio de alumbrado público del municipio de Cocorná Antioquiaque comprende entre otras actividades, la administración, operación, mantenimiento preventivo y correctivo, modernización, reposición, expansióndel sistema en tecnología led en el sector urbano y rural, el suministro de los bienes, equipos, materiales e insumos necesarios para la adecuada \nprestación del ser",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
+    "fecha_publicacion": "2026-09-10T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-10T00:00:00",
+      "ultima_actualizacion": "2026-09-10T00:00:00",
+      "cierre_ofertas": "2026-10-07T00:00:00",
+      "apertura_ofertas": "2026-10-07T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 20,
+      "unidad": "año(s)",
+      "texto": "20 año(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2021,6 +2771,19 @@
     "tipo_contrato": "Suministros",
     "descripcion": "Suministro de collarines, guardacabos, perchas y varillas de anclaje - GRUPO2",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2062,7 +2825,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "INTEGRAR ESFUERZOS INSTITUCIONALES, TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS PARA LA GARANTÍA DEL DERECHO A LA EDUCACIÓN, A TRAVÉS DEL DESARROLLO DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DIRIGIDO A LOS NIÑOS, NIÑAS, ADOLESCENTES Y JÓVENES CON MATRÍCULA OFICIAL EN LOS ESTABLECIMIENTOS EDUCATIVOS DEL MUNICIPIO DE SANTA BÁRBARA, ANTIOQUIA, EN EL MARCO DEL CONVENIO INTERADMINISTRATIVO N.º 4600019354 SUSCRITO ENTRE EL DEPARTAMENTO DE ANTIOQUIA SECRETARÍA DE EDUCACIÓN Y EL MUNICIPIO DE SANTA BÁRBARA, A",
-    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-21T00:00:00",
+      "ultima_actualizacion": "2026-09-21T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 52,
+      "unidad": "día(s)",
+      "texto": "52 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -2106,7 +2886,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORÍA ADMINISTRATIVA, TÉCNICA, AMBIENTAL, LEGAL Y FINANCIERA AL CONTRATO DE OBRA PARA LAAMPLIACIÓN DEL ALUMBRADO PÚBLICO SOLAR FOTOVOLTAICO MEDIANTE SUMINISTRO, INSTALACIÓN Y MONITOREO EN TRAMOS DE UNIÓN PANAMERICANA, CHOCÓ: 1. VÍA SAN PABLO; 2. EL DOS RASPADURA; 3. RASPADURA-QUIADÓ; 4. SALERO-LA YE; 5. LA YE CABECERA; 6. SECTOR DIVINO NIÑO HASTA I.E. SAN JOAQUÍN DE LAS ÁNIMAS. CHOCÓ e identificado con el Código BPIN 2026278100002",
-    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-21T00:00:00",
+      "ultima_actualizacion": "2026-09-21T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 10,
+      "unidad": "mes(es)",
+      "texto": "10 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -2124,8 +2921,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2151,6 +2948,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "No definido",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2024-01-30T00:00:00",
+      "apertura_ofertas": "2024-01-30T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 66,
+      "unidad": "día(s)",
+      "texto": "66 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -2195,6 +3009,19 @@
     "tipo_contrato": "Otro",
     "descripcion": "REQUIERE CONTRATAR EL SUMINISTRO INTALACIÓN, CONFIGURACIÓN Y PUESTA EN FUNCIONAMIENTO DE UN SISTEMA DE ENERGIA RENOVABLE DENOMINADO SISTEMA FOTOVOLTAICO, PARA LA RED INTEGRADA DE COMUNICACIONES DEL COGFM, DE ACUERDO CON LAS ESPECIFICACIONES TÉCNICAS DEL ANEXO.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2025-08-29T00:00:00",
+      "apertura_ofertas": "2025-08-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -2213,8 +3040,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia renovable",
       "fotovoltaico",
+      "energia renovable",
       "sistema fotovoltaico"
     ],
     "contratista": {
@@ -2240,7 +3067,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORÍA ADMINISTRATIVA, TÉCNICA, AMBIENTAL, LEGAL Y FINANCIERA AL CONTRATO DE OBRA PARA LAAMPLIACIÓN DEL ALUMBRADO PÚBLICO SOLAR FOTOVOLTAICO MEDIANTE SUMINISTRO, INSTALACIÓN Y MONITOREO EN TRAMOS DE UNIÓN PANAMERICANA, CHOCÓ: 1. VÍA SAN PABLO; 2. EL DOS RASPADURA; 3. RASPADURA-QUIADÓ; 4. SALERO-LA YE; 5. LA YE CABECERA; 6. SECTOR DIVINO NIÑO HASTA I.E. SAN JOAQUÍN DE LAS ÁNIMAS. CHOCÓ e identificado con el Código BPIN 2026278100002",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 6,
+      "unidad": "mes(es)",
+      "texto": "6 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -2258,8 +3102,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2284,7 +3128,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "Aunar esfuerzos para la conformación de la Bolsa Común de recursos para el financiamiento del Programa de Alimentación Escolar  PAE  en la ETC Cundinamarca, mediante la transferencia de recursos SGP Alimentación Escolar del Municipio de Caparrapí, Cundinamarca, con Nit: 899999710-0 al Departamento de Cundinamarca Nit 899.999.114-0.",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 104,
+      "unidad": "día(s)",
+      "texto": "104 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -2328,7 +3189,20 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "INTEGRAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE AMAGÁ - ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": "2026-10-01T00:00:00",
+      "apertura_ofertas": "2026-10-14T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 2
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -2372,7 +3246,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "IMPLEMENTACIÓN DE SOLUCIONES ENERGÉTICAS RENOVABLES MEDIANTE ALUMBRADO PÚBLICO FOTOVOLTAICO, ORIENTADOS A FORTALECER LA INFRAESTRUCTURA COMUNITARIA A LOS RESGUARDOS INDÍGENAS DE EL TIGRE,  WALLIANAE (PUERTO GAITÁN), NAEXAL PUT (PUERTO CONCORDIA), DOKERA (LEJANÍAS) Y OKO MERA (SAN MARTÍN DE LOS LLANOS), DEPARTAMENTO DEL META.",
-    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-21T00:00:00",
+      "ultima_actualizacion": "2026-09-21T00:00:00",
+      "cierre_ofertas": "2026-09-23T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 15
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -2390,8 +3281,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2416,7 +3307,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "IMPLEMENTACIÓN DE SOLUCIONES ENERGÉTICAS RENOVABLES MEDIANTE ALUMBRADO PÚBLICO FOTOVOLTAICO, ORIENTADOS A FORTALECER LA INFRAESTRUCTURA COMUNITARIA A LOS RESGUARDOS INDÍGENAS DE EL TIGRE,  WALLIANAE (PUERTO GAITÁN), NAEXAL PUT (PUERTO CONCORDIA), DOKERA (LEJANÍAS) Y OKO MERA (SAN MARTÍN DE LOS LLANOS), DEPARTAMENTO DEL META.",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": "2026-09-23T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 15
+    },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -2434,8 +3342,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2460,7 +3368,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "IMPLEMENTACIÓN DE SOLUCIONES ENERGÉTICAS RENOVABLES MEDIANTE ALUMBRADO PÚBLICO FOTOVOLTAICO, ORIENTADOS A FORTALECER LA INFRAESTRUCTURA COMUNITARIA A LOS RESGUARDOS INDÍGENAS DE EL TIGRE,  WALLIANAE (PUERTO GAITÁN), NAEXAL PUT (PUERTO CONCORDIA), DOKERA (LEJANÍAS) Y OKO MERA (SAN MARTÍN DE LOS LLANOS), DEPARTAMENTO DEL META.",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
+    "fecha_publicacion": "2026-09-10T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-10T00:00:00",
+      "ultima_actualizacion": "2026-09-10T00:00:00",
+      "cierre_ofertas": "2026-09-23T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 15
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -2478,8 +3403,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "fotovoltaico"
+      "fotovoltaico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2505,6 +3430,23 @@
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA Y CONTABLE AL CONTRATO DE IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS ESTUDIANTES DE LAS SEDES EDUCATIVAS RURALES DE LA INSTITUCION EDUCATIVA NICOLAS DE FEDERMAN DEL MUNICIPIO DE GUAMAL - META",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-17T00:00:00",
+      "adjudicacion": "2026-05-04T00:00:00"
+    },
+    "plazo": {
+      "valor": 9,
+      "unidad": "mes(es)",
+      "texto": "9 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 11
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -2546,7 +3488,24 @@
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCION DE CORRALES GANADEROS COMUNITARIOS CON ESTRUCTURA METALICA Y CUBIERTA EN LAS VEREDAS LA UNION Y ABEJON, ASÍ COMO EL MANTENIMIENTO DE LA MANGA DE COLEO Y LA PLAZA DE FERIAS DEL MUNICIPIO DE PAYA - BOYACA.",
-    "fecha_publicacion": "2026-08-28T00:00:00.000",
+    "fecha_publicacion": "2026-08-28T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-28T00:00:00",
+      "ultima_actualizacion": "2026-08-28T00:00:00",
+      "cierre_ofertas": "2026-09-08T00:00:00",
+      "apertura_ofertas": "2026-09-08T00:00:00",
+      "adjudicacion": "2026-09-18T00:00:00"
+    },
+    "plazo": {
+      "valor": 104,
+      "unidad": "día(s)",
+      "texto": "104 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 40
+    },
     "estado_secop": "Seleccionado",
     "fase": "Fase de Selección (Presentación de ofertas)",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -2589,6 +3548,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE ELEMENTOS DE INFRAESTRUCTURA SANITARIA E HIDRÁULICA, QUE INCLUYEN TANQUES DE ALMACENAMIENTO DE AGUA POTABLE, CUBIERTAS, VIGAS CANALES Y SISTEMAS DE EVACUACIÓN DE AGUAS LLUVIAS EN LOS CENTROS DE SALUD DE LA E.S.E. HOSPITAL LOCAL CARTAGENA DE INDIAS",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-30T00:00:00",
+      "adjudicacion": "2026-05-07T00:00:00"
+    },
+    "plazo": {
+      "valor": 7,
+      "unidad": "mes(es)",
+      "texto": "7 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 3
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -2613,8 +3589,8 @@
       }
     ],
     "materiales_detectados": [
-      "hospital",
-      "vigas"
+      "vigas",
+      "hospital"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -2639,7 +3615,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "CONTRATAR LA EJECUCIÓN DE LAS OBRAS DE REPARACIÓN Y REHABILITACIÓN DE LA INFRAESTRUCTURA FÍSICA DE LAS ÁREAS DE ALTO RIESGO OBSTÉTRICO, GINECOOBSTETRICIA Y DEMÁS ÁREAS DE INFLUENCIA DEL PISO 6, PISO 2 Y CERRAMIENTO PERIMETRAL INTERNO DEL HOSPITAL UNIVERSITARIO DEL VALLE  EVARISTO GARCIA  E.S.E, CON OCASIÓN DEL SISMO OCURRIDO EL DÍA 10 DE AGOSTO DE 2026, EN EL MARCO DE LA DECLARATORIA DE LA URGENCIA MANIFIESTA Y DE CONFORMIDAD CON LA RESOLUCIÓN GG-1591 DEL 12 DE AGOSTO DE 2026",
-    "fecha_publicacion": "2026-09-01T00:00:00.000",
+    "fecha_publicacion": "2026-09-01T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-01T00:00:00",
+      "ultima_actualizacion": "2026-09-01T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 120,
+      "unidad": "día(s)",
+      "texto": "120 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2681,7 +3674,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Compraventa",
     "descripcion": "ADQUISICIÓN, PREINSTALACIÓN, INSTALACIÓN Y PUESTA EN FUNCIONAMIENTO DE EQUIPOS BIOMÉDICOS PARA LOS DIFERENTES SERVICIOS PERTENECIENTES AL HOSPITAL MILITAR CENTRAL.",
-    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "fecha_publicacion": "2026-09-07T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-07T00:00:00",
+      "ultima_actualizacion": "2026-09-07T00:00:00",
+      "cierre_ofertas": "2026-10-09T00:00:00",
+      "apertura_ofertas": "2026-10-09T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 27
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2723,7 +3733,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Otro",
     "descripcion": "ADQUISICIÓN DE LA SUSCRIPCIÓN, ACTUALIZACIÓN DEL LICENCIAMIENTO Y SOPORTE DE LA SOLUCIÓN DE FORTINET DEL HOSPITAL MILITAR CENTRAL",
-    "fecha_publicacion": "2026-09-21T00:00:00.000",
+    "fecha_publicacion": "2026-09-21T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-21T00:00:00",
+      "ultima_actualizacion": "2026-09-21T00:00:00",
+      "cierre_ofertas": "2026-10-23T00:00:00",
+      "apertura_ofertas": "2026-10-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 13
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2765,7 +3792,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Compraventa",
     "descripcion": "ADQUISICIÓN KITS DE ROBÓTICA AVANZADA PARA EL FORTALECIMIENTO DEL ECOSISTEMA DE LABORATORIOS ENFOCADOS EN TECNOLOGÍAS DE INDUSTRIA 4.0. LABORATORIO DE ROBÓTICA DE LA ESCUELA TECNOLÓGICA INSTITUTO TÉCNICO CENTRA",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-10-19T00:00:00",
+      "apertura_ofertas": "2026-10-19T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 1
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2807,7 +3851,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Compraventa",
     "descripcion": "ADQUISICIÓN, INSTALACIÓN Y PUESTA EN FUNCIONAMIENTO DE AUTOCLAVE DE ALTA TEMPERATURA PARA LA CENTRAL DE ESTERILIZACIÓN DEL HOSPITAL MILITAR CENTRAL",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
+    "fecha_publicacion": "2026-09-10T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-10T00:00:00",
+      "ultima_actualizacion": "2026-09-10T00:00:00",
+      "cierre_ofertas": "2026-10-16T00:00:00",
+      "apertura_ofertas": "2026-10-16T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 11
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2849,7 +3910,24 @@
     "modalidad": "Licitación pública",
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE OBRAS DE PAVIMENTACIÓN EN CONCRETO RÍGIDO EN EL BARRIO 15 DE SEPTIEMBRE DEL MUNICIPIO DE MONTERREY, CASANARE, DISTRIBUIDAS EN DOS  2 LOTES, ASÍ LOTE 1  CONSTRUCCIÓN EN PAVIMENTO HIDRÁULICO EN LA CALLE 1 Y 1A ENTRE CARRERAS 10A Y 10B DEL MUNICIPIO DE MONTERREY, CASANARE. LOTE 2 PAVIMENTACIÓN EN CONCRETO RÍGIDO EN LA CARRERA 10B ENTRE CALLES 1 Y 2A DEL MUNICIPIO DE MONTERREY, CASANARE.",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": "2026-10-07T00:00:00",
+      "apertura_ofertas": "2026-10-07T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 75,
+      "unidad": "día(s)",
+      "texto": "75 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 5
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2892,6 +3970,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL PARA LA VIGENCIA 2025-2 EN EL MUNICIPIO DE VENECIA  ANTIOQUIA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2025-10-28T00:00:00",
+      "apertura_ofertas": "2025-10-28T00:00:00",
+      "adjudicacion": "2025-10-30T00:00:00"
+    },
+    "plazo": {
+      "valor": 18,
+      "unidad": "día(s)",
+      "texto": "18 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 5
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -2935,7 +4030,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 82
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -2977,7 +4089,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "varilla puesta a tierra acero recubierto cobre 5/8' x 2400mm, varilla puesta a tierra acero recubierto cobre 5/8' x 2400mm",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3020,6 +4145,19 @@
     "tipo_contrato": "Suministros",
     "descripcion": "cable aluminio recubierto de cobre cca 3x12awg encauchetado aislado pvc/pvc 600v 90°c alumbrado publico negro, cable aluminio recubierto de cobre cca 3x12awg encauchetado aislado pvc/pvc 600v 90°c alumbrado publico negro, cable aluminio recubierto de cobre cca 3x12awg encauchetado aislado pvc/pvc 600v 90°c alumbrado publico negro",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3061,7 +4199,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra, conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra, conector pernado tipo tornillo con arandela de presion cobre 8-6awg a varilla 5/8' para puesta a tierra",
-    "fecha_publicacion": "2026-08-24T00:00:00.000",
+    "fecha_publicacion": "2026-08-24T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-24T00:00:00",
+      "ultima_actualizacion": "2026-08-24T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3103,7 +4254,20 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "REALIZAR LAS OBRAS DE ADECUACIÓN, MANTENIMIENTO Y CONSERVACIÓN DE LA CUBIERTA Y ESTRUCTURA METÁLICA DE LA PISCINA OLÍMPICA DE DUITAMA, PARA MEJORAR LAS CONDICIONES DE FUNCIONAMIENTO Y CONSERVACIÓN DEL ESCENARIO DEPORTIVO",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": "2026-10-09T00:00:00",
+      "apertura_ofertas": "2026-10-09T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 28
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3145,7 +4309,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO Y TRANSPORTE DE MATERIALES PÉTREOS, ELEMENTOS DE FORMALETA, Y TRANSPORTE DE CEMENTO Y ACERO DE REFUERZO ADQUIRIDOS POR EL MUNICIPIO A TRAVÉS DE LA EMPRESA DE VIVIENDA DE ANTIOQUIA - VIVA, PARA SU ENTREGA A LAS COMUNIDADES RURALES EN EL MARCO DE LAS INICIATIVAS COMUNITARIAS DE MEJORAMIENTO DE VÍAS TERCIARIAS PRIORIZADAS POR EL MUNICIPIO DE DABEIBA, ANTIOQUIA.",
-    "fecha_publicacion": "2026-09-16T00:00:00.000",
+    "fecha_publicacion": "2026-09-16T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-16T00:00:00",
+      "ultima_actualizacion": "2026-09-16T00:00:00",
+      "cierre_ofertas": "2026-09-30T00:00:00",
+      "apertura_ofertas": "2026-09-30T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 4
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3187,7 +4368,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "REALIZAR LA MODERNIZACIÓN Y EXPANSIÓN DEL ALUMBRADO PÚBLICO DEL MUNICIPIO DE PAICOL, DEPARTAMENTO DEL HUILA, PARA LA VIGENCIA 2026",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 11
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3229,7 +4427,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "PRESTACION DE SERVICIOS PARA EL DESARROLLO, SUMINISTRO, INSTALACIÓN, PUESTA EN FUNCIONAMIENTO Y LEGALIZACIÓN DE UN SISTEMA SOLAR FOTOVOLTAICO PARA EL FORTALECIMIENTO DE LA RESILIENCIA ENERGÉTICA Y LA SEGURIDAD HÍDRICA DEL ACUEDUCTO MULTIVEREDAL OPERADO POR RETIRAR S.A. E.S.P.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 106,
+      "unidad": "día(s)",
+      "texto": "106 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3271,7 +4486,24 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA, SOCIAL Y AMBIENTAL AL PROYECTO IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 6
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3314,6 +4546,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "SUMINISTRO, INSTALACIÓN Y PUESTA EN MARCHA DE UN SISTEMA FOTOVOLTAICO PARA EL INSTITUTO DE TRANSPORTE Y TRANSITO DEL HUILA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-05-07T00:00:00",
+      "apertura_ofertas": "2026-05-07T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 4,
+      "unidad": "mes(es)",
+      "texto": "4 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 32
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -3358,6 +4607,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "AUNAR ESFUERZOS ENTRE UNA ENTIDAD SIN ANIMO DE LUCRO Y EL MUNICIPIO DE SAN JOSÉ DEL PALMAR PARA IMPLEMENTAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DE ACUERDO CON LOS LINEAMIENTOS TECNICO ADMINISTRATIVOS EN DESARROLLO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE-, VIGENCIA 2021",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2021-03-09T00:00:00",
+      "apertura_ofertas": "2021-03-09T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 100,
+      "unidad": "día(s)",
+      "texto": "100 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -3401,7 +4667,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Suministros",
     "descripcion": "FORTALECIMIENTO EN LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - (PAE) CON ENFOQUE DIFERENCIAL EN PUEBLOS INDÍGENAS, ATENDIENDO PAGO A PERSONAL MANIPULADOR DE ALIMENTOS, TRASPORTE, KIT DE ASEO, GAS PROPANO, COMPRA Y DISTRIBUCIÓN DE VÍVERES EN LA VIGENCIA  2026-2, EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO (4600019311) SUSCRITO ENTRE EL MUNICIPIO DE SAN PEDRO DE URABA, ANTIOQUIA, Y LA SECRETARIA EDUCACIÓN DE LA GOBERNACIÓN DE ANTIOQUIA",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 46,
+      "unidad": "día(s)",
+      "texto": "46 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -3445,7 +4728,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "EJECUCIÓN DEL PROGRAMA DE   ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE CISNEROS - ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN - ANTIOQUIA, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": "2026-09-30T00:00:00",
+      "apertura_ofertas": "2026-09-30T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 3
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -3489,7 +4789,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Suministros",
     "descripcion": "Implementar el programa de alimentación escolar- PAE, para los niños, niñas y adolescentes de la matrícula oficial del Municipio de Betania - Antioquia para la vigencia 2026 - 2 .",
-    "fecha_publicacion": "2026-09-10T00:00:00.000",
+    "fecha_publicacion": "2026-09-10T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-10T00:00:00",
+      "ultima_actualizacion": "2026-09-10T00:00:00",
+      "cierre_ofertas": "2026-09-16T00:00:00",
+      "apertura_ofertas": "2026-09-16T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 70,
+      "unidad": "día(s)",
+      "texto": "70 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 6
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -3533,7 +4850,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORIA TÉCNICA, ADMINISTRATIVA, FINANCIERA, CONTABLE Y JURIDICA AL PROYECTO DE  CONSTRUCCIÓN DE SISTEMAS DE ENERGIA SOLAR FOTOVOLTAICA EN ZONAS RURALES DEL MUNICIPIO DE SAN ANTONIO DE PALMITO, DEPARTAMENTO DE SUCRE",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Fase de ofertas",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -3551,8 +4885,8 @@
       }
     ],
     "materiales_detectados": [
-      "energia solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energia solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3578,6 +4912,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "DESARROLLAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR, A TRAVÉS DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO, A NIÑOS, NIÑAS Y ADOLESCENTES REGISTRADOS EN EL SISTEMA INTEGRADO DE MATRICULA SIMAT DE MUNIC",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2023-12-19T00:00:00",
+      "apertura_ofertas": "2023-12-19T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 45,
+      "unidad": "día(s)",
+      "texto": "45 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -3620,6 +4971,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "APOYO AL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS ESTUDIANTES DE LAS SEDES EDUCATIVAS OFICIALES DE LA ZONA URBANA EN EL MUNICIPIO DE ARAUCA, DEPARTAMENTO DE ARAUCA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-04-07T00:00:00",
+      "apertura_ofertas": "2026-04-07T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 77,
+      "unidad": "día(s)",
+      "texto": "77 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -3662,6 +5030,23 @@
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA Y JURÍDICA A LA PRESTACIÓN DEL SERVICIO PARA LA IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A TRAVÉS DEL SUMINISTRO DE COMPLEMENTOS ALIMENTARIOS Y SERVICIO DE ALIMENTACIÓN EN RESIDENCIAS ESCOLARES EN ESTABLECIMIENTOS EDUCATIVOS OFICIALES EN MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL META",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-27T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 57,
+      "unidad": "día(s)",
+      "texto": "57 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 30
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -3703,7 +5088,24 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORIA TECNICA, ADMINISTRATIVA, FINANCIERA Y JURIDICA PARA EL PROYECTO FORTALECIMIENTO DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE PARA LA ATENCION DE NIÑOS, NIÑAS Y ADOLESCENTES MATRICULADOS EN LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 20 MUNICIPIOS NO CERTIFICADOS DEL DEPARTAMENTO DEL ATLANTICO GRUPO1 Y GRUPO 2",
-    "fecha_publicacion": "2026-09-11T00:00:00.000",
+    "fecha_publicacion": "2026-09-11T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-11T00:00:00",
+      "ultima_actualizacion": "2026-09-11T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 11
+    },
     "estado_secop": "Evaluación",
     "fase": "Selección de ofertas (borrador)",
     "etapa_comercial": "Borrador de Pliegos",
@@ -3745,7 +5147,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "IMPLEMENTACION DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE REGULAR Y JORNADA UNICA, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE ARBOLETES - ANTIOQUIA, PARA LA VIGENCIA 2026 - 2.",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-21T00:00:00",
+      "apertura_ofertas": "2026-09-21T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 37,
+      "unidad": "día(s)",
+      "texto": "37 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 5
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -3787,7 +5206,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "REALIZAR ACTIVIDADES OPERATIVAS, LOGISTICAS Y DE PRESTACIÓN DEL SERVICIO PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACION ESCOLAR (PAE), A TRAVES DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO A LOS NIÑOS, NIÑAS Y ADOLESCENTES CON MATRICULA OFICIAL DEL MUNICIPIO DE ANDES, PARA LA VIGENCIA 2026-2.",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 63,
+      "unidad": "día(s)",
+      "texto": "63 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Fase de ofertas",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -3829,7 +5265,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO CON TECNOLOGÍA SOLAR Y MONITOREO DE ALTA TECNOLOGÍA EN BURITICÁ ANTIOQUIA. UNA ESTRATEGIA DE TRANSICIÓN ENERGÉTICA Y DESARROLLO REGIONAL MEDIANTE EL SUMINISTRO E INSTALACIÓN DE LUMINARIAS SOLARES EN LOS TRAMOS VIALES BURITICÁ PINGURO Y BURITICÁ TABACAL. ANTIOQUIA  e identificado con el Código BPIN 2026051130003",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 10,
+      "unidad": "mes(es)",
+      "texto": "10 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -3872,6 +5325,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "OBRA PÚBLICA PARA LA CONSTRUCCIÓN DEL BIOPARQUE  PUERTA DE ALCALÁ  EN EL MUNICIPIO DE ALCALÁ - VALLE DEL CAUCA, QUE INCLUYE OBRAS DE URBANISMO, PAISAJISMO, ESTRUCTURAS METÁLICAS, SENDEROS, PLAZOLETAS, RAMPAS, TERRAZAS MIRADOR Y JARDINES TEMÁTICOS, EN EL MARCO DEL PROYECTO IMPLEMENTACIÓN DE ESTRATEGIAS COMPETITIVAS EN EL DESTINO TURÍSTICO DEL VALLE DEL CAUCA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2025-11-14T00:00:00",
+      "apertura_ofertas": "2025-11-14T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 13,
+      "unidad": "mes(es)",
+      "texto": "13 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -3914,6 +5384,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA SOLAR FOTOVOLTAICAS EN POBLACIONES NO INTERCONECTADAS Y DISPERSAS EN LOS MUNICIPIOS DE ORITO, PUERTO LEGUIZAMO, VILLAGAZON EN EL DEPARTAMENTO DEL PUTUMAYO Y EN EL MPIO DE SOLANO EN EL DEPARTAMENTO DE CAQUETÁ",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 10,
+      "unidad": "mes(es)",
+      "texto": "10 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -3955,7 +5442,24 @@
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
-    "fecha_publicacion": "2026-09-16T00:00:00.000",
+    "fecha_publicacion": "2026-09-16T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-16T00:00:00",
+      "ultima_actualizacion": "2026-09-16T00:00:00",
+      "cierre_ofertas": "2026-09-23T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 16
+    },
     "estado_secop": "Evaluación",
     "fase": "Fase de Selección (Presentación de ofertas)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -3998,6 +5502,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCION DEL ALUMBRADO PUBLICO SOLAR EN EL MUNICIPIO DE NOROSI BOLIVAR.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4040,6 +5561,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE POZOS PROFUNDOS ACCIONADOS CON ENERGÍA FOTOVOLTAICA COMO APORTE A LA TRANSICIÓN ENERGÉTICA Y LA REDUCCIÓN DE LAS EMISIONES DE GEI EN EL DEPARTAMENTO DE CÓRDOBA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-27T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 26
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4082,6 +5620,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "INSTALACION DE PANELES SOLARES",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2019-02-28T00:00:00",
+      "apertura_ofertas": "2019-03-01T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 10,
+      "unidad": "mes(es)",
+      "texto": "10 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4123,7 +5678,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "AMPLIACIÓN DE LA COBERTURA DEL SISTEMA DE ALUMBRADO PUBLICO EN LA CALLEJUELA 4 DEL CORREGIMIENTO TACARIMENA Y LA CARRERA 34 ENTRE CALLE 11 Y 19A, DE LA VIA SIRIVANA DEL MUNICIPIO DE YOPAL, DEPARTAMENTO DE CASANARE.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 90,
+      "unidad": "día(s)",
+      "texto": "90 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4166,6 +5738,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE ALUMBRADO PÚBLICO RURAL, CON ENERGÍAS RENOVABLES EN LAS COMUNIDADES INDÍGENAS DE CARPINTERO, CHATARE, PARAÍSO, PICURE Y MURCIÉLAGO DEL MUNICIPIO DE BARRANCOMINAS, GUAINÍA.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "día(s)",
+      "texto": "8 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4208,6 +5797,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "Realizar el alquiler de la licencia del Software SIAP para la gestión de la administración, operación, mantenimiento, expansión y modernización del sistema de alumbrado público del Distrito de Santiago de Cali.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 150,
+      "unidad": "día(s)",
+      "texto": "150 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4250,6 +5856,19 @@
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO NO. ICCU 843 DE 2025",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-06-09T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 118
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4292,6 +5911,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "CONSTRUCCIÓN DE LA CUBIERTA METÁLICA Y GRADERÍA DE LA CANCHA\nPOLIDEPORTIVA EN LA VEREDA EL RECREO DEL MUNICIPIO DE SARDINATA,\nDEPARTAMENTO DE NORTE DE SANTANDER",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4334,6 +5970,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO E INSTALACION DE ESTRUCTURA METALICA EN EL MARCO DE LA AMPLIACIÓN DE LA CENTRAL DE ABASTOS EN EL MUNICIPIO DE LA DORADA, CALDAS",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -4376,6 +6029,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE LUMINARIAS PARA LA INFRAESTRUCTURA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE RIONEGRO.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-23T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 247,
+      "unidad": "día(s)",
+      "texto": "247 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 5,
+      "visualizaciones": 10
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -4418,6 +6088,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "CONSTRUCCIÓN DEL POLIDEPORTIVO DE LA SEDE EDUCATIVA RURAL SAN ANTONIO DE LA I.E.D NUESTRA SEÑORA DEL TRÁNSITO EN LA VEREDA SAN ANTONIO DEL MUNICIPIO DE GUACHETÁ, CUNDINAMARCA, MEDIANTE EL SUMINISTRO, FABRICACIÓN, TRANSPORTE Y MONTAJE DE CUBIERTA EN ESTRUCTURA METÁLICA Y EL MEJORAMIENTO DE LA CANCHA MÚLTIPLE, EN EL MARCO DEL PROYECTO DE INVERSIÓN BPIN 2026253170003, FINANCIADO CON RECURSOS DEL SISTEMA GENERAL DE REGALÍAS.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 6,
+      "unidad": "mes(es)",
+      "texto": "6 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Aprobado",
     "fase": null,
     "etapa_comercial": "Proceso Activo (Aprobado)",
@@ -4460,6 +6147,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "ACTIVIDADES DE PODA PARA EL DESPEJE DE LUMINARIAS Y REDES QUE INTERFIEREN CON EL ALUMBRADO PUBLICO DEL MUNICIPIO DE BUCARAMANGA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 223,
+      "unidad": "día(s)",
+      "texto": "223 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -4502,6 +6206,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "SUMINISTRO E INSTALACION DE PANELES SOLARES EN LA ZONA RURAL DEL MUNICIPIO DE RIOBLANCO TOLIMA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-30T00:00:00",
+      "adjudicacion": "2026-05-15T00:00:00"
+    },
+    "plazo": {
+      "valor": 1,
+      "unidad": "mes(es)",
+      "texto": "1 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 3,
+      "visualizaciones": 23
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -4544,6 +6265,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "RENOVACIÓN Y MANTENIMIENTO AL SISTEMA DE ALUMBRADO PUBLICO DEL MUNICIPIO DE FORTUL, DEPARTAMENTO DE ARAUCA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-04-23T00:00:00",
+      "adjudicacion": "2026-05-05T00:00:00"
+    },
+    "plazo": {
+      "valor": 1,
+      "unidad": "mes(es)",
+      "texto": "1 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 4
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -4585,7 +6323,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATAR LA REMODELACION DEL ESTUDIO DE GRABACIÓN ÁREA DE MEDIOS AUDIOVISUALES COMES  INCLUYENDO SUMINISTRO, INSTALACIÓN, ADECUACIÓN, REMODELACION Y PUESTA EN FUNCIONAMIENTO INTEGRAL DE LA INFRAESTRUCTURA FÍSICA Y TECNOLÓGICA  DEL  SISTEMAS DE INSONORIZACIÓN Y ACONDICIONAMIENTO ACÚSTICO EN PAREDES Y TECHO, VENTANA DE VISUALIZACIÓN TÉCNICA, ACOMETIDAS ELÉCTRICAS Y SISTEMAS DE ALIMENTACIÓN, ESTRUCTURA METÁLICA EN TECHO Y PARED DEL ESTUDIO DE GRABACIÓN DEL ÁREA DE MEDIOS AUDIOVISUALES DEL COMANDO",
-    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "fecha_publicacion": "2026-09-07T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-07T00:00:00",
+      "ultima_actualizacion": "2026-09-07T00:00:00",
+      "cierre_ofertas": "2026-09-15T00:00:00",
+      "apertura_ofertas": "2026-09-15T00:00:00",
+      "adjudicacion": "2026-09-25T00:00:00"
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 5,
+      "visualizaciones": 38
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -4628,6 +6383,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE INSUMOS DE COCINA PARA LA PREPARACIÓN DE ALIMENTOS COMO APOYO NUTRICIONAL DE LOS APRENDICES DEL PROYECTO DE FORMACIÓN DE LA ESCUELA TALLER CARTAGENA DE INDIAS 2026, PARA LOS PROGRAMAS DE PUESTA EN VALOR, EJECUCIÓN DEL PROYECTO  PATRIMONIO INMATERIAL Y COCINA TRADICIONAL: BALUARTE SANTO DOMINGO  Y DEMÁS NECESIDADES ADMINISTRATIVAS DEL PROYECTO FORTIFICACIONES",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-14T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 232,
+      "unidad": "día(s)",
+      "texto": "232 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 18
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4670,6 +6442,23 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE COMPONENTES ELÉCTRICOS, MATERIALES DE CONSTRUCCIÓN, FERRETERÍA, CARPINTERÍA PARA ESTRUCTURAS Y EDIFICACIONES, CABLEADO ESTRUCTURADO PARA REDES DE DATOS INTERNAS Y ACCESORIOS, CON DESTINO A LA REGIÓN DE POLICÍA NÚMERO CUATRO, POLICÍA METROPOLITANA DE POPAYÁN, DEPARTAMENTO DE POLICÍA CAUCA, COLEGIO NUESTRA SEÑORA DE FÁTIMA Y DEMÁS UNIDADES QUE DEPENDAN ADMINISTRATIVAMENTE DE LA POLICÍA METROPOLITANA DE POPAYÁN",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 210,
+      "unidad": "día(s)",
+      "texto": "210 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 33
+    },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4711,7 +6500,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-08-19T00:00:00.000",
+    "fecha_publicacion": "2026-08-19T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-19T00:00:00",
+      "ultima_actualizacion": "2026-08-19T00:00:00",
+      "cierre_ofertas": "2026-09-08T00:00:00",
+      "apertura_ofertas": "2026-09-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 143
+    },
     "estado_secop": "Evaluación",
     "fase": "Clarification submission",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4753,7 +6559,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-09-02T00:00:00.000",
+    "fecha_publicacion": "2026-09-02T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-02T00:00:00",
+      "ultima_actualizacion": "2026-09-02T00:00:00",
+      "cierre_ofertas": "2026-09-08T00:00:00",
+      "apertura_ofertas": "2026-09-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 21,
+      "visualizaciones": 143
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -4795,7 +6618,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE CUBIERTAS Y CARPINTERIA METÁLICA EN LOS ESCENARIOS DEPORTIVOS Y RECREATIVOS ADMINISTRADOS POR EL INDER MEDELLÍN",
-    "fecha_publicacion": "2026-08-27T00:00:00.000",
+    "fecha_publicacion": "2026-08-27T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-27T00:00:00",
+      "ultima_actualizacion": "2026-08-27T00:00:00",
+      "cierre_ofertas": "2026-09-08T00:00:00",
+      "apertura_ofertas": "2026-09-08T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 143
+    },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -4838,6 +6678,19 @@
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORÍA INTEGRAL: TÉCNICA, ADMINISTRATIVA, FINANCIERA, LEGAL Y AMBIENTAL PARA LA CONSTRUCCIÓN DE CUBIERTA PARA CANCHA MÚLTIPLE DEL COLEGIO NACIONALIZADO LOS CENTAUROS SEDE ESCUELA URBANA LA ESPERANZA EN EL MUNICIPIO DE VISTAHERMOSA, META",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "En aprobación",
     "fase": null,
     "etapa_comercial": "Proceso Activo (En aprobación)",
@@ -4855,8 +6708,8 @@
       }
     ],
     "materiales_detectados": [
-      "escuela",
-      "colegio"
+      "colegio",
+      "escuela"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4881,7 +6734,24 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Compraventa",
     "descripcion": "87 - ADQUISICION DE AIRES ACONDICIONADOS REPUESTOS DE REFRIGERACION CUARTOS FRIOS Y NEVERAS PARA LA REGIONAL NORTE DEL INSTITUTO NACIONAL DE MEDICINA LEGAL Y CIENCIAS FORENSES.",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-10-16T00:00:00",
+      "apertura_ofertas": "2026-10-16T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 1,
+      "unidad": "mes(es)",
+      "texto": "1 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 5
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -4923,7 +6793,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO E INSTALACIÓN DE LUMINARIAS TIPO LED Y COMPONENTES ELÉCTRICOS DESTINADOS AL MEJORAMIENTO, FORTALECIMIENTO Y MODERNIZACIÓN DE LA INFRAESTRUCTURA DEL SISTEMA DE ALUMBRADO PÚBLICO PARA LA PRESTACIÓN EFICIENTE DEL SERVICIO EN EL MUNICIPIO DE SEVILLA, VALLE DEL CAUCA",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 60,
+      "unidad": "día(s)",
+      "texto": "60 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 15
+    },
     "estado_secop": "Publicado",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -4965,7 +6852,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO Y REHABILITACION DE LA INFRAESTRUCTURA DE ALCANTARILLADO SANITARIO MEDIANTE LA INTERVENCION DE POZOS DE INSPECCION (DEMOLICION Y RECONSTRUCCION DE PLACAS, PLACAS DE MANHOLE PARA TRAFICO PESADO, ACERO DE REFUERZO, ALISTADOS, IMPERMEABILIZACION ESPECIALIZADA Y MANEJO DE AGUAS) E INSTALACION Y PUESTA EN OPERACION DE MEDIDOR DE 8  DE TECNOLOGIA TIPO ELECTROMAGNETICA  EN INVENTARIO, DENTRO DEL MARCO DEL COSTO MEDIO DE INVERSION (CMI), EN EL MUNICIPIO DE TAURAMENA",
-    "fecha_publicacion": "2026-09-09T00:00:00.000",
+    "fecha_publicacion": "2026-09-09T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-09T00:00:00",
+      "ultima_actualizacion": "2026-09-09T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5007,7 +6911,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "sofa 2 puestos estructura metalica asiento y espaldar espuma inyectada bastidor interno madera tapizado vertigo con brazos 120cmx63cmx82cm, sofa modulo 3 puestos estructura tuberia rectangular 179.4cmx59.4cmx36.3cm asiento tablex 15mm espuma inyectada poliuretano 60cmx49.1cmx0.65cm espaldar triplex 18mm tablex 15mm espuma de poliuretano 60cmx80cmx110cm",
-    "fecha_publicacion": "2026-08-28T00:00:00.000",
+    "fecha_publicacion": "2026-08-28T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-28T00:00:00",
+      "ultima_actualizacion": "2026-08-28T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5049,7 +6966,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "Rtd pt100 clase a -70 a 500°c 3 hilos rosca 1/2'npt bulbo acero inoxidable diametro 15mm longitud 590mm,Transmisor temperatura rtd pt100 -50 a 500â°c 3 hilos rosca 1/2â npt bulbo acero inoxidable diametro 3mm longitud 50mm,Rtd pt100 0-400°c 3 hilos bulbo acero inoxidable rosca npt 1/2' diametro 3/8' longitud 18cm,Rtd pt100 0-100°c 3 hilos bulbo acero inoxidable rosca 1/2'npt diametro 5/16' longitud 150mm,Rtd 2xpt100 0 a 180°c de 6 hilos bulbo recto conexion a proceso simple rosca npt 1/2' bulb",
-    "fecha_publicacion": "2026-08-20T00:00:00.000",
+    "fecha_publicacion": "2026-08-20T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-20T00:00:00",
+      "ultima_actualizacion": "2026-08-20T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5091,7 +7021,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Suministros",
     "descripcion": "instalacion, prueba y puesta a punto de intercambiadores de calor para enfriador de amoniaco, intercambiador calor placas agua/lubricante 79°f/164.9°f salida 90.1°f/130°f acero inoxidable 11796lb/h",
-    "fecha_publicacion": "2026-09-08T00:00:00.000",
+    "fecha_publicacion": "2026-09-08T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-08T00:00:00",
+      "ultima_actualizacion": "2026-09-08T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5133,7 +7076,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO, ADECUACIÓN Y ADQUISICIÓN DE LAMPARAS Y DEMAS ELEMENTOS ELÉCTRICOS PARA EL ADECUADO FUNCIONAMIENTO DE LA RED DE ALUMBRADO PÚBLICO RURAL Y URBANO DEL MUNICIPIO DE SOCOTA DEPARTAMENTO DE BOYACÁ",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 9
+    },
     "estado_secop": "Publicado",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5175,7 +7135,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Otro",
     "descripcion": "COMPRA E INSTALACIÓN DE UN SISTEMA DE TRATAMIENTO DE AGUA POTABLE CON ABLANDAMIENTO, FILTRACIÓN, OXIDES INFECCIÓN, OSMOSIS INVERSA Y DOS (2) DISPOSITIVOS DE DISPENSACIÓN REFRIGERADA EN ACERO INOXIDABLE PARA EL SUMINISTRO A TODA LA COMUNIDAD UNIVERSITARIA EN LA CAFETERÍA CENTRAL DE LA SEDE PRINCIPAL DE LA UNIVERSIDAD DEL MAGDALENA.",
-    "fecha_publicacion": "2026-08-26T00:00:00.000",
+    "fecha_publicacion": "2026-08-26T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-26T00:00:00",
+      "ultima_actualizacion": "2026-08-26T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 60,
+      "unidad": "día(s)",
+      "texto": "60 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5217,7 +7194,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "MANTENIMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO EN LAS ZONAS URBANA Y RURAL DEL MUNICIPIO, MEDIANTE LA EJECUCIÓN DE LAS INTERVENCIONES REQUERIDAS PARA LA RECUPERACIÓN Y PUESTA EN FUNCIONAMIENTO DE LA INFRAESTRUCTURA EXISTENTE",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 15,
+      "unidad": "día(s)",
+      "texto": "15 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 17
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5259,7 +7253,20 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, JURIDICA, FINANCIERA, SOCIAL Y AMBIENTAL, PARA LA CONSTRUCCION DE CUBIERTA EN ESTRUCTURA METALICA PARA EL POLIDEPORTIVO QUINCE LETRAS EN EL MUNICIPIO DE AGUA DE DIOS, CUNDINAMARCA DE ACUERDO CON EL CONVENIO No. ICCU 843 DE 2025",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 67
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5301,7 +7308,20 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "Compra e instalación de estructura metálica para el ascensor del Bloque 46, Campus El Volador, Universidad Nacional de Colombia Sede Medellín",
-    "fecha_publicacion": "2026-09-04T00:00:00.000",
+    "fecha_publicacion": "2026-09-04T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-04T00:00:00",
+      "ultima_actualizacion": "2026-09-04T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5343,7 +7363,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA Y AMBIENTAL DEL PROYECTO DE CONSTRUCCIÓN DEL POLIDEPORTIVO DE LA SEDE EDUCATIVA RURAL SAN ANTONIO DE LA I.E.D NUESTRA SEÑORA DEL TRÁNSITO EN LA VEREDA SAN ANTONIO DEL MUNICIPIO DE GUACHETÁ, CUNDINAMARCA, MEDIANTE EL SUMINISTRO, FABRICACIÓN, TRANSPORTE Y MONTAJE DE CUBIERTA EN ESTRUCTURA METÁLICA Y EL MEJORAMIENTO DE LA CANCHA MÚLTIPLE.",
-    "fecha_publicacion": "2026-09-18T00:00:00.000",
+    "fecha_publicacion": "2026-09-18T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-18T00:00:00",
+      "ultima_actualizacion": "2026-09-18T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 6,
+      "unidad": "mes(es)",
+      "texto": "6 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -5385,7 +7422,24 @@
     "modalidad": "Contratación régimen especial (con ofertas)",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "INTEGRAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACION ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRICULA OFICIAL DEL MUNICIPIO DE SAN ROQUE ANTIOQUIA, NO CERTIFICADO EN EDUCACIÓN, PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-22T00:00:00.000",
+    "fecha_publicacion": "2026-09-22T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-22T00:00:00",
+      "ultima_actualizacion": "2026-09-22T00:00:00",
+      "cierre_ofertas": "2026-09-25T00:00:00",
+      "apertura_ofertas": "2026-09-25T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 32,
+      "unidad": "día(s)",
+      "texto": "32 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 2,
+      "visualizaciones": 2
+    },
     "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Abierto)",
@@ -5428,6 +7482,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "PRESTAR SERVICIOS DE GESTIÓN INTEGRAL, SOPORTE Y MANTENIMIENTO DEL SISTEMA DE INFORMACIÓN  SILIM  PARA EL EFECTIVO COBRO DEL IMPUESTO DE ALUMBRADO PÚBLICO VIGENCIA 2026",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 11,
+      "unidad": "mes(es)",
+      "texto": "11 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -5469,7 +7540,24 @@
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATO DE OBRA PARA EL MEJORAMIENTO DE LA INFRAESTRUCTURA FÍSICA DEL POLIDEPORTIVO DE LA INSTITUCIÓN EDUCATIVA LA POPA EN EL MUNICIPIO DE LA TEBAIDA, QUINDÍO, MEDIANTE LA CONSTRUCCIÓN DE UNA ESTRUCTURA METÁLICA PARA CUBIERTA",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "fecha_publicacion": "2026-09-03T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-03T00:00:00",
+      "ultima_actualizacion": "2026-09-03T00:00:00",
+      "cierre_ofertas": "2026-09-15T00:00:00",
+      "apertura_ofertas": "2026-10-09T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 66,
+      "visualizaciones": 179
+    },
     "estado_secop": "Evaluación",
     "fase": "Fase de Selección (Presentación de ofertas)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5511,7 +7599,24 @@
     "modalidad": "Licitación pública Obra Publica",
     "tipo_contrato": "Obra",
     "descripcion": "CONTRATO DE OBRA PARA EL MEJORAMIENTO DE LA INFRAESTRUCTURA FÍSICA DEL POLIDEPORTIVO DE LA INSTITUCIÓN EDUCATIVA LA POPA EN EL MUNICIPIO DE LA TEBAIDA, QUINDÍO, MEDIANTE LA CONSTRUCCIÓN DE UNA ESTRUCTURA METÁLICA PARA CUBIERTA",
-    "fecha_publicacion": "2026-08-20T00:00:00.000",
+    "fecha_publicacion": "2026-08-20T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-20T00:00:00",
+      "ultima_actualizacion": "2026-08-20T00:00:00",
+      "cierre_ofertas": "2026-09-11T00:00:00",
+      "apertura_ofertas": "2026-09-24T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 179
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5554,6 +7659,23 @@
     "tipo_contrato": "Consultoría",
     "descripcion": "INTERVENTORIA PARA LA PRIMERA FASE PARA LA ADQUISICIÓN, SUMINISTRO, IMPLEMENTACIÓN Y PUESTA EN FUNCIONAMIENTO DE PUNTOS DE GESTIÓN INTELIGENTE Y MEDIDAS PARA LA RED DE ALUMBRADO PÚBLICO DEL MUNICIPIO",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2021-06-29T00:00:00",
+      "apertura_ofertas": "2021-06-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 5,
+      "unidad": "mes(es)",
+      "texto": "5 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -5595,7 +7717,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 82
+    },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5637,7 +7776,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
-    "fecha_publicacion": "2026-08-13T00:00:00.000",
+    "fecha_publicacion": "2026-08-13T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-13T00:00:00",
+      "ultima_actualizacion": "2026-08-13T00:00:00",
+      "cierre_ofertas": "2026-09-03T00:00:00",
+      "apertura_ofertas": "2026-09-03T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 82
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5679,7 +7835,20 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "AUNAR ESFUERZOS ENTRE EL MUNICIPIO DE PALERMO Y LAS EMPRESAS PÚBLICAS DE PALERMO EPP E.S.P. PARA REALIZAR EL MEJORAMIENTO DEL ALUMBRADO PÚBLICO EN LA ZONA URBANA DEL MUNICIPIO DE PALERMO HUILA",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
@@ -5721,7 +7890,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "EJECUCIÓN DE LAS OBRAS COMPLEMENTARIAS DE MANTENIMIENTO EN LOS PATIOS DE MIJITAYO, BRICEÑO, TALLER ARANDA Y TALLER CHAPAL, CONSISTENTES EN LA ADECUACIÓN, REPARACIÓN, REPOSICIÓN Y MEJORAMIENTO DE ELEMENTOS DE INFRAESTRUCTURA FÍSICA, INCLUYENDO CUBIERTAS, REDES DE DRENAJE, ESTRUCTURAS METÁLICAS, ÁREAS DE CIRCULACIÓN, CERRAMIENTOS Y DEMÁS COMPONENTES REQUERIDOS PARA GARANTIZAR EL CORRECTO FUNCIONAMIENTO OPERATIVO DE LOS PATIOS, BAJO LA MODALIDAD DE PRECIOS UNITARIOS FIJOS",
-    "fecha_publicacion": "2026-09-25T00:00:00.000",
+    "fecha_publicacion": "2026-09-25T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-25T00:00:00",
+      "ultima_actualizacion": "2026-09-25T00:00:00",
+      "cierre_ofertas": "2026-10-16T00:00:00",
+      "apertura_ofertas": "2026-10-16T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 68,
+      "unidad": "día(s)",
+      "texto": "68 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": "Clarification submission",
     "etapa_comercial": "Borrador de Pliegos",
@@ -5764,6 +7950,19 @@
     "tipo_contrato": "Obra",
     "descripcion": "MODERNIZACIÓN DEL SISTEMA DE ILUMINACIÓN Y SUMINISTRO DE MATERIALES  ELÉCTRICOS PARA EL ADECUADO Y EFICIENTE FUNCIONAMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE LÍBANO, DEPARTAMENTO DEL TOLIMA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": "2026-05-14T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 34
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5805,7 +8004,20 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "ADQUISICIÓN Y SUMINISTRO DE MATERIALES Y ELEMENTOS PARA EL MANTENIMIENTO, CONSERVACIÓN, RECUPERACIÓN Y ADECUACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE HONDA - TOLIMA, Y PARA LA REPARACIÓN, RESTAURACIÓN, REPOSICIÓN DE COMPONENTES Y PUESTA EN SERVICIO DE LAS FIGURAS, ESTRUCTURAS E INSTALACIONES LUMINOSAS NAVIDEÑAS DE PROPIEDAD DEL MUNICIPIO, INCLUYENDO LOS INSUMOS ELÉCTRICOS, LUMINOSOS, METÁLICOS, DE FIJACIÓN Y DEMÁS ELEMENTOS REQUERIDOS PARA SU CONSERVACIÓN Y FUNCIONAMIENTO, DE AC...",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-21T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 20
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5847,7 +8059,20 @@
     "modalidad": "Selección abreviada subasta inversa",
     "tipo_contrato": "Suministros",
     "descripcion": "ADQUISICIÓN Y SUMINISTRO DE MATERIALES Y ELEMENTOS PARA EL MANTENIMIENTO, CONSERVACIÓN, RECUPERACIÓN Y ADECUACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO DEL MUNICIPIO DE HONDA - TOLIMA, Y PARA LA REPARACIÓN, RESTAURACIÓN, REPOSICIÓN DE COMPONENTES Y PUESTA EN SERVICIO DE LAS FIGURAS, ESTRUCTURAS E INSTALACIONES LUMINOSAS NAVIDEÑAS DE PROPIEDAD DEL MUNICIPIO, INCLUYENDO LOS INSUMOS ELÉCTRICOS, LUMINOSOS, METÁLICOS, DE FIJACIÓN Y DEMÁS ELEMENTOS REQUERIDOS PARA SU CONSERVACIÓN Y FUNCIONAMIENTO, DE AC...",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "fecha_publicacion": "2026-09-03T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-03T00:00:00",
+      "ultima_actualizacion": "2026-09-03T00:00:00",
+      "cierre_ofertas": "2026-09-18T00:00:00",
+      "apertura_ofertas": "2026-09-18T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 20
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5890,6 +8115,19 @@
     "tipo_contrato": "Suministros",
     "descripcion": "SUMINISTRO DE ELEMENTOS E INSUMOS ELÉCTRICOS PARA EL MANTENIMIENTO DE ALUMBRADO PÚBLICO E INFRAESTRUCTURA INSTITUCIONAL EN EL MUNICIPIO DE EL CARMEN DE VIBORAL.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-05-12T00:00:00",
+      "apertura_ofertas": "2026-05-19T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 23
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5931,7 +8169,20 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "REALIZAR LAS OBRAS DE ADECUACIÓN, MANTENIMIENTO Y CONSERVACIÓN DE LA CUBIERTA Y ESTRUCTURA METÁLICA DE LA PISCINA OLÍMPICA DE DUITAMA, PARA MEJORAR LAS CONDICIONES DE FUNCIONAMIENTO Y CONSERVACIÓN DEL ESCENARIO DEPORTIVO",
-    "fecha_publicacion": "2026-08-26T00:00:00.000",
+    "fecha_publicacion": "2026-08-26T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-26T00:00:00",
+      "ultima_actualizacion": "2026-08-26T00:00:00",
+      "cierre_ofertas": "2026-09-17T00:00:00",
+      "apertura_ofertas": "2026-09-17T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": null,
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 99
+    },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -5974,6 +8225,23 @@
     "tipo_contrato": "Compraventa",
     "descripcion": "COMPRA DE MATERIALES PARA AMPLIACIÓN Y MODERNIZACIÓN DEL ALUMBRADO PÚBLICO EN LA ZONA URBANA DEL MUNICIPIO DE INÍRIDA",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -6015,7 +8283,24 @@
     "modalidad": "Selección Abreviada de Menor Cuantía",
     "tipo_contrato": "Obra",
     "descripcion": "REALIZAR LA MODERNIZACIÓN Y EXPANSIÓN DEL ALUMBRADO PÚBLICO DEL MUNICIPIO DE PAICOL, DEPARTAMENTO DEL HUILA, PARA LA VIGENCIA 2026",
-    "fecha_publicacion": "2026-09-17T00:00:00.000",
+    "fecha_publicacion": "2026-09-17T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-17T00:00:00",
+      "ultima_actualizacion": "2026-09-17T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 11
+    },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
     "etapa_comercial": "Proceso Activo (Evaluación)",
@@ -6058,6 +8343,23 @@
     "tipo_contrato": "Obra",
     "descripcion": "No definido",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 120,
+      "unidad": "día(s)",
+      "texto": "120 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -6100,6 +8402,23 @@
     "tipo_contrato": "Otro",
     "descripcion": "INTERVENTORÍA TÉCNICA, AMBIENTAL, ADMINISTRATIVA, FINANCIERA, CONTABLE Y JURÍDICA A LA MODERNIZACIÓN Y AMPLIACIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO EN LA CIUDADELA LA BENDICIÓN EN EL MUNICIPIO DE YOPAL",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 150,
+      "unidad": "día(s)",
+      "texto": "150 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -6141,7 +8460,24 @@
     "modalidad": "Concurso de méritos abierto",
     "tipo_contrato": "Interventoría",
     "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA, SOCIAL Y AMBIENTAL AL PROYECTO IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
-    "fecha_publicacion": "2026-09-15T00:00:00.000",
+    "fecha_publicacion": "2026-09-15T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-15T00:00:00",
+      "ultima_actualizacion": "2026-09-15T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 6
+    },
     "estado_secop": "Evaluación",
     "fase": "Selección de ofertas (borrador)",
     "etapa_comercial": "Borrador de Pliegos",
@@ -6183,7 +8519,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "PRESTACION DE SERVICIOS DE MANTENIMIENTO PREVENTIVO Y CORRECTIVO A LAS PLANTAS ELECTRICAS DE LA ESE; Y EQUIPOS DE REFRIGERACIÓN, TALES COMO AIRES ACONDICIONADOS, NEVERAS Y DISPENSADORES DE AGUA, EXISTENTES EN LAS DIFERENTES SEDES DE LA E.S.E HOSPITAL MATERNO INFANTIL CIUDADELA METROPOLITANA DE SOLEDAD.",
-    "fecha_publicacion": "2026-09-14T00:00:00.000",
+    "fecha_publicacion": "2026-09-14T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-14T00:00:00",
+      "ultima_actualizacion": "2026-09-14T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 1,
+      "unidad": "mes(es)",
+      "texto": "1 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -6225,7 +8578,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Otro",
     "descripcion": "Realizar levantamientos topográficos, batimétricos y de estructuras Hidráulicas en los drenajes localizados en las zonas urbanas de Bugalagrande-Mestizal, San Pedro, Alcalá, Argelia y El Aguila, con el fin de generar insumos cartográficos técnicos que sirvan de base para la zonificación de amenazas por inundación y avenidas torrenciales en el marco de las actividades del laboratorio de Geoposicionamiento, Instrumentación y Metrología Geomática GOP de la Escuela de Ingeniería Civil y Geomática de",
-    "fecha_publicacion": "2026-09-07T00:00:00.000",
+    "fecha_publicacion": "2026-09-07T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-07T00:00:00",
+      "ultima_actualizacion": "2026-09-07T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 106,
+      "unidad": "día(s)",
+      "texto": "106 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -6267,7 +8637,24 @@
     "modalidad": "Contratación régimen especial",
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "CONTRATAR LA PRESTACION DE SERVICIOS DE UNA EMPRESA DE SERVICIOS TEMPORALES PARA EL ENVIO DE LOS TRABAJADORES EN MISION CON PERFIL PROFESIONAL Y TECNICO, PARA QUE EJECUTEN EN LAS AREAS ASISTENCIAL Y ADMINISTRATIVA CONFORME A LAS NECESIDADES DE LOS SERVICIOS QUE TIENE HABILITADOS LA EMPRESA SOCIAL DEL ESTADO HOSPITAL BAUDILIO ACERO DE TURMEQUE.",
-    "fecha_publicacion": "2026-09-03T00:00:00.000",
+    "fecha_publicacion": "2026-09-03T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-03T00:00:00",
+      "ultima_actualizacion": "2026-09-03T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 mes(es)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Licitación Abierta (En Ofertas)",
@@ -6310,6 +8697,23 @@
     "tipo_contrato": "Compraventa",
     "descripcion": "COMPRAVENTA DE MATERIALES ELECTRICOS NECESARIOS PARA PRESTAR LOS SERVICIOS DE MANTENIMIENTO Y REPOSICION DEL ALUMBRADO PÚBLICO EN EL MUNICIPIO DE CISNEROS-ANTIOQUIA EN EJECUCION DEL PLAN DE DESARROLLO MUNICIPAL",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2026-04-28T00:00:00",
+      "apertura_ofertas": "2026-05-05T00:00:00",
+      "adjudicacion": "2026-05-05T00:00:00"
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "día(s)",
+      "texto": "2 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 5,
+      "visualizaciones": 9
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
@@ -6352,6 +8756,23 @@
     "tipo_contrato": "Decreto 092 de 2017",
     "descripcion": "CONTRATAR LA ADMINISTRACION Y EJECUCION DEL PROGRAMA DE ALIMENTACION ESCOLAR PAE POR 45 DIAS CALENDARIOS ESCOLAR, EL CUAL BENEFICIARA A LOS NIÑOS Y NIÑAS FORMALMENTE MATRICULADOS EN EL SIMAT DE LAS INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE SANTO DOMINGO PARA EL CALENDARIO ESCOLAR DEL AÑO 2022.",
     "fecha_publicacion": null,
+    "fechas": {
+      "publicacion": null,
+      "ultima_actualizacion": null,
+      "cierre_ofertas": "2022-04-28T00:00:00",
+      "apertura_ofertas": "2022-04-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 45,
+      "unidad": "día(s)",
+      "texto": "45 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 7
+    },
     "estado_secop": "Borrador",
     "fase": null,
     "etapa_comercial": "Borrador de Pliegos",
@@ -6393,7 +8814,24 @@
     "modalidad": "Contratación directa",
     "tipo_contrato": "Otro",
     "descripcion": "OPERACION DEL PROGRAMA DE ALIMENTACION ESCOLAR PARA COMUNIDADES INDIGENAS A TRAVEZ DEL CUAL SE BRINDE UNA RACION ALIMENTICIA A LOS NIÑOS, NIÑAS Y ADOLECENTES DE LAS INSTITUCIONES OFICIALES (IEO) DEL MUNICIPIO DE CHIGORODO BENEFICIARIOS DEL PROGRAMA DE ALIMENTACION ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026, SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODO Y LA GOBERNACION DE ANTIOQUIA PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-23T00:00:00.000",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": null,
+      "apertura_ofertas": null,
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 43,
+      "unidad": "día(s)",
+      "texto": "43 día(s)"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
     "estado_secop": "Seleccionado",
     "fase": "Presentación de oferta",
     "etapa_comercial": "Proceso Activo (Seleccionado)",
