@@ -62,6 +62,14 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 
 ![Panel de sincronización](./img/18-sync-panel.png)
 
+**Diseño de créditos IA (2026-09-28):** en [`CREDITOS_IA.md`](./CREDITOS_IA.md), pendiente de decisiones del dueño (§9). Incluye:
+- qué es gratis en lote y qué va bajo demanda;
+- el monedero (reserva, cobro y reembolso, con caché compartida);
+- la arquitectura con Supabase;
+- el análisis de anexos (dataset `dmgg-8hin` verificado);
+- el perfil con skills;
+- los datasets confirmados por el diagnóstico: ofertas `wi7w-2nvm`, consorcios `ceth-n4bn`, PAA `9sue-ezhx` y multas `4n4q-k399`.
+
 ## Pendiente del dueño (bloquea el login real)
 
 - [ ] Crear un ID de cliente OAuth 2.0 tipo "Aplicación web" en Google Cloud Console.
