@@ -48,7 +48,7 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 
 **Cruce con contratos y rediseño de fichas (2026-09-28)**. Detalle en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md) §9.
 - `src/enrichers/contract_enricher.py` cruza con SECOP II Contratos (`jbjy-vk9h`) por `proceso_de_compra = id_del_portafolio` y agrega `contrato`, `historial_contratista` y `entidad_stats`. No guarda documentos, datos bancarios ni género.
-- Los procesos con contrato firmado pasan a adjudicados: el Radar B2B pasó de 22 a 39 leads.
+- Los procesos con contrato firmado pasan a adjudicados: el Radar B2B pasó de 22 a unos 38–39 leads.
 - Ficha nueva con badges (`ProfileEngine.cardBadges`, convención por tono), próximo paso (`ProfileEngine.nextStep`), vista de detalle con cronograma y contactos por rol, y guía de badges.
 - No hay API de DeepSeek (ni de otro LLM) configurada en el repo ni en el entorno. La planeación se hizo sin ella.
 - **Aprendizaje:** en `app.js`, toda constante usada por las fichas debe declararse al inicio del callback, antes del primer `renderView()`. Si no, se produce un error de "temporal dead zone" y no se pinta ninguna ficha. Pasó dos veces.

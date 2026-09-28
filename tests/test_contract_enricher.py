@@ -39,14 +39,19 @@ RAW_CONTRACT = {
 
 
 class FakeClient:
-    def __init__(self, fail=False):
+    def __init__(self, fail=False, fail_groups=(), flaky_groups=()):
         self.fail = fail
+        self.fail_groups = fail_groups
+        self.flaky = {g: 1 for g in flaky_groups}  # fallan una vez y luego responden
         self.calls = []
 
     def query(self, dataset_id, where=None, select=None, group=None, order=None, limit=100, offset=0):
         self.calls.append({"where": where, "select": select, "group": group})
-        if self.fail:
+        if self.fail or group in self.fail_groups:
             raise RuntimeError("sin red")
+        if self.flaky.get(group):
+            self.flaky[group] -= 1
+            raise TimeoutError("The read operation timed out")
         if select is None:
             return [RAW_CONTRACT]
         if group == "documento_proveedor":
@@ -144,6 +149,21 @@ class TestContractEnricher(unittest.TestCase):
         p["contrato"] = summarize_contracts([dict(RAW_CONTRACT, estado_contrato="Cancelado")])
         self.assertFalse(ContractEnricher.promote_signed_contract(p))
         self.assertEqual(p["etapa_comercial"], "Proceso Activo (Seleccionado)")
+
+    def test_timeout_is_retried(self):
+        client = FakeClient(flaky_groups=("nit_entidad",))
+        p = ContractEnricher(client, log=lambda _: None).enrich([prospect()])[0]
+        self.assertEqual(p["entidad_stats"]["contratos_12m"], 120)
+
+    def test_previous_run_is_used_as_fallback(self):
+        previous = [dict(prospect(), entidad_stats={"contratos_12m": 7, "valor_12m": 1e9,
+                                                     "pagado_sobre_facturado_pct": None, "proveedores_top": []})]
+        logs = []
+        client = FakeClient(fail_groups=("nit_entidad",))
+        p = ContractEnricher(client, log=logs.append, previous=previous).enrich([prospect()])[0]
+        self.assertEqual(p["entidad_stats"]["contratos_12m"], 7)
+        self.assertEqual(p["historial_contratista"]["contratos"], 14)
+        self.assertTrue(any("reutilizados" in line for line in logs))
 
     def test_network_failure_does_not_break_pipeline(self):
         logs = []

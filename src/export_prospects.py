@@ -276,7 +276,13 @@ def main():
 
     # Cruce con SECOP II Contratos: fechas de ejecución, pagos, contactos por rol,
     # historial del contratista y comportamiento de la entidad.
-    ContractEnricher(client).enrich(prospects)
+    previous_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "prospects_prototype_50.json")
+    try:
+        with open(previous_path, encoding="utf-8") as f:
+            previous = json.load(f)
+    except (OSError, ValueError):
+        previous = []
+    ContractEnricher(client, previous=previous).enrich(prospects)
 
     base_dir = os.path.dirname(os.path.dirname(__file__))
     data_dir = os.path.join(base_dir, "data")

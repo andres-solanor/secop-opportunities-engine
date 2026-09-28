@@ -73,6 +73,8 @@ FUNDING_SOURCES = {
 
 EMPTY_VALUES = (None, "", "No Definido", "No definido", "NO DEFINIDO", "N/A", "Sin Descripcion")
 BATCH_SIZE = 40
+AGGREGATE_BATCH_SIZE = 15  # las consultas agrupadas son pesadas: lotes pequeños evitan timeouts
+RETRIES = 1
 
 # Tipos de contrato relevantes para "proveedores principales" de una entidad: excluye créditos
 # bancarios y prestación de servicios de personas naturales (ruido y datos personales).
@@ -246,15 +248,40 @@ def summarize_contracts(raw_contracts: List[Dict[str, Any]]) -> Optional[Dict[st
 class ContractEnricher:
     """Cruza las oportunidades curadas con el dataset de contratos de SECOP II."""
 
-    def __init__(self, client: SocrataClient, log: Callable[[str], None] = print, today: Optional[datetime] = None):
+    def __init__(self, client: SocrataClient, log: Callable[[str], None] = print, today: Optional[datetime] = None,
+                 previous: Optional[List[Dict[str, Any]]] = None):
         self.client = client
         self.log = log
         self.today = today or datetime.utcnow()
         self.stats: Dict[str, int] = {}
+        # Datos de la corrida anterior: respaldo si hoy falla una consulta agregada.
+        self.previous_history: Dict[str, Dict[str, Any]] = {}
+        self.previous_entities: Dict[str, Dict[str, Any]] = {}
+        for p in previous or []:
+            nit = (p.get("contrato") or {}).get("nit_proveedor") or normalize_nit((p.get("contratista") or {}).get("nit"))
+            if nit and p.get("historial_contratista"):
+                self.previous_history[nit] = p["historial_contratista"]
+            entity = normalize_nit(p.get("nit_entidad"))
+            if entity and p.get("entidad_stats"):
+                self.previous_entities[entity] = p["entidad_stats"]
 
     # ---------- Consultas ----------
     def _query(self, **kwargs) -> List[Dict[str, Any]]:
-        return self.client.query(dataset_id=SocrataClient.CONTRACTS_DATASET, **kwargs)
+        last_error: Optional[Exception] = None
+        for _ in range(RETRIES + 1):
+            try:
+                return self.client.query(dataset_id=SocrataClient.CONTRACTS_DATASET, **kwargs)
+            except Exception as exc:  # noqa: BLE001 - se reintenta y luego se propaga
+                last_error = exc
+        raise last_error  # type: ignore[misc]
+
+    def _batched(self, label: str, items: List[str], size: int, fn: Callable[[List[str]], None]) -> None:
+        """Ejecuta `fn` por lotes; un lote fallido se registra sin descartar los demás."""
+        for batch in chunks(items, size):
+            try:
+                fn(batch)
+            except Exception as exc:  # noqa: BLE001
+                self.log(f"[!] Cruce con contratos ({label}): lote de {len(batch)} falló: {exc}")
 
     def fetch_contracts(self, prospects: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
         """Contratos por id de oportunidad. Cruza por id del portafolio (proceso de compra)."""
@@ -279,7 +306,8 @@ class ContractEnricher:
     def fetch_contractor_history(self, nits: List[str]) -> Dict[str, Dict[str, Any]]:
         """Trayectoria de cada contratista (todas las entidades, todo el histórico de SECOP II)."""
         history: Dict[str, Dict[str, Any]] = {}
-        for batch in chunks(nits):
+
+        def run(batch: List[str]) -> None:
             where = f"documento_proveedor in ({soql_in(batch)})"
             totals = self._query(
                 select="documento_proveedor, count(*) as contratos, sum(valor_del_contrato) as valor_total, "
@@ -308,13 +336,16 @@ class ContractEnricher:
                         "contratos": int(to_float(row.get("contratos")) or 0),
                         "valor": to_float(row.get("valor")),
                     })
+
+        self._batched("historial", nits, AGGREGATE_BATCH_SIZE, run)
         return history
 
     def fetch_entity_stats(self, nits: List[str]) -> Dict[str, Dict[str, Any]]:
         """Comportamiento de cada entidad en los últimos 12 meses: volumen, pagos y proveedores."""
         since = (self.today - timedelta(days=365)).strftime("%Y-%m-%dT00:00:00")
         stats: Dict[str, Dict[str, Any]] = {}
-        for batch in chunks(nits):
+
+        def run(batch: List[str]) -> None:
             where = f"nit_entidad in ({soql_in(batch)}) AND fecha_de_firma >= '{since}'"
             totals = self._query(
                 select="nit_entidad, count(*) as contratos, sum(valor_del_contrato) as valor, "
@@ -346,6 +377,8 @@ class ContractEnricher:
                         "contratos": int(to_float(row.get("contratos")) or 0),
                         "valor": to_float(row.get("valor")),
                     })
+
+        self._batched("entidades", nits, AGGREGATE_BATCH_SIZE, run)
         return stats
 
     # ---------- Orquestación ----------
@@ -401,10 +434,20 @@ class ContractEnricher:
         entity_nits = sorted({normalize_nit(p.get("nit_entidad")) for p in prospects if normalize_nit(p.get("nit_entidad"))})
         entities = self._safe("entidades", lambda: self.fetch_entity_stats(entity_nits))
 
+        reused = 0
         for p in prospects:
             nit = (p.get("contrato") or {}).get("nit_proveedor") or normalize_nit((p.get("contratista") or {}).get("nit"))
             p["historial_contratista"] = history.get(nit) if nit else None
-            p["entidad_stats"] = entities.get(normalize_nit(p.get("nit_entidad")) or "")
+            if nit and not p["historial_contratista"] and nit in self.previous_history:
+                p["historial_contratista"] = self.previous_history[nit]
+                reused += 1
+            entity = normalize_nit(p.get("nit_entidad")) or ""
+            p["entidad_stats"] = entities.get(entity)
+            if not p["entidad_stats"] and entity in self.previous_entities:
+                p["entidad_stats"] = self.previous_entities[entity]
+                reused += 1
+        if reused:
+            self.log(f"[*] {reused} bloques de historial/entidad reutilizados de la corrida anterior.")
 
         awarded = [p for p in prospects if "adjudicado" in (p.get("etapa_comercial") or "").lower()]
         self.log(

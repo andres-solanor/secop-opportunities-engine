@@ -251,7 +251,7 @@ Corrida del pipeline en GitHub Actions (run `36367795452`, 28-sep-2026, 150 opor
 
 ### 9.1 Cruce con contratos (`src/enrichers/contract_enricher.py`)
 
-**Llave de cruce confirmada con datos reales:** `contratos.proceso_de_compra` = `procesos.id_del_portafolio` (se guarda como `id_portafolio`). Se hacen 5 consultas por lotes de 40 identificadores. Cualquier fallo se registra en el log y el refresco diario continúa sin el cruce.
+**Llave de cruce confirmada con datos reales:** `contratos.proceso_de_compra` = `procesos.id_del_portafolio` (se guarda como `id_portafolio`). Las consultas van por lotes: 40 identificadores para los contratos y 15 para las agregadas (historial y entidades), que son pesadas. Cada lote se reintenta una vez; si aun así falla, se reutiliza el dato de la corrida anterior y el refresco diario continúa. Esto se agregó después de que un *timeout* dejara todas las entidades sin estadísticas en una corrida.
 
 | Bloque | Contenido | Uso en la app |
 |---|---|---|
@@ -262,7 +262,7 @@ Corrida del pipeline en GitHub Actions (run `36367795452`, 28-sep-2026, 150 opor
 
 **Qué no se guarda (privacidad):** números de documento, datos bancarios (banco, tipo y número de cuenta), género, domicilio ni nacionalidad del representante legal. Tampoco los "principales contratistas" de tipo prestación de servicios, que suelen ser personas naturales, ni los créditos bancarios. Hay pruebas que verifican que esos datos no se filtran.
 
-**Procesos con contrato firmado → adjudicados.** Si un proceso tiene un contrato válido (no en borrador, cancelado ni anulado), pasa a "Adjudicado (Contrato firmado)" aunque SECOP lo muestre en *Seleccionado* o *Evaluación*. Se completan el contratista y la fecha de adjudicación (fecha de firma). En la corrida real, **17 procesos** pasaron a adjudicados: el Radar B2B pasó de **22 a 39 leads**.
+**Procesos con contrato firmado → adjudicados.** Si un proceso tiene un contrato válido (no en borrador, cancelado ni anulado), pasa a "Adjudicado (Contrato firmado)" aunque SECOP lo muestre en *Seleccionado* o *Evaluación*. Se completan el contratista y la fecha de adjudicación (fecha de firma). En la corrida real, **17 procesos** pasaron a adjudicados: el Radar B2B pasó de **22 a 38–39 leads** (varía con cada corrida diaria).
 
 **Cobertura real** (run del 28-sep-2026, 150 oportunidades):
 
