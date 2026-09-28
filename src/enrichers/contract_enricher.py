@@ -254,6 +254,8 @@ class ContractEnricher:
         self.log = log
         self.today = today or datetime.utcnow()
         self.stats: Dict[str, int] = {}
+        self.errors: List[str] = []
+        self.summary: Dict[str, Any] = {}
         # Datos de la corrida anterior: respaldo si hoy falla una consulta agregada.
         self.previous_history: Dict[str, Dict[str, Any]] = {}
         self.previous_entities: Dict[str, Dict[str, Any]] = {}
@@ -282,6 +284,7 @@ class ContractEnricher:
                 fn(batch)
             except Exception as exc:  # noqa: BLE001
                 self.log(f"[!] Cruce con contratos ({label}): lote de {len(batch)} falló: {exc}")
+                self.errors.append(f"{label}: {exc}")
 
     def fetch_contracts(self, prospects: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
         """Contratos por id de oportunidad. Cruza por id del portafolio (proceso de compra)."""
@@ -387,6 +390,7 @@ class ContractEnricher:
             return fn()
         except Exception as exc:  # noqa: BLE001 - el refresco diario no debe caerse por el cruce
             self.log(f"[!] Cruce con contratos ({label}) falló: {exc}")
+            self.errors.append(f"{label}: {exc}")
             return {}
 
     @staticmethod
@@ -449,6 +453,14 @@ class ContractEnricher:
         if reused:
             self.log(f"[*] {reused} bloques de historial/entidad reutilizados de la corrida anterior.")
 
+        self.summary = {
+            "contratos": sum(1 for p in prospects if p["contrato"]),
+            "historial": sum(1 for p in prospects if p["historial_contratista"]),
+            "entidades": sum(1 for p in prospects if p["entidad_stats"]),
+            "promovidos": promoted,
+            "reutilizados": reused,
+            "errores": self.errors,
+        }
         awarded = [p for p in prospects if "adjudicado" in (p.get("etapa_comercial") or "").lower()]
         self.log(
             f"[*] Cruce con contratos: {sum(1 for p in prospects if p['contrato'])} oportunidades con contrato "

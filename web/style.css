@@ -1973,3 +1973,63 @@ body {
     padding: 0.5rem;
   }
 }
+
+/* ==========================================================
+   Estado de la sincronización con SECOP
+   ========================================================== */
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sync-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sync-ok .sync-dot { background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald); }
+.sync-late .sync-dot { background: var(--accent-amber); }
+.sync-stale .sync-dot { background: var(--accent-rose); }
+.sync-ok { border-color: rgba(16, 185, 129, 0.4); }
+.sync-late { border-color: rgba(245, 158, 11, 0.45); }
+.sync-stale { border-color: rgba(244, 63, 94, 0.5); }
+
+.detail .sync-pill {
+  cursor: default;
+}
+
+.sync-kpis {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.sync-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.sync-table th,
+.sync-table td {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sync-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+}

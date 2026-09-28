@@ -14,6 +14,7 @@ from src.enrichers.contract_enricher import ContractEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
 from src.services.socrata_client import SocrataClient
+from src.sync_status import build_meta, load_json, save_json, stamp_first_seen
 
 
 def harvest_target_records(client: SocrataClient) -> List[Dict[str, Any]]:
@@ -174,7 +175,7 @@ def report_field_coverage(prospects: List[Dict[str, Any]]) -> Dict[str, int]:
     return coverage
 
 
-def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str):
+def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str, meta: Dict[str, Any] = None):
     """Exports dataset to JSON, CSV, Markdown, and web/data.js."""
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(web_dir, exist_ok=True)
@@ -190,10 +191,12 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str)
     print(f"[+] Saved JSON dataset: {json_path}")
 
     # 2. Web JS Export (for GitHub Pages instant execution without CORS)
-    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    generated_at = (meta or {}).get("generated_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(web_js_path, "w", encoding="utf-8") as f:
         f.write("window.PROSPECTS_DATA = " + json.dumps(prospects, ensure_ascii=False, indent=2) + ";\n")
         f.write(f"window.PROSPECTS_UPDATED_AT = \"{generated_at}\";\n")
+        if meta:
+            f.write("window.PROSPECTS_META = " + json.dumps(meta, ensure_ascii=False, indent=2) + ";\n")
     print(f"[+] Updated Web App data: {web_js_path}")
 
     # 3. CSV Export
@@ -261,6 +264,7 @@ def export_taxonomy(web_dir: str):
 
 
 def main():
+    started_at = datetime.now(timezone.utc)
     client = SocrataClient()
     raw_records = harvest_target_records(client)
     if not raw_records:
@@ -282,12 +286,26 @@ def main():
             previous = json.load(f)
     except (OSError, ValueError):
         previous = []
-    ContractEnricher(client, previous=previous).enrich(prospects)
+    enricher = ContractEnricher(client, previous=previous)
+    enricher.enrich(prospects)
 
     base_dir = os.path.dirname(os.path.dirname(__file__))
     data_dir = os.path.join(base_dir, "data")
     web_dir = os.path.join(base_dir, "web")
-    export_dataset(prospects, data_dir, web_dir)
+
+    # Estado de la sincronización: nuevas (nunca vistas), salidas, nuevas adjudicadas e historial.
+    seen_path = os.path.join(data_dir, "seen_ids.json")
+    history_path = os.path.join(data_dir, "sync_history.json")
+    finished_at = datetime.now(timezone.utc)
+    seen = stamp_first_seen(prospects, load_json(seen_path, {}), previous, finished_at)
+    meta = build_meta(prospects, previous, len(raw_records), started_at, finished_at,
+                      enricher.summary, load_json(history_path, []))
+    save_json(seen_path, seen)
+    save_json(history_path, meta["historial"])
+    print(f"[*] Sincronización: {meta['nuevas']} nuevas, {meta['salieron']} salieron, "
+          f"{meta['nuevas_adjudicadas']} pasaron a adjudicadas, cruce de contratos: {meta['cruce_contratos']}.")
+
+    export_dataset(prospects, data_dir, web_dir, meta)
     export_taxonomy(web_dir)
     print("[*] Pipeline completed successfully!")
 

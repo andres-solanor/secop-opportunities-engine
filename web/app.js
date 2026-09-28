@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultsCount = document.getElementById('resultsCount');
   const btnResetFilters = document.getElementById('btnResetFilters');
   const btnExportCsv = document.getElementById('btnExportCsv');
-  const btnNewScan = document.getElementById('btnNewScan');
+  const META = window.PROSPECTS_META || null;
+  let onlyNew = false;
   const detailModal = document.getElementById('detailModal');
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
@@ -109,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     budgetSelect.value = '0';
     departmentSelect.value = 'todos';
     sortSelect.value = 'relevancia';
+    onlyNew = false;
     renderView();
     showToast('Filtros restablecidos', 'info');
   });
@@ -117,9 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     exportFilteredToCsv();
   });
 
-  btnNewScan.addEventListener('click', () => {
-    showToast('Datos sincronizados con SECOP II', 'success');
-  });
+  document.getElementById('syncStatus').addEventListener('click', openSyncModal);
 
   modalClose.addEventListener('click', () => {
     detailModal.classList.remove('active');
@@ -168,6 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Observatorio: Strictly for open tenders & drafts (prospective bidding before tender closes)
         if (isAdjudicado) return false;
       }
+
+      if (onlyNew && !item.nueva) return false;
 
       // Keyword query
       if (query) {
@@ -293,12 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return sorted;
   }
 
-  function freshnessText() {
-    const updated = window.PROSPECTS_UPDATED_AT ? new Date(window.PROSPECTS_UPDATED_AT) : null;
-    if (!updated || isNaN(updated.getTime())) return '';
-    return ` · <span class="freshness">Datos SECOP actualizados ${escapeHtml(formatDate(updated, { withTime: true }))}</span>`;
-  }
-
   // Helper: Format currency in Colombian business terms
   function formatCop(val) {
     if (val >= 1_000_000_000_000) {
@@ -411,7 +407,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Card Grid
   function renderCards(filtered = []) {
-    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas${freshnessText()}`;
+    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas${onlyNew ? ' · <button class="link-btn" id="clearOnlyNew">solo nuevas ✕</button>' : ''}`;
+    const clearOnlyNew = document.getElementById('clearOnlyNew');
+    if (clearOnlyNew) clearOnlyNew.addEventListener('click', () => { onlyNew = false; renderView(); });
 
     if (currentTab === 'parati' && !(Profile && Profile.getProfile())) {
       resultsCount.innerHTML = 'Oportunidades ordenadas por afinidad con tu perfil';
@@ -706,6 +704,119 @@ document.addEventListener('DOMContentLoaded', () => {
     detailModal.classList.add('active');
     detailModal.querySelector('.modal-content').scrollTop = 0;
   }
+
+  // ---------- Estado de la sincronización con SECOP ----------
+  const BOGOTA = { timeZone: 'America/Bogota' };
+
+  function colombiaTime(iso, withDate = true) {
+    const d = new Date(iso);
+    const opts = withDate
+      ? { ...BOGOTA, weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }
+      : { ...BOGOTA, hour: 'numeric', minute: '2-digit' };
+    return d.toLocaleString('es-CO', opts);
+  }
+
+  function hoursAgo(iso) {
+    return (Date.now() - new Date(iso).getTime()) / 3600000;
+  }
+
+  function agoText(iso) {
+    const h = hoursAgo(iso);
+    if (h < 1) return `hace ${Math.max(1, Math.round(h * 60))} min`;
+    if (h < 48) return `hace ${Math.round(h)} h`;
+    return `hace ${Math.round(h / 24)} días`;
+  }
+
+  // Verde: sincronización diaria al día; ámbar: se saltó una; rojo: datos viejos.
+  function syncHealth() {
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    if (!updated) return { cls: 'unknown', label: 'Sin información de sincronización' };
+    const h = hoursAgo(updated);
+    if (h <= 30) return { cls: 'ok', label: 'Al día' };
+    if (h <= 54) return { cls: 'late', label: 'Atrasada: no corrió la última sincronización' };
+    return { cls: 'stale', label: 'Desactualizada: revisa el workflow de GitHub Actions' };
+  }
+
+  function renderSyncStatus() {
+    const pill = document.getElementById('syncStatus');
+    const text = document.getElementById('syncStatusText');
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    const health = syncHealth();
+    pill.className = `sync-pill sync-${health.cls}`;
+    if (!updated) {
+      text.textContent = 'SECOP II · sin datos de sincronización';
+      return;
+    }
+    const nuevas = META ? ` · +${META.nuevas} nuevas` : '';
+    text.textContent = `SECOP ${agoText(updated)}${nuevas}`;
+    pill.title = `Última sincronización: ${colombiaTime(updated)} (hora Colombia) · ${health.label}`;
+  }
+
+  const CROSS_STATES = {
+    ok: '✅ Completo',
+    parcial: '⚠️ Parcial (se reutilizaron datos de la corrida anterior)',
+    con_errores: '⚠️ Con errores',
+    sin_datos: '— Sin datos'
+  };
+
+  function openSyncModal() {
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    const health = syncHealth();
+    if (!META) {
+      modalBody.innerHTML = `<div class="detail"><h2 class="detail-title">Sincronización con SECOP II</h2>
+        <p class="detail-sub">${updated ? `Última actualización: <b>${escapeHtml(colombiaTime(updated))}</b> (hora Colombia).` : 'Aún no hay información de sincronización.'} El detalle por corrida aparecerá después de la próxima sincronización.</p></div>`;
+      detailModal.classList.add('active');
+      return;
+    }
+    const c = META.fuentes?.contratos || {};
+    const history = META.historial || [];
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="sync-pill sync-${health.cls}"><span class="sync-dot"></span>${escapeHtml(health.label)}</span>
+        <h2 class="detail-title">Sincronización con SECOP II</h2>
+        <div class="detail-sub">Última corrida: <b>${escapeHtml(colombiaTime(META.generated_at))}</b> (hora Colombia) · ${escapeHtml(agoText(META.generated_at))} · duró ${escapeHtml(String(Math.round(META.duracion_s)))} s</div>
+
+        <section class="reveal-kpis sync-kpis">
+          <div class="rk"><div class="rk-value">+${META.nuevas}</div><div class="rk-label">Oportunidades nuevas (nunca vistas)</div></div>
+          <div class="rk"><div class="rk-value">${META.nuevas_adjudicadas}</div><div class="rk-label">Pasaron a adjudicadas</div></div>
+          <div class="rk"><div class="rk-value">${META.curadas}</div><div class="rk-label">Oportunidades curadas (${META.adjudicadas} adjudicadas)</div></div>
+          <div class="rk"><div class="rk-value">${META.procesos_consultados}</div><div class="rk-label">Procesos consultados en SECOP</div></div>
+        </section>
+        <p class="detail-sub">${META.salieron} oportunidades salieron de la selección respecto a la corrida anterior.
+          Próxima sincronización programada: <b>${escapeHtml(colombiaTime(META.proxima_programada))}</b>.</p>
+        ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver solo las ${META.nuevas} nuevas</button>` : ''}
+
+        <section class="detail-section">
+          <h3>Fuentes</h3>
+          <dl>
+            ${detailRow('SECOP II · Procesos', `✅ ${META.procesos_consultados} registros <small>(p6dx-8zbt)</small>`)}
+            ${detailRow('SECOP II · Contratos', `${escapeHtml(CROSS_STATES[META.cruce_contratos] || META.cruce_contratos)} <small>(jbjy-vk9h)</small><br><small>${c.contratos ?? 0} contratos · ${c.historial ?? 0} historiales · ${c.entidades ?? 0} entidades${c.promovidos ? ` · ${c.promovidos} procesos con contrato firmado pasaron a adjudicados` : ''}${c.reutilizados ? ` · ${c.reutilizados} datos reutilizados` : ''}</small>`)}
+            ${(c.errores || []).length ? detailRow('Errores', c.errores.map(e => `<small>${escapeHtml(e)}</small>`).join('<br>')) : ''}
+          </dl>
+        </section>
+
+        ${history.length ? `
+        <section class="detail-section">
+          <h3>Últimas sincronizaciones</h3>
+          <table class="sync-table">
+            <thead><tr><th>Fecha (Colombia)</th><th>Nuevas</th><th>A adjudicadas</th><th>Curadas</th><th>Contratos</th></tr></thead>
+            <tbody>${history.slice(0, 10).map(h => `<tr><td>${escapeHtml(colombiaTime(h.generated_at))}</td><td>+${h.nuevas}</td><td>${h.nuevas_adjudicadas}</td><td>${h.curadas}</td><td>${escapeHtml((CROSS_STATES[h.cruce_contratos] || '').split(' ')[0])}</td></tr>`).join('')}</tbody>
+          </table>
+        </section>` : ''}
+        <p class="legal-note">La sincronización corre automáticamente todos los días a las 6:00 a. m. (hora Colombia) en GitHub Actions. "Nueva" significa que el proceso nunca había aparecido en la selección.</p>
+      </div>`;
+    const btn = document.getElementById('showOnlyNew');
+    if (btn) btn.addEventListener('click', () => {
+      onlyNew = true;
+      detailModal.classList.remove('active');
+      if (currentTab === 'crm') activateTab('observatorio');
+      else renderView();
+      showToast(`Mostrando solo las oportunidades nuevas de esta pestaña`, 'info');
+    });
+    detailModal.classList.add('active');
+  }
+
+  renderSyncStatus();
 
   // ---------- Guía de badges ----------
   function openBadgeGuide() {

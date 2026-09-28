@@ -486,6 +486,7 @@
     contratista_recurrente: { icon: '🔁', label: 'Contratista recurrente', tone: 'good', tip: 'El contratista tiene 5 o más contratos en SECOP II.' },
     gran_comprador: { icon: '📈', label: 'Gran comprador', tone: 'good', tip: 'La entidad contrató más de $100 mil millones en los últimos 12 meses.' },
     pagos_registrados: { icon: '💳', label: 'Registra pagos', tone: 'good', tip: 'La entidad registra en SECOP II pagos por el 80% o más de lo facturado en 12 meses.' },
+    nueva: { icon: '🔔', label: 'Nueva', tone: 'good', tip: 'Apareció por primera vez en la última sincronización con SECOP II.' },
     sin_ganador: { icon: '👤', label: 'Sin ganador aún', tone: 'info', tip: 'El proceso todavía no tiene contratista seleccionado.' },
     consorcio: { icon: '🤝', label: 'Consorcio / UT', tone: 'info', tip: 'El ganador es un consorcio o unión temporal: las compras pueden hacerlas sus integrantes.' },
     pyme: { icon: '🏪', label: 'Pyme', tone: 'info', tip: 'El contratista está registrado como pyme.' },
@@ -518,6 +519,7 @@
       if (c.es_pyme) ids.push('pyme');
     }
 
+    if (item.nueva) ids.push('nueva');
     if (bw.state !== 'adjudicado') ids.push('sin_ganador');
     const consortium = (item.contratista && item.contratista.es_consorcio) || (c && c.es_grupo);
     if (bw.state === 'adjudicado' && consortium) ids.push('consorcio');
