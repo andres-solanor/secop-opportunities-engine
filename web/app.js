@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Card Grid
   function renderCards(filtered = []) {
-    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas${onlyNew ? ' · <button class="link-btn" id="clearOnlyNew">solo nuevas ✕</button>' : ''}`;
+    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> ${filtered.length === 1 ? 'oportunidad calificada' : 'oportunidades calificadas'}${onlyNew ? ' · <button class="link-btn" id="clearOnlyNew">solo nuevas ✕</button>' : ''}`;
     const clearOnlyNew = document.getElementById('clearOnlyNew');
     if (clearOnlyNew) clearOnlyNew.addEventListener('click', () => { onlyNew = false; renderView(); });
 
@@ -716,6 +716,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return d.toLocaleString('es-CO', opts);
   }
 
+  function plural(n, singular, pluralForm) {
+    return `${n} ${n === 1 ? singular : pluralForm}`;
+  }
+
   function hoursAgo(iso) {
     return (Date.now() - new Date(iso).getTime()) / 3600000;
   }
@@ -747,7 +751,7 @@ document.addEventListener('DOMContentLoaded', () => {
       text.textContent = 'SECOP II · sin datos de sincronización';
       return;
     }
-    const nuevas = META ? ` · +${META.nuevas} nuevas` : '';
+    const nuevas = META ? ` · +${plural(META.nuevas, 'nueva', 'nuevas')}` : '';
     text.textContent = `SECOP ${agoText(updated)}${nuevas}`;
     pill.title = `Última sincronización: ${colombiaTime(updated)} (hora Colombia) · ${health.label}`;
   }
@@ -782,9 +786,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="rk"><div class="rk-value">${META.curadas}</div><div class="rk-label">Oportunidades curadas (${META.adjudicadas} adjudicadas)</div></div>
           <div class="rk"><div class="rk-value">${META.procesos_consultados}</div><div class="rk-label">Procesos consultados en SECOP</div></div>
         </section>
-        <p class="detail-sub">${META.salieron} oportunidades salieron de la selección respecto a la corrida anterior.
+        <p class="detail-sub">${plural(META.salieron, 'oportunidad salió', 'oportunidades salieron')} de la selección respecto a la corrida anterior.
           Próxima sincronización programada: <b>${escapeHtml(colombiaTime(META.proxima_programada))}</b>.</p>
-        ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver solo las ${META.nuevas} nuevas</button>` : ''}
+        ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver ${META.nuevas === 1 ? 'la oportunidad nueva' : `solo las ${META.nuevas} nuevas`}</button>` : ''}
 
         <section class="detail-section">
           <h3>Fuentes</h3>

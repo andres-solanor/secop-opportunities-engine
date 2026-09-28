@@ -14,6 +14,8 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. |
 | `src/enrichers/scope_extractor.py` | `TAXONOMIES` (sectores y palabras clave), etapa comercial, score de calidad. **Fuente única del vocabulario de sectores.** |
 | `src/enrichers/contract_enricher.py` | Cruce con SECOP II Contratos (`jbjy-vk9h`): `contrato`, `historial_contratista`, `entidad_stats`. Promueve a adjudicados los procesos con contrato firmado. **Nunca** copia documentos, datos bancarios ni género. |
+| `src/sync_status.py` | Estado de la sincronización: nuevas (nunca vistas, registro en `data/seen_ids.json`), salidas, nuevas adjudicadas, estado del cruce e historial (`data/sync_history.json`). Se publica como `window.PROSPECTS_META`. |
+| `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; se corre con el workflow manual "Probe SECOP sources" (el entorno de desarrollo no tiene acceso a datos.gov.co). |
 | `src/export_prospects.py` | Pipeline: descarga → filtra → enriquece → exporta `data/*`, `web/data.js` y `web/taxonomy.js`. |
 | `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → auth → app → profile`. |
 | `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, CRM), filtros, KPIs, tarjetas, pitch, CSV. |
@@ -21,7 +23,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |
-| `web/data.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. |
+| `web/data.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. |
 | `.github/workflows/daily_secop_refresh.yml` | Cron diario 11:00 UTC: corre el pipeline y hace commit de datos. `ci/` guarda una copia de plantilla; mantener ambas iguales. |
 
 ## Comandos

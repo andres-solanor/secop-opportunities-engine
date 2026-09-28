@@ -37,7 +37,7 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 
 **Validación realizada**
 - `node --test tests/profile_engine.test.js`: 14 pruebas OK.
-- `python -m unittest discover tests`: 20 pruebas OK.
+- `python -m unittest discover tests`: 26 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
 
 **Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
@@ -52,6 +52,15 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - Ficha nueva con badges (`ProfileEngine.cardBadges`, convención por tono), próximo paso (`ProfileEngine.nextStep`), vista de detalle con cronograma y contactos por rol, y guía de badges.
 - No hay API de DeepSeek (ni de otro LLM) configurada en el repo ni en el entorno. La planeación se hizo sin ella.
 - **Aprendizaje:** en `app.js`, toda constante usada por las fichas debe declararse al inicio del callback, antes del primer `renderView()`. Si no, se produce un error de "temporal dead zone" y no se pinta ninguna ficha. Pasó dos veces.
+
+**Estado de sincronización con SECOP (2026-09-28)**
+- El botón "Actualizar Datos" era falso: solo mostraba un aviso de "sincronizado". Lo reemplaza un indicador real en la barra superior.
+  - Verde: datos de menos de 30 h. Ámbar: menos de 54 h. Rojo: más antiguos.
+  - Su panel muestra la última corrida (hora Colombia, duración), los procesos consultados, las oportunidades curadas, nuevas, salidas y nuevas adjudicadas, el estado de cada fuente, los errores, la próxima corrida y el historial de las últimas 10.
+- "Nueva" significa nunca vista en la selección (registro persistente `data/seen_ids.json`). Tiene badge 🔔 y un filtro "solo nuevas".
+- Herramienta de diagnóstico `src/tools/probe_sources.py` y workflow manual `probe_sources.yml` para explorar datasets desde Actions.
+
+![Panel de sincronización](./img/18-sync-panel.png)
 
 ## Pendiente del dueño (bloquea el login real)
 
