@@ -8,6 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let rawData = window.PROSPECTS_DATA || [];
   let currentTab = 'proveedores'; // 'parati' | 'proveedores' | 'observatorio' | 'crm'
   const Profile = window.SecopProfile;
+  const Engine = window.ProfileEngine;
+  const sortSelect = document.getElementById('sortSelect');
+  const DAY_MS = 24 * 3600 * 1000;
+  // Nota: las constantes usadas por las fichas deben declararse aquí, antes del primer renderView().
+  const ACRONYMS = ['PAE', 'ESP', 'E.S.P.', 'SAS', 'S.A.S.', 'LED', 'SGR', 'SGP', 'IPS', 'ESE', 'ICBF', 'SENA', 'EPM', 'UT', 'BPIN', 'CDP', 'INVIAS', 'ANI', 'IE', 'PTAR', 'PTAP', 'SENA', 'EDU'];
+  const MODALITY_LABELS = [
+    ['licitacion publica', 'Licitación pública'],
+    ['menor cuantia', 'Menor cuantía'],
+    ['subasta', 'Subasta inversa'],
+    ['concurso de meritos', 'Concurso de méritos'],
+    ['minima cuantia', 'Mínima cuantía'],
+    ['contratacion directa', 'Contratación directa'],
+    ['regimen especial', 'Régimen especial']
+  ];
+
+  // Etiqueta de la ficha según la ventana real de participación (ProfileEngine.bidWindow).
+  const STATE_LABELS = {
+    abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
+    borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
+    cerrada: { text: 'Ofertas cerradas', cls: 'stage-cerrada' },
+    adjudicado: { text: 'Adjudicado', cls: 'stage-adjudicado' }
+  };
   const MIN_MATCH_SCORE = 55;
   let matchCache = new Map();
   let crmState = JSON.parse(localStorage.getItem('secop_crm_state') || '{}');
@@ -23,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultsCount = document.getElementById('resultsCount');
   const btnResetFilters = document.getElementById('btnResetFilters');
   const btnExportCsv = document.getElementById('btnExportCsv');
-  const btnNewScan = document.getElementById('btnNewScan');
+  const META = window.PROSPECTS_META || null;
+  let onlyNew = false;
   const detailModal = document.getElementById('detailModal');
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
@@ -76,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter input listeners
-  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect].forEach(el => {
+  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
   });
 
@@ -86,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
     stageSelect.value = 'todos';
     budgetSelect.value = '0';
     departmentSelect.value = 'todos';
+    sortSelect.value = 'relevancia';
+    onlyNew = false;
     renderView();
     showToast('Filtros restablecidos', 'info');
   });
@@ -94,9 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     exportFilteredToCsv();
   });
 
-  btnNewScan.addEventListener('click', () => {
-    showToast('Datos sincronizados con SECOP II', 'success');
-  });
+  document.getElementById('syncStatus').addEventListener('click', openSyncModal);
 
   modalClose.addEventListener('click', () => {
     detailModal.classList.remove('active');
@@ -146,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isAdjudicado) return false;
       }
 
+      if (onlyNew && !item.nueva) return false;
+
       // Keyword query
       if (query) {
         const corpus = [
@@ -189,7 +214,85 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentTab === 'parati') {
       filtered.sort((a, b) => getMatch(b).score - getMatch(a).score || (b.precio || 0) - (a.precio || 0));
     }
-    return filtered;
+    return sortByDate(filtered);
+  }
+
+  // ---------- Fechas ----------
+  function startOfDay(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function hasTime(d) {
+    return d.getHours() !== 0 || d.getMinutes() !== 0;
+  }
+
+  function formatDate(d, { withTime = false } = {}) {
+    if (!d) return '';
+    const sameYear = d.getFullYear() === new Date().getFullYear();
+    let txt = d.toLocaleDateString('es-CO', { weekday: withTime ? 'short' : undefined, day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric' });
+    if (withTime && hasTime(d)) txt += `, ${d.toLocaleTimeString('es-CO', { hour: 'numeric', minute: '2-digit' })}`;
+    return txt;
+  }
+
+  function relativeDays(d) {
+    const days = Math.round((startOfDay(d) - startOfDay(new Date())) / DAY_MS);
+    if (days === 0) return 'hoy';
+    if (days === 1) return 'mañana';
+    if (days === -1) return 'ayer';
+    return days > 0 ? `en ${days} días` : `hace ${-days} días`;
+  }
+
+  /** Bloque de fechas de la ficha: lo más accionable primero (cierre o adjudicación). */
+  function cardDatesHtml(item) {
+    const bw = Engine.bidWindow(item);
+    const rows = [];
+
+    if (bw.state === 'abierta' && bw.date) {
+      const urgency = bw.days < 3 ? 'urgent' : bw.days < 7 ? 'soon' : '';
+      rows.push(`<div class="date-main ${urgency}">⏳ Cierra ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date, { withTime: true }))}</span></div>`);
+    } else if (bw.state === 'abierta') {
+      rows.push('<div class="date-main muted">⏳ Cierre de ofertas: consúltalo en el pliego</div>');
+    } else if (bw.state === 'borrador') {
+      rows.push('<div class="date-main">📝 Borrador: aún puedes presentar observaciones<span>La fecha de cierre se fija en el pliego definitivo</span></div>');
+    } else if (bw.state === 'cerrada') {
+      rows.push(`<div class="date-main muted">🔒 Ya no recibe ofertas${bw.date ? `<span>Cerró el ${escapeHtml(formatDate(bw.date, { withTime: true }))}</span>` : '<span>En evaluación o selección del contratista</span>'}</div>`);
+    } else if (bw.state === 'adjudicado') {
+      // Un lead adjudicado hace más de 90 días probablemente ya compró sus insumos principales.
+      const aged = bw.date && (Date.now() - bw.date.getTime()) / DAY_MS > 90;
+      rows.push(`<div class="date-main won ${aged ? 'aged' : ''}">🏆 ${bw.date ? `Adjudicado ${escapeHtml(relativeDays(bw.date))}<span>${escapeHtml(formatDate(bw.date))}${aged ? ' · contrato probablemente avanzado' : ''}</span>` : 'Adjudicado<span>Fecha de adjudicación no reportada</span>'}</div>`);
+    }
+
+    const meta = [];
+    if (bw.published) meta.push(`📅 Publicado ${escapeHtml(formatDate(bw.published))} (${escapeHtml(relativeDays(bw.published))})`);
+    const term = Engine.formatTerm(item.plazo);
+    if (term) meta.push(`⏱️ Plazo de ejecución: ${escapeHtml(term)}`);
+    if (meta.length) rows.push(`<div class="date-meta">${meta.join('<span class="dot">·</span>')}</div>`);
+
+    return `<div class="card-dates">${rows.join('')}</div>`;
+  }
+
+  /** Orden por fechas cuando el usuario lo pide; si no, se respeta el orden de relevancia. */
+  function sortByDate(list) {
+    const mode = sortSelect.value;
+    if (mode === 'relevancia') return list;
+    const sorted = [...list];
+    if (mode === 'cierre') {
+      // Primero lo que cierra antes (y aún está abierto); después el resto por publicación.
+      const key = it => {
+        const bw = Engine.bidWindow(it);
+        return bw.state === 'abierta' && bw.date ? bw.date.getTime() : Infinity;
+      };
+      sorted.sort((a, b) => key(a) - key(b));
+    } else if (mode === 'recientes') {
+      const key = it => {
+        const bw = Engine.bidWindow(it);
+        return (bw.state === 'adjudicado' && bw.date ? bw.date : bw.published)?.getTime() || 0;
+      };
+      sorted.sort((a, b) => key(b) - key(a));
+    } else if (mode === 'valor') {
+      sorted.sort((a, b) => (b.precio || 0) - (a.precio || 0));
+    }
+    return sorted;
   }
 
   // Helper: Format currency in Colombian business terms
@@ -304,7 +407,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Card Grid
   function renderCards(filtered = []) {
-    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> oportunidades calificadas`;
+    resultsCount.innerHTML = `Mostrando <b>${filtered.length}</b> ${filtered.length === 1 ? 'oportunidad calificada' : 'oportunidades calificadas'}${onlyNew ? ' · <button class="link-btn" id="clearOnlyNew">solo nuevas ✕</button>' : ''}`;
+    const clearOnlyNew = document.getElementById('clearOnlyNew');
+    if (clearOnlyNew) clearOnlyNew.addEventListener('click', () => { onlyNew = false; renderView(); });
 
     if (currentTab === 'parati' && !(Profile && Profile.getProfile())) {
       resultsCount.innerHTML = 'Oportunidades ordenadas por afinidad con tu perfil';
@@ -344,6 +449,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pitchBtn.addEventListener('click', () => openPitchModal(item));
       }
 
+      const detailBtn = cardEl.querySelector('.btn-detail');
+      if (detailBtn) detailBtn.addEventListener('click', () => openDetailModal(item));
+
       // CRM Status Selector
       const crmSelect = cardEl.querySelector('.crm-select');
       if (crmSelect) {
@@ -354,100 +462,127 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Ficha de oportunidad ----------
+
+  /** Pasa a minúsculas los textos en MAYÚSCULAS sostenidas, conservando siglas conocidas. */
+  function readableText(text) {
+    if (!text) return '';
+    const letters = text.replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ]/g, '');
+    const upper = letters.replace(/[^A-ZÁÉÍÓÚÑ]/g, '').length;
+    if (!letters.length || upper / letters.length < 0.7) return text;
+    let out = text.toLowerCase().replace(/\s+/g, ' ').trim();
+    ACRONYMS.forEach(ac => {
+      const re = new RegExp(`(^|[^a-záéíóúñ])${ac.toLowerCase().replace(/\./g, '\\.')}(?=[^a-záéíóúñ]|$)`, 'g');
+      out = out.replace(re, (m, pre) => pre + ac);
+    });
+    return out.charAt(0).toUpperCase() + out.slice(1);
+  }
+
+  /** "MARTHA ISABEL HERNANDEZ" → "Martha Isabel Hernandez". */
+  function personName(name) {
+    if (!name) return '';
+    return name.toLowerCase().replace(/(^|[\s-])([a-záéíóúñ])/g, (m, pre, ch) => pre + ch.toUpperCase());
+  }
+
+  function modalityLabel(item) {
+    const m = Engine.normalize(item.modalidad);
+    const found = MODALITY_LABELS.find(([k]) => m.includes(k));
+    return found ? found[1] : (item.modalidad || '');
+  }
+
+  function badgeHtml(b) {
+    return `<span class="badge badge-${b.tone}" title="${escapeHtml(b.tip)}">${b.icon} ${escapeHtml(b.label)}</span>`;
+  }
+
+  function winnerName(item) {
+    const n = item.contratista?.nombre;
+    return n && !['Pendiente por Adjudicar', 'No Definido', 'No definido'].includes(n) ? n : '';
+  }
+
+  function validNit(nit) {
+    return nit && !['N/A', 'No Definido', 'No definido'].includes(nit) ? nit : '';
+  }
+
+  function historyLine(h) {
+    if (!h || !h.contratos) return '';
+    const since = h.primero ? ` desde ${new Date(h.primero).getFullYear()}` : '';
+    return `${h.contratos} ${h.contratos === 1 ? 'contrato' : 'contratos'} en SECOP II · ${Engine.formatCopShort(h.valor_total || 0)}${since}`;
+  }
+
   // Create Card HTML Template
   function createCardHtml(item) {
-    const isHigh = item.score_calidad >= 80;
-    const scoreClass = isHigh ? 'score-high' : 'score-med';
     const currentStatus = crmState[item.id]?.status || 'ninguno';
-
-    let stagePillClass = 'stage-ofertas';
-    if (item.etapa_comercial.includes('Adjudicado')) stagePillClass = 'stage-adjudicado';
-    if (item.etapa_comercial.includes('Borrador')) stagePillClass = 'stage-borrador';
-
-    const materialBadges = (item.materiales_detectados || []).map(mat => {
-      const isSteel = ['acero', 'vigas', 'estructura metálica', 'cerchas', 'varilla'].some(k => mat.includes(k));
-      const isSolar = ['solar', 'fotovoltaic', 'alumbrado', 'luminaria', 'eléctrica', 'electrica', 'transformador'].some(k => mat.includes(k));
-      let tagClass = 'horeca';
-      if (isSteel) tagClass = 'steel';
-      else if (isSolar) tagClass = 'solar';
-      return `<span class="material-tag ${tagClass}">🏷️ ${escapeHtml(mat)}</span>`;
-    }).join('');
-
-    const sectorsBadges = (item.sectores || []).map(s => {
-      return `<span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">${escapeHtml(s.name)}</span>`;
-    }).join(' • ');
-
-    const contractorName = item.contratista?.nombre || 'Pendiente por Adjudicar';
-    const isConsortium = item.contratista?.es_consorcio;
+    const bw = Engine.bidWindow(item);
+    const stateLabel = STATE_LABELS[bw.state];
     const match = getMatch(item);
-    const matchBadge = match
+
+    // Un solo puntaje visible: afinidad si hay perfil; si no, calidad del lead.
+    const scoreBadge = match
       ? `<span class="match-pill ${match.score >= 75 ? 'match-high' : match.score >= MIN_MATCH_SCORE ? '' : 'match-low'}" title="Afinidad con tu perfil">✨ ${match.score}%</span>`
+      : `<div class="score-badge ${item.score_calidad >= 80 ? 'score-high' : 'score-med'}" title="Calidad del lead: sector, valor y etapa (0-100)">⚡ ${item.score_calidad} pts</div>`;
+
+    const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
+    const metaLine = [modalityLabel(item), Engine.formatTerm(item.plazo)].filter(Boolean).map(escapeHtml).join(' · ');
+    const badges = Engine.cardBadges(item);
+    const visibleBadges = badges.slice(0, 4);
+    const moreBadges = badges.length - visibleBadges.length;
+    const reasons = match && match.reasons.length
+      ? `<div class="match-line">✨ ${match.reasons.slice(0, 3).map(escapeHtml).join(' · ')}</div>`
       : '';
-    const matchReasons = match && currentTab === 'parati' && match.reasons.length
-      ? `<ul class="match-reasons">${match.reasons.map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul>`
-      : '';
+
+    const winner = winnerName(item);
+    const legalRep = item.contrato?.contactos?.representante_legal;
+    const history = historyLine(item.historial_contratista);
+    const contractorBlock = winner ? `
+          <div class="contractor-box">
+            <div class="contractor-box-title"><span>🏆 Contratista</span>${validNit(item.contratista?.nit) ? `<span>NIT ${escapeHtml(item.contratista.nit)}</span>` : ''}</div>
+            <div class="contractor-name">${escapeHtml(winner)}</div>
+            ${legalRep ? `<div class="contractor-meta">Representante legal: ${escapeHtml(personName(legalRep))}</div>` : ''}
+            ${history ? `<div class="contractor-meta">${escapeHtml(history)}</div>` : ''}
+          </div>` : '';
+
+    const step = Engine.nextStep(item);
+    const stepDate = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
 
     return `
       <article class="opp-card" id="card-${item.id}">
         <div>
           <div class="opp-card-header">
             <div>
-              <span class="stage-pill ${stagePillClass}">
+              <span class="stage-pill ${stateLabel.cls}" title="${escapeHtml(item.etapa_comercial)} · Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">
                 <span class="pulse-dot"></span>
-                ${escapeHtml(item.etapa_comercial.split('(')[0].trim())}
+                ${stateLabel.text}
               </span>
-              <div style="margin-top: 0.4rem;">${sectorsBadges}</div>
+              <div class="card-sectors">${sectors}</div>
             </div>
-            <div class="card-badges">
-              ${matchBadge}
-              <div class="score-badge ${scoreClass}">
-                <span>⚡</span> ${item.score_calidad} pts
-              </div>
-            </div>
+            <div class="card-badges">${scoreBadge}</div>
           </div>
-          ${matchReasons}
 
-          <div class="opp-price">${escapeHtml(item.precio_formateado)}</div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
+          ${metaLine ? `<div class="opp-meta">${metaLine}</div>` : ''}
           <div class="opp-entity">
             <span>🏛️</span>
             <strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong>
           </div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-            📍 ${escapeHtml(item.ciudad || '')}, ${escapeHtml(item.departamento || '')} • Ref: <code>${escapeHtml(item.referencia || item.id)}</code>
-          </div>
+          <div class="opp-location">📍 ${escapeHtml([item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', '))}</div>
+          ${cardDatesHtml(item)}
+          ${visibleBadges.length ? `<div class="badge-row">${visibleBadges.map(badgeHtml).join('')}${moreBadges > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${moreBadges}</span>` : ''}</div>` : ''}
 
           <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">
-            ${escapeHtml(item.descripcion || 'Sin descripción detallada.')}
+            ${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}
           </p>
+          ${reasons}
+          ${contractorBlock}
 
-          ${materialBadges ? `<div class="material-tags">${materialBadges}</div>` : ''}
-
-          <div class="contractor-box">
-            <div class="contractor-box-title">
-              <span>Contratista / Adjudicatario</span>
-              ${isConsortium ? `<span class="consortium-tag">Consorcio</span>` : ''}
-            </div>
-            <div class="contractor-name">${escapeHtml(contractorName)}</div>
-            ${item.contratista?.nit && item.contratista.nit !== 'N/A' && item.contratista.nit !== 'No Definido' ? 
-              `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem;">NIT: ${escapeHtml(item.contratista.nit)}</div>` : ''}
-          </div>
-
-          <div class="action-banner">
-            <strong>🎯 Estrategia:</strong> ${escapeHtml(item.accion_sugerida)}
-          </div>
+          <div class="next-step">➜ ${escapeHtml(step.text)}${stepDate}</div>
         </div>
 
         <div class="card-actions">
-          <button class="btn btn-primary btn-pitch" style="padding: 0.5rem 0.75rem;">
-            <span>💬</span> Generar Pitch
-          </button>
-          ${item.url_secop ? `
-            <a href="${item.url_secop}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 0.75rem;" title="Abrir expediente en SECOP II">
-              <span>🔗</span> SECOP II
-            </a>
-          ` : ''}
-          <select class="filter-select crm-select" style="min-width: 130px; font-size: 0.75rem; padding: 0.4rem 0.6rem;">
-            <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar en CRM</option>
+          <button class="btn btn-primary btn-pitch">💬 Pitch</button>
+          <button class="btn btn-outline btn-detail">🔎 Detalle</button>
+          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>` : ''}
+          <select class="filter-select crm-select" aria-label="Guardar en CRM">
+            <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
             <option value="contactado" ${currentStatus === 'contactado' ? 'selected' : ''}>📞 Contactado</option>
             <option value="negociacion" ${currentStatus === 'negociacion' ? 'selected' : ''}>💼 En Cotización</option>
@@ -457,6 +592,261 @@ document.addEventListener('DOMContentLoaded', () => {
       </article>
     `;
   }
+
+  // ---------- Vista de detalle ----------
+  function detailRow(label, value) {
+    return value ? `<div class="dl-row"><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>` : '';
+  }
+
+  function openDetailModal(item) {
+    const bw = Engine.bidWindow(item);
+    const c = item.contrato;
+    const h = item.historial_contratista;
+    const e = item.entidad_stats;
+    const f = item.fechas || {};
+    const d = v => (v ? escapeHtml(formatDate(new Date(v))) : '');
+    const money = v => (v || v === 0 ? escapeHtml(Engine.formatCopShort(v)) : '');
+    const badges = Engine.cardBadges(item);
+    const step = Engine.nextStep(item);
+
+    const timeline = [
+      ['Publicación', f.publicacion],
+      ['Cierre de ofertas', f.cierre_ofertas],
+      ['Adjudicación', f.adjudicacion],
+      ['Firma del contrato', c?.fecha_firma],
+      ['Inicio de ejecución', c?.inicio_ejecucion],
+      ['Fin de ejecución', c?.fin_ejecucion]
+    ].filter(([, v]) => v).sort((a, b) => new Date(a[1]) - new Date(b[1]));
+    const now = Date.now();
+
+    const contacts = c ? [
+      ['Representante legal del contratista', c.contactos?.representante_legal, winnerName(item)],
+      ['Ordenador del gasto (entidad)', c.contactos?.ordenador_gasto, item.entidad],
+      ['Supervisor del contrato (entidad)', c.contactos?.supervisor, item.entidad],
+      ['Ordenador de pago (entidad)', c.contactos?.ordenador_pago, item.entidad]
+    ].filter(([, name]) => name) : [];
+
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="stage-pill ${STATE_LABELS[bw.state].cls}"><span class="pulse-dot"></span>${STATE_LABELS[bw.state].text}</span>
+        <h2 class="detail-title">${escapeHtml(item.entidad || '')}</h2>
+        <div class="detail-sub">${escapeHtml(Engine.formatCopShort(item.precio || 0))} · ${escapeHtml(modalityLabel(item))} · Ref. <code>${escapeHtml(item.referencia || item.id)}</code></div>
+        <div class="next-step">➜ ${escapeHtml(step.text)}${step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b>` : ''}</div>
+        ${badges.length ? `<div class="badge-row">${badges.map(b => `${badgeHtml(b)}`).join('')}</div>` : ''}
+
+        <section class="detail-section">
+          <h3>Objeto</h3>
+          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+        </section>
+
+        ${timeline.length ? `
+        <section class="detail-section">
+          <h3>Cronograma</h3>
+          <ol class="timeline">
+            ${timeline.map(([label, v]) => `<li class="${new Date(v).getTime() > now ? 'future' : ''}"><span>${escapeHtml(label)}</span><b>${d(v)}</b><em>${escapeHtml(relativeDays(new Date(v)))}</em></li>`).join('')}
+          </ol>
+        </section>` : ''}
+
+        ${c ? `
+        <section class="detail-section">
+          <h3>Contrato ${c.cantidad > 1 ? `(${c.cantidad} lotes)` : ''}</h3>
+          <dl>
+            ${detailRow('Estado', escapeHtml(c.estado || ''))}
+            ${detailRow('Valor', money(c.valor))}
+            ${detailRow('Facturado / pagado', c.valor_facturado || c.valor_pagado ? `${money(c.valor_facturado || 0)} / ${money(c.valor_pagado || 0)}` : '')}
+            ${detailRow('Días adicionados', c.dias_adicionados ? `${c.dias_adicionados} días` : '')}
+            ${detailRow('Origen de los recursos', escapeHtml((c.origen_recursos || []).join(', ')))}
+            ${detailRow('Destino del gasto', escapeHtml(c.destino_gasto || ''))}
+            ${detailRow('Lugar de ejecución', escapeHtml(c.direccion_ejecucion || ''))}
+            ${detailRow('Condiciones de entrega', escapeHtml(c.condiciones_entrega || ''))}
+          </dl>
+        </section>` : ''}
+
+        ${winnerName(item) ? `
+        <section class="detail-section">
+          <h3>Contratista</h3>
+          <dl>
+            ${detailRow('Nombre', escapeHtml(winnerName(item)))}
+            ${detailRow('NIT', escapeHtml(validNit(item.contratista?.nit)))}
+            ${detailRow('Trayectoria', escapeHtml(historyLine(h)))}
+            ${detailRow('Último contrato', h?.ultimo ? d(h.ultimo) : '')}
+            ${detailRow('Entidades con las que más contrata', h?.entidades_top?.length ? h.entidades_top.map(t => `${escapeHtml(t.nombre)} <small>(${t.contratos} · ${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : ''}
+
+        ${contacts.length ? `
+        <section class="detail-section">
+          <h3>Contactos por rol</h3>
+          <ul class="contact-list">
+            ${contacts.map(([role, name, org]) => `<li><b>${escapeHtml(personName(name))}</b><span>${escapeHtml(role)}${org ? ` · ${escapeHtml(org)}` : ''}</span></li>`).join('')}
+          </ul>
+          <p class="legal-note">Fuente: SECOP II · Contratos electrónicos (datos abiertos). Son datos públicos de la contratación (Ley 1712 de 2014); úsalos solo con finalidad comercial legítima (Ley 1581 de 2012). Las comunicaciones con la entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
+        </section>` : ''}
+
+        ${e ? `
+        <section class="detail-section">
+          <h3>La entidad en los últimos 12 meses</h3>
+          <dl>
+            ${detailRow('Contratos firmados', escapeHtml(String(e.contratos_12m)))}
+            ${detailRow('Valor contratado', money(e.valor_12m))}
+            ${detailRow('Pagos registrados', e.pagado_sobre_facturado_pct != null ? `${e.pagado_sobre_facturado_pct}% de lo facturado <small>(muchas entidades no registran todos sus pagos en SECOP)</small>` : '')}
+            ${detailRow('Principales contratistas (obra y suministro)', e.proveedores_top?.length ? e.proveedores_top.map(t => `${escapeHtml(t.nombre)} <small>(${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : ''}
+
+        <div class="detail-actions">
+          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
+          <button class="btn btn-primary" id="detailPitch">💬 Generar pitch</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('detailPitch').addEventListener('click', () => openPitchModal(item));
+    detailModal.classList.add('active');
+    detailModal.querySelector('.modal-content').scrollTop = 0;
+  }
+
+  // ---------- Estado de la sincronización con SECOP ----------
+  const BOGOTA = { timeZone: 'America/Bogota' };
+
+  function colombiaTime(iso, withDate = true) {
+    const d = new Date(iso);
+    const opts = withDate
+      ? { ...BOGOTA, weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }
+      : { ...BOGOTA, hour: 'numeric', minute: '2-digit' };
+    return d.toLocaleString('es-CO', opts);
+  }
+
+  function plural(n, singular, pluralForm) {
+    return `${n} ${n === 1 ? singular : pluralForm}`;
+  }
+
+  function hoursAgo(iso) {
+    return (Date.now() - new Date(iso).getTime()) / 3600000;
+  }
+
+  function agoText(iso) {
+    const h = hoursAgo(iso);
+    if (h < 1) return `hace ${Math.max(1, Math.round(h * 60))} min`;
+    if (h < 48) return `hace ${Math.round(h)} h`;
+    return `hace ${Math.round(h / 24)} días`;
+  }
+
+  // Verde: sincronización diaria al día; ámbar: se saltó una; rojo: datos viejos.
+  function syncHealth() {
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    if (!updated) return { cls: 'unknown', label: 'Sin información de sincronización' };
+    const h = hoursAgo(updated);
+    if (h <= 30) return { cls: 'ok', label: 'Al día' };
+    if (h <= 54) return { cls: 'late', label: 'Atrasada: no corrió la última sincronización' };
+    return { cls: 'stale', label: 'Desactualizada: revisa el workflow de GitHub Actions' };
+  }
+
+  function renderSyncStatus() {
+    const pill = document.getElementById('syncStatus');
+    const text = document.getElementById('syncStatusText');
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    const health = syncHealth();
+    pill.className = `sync-pill sync-${health.cls}`;
+    if (!updated) {
+      text.textContent = 'SECOP II · sin datos de sincronización';
+      return;
+    }
+    const nuevas = META ? ` · +${plural(META.nuevas, 'nueva', 'nuevas')}` : '';
+    text.textContent = `SECOP ${agoText(updated)}${nuevas}`;
+    pill.title = `Última sincronización: ${colombiaTime(updated)} (hora Colombia) · ${health.label}`;
+  }
+
+  const CROSS_STATES = {
+    ok: '✅ Completo',
+    parcial: '⚠️ Parcial (se reutilizaron datos de la corrida anterior)',
+    con_errores: '⚠️ Con errores',
+    sin_datos: '— Sin datos'
+  };
+
+  function openSyncModal() {
+    const updated = META?.generated_at || window.PROSPECTS_UPDATED_AT;
+    const health = syncHealth();
+    if (!META) {
+      modalBody.innerHTML = `<div class="detail"><h2 class="detail-title">Sincronización con SECOP II</h2>
+        <p class="detail-sub">${updated ? `Última actualización: <b>${escapeHtml(colombiaTime(updated))}</b> (hora Colombia).` : 'Aún no hay información de sincronización.'} El detalle por corrida aparecerá después de la próxima sincronización.</p></div>`;
+      detailModal.classList.add('active');
+      return;
+    }
+    const c = META.fuentes?.contratos || {};
+    const history = META.historial || [];
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="sync-pill sync-${health.cls}"><span class="sync-dot"></span>${escapeHtml(health.label)}</span>
+        <h2 class="detail-title">Sincronización con SECOP II</h2>
+        <div class="detail-sub">Última corrida: <b>${escapeHtml(colombiaTime(META.generated_at))}</b> (hora Colombia) · ${escapeHtml(agoText(META.generated_at))} · duró ${escapeHtml(String(Math.round(META.duracion_s)))} s</div>
+
+        <section class="reveal-kpis sync-kpis">
+          <div class="rk"><div class="rk-value">+${META.nuevas}</div><div class="rk-label">Oportunidades nuevas (nunca vistas)</div></div>
+          <div class="rk"><div class="rk-value">${META.nuevas_adjudicadas}</div><div class="rk-label">Pasaron a adjudicadas</div></div>
+          <div class="rk"><div class="rk-value">${META.curadas}</div><div class="rk-label">Oportunidades curadas (${META.adjudicadas} adjudicadas)</div></div>
+          <div class="rk"><div class="rk-value">${META.procesos_consultados}</div><div class="rk-label">Procesos consultados en SECOP</div></div>
+        </section>
+        <p class="detail-sub">${plural(META.salieron, 'oportunidad salió', 'oportunidades salieron')} de la selección respecto a la corrida anterior.
+          Próxima sincronización programada: <b>${escapeHtml(colombiaTime(META.proxima_programada))}</b>.</p>
+        ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver ${META.nuevas === 1 ? 'la oportunidad nueva' : `solo las ${META.nuevas} nuevas`}</button>` : ''}
+
+        <section class="detail-section">
+          <h3>Fuentes</h3>
+          <dl>
+            ${detailRow('SECOP II · Procesos', `✅ ${META.procesos_consultados} registros <small>(p6dx-8zbt)</small>`)}
+            ${detailRow('SECOP II · Contratos', `${escapeHtml(CROSS_STATES[META.cruce_contratos] || META.cruce_contratos)} <small>(jbjy-vk9h)</small><br><small>${c.contratos ?? 0} contratos · ${c.historial ?? 0} historiales · ${c.entidades ?? 0} entidades${c.promovidos ? ` · ${c.promovidos} procesos con contrato firmado pasaron a adjudicados` : ''}${c.reutilizados ? ` · ${c.reutilizados} datos reutilizados` : ''}</small>`)}
+            ${(c.errores || []).length ? detailRow('Errores', c.errores.map(e => `<small>${escapeHtml(e)}</small>`).join('<br>')) : ''}
+          </dl>
+        </section>
+
+        ${history.length ? `
+        <section class="detail-section">
+          <h3>Últimas sincronizaciones</h3>
+          <table class="sync-table">
+            <thead><tr><th>Fecha (Colombia)</th><th>Nuevas</th><th>A adjudicadas</th><th>Curadas</th><th>Contratos</th></tr></thead>
+            <tbody>${history.slice(0, 10).map(h => `<tr><td>${escapeHtml(colombiaTime(h.generated_at))}</td><td>+${h.nuevas}</td><td>${h.nuevas_adjudicadas}</td><td>${h.curadas}</td><td>${escapeHtml((CROSS_STATES[h.cruce_contratos] || '').split(' ')[0])}</td></tr>`).join('')}</tbody>
+          </table>
+        </section>` : ''}
+        <p class="legal-note">La sincronización corre automáticamente todos los días a las 6:00 a. m. (hora Colombia) en GitHub Actions. "Nueva" significa que el proceso nunca había aparecido en la selección.</p>
+      </div>`;
+    const btn = document.getElementById('showOnlyNew');
+    if (btn) btn.addEventListener('click', () => {
+      onlyNew = true;
+      detailModal.classList.remove('active');
+      if (currentTab === 'crm') activateTab('observatorio');
+      else renderView();
+      showToast(`Mostrando solo las oportunidades nuevas de esta pestaña`, 'info');
+    });
+    detailModal.classList.add('active');
+  }
+
+  renderSyncStatus();
+
+  // ---------- Guía de badges ----------
+  function openBadgeGuide() {
+    const byTone = Object.keys(Engine.TONES).map(tone => ({
+      tone,
+      ...Engine.TONES[tone],
+      items: Object.values(Engine.BADGES).filter(b => b.tone === tone)
+    }));
+    modalBody.innerHTML = `
+      <div class="detail">
+        <h2 class="detail-title">Cómo leer los badges</h2>
+        <p class="detail-sub">El color indica el significado y el ícono, el tema. En cada ficha los badges van ordenados de mayor a menor importancia.</p>
+        ${byTone.map(t => `
+          <section class="detail-section">
+            <h3><span class="badge badge-${t.tone}">${escapeHtml(t.label)}</span> ${escapeHtml(t.hint)}</h3>
+            <ul class="guide-list">${t.items.map(b => `<li>${badgeHtml(b)}<span>${escapeHtml(b.tip)}</span></li>`).join('')}</ul>
+          </section>`).join('')}
+        <section class="detail-section">
+          <h3><span class="match-pill">✨ 85%</span> Afinidad con tu perfil</h3>
+          <p>Aparece cuando creaste tu perfil. Sin perfil verás <span class="score-badge score-med">⚡ 66 pts</span>, la calidad general del lead.</p>
+        </section>
+      </div>`;
+    detailModal.classList.add('active');
+  }
+
+  document.getElementById('btnBadgeGuide').addEventListener('click', openBadgeGuide);
 
   // CRM Kanban Rendering
   function renderCrmKanban() {
@@ -549,7 +939,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function openPitchModal(item) {
     const materials = (item.materiales_detectados || []).join(', ') || 'suministros y maquinaria técnica';
     const isAdjudicado = item.etapa_comercial.includes('Adjudicado');
+    const bw = Engine.bidWindow(item);
+    const closingLine = bw.state === 'abierta' && bw.date ? `\nCierre de ofertas: ${formatDate(bw.date, { withTime: true })} (${relativeDays(bw.date)})` : '';
     const contractor = item.contratista?.nombre || 'su equipo';
+    const legalRep = item.contrato?.contactos?.representante_legal;
+    const start = item.contrato?.inicio_ejecucion ? new Date(item.contrato.inicio_ejecucion) : null;
+    const startLine = start && start.getTime() > Date.now() ? ` Entendemos que la ejecución inicia el ${formatDate(start)}, por lo que es un buen momento para planear el abastecimiento.` : '';
+    const greeting = legalRep ? `Apreciado(a) ${personName(legalRep)}, representante legal de ${contractor}` : `Apreciados señores de ${contractor}`;
     const profile = Profile && Profile.getProfile();
     const company = profile?.companyName?.trim();
     const offer = profile?.offerTags?.length ? profile.offerTags.slice(0, 4).join(', ') : materials;
@@ -557,9 +953,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let pitchTemplate = '';
     if (isAdjudicado) {
-      pitchTemplate = `Apreciados señores de ${contractor},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${item.descripcion?.slice(0, 140)}...".\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
+      pitchTemplate = `${greeting},\n\nUn saludo cordial. Nos comunicamos en relación con la reciente adjudicación del proceso ${item.referencia} con la entidad ${item.entidad} por un valor de ${item.precio_formateado} para la ejecución de: "${readableText(item.descripcion)?.slice(0, 140)}...".${startLine}\n\n${company ? `En ${company} somos` : 'Somos'} especialistas en el suministro y entrega inmediata de ${offer}. Ponemos a su disposición nuestra capacidad operativa, cotizaciones competitivas y disponibilidad técnica en la región.\n\n¿Con quién de su equipo de compras o ingeniería del proyecto podríamos coordinar el envío de nuestra propuesta técnica y comercial?${signature}`;
     } else {
-      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}\nAlcance: "${item.descripcion?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
+      pitchTemplate = `Estimado aliado / cliente contratista,\n\nQueremos compartirte esta oportunidad estratégica identificada en SECOP II antes de su cierre:\n\nProceso: ${item.referencia}\nEntidad: ${item.entidad}\nPresupuesto Oficial: ${item.precio_formateado}\nUbicación: ${item.ciudad}, ${item.departamento}${closingLine}\nAlcance: "${readableText(item.descripcion)?.slice(0, 160)}..."\n\nPodemos respaldar tu propuesta con ${company ? `la experiencia de ${company} en` : 'nuestros suministros de'} ${offer}. Si deseas que revisemos los pliegos juntos para presentar oferta o estructurar el consorcio, avísanos para coordinar de inmediato.${signature}`;
     }
 
     modalBody.innerHTML = `
@@ -617,7 +1013,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const headers = [
       'ID', 'Referencia', 'Score', 'Etapa Comercial', 'Tipo Oportunidad',
       'Sectores', 'Materiales Detectados', 'Valor COP', 'Entidad',
-      'Departamento', 'Ciudad', 'Contratista', 'NIT Contratista', 'Enlace SECOP'
+      'Departamento', 'Ciudad', 'Contratista', 'NIT Contratista', 'Enlace SECOP',
+      'Estado real', 'Cierre de ofertas', 'Adjudicación', 'Inicio de ejecución', 'Fin de ejecución',
+      'Estado del contrato', 'Representante legal (contratista)', 'Contratos previos del contratista', 'Próximo paso'
     ];
 
     const rows = dataToExport.map(item => [
@@ -634,7 +1032,18 @@ document.addEventListener('DOMContentLoaded', () => {
       `"${item.ciudad || ''}"`,
       `"${(item.contratista?.nombre || '').replace(/"/g, '""')}"`,
       `"${item.contratista?.nit || ''}"`,
-      `"${item.url_secop || ''}"`
+      `"${item.url_secop || ''}"`,
+      ...[
+        STATE_LABELS[Engine.bidWindow(item).state].text,
+        (item.fechas?.cierre_ofertas || '').slice(0, 10),
+        (item.fechas?.adjudicacion || '').slice(0, 10),
+        (item.contrato?.inicio_ejecucion || '').slice(0, 10),
+        (item.contrato?.fin_ejecucion || '').slice(0, 10),
+        item.contrato?.estado || '',
+        personName(item.contrato?.contactos?.representante_legal || ''),
+        item.historial_contratista?.contratos ?? '',
+        Engine.nextStep(item).text
+      ].map(v => `"${String(v).replace(/"/g, '""')}"`)
     ]);
 
     const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');

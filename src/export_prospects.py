@@ -7,11 +7,14 @@ import csv
 import json
 import os
 import sys
+from datetime import datetime, timezone
 from typing import Any, Dict, List
 
+from src.enrichers.contract_enricher import ContractEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
 from src.services.socrata_client import SocrataClient
+from src.sync_status import build_meta, load_json, save_json, stamp_first_seen
 
 
 def harvest_target_records(client: SocrataClient) -> List[Dict[str, Any]]:
@@ -157,7 +160,22 @@ def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150
     return selected
 
 
-def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str):
+def report_field_coverage(prospects: List[Dict[str, Any]]) -> Dict[str, int]:
+    """Cuenta cuántas oportunidades traen cada fecha/señal. Se imprime en el log del pipeline
+    para detectar columnas de SECOP que cambiaron de nombre o dejaron de llegar."""
+    coverage: Dict[str, int] = {}
+    for p in prospects:
+        for group in ("fechas", "competencia"):
+            for key, value in (p.get(group) or {}).items():
+                coverage[f"{group}.{key}"] = coverage.get(f"{group}.{key}", 0) + (value is not None)
+        coverage["plazo"] = coverage.get("plazo", 0) + (p.get("plazo") is not None)
+    print(f"[*] Cobertura de campos ({len(prospects)} oportunidades):")
+    for key in sorted(coverage):
+        print(f"    - {key}: {coverage[key]}")
+    return coverage
+
+
+def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str, meta: Dict[str, Any] = None):
     """Exports dataset to JSON, CSV, Markdown, and web/data.js."""
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(web_dir, exist_ok=True)
@@ -173,8 +191,12 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str)
     print(f"[+] Saved JSON dataset: {json_path}")
 
     # 2. Web JS Export (for GitHub Pages instant execution without CORS)
+    generated_at = (meta or {}).get("generated_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(web_js_path, "w", encoding="utf-8") as f:
         f.write("window.PROSPECTS_DATA = " + json.dumps(prospects, ensure_ascii=False, indent=2) + ";\n")
+        f.write(f"window.PROSPECTS_UPDATED_AT = \"{generated_at}\";\n")
+        if meta:
+            f.write("window.PROSPECTS_META = " + json.dumps(meta, ensure_ascii=False, indent=2) + ";\n")
     print(f"[+] Updated Web App data: {web_js_path}")
 
     # 3. CSV Export
@@ -242,6 +264,7 @@ def export_taxonomy(web_dir: str):
 
 
 def main():
+    started_at = datetime.now(timezone.utc)
     client = SocrataClient()
     raw_records = harvest_target_records(client)
     if not raw_records:
@@ -250,11 +273,39 @@ def main():
 
     prospects = build_curated_dataset(raw_records, target_count=150)
     print(f"[*] Successfully curated {len(prospects)} high-value prospects.")
+    report_field_coverage(prospects)
+    if raw_records:
+        date_like = sorted(k for k in raw_records[0] if k.startswith(("fecha", "duracion", "unidad_de")))
+        print(f"[*] Columnas de fecha/plazo en SECOP: {', '.join(date_like)}")
+
+    # Cruce con SECOP II Contratos: fechas de ejecución, pagos, contactos por rol,
+    # historial del contratista y comportamiento de la entidad.
+    previous_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "prospects_prototype_50.json")
+    try:
+        with open(previous_path, encoding="utf-8") as f:
+            previous = json.load(f)
+    except (OSError, ValueError):
+        previous = []
+    enricher = ContractEnricher(client, previous=previous)
+    enricher.enrich(prospects)
 
     base_dir = os.path.dirname(os.path.dirname(__file__))
     data_dir = os.path.join(base_dir, "data")
     web_dir = os.path.join(base_dir, "web")
-    export_dataset(prospects, data_dir, web_dir)
+
+    # Estado de la sincronización: nuevas (nunca vistas), salidas, nuevas adjudicadas e historial.
+    seen_path = os.path.join(data_dir, "seen_ids.json")
+    history_path = os.path.join(data_dir, "sync_history.json")
+    finished_at = datetime.now(timezone.utc)
+    seen = stamp_first_seen(prospects, load_json(seen_path, {}), previous, finished_at)
+    meta = build_meta(prospects, previous, len(raw_records), started_at, finished_at,
+                      enricher.summary, load_json(history_path, []))
+    save_json(seen_path, seen)
+    save_json(history_path, meta["historial"])
+    print(f"[*] Sincronización: {meta['nuevas']} nuevas, {meta['salieron']} salieron, "
+          f"{meta['nuevas_adjudicadas']} pasaron a adjudicadas, cruce de contratos: {meta['cruce_contratos']}.")
+
+    export_dataset(prospects, data_dir, web_dir, meta)
     export_taxonomy(web_dir)
     print("[*] Pipeline completed successfully!")
 

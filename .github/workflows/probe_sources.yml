@@ -1,0 +1,20 @@
+name: Probe SECOP sources
+
+# Diagnóstico manual y de solo lectura: lista datasets de SECOP en datos.gov.co,
+# sus columnas y los anexos de un proceso real. No hace commits.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Probe open data sources
+        run: python -m src.tools.probe_sources

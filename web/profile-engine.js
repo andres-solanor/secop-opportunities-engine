@@ -82,6 +82,62 @@
     return 'ofertas';
   }
 
+  function toDate(value) {
+    if (!value) return null;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  const DAY_MS = 24 * 3600 * 1000;
+  // Estados de SECOP II en los que ya no se reciben ofertas aunque no haya adjudicación.
+  const CLOSED_STATES = ['evaluacion', 'seleccionado', 'en aprobacion', 'aprobado', 'suspendido'];
+
+  /**
+   * Ventana de participación real de una oportunidad en la fecha `now`:
+   *  - 'adjudicado': ya hay ganador (vender al contratista).
+   *  - 'abierta': recibe ofertas (cierre futuro o, sin fecha, estado publicado/abierto).
+   *  - 'borrador': pliego en borrador; aún se pueden presentar observaciones.
+   *  - 'cerrada': ya no recibe ofertas (cierre vencido o estado de evaluación/selección).
+   * `days` son los días hasta el cierre (negativos si ya pasó).
+   */
+  function bidWindow(item, now = new Date()) {
+    const fechas = item.fechas || {};
+    const published = toDate(fechas.publicacion || item.fecha_publicacion);
+    const stage = stageOf(item);
+    if (stage === 'adjudicado') {
+      return { state: 'adjudicado', date: toDate(fechas.adjudicacion), published };
+    }
+    const closing = toDate(fechas.cierre_ofertas);
+    // SECOP publica el cierre como fecha sin hora: se considera abierto hasta el final de ese día.
+    const deadline = closing && closing.getHours() === 0 && closing.getMinutes() === 0
+      ? new Date(closing.getTime() + DAY_MS - 1000)
+      : closing;
+    if (closing && stage !== 'borrador') {
+      const days = (deadline - now) / DAY_MS;
+      return { state: days >= 0 ? 'abierta' : 'cerrada', date: closing, days, published };
+    }
+    const estado = normalize(item.estado_secop);
+    if (CLOSED_STATES.some(st => estado.includes(st))) {
+      return { state: 'cerrada', date: closing, published };
+    }
+    return { state: stage === 'borrador' ? 'borrador' : 'abierta', date: closing, days: deadline ? (deadline - now) / DAY_MS : null, published };
+  }
+
+  /** "107 día(s)" → "107 días"; "1 mes(es)" → "1 mes". Tolera datos ya normalizados. */
+  function formatTerm(plazo) {
+    if (!plazo || !plazo.valor) return '';
+    const unit = normalize(plazo.unidad).replace(/\(.*\)/, '').trim();
+    const forms = { dia: ['día', 'días'], mes: ['mes', 'meses'], ano: ['año', 'años'], semana: ['semana', 'semanas'] };
+    const key = Object.keys(forms).find(k => unit.startsWith(k));
+    if (!key) return plazo.texto || `${plazo.valor} ${plazo.unidad || ''}`.trim();
+    return `${plazo.valor} ${forms[key][plazo.valor === 1 ? 0 : 1]}`;
+  }
+
+  function isActionable(item, now) {
+    const st = bidWindow(item, now).state;
+    return st === 'abierta' || st === 'borrador';
+  }
+
   function uniqueByNormalized(list) {
     const seen = new Set();
     return list.filter(x => {
@@ -128,7 +184,7 @@
   }
 
   /** Puntaje 0-100 de afinidad entre el perfil y una oportunidad, con razones legibles. */
-  function matchOpportunity(profile, item, detected) {
+  function matchOpportunity(profile, item, detected, now = new Date()) {
     const reasons = [];
     let score = 0;
 
@@ -169,10 +225,15 @@
 
     const role = ROLES[profile.role];
     const stage = stageOf(item);
+    const bw = bidWindow(item, now);
     if (role) {
-      score += role.stageFit[stage];
-      if (role.stageFit[stage] >= 9) {
-        reasons.push(stage === 'adjudicado' ? 'Ganador conocido: vende directo' : 'Aún abierta: llegas a tiempo');
+      // Un proceso que ya no recibe ofertas solo sirve para monitorear: puntaje mínimo de etapa.
+      const fit = bw.state === 'cerrada' ? 2 : role.stageFit[stage];
+      score += fit;
+      if (fit >= 9) {
+        if (stage === 'adjudicado') reasons.push('Ganador conocido: vende directo');
+        else if (bw.state === 'abierta' && bw.days != null) reasons.push(`Cierra en ${Math.max(0, Math.ceil(bw.days))} días`);
+        else reasons.push('Aún abierta: llegas a tiempo');
       }
     }
 
@@ -236,7 +297,7 @@
   }
 
   /** Análisis completo del perfil: el "momento wow" antes de conectar oportunidades. */
-  function analyzeProfile(profile, data, taxonomy) {
+  function analyzeProfile(profile, data, taxonomy, now = new Date()) {
     const detected = detectSectors(profile, taxonomy);
     const role = ROLES[profile.role] || ROLES.proveedor;
     const detectedIds = new Set(detected.map(d => d.id));
@@ -249,7 +310,8 @@
     // --- Mercado direccionable ---
     const sum = list => list.reduce((a, it) => a + (it.precio || 0), 0);
     const adjudicados = inZone.filter(it => stageOf(it) === 'adjudicado');
-    const abiertas = inZone.filter(it => stageOf(it) !== 'adjudicado');
+    // Solo cuenta como abierto lo que todavía admite ofertas u observaciones.
+    const abiertas = inZone.filter(it => isActionable(it, now));
     // Los ganadores son compradores/aliados sin importar dónde ejecuten: se buscan a nivel nacional.
     const adjudicadosPais = inSector.filter(it => stageOf(it) === 'adjudicado');
     const market = {
@@ -383,7 +445,7 @@
     ]).slice(0, 8);
 
     const matches = data
-      .map(it => ({ item: it, ...matchOpportunity(profile, it, detected) }))
+      .map(it => ({ item: it, ...matchOpportunity(profile, it, detected, now) }))
       .filter(m => m.score >= 55)
       .sort((a, b) => b.score - a.score);
 
@@ -403,6 +465,93 @@
     };
   }
 
+  // ---------- Badges de la ficha ----------
+  // Convención: el tono indica el significado y el ícono el tema.
+  //   risk = bloquea la oportunidad · warn = revisar · good = a favor · info = hecho neutro.
+  const TONES = {
+    risk: { label: 'Riesgo', hint: 'Algo bloquea o pone en duda la oportunidad.' },
+    warn: { label: 'Atención', hint: 'Conviene revisarlo antes de actuar.' },
+    good: { label: 'A favor', hint: 'Señal positiva para hacer negocio.' },
+    info: { label: 'Informativo', hint: 'Dato neutro que ayuda a entender el proceso.' }
+  };
+
+  const BADGES = {
+    contrato_suspendido: { icon: '⛔', label: 'Contrato suspendido', tone: 'risk', tip: 'El contrato está suspendido en SECOP II: espera su reactivación antes de ofrecer suministros.' },
+    contrato_cancelado: { icon: '✖', label: 'Contrato cancelado', tone: 'risk', tip: 'El contrato fue cancelado o anulado.' },
+    contrato_modificado: { icon: '✏️', label: 'Contrato modificado', tone: 'warn', tip: 'El contrato tuvo modificaciones (valor, plazo u objeto). Revisa el expediente.' },
+    prorroga: { icon: '📆', label: 'Con prórroga', tone: 'warn', tip: 'Al contrato se le adicionaron días de ejecución.' },
+    contratista_nuevo: { icon: '🆕', label: 'Primer contrato', tone: 'warn', tip: 'El contratista no tiene otros contratos en SECOP II: verifica su capacidad antes de venderle a crédito.' },
+    inicio_proximo: { icon: '🚀', label: 'Inicia pronto', tone: 'good', tip: 'La ejecución aún no empieza: es el mejor momento para ofrecer insumos.' },
+    en_ejecucion: { icon: '▶️', label: 'En ejecución', tone: 'good', tip: 'El contrato está en ejecución: el contratista está comprando insumos.' },
+    contratista_recurrente: { icon: '🔁', label: 'Contratista recurrente', tone: 'good', tip: 'El contratista tiene 5 o más contratos en SECOP II.' },
+    gran_comprador: { icon: '📈', label: 'Gran comprador', tone: 'good', tip: 'La entidad contrató más de $100 mil millones en los últimos 12 meses.' },
+    pagos_registrados: { icon: '💳', label: 'Registra pagos', tone: 'good', tip: 'La entidad registra en SECOP II pagos por el 80% o más de lo facturado en 12 meses.' },
+    nueva: { icon: '🔔', label: 'Nueva', tone: 'good', tip: 'Apareció por primera vez en la última sincronización con SECOP II.' },
+    sin_ganador: { icon: '👤', label: 'Sin ganador aún', tone: 'info', tip: 'El proceso todavía no tiene contratista seleccionado.' },
+    consorcio: { icon: '🤝', label: 'Consorcio / UT', tone: 'info', tip: 'El ganador es un consorcio o unión temporal: las compras pueden hacerlas sus integrantes.' },
+    pyme: { icon: '🏪', label: 'Pyme', tone: 'info', tip: 'El contratista está registrado como pyme.' },
+    regalias: { icon: '🏛️', label: 'Regalías', tone: 'info', tip: 'El contrato se financia con recursos del Sistema General de Regalías.' },
+    contrato_terminado: { icon: '🏁', label: 'Contrato terminado', tone: 'info', tip: 'El contrato ya terminó su ejecución.' }
+  };
+  const TONE_ORDER = ['risk', 'warn', 'good', 'info'];
+
+  /** Badges de una oportunidad, ordenados de mayor a menor importancia (riesgo primero). */
+  function cardBadges(item, now = new Date()) {
+    const ids = [];
+    const c = item.contrato;
+    const history = item.historial_contratista;
+    const entity = item.entidad_stats;
+    const bw = bidWindow(item, now);
+    const estado = normalize(c && c.estado);
+
+    if (c) {
+      if (estado.includes('suspend')) ids.push('contrato_suspendido');
+      else if (['cancel', 'anulad', 'rechaz'].some(k => estado.includes(k))) ids.push('contrato_cancelado');
+      else if (estado.includes('termin') || estado.includes('cerrad') || estado.includes('liquid')) ids.push('contrato_terminado');
+      else {
+        const start = toDate(c.inicio_ejecucion);
+        if (start && start > now) ids.push('inicio_proximo');
+        else if (estado.includes('ejecuc')) ids.push('en_ejecucion');
+        if (estado.includes('modific')) ids.push('contrato_modificado');
+      }
+      if (c.dias_adicionados > 0) ids.push('prorroga');
+      if ((c.origen_recursos || []).some(o => normalize(o).includes('regal'))) ids.push('regalias');
+      if (c.es_pyme) ids.push('pyme');
+    }
+
+    if (item.nueva) ids.push('nueva');
+    if (bw.state !== 'adjudicado') ids.push('sin_ganador');
+    const consortium = (item.contratista && item.contratista.es_consorcio) || (c && c.es_grupo);
+    if (bw.state === 'adjudicado' && consortium) ids.push('consorcio');
+    if (history && history.contratos >= 5) ids.push('contratista_recurrente');
+    else if (history && history.contratos === 1 && !consortium) ids.push('contratista_nuevo');
+    if (entity && entity.valor_12m >= 1e11) ids.push('gran_comprador');
+    if (entity && entity.pagado_sobre_facturado_pct >= 80) ids.push('pagos_registrados');
+
+    return ids
+      .map(id => ({ id, ...BADGES[id] }))
+      .sort((a, b) => TONE_ORDER.indexOf(a.tone) - TONE_ORDER.indexOf(b.tone));
+  }
+
+  /** Próximo paso concreto según el estado real y las fechas del proceso. */
+  function nextStep(item, now = new Date()) {
+    const bw = bidWindow(item, now);
+    const c = item.contrato;
+    const estado = normalize(c && c.estado);
+    if (bw.state === 'abierta') return bw.date ? { text: 'Presenta oferta o busca un aliado antes del cierre', date: bw.date } : { text: 'Revisa el pliego en SECOP II y confirma la fecha de cierre' };
+    if (bw.state === 'borrador') return { text: 'Revisa el borrador y envía observaciones en SECOP II' };
+    if (bw.state === 'cerrada') return { text: 'Guárdala: cuando se adjudique podrás ofrecer suministros al ganador' };
+    if (estado.includes('suspend')) return { text: 'Contrato suspendido: espera su reactivación antes de ofrecer' };
+    if (['cancel', 'anulad'].some(k => estado.includes(k))) return { text: 'Contrato cancelado: no es un lead activo' };
+    const start = c && toDate(c.inicio_ejecucion);
+    if (start && start > now) return { text: 'Contacta al contratista antes del inicio de la ejecución', date: start };
+    const end = c && toDate(c.fin_ejecucion);
+    if (end && end < now) return { text: 'Contrato terminado: úsalo como referencia del contratista' };
+    const awarded = bw.date;
+    if (awarded && (now - awarded) / DAY_MS > 90) return { text: 'Contrato avanzado: ofrece reposiciones o prioriza adjudicaciones recientes' };
+    return { text: 'Contacta al contratista: está comprando insumos para ejecutar' };
+  }
+
   const api = {
     ROLES,
     NEEDS,
@@ -410,6 +559,13 @@
     TICKETS,
     normalize,
     stageOf,
+    bidWindow,
+    isActionable,
+    formatTerm,
+    cardBadges,
+    nextStep,
+    BADGES,
+    TONES,
     offerCatalog,
     detectSectors,
     matchOpportunity,

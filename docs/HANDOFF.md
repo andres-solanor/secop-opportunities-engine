@@ -36,9 +36,31 @@ Que las empresas creen cuentas con Google y perfiles completos para conectarlas 
 - La taxonomía se genera desde Python (`export_taxonomy`) para no duplicar vocabulario.
 
 **Validación realizada**
-- `node --test tests/profile_engine.test.js`: 6 pruebas OK.
-- `python -m unittest discover tests`: 7 pruebas OK.
+- `node --test tests/profile_engine.test.js`: 14 pruebas OK.
+- `python -m unittest discover tests`: 26 pruebas OK.
 - Recorrido completo en Chromium (Playwright), a 1360 px y 390 px de ancho: onboarding, perfil bloqueado, inicio de sesión demo, perfil desbloqueado, "Para Ti", pitch, recarga con persistencia y cierre de sesión. Sin errores de JavaScript.
+
+**Fechas en las fichas (2026-09-28)**. Detalle y propuesta de siguientes pasos en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md).
+- El pipeline extrae el cierre de ofertas, la adjudicación, el plazo y señales de competencia (`fechas`, `plazo`, `competencia`), y registra en el log la cobertura de cada campo.
+- `ProfileEngine.bidWindow` decide el estado real de cada proceso: abierta, borrador, cerrada o adjudicado. Lo usan la ficha, el perfil y la afinidad.
+- Las fichas muestran una cuenta regresiva al cierre y marcan los adjudicados de más de 90 días como antiguos.
+- Hay orden por cierre, recientes o valor, y la cabecera muestra cuándo se actualizaron los datos.
+
+**Cruce con contratos y rediseño de fichas (2026-09-28)**. Detalle en [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md) §9.
+- `src/enrichers/contract_enricher.py` cruza con SECOP II Contratos (`jbjy-vk9h`) por `proceso_de_compra = id_del_portafolio` y agrega `contrato`, `historial_contratista` y `entidad_stats`. No guarda documentos, datos bancarios ni género.
+- Los procesos con contrato firmado pasan a adjudicados: el Radar B2B pasó de 22 a unos 38–39 leads.
+- Ficha nueva con badges (`ProfileEngine.cardBadges`, convención por tono), próximo paso (`ProfileEngine.nextStep`), vista de detalle con cronograma y contactos por rol, y guía de badges.
+- No hay API de DeepSeek (ni de otro LLM) configurada en el repo ni en el entorno. La planeación se hizo sin ella.
+- **Aprendizaje:** en `app.js`, toda constante usada por las fichas debe declararse al inicio del callback, antes del primer `renderView()`. Si no, se produce un error de "temporal dead zone" y no se pinta ninguna ficha. Pasó dos veces.
+
+**Estado de sincronización con SECOP (2026-09-28)**
+- El botón "Actualizar Datos" era falso: solo mostraba un aviso de "sincronizado". Lo reemplaza un indicador real en la barra superior.
+  - Verde: datos de menos de 30 h. Ámbar: menos de 54 h. Rojo: más antiguos.
+  - Su panel muestra la última corrida (hora Colombia, duración), los procesos consultados, las oportunidades curadas, nuevas, salidas y nuevas adjudicadas, el estado de cada fuente, los errores, la próxima corrida y el historial de las últimas 10.
+- "Nueva" significa nunca vista en la selección (registro persistente `data/seen_ids.json`). Tiene badge 🔔 y un filtro "solo nuevas".
+- Herramienta de diagnóstico `src/tools/probe_sources.py` y workflow manual `probe_sources.yml` para explorar datasets desde Actions.
+
+![Panel de sincronización](./img/18-sync-panel.png)
 
 ## Pendiente del dueño (bloquea el login real)
 
@@ -60,7 +82,9 @@ Hasta entonces el botón funciona en **modo demo** (`id: 'demo:local'`).
    - "varilla" coincide con "varilla puesta a tierra… cobre" (procesos de EPM) y los clasifica como acero.
    - Revisar también "pae" y "vigas".
    - Agregar términos de exclusión por sector en `ScopeExtractor`, con pruebas.
-3. **`fecha_publicacion` llega `null`** en `web/data.js`. Revisar el mapeo de campos en `scope_extractor.enrich` y en las consultas de `export_prospects`. Hace falta para mostrar urgencia ("cierra en N días").
+3. **Fichas: siguientes cruces** (fases 4–5 de [`PROPUESTA_FICHAS.md`](./PROPUESTA_FICHAS.md) §9.4): proveedores registrados, proponentes por proceso, PAA e integrantes de consorcios. Las fases 0–3 (fechas, cruce con contratos, rediseño con badges y detalle) ya están hechas.
+   - Leads viejos: 12 de los 22 adjudicados tienen más de 90 días. La consulta 4 de `export_prospects` debería filtrar por `fecha_adjudicacion` reciente.
+   - Las fechas faltan en los borradores (22 de 23 sin publicación), lo cual es esperado.
 4. **Alertas diarias por correo** con `analysis.alertKeywords` del perfil. Requiere backend.
 5. **Contacto de contratistas ganadores cruzando con RUES.** Hoy el pitch no tiene destinatario.
 6. **Más datos:** el pipeline cura unos 150 procesos, así que perfiles de nicho o de zonas pequeñas ven poco mercado. Subir `limit` y cuotas en `build_curated_dataset`.

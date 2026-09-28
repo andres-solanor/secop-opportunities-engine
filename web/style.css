@@ -1582,3 +1582,454 @@ body {
     flex-wrap: wrap;
   }
 }
+
+/* ==========================================================
+   Fechas en las fichas
+   ========================================================== */
+.stage-pill.stage-cerrada {
+  background: rgba(100, 116, 139, 0.18);
+  color: #cbd5e1;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+}
+
+.stage-pill.stage-cerrada .pulse-dot {
+  animation: none;
+  background: #94a3b8;
+}
+
+.card-dates {
+  margin: 0.2rem 0 0.85rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+}
+
+.date-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #a5f3fc;
+}
+
+.date-main span {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.date-main.soon {
+  color: #fcd34d;
+}
+
+.date-main.urgent {
+  color: #fda4af;
+}
+
+.date-main.won {
+  color: #6ee7b7;
+}
+
+.date-main.muted {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.date-meta {
+  margin-top: 0.35rem;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.date-meta .dot {
+  margin: 0 0.35rem;
+}
+
+.freshness {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.date-main.won.aged {
+  color: var(--text-secondary);
+}
+
+/* ==========================================================
+   Ficha rediseñada: badges, próximo paso y detalle
+   ========================================================== */
+.results-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-sectors {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.opp-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: -0.35rem 0 0.6rem;
+}
+
+.opp-location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: -0.35rem 0 0.75rem;
+}
+
+/* Badges: el color es el significado (riesgo, atención, a favor, informativo). */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.85rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.badge-risk {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.45);
+}
+
+.badge-warn {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.badge-good {
+  background: rgba(16, 185, 129, 0.14);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.badge-info {
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.badge-more {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+
+.opp-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.match-line {
+  font-size: 0.75rem;
+  color: #ddd6fe;
+  margin: -0.4rem 0 0.85rem;
+}
+
+.contractor-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.next-step {
+  font-size: 0.82rem;
+  color: #cffafe;
+  background: rgba(6, 182, 212, 0.08);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 1.1rem;
+}
+
+.card-actions .btn-icon {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.7rem;
+}
+
+.card-actions .crm-select {
+  min-width: 0;
+  flex: 1;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.5rem;
+}
+
+/* Detalle */
+.detail-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin: 0.6rem 2.5rem 0.25rem 0;
+}
+
+.detail-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.detail .next-step {
+  margin-bottom: 0.9rem;
+}
+
+.detail-section {
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.9rem 0;
+}
+
+.detail-section h3 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detail-section p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.detail dl {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.dl-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.dl-row dt {
+  color: var(--text-muted);
+}
+
+.dl-row small {
+  color: var(--text-muted);
+}
+
+.timeline {
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 170px 130px 1fr;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.timeline li.future::before {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.timeline b {
+  color: var(--text-primary);
+}
+
+.timeline em {
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+.contact-list span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legal-note {
+  margin-top: 0.75rem;
+  font-size: 0.72rem !important;
+  color: var(--text-muted) !important;
+}
+
+.guide-list {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.guide-list li {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+@media (max-width: 560px) {
+  .dl-row,
+  .guide-list li {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+  .timeline li {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline em {
+    display: none;
+  }
+  .results-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .view-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: thin;
+  }
+  .view-tab {
+    flex-shrink: 0;
+  }
+  .cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.guide-list li > .badge {
+  justify-self: start;
+}
+
+.score-badge,
+.match-pill {
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .card-actions {
+    flex-wrap: wrap;
+  }
+  .card-actions .crm-select {
+    flex-basis: 100%;
+    padding: 0.5rem;
+  }
+}
+
+/* ==========================================================
+   Estado de la sincronización con SECOP
+   ========================================================== */
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sync-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sync-ok .sync-dot { background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald); }
+.sync-late .sync-dot { background: var(--accent-amber); }
+.sync-stale .sync-dot { background: var(--accent-rose); }
+.sync-ok { border-color: rgba(16, 185, 129, 0.4); }
+.sync-late { border-color: rgba(245, 158, 11, 0.45); }
+.sync-stale { border-color: rgba(244, 63, 94, 0.5); }
+
+.detail .sync-pill {
+  cursor: default;
+}
+
+.sync-kpis {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.sync-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.sync-table th,
+.sync-table td {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sync-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+}

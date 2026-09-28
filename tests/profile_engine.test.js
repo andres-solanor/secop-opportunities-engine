@@ -82,3 +82,75 @@ test('perfil vacío no rompe el análisis', () => {
   assert.strictEqual(a.market.total, 0);
   assert.ok(a.strength.missing.length > 0);
 });
+
+test('bidWindow usa la fecha de cierre para decidir si sigue abierta', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const open = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', fechas: { cierre_ofertas: '2026-10-03T17:00:00' } };
+  const closed = { ...open, fechas: { cierre_ofertas: '2026-09-20T17:00:00' } };
+  const bwOpen = E.bidWindow(open, now);
+  assert.strictEqual(bwOpen.state, 'abierta');
+  assert.ok(bwOpen.days > 5 && bwOpen.days < 6);
+  assert.strictEqual(E.bidWindow(closed, now).state, 'cerrada');
+});
+
+test('bidWindow marca como cerrados los procesos en evaluación sin fecha de cierre', () => {
+  const item = { etapa_comercial: 'Proceso Activo (Evaluación)', estado_secop: 'Evaluación' };
+  assert.strictEqual(E.bidWindow(item).state, 'cerrada');
+  assert.strictEqual(E.isActionable(item), false);
+  assert.strictEqual(E.bidWindow({ etapa_comercial: 'Borrador de Pliegos', estado_secop: 'Borrador' }).state, 'borrador');
+});
+
+test('un proceso cerrado pierde puntaje de etapa y no se anuncia como abierto', () => {
+  const contratista = { ...steelProfile, role: 'contratista' };
+  const detected = E.detectSectors(contratista, TAXONOMY);
+  const now = new Date('2026-09-28T12:00:00');
+  const base = opp({ etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', contratista: { nombre: 'Pendiente por Adjudicar' } });
+  const abierta = E.matchOpportunity(contratista, { ...base, fechas: { cierre_ofertas: '2026-10-03T17:00:00' } }, detected, now);
+  const cerrada = E.matchOpportunity(contratista, { ...base, fechas: { cierre_ofertas: '2026-09-01T17:00:00' } }, detected, now);
+  assert.ok(abierta.score - cerrada.score === 8, `${abierta.score} vs ${cerrada.score}`);
+  assert.ok(abierta.reasons.includes('Cierra en 6 días'));
+  assert.ok(!cerrada.reasons.some(r => r.includes('abierta') || r.includes('Cierra')));
+});
+
+test('un cierre sin hora sigue abierto durante todo ese día', () => {
+  const item = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', fechas: { cierre_ofertas: '2026-10-03T00:00:00' } };
+  assert.strictEqual(E.bidWindow(item, new Date('2026-10-03T16:00:00')).state, 'abierta');
+  assert.strictEqual(E.bidWindow(item, new Date('2026-10-04T08:00:00')).state, 'cerrada');
+});
+
+test('formatTerm convierte las unidades de SECOP', () => {
+  assert.strictEqual(E.formatTerm({ valor: 107, unidad: 'día(s)' }), '107 días');
+  assert.strictEqual(E.formatTerm({ valor: 1, unidad: 'mes(es)' }), '1 mes');
+  assert.strictEqual(E.formatTerm(null), '');
+});
+
+test('badges: proceso sin ganador y gran comprador', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', entidad_stats: { contratos_12m: 120, valor_12m: 2e11, pagado_sobre_facturado_pct: 91 } };
+  const ids = E.cardBadges(item, now).map(b => b.id);
+  assert.deepStrictEqual(ids, ['gran_comprador', 'pagos_registrados', 'sin_ganador']);
+});
+
+test('badges: riesgo primero y consorcio sin marca de contratista nuevo', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = {
+    etapa_comercial: 'Adjudicado (Contratista Seleccionado)',
+    contratista: { es_consorcio: true },
+    contrato: { estado: 'Suspendido', dias_adicionados: 30, origen_recursos: ['Regalías (SGR)'], es_pyme: false },
+    historial_contratista: { contratos: 1 }
+  };
+  const badges = E.cardBadges(item, now);
+  assert.strictEqual(badges[0].id, 'contrato_suspendido');
+  assert.ok(badges.some(b => b.id === 'consorcio'));
+  assert.ok(!badges.some(b => b.id === 'contratista_nuevo'));
+  assert.ok(badges.every(b => E.TONES[b.tone]));
+});
+
+test('nextStep prioriza el inicio de ejecución futuro en adjudicados', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Adjudicado (Contrato firmado)', fechas: { adjudicacion: '2026-09-20T00:00:00' }, contrato: { estado: 'Aprobado', inicio_ejecucion: '2026-10-05T00:00:00' } };
+  const step = E.nextStep(item, now);
+  assert.match(step.text, /antes del inicio/);
+  assert.strictEqual(step.date.getDate(), 5);
+  assert.match(E.nextStep({ ...item, contrato: { estado: 'Suspendido' } }, now).text, /suspendido/);
+});

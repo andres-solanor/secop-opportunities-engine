@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260928_03">
 </head>
 <body>
 
@@ -26,8 +26,8 @@
       <button class="btn btn-outline" id="btnExportCsv">
         <span>📥</span> Exportar CSV (50 Leads)
       </button>
-      <button class="btn btn-primary" id="btnNewScan">
-        <span>🔄</span> Actualizar Datos
+      <button class="sync-pill" id="syncStatus" type="button" title="Estado de la sincronización con SECOP II">
+        <span class="sync-dot"></span><span id="syncStatusText">SECOP II</span>
       </button>
       <div id="accountArea" class="account-area"></div>
     </div>
@@ -114,14 +114,26 @@
       <select id="departmentSelect" class="filter-select" aria-label="Filtrar por departamento">
         <option value="todos">Todos los Departamentos</option>
       </select>
+
+      <select id="sortSelect" class="filter-select" aria-label="Ordenar">
+        <option value="relevancia">Orden: Relevancia</option>
+        <option value="cierre">Cierre más próximo</option>
+        <option value="recientes">Más recientes</option>
+        <option value="valor">Mayor valor</option>
+      </select>
     </section>
 
     <!-- Results Header -->
     <div class="results-header">
       <div class="results-count" id="resultsCount">Mostrando <b>50</b> oportunidades calificadas</div>
-      <button class="btn btn-outline" id="btnResetFilters" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
-        Limpiar Filtros
-      </button>
+      <div class="results-actions">
+        <button class="btn btn-outline" id="btnBadgeGuide" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+          ℹ️ Guía de badges
+        </button>
+        <button class="btn btn-outline" id="btnResetFilters" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+          Limpiar Filtros
+        </button>
+      </div>
     </div>
 
     <!-- Cards Grid (Default Views: Proveedores & Observatorio) -->
@@ -187,12 +199,12 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Scripts -->
-  <script src="config.js?v=20260927_01"></script>
-  <script src="data.js?v=20260927_01"></script>
-  <script src="taxonomy.js?v=20260927_01"></script>
-  <script src="profile-engine.js?v=20260927_01"></script>
-  <script src="auth.js?v=20260927_01"></script>
-  <script src="app.js?v=20260927_01"></script>
-  <script src="profile.js?v=20260927_01"></script>
+  <script src="config.js?v=20260928_03"></script>
+  <script src="data.js?v=20260928_03"></script>
+  <script src="taxonomy.js?v=20260928_03"></script>
+  <script src="profile-engine.js?v=20260928_03"></script>
+  <script src="auth.js?v=20260928_03"></script>
+  <script src="app.js?v=20260928_03"></script>
+  <script src="profile.js?v=20260928_03"></script>
 </body>
 </html>
