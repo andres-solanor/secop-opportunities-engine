@@ -441,7 +441,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
       const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
       const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
-      const meta = [item.modalidad && item.modalidad !== 'No Definido' ? item.modalidad : '', item.duracion ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : ''].filter(Boolean).map(escapeHtml).join(' · ');
+      // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
+      const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
+      const meta = [item.modalidad && item.modalidad !== 'No Definido' ? readableText(item.modalidad) : '', term].filter(Boolean).map(escapeHtml).join(' · ');
       return `
       <article class="opp-card">
         <div>

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado. Para el razonamiento de diseño del sistema de perfiles (recorrido, modelo de afinidad, estrategia de desbloqueo, alternativas descartadas y preguntas abiertas), lee `docs/DISENO_PERFILES.md`. Para las fichas de oportunidad (fechas, qué mostrar y cruces con otras fuentes), lee `docs/PROPUESTA_FICHAS.md`. Para las funciones de pago bajo demanda (monedero de créditos IA, análisis de anexos, perfil con skills, fuentes adicionales verificadas), lee `docs/CREDITOS_IA.md`.
+Guía para Claude Code en este repositorio. **Antes de continuar trabajo en curso, lee `docs/HANDOFF.md`**: tiene el estado actual, decisiones tomadas y el backlog priorizado. Para el razonamiento de diseño del sistema de perfiles (recorrido, modelo de afinidad, estrategia de desbloqueo, alternativas descartadas y preguntas abiertas), lee `docs/DISENO_PERFILES.md`. Para las fichas de oportunidad (fechas, qué mostrar y cruces con otras fuentes), lee `docs/PROPUESTA_FICHAS.md`. Para las funciones de pago bajo demanda (monedero de créditos IA, análisis de anexos, perfil con skills, fuentes adicionales verificadas), lee `docs/CREDITOS_IA.md`. La hoja de ruta está en `docs/PLAN_ITERACIONES.md` y el guion de la demo en `docs/GUION_DEMO.md`.
 
 ## Qué es
 
@@ -14,6 +14,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. |
 | `src/enrichers/scope_extractor.py` | `TAXONOMIES` (sectores y palabras clave), etapa comercial, score de calidad. **Fuente única del vocabulario de sectores.** |
 | `src/enrichers/contract_enricher.py` | Cruce con SECOP II Contratos (`jbjy-vk9h`): `contrato`, `historial_contratista`, `entidad_stats`. Promueve a adjudicados los procesos con contrato firmado. **Nunca** copia documentos, datos bancarios ni género. |
+| `src/enrichers/open_sources.py` | Fuentes abiertas gratuitas: ofertas por proceso (`wi7w-2nvm`), integrantes de consorcios (`ceth-n4bn`), sanciones SECOP I (`4n4q-k399`) y compras planeadas del PAA (`9sue-ezhx`, publicado como `window.PAA_DATA`). **Nunca** copia teléfonos, correos ni documentos de personas. |
 | `src/sync_status.py` | Estado de la sincronización: nuevas (nunca vistas, registro en `data/seen_ids.json`), salidas, nuevas adjudicadas, estado del cruce e historial (`data/sync_history.json`). Se publica como `window.PROSPECTS_META`. |
 | `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; se corre con el workflow manual "Probe SECOP sources" (el entorno de desarrollo no tiene acceso a datos.gov.co). |
 | `src/export_prospects.py` | Pipeline: descarga → filtra → enriquece → exporta `data/*`, `web/data.js` y `web/taxonomy.js`. |

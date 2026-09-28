@@ -184,7 +184,7 @@ Datasets confirmados en el diagnóstico:
 | E. Pagos | Pasarela, paquetes de recarga y facturación | B, decisión 4 |
 | F. Dossiers y fuentes adicionales | Ofertas, consorcios, PAA, sanciones; contactos solo con cuenta | A |
 
-Lo gratis de §6 (conteo de ofertas, sanciones y PAA en lote) **no depende del backend** y se puede agregar ya al pipeline actual.
+✅ Lo gratis de §6 (ofertas, integrantes de consorcios, sanciones y PAA) **ya está implementado** en el pipeline (`src/enrichers/open_sources.py`). Las iteraciones siguientes están en [`PLAN_ITERACIONES.md`](./PLAN_ITERACIONES.md).
 
 ---
 
