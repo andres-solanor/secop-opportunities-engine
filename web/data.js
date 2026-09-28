@@ -1,6 +1,7 @@
 window.PROSPECTS_DATA = [
   {
     "id": "CO1.REQ.10381967",
+    "id_portafolio": "CO1.BDOS.10160344",
     "referencia": "SE-LP-001-2026 (Presentación de oferta)",
     "entidad": "DEPARTAMENTO DE CORDOBA",
     "nit_entidad": "800103935",
@@ -42,8 +43,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "CONSORCIO CORDOBA NUTRE",
@@ -51,13 +52,81 @@ window.PROSPECTS_DATA = [
       "es_consorcio": true,
       "valor_adjudicado": 13292211865.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Montería"
+      "ciudad_proveedor": "Montería",
+      "nit_normalizado": "902067860"
     },
     "score_calidad": 95,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10239350"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10239350",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9521148",
+      "referencia": "SE-LP-001-2026",
+      "estado": "Suspendido",
+      "objeto": "IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR -PAE- EN\nLOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES DE LOS 27 MUNICIPIOS\nNO CERTIFICADOS DEL DEPARTAMENTO DE CÓRDOBA",
+      "fecha_firma": "2026-05-20T00:00:00",
+      "inicio_ejecucion": "2026-05-22T00:00:00",
+      "fin_ejecucion": "2026-07-08T00:00:00",
+      "ultima_actualizacion": "2026-09-08T00:00:00",
+      "valor": 13292211865.04,
+      "valor_facturado": 9994303547.33,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": true,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "CONSORCIO CORDOBA NUTRE",
+      "nit_proveedor": "902067860",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10239350&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "MARTHA ISABEL HERNANDEZ GARAY",
+        "ordenador_gasto": "VANESSA HODEG PEÑA",
+        "supervisor": "CARLOS RODRIGUEZ MONTH"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 1,
+      "valor_total": 13292211865.04,
+      "primero": "2026-05-20T00:00:00",
+      "ultimo": "2026-05-20T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "DEPARTAMENTO DE CORDOBA",
+          "contratos": 1,
+          "valor": 13292211865.04
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 2037,
+      "valor_12m": 752453596708.17,
+      "pagado_sobre_facturado_pct": 4.0,
+      "proveedores_top": [
+        {
+          "nombre": "Banco de Occidente SA",
+          "contratos": 1,
+          "valor": 135000000000.0
+        },
+        {
+          "nombre": "BBOGOTA",
+          "contratos": 1,
+          "valor": 80000000000.0
+        },
+        {
+          "nombre": "CORSORCIO CORDOBA ALIMENTA 2026",
+          "contratos": 1,
+          "valor": 48364538938.38
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.9825062",
+    "id_portafolio": "CO1.BDOS.9657631",
     "referencia": "02-2026",
     "entidad": "MUNICIPIO DE MARINILLA",
     "nit_entidad": "890983716",
@@ -79,7 +148,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 107,
       "unidad": "día(s)",
-      "texto": "107 día(s)"
+      "texto": "107 días"
     },
     "competencia": {
       "interesados": 0,
@@ -103,8 +172,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "Fundacion Accion Solidaria Por Colombia",
@@ -112,13 +181,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 4848966024.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900569044"
     },
     "score_calidad": 95,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9673718"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9673718",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9191342",
+      "referencia": "220SE2026",
+      "estado": "Modificado",
+      "objeto": "Aunar esfuerzos técnicos; administrativos; financieros y logísticos para la ejecución del Programa de Alimentación Escolar (PAE) en el Municipio de Marinilla; Antioquia; a través del cual se brinda un complemento alimentario y nutricional a los niños; niñas y adolescentes beneficiarios del programa; conforme a los lineamientos y disposiciones vigentes aplicables.",
+      "fecha_firma": "2026-01-27T00:00:00",
+      "inicio_ejecucion": "2026-01-29T00:00:00",
+      "fin_ejecucion": "2026-09-30T00:00:00",
+      "ultima_actualizacion": "2026-08-24T00:00:00",
+      "valor": 5921250883.0,
+      "valor_facturado": 3582836198.0,
+      "valor_pagado": 3582836198.0,
+      "avance_pagos_pct": 60.5,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 62,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "Fundacion Accion Solidaria Por Colombia",
+      "nit_proveedor": "900569044",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9673718&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Johvany Loaiza Alvarez",
+        "ordenador_gasto": "Julio Cesar Serna Gomez",
+        "supervisor": "Edward Octavio Ortiz Ospina"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 38,
+      "valor_total": 52246004003.36,
+      "primero": "2021-09-28T00:00:00",
+      "ultimo": "2026-03-10T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE MARINILLA",
+          "contratos": 4,
+          "valor": 20155883236.0
+        },
+        {
+          "nombre": "MUNICIPIO EL RETIRO",
+          "contratos": 8,
+          "valor": 12331345902.36
+        },
+        {
+          "nombre": "MUNICIPIO DE SANTA FE DE ANTIOQUIA",
+          "contratos": 13,
+          "valor": 12009865827.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 757,
+      "valor_12m": 85796778465.42,
+      "pagado_sobre_facturado_pct": 98.0,
+      "proveedores_top": [
+        {
+          "nombre": "EDUR MARINILLA",
+          "contratos": 38,
+          "valor": 37729827894.41
+        },
+        {
+          "nombre": "BBOGOTA",
+          "contratos": 1,
+          "valor": 6000000000.0
+        },
+        {
+          "nombre": "Fundacion Accion Solidaria Por Colombia",
+          "contratos": 1,
+          "valor": 5921250883.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11034299",
+    "id_portafolio": "CO1.BDOS.10849189",
     "referencia": "ESAL-002-2026-2",
     "entidad": "ALCALDIA DE CAUCASIA",
     "nit_entidad": "890906445",
@@ -140,7 +290,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 35,
       "unidad": "día(s)",
-      "texto": "35 día(s)"
+      "texto": "35 días"
     },
     "competencia": {
       "interesados": 0,
@@ -164,8 +314,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION PROTEGER",
@@ -173,13 +323,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 3149207403.0,
       "departamento_proveedor": "Córdoba",
-      "ciudad_proveedor": "Planeta Rica"
+      "ciudad_proveedor": "Planeta Rica",
+      "nit_normalizado": "900242855"
     },
     "score_calidad": 95,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9971976",
+      "referencia": "ESAL-002-2026-2",
+      "estado": "Aprobado",
+      "objeto": "RESTACIÓN DE SERVICIOS PARA LA\nIMPLEMENTACIÓN DEL PROGRAMA DE\nALIMENTACIÓN ESCOLAR PAE-; PARA LOS\nNIÑOS; NIÑAS Y ADOLESCENTES DE LA\nMATRICULA OFICIAL DEL MUNICIPIO DE\nCAUCASIA - ANTIOQUIA; PARA LA VIGENCIA\n2026-2",
+      "fecha_firma": "2026-09-22T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-11-20T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 3149207403.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "FUNDACION PROTEGER",
+      "nit_proveedor": "900242855",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888480&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "JOSE ENRIQUE HERRARA JIMENEZ",
+        "ordenador_gasto": "JHOAN ODERIS MONTES CORTES",
+        "supervisor": "EVER ANTONIO ZAPATA BARRIENTOS"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 139,
+      "valor_total": 250109494373.64,
+      "primero": "2020-02-22T00:00:00",
+      "ultimo": "2026-09-22T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE ARBOLETES",
+          "contratos": 4,
+          "valor": 112835972000.0
+        },
+        {
+          "nombre": "ICBF REGIONAL CORDOBA",
+          "contratos": 22,
+          "valor": 55461706725.0
+        },
+        {
+          "nombre": "ALCALDIA DE CAUCASIA",
+          "contratos": 17,
+          "valor": 36155592893.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 705,
+      "valor_12m": 67287063932.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "FUNDACION PROTEGER",
+          "contratos": 2,
+          "valor": 14459365647.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
+          "contratos": 16,
+          "valor": 11224574774.0
+        },
+        {
+          "nombre": "E-MOTION GLOBAL S.A.S",
+          "contratos": 1,
+          "valor": 3200000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11011357",
+    "id_portafolio": "CO1.BDOS.10826179",
     "referencia": "PROCESO COMPETITIVO N° 001 DE 2026",
     "entidad": "ALCALDIA DE SAN JUAN DE URABA",
     "nit_entidad": "8000136767",
@@ -201,7 +432,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 35,
       "unidad": "día(s)",
-      "texto": "35 día(s)"
+      "texto": "35 días"
     },
     "competencia": {
       "interesados": 0,
@@ -225,8 +456,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION ILUSION EN GRANDE",
@@ -234,13 +465,84 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 1349652350.0,
       "departamento_proveedor": "Córdoba",
-      "ciudad_proveedor": "Montería"
+      "ciudad_proveedor": "Montería",
+      "nit_normalizado": "900077592"
     },
     "score_calidad": 95,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865716"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865716",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9971211",
+      "referencia": "CS-248-2026",
+      "estado": "En ejecución",
+      "objeto": "AUNAR ESFUERZOS TECNICOS ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - (PAE); PAR LOS NIÑOS; NIÑAS; ADOLESCENTES Y JÓVENES DE LA MATRICULA OFICIAL DEL MUNICIPIO DE SAN JUAN DE URABA; ANTIOQUIA EN EL AÑO 2026. EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO N° 4600019310 ENTRE EL MUNICIPIO DE SAN JUAN DE URABA; ANTIOQUIA Y LA GOBERNACIÓN DE ANTIOQUIA. PARA LA VIGENCIA FISCAL 2026-2",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": "2026-09-21T00:00:00",
+      "fin_ejecucion": "2026-11-27T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1349652350.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "FUNDACION ILUSION EN GRANDE",
+      "nit_proveedor": "900077592",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865716&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "OSCAR LUIS ESPITIA VERTEL",
+        "ordenador_gasto": "Julia Esperanza Medrano Coa",
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 49,
+      "valor_total": 68660895114.59,
+      "primero": "2021-10-12T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDIA MUNICIPIO DE NECOCLI",
+          "contratos": 4,
+          "valor": 24399454203.0
+        },
+        {
+          "nombre": "MUNICIPIO DE GUARNE",
+          "contratos": 5,
+          "valor": 13376445954.0
+        },
+        {
+          "nombre": "MUNICIPIO DE ARBOLETES",
+          "contratos": 5,
+          "valor": 7231015524.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 1,
+      "valor_12m": 1349652350.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "FUNDACION ILUSION EN GRANDE",
+          "contratos": 1,
+          "valor": 1349652350.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10716474",
+    "id_portafolio": "CO1.BDOS.10533534",
     "referencia": "SE-LP-002-2026",
     "entidad": "DEPARTAMENTO DE CORDOBA",
     "nit_entidad": "800103935",
@@ -282,8 +584,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -294,10 +596,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10572556"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10572556",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 2037,
+      "valor_12m": 752453596708.17,
+      "pagado_sobre_facturado_pct": 4.0,
+      "proveedores_top": [
+        {
+          "nombre": "Banco de Occidente SA",
+          "contratos": 1,
+          "valor": 135000000000.0
+        },
+        {
+          "nombre": "BBOGOTA",
+          "contratos": 1,
+          "valor": 80000000000.0
+        },
+        {
+          "nombre": "CORSORCIO CORDOBA ALIMENTA 2026",
+          "contratos": 1,
+          "valor": 48364538938.38
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11091903",
+    "id_portafolio": "CO1.BDOS.10905650",
     "referencia": "LP-SGR-0011-2026",
     "entidad": "GOBERNACION DEL DEPARTAMENTO DEL CESAR",
     "nit_entidad": "892399999",
@@ -319,7 +646,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 40,
       "unidad": "día(s)",
-      "texto": "40 día(s)"
+      "texto": "40 días"
     },
     "competencia": {
       "interesados": 0,
@@ -343,8 +670,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -355,10 +682,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947395"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947395",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1940,
+      "valor_12m": 1110855664889.46,
+      "pagado_sobre_facturado_pct": 72.5,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL RED VIAL DEL NORTE",
+          "contratos": 1,
+          "valor": 177831305449.0
+        },
+        {
+          "nombre": "CONSORCIO AVENIDA DEL RIO",
+          "contratos": 1,
+          "valor": 166907695693.0
+        },
+        {
+          "nombre": "CONSORCIO REGION VIAL 47",
+          "contratos": 1,
+          "valor": 155307179290.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11057665",
+    "id_portafolio": "CO1.BDOS.10872494",
     "referencia": "LOP-EICE-AMV-001-2026",
     "entidad": "EMPRESA INDUSTRIAL Y COMERCIAL DEL ESTADO AREA METROPOLITANA DE VALLEDUPAR E.I.C.E. AMV",
     "nit_entidad": "9018803781",
@@ -380,7 +732,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 12,
       "unidad": "mes(es)",
-      "texto": "12 mes(es)"
+      "texto": "12 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -416,10 +768,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10914544"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10914544",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 45,
+      "valor_12m": 802219981.0,
+      "pagado_sobre_facturado_pct": 96.0,
+      "proveedores_top": [
+        {
+          "nombre": "EDWIN ALBERTO BENITEZ CERVANTES",
+          "contratos": 1,
+          "valor": 128000000.0
+        },
+        {
+          "nombre": "Ruth Helena López Pacheco",
+          "contratos": 3,
+          "valor": 104800000.0
+        },
+        {
+          "nombre": "Saul Celis",
+          "contratos": 1,
+          "valor": 52477290.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11073451",
+    "id_portafolio": "CO1.BDOS.10888124",
     "referencia": "LP-SEG-03292-2026",
     "entidad": "Gobernación Norte de Santander*",
     "nit_entidad": "800103927",
@@ -461,8 +838,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -473,10 +850,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935665"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935665",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3971,
+      "valor_12m": 897110963156.12,
+      "pagado_sobre_facturado_pct": 84.5,
+      "proveedores_top": [
+        {
+          "nombre": "UT NEN 2026",
+          "contratos": 1,
+          "valor": 104969396822.0
+        },
+        {
+          "nombre": "UT ALIMENTAR NORTE 2026",
+          "contratos": 1,
+          "valor": 81540019500.0
+        },
+        {
+          "nombre": "UT BATERIAS CATATUMBO",
+          "contratos": 1,
+          "valor": 51377748343.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11061608",
+    "id_portafolio": "CO1.BDOS.10876424",
     "referencia": "No. OB-039-2026",
     "entidad": "FONER",
     "nit_entidad": "901564190",
@@ -498,7 +900,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 4,
       "unidad": "mes(es)",
-      "texto": "4 mes(es)"
+      "texto": "4 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -534,10 +936,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917086"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917086",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11100022",
+    "id_portafolio": "CO1.BDOS.10914207",
     "referencia": "330-331-23.18-115 DE 2026",
     "entidad": "SERVICIO PUBLICO DE ALUMBRADO DE PASTO S.A. - SEPAL S.A.",
     "nit_entidad": "814006616",
@@ -559,7 +965,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 60,
       "unidad": "día(s)",
-      "texto": "60 día(s)"
+      "texto": "60 días"
     },
     "competencia": {
       "interesados": 0,
@@ -595,10 +1001,36 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Pasto"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10955748"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10955748",
+    "contrato": null,
+    "historial_contratista": {
+      "contratos": 81,
+      "valor_total": 12802776946.14,
+      "primero": "2019-06-19T00:00:00",
+      "ultimo": "2026-08-14T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDIA DE PASTO",
+          "contratos": 32,
+          "valor": 4198726207.93
+        },
+        {
+          "nombre": "GOBERNACION DE NARIÑO",
+          "contratos": 10,
+          "valor": 3045753173.06
+        },
+        {
+          "nombre": "INSTITUTO MUNICIPAL PARA LA RECREACION Y EL DEPORTE-PASTO DEPORTE",
+          "contratos": 4,
+          "valor": 1458125105.95
+        }
+      ]
+    },
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11103641",
+    "id_portafolio": "CO1.BDOS.10917478",
     "referencia": "INVITACION PRIVADA No. 003 DE 2026",
     "entidad": "EMPRESAS PUBLICAS EL HOBO S.A E.S.P",
     "nit_entidad": "900189880",
@@ -620,7 +1052,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -656,10 +1088,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10959142"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10959142",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11037225",
+    "id_portafolio": "CO1.BDOS.10851783",
     "referencia": "SPO-001-2026",
     "entidad": "COMPAÑIA ENERGETICA DEL CARIBE S.A.S. ESP",
     "nit_entidad": "900907644",
@@ -681,7 +1117,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -705,8 +1141,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -717,10 +1153,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 90,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891535"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891535",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10361018",
+    "id_portafolio": "CO1.BDOS.10132543",
     "referencia": "SA-MC-01-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "Rama Judicial  Dirección Seccional de Administración Judicial de Pereira",
     "nit_entidad": "800165940",
@@ -742,7 +1182,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 4,
       "unidad": "mes(es)",
-      "texto": "4 mes(es)"
+      "texto": "4 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -775,13 +1215,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 737042388.0,
       "departamento_proveedor": "Risaralda",
-      "ciudad_proveedor": "Pereira"
+      "ciudad_proveedor": "Pereira",
+      "nit_normalizado": "900151289"
     },
     "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9514207",
+      "referencia": "SA-MC-01-2026",
+      "estado": "Suspendido",
+      "objeto": "Contratar; en nombre de la Nación - Consejo Superior de la Judicatura - Dirección Seccional de Administración Judicial de Pereira - Risaralda el suministro; instalación; pruebas y puesta en funcionamiento de los sistemas de energía solar fotovoltaica para los Palacios de Justicia de Pereira y Pueblo Rico",
+      "fecha_firma": "2026-05-26T00:00:00",
+      "inicio_ejecucion": "2026-06-04T00:00:00",
+      "fin_ejecucion": "2026-10-04T00:00:00",
+      "ultima_actualizacion": "2026-09-01T00:00:00",
+      "valor": 737042388.0,
+      "valor_facturado": 213111921.12,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 4,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "VHZ INGENIERIA S.A.S",
+      "nit_proveedor": "900151289",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217921&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "LUIS ALBERTO TRIVIÑO MARTINEZ",
+        "ordenador_gasto": "MARCELO GIRALDO ALVAREZ",
+        "supervisor": "IVAN MATURANA CORDOBA"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 6,
+      "valor_total": 47729081837.0,
+      "primero": "2019-05-13T00:00:00",
+      "ultimo": "2026-05-26T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "GOBERNACION DE CALDAS",
+          "contratos": 3,
+          "valor": 41867292803.0
+        },
+        {
+          "nombre": "Rama Judicial – Dirección Seccional de Administración Judicial de Manizales",
+          "contratos": 2,
+          "valor": 5124746646.0
+        },
+        {
+          "nombre": "Rama Judicial – Dirección Seccional de Administración Judicial de Pereira",
+          "contratos": 1,
+          "valor": 737042388.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 57,
+      "valor_12m": 11896312147.0,
+      "pagado_sobre_facturado_pct": 87.7,
+      "proveedores_top": [
+        {
+          "nombre": "SEGURIDAD NACIONAL LTDA",
+          "contratos": 2,
+          "valor": 3216872832.0
+        },
+        {
+          "nombre": "REINGENIERIA INTEGRAL SAS",
+          "contratos": 1,
+          "valor": 1750000000.0
+        },
+        {
+          "nombre": "GTI ALBERTO ALVAREZ LOPEZ SAS",
+          "contratos": 1,
+          "valor": 1001265480.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11028510",
+    "id_portafolio": "CO1.BDOS.10843316",
     "referencia": "RE-ESAL-AMVL-014-2026",
     "entidad": "MUNICIPIO DE VILLA DE LEYVA//",
     "nit_entidad": "891801268",
@@ -803,7 +1321,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 70,
       "unidad": "día(s)",
-      "texto": "70 día(s)"
+      "texto": "70 días"
     },
     "competencia": {
       "interesados": 0,
@@ -827,8 +1345,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PROSERVIRTE",
@@ -836,13 +1354,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 710407172.0,
       "departamento_proveedor": "Boyacá",
-      "ciudad_proveedor": "Chiquinquirá"
+      "ciudad_proveedor": "Chiquinquirá",
+      "nit_normalizado": "900918168"
     },
     "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885910"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885910",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9968467",
+      "referencia": "294-2026",
+      "estado": "Aprobado",
+      "objeto": "AUNAR ESFUERZOS TÉCNICOS; ADMINISTRATIVOS Y FINANCIEROS EN LA IMPLEMENTACIÓN Y EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE; ENTRE EL DEPARTAMENTO DE BOYACÁ Y EL MUNICIPIO DE VILLA DE LEYVA; PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE; DURANTE EL SEGUNDO SEMESTRE DEL AÑO 2026",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-11-30T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 710407172.83,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "PROSERVIRTE",
+      "nit_proveedor": "900918168",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885910&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "JEISSON ANDRES PEÑA ROCHA",
+        "ordenador_gasto": "NICOLAS MENDEZ FIGUEROA",
+        "supervisor": "Jailer Reina Espitia"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 142,
+      "valor_total": 57904691691.1,
+      "primero": "2021-05-13T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE OTANCHE",
+          "contratos": 10,
+          "valor": 7333352160.26
+        },
+        {
+          "nombre": "ALCALDIA MUNICIPAL DE PAUNA",
+          "contratos": 14,
+          "valor": 6109319268.94
+        },
+        {
+          "nombre": "MUNICIPIO DE SANTANA",
+          "contratos": 12,
+          "valor": 6103367832.39
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 359,
+      "valor_12m": 26746504047.97,
+      "pagado_sobre_facturado_pct": 77.2,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL DE DON MATIAS",
+          "contratos": 2,
+          "valor": 5547910076.39
+        },
+        {
+          "nombre": "PROSERVIRTE",
+          "contratos": 2,
+          "valor": 2615002457.42
+        },
+        {
+          "nombre": "Empresa de servicios publica mixta alumbrado de Villa de Leyva - 450 años s.a.s. e.s.p.",
+          "contratos": 2,
+          "valor": 1373437053.9
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11007204",
+    "id_portafolio": "CO1.BDOS.10755480",
     "referencia": "SI-011-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA DE EL PEÑOL",
     "nit_entidad": "890980917",
@@ -864,7 +1460,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 54,
       "unidad": "día(s)",
-      "texto": "54 día(s)"
+      "texto": "54 días"
     },
     "competencia": {
       "interesados": 0,
@@ -888,8 +1484,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "JORGE ARMANDO OSORIO VALLEJO",
@@ -900,10 +1496,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Peñol"
     },
     "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862734"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862734",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 584,
+      "valor_12m": 38203760570.21,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "Empresa Autonoma de El Peñol",
+          "contratos": 34,
+          "valor": 13159241234.71
+        },
+        {
+          "nombre": "JORGE ARMANDO OSORIO VALLEJO",
+          "contratos": 3,
+          "valor": 2373427022.0
+        },
+        {
+          "nombre": "Aguas y Aseo de El Peñol E.S.P",
+          "contratos": 3,
+          "valor": 1554113059.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10358371",
+    "id_portafolio": "CO1.BDOS.10185023",
     "referencia": "COMPETITIVO-ESAL-002-2026",
     "entidad": "ALCALDÍA MUNICIPAL DE CHAPARRAL",
     "nit_entidad": "800100053",
@@ -945,8 +1566,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "PRECOOPVIVERES",
@@ -954,13 +1575,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 529529000.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900230819"
     },
     "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9497101",
+      "referencia": "184-2026",
+      "estado": "Modificado",
+      "objeto": "PRESTACIÓN DE SERVICIO DE ALIMENTACIÓN ESCOLAR (PAE) PARA NIÑOS; NIÑAS Y ADOLESCENTES\nDE LAS SEDES EDUCATIVAS DEL MUNICIPIO DE CHAPARRAL TOLIMA",
+      "fecha_firma": "2026-05-06T00:00:00",
+      "inicio_ejecucion": "2026-05-25T00:00:00",
+      "fin_ejecucion": "2026-12-18T00:00:00",
+      "ultima_actualizacion": "2026-09-16T00:00:00",
+      "valor": 529529000.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 19,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "PRECOOPVIVERES",
+      "nit_proveedor": "900230819",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10217842&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "COOPERATIVA PRECOOPVIVERES",
+        "ordenador_gasto": "HELVER GONZALEZ MORA",
+        "supervisor": "Pablo Cesar Alarcón Criollo"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 56,
+      "valor_total": 128920290379.05,
+      "primero": "2020-02-20T00:00:00",
+      "ultimo": "2026-07-31T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ICBF REGIONAL TOLIMA",
+          "contratos": 45,
+          "valor": 123945174407.69
+        },
+        {
+          "nombre": "ICBF SEDE NACIONAL",
+          "contratos": 1,
+          "valor": 1972386513.36
+        },
+        {
+          "nombre": "ALCALDÍA MUNICIPAL DE CHAPARRAL",
+          "contratos": 5,
+          "valor": 1793951406.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 401,
+      "valor_12m": 82718568083.54,
+      "pagado_sobre_facturado_pct": 95.9,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL HUELLAS CHAPARRAL",
+          "contratos": 1,
+          "valor": 33712486021.0
+        },
+        {
+          "nombre": "CORPROAMBIENTE",
+          "contratos": 1,
+          "valor": 13267321860.0
+        },
+        {
+          "nombre": "UNION TEMPORAL UNIÓN TEMPORAL RELLENO PIPINI",
+          "contratos": 1,
+          "valor": 6157458098.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11104011",
+    "id_portafolio": "CO1.BDOS.10917567",
     "referencia": "CMA-EICE-AMV-002-2026",
     "entidad": "EMPRESA INDUSTRIAL Y COMERCIAL DEL ESTADO AREA METROPOLITANA DE VALLEDUPAR E.I.C.E. AMV",
     "nit_entidad": "9018803781",
@@ -982,7 +1681,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 12,
       "unidad": "mes(es)",
-      "texto": "12 mes(es)"
+      "texto": "12 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -1018,10 +1717,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10959424"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10959424",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 45,
+      "valor_12m": 802219981.0,
+      "pagado_sobre_facturado_pct": 96.0,
+      "proveedores_top": [
+        {
+          "nombre": "EDWIN ALBERTO BENITEZ CERVANTES",
+          "contratos": 1,
+          "valor": 128000000.0
+        },
+        {
+          "nombre": "Ruth Helena López Pacheco",
+          "contratos": 3,
+          "valor": 104800000.0
+        },
+        {
+          "nombre": "Saul Celis",
+          "contratos": 1,
+          "valor": 52477290.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11088646",
+    "id_portafolio": "CO1.BDOS.10902922",
     "referencia": "SAMC-011-2026",
     "entidad": "MUNICIPIO DE MARIPI",
     "nit_entidad": "800024789",
@@ -1043,7 +1767,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -1079,10 +1803,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10944501"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10944501",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 188,
+      "valor_12m": 14077487388.79,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION APOYAMOS Y SERVIMOS CAPACITANDO ASERCA",
+          "contratos": 5,
+          "valor": 1674938314.0
+        },
+        {
+          "nombre": "SAIDERTOUR SERVICIOS ESPECIALES SAS",
+          "contratos": 4,
+          "valor": 1475544000.0
+        },
+        {
+          "nombre": "FUNDACIÓN DE SERVICIO SOCIAL PAN Y VIDA",
+          "contratos": 2,
+          "valor": 1434822213.95
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11097146",
+    "id_portafolio": "CO1.BDOS.10840344",
     "referencia": "SASI-009-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE AMAGA",
     "nit_entidad": "890981732",
@@ -1124,8 +1873,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1136,10 +1885,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10952184"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10952184",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 415,
+      "valor_12m": 35302620721.8,
+      "pagado_sobre_facturado_pct": 52.6,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO Y RURAL DEL MUNICIPIO DE BELLO",
+          "contratos": 11,
+          "valor": 9750501527.78
+        },
+        {
+          "nombre": "PROVINCIA ADMINISTRATIVA Y DE PLANIFICACION- PAP-",
+          "contratos": 23,
+          "valor": 4854595319.42
+        },
+        {
+          "nombre": "Comercializadora Palacio G SAS",
+          "contratos": 2,
+          "valor": 2261108413.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11061828",
+    "id_portafolio": "CO1.BDOS.10876379",
     "referencia": "No.IN-031-2026",
     "entidad": "FONER",
     "nit_entidad": "901564190",
@@ -1161,7 +1935,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -1197,10 +1971,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Tumaco"
     },
     "score_calidad": 83,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918117"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918117",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.9045709",
+    "id_portafolio": "CO1.BDOS.8882779",
     "referencia": "AIM-CD-494-2025",
     "entidad": "AGENCIA PARA LA INFRAESTRUCTURA DEL META",
     "nit_entidad": "900220547",
@@ -1222,7 +2000,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 6,
       "unidad": "mes(es)",
-      "texto": "6 mes(es)"
+      "texto": "6 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -1258,10 +2036,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 666,
+      "valor_12m": 224978677093.63,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO VIAL GCL",
+          "contratos": 1,
+          "valor": 112233834677.0
+        },
+        {
+          "nombre": "CONSORCIO RÍO ARIARI",
+          "contratos": 1,
+          "valor": 18553976646.0
+        },
+        {
+          "nombre": "Consorcio HOSPITAL DE LA ORINOQUIA",
+          "contratos": 1,
+          "valor": 11666502179.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10391024",
+    "id_portafolio": "CO1.BDOS.10216032",
     "referencia": "LP-002-2026",
     "entidad": "MUNICIPIO DE CIENAGA",
     "nit_entidad": "891780043",
@@ -1283,7 +2086,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 72,
       "unidad": "día(s)",
-      "texto": "72 día(s)"
+      "texto": "72 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1307,8 +2110,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1316,13 +2119,69 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": null
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10248728"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10248728",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9604765",
+      "referencia": "CO1.PCCNTR.9604765",
+      "estado": "Modificado",
+      "objeto": "SUMINISTRO DE UN COMPLEMENTO ALIMENTARIO PARA LOS ESTUDIANTES DE LOS ESTABLECIMIENTOS EDUCATIVOS PRIORIZADOS EN EL PROGRAMA DE ALIMENTACIÓN ESCOLAR DEL MUNICIPIO DE CIÉNAGA MAGDALENA.",
+      "fecha_firma": "2026-07-09T00:00:00",
+      "inicio_ejecucion": "2026-07-09T00:00:00",
+      "fin_ejecucion": "2026-11-09T00:00:00",
+      "ultima_actualizacion": "2026-07-16T00:00:00",
+      "valor": 9261946604.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": true,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "UNION TEMPORAL CÉNIT",
+      "nit_proveedor": null,
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10343005&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "ALEIDYS MARTINEZ SALAS",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 53,
+      "valor_12m": 23835224097.11,
+      "pagado_sobre_facturado_pct": 0.0,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL CÉNIT",
+          "contratos": 1,
+          "valor": 9261946604.0
+        },
+        {
+          "nombre": "FUNDACION GARDEN",
+          "contratos": 1,
+          "valor": 3151226663.42
+        },
+        {
+          "nombre": "FUNDACIÓN SOCIAL GUATAPURÍ",
+          "contratos": 2,
+          "valor": 1400081854.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11066961",
+    "id_portafolio": "CO1.BDOS.10882202",
     "referencia": "OP017-2026",
     "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
     "nit_entidad": "8110303954",
@@ -1344,7 +2203,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 6,
       "unidad": "mes(es)",
-      "texto": "6 mes(es)"
+      "texto": "6 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -1377,13 +2236,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "811046428"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9966149",
+      "referencia": "OP017-2026",
+      "estado": "Aprobado",
+      "objeto": "CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO SOLAR FOTOVOLTAICO MEDIANTE SUMINISTRO; INSTALACIÓN Y MONITOREO EN TRAMOS DE UNIÓN PANAMERICANA; CHOCÓ: 1. VÍA SAN PABLO; 2. EL DOS RASPADURA; 3. RASPADURA-QUIADÓ; 4. SALERO-LA YE; 5. LA YE CABECERA; 6. SECTOR DIVINO NIÑO HASTA I.E. SAN JOAQUÍN DE LAS ÁNIMAS. CHOCÓ e identificado con el Código BPIN 2026278100002",
+      "fecha_firma": "2026-09-18T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2027-03-21T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 8814281333.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": null,
+      "origen_recursos": [],
+      "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+      "nit_proveedor": "811046428",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923386&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Luis Ovidio Cordoba Martinez",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 199,
+      "valor_total": 47819734153.6,
+      "primero": "2021-12-13T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+          "contratos": 178,
+          "valor": 44519509373.6
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO Y RURAL DE ANTIOQUIA",
+          "contratos": 4,
+          "valor": 1128740639.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL, ECONOMICO Y SOCIAL DEL MUNICIPIO DE CAÑASGORDAS",
+          "contratos": 1,
+          "valor": 734182085.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 139,
+      "valor_12m": 45608318203.58,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+          "contratos": 71,
+          "valor": 31537487096.0
+        },
+        {
+          "nombre": "TRAZANDO S.A.S",
+          "contratos": 4,
+          "valor": 2960437637.0
+        },
+        {
+          "nombre": "MULTERRAGRO S.A.S",
+          "contratos": 2,
+          "valor": 2894720000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.7372992",
+    "id_portafolio": "CO1.BDOS.7237001",
     "referencia": "RG-SECD-008-2024",
     "entidad": "MUNICIPIO DE REMEDIOS",
     "nit_entidad": "890984312",
@@ -1405,7 +2342,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 120,
       "unidad": "día(s)",
-      "texto": "120 día(s)"
+      "texto": "120 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1429,8 +2366,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1441,10 +2378,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 317,
+      "valor_12m": 32534216308.87,
+      "pagado_sobre_facturado_pct": 41.1,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA MUNICIPAL DE DESARROLLO URBANO, RURAL Y MINERO DE REMEDIOS",
+          "contratos": 37,
+          "valor": 17512926344.46
+        },
+        {
+          "nombre": "AZNE SAS",
+          "contratos": 1,
+          "valor": 2600000000.0
+        },
+        {
+          "nombre": "EMPRESA SOCIAL DEL ESTADO HOSPITAL SAN VICENTE DE PAUL REMEDIOS",
+          "contratos": 5,
+          "valor": 1302397856.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11043283",
+    "id_portafolio": "CO1.BDOS.10779765",
     "referencia": "LP-004-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE CHIGORODO",
     "nit_entidad": "890980998",
@@ -1466,7 +2428,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 28,
       "unidad": "día(s)",
-      "texto": "28 día(s)"
+      "texto": "28 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1490,8 +2452,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1502,10 +2464,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10898394"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10898394",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 291,
+      "valor_12m": 54372161894.27,
+      "pagado_sobre_facturado_pct": 75.7,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL DE DON MATIAS",
+          "contratos": 3,
+          "valor": 12725017133.52
+        },
+        {
+          "nombre": "Gustavo De Jesus Restrepo",
+          "contratos": 6,
+          "valor": 10362638041.0
+        },
+        {
+          "nombre": "EMPRESA PARA EL DESARROLLO URBANO Y HABITAT DEL MUNICIPIO DE APARTADÓ",
+          "contratos": 5,
+          "valor": 5431423965.1
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.2782798",
+    "id_portafolio": "CO1.BDOS.2709923",
     "referencia": "SE-054-2022",
     "entidad": "DEPARTAMENTO DE CORDOBA",
     "nit_entidad": "800103935",
@@ -1527,7 +2514,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 330,
       "unidad": "día(s)",
-      "texto": "330 día(s)"
+      "texto": "330 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1551,8 +2538,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1563,10 +2550,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 2037,
+      "valor_12m": 752453596708.17,
+      "pagado_sobre_facturado_pct": 4.0,
+      "proveedores_top": [
+        {
+          "nombre": "Banco de Occidente SA",
+          "contratos": 1,
+          "valor": 135000000000.0
+        },
+        {
+          "nombre": "BBOGOTA",
+          "contratos": 1,
+          "valor": 80000000000.0
+        },
+        {
+          "nombre": "CORSORCIO CORDOBA ALIMENTA 2026",
+          "contratos": 1,
+          "valor": 48364538938.38
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.5452641",
+    "id_portafolio": "CO1.BDOS.5334152",
     "referencia": "126-2023",
     "entidad": "EMPRESA DE ENERGIA DEL GUAINIA LA CEIBA S.A. E.S.P",
     "nit_entidad": "8430000578",
@@ -1588,7 +2600,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "día(s)",
-      "texto": "8 día(s)"
+      "texto": "8 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1624,10 +2636,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11029830",
+    "id_portafolio": "CO1.BDOS.10803269",
     "referencia": "S.A.S.I 011DE 2026 (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPIO DE JARDÍN",
     "nit_entidad": "890982294",
@@ -1649,7 +2665,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 66,
       "unidad": "día(s)",
-      "texto": "66 día(s)"
+      "texto": "66 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1673,8 +2689,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "EPSI",
@@ -1685,10 +2701,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10883453"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10883453",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 227,
+      "valor_12m": 18190588812.13,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL DE DON MATIAS",
+          "contratos": 3,
+          "valor": 3318145066.0
+        },
+        {
+          "nombre": "FEDERACION NACIONAL DE CAFETEROS DE COLOMBIA",
+          "contratos": 6,
+          "valor": 2989352196.0
+        },
+        {
+          "nombre": "VISUAL PRODUCCIONES S.A.S.",
+          "contratos": 2,
+          "valor": 1299120122.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11025488",
+    "id_portafolio": "CO1.BDOS.10840160",
     "referencia": "190-CONV-016-2026",
     "entidad": "MUNICIPIO EL CARMEN DE VIBORAL",
     "nit_entidad": "890982616",
@@ -1742,10 +2783,57 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "El Carmen De Viboral"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935338"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935338",
+    "contrato": null,
+    "historial_contratista": {
+      "contratos": 89,
+      "valor_total": 107974067298.98,
+      "primero": "2021-10-26T00:00:00",
+      "ultimo": "2026-07-31T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO EL CARMEN DE VIBORAL",
+          "contratos": 82,
+          "valor": 56273187990.98
+        },
+        {
+          "nombre": "SENA REGIONAL ANTIOQUIA Grupo Administrativo CIAA",
+          "contratos": 1,
+          "valor": 50398765945.0
+        },
+        {
+          "nombre": "EL INSTITUTO DE CULTURA EL CARMEN DE VIBORAL",
+          "contratos": 3,
+          "valor": 671704826.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 403,
+      "valor_12m": 65596157270.19,
+      "pagado_sobre_facturado_pct": 94.8,
+      "proveedores_top": [
+        {
+          "nombre": "EDUR",
+          "contratos": 23,
+          "valor": 17494425023.44
+        },
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 2,
+          "valor": 6126212330.0
+        },
+        {
+          "nombre": "CORPORACION DE PROFESIONALES ASESORES",
+          "contratos": 1,
+          "valor": 5376686808.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11047670",
+    "id_portafolio": "CO1.BDOS.10862762",
     "referencia": "ESAL-MSS-006-2026",
     "entidad": "ALCALDIA MUNICIPIO DE SATIVASUR",
     "nit_entidad": "8000994412",
@@ -1767,7 +2855,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 106,
       "unidad": "día(s)",
-      "texto": "106 día(s)"
+      "texto": "106 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1791,8 +2879,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
@@ -1800,13 +2888,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 100481483.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900562400"
     },
     "score_calidad": 80,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9964815",
+      "referencia": "ESAL-MSS-006-2026",
+      "estado": "Aprobado",
+      "objeto": "AUNAR ESFUERZOS TÉCNICOS; ADMINISTRATIVOS Y FINANCIEROS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR A LOS ESTUDIANTES DE LAS INSTITUCIONES EDUCATIVAS OFICIALES DEL MUNICIPIO DE SATIVASUR; EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO No. 2612 DE 2026; SUSCRITO ENTRE EL MUNICIPIO DE SATIVASUR Y EL DEPARTAMENTO DE BOYACÁ; PARA GARANTIZAR EL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE DURANTE EL SEGUNDO SEMESTRE DE 2026",
+      "fecha_firma": "2026-09-18T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 100481483.98,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+      "nit_proveedor": "900562400",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903775&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "LEIDY TATIANA VALENCIA GARCIA",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 316,
+      "valor_total": 95064462866.92,
+      "primero": "2018-01-22T00:00:00",
+      "ultimo": "2026-09-18T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE TASCO",
+          "contratos": 19,
+          "valor": 7529119607.85
+        },
+        {
+          "nombre": "MUNICIPIO DE SOCOTA",
+          "contratos": 10,
+          "valor": 5560313828.85
+        },
+        {
+          "nombre": "MUNICIPIO DE DUITAMA",
+          "contratos": 4,
+          "valor": 5373710720.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 82,
+      "valor_12m": 2108860553.05,
+      "pagado_sobre_facturado_pct": 76.5,
+      "proveedores_top": [
+        {
+          "nombre": "SERVICIOS INGENIERIA D&D",
+          "contratos": 1,
+          "valor": 257383208.0
+        },
+        {
+          "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+          "contratos": 2,
+          "valor": 248842084.18
+        },
+        {
+          "nombre": "HOSPITAL REGIONAL DUITAMA",
+          "contratos": 3,
+          "valor": 154505778.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11038196",
+    "id_portafolio": "CO1.BDOS.10853344",
     "referencia": "SI-CD-155-2026",
     "entidad": "MUNICIPIO DE ITAGUI",
     "nit_entidad": "890980093",
@@ -1828,7 +2997,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 108,
       "unidad": "día(s)",
-      "texto": "108 día(s)"
+      "texto": "108 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1859,8 +3028,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "obras civiles"
+      "obras civiles",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
@@ -1868,13 +3037,84 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 2830179333.0,
       "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
+      "ciudad_proveedor": "Itagui",
+      "nit_normalizado": "9019238961"
     },
     "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9946118",
+      "referencia": "SI-CD-155-2026",
+      "estado": "En ejecución",
+      "objeto": "CONTRATO INTERADMINISTRATIVO DE ADMINISTRACIÓN DELEGADA ENTRE EL MUNICIPIO DE ITAGÜÍ Y LA EMPRESA DE SERVICIOS PÚBLICOS DE ITAGÜÍ - EMSI S.A.S. E.S.P.; PARA LA EJECUCIÓN DE LA FASE 2 DEL ALUMBRADO NAVIDEÑO LAS PUERTAS DE LA NAVIDAD; CORRESPONDIENTE A LA VIGENCIA 2026; MEDIANTE LA EJECUCIÓN DE LAS OBRAS CIVILES; ELÉCTRICAS DE MONTAJE Y LAS DEMÁS REQUERIDAS EN EL MARCO DEL PROYECTO AMPLIACIÓN Y FUNCIONAMIENTO DEL SISTEMA DE ALUMBRADO PÚBLICO EN EL MUNICIPIO DE ITAGÜÍ",
+      "fecha_firma": "2026-09-15T00:00:00",
+      "inicio_ejecucion": "2026-09-15T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 2830179333.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "EMPRESA DE SERVICIOS PÚBLICOS DE ITAGUÍ - E.M.S.I. E.S.P. S.A.S.",
+      "nit_proveedor": "9019238961",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10896140&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "HERNAN DARIO SANCHEZ QUITIAQUEZ",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 7,
+      "valor_total": 28623903483.0,
+      "primero": "2025-06-25T00:00:00",
+      "ultimo": "2026-09-15T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE ITAGUI",
+          "contratos": 7,
+          "valor": 28623903483.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 282,
+      "valor_12m": 504988612759.0,
+      "pagado_sobre_facturado_pct": 96.8,
+      "proveedores_top": [
+        {
+          "nombre": "AGENCIA DE DESARROLLO LOCAL DE ITAGUI",
+          "contratos": 18,
+          "valor": 204793402335.0
+        },
+        {
+          "nombre": "INSTITUTO MUNICIPAL DE CULTURA, RECREACIÓN Y DEPORTE DE ITAGUI",
+          "contratos": 4,
+          "valor": 42879784458.0
+        },
+        {
+          "nombre": "SOLU AS S.A.S.",
+          "contratos": 3,
+          "valor": 29496396844.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10357323",
+    "id_portafolio": "CO1.BDOS.10159003",
     "referencia": "SASIP 004 DE 2026 (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPAL DE IPIALES",
     "nit_entidad": "800099095",
@@ -1896,7 +3136,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 242,
       "unidad": "día(s)",
-      "texto": "242 día(s)"
+      "texto": "242 días"
     },
     "competencia": {
       "interesados": 0,
@@ -1927,13 +3167,84 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 1600000000.0,
       "departamento_proveedor": "Nariño",
-      "ciudad_proveedor": "Pasto"
+      "ciudad_proveedor": "Pasto",
+      "nit_normalizado": "8140029797"
     },
     "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9479182",
+      "referencia": "351 DE 2026",
+      "estado": "En ejecución",
+      "objeto": "SUMINISTRO DE ENERGÍA ELÉCTRICA; CON DESTINO AL SISTEMA DE ALUMBRADO PÚBLICO EN EL ÁREA URBANA Y RURAL EN EL MUNICIPIO DE IPIALES NARIÑO",
+      "fecha_firma": "2026-04-30T00:00:00",
+      "inicio_ejecucion": "2026-05-04T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1600000000.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "ASC INGENIERIA SA ESP",
+      "nit_proveedor": "8140029797",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10215573&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "DIDIER DELGADO",
+        "ordenador_gasto": "JOSE AMILCAR PANTOJA IPIALES",
+        "supervisor": "Alex Paz"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 4,
+      "valor_total": 7791632360.0,
+      "primero": "2024-04-30T00:00:00",
+      "ultimo": "2026-04-30T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDIA MUNICIPAL DE IPIALES",
+          "contratos": 4,
+          "valor": 7791632360.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 814,
+      "valor_12m": 67520599059.82,
+      "pagado_sobre_facturado_pct": 96.6,
+      "proveedores_top": [
+        {
+          "nombre": "RESGUARDO INDIGENA DE IPIALES",
+          "contratos": 1,
+          "valor": 10063067111.11
+        },
+        {
+          "nombre": "Asociacion de Cabildos Y/O Autoridades Tradicionales Indigenas Inty-Quilla",
+          "contratos": 6,
+          "valor": 5836175365.41
+        },
+        {
+          "nombre": "EMPRESA DE OBRAS SANITARIAS DE LA PROVINCIA DE OBANDO EMPOOBANDO E.S.P.",
+          "contratos": 8,
+          "valor": 5834859482.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10383641",
+    "id_portafolio": "CO1.BDOS.10163248",
     "referencia": "LP-001-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPIO DE MANZANARES",
     "nit_entidad": "890802505",
@@ -1955,7 +3266,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 7,
       "unidad": "año(s)",
-      "texto": "7 año(s)"
+      "texto": "7 años"
     },
     "competencia": {
       "interesados": 0,
@@ -1986,13 +3297,72 @@ window.PROSPECTS_DATA = [
       "es_consorcio": true,
       "valor_adjudicado": 1197321600.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Pereira"
+      "ciudad_proveedor": "Pereira",
+      "nit_normalizado": null
     },
     "score_calidad": 78,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240326"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240326",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9539890",
+      "referencia": "LP-001-2026",
+      "estado": "Aprobado",
+      "objeto": "CONCESIÓN PARA LA OPERACIÓN; ADMINISTRACIÓN; MANTENIMIENTO; REPOSICIÓN Y EXPANSIÓN DEL SISTEMA DE ALUMBRADO PÚBLICO; EN EL MUNICIPIO DE MANZANARES; CALDAS",
+      "fecha_firma": "2026-09-12T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2033-09-11T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1197321600.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": true,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "CONSORCIO MANZANARES ILUMINADA",
+      "nit_proveedor": null,
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240326&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Santiago Rave Restrepo",
+        "ordenador_gasto": "CARLOS ENRIQUE BOTERO ALVAREZ",
+        "supervisor": "Diego Toro Ramirez"
+      }
+    },
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 493,
+      "valor_12m": 20984782555.99,
+      "pagado_sobre_facturado_pct": 69.8,
+      "proveedores_top": [
+        {
+          "nombre": "Hugo Alberto Arias Duque",
+          "contratos": 2,
+          "valor": 2443821683.0
+        },
+        {
+          "nombre": "CONSORCIO MANZANARES ILUMINADA",
+          "contratos": 1,
+          "valor": 1197321600.0
+        },
+        {
+          "nombre": "EMPRESA DE OBRAS SANITARIAS DE CALDAS S.A E.S.P.",
+          "contratos": 1,
+          "valor": 1091984884.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10875617",
+    "id_portafolio": "CO1.BDOS.10692320",
     "referencia": "OCO-260081",
     "entidad": "UNIVERSIDAD FRANCISCO DE PAULA SANTANDER",
     "nit_entidad": "890500622",
@@ -2014,7 +3384,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 120,
       "unidad": "día(s)",
-      "texto": "120 día(s)"
+      "texto": "120 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2050,10 +3420,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 75,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10731107"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10731107",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11094380",
+    "id_portafolio": "CO1.BDOS.10876119",
     "referencia": "SASIE-003-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE CISNEROS",
     "nit_entidad": "890910913",
@@ -2075,7 +3449,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2099,8 +3473,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2111,10 +3485,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 75,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10949885"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10949885",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 219,
+      "valor_12m": 10162819360.78,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "V&S SUMINISTROS Y SOLUCIONES SAS",
+          "contratos": 27,
+          "valor": 2595006766.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DEL OCCIDENTE--EDUOCCIDENTE",
+          "contratos": 6,
+          "valor": 1260309940.0
+        },
+        {
+          "nombre": "OCCIDECOR*",
+          "contratos": 1,
+          "valor": 614213525.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11072551",
+    "id_portafolio": "CO1.BDOS.10887128",
     "referencia": "SI-002-2026",
     "entidad": "ALCALDÍA MUNICIPAL DE BELMIRA ANTIOQUIA",
     "nit_entidad": "890981880",
@@ -2136,7 +3535,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2160,8 +3559,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2172,10 +3571,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 75,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929393"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929393",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 199,
+      "valor_12m": 17520506454.94,
+      "pagado_sobre_facturado_pct": 70.0,
+      "proveedores_top": [
+        {
+          "nombre": "EDENORTE",
+          "contratos": 5,
+          "valor": 6677352981.0
+        },
+        {
+          "nombre": "TRANSPORTES EXPREBELMIRA S.A",
+          "contratos": 6,
+          "valor": 1429052944.0
+        },
+        {
+          "nombre": "ANTIOQUIA – EMPRESAS PUBLICAS DE BELMIRA S.A E.S.P - BELMIRA",
+          "contratos": 4,
+          "valor": 1107032728.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11098814",
+    "id_portafolio": "CO1.BDOS.10912169",
     "referencia": "005ESAL2026",
     "entidad": "MUNICIPIO DE VALPARAISO**",
     "nit_entidad": "890984186",
@@ -2197,7 +3621,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 32,
       "unidad": "día(s)",
-      "texto": "32 día(s)"
+      "texto": "32 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2221,8 +3645,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2233,10 +3657,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 75,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10954523"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10954523",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 127,
+      "valor_12m": 6134658858.54,
+      "pagado_sobre_facturado_pct": 60.0,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION INTEGRAL VIDA",
+          "contratos": 5,
+          "valor": 733694650.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL DE DON MATIAS",
+          "contratos": 7,
+          "valor": 718083922.68
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO SOSTENIBLE DEL MUNICIPIO DE LA UNION",
+          "contratos": 1,
+          "valor": 569262043.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11086135",
+    "id_portafolio": "CO1.BDOS.10845146",
     "referencia": "CMA-0008-2026 (Presentación de oferta)",
     "entidad": "DEPARTAMENTO DEL ATLANTICO**",
     "nit_entidad": "890102006",
@@ -2258,7 +3707,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2292,10 +3741,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 74,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10941580"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10941580",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3647,
+      "valor_12m": 645404271488.26,
+      "pagado_sobre_facturado_pct": 55.6,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO SAN VICENTE 16",
+          "contratos": 1,
+          "valor": 67032646567.86
+        },
+        {
+          "nombre": "UNION TEMPORAL ATLANTIC",
+          "contratos": 2,
+          "valor": 48545474236.21
+        },
+        {
+          "nombre": "DELTHAC 1 SEGURIDAD LTDA",
+          "contratos": 1,
+          "valor": 29044108173.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10373444",
+    "id_portafolio": "CO1.BDOS.10199276",
     "referencia": "CCI-PTSP-120-2026",
     "entidad": "FONDO PARA EL DESARROLLO DEL PLAN TODOS SOMOS PAZCÍFICO",
     "nit_entidad": "830053105",
@@ -2317,7 +3791,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2351,10 +3825,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230443"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230443",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 113,
+      "valor_12m": 6080643334.0,
+      "pagado_sobre_facturado_pct": 75.6,
+      "proveedores_top": [
+        {
+          "nombre": "CAMILO ANDRES BERMUDEZ LOPEZ",
+          "contratos": 2,
+          "valor": 128816667.0
+        },
+        {
+          "nombre": "ALBERTO SANCHEZ RAMOS",
+          "contratos": 1,
+          "valor": 100500000.0
+        },
+        {
+          "nombre": "LAURA ESTEFANIA DORADO ROJAS",
+          "contratos": 1,
+          "valor": 100500000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11076623",
+    "id_portafolio": "CO1.BDOS.10769957",
     "referencia": "LP-005-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE GACHANCIPA",
     "nit_entidad": "899999419",
@@ -2406,10 +3905,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935310"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935310",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 342,
+      "valor_12m": 24800793447.8,
+      "pagado_sobre_facturado_pct": 82.1,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO ALCANTARILLADO 2026",
+          "contratos": 1,
+          "valor": 5074189495.0
+        },
+        {
+          "nombre": "FUN ARTE Y VIDA",
+          "contratos": 3,
+          "valor": 1826123230.0
+        },
+        {
+          "nombre": "GRUPO COMERCIAL SINERGIA",
+          "contratos": 2,
+          "valor": 1773752052.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11019988",
+    "id_portafolio": "CO1.BDOS.10834626",
     "referencia": "REG 2026-044",
     "entidad": "SERVICIOS INTEGRALES DEL ESTADO COLOMBIANO SIEC SAS SOCIEDAD DE ECONOMIA MIXTA1",
     "nit_entidad": "9016130902",
@@ -2431,7 +3955,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 330,
       "unidad": "día(s)",
-      "texto": "330 día(s)"
+      "texto": "330 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2465,10 +3989,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10879371"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10879371",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11099540",
+    "id_portafolio": "CO1.BDOS.10913642",
     "referencia": "LP-001-2026",
     "entidad": "JAGUAZUL S.A. E.S.P.",
     "nit_entidad": "900258155",
@@ -2490,7 +4018,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 4,
       "unidad": "mes(es)",
-      "texto": "4 mes(es)"
+      "texto": "4 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2524,10 +4052,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10955256"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10955256",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11091331",
+    "id_portafolio": "CO1.BDOS.10904936",
     "referencia": "LP-005-2026",
     "entidad": "INFIBAGUE**",
     "nit_entidad": "890700755",
@@ -2549,7 +4081,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 180,
       "unidad": "día(s)",
-      "texto": "180 día(s)"
+      "texto": "180 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2583,10 +4115,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10949665"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10949665",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 640,
+      "valor_12m": 44209461215.69,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "INTERNACIONAL DE ELECTRICOS SAS",
+          "contratos": 3,
+          "valor": 13500000000.0
+        },
+        {
+          "nombre": "UT ALUMBRADO NAVIDEÑO 2026",
+          "contratos": 1,
+          "valor": 3000000000.0
+        },
+        {
+          "nombre": "SEGURIDAD PRIVADA AGUIALARMAS LTDA",
+          "contratos": 1,
+          "valor": 2826820323.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10369226",
+    "id_portafolio": "CO1.BDOS.10194832",
     "referencia": "CW384145",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -2638,10 +4195,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Boyacá"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226141"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226141",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11091127",
+    "id_portafolio": "CO1.BDOS.10905028",
     "referencia": "LP 001-2026-SP",
     "entidad": "MUNICIPIO DE ANDES",
     "nit_entidad": "890980342",
@@ -2663,7 +4224,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 20,
       "unidad": "año(s)",
-      "texto": "20 año(s)"
+      "texto": "20 años"
     },
     "competencia": {
       "interesados": 0,
@@ -2697,10 +4258,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10946339"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10946339",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 342,
+      "valor_12m": 31809749045.54,
+      "pagado_sobre_facturado_pct": 47.3,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
+          "contratos": 32,
+          "valor": 17538977274.97
+        },
+        {
+          "nombre": "EMPRESA DE SERVICIOS PÚBLICOS DE ANDES S.A E.S.P",
+          "contratos": 4,
+          "valor": 2127776663.0
+        },
+        {
+          "nombre": "CUERPO DE BOMBEROS VOLUNTARIOS DE ANDES",
+          "contratos": 5,
+          "valor": 1127013776.22
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11023510",
+    "id_portafolio": "CO1.BDOS.10838134",
     "referencia": "LP004-2026",
     "entidad": "ALCALDÍA MUNICIPAL DE COCORNÁ",
     "nit_entidad": "890984634",
@@ -2722,7 +4308,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 20,
       "unidad": "año(s)",
-      "texto": "20 año(s)"
+      "texto": "20 años"
     },
     "competencia": {
       "interesados": 0,
@@ -2756,10 +4342,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10877374"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10877374",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 375,
+      "valor_12m": 23898199098.96,
+      "pagado_sobre_facturado_pct": 95.1,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA MUNICIPAL DE DESARROLLO URBANO, RURAL Y MINERO DE REMEDIOS",
+          "contratos": 9,
+          "valor": 6221739547.0
+        },
+        {
+          "nombre": "Empresa de Desarrollo Urbano Rural Integral",
+          "contratos": 2,
+          "valor": 4441336955.0
+        },
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 2,
+          "valor": 3000263067.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10362031",
+    "id_portafolio": "CO1.BDOS.10188431",
     "referencia": "CW384147",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -2811,10 +4422,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218831"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218831",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11075478",
+    "id_portafolio": "CO1.BDOS.10890135",
     "referencia": "CVI 001-2026",
     "entidad": "ALCALDIA MUNICIPAL DE SANTA BARBARA",
     "nit_entidad": "890980344",
@@ -2836,7 +4451,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 52,
       "unidad": "día(s)",
-      "texto": "52 día(s)"
+      "texto": "52 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2860,8 +4475,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2869,13 +4484,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900246990"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9971700",
+      "referencia": "CVI 001-2026",
+      "estado": "En ejecución",
+      "objeto": "INTEGRAR ESFUERZOS INSTITUCIONALES; TÉCNICOS; ADMINISTRATIVOS Y FINANCIEROS PARA LA GARANTÍA DEL DERECHO A LA EDUCACIÓN; A TRAVÉS DEL DESARROLLO DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE DIRIGIDO A LOS NIÑOS; NIÑAS; ADOLESCENTES Y JÓVENES CON MATRÍCULA OFICIAL EN LOS ESTABLECIMIENTOS EDUCATIVOS DEL MUNICIPIO DE SANTA BÁRBARA; ANTIOQUIA; EN EL MARCO DEL CONVENIO INTERADMINISTRATIVO N.º 4600019354 SUSCRITO ENTRE EL DEPARTAMENTO DE ANTIOQUIA SECRETARÍA DE EDUCACIÓN Y EL MUNICIPIO DE SANTA BÁRBARA; A",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": "2026-09-21T00:00:00",
+      "fin_ejecucion": "2026-11-30T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 926436318.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "MUNICIPIOS ASOCIADOS DEL NORDESTE Y MAGDALENA MEDIO",
+      "nit_proveedor": "900246990",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931460&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "MARJI ESTELA ECHEVERRIA JIMENEZ",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 24,
+      "valor_total": 10320916901.0,
+      "primero": "2022-07-29T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE VEGACHI",
+          "contratos": 6,
+          "valor": 4902996014.0
+        },
+        {
+          "nombre": "ALCALDIA OLAYA",
+          "contratos": 6,
+          "valor": 1289939587.0
+        },
+        {
+          "nombre": "ALCALDIA DE CAUCASIA",
+          "contratos": 1,
+          "valor": 986340156.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 321,
+      "valor_12m": 21702355362.04,
+      "pagado_sobre_facturado_pct": 21.2,
+      "proveedores_top": [
+        {
+          "nombre": "VIVESEM.",
+          "contratos": 2,
+          "valor": 7537276910.0
+        },
+        {
+          "nombre": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
+          "contratos": 2,
+          "valor": 1923349334.0
+        },
+        {
+          "nombre": "Empresa de Desarrollo Urbano y Rural de Segovia",
+          "contratos": 2,
+          "valor": 1294135680.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11068701",
+    "id_portafolio": "CO1.BDOS.10883632",
     "referencia": "CI009-2026",
     "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
     "nit_entidad": "8110303954",
@@ -2897,7 +4590,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 10,
       "unidad": "mes(es)",
-      "texto": "10 mes(es)"
+      "texto": "10 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -2930,13 +4623,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900580755"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9970530",
+      "referencia": "CI009-2026",
+      "estado": "Aprobado",
+      "objeto": "INTERVENTORÍA ADMINISTRATIVA; TÉCNICA; AMBIENTAL; LEGAL Y FINANCIERA AL CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO CON TECNOLOGÍA SOLAR Y MONITOREO DE ALTA TECNOLOGÍA EN BURITICÁ ANTIOQUIA. UNA ESTRATEGIA DE TRANSICIÓN ENERGÉTICA Y DESARROLLO REGIONAL MEDIANTE EL SUMINISTRO E INSTALACIÓN DE LUMINARIAS SOLARES EN LOS TRAMOS VIALES BURITICÁ PINGURO Y BURITICÁ TABACAL. ANTIOQUIA e identificado con el Código BPIN 2026051130003.",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2027-07-18T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 712295357.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": null,
+      "origen_recursos": [],
+      "proveedor": "TRAZANDO S.A.S",
+      "nit_proveedor": "900580755",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10929073&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Jefferson Yesid Arroyave Montoya",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 18,
+      "valor_total": 13047248115.67,
+      "primero": "2022-09-06T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+          "contratos": 15,
+          "valor": 12248071193.17
+        },
+        {
+          "nombre": "Empresa de Desarrollo Urbano de La Ceja",
+          "contratos": 1,
+          "valor": 780021200.0
+        },
+        {
+          "nombre": "EDUNA (COMPRADOR)",
+          "contratos": 1,
+          "valor": 18275722.5
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 139,
+      "valor_12m": 45608318203.58,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+          "contratos": 71,
+          "valor": 31537487096.0
+        },
+        {
+          "nombre": "TRAZANDO S.A.S",
+          "contratos": 4,
+          "valor": 2960437637.0
+        },
+        {
+          "nombre": "MULTERRAGRO S.A.S",
+          "contratos": 2,
+          "valor": 2894720000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.5532126",
+    "id_portafolio": "CO1.BDOS.5414007",
     "referencia": "SA SI 001-2024",
     "entidad": "ALCALDIA MUNICIPAL DE LA UNION",
     "nit_entidad": "890981995",
@@ -2958,7 +4729,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 66,
       "unidad": "día(s)",
-      "texto": "66 día(s)"
+      "texto": "66 días"
     },
     "competencia": {
       "interesados": 0,
@@ -2982,8 +4753,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2994,10 +4765,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 310,
+      "valor_12m": 23711507677.85,
+      "pagado_sobre_facturado_pct": 70.2,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO SOSTENIBLE DEL MUNICIPIO DE LA UNION",
+          "contratos": 16,
+          "valor": 6861150868.0
+        },
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 1,
+          "valor": 2188140411.0
+        },
+        {
+          "nombre": "CONSORCIO LA UNION JY",
+          "contratos": 1,
+          "valor": 1859018323.25
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.8700507",
+    "id_portafolio": "CO1.BDOS.8545904",
     "referencia": "276COGFM DIADF 2025",
     "entidad": "COMANDO GENERAL DE LAS FUERZAS MILITARES",
     "nit_entidad": "800230729",
@@ -3040,9 +4836,9 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
+      "sistema fotovoltaico",
       "fotovoltaico",
-      "energia renovable",
-      "sistema fotovoltaico"
+      "energia renovable"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3053,10 +4849,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 304,
+      "valor_12m": 60948263484.97,
+      "pagado_sobre_facturado_pct": 51.6,
+      "proveedores_top": [
+        {
+          "nombre": "INDUSTRIA MILITAR",
+          "contratos": 2,
+          "valor": 13899097690.0
+        },
+        {
+          "nombre": "UT CGFM 2026 TOYONORTE – ARMOR",
+          "contratos": 1,
+          "valor": 2620135000.0
+        },
+        {
+          "nombre": "UT LOGISTICA PROTOCOLARIA NACIONAL",
+          "contratos": 1,
+          "valor": 2503480000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11068101",
+    "id_portafolio": "CO1.BDOS.10882836",
     "referencia": "CI010-2026",
     "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
     "nit_entidad": "8110303954",
@@ -3078,7 +4899,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 6,
       "unidad": "mes(es)",
-      "texto": "6 mes(es)"
+      "texto": "6 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3111,13 +4932,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900580755"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924505"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924505",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9966452",
+      "referencia": "CI010-2026",
+      "estado": "Aprobado",
+      "objeto": "INTERVENTORÍA ADMINISTRATIVA; TÉCNICA; AMBIENTAL; LEGAL Y FINANCIERA AL CONTRATO DE OBRA PARA LAAMPLIACIÓN DEL ALUMBRADO PÚBLICO SOLAR FOTOVOLTAICO MEDIANTE SUMINISTRO; INSTALACIÓN Y MONITOREO EN TRAMOS DE UNIÓN PANAMERICANA; CHOCÓ: 1. VÍA SAN PABLO; 2. EL DOS RASPADURA; 3. RASPADURA-QUIADÓ; 4. SALERO-LA YE; 5. LA YE CABECERA; 6. SECTOR DIVINO NIÑO HASTA I.E. SAN JOAQUÍN DE LAS ÁNIMAS. CHOCÓ e identificado con el Código BPIN 2026278100002",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2027-03-21T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 417129096.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "TRAZANDO S.A.S",
+      "nit_proveedor": "900580755",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924505&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Jefferson Yesid Arroyave Montoya",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 18,
+      "valor_total": 13047248115.67,
+      "primero": "2022-09-06T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+          "contratos": 15,
+          "valor": 12248071193.17
+        },
+        {
+          "nombre": "Empresa de Desarrollo Urbano de La Ceja",
+          "contratos": 1,
+          "valor": 780021200.0
+        },
+        {
+          "nombre": "EDUNA (COMPRADOR)",
+          "contratos": 1,
+          "valor": 18275722.5
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 139,
+      "valor_12m": 45608318203.58,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+          "contratos": 71,
+          "valor": 31537487096.0
+        },
+        {
+          "nombre": "TRAZANDO S.A.S",
+          "contratos": 4,
+          "valor": 2960437637.0
+        },
+        {
+          "nombre": "MULTERRAGRO S.A.S",
+          "contratos": 2,
+          "valor": 2894720000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11062472",
+    "id_portafolio": "CO1.BDOS.10877044",
     "referencia": "ACUERDO FORMAL (01) Bolsa Común",
     "entidad": "MUNICIPIO DE CAPARRAPI*",
     "nit_entidad": "899999710",
@@ -3139,7 +5038,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 104,
       "unidad": "día(s)",
-      "texto": "104 día(s)"
+      "texto": "104 días"
     },
     "competencia": {
       "interesados": 0,
@@ -3163,8 +5062,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3172,13 +5071,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "899999114"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918613"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918613",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9962255",
+      "referencia": "ACUERDO FORMAL (01) Bolsa Común",
+      "estado": "Aprobado",
+      "objeto": "Aunar esfuerzos para la conformación de la Bolsa Común de recursos para el financiamiento del Programa de Alimentación Escolar PAE en la ETC Cundinamarca; mediante la transferencia de recursos SGP Alimentación Escolar del Municipio de Caparrapí; Cundinamarca; con Nit: 899999710-0 al Departamento de Cundinamarca Nit 899.999.114-",
+      "fecha_firma": "2026-09-22T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-12-30T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 389325561.71,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "DEPARTAMENTO DE CUNDINAMARCA - SECRETARIA DE EDUCACION",
+      "nit_proveedor": "899999114",
+      "url": "https://community.secop.gov.co/Public/Tendering/ContractNoticeManagement/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE",
+      "contactos": {
+        "representante_legal": "LIZETH MAYERLYN SEPULVEDA ROJAS",
+        "ordenador_gasto": "Andres Ardila Sanchez",
+        "supervisor": "SANDRA MILENA ROJAS HERNANDEZ"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 257,
+      "valor_total": 722755879155.78,
+      "primero": "2017-11-10T00:00:00",
+      "ultimo": "2026-09-22T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MINISTERIO DE MINAS Y ENERGIA",
+          "contratos": 2,
+          "valor": 523804972096.0
+        },
+        {
+          "nombre": "CORPORACION AUTONOMA REGIONAL DE CUNDINAMARCA - CAR.",
+          "contratos": 12,
+          "valor": 107311561021.0
+        },
+        {
+          "nombre": "FONDO UNICO DE TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES",
+          "contratos": 2,
+          "valor": 59952105878.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 232,
+      "valor_12m": 23924574219.57,
+      "pagado_sobre_facturado_pct": 97.0,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO G&C PTAP",
+          "contratos": 1,
+          "valor": 4543032234.0
+        },
+        {
+          "nombre": "CONSORCIO CAPARRAPI C 2026",
+          "contratos": 1,
+          "valor": 4266141000.0
+        },
+        {
+          "nombre": "CONSORCIO CASA DE GOBIERNO",
+          "contratos": 1,
+          "valor": 3082074870.63
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11025273",
+    "id_portafolio": "CO1.BDOS.10840344",
     "referencia": "SASI-009-2026",
     "entidad": "MUNICIPIO DE AMAGA",
     "nit_entidad": "890981732",
@@ -3220,8 +5200,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -3232,10 +5212,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10881155"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10881155",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 415,
+      "valor_12m": 35302620721.8,
+      "pagado_sobre_facturado_pct": 52.6,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO Y RURAL DEL MUNICIPIO DE BELLO",
+          "contratos": 11,
+          "valor": 9750501527.78
+        },
+        {
+          "nombre": "PROVINCIA ADMINISTRATIVA Y DE PLANIFICACION- PAP-",
+          "contratos": 23,
+          "valor": 4854595319.42
+        },
+        {
+          "nombre": "Comercializadora Palacio G SAS",
+          "contratos": 2,
+          "valor": 2261108413.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11075418",
+    "id_portafolio": "CO1.BDOS.10835826",
     "referencia": "SAMC-014-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "CORMACARENA",
     "nit_entidad": "822000091",
@@ -3257,7 +5262,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3293,10 +5298,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931605"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931605",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1458,
+      "valor_12m": 48353335384.33,
+      "pagado_sobre_facturado_pct": 87.0,
+      "proveedores_top": [
+        {
+          "nombre": "AVIZOR SEGURIDAD LTDA - PROTEGE TU PATRIMONIO??",
+          "contratos": 2,
+          "valor": 3285281910.93
+        },
+        {
+          "nombre": "CONSORCIO GUAROA",
+          "contratos": 1,
+          "valor": 2200000000.0
+        },
+        {
+          "nombre": "CONSORCIO ECO-AMBIENTAL 2026",
+          "contratos": 1,
+          "valor": 2193826898.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11065962",
+    "id_portafolio": "CO1.BDOS.10835826",
     "referencia": "SAMC-014-2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "CORMACARENA",
     "nit_entidad": "822000091",
@@ -3318,7 +5348,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3354,10 +5384,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10922511"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10922511",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1458,
+      "valor_12m": 48353335384.33,
+      "pagado_sobre_facturado_pct": 87.0,
+      "proveedores_top": [
+        {
+          "nombre": "AVIZOR SEGURIDAD LTDA - PROTEGE TU PATRIMONIO??",
+          "contratos": 2,
+          "valor": 3285281910.93
+        },
+        {
+          "nombre": "CONSORCIO GUAROA",
+          "contratos": 1,
+          "valor": 2200000000.0
+        },
+        {
+          "nombre": "CONSORCIO ECO-AMBIENTAL 2026",
+          "contratos": 1,
+          "valor": 2193826898.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11021132",
+    "id_portafolio": "CO1.BDOS.10835826",
     "referencia": "SAMC-014-2026",
     "entidad": "CORMACARENA",
     "nit_entidad": "822000091",
@@ -3379,7 +5434,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3415,10 +5470,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 73,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10875355"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10875355",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1458,
+      "valor_12m": 48353335384.33,
+      "pagado_sobre_facturado_pct": 87.0,
+      "proveedores_top": [
+        {
+          "nombre": "AVIZOR SEGURIDAD LTDA - PROTEGE TU PATRIMONIO??",
+          "contratos": 2,
+          "valor": 3285281910.93
+        },
+        {
+          "nombre": "CONSORCIO GUAROA",
+          "contratos": 1,
+          "valor": 2200000000.0
+        },
+        {
+          "nombre": "CONSORCIO ECO-AMBIENTAL 2026",
+          "contratos": 1,
+          "valor": 2193826898.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10347509",
+    "id_portafolio": "CO1.BDOS.10129164",
     "referencia": "CM-SSECD-001-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA DE GUAMAL - META",
     "nit_entidad": "800098193",
@@ -3440,7 +5520,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 9,
       "unidad": "mes(es)",
-      "texto": "9 mes(es)"
+      "texto": "9 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3471,13 +5551,86 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 448409225.0,
       "departamento_proveedor": "Casanare",
-      "ciudad_proveedor": "Yopal"
+      "ciudad_proveedor": "Yopal",
+      "nit_normalizado": "24227103"
     },
     "score_calidad": 72,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9486971",
+      "referencia": "209-2026",
+      "estado": "En ejecución",
+      "objeto": "INTERVENTORÍA TÉCNICA; ADMINISTRATIVA; FINANCIERA; JURÍDICA Y CONTABLE AL CONTRATO DE IMPLEMENTACIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PARA LOS ESTUDIANTES DE LAS SEDES EDUCATIVAS RURALES DE LA INSTITUCION EDUCATIVA NICOLAS DE FEDERMAN DEL MUNICIPIO DE GUAMAL - META",
+      "fecha_firma": "2026-05-05T00:00:00",
+      "inicio_ejecucion": "2026-05-07T00:00:00",
+      "fin_ejecucion": "2027-01-21T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 448409225.0,
+      "valor_facturado": 41308850.0,
+      "valor_pagado": 41308850.0,
+      "avance_pagos_pct": 9.2,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "EDELMIRA SIERRA GUTIERREZ",
+      "nit_proveedor": "24227103",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10204528&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "EDELMIRA SIERRA GUTIERREZ",
+        "ordenador_gasto": "José Fernando Peña Rabelo",
+        "supervisor": "ANIGE LORENA TRASLAVIÑA MOGOLLON"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 10,
+      "valor_total": 14252505455.78,
+      "primero": "2021-12-20T00:00:00",
+      "ultimo": "2026-05-05T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "GOBERNACION DEL CASANARE",
+          "contratos": 9,
+          "valor": 13804096230.78
+        },
+        {
+          "nombre": "ALCALDIA DE GUAMAL - META",
+          "contratos": 1,
+          "valor": 448409225.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 523,
+      "valor_12m": 48408012813.36,
+      "pagado_sobre_facturado_pct": 73.4,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO INARQ",
+          "contratos": 1,
+          "valor": 16001553339.68
+        },
+        {
+          "nombre": "Cis Ltda",
+          "contratos": 2,
+          "valor": 4840156972.0
+        },
+        {
+          "nombre": "CORPORACION PARA EL DESARROLLO SOCIAL CULTURAL Y DEPORTIVA",
+          "contratos": 3,
+          "valor": 1627000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10944512",
+    "id_portafolio": "CO1.BDOS.10647474",
     "referencia": "MP-LOP-002 DE 2026 (Fase de Selección (Presentación de ofertas))",
     "entidad": "MUNICIPIO DE PAYA",
     "nit_entidad": "800065411",
@@ -3499,7 +5652,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 104,
       "unidad": "día(s)",
-      "texto": "104 día(s)"
+      "texto": "104 días"
     },
     "competencia": {
       "interesados": 0,
@@ -3530,13 +5683,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 815296808.0,
       "departamento_proveedor": "Boyacá",
-      "ciudad_proveedor": "Tunja"
+      "ciudad_proveedor": "Tunja",
+      "nit_normalizado": "9000537522"
     },
     "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9965662",
+      "referencia": "MP-LOP-002 DE 2026",
+      "estado": "Aprobado",
+      "objeto": "CONSTRUCCIÓN DE CORRALES GANADEROS COMUNITARIOS CON ESTRUCTURA METÁLICA Y CUBIERTA EN LAS VEREDAS LA UNION Y ABEJÓN; ASÍ COMO EL MANTENIMIENTO DE LA MANGA DE COLEO Y LA PLAZA DE FERIAS DEL MUNICIPIO DE PAYA - BOYACÁ",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 815296808.8,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "SEPI LTDA",
+      "nit_proveedor": "9000537522",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10798128&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "SEPI LTDA",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 6,
+      "valor_total": 1659337382.04,
+      "primero": "2023-07-18T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE PAYA",
+          "contratos": 1,
+          "valor": 815296808.8
+        },
+        {
+          "nombre": "IMPULSA MAS S.A.S",
+          "contratos": 1,
+          "valor": 419765128.0
+        },
+        {
+          "nombre": "MUNICIPIO DE SORA",
+          "contratos": 1,
+          "valor": 208973781.85
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 211,
+      "valor_12m": 18289671461.27,
+      "pagado_sobre_facturado_pct": 78.9,
+      "proveedores_top": [
+        {
+          "nombre": "FOMIDES",
+          "contratos": 3,
+          "valor": 2586483806.98
+        },
+        {
+          "nombre": "BANCOLOMBIA",
+          "contratos": 1,
+          "valor": 2000000000.0
+        },
+        {
+          "nombre": "FGS",
+          "contratos": 4,
+          "valor": 1671950523.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10387971",
+    "id_portafolio": "CO1.BDOS.10213315",
     "referencia": "CDFP-024-26",
     "entidad": "ESE HOSPITAL LOCAL CARTAGENA DE INDIAS.*",
     "nit_entidad": "806010305",
@@ -3558,7 +5792,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 7,
       "unidad": "mes(es)",
-      "texto": "7 mes(es)"
+      "texto": "7 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3598,13 +5832,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 748170000.0,
       "departamento_proveedor": "Bolívar",
-      "ciudad_proveedor": "Cartagena"
+      "ciudad_proveedor": "Cartagena",
+      "nit_normalizado": "823001628"
     },
     "score_calidad": 71,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9497727",
+      "referencia": "082-26",
+      "estado": "Modificado",
+      "objeto": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE ELEMENTOS DE INFRAESTRUCTURA\nSANITARIA E HIDRÁULICA; QUE INCLUYEN TANQUES DE ALMACENAMIENTO DE AGUA\nPOTABLE; CUBIERTAS; VIGAS CANALES Y SISTEMAS DE EVACUACIÓN DE AGUAS LLUVIAS\nEN LOS CENTROS DE SALUD DE LA E.S.E. HOSPITAL LOCAL CARTAGENA DE INDIAS",
+      "fecha_firma": "2026-05-11T00:00:00",
+      "inicio_ejecucion": "2026-05-14T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": "2026-05-20T00:00:00",
+      "valor": 748170000.0,
+      "valor_facturado": 740071234.0,
+      "valor_pagado": 573932121.0,
+      "avance_pagos_pct": 76.7,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [],
+      "proveedor": "FUNPRIMAVERA",
+      "nit_proveedor": "823001628",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10244399&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "ADALBERTO HERRERA BRIEVA",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 16,
+      "valor_total": 4522137935.43,
+      "primero": "2023-05-25T00:00:00",
+      "ultimo": "2026-08-05T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ESE HOSPITAL LOCAL CARTAGENA DE INDIAS.*",
+          "contratos": 9,
+          "valor": 2991361998.0
+        },
+        {
+          "nombre": "ALCALDIA DE EL CARMEN DE BOLIVAR",
+          "contratos": 4,
+          "valor": 737535713.43
+        },
+        {
+          "nombre": "GOBERNACIÓN DEL DEPARTAMENTO ARCHIPIELAGO DE SAN ANDRES PROVIDENCIA Y SANTA CATALINA",
+          "contratos": 1,
+          "valor": 686240224.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 912,
+      "valor_12m": 123806540378.18,
+      "pagado_sobre_facturado_pct": 86.7,
+      "proveedores_top": [
+        {
+          "nombre": "MULTI TEMPO SAS",
+          "contratos": 2,
+          "valor": 29994980333.0
+        },
+        {
+          "nombre": "VP GLOBAL LTDA",
+          "contratos": 3,
+          "valor": 15903751988.0
+        },
+        {
+          "nombre": "INGENIERIA E INVERSIONES LASKO SAS",
+          "contratos": 4,
+          "valor": 11131437841.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10963368",
+    "id_portafolio": "CO1.BDOS.10779358",
     "referencia": "C26-126",
     "entidad": "HUV - HOSPITAL UNIVERSITARIO DEL VALLE EVARISTO GARCIA E.S.E.",
     "nit_entidad": "890303461",
@@ -3626,7 +5938,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 120,
       "unidad": "día(s)",
-      "texto": "120 día(s)"
+      "texto": "120 días"
     },
     "competencia": {
       "interesados": 0,
@@ -3660,10 +5972,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10817504"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10817504",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 838057770.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CI COLOMBIAN MED S.A.S.",
+          "contratos": 1,
+          "valor": 518840000.0
+        },
+        {
+          "nombre": "INSTRUMENTACION S.A.S",
+          "contratos": 1,
+          "valor": 189613013.0
+        },
+        {
+          "nombre": "ET SERVICES SAS",
+          "contratos": 1,
+          "valor": 129604757.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10972338",
+    "id_portafolio": "CO1.BDOS.10787421",
     "referencia": "LP-005-2026-HOMIL",
     "entidad": "HOSPITAL MILITAR CENTRAL",
     "nit_entidad": "830040256",
@@ -3685,7 +6022,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3719,10 +6056,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10854354"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10854354",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1691,
+      "valor_12m": 179736406749.75,
+      "pagado_sobre_facturado_pct": 63.3,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL MEDMFEN 27",
+          "contratos": 2,
+          "valor": 30113601998.0
+        },
+        {
+          "nombre": "ASOCIACION ASA",
+          "contratos": 1,
+          "valor": 11799000000.0
+        },
+        {
+          "nombre": "DIABEN SAS",
+          "contratos": 2,
+          "valor": 8133794478.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11066736",
+    "id_portafolio": "CO1.BDOS.10880062",
     "referencia": "LP-007-2026-HOMIL",
     "entidad": "HOSPITAL MILITAR CENTRAL",
     "nit_entidad": "830040256",
@@ -3744,7 +6106,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3778,10 +6140,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931384"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10931384",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1691,
+      "valor_12m": 179736406749.75,
+      "pagado_sobre_facturado_pct": 63.3,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL MEDMFEN 27",
+          "contratos": 2,
+          "valor": 30113601998.0
+        },
+        {
+          "nombre": "ASOCIACION ASA",
+          "contratos": 1,
+          "valor": 11799000000.0
+        },
+        {
+          "nombre": "DIABEN SAS",
+          "contratos": 2,
+          "valor": 8133794478.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11052141",
+    "id_portafolio": "CO1.BDOS.10866972",
     "referencia": "ITC-LP-002-2026",
     "entidad": "ESCUELA TECNOLÓGICA INSTITUTO TÉCNICO CENTRAL",
     "nit_entidad": "860523694",
@@ -3803,7 +6190,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3837,10 +6224,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10945630"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10945630",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 346,
+      "valor_12m": 24668156702.53,
+      "pagado_sobre_facturado_pct": 83.9,
+      "proveedores_top": [
+        {
+          "nombre": "AGENCIA LOGÍSTICA DE GESTIÓN INMOBILIARIA Y DE SERVICIOS DE CUNDINAMARCA",
+          "contratos": 1,
+          "valor": 3225370968.56
+        },
+        {
+          "nombre": "FESTO S.A.S",
+          "contratos": 2,
+          "valor": 1887342380.0
+        },
+        {
+          "nombre": "correagro",
+          "contratos": 1,
+          "valor": 1595554815.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11019488",
+    "id_portafolio": "CO1.BDOS.10834341",
     "referencia": "LP-006-2026-HOMIL",
     "entidad": "HOSPITAL MILITAR CENTRAL",
     "nit_entidad": "830040256",
@@ -3862,7 +6274,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -3896,10 +6308,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10876466"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10876466",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1691,
+      "valor_12m": 179736406749.75,
+      "pagado_sobre_facturado_pct": 63.3,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL MEDMFEN 27",
+          "contratos": 2,
+          "valor": 30113601998.0
+        },
+        {
+          "nombre": "ASOCIACION ASA",
+          "contratos": 1,
+          "valor": 11799000000.0
+        },
+        {
+          "nombre": "DIABEN SAS",
+          "contratos": 2,
+          "valor": 8133794478.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11030841",
+    "id_portafolio": "CO1.BDOS.10845426",
     "referencia": "MM-LP-SINF-005-2026",
     "entidad": "MUNICIPIO DE MONTERREY",
     "nit_entidad": "891857824",
@@ -3921,7 +6358,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 75,
       "unidad": "día(s)",
-      "texto": "75 día(s)"
+      "texto": "75 días"
     },
     "competencia": {
       "interesados": 0,
@@ -3955,10 +6392,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885019"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10885019",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 484,
+      "valor_12m": 58482348657.97,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "Jaime Arturo Joya Gonzalez",
+          "contratos": 2,
+          "valor": 44149526575.0
+        },
+        {
+          "nombre": "Consorcio Eventos y Dotaciones Casanare",
+          "contratos": 1,
+          "valor": 1107556324.0
+        },
+        {
+          "nombre": "EMPRESAS PUBLICAS DE MONTERREY S.A E.S.P",
+          "contratos": 3,
+          "valor": 928490028.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.9138213",
+    "id_portafolio": "CO1.BDOS.8974877",
     "referencia": "ESAL-002 - 2025",
     "entidad": "MUNICIPIO DE VENECIA ANTIOQUIA",
     "nit_entidad": "890980764",
@@ -3980,7 +6442,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 18,
       "unidad": "día(s)",
-      "texto": "18 día(s)"
+      "texto": "18 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4004,8 +6466,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
@@ -4013,13 +6475,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 91374320.0,
       "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Itagui"
+      "ciudad_proveedor": "Itagui",
+      "nit_normalizado": "811016502"
     },
     "score_calidad": 70,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.8522183",
+      "referencia": "160-11-01-023-2025",
+      "estado": "terminado",
+      "objeto": "EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE; PARA LOS NIÑOS; NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL PARA LA VIGENCIA 2025-2 EN EL MUNICIPIO DE VENECIA  ANTIOQUIA",
+      "fecha_firma": "2025-10-30T00:00:00",
+      "inicio_ejecucion": "2025-11-06T00:00:00",
+      "fin_ejecucion": "2025-12-02T00:00:00",
+      "ultima_actualizacion": "2026-01-02T00:00:00",
+      "valor": 91374320.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
+      "nit_proveedor": "811016502",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9000079&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": null,
+        "ordenador_gasto": "Natalia Orozco Loaiza",
+        "supervisor": "Maria Aritsela Soto Torres"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 91,
+      "valor_total": 65546531043.36,
+      "primero": "2022-02-19T00:00:00",
+      "ultimo": "2026-09-08T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDIA MUNICIPAL DE SANTA BARBARA",
+          "contratos": 7,
+          "valor": 11703008183.0
+        },
+        {
+          "nombre": "MUNICIPIO DE FRONTINO",
+          "contratos": 2,
+          "valor": 7130476643.0
+        },
+        {
+          "nombre": "ALCALDÍA MUNICIPIO DE SAN ROQUE",
+          "contratos": 7,
+          "valor": 6421299441.88
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 395,
+      "valor_12m": 11356352673.06,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESAS PUBLICAS DE VENECIA - EPV S.A E.S.P",
+          "contratos": 4,
+          "valor": 1502934055.0
+        },
+        {
+          "nombre": "ASOCIACIÓN DE ENTES DEPORTIVOS DEL SUROESTE ANTIOQUEÑO",
+          "contratos": 14,
+          "valor": 1410244489.05
+        },
+        {
+          "nombre": "GOLDENTRANS S.A.S",
+          "contratos": 2,
+          "valor": 816540000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11079753",
+    "id_portafolio": "CO1.BDOS.10665723",
     "referencia": "MC-071-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "MUNICIPIO DE MANIZALES",
     "nit_entidad": "890801053",
@@ -4041,7 +6584,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4075,10 +6618,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935748"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10935748",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1411,
+      "valor_12m": 583478074833.46,
+      "pagado_sobre_facturado_pct": 51.2,
+      "proveedores_top": [
+        {
+          "nombre": "INSTITUTO DE FINANCIAMIENTO PROMOCIÓN Y DESARROLLO DE MANIZALES - INFI-MANIZALES",
+          "contratos": 10,
+          "valor": 83877866790.0
+        },
+        {
+          "nombre": "BANCO BILBAO VIZCAYA ARGENTARIA S.A. (OFICIAL)",
+          "contratos": 1,
+          "valor": 58900000000.0
+        },
+        {
+          "nombre": "CONSORCIO SOLUCION VIAL MANIZALES",
+          "contratos": 1,
+          "valor": 35346010947.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11089248",
+    "id_portafolio": "CO1.BDOS.10900729",
     "referencia": "4100002208",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -4130,10 +6698,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Medellín"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10944956"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10944956",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10381607",
+    "id_portafolio": "CO1.BDOS.10195752",
     "referencia": "4100000088",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -4185,10 +6757,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10238092"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10238092",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10911856",
+    "id_portafolio": "CO1.BDOS.10728075",
     "referencia": "4100001728",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -4240,10 +6816,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10765364"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10765364",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11059046",
+    "id_portafolio": "CO1.BDOS.10873749",
     "referencia": "SAMC-002-2026",
     "entidad": "INSTITUTO PARA LA EDUCACION FISICA LA RECREACION Y EL DEPORTE DE DUITAMA",
     "nit_entidad": "826000522",
@@ -4295,10 +6875,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917211"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917211",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 71,
+      "valor_12m": 1109513884.28,
+      "pagado_sobre_facturado_pct": 2.4,
+      "proveedores_top": [
+        {
+          "nombre": "UNIDOS FUNDACIÓN SOCIAL ONG",
+          "contratos": 2,
+          "valor": 173558000.0
+        },
+        {
+          "nombre": "COMITE PARALIMPICO COLOMBIANO",
+          "contratos": 1,
+          "valor": 123382607.0
+        },
+        {
+          "nombre": "FUNDACION CREANDO PROGRESO",
+          "contratos": 1,
+          "valor": 74657300.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11050327",
+    "id_portafolio": "CO1.BDOS.10865220",
     "referencia": "SA 014 DE 2026",
     "entidad": "MUNICIPIO DE DABEIBA",
     "nit_entidad": "890980094",
@@ -4320,7 +6925,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4354,10 +6959,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10905786"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10905786",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 475,
+      "valor_12m": 51049037483.0,
+      "pagado_sobre_facturado_pct": 9.1,
+      "proveedores_top": [
+        {
+          "nombre": "EDURHA DABEIBA",
+          "contratos": 38,
+          "valor": 24152158108.43
+        },
+        {
+          "nombre": "ASOURANOR",
+          "contratos": 5,
+          "valor": 4527979156.0
+        },
+        {
+          "nombre": "MATERIALES Y SUMINISTROS DEL OCCIDENTE",
+          "contratos": 47,
+          "valor": 1472835167.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11092763",
+    "id_portafolio": "CO1.BDOS.10807309",
     "referencia": "DHMP-SA-SPOP-010 DE 2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "ALCALDIA DE PAICOL HUILA",
     "nit_entidad": "891180194",
@@ -4379,7 +7009,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4413,10 +7043,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948213"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948213",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 221,
+      "valor_12m": 5875455071.71,
+      "pagado_sobre_facturado_pct": 97.2,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA SOCIAL DEL ESTADO SANTA ROSA DE LIMA DE PAICOL *",
+          "contratos": 2,
+          "valor": 411374629.0
+        },
+        {
+          "nombre": "CARMENZA CEDEÑO BERNAL",
+          "contratos": 6,
+          "valor": 395602158.0
+        },
+        {
+          "nombre": "FOMCULTURA",
+          "contratos": 3,
+          "valor": 373231552.5
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11035001",
+    "id_portafolio": "CO1.BDOS.10849443",
     "referencia": "S016-2026",
     "entidad": "ANTIOQUIA  EMPRESA DE SERVICIOS RETIRAR S.A E.S.P - EL RETIRO",
     "nit_entidad": "811028985",
@@ -4438,7 +7093,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 106,
       "unidad": "día(s)",
-      "texto": "106 día(s)"
+      "texto": "106 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4472,10 +7127,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889964"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10889964",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11093635",
+    "id_portafolio": "CO1.BDOS.10860141",
     "referencia": "ARI.CM-022-2026 (Presentación de oferta)",
     "entidad": "ARAUCA ILUMINADA SAS ESP",
     "nit_entidad": "901552362",
@@ -4497,7 +7156,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "mes(es)",
-      "texto": "8 mes(es)"
+      "texto": "8 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4531,10 +7190,30 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948680"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948680",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 3346033791.54,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "Altair Tecnik S.A.S.",
+          "contratos": 1,
+          "valor": 3152430591.54
+        },
+        {
+          "nombre": "SOELCOING S.A.S.",
+          "contratos": 1,
+          "valor": 155803200.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10370236",
+    "id_portafolio": "CO1.BDOS.10195818",
     "referencia": "SASI-002-2026",
     "entidad": "ITTHUILA",
     "nit_entidad": "800115005",
@@ -4556,7 +7235,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 4,
       "unidad": "mes(es)",
-      "texto": "4 mes(es)"
+      "texto": "4 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4580,8 +7259,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaico",
-      "sistema fotovoltaico"
+      "sistema fotovoltaico",
+      "fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4592,10 +7271,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230160"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230160",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 122,
+      "valor_12m": 6914571176.57,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "MUVA S.A.S",
+          "contratos": 1,
+          "valor": 4000000000.0
+        },
+        {
+          "nombre": "SM CONSULTORÍA E INGENIERÍA S.A.S",
+          "contratos": 1,
+          "valor": 270000013.0
+        },
+        {
+          "nombre": "VICTOR MANUEL GUZMAN TOVAR",
+          "contratos": 1,
+          "valor": 260380580.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.1877057",
+    "id_portafolio": "CO1.BDOS.1825898",
     "referencia": "SJP-PE-ESAL-002/2021",
     "entidad": "MUNICIPIO DE SAN JOSE DEL PALMAR",
     "nit_entidad": "891680080",
@@ -4617,7 +7321,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 100,
       "unidad": "día(s)",
-      "texto": "100 día(s)"
+      "texto": "100 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4641,8 +7345,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4653,10 +7357,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11026485",
+    "id_portafolio": "CO1.BDOS.10840876",
     "referencia": "CI-SECRD-007-2026",
     "entidad": "ALCALDIA MUNICIPAL SAN PEDRO DE URABA",
     "nit_entidad": "890983814",
@@ -4678,7 +7386,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 46,
       "unidad": "día(s)",
-      "texto": "46 día(s)"
+      "texto": "46 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4702,8 +7410,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4711,13 +7419,89 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "901788315"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9934369",
+      "referencia": "CI-SECRD-007-2026",
+      "estado": "En ejecución",
+      "objeto": "FORTALECIMIENTO EN LA EJECUCION DEL PROGRAMA DE ALIMENTACION ESCOLAR - (PAE) CON ENFOQUE DIFERENCIAL EN PUEBLOS INDIGENAS; ATENDIENDO PAGO A PERSONAL MANIPULADOR DE ALIMENTOS; TRASPORTE; KIT DE ASEO; GAS PROPANO; COMPRA Y DISTRIBUCION DE VIVERES EN LA VIGENCIA 2026-2; EN CUMPLIMIENTO DEL CONVENIO INTERADMINISTRATIVO (4600019311) SUSCRITO ENTRE EL MUNICIPIO DE SAN PEDRO DE URABA; ANTIOQUIA; Y LA SECRETARIA EDUCACION DE LA GOBERNACION DE ANTIOQUIA",
+      "fecha_firma": "2026-09-11T00:00:00",
+      "inicio_ejecucion": "2026-09-11T00:00:00",
+      "fin_ejecucion": "2026-11-30T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 204586552.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "CABILDO MAYOR DEL RESGUARDO INDIGENA RIO ALTO SAN JUAN",
+      "nit_proveedor": "901788315",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10880357&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Jaime Andres Rivera Donado",
+        "ordenador_gasto": "NEVER JACINTO CARVAJAL MIRANDA",
+        "supervisor": "GILMOR MINERVINO MURILLO MURILLO"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 9,
+      "valor_total": 7694737269.09,
+      "primero": "2025-02-14T00:00:00",
+      "ultimo": "2026-09-11T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ICBF REGIONAL ANTIOQUIA",
+          "contratos": 5,
+          "valor": 6574442499.0
+        },
+        {
+          "nombre": "ALCALDIA MUNICIPAL SAN PEDRO DE URABA",
+          "contratos": 4,
+          "valor": 1120294770.09
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 533,
+      "valor_12m": 43545855094.14,
+      "pagado_sobre_facturado_pct": 0.2,
+      "proveedores_top": [
+        {
+          "nombre": "FUNDACION PARA LA TRANSFORMACION SOCIAL TRANSFORMAR",
+          "contratos": 1,
+          "valor": 6799755989.12
+        },
+        {
+          "nombre": "TALLER JR MAQUINARIA & SOLUCIONES S.A.S",
+          "contratos": 2,
+          "valor": 4737000000.0
+        },
+        {
+          "nombre": "EDUH-Turbo",
+          "contratos": 1,
+          "valor": 3228559145.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11061270",
+    "id_portafolio": "CO1.BDOS.10876119",
     "referencia": "SASIE-003-2026",
     "entidad": "MUNICIPIO DE CISNEROS",
     "nit_entidad": "890910913",
@@ -4739,7 +7523,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4763,8 +7547,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4775,10 +7559,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918472"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918472",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 219,
+      "valor_12m": 10162819360.78,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "V&S SUMINISTROS Y SOLUCIONES SAS",
+          "contratos": 27,
+          "valor": 2595006766.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DEL OCCIDENTE--EDUOCCIDENTE",
+          "contratos": 6,
+          "valor": 1260309940.0
+        },
+        {
+          "nombre": "OCCIDECOR*",
+          "contratos": 1,
+          "valor": 614213525.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11019723",
+    "id_portafolio": "CO1.BDOS.10774380",
     "referencia": "SAMC-002-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "ALCALDIA MUNICIPIO DE BETANIA",
     "nit_entidad": "890980802",
@@ -4800,7 +7609,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 70,
       "unidad": "día(s)",
-      "texto": "70 día(s)"
+      "texto": "70 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4824,8 +7633,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alimentación escolar",
-      "pae"
+      "pae",
+      "alimentación escolar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4836,10 +7645,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10873532"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10873532",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 173,
+      "valor_12m": 15632658183.59,
+      "pagado_sobre_facturado_pct": 39.2,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO Y RENOVACIÓN MUNICIPAL DE BURITICÁ ENTIDAD",
+          "contratos": 1,
+          "valor": 3503198818.0
+        },
+        {
+          "nombre": "CONSORCIO ALIANZA BIOSANEAMIENTO",
+          "contratos": 1,
+          "valor": 2121203104.17
+        },
+        {
+          "nombre": "EMPRESAS PUBLICAS MUNICIPALES DE BETANIA S.A. E.S.P.",
+          "contratos": 7,
+          "valor": 1155861237.8
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11037818",
+    "id_portafolio": "CO1.BDOS.10852190",
     "referencia": "SPO-002-2026",
     "entidad": "COMPAÑIA ENERGETICA DEL CARIBE S.A.S. ESP",
     "nit_entidad": "900907644",
@@ -4861,7 +7695,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -4885,8 +7719,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -4897,10 +7731,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 65,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10892161"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10892161",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.5280445",
+    "id_portafolio": "CO1.BDOS.5164845",
     "referencia": "UPIT-LP-01-2023",
     "entidad": "UNIDAD DE PLANEACIÓN DE INFRAESTRUCTURA DE TRANSPORTE",
     "nit_entidad": "901525615",
@@ -4922,7 +7760,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 45,
       "unidad": "día(s)",
-      "texto": "45 día(s)"
+      "texto": "45 días"
     },
     "competencia": {
       "interesados": 0,
@@ -4956,10 +7794,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 183,
+      "valor_12m": 14148003112.69,
+      "pagado_sobre_facturado_pct": 90.3,
+      "proveedores_top": [
+        {
+          "nombre": "Noventiq International Colombia SAS",
+          "contratos": 2,
+          "valor": 891588738.4
+        },
+        {
+          "nombre": "COLSERVICO & SUMINISTROS S.A.S.",
+          "contratos": 1,
+          "valor": 558000000.0
+        },
+        {
+          "nombre": "CONTROLES EMPRESARIALES S.A.S",
+          "contratos": 1,
+          "valor": 470414308.8
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10299438",
+    "id_portafolio": "CO1.BDOS.10128232",
     "referencia": "xxx-xxx",
     "entidad": "ALCALDIA MUNICIPIO DE ARAUCA",
     "nit_entidad": "800102504",
@@ -4981,7 +7844,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 77,
       "unidad": "día(s)",
-      "texto": "77 día(s)"
+      "texto": "77 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5015,10 +7878,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 773,
+      "valor_12m": 95492568365.86,
+      "pagado_sobre_facturado_pct": 83.4,
+      "proveedores_top": [
+        {
+          "nombre": "SERVICIOS Y SUMINISTROS DEL ORIENTE OM SAS.",
+          "contratos": 11,
+          "valor": 12216633051.15
+        },
+        {
+          "nombre": "CONSORCIO MONSERRATE 2026",
+          "contratos": 1,
+          "valor": 8017830950.86
+        },
+        {
+          "nombre": "CONSORCIO VIAL ARAUCA 2025",
+          "contratos": 1,
+          "valor": 5536406995.8
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10369770",
+    "id_portafolio": "CO1.BDOS.10172486",
     "referencia": "GCSJ-CM-005-2026 (Presentación de oferta)",
     "entidad": "DEPARTAMENTO DEL META",
     "nit_entidad": "8920001488",
@@ -5040,7 +7928,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 57,
       "unidad": "día(s)",
-      "texto": "57 día(s)"
+      "texto": "57 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5074,10 +7962,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226921"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10226921",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 2708,
+      "valor_12m": 614363396299.72,
+      "pagado_sobre_facturado_pct": 100.0,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL EMPRESAS LLANERAS 2026",
+          "contratos": 1,
+          "valor": 83664496580.0
+        },
+        {
+          "nombre": "CONSORCIO SAN FELIPE 2026",
+          "contratos": 1,
+          "valor": 73917485886.47
+        },
+        {
+          "nombre": "CONSORCIO PAE META-26",
+          "contratos": 1,
+          "valor": 72001177364.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11030288",
+    "id_portafolio": "CO1.BDOS.10845146",
     "referencia": "CMA-0008-2026",
     "entidad": "DEPARTAMENTO DEL ATLANTICO**",
     "nit_entidad": "890102006",
@@ -5099,7 +8012,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5133,10 +8046,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10884682"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10884682",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3647,
+      "valor_12m": 645404271488.26,
+      "pagado_sobre_facturado_pct": 55.6,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO SAN VICENTE 16",
+          "contratos": 1,
+          "valor": 67032646567.86
+        },
+        {
+          "nombre": "UNION TEMPORAL ATLANTIC",
+          "contratos": 2,
+          "valor": 48545474236.21
+        },
+        {
+          "nombre": "DELTHAC 1 SEGURIDAD LTDA",
+          "contratos": 1,
+          "valor": 29044108173.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11044196",
+    "id_portafolio": "CO1.BDOS.10859704",
     "referencia": "PROCESO COMPETITIVO  005 DE 2026",
     "entidad": "MUNICIPIO DE ARBOLETES",
     "nit_entidad": "890985623",
@@ -5158,7 +8096,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 37,
       "unidad": "día(s)",
-      "texto": "37 día(s)"
+      "texto": "37 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5192,10 +8130,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10900297"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10900297",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 4,
+      "valor_12m": 5227953067.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "FUNDACION UN AMIGO MAS",
+          "contratos": 1,
+          "valor": 4170073893.0
+        },
+        {
+          "nombre": "FUNACCODES",
+          "contratos": 2,
+          "valor": 657879174.0
+        },
+        {
+          "nombre": "FUNDACION PARA EL DESARROLLO ECONOMICO Y SOCIAL DE LA SABANA",
+          "contratos": 1,
+          "valor": 400000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11064677",
+    "id_portafolio": "CO1.BDOS.10879482",
     "referencia": "CI-024-2026-SE",
     "entidad": "MUNICIPIO DE ANDES",
     "nit_entidad": "890980342",
@@ -5217,7 +8180,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 63,
       "unidad": "día(s)",
-      "texto": "63 día(s)"
+      "texto": "63 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5248,13 +8211,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "901848014"
     },
     "score_calidad": 64,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9964435",
+      "referencia": "CO1.PCCNTR.9964435",
+      "estado": "Aprobado",
+      "objeto": "REALIZAR ACTIVIDADES OPERATIVAS; LOGISTICAS Y DE PRESTACIÓN DEL SERVICIO PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACION ESCOLAR (PAE); A TRAVES DEL CUAL SE BRINDA UN COMPLEMENTO ALIMENTARIO A LOS NIÑOS; NIÑAS Y ADOLESCENTES CON MATRICULA OFICIAL DEL MUNICIPIO DE ANDES; PARA LA VIGENCIA 2026-2.",
+      "fecha_firma": "2026-09-18T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2026-11-25T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1031298900.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
+      "nit_proveedor": "901848014",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920595&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "ESTEBAN ESPINAL CHAVARRIA",
+        "ordenador_gasto": "GERMAN ALEXANDER VELEZ OROZCO",
+        "supervisor": "RUBEN DARIO CHALARCA RESTREPO"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 162,
+      "valor_total": 76292386733.41,
+      "primero": "2024-10-09T00:00:00",
+      "ultimo": "2026-09-18T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE ANDES",
+          "contratos": 53,
+          "valor": 22917433593.48
+        },
+        {
+          "nombre": "PERSONERIA DISTRITAL DE MEDELLIN*",
+          "contratos": 10,
+          "valor": 16426765021.0
+        },
+        {
+          "nombre": "ALCALDIA DE CAUCASIA",
+          "contratos": 25,
+          "valor": 14670984968.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 342,
+      "valor_12m": 31809749045.54,
+      "pagado_sobre_facturado_pct": 47.3,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
+          "contratos": 32,
+          "valor": 17538977274.97
+        },
+        {
+          "nombre": "EMPRESA DE SERVICIOS PÚBLICOS DE ANDES S.A E.S.P",
+          "contratos": 4,
+          "valor": 2127776663.0
+        },
+        {
+          "nombre": "CUERPO DE BOMBEROS VOLUNTARIOS DE ANDES",
+          "contratos": 5,
+          "valor": 1127013776.22
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11067977",
+    "id_portafolio": "CO1.BDOS.10882975",
     "referencia": "OP016-2026",
     "entidad": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
     "nit_entidad": "8110303954",
@@ -5276,7 +8320,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 10,
       "unidad": "mes(es)",
-      "texto": "10 mes(es)"
+      "texto": "10 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5307,13 +8351,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "811046428"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9966743",
+      "referencia": "OP016-2026",
+      "estado": "Aprobado",
+      "objeto": "CONTRATO DE OBRA PARA LA AMPLIACIÓN DEL ALUMBRADO PÚBLICO CON TECNOLOGÍA SOLAR Y MONITOREO DE ALTA TECNOLOGÍA EN BURITICÁ ANTIOQUIA. UNA ESTRATEGIA DE TRANSICIÓN ENERGÉTICA Y DESARROLLO REGIONAL MEDIANTE EL SUMINISTRO E INSTALACIÓN DE LUMINARIAS SOLARES EN LOS TRAMOS VIALES BURITICÁ PINGURO Y BURITICÁ TABACAL. ANTIOQUIA e identificado con el Código BPIN 2026051130003",
+      "fecha_firma": "2026-09-21T00:00:00",
+      "inicio_ejecucion": null,
+      "fin_ejecucion": "2027-07-21T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 13153903873.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+      "nit_proveedor": "811046428",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10924347&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Luis Ovidio Cordoba Martinez",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 199,
+      "valor_total": 47819734153.6,
+      "primero": "2021-12-13T00:00:00",
+      "ultimo": "2026-09-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+          "contratos": 178,
+          "valor": 44519509373.6
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO Y RURAL DE ANTIOQUIA",
+          "contratos": 4,
+          "valor": 1128740639.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL, ECONOMICO Y SOCIAL DEL MUNICIPIO DE CAÑASGORDAS",
+          "contratos": 1,
+          "valor": 734182085.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 139,
+      "valor_12m": 45608318203.58,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACION AFROPROGRESO DIEGO LUIS CORDOBA",
+          "contratos": 71,
+          "valor": 31537487096.0
+        },
+        {
+          "nombre": "TRAZANDO S.A.S",
+          "contratos": 4,
+          "valor": 2960437637.0
+        },
+        {
+          "nombre": "MULTERRAGRO S.A.S",
+          "contratos": 2,
+          "valor": 2894720000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.9039867",
+    "id_portafolio": "CO1.BDOS.8879346",
     "referencia": "1.350-12.13-0435.2025",
     "entidad": "DEPARTAMENTO DEL VALLE DEL CAUCA - SECRETARIA DE TURISMO",
     "nit_entidad": "890399029",
@@ -5335,7 +8460,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 13,
       "unidad": "mes(es)",
-      "texto": "13 mes(es)"
+      "texto": "13 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5369,10 +8494,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 7879,
+      "valor_12m": 563895065532.12,
+      "pagado_sobre_facturado_pct": 97.9,
+      "proveedores_top": [
+        {
+          "nombre": "UNIDAD EJECUTORA DE SANEAMIENTO DEL VALLE DEL CAUCA",
+          "contratos": 1,
+          "valor": 42082491139.0
+        },
+        {
+          "nombre": "RECREAVALLE",
+          "contratos": 4,
+          "valor": 30734337680.0
+        },
+        {
+          "nombre": "INSTITUTO DEPARTAMENTAL DE BELLAS ARTES",
+          "contratos": 1,
+          "valor": 20503000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.8273614",
+    "id_portafolio": "CO1.BDOS.8128616",
     "referencia": "IPMYC-002-2021",
     "entidad": "EMPRESA DE SERVICIOS PUBLICOS DE PUERTO LEGUIZAMO",
     "nit_entidad": "846000021",
@@ -5394,7 +8544,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 10,
       "unidad": "mes(es)",
-      "texto": "10 mes(es)"
+      "texto": "10 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5428,10 +8578,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11056349",
+    "id_portafolio": "CO1.BDOS.10773695",
     "referencia": "ARI.LP-021-2026 (Fase de Selección (Presentación de ofertas))",
     "entidad": "ARAUCA ILUMINADA SAS ESP",
     "nit_entidad": "901552362",
@@ -5453,7 +8607,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "mes(es)",
-      "texto": "8 mes(es)"
+      "texto": "8 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5487,10 +8641,30 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10912288"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10912288",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 3346033791.54,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "Altair Tecnik S.A.S.",
+          "contratos": 1,
+          "valor": 3152430591.54
+        },
+        {
+          "nombre": "SOELCOING S.A.S.",
+          "contratos": 1,
+          "valor": 155803200.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10832415",
+    "id_portafolio": "CO1.BDOS.10648771",
     "referencia": "OBR-SCC-020-2026",
     "entidad": "FINVERPAZ",
     "nit_entidad": "901783188",
@@ -5512,7 +8686,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "mes(es)",
-      "texto": "8 mes(es)"
+      "texto": "8 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5546,10 +8720,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10350460",
+    "id_portafolio": "CO1.BDOS.10177239",
     "referencia": "LP-003-2026",
     "entidad": "CORPORACIÓN AUTÓNOMA REGIONAL DE LOS VALLES DEL SINÚ Y DEL SAN JORGE - CVS",
     "nit_entidad": "891000627",
@@ -5571,7 +8749,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "mes(es)",
-      "texto": "8 mes(es)"
+      "texto": "8 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5602,13 +8780,69 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": null
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10207487"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10207487",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9549157",
+      "referencia": "CONTRATO DE OBRA 031 DE 2026",
+      "estado": "En ejecución",
+      "objeto": "CONSTRUCCIÓN DE POZOS PROFUNDOS ACCIONADOS CON ENERGÍA FOTOVOLTAICA COMO APORTE A LA TRANSICIÓN ENERGÉTICA Y LA REDUCCIÓN DE LAS EMISIONES DE GEI EN EL DEPARTAMENTO DE CÓRDOBA .",
+      "fecha_firma": "2026-06-22T00:00:00",
+      "inicio_ejecucion": "2026-07-30T00:00:00",
+      "fin_ejecucion": "2027-03-30T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 5022084889.0,
+      "valor_facturado": 2088833956.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": true,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "CONSORCIO PERFOAGUAS",
+      "nit_proveedor": null,
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10256908&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "ITC INTERCONSULTING SAS",
+        "ordenador_gasto": "ORLANDO RODRIGO MEDINA MARSIGLIA",
+        "supervisor": "DAMARIS PEÑA ORDOSGOITIA"
+      }
+    },
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 84,
+      "valor_12m": 81112254425.3,
+      "pagado_sobre_facturado_pct": 63.2,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO REFORESTACION 2025",
+          "contratos": 1,
+          "valor": 32860965480.0
+        },
+        {
+          "nombre": "CONSORCIO MEGACANAL",
+          "contratos": 1,
+          "valor": 9105368276.0
+        },
+        {
+          "nombre": "OBRAS DEL NORTE S.A.S",
+          "contratos": 1,
+          "valor": 8159266669.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.741620",
+    "id_portafolio": "CO1.BDOS.720119",
     "referencia": "056",
     "entidad": "EMPRESA DE SERVICIOS PUBLICOS DE PUERTO LEGUIZAMO",
     "nit_entidad": "846000021",
@@ -5630,7 +8864,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 10,
       "unidad": "mes(es)",
-      "texto": "10 mes(es)"
+      "texto": "10 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5664,10 +8898,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11034237",
+    "id_portafolio": "CO1.BDOS.10848931",
     "referencia": "SVO-2026-071",
     "entidad": "EMPRESA DE SERVICIO DE ALUMBRADO PUBLICO DE YOPAL S.A.S. E.S.P.",
     "nit_entidad": "901380793",
@@ -5689,7 +8927,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 90,
       "unidad": "día(s)",
-      "texto": "90 día(s)"
+      "texto": "90 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5723,10 +8961,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888332"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888332",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.5452645",
+    "id_portafolio": "CO1.BDOS.5334157",
     "referencia": "127-2023",
     "entidad": "EMPRESA DE ENERGIA DEL GUAINIA LA CEIBA S.A. E.S.P",
     "nit_entidad": "8430000578",
@@ -5748,7 +8990,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "día(s)",
-      "texto": "8 día(s)"
+      "texto": "8 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5782,10 +9024,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.4611750",
+    "id_portafolio": "CO1.BDOS.4508911",
     "referencia": "900-AA-0228-2023",
     "entidad": "EMPRESAS MUNICIPALES DE CALI",
     "nit_entidad": "890399003",
@@ -5807,7 +9053,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 150,
       "unidad": "día(s)",
-      "texto": "150 día(s)"
+      "texto": "150 días"
     },
     "competencia": {
       "interesados": 0,
@@ -5841,10 +9087,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10353626",
+    "id_portafolio": "CO1.BDOS.10180217",
     "referencia": "LP-003-2026",
     "entidad": "MUNICIPIO DE AGUA DE DIOS",
     "nit_entidad": "890680149",
@@ -5893,13 +9143,72 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": null
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10210531"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10210531",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9960458",
+      "referencia": "CO1.PCCNTR.9960458",
+      "estado": "Borrador",
+      "objeto": null,
+      "fecha_firma": null,
+      "inicio_ejecucion": null,
+      "fin_ejecucion": null,
+      "ultima_actualizacion": null,
+      "valor": 1326596388.48,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": true,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "CONSORCIO CONSTRUCCIONES HYM 2026",
+      "nit_proveedor": null,
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10292970&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "CONSTRUCCIONES MONTREAL MR S.A.S CONSTRUCCIONES MONTREAL MR S.A.S",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 373,
+      "valor_12m": 19301374066.13,
+      "pagado_sobre_facturado_pct": 95.0,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO EQUIPACENTRO AGUA DE DIOS",
+          "contratos": 1,
+          "valor": 3816043586.08
+        },
+        {
+          "nombre": "UNION TEMPORAL MORO MORALES INGENIERIA 2026",
+          "contratos": 1,
+          "valor": 2271655820.0
+        },
+        {
+          "nombre": "POLARIS INGENIERIA Y CONSULTORIA SAS",
+          "contratos": 4,
+          "valor": 1550793136.72
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10605754",
+    "id_portafolio": "CO1.BDOS.10423493",
     "referencia": "OBR-SCC-004-2026",
     "entidad": "FINVERPAZ",
     "nit_entidad": "901783188",
@@ -5921,7 +9230,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -5955,10 +9264,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10388557",
+    "id_portafolio": "CO1.BDOS.10213854",
     "referencia": "CIP-ERUDM-2026-12",
     "entidad": "EMPRESA DE RENOVACION URBANA DE LA DORADA Y EL MAGDALENA CENTRO",
     "nit_entidad": "810004704",
@@ -5980,7 +9293,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6011,13 +9324,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "901938856"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9480331",
+      "referencia": "CIP-ERUDM-2026-12",
+      "estado": "Modificado",
+      "objeto": "SUMINISTRO E INSTALACION DE ESTRUCTURA METALICA EN EL MARCO DE LA AMPLIACIÓN DE LA CENTRAL DE ABASTOS EN EL MUNICIPIO DE LA DORADA; CALDAS",
+      "fecha_firma": "2026-04-28T00:00:00",
+      "inicio_ejecucion": "2026-05-04T00:00:00",
+      "fin_ejecucion": "2026-08-31T00:00:00",
+      "ultima_actualizacion": "2026-08-14T00:00:00",
+      "valor": 1419027388.0,
+      "valor_facturado": 1303298406.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 62,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [],
+      "proveedor": "INNOVAINGENIERIA SAS",
+      "nit_proveedor": "901938856",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10245427&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Tania Jhasbleidy Jurado Saavedra",
+        "ordenador_gasto": "JAIRO ALONSO RIVERA PARZ",
+        "supervisor": "GERMAN HERNANDO CAICEDO PULGARIN"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 17,
+      "valor_total": 7727944632.0,
+      "primero": "2025-05-09T00:00:00",
+      "ultimo": "2026-06-19T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "EMPRESA DE RENOVACION URBANA DE LA DORADA Y EL MAGDALENA CENTRO",
+          "contratos": 13,
+          "valor": 7423944632.0
+        },
+        {
+          "nombre": "AGUAS DE LA MIEL S.A. E.S.P EMPRESA DE SERVICIOS PUBLICOS",
+          "contratos": 1,
+          "valor": 208000000.0
+        },
+        {
+          "nombre": "EMPRESA DE SERVICIOS PUBLlCOS DE LA DORADA E.S.P",
+          "contratos": 3,
+          "valor": 96000000.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 116,
+      "valor_12m": 16498316833.01,
+      "pagado_sobre_facturado_pct": 0.0,
+      "proveedores_top": [
+        {
+          "nombre": "OBRA CIVIL & SUMINISTRO SAS",
+          "contratos": 13,
+          "valor": 8499986681.92
+        },
+        {
+          "nombre": "INNOVAINGENIERIA SAS",
+          "contratos": 4,
+          "valor": 3697568680.0
+        },
+        {
+          "nombre": "GEOFORAGROS LTDA",
+          "contratos": 3,
+          "valor": 2035281529.53
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10361347",
+    "id_portafolio": "CO1.BDOS.10187730",
     "referencia": "194-2026-IP",
     "entidad": "ESO RIONEGRO S.A.S.",
     "nit_entidad": "900984614",
@@ -6039,7 +9430,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 247,
       "unidad": "día(s)",
-      "texto": "247 día(s)"
+      "texto": "247 días"
     },
     "competencia": {
       "interesados": 0,
@@ -6070,13 +9461,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "890906413"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9493827",
+      "referencia": "194-2026-IP",
+      "estado": "Modificado",
+      "objeto": "SUMINISTRO DE LUMINARIAS PARA LA INFRAESTRUCTURA DE ALUMBRADO PÙBLICO DEL MUNICIPIO DE RIONEGRO",
+      "fecha_firma": "2026-05-06T00:00:00",
+      "inicio_ejecucion": "2026-05-08T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": "2026-05-14T00:00:00",
+      "valor": 1042006569.0,
+      "valor_facturado": 448191485.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [],
+      "proveedor": "ELECTRICAS DE MEDELLIN INGENIERIA Y SERVICIOS S.AS",
+      "nit_proveedor": "890906413",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10218184&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Astrid Johana Murillo Castro",
+        "ordenador_gasto": "CLAUDIA MARIA ANGARITA GOMEZ",
+        "supervisor": "KATHERINE VELASQUEZ TORRES"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 17,
+      "valor_total": 5507847823.0,
+      "primero": "2021-11-18T00:00:00",
+      "ultimo": "2026-05-15T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ESO RIONEGRO S.A.S.",
+          "contratos": 15,
+          "valor": 5245267099.0
+        },
+        {
+          "nombre": "MUNICIPIO DE CALDAS ANTIOQUIA",
+          "contratos": 1,
+          "valor": 243901532.0
+        },
+        {
+          "nombre": "Empresa Autonoma de El Peñol",
+          "contratos": 1,
+          "valor": 18679192.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 470,
+      "valor_12m": 69762029487.95,
+      "pagado_sobre_facturado_pct": 79.8,
+      "proveedores_top": [
+        {
+          "nombre": "SEGURIDAD THOR LTDA",
+          "contratos": 12,
+          "valor": 15559466520.0
+        },
+        {
+          "nombre": "4ESAS",
+          "contratos": 2,
+          "valor": 4808000000.0
+        },
+        {
+          "nombre": "9ONCE SEGURIDAD LTDA",
+          "contratos": 6,
+          "valor": 4801399822.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10979561",
+    "id_portafolio": "CO1.BDOS.10794676",
     "referencia": "2026.079",
     "entidad": "Empresa de Desarrollo Urbano de La Ceja",
     "nit_entidad": "901105143",
@@ -6098,7 +9567,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 6,
       "unidad": "mes(es)",
-      "texto": "6 mes(es)"
+      "texto": "6 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6132,10 +9601,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.4468983",
+    "id_portafolio": "CO1.BDOS.4368277",
     "referencia": "SI-SI-CD-000-2023",
     "entidad": "MUNICIPIO DE BUCARAMANGA",
     "nit_entidad": "890201222",
@@ -6157,7 +9630,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 223,
       "unidad": "día(s)",
-      "texto": "223 día(s)"
+      "texto": "223 días"
     },
     "competencia": {
       "interesados": 0,
@@ -6191,10 +9664,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 5521,
+      "valor_12m": 557064412564.89,
+      "pagado_sobre_facturado_pct": 36.5,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO MEJORAMIENTO VIAS BGA",
+          "contratos": 1,
+          "valor": 27860356158.0
+        },
+        {
+          "nombre": "EMPRESA DE ASEO DE BUCARAMANGA S.A. ESP.",
+          "contratos": 6,
+          "valor": 26250989348.71
+        },
+        {
+          "nombre": "UT BGA INNOVA2",
+          "contratos": 1,
+          "valor": 22117586708.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10392709",
+    "id_portafolio": "CO1.BDOS.10180270",
     "referencia": "SAMC-004-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "MUNICIPIO DE RIOBLANCO",
     "nit_entidad": "890702040",
@@ -6216,7 +9714,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 1,
       "unidad": "mes(es)",
-      "texto": "1 mes(es)"
+      "texto": "1 mes"
     },
     "competencia": {
       "interesados": 0,
@@ -6247,13 +9745,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 236685085.0,
       "departamento_proveedor": "Tolima",
-      "ciudad_proveedor": "Ibagué"
+      "ciudad_proveedor": "Ibagué",
+      "nit_normalizado": "900730010"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9517925",
+      "referencia": "SAMC-004-2026",
+      "estado": "Modificado",
+      "objeto": "SUMINISTRO E INSTALACION DE PANELES SOLARES EN LA ZONA RURAL DEL MUNICIPIO DE RIOBLANCO TOLIMA.",
+      "fecha_firma": "2026-05-19T00:00:00",
+      "inicio_ejecucion": "2026-05-21T00:00:00",
+      "fin_ejecucion": "2026-07-05T00:00:00",
+      "ultima_actualizacion": "2026-06-19T00:00:00",
+      "valor": 236685085.13,
+      "valor_facturado": 236685085.13,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 17,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "CONSTRU INNOVANDO SAS",
+      "nit_proveedor": "900730010",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10249309&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "CONTRUINNOVANDO SAS",
+        "ordenador_gasto": "Daniel Eduardo Rodríguez Rayo",
+        "supervisor": "IVAN MAURICIO PENAGOS ANDRADE"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 7,
+      "valor_total": 1298392827.43,
+      "primero": "2021-06-02T00:00:00",
+      "ultimo": "2026-09-04T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "HOSPITAL CENTRO EMPRESA SOCIAL DEL ESTADO DE PLANADAS1",
+          "contratos": 4,
+          "valor": 945159509.3
+        },
+        {
+          "nombre": "MUNICIPIO DE RIOBLANCO",
+          "contratos": 1,
+          "valor": 236685085.13
+        },
+        {
+          "nombre": "GOBIERNO DEPARTAMENTAL",
+          "contratos": 1,
+          "valor": 71551130.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 358,
+      "valor_12m": 62395214129.27,
+      "pagado_sobre_facturado_pct": 15.2,
+      "proveedores_top": [
+        {
+          "nombre": "CORPORACIÓN IKIGAI",
+          "contratos": 1,
+          "valor": 26471188300.0
+        },
+        {
+          "nombre": "UNION TEMPORAL PROINGENIERIA RIO BLANCO 2025",
+          "contratos": 1,
+          "valor": 16013896392.0
+        },
+        {
+          "nombre": "GRUPO EMPRESARIAL DEMENDOZA SAS",
+          "contratos": 25,
+          "valor": 1310650434.98
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10369192",
+    "id_portafolio": "CO1.BDOS.10150265",
     "referencia": "MC - FRL - SDAS - 003 - 2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "MUNICIPIO DE FORTUL",
     "nit_entidad": "800136069",
@@ -6275,7 +9854,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 1,
       "unidad": "mes(es)",
-      "texto": "1 mes(es)"
+      "texto": "1 mes"
     },
     "competencia": {
       "interesados": 0,
@@ -6306,13 +9885,86 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 199999220.0,
       "departamento_proveedor": "Arauca",
-      "ciudad_proveedor": "Fortul"
+      "ciudad_proveedor": "Fortul",
+      "nit_normalizado": "901878498"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9495225",
+      "referencia": "138 DE 2026",
+      "estado": "En ejecución",
+      "objeto": "RENOVACIÓN Y MANTENIMIENTO AL SISTEMA DE ALUMBRADO PUBLICO DEL MUNICIPIO DE FORTUL; DEPARTAMENTO DE ARAUCA",
+      "fecha_firma": "2026-05-05T00:00:00",
+      "inicio_ejecucion": "2026-05-14T00:00:00",
+      "fin_ejecucion": "2026-06-13T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 199999220.94,
+      "valor_facturado": 199999220.94,
+      "valor_pagado": 199999220.94,
+      "avance_pagos_pct": 100.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": true,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [],
+      "proveedor": "CONSTRUCCIONES Y SUMINISTROS TRUJILLO DE LA FUENTE S.A.S",
+      "nit_proveedor": "901878498",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10229589&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "DIANA CAROLINA FUENTES MOJICA",
+        "ordenador_gasto": "FREDY GARCIA HERNANDEZ",
+        "supervisor": "WILLMER RIATIGA OCAMPO"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 6,
+      "valor_total": 1371168687.64,
+      "primero": "2024-12-11T00:00:00",
+      "ultimo": "2026-08-27T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE CUBARA BOYACA",
+          "contratos": 3,
+          "valor": 856883466.7
+        },
+        {
+          "nombre": "MUNICIPIO DE FORTUL",
+          "contratos": 3,
+          "valor": 514285220.94
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 283,
+      "valor_12m": 17634185703.52,
+      "pagado_sobre_facturado_pct": 91.6,
+      "proveedores_top": [
+        {
+          "nombre": "Fundación para la creación,organización y desarrollo de proyectos sociales",
+          "contratos": 7,
+          "valor": 1377833750.0
+        },
+        {
+          "nombre": "ECOEQUIPOS SAS",
+          "contratos": 1,
+          "valor": 1247858730.58
+        },
+        {
+          "nombre": "EMCOAAAFOR ESP",
+          "contratos": 4,
+          "valor": 1150000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10996836",
+    "id_portafolio": "CO1.BDOS.10708418",
     "referencia": "266 COGFM DIADF 2026   (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "COMANDO GENERAL DE LAS FUERZAS MILITARES",
     "nit_entidad": "800230729",
@@ -6334,7 +9986,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6368,10 +10020,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Buenaventura"
     },
     "score_calidad": 63,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850808"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850808",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 304,
+      "valor_12m": 60948263484.97,
+      "pagado_sobre_facturado_pct": 51.6,
+      "proveedores_top": [
+        {
+          "nombre": "INDUSTRIA MILITAR",
+          "contratos": 2,
+          "valor": 13899097690.0
+        },
+        {
+          "nombre": "UT CGFM 2026 TOYONORTE – ARMOR",
+          "contratos": 1,
+          "valor": 2620135000.0
+        },
+        {
+          "nombre": "UT LOGISTICA PROTOCOLARIA NACIONAL",
+          "contratos": 1,
+          "valor": 2503480000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10379467",
+    "id_portafolio": "CO1.BDOS.10205153",
     "referencia": "SASI-001-2026",
     "entidad": "ESCUELA TALLER CARTAGENA DE INDIAS",
     "nit_entidad": "800169265",
@@ -6393,7 +10070,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 232,
       "unidad": "día(s)",
-      "texto": "232 día(s)"
+      "texto": "232 días"
     },
     "competencia": {
       "interesados": 0,
@@ -6424,13 +10101,81 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "902069151"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240025"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10240025",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9523246",
+      "referencia": "SASI-001-2026",
+      "estado": "En ejecución",
+      "objeto": "SUMINISTRO DE INSUMOS DE COCINA PARA LA PREPARACIÓN DE ALIMENTOS COMO APOYO NUTRICIONAL DE LOS APRENDICES DEL PROYECTO DE FORMACIÓN DE LA ESCUELA TALLER CARTAGENA DE INDIAS 2026; PARA LOS PROGRAMAS DE PUESTA EN VALOR; EJECUCIÓN DEL PROYECTO PATRIMONIO INMATERIAL Y COCINA TRADICIONAL: BALUARTE SANTO DOMINGO Y DEMÁS NECESIDADES ADMINISTRATIVAS DEL PROYECTO FORTIFICACIONES.",
+      "fecha_firma": "2026-05-28T00:00:00",
+      "inicio_ejecucion": "2026-05-29T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1739766873.0,
+      "valor_facturado": 638365634.19,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": true,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [],
+      "proveedor": "CONSORCIO SUMINISTRO ET",
+      "nit_proveedor": "902069151",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10281632&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "LISETH DAYANA CONTRERAS REY",
+        "ordenador_gasto": "SANDRA SCHMALBACH PEREZ",
+        "supervisor": "SANDRA SCHMALBACH PEREZ"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 1,
+      "valor_total": 1739766873.0,
+      "primero": "2026-05-28T00:00:00",
+      "ultimo": "2026-05-28T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ESCUELA TALLER CARTAGENA DE INDIAS",
+          "contratos": 1,
+          "valor": 1739766873.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 281,
+      "valor_12m": 17365826672.67,
+      "pagado_sobre_facturado_pct": 24.9,
+      "proveedores_top": [
+        {
+          "nombre": "OPERADORA DE EMPLEOS TEMPORALES LIMITADA",
+          "contratos": 1,
+          "valor": 4452988981.0
+        },
+        {
+          "nombre": "DELTHAC 1 SEGURIDAD LTDA",
+          "contratos": 1,
+          "valor": 2927291303.0
+        },
+        {
+          "nombre": "CONSORCIO SUMINISTRO ET",
+          "contratos": 1,
+          "valor": 1739766873.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10388238",
+    "id_portafolio": "CO1.BDOS.10187970",
     "referencia": "PN MEPOY SA MC 057 DE 2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "POLICIA METROPOLITANA DE POPAYAN",
     "nit_entidad": "900593683",
@@ -6452,7 +10197,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 210,
       "unidad": "día(s)",
-      "texto": "210 día(s)"
+      "texto": "210 días"
     },
     "competencia": {
       "interesados": 0,
@@ -6483,13 +10228,91 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "59706955"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10246335"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10246335",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9539799",
+      "referencia": "90-8-10072-26",
+      "estado": "Modificado",
+      "objeto": "SUMINISTRO DE COMPONENTES ELÉCTRICOS; MATERIALES DE CONSTRUCCIÓN; FERRETERÍA; CARPINTERÍA PARA ESTRUCTURAS Y EDIFICACIONES; CABLEADO ESTRUCTURADO PARA REDES DE DATOS INTERNAS Y ACCESORIOS; CON DESTINO A LA REGIÓN DE POLICÍA NÚMERO CUATRO; POLICÍA METROPOLITANA DE POPAYÁN; DEPARTAMENTO DE POLICÍA CAUCA; COLEGIO NUESTRA SEÑORA DE FÁTIMA Y DEMÁS UNIDADES QUE DEPENDAN ADMINISTRATIVAMENTE DE LA POLICÍA METROPOLITANA DE POPAYÁN",
+      "fecha_firma": "2026-06-04T00:00:00",
+      "inicio_ejecucion": "2026-06-10T00:00:00",
+      "fin_ejecucion": "2026-12-25T00:00:00",
+      "ultima_actualizacion": "2026-08-20T00:00:00",
+      "valor": 1276485000.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [],
+      "proveedor": "Deicy Bravo Jojoa",
+      "nit_proveedor": "59706955",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10271391&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "DEICY BRAVO JOJOA",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 710,
+      "valor_total": 139870238508.4,
+      "primero": "2018-10-10T00:00:00",
+      "ultimo": "2026-09-17T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "GOBERNACIÓN DEL CAUCA",
+          "contratos": 31,
+          "valor": 11416835434.36
+        },
+        {
+          "nombre": "SENA REGIONAL ANTIOQUIA Grupo Administrativo CTAPT",
+          "contratos": 14,
+          "valor": 7375875980.24
+        },
+        {
+          "nombre": "SENA REGIONAL CAUCA Centro agropecuario",
+          "contratos": 109,
+          "valor": 7320257594.8
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 157,
+      "valor_12m": 25776461765.76,
+      "pagado_sobre_facturado_pct": 90.1,
+      "proveedores_top": [
+        {
+          "nombre": "UNION TEMPORAL G&G 2025 - POPAYÁN",
+          "contratos": 1,
+          "valor": 10233000000.0
+        },
+        {
+          "nombre": "CONSORCIO GHE 2026",
+          "contratos": 1,
+          "valor": 3011194000.0
+        },
+        {
+          "nombre": "Deicy Bravo Jojoa",
+          "contratos": 2,
+          "valor": 1326454000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10883129",
+    "id_portafolio": "CO1.BDOS.10699051",
     "referencia": "SA-022-2026",
     "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
     "nit_entidad": "800194096",
@@ -6511,7 +10334,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6545,10 +10368,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10738594"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10738594",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 5320,
+      "valor_12m": 1645623672118.52,
+      "pagado_sobre_facturado_pct": 99.3,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+          "contratos": 2,
+          "valor": 1269397606948.0
+        },
+        {
+          "nombre": "INSTITUTO PARA EL DESARROLLO DE ANTIOQUIA IDEA",
+          "contratos": 3,
+          "valor": 122887844167.0
+        },
+        {
+          "nombre": "EMPRESA PARA LA SEGURIDAD Y SOLUCIONES URBANAS - ESU",
+          "contratos": 2,
+          "valor": 15356828017.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10968722",
+    "id_portafolio": "CO1.BDOS.10699051",
     "referencia": "SA-022-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
     "nit_entidad": "800194096",
@@ -6570,7 +10418,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6604,10 +10452,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10822380"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10822380",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 5320,
+      "valor_12m": 1645623672118.52,
+      "pagado_sobre_facturado_pct": 99.3,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+          "contratos": 2,
+          "valor": 1269397606948.0
+        },
+        {
+          "nombre": "INSTITUTO PARA EL DESARROLLO DE ANTIOQUIA IDEA",
+          "contratos": 3,
+          "valor": 122887844167.0
+        },
+        {
+          "nombre": "EMPRESA PARA LA SEGURIDAD Y SOLUCIONES URBANAS - ESU",
+          "contratos": 2,
+          "valor": 15356828017.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10931112",
+    "id_portafolio": "CO1.BDOS.10699051",
     "referencia": "SA-022-2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN",
     "nit_entidad": "800194096",
@@ -6629,7 +10502,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6663,10 +10536,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10789895"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10789895",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 5320,
+      "valor_12m": 1645623672118.52,
+      "pagado_sobre_facturado_pct": 99.3,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+          "contratos": 2,
+          "valor": 1269397606948.0
+        },
+        {
+          "nombre": "INSTITUTO PARA EL DESARROLLO DE ANTIOQUIA IDEA",
+          "contratos": 3,
+          "valor": 122887844167.0
+        },
+        {
+          "nombre": "EMPRESA PARA LA SEGURIDAD Y SOLUCIONES URBANAS - ESU",
+          "contratos": 2,
+          "valor": 15356828017.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.3372299",
+    "id_portafolio": "CO1.BDOS.3285093",
     "referencia": "CPA-FP-2022-096",
     "entidad": "DAPRE",
     "nit_entidad": "899999083",
@@ -6720,10 +10618,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 60,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 719,
+      "valor_12m": 132728030396.48,
+      "pagado_sobre_facturado_pct": 89.2,
+      "proveedores_top": [
+        {
+          "nombre": "SERVICIOS POSTALES NACIONALES S.A.S",
+          "contratos": 1,
+          "valor": 15211334050.0
+        },
+        {
+          "nombre": "INRAVISIÓN - SISTEMA DE MEDIOS PÚBLICOS DEL ESTADO COLOMBIANO S.A.S",
+          "contratos": 3,
+          "valor": 10679608862.0
+        },
+        {
+          "nombre": "Amadeus Consultancy Limited",
+          "contratos": 1,
+          "valor": 10000000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11071115",
+    "id_portafolio": "CO1.BDOS.10886007",
     "referencia": "SASI-0005-DRNT-2026",
     "entidad": "INSTITUTO NACIONAL DE MEDICINA LEGAL Y CIENCIAS FORENSES",
     "nit_entidad": "800150861",
@@ -6745,7 +10668,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 1,
       "unidad": "mes(es)",
-      "texto": "1 mes(es)"
+      "texto": "1 mes"
     },
     "competencia": {
       "interesados": 0,
@@ -6779,10 +10702,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 59,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947240"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947240",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 489,
+      "valor_12m": 115748669067.49,
+      "pagado_sobre_facturado_pct": 42.3,
+      "proveedores_top": [
+        {
+          "nombre": "FINANCIERA DE DESARROLLO TERRITORIAL S.A.",
+          "contratos": 2,
+          "valor": 25060806935.0
+        },
+        {
+          "nombre": "KHYMOS S.A.S",
+          "contratos": 4,
+          "valor": 8022240027.0
+        },
+        {
+          "nombre": "SANITAS S.A.S.",
+          "contratos": 7,
+          "valor": 7515797812.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11084754",
+    "id_portafolio": "CO1.BDOS.10847501",
     "referencia": "STI-2026-307 (Manifestación de interés (Menor Cuantía))",
     "entidad": "MUNICIPIO DE SEVILLA",
     "nit_entidad": "800100527",
@@ -6804,7 +10752,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 60,
       "unidad": "día(s)",
-      "texto": "60 día(s)"
+      "texto": "60 días"
     },
     "competencia": {
       "interesados": 0,
@@ -6838,10 +10786,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10943142"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10943142",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 421,
+      "valor_12m": 14161390886.69,
+      "pagado_sobre_facturado_pct": 99.0,
+      "proveedores_top": [
+        {
+          "nombre": "ACA TOURS SAS",
+          "contratos": 4,
+          "valor": 957023400.0
+        },
+        {
+          "nombre": "HOSPITAL DEPARTAMENTAL CENTENARIO ESE",
+          "contratos": 2,
+          "valor": 929728381.0
+        },
+        {
+          "nombre": "FUNDACION CASA DE LA CULTURA DE SEVILLA",
+          "contratos": 2,
+          "valor": 668000000.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11009961",
+    "id_portafolio": "CO1.BDOS.10824541",
     "referencia": "EMSET-DSP-033-2026",
     "entidad": "EMPRESA MUNICIPAL DE SERVICIOS PÚBLICOS DE TAURAMENA SA ESP",
     "nit_entidad": "844001456",
@@ -6863,7 +10836,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -6897,10 +10870,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864302"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864302",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10944360",
+    "id_portafolio": "CO1.BDOS.10760615",
     "referencia": "4100001839",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -6952,10 +10929,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10797912"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10797912",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10889199",
+    "id_portafolio": "CO1.BDOS.10705753",
     "referencia": "4100001701",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -7007,10 +10988,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10744064"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10744064",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11007891",
+    "id_portafolio": "CO1.BDOS.10823103",
     "referencia": "4100001962",
     "entidad": "EMPRESAS PUBLICAS DE MEDELLIN E.S.P.",
     "nit_entidad": "890904996",
@@ -7062,10 +11047,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862189"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862189",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11090343",
+    "id_portafolio": "CO1.BDOS.10865155",
     "referencia": "PC-MS-SA-008-2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "MUNICIPIO DE SOCOTA",
     "nit_entidad": "800026911",
@@ -7087,7 +11076,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7121,10 +11110,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10945912"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10945912",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 232,
+      "valor_12m": 13528964017.15,
+      "pagado_sobre_facturado_pct": 92.4,
+      "proveedores_top": [
+        {
+          "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
+          "contratos": 3,
+          "valor": 1825983965.94
+        },
+        {
+          "nombre": "persona natural",
+          "contratos": 2,
+          "valor": 797059865.35
+        },
+        {
+          "nombre": "FUNDACION SOÑANDO POR NUESTRO MUNDO",
+          "contratos": 2,
+          "valor": 780668049.6
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10926537",
+    "id_portafolio": "CO1.BDOS.10742904",
     "referencia": "ODC-DAD-0052-2026",
     "entidad": "UNIMAGDALENA",
     "nit_entidad": "891780111",
@@ -7146,7 +11160,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 60,
       "unidad": "día(s)",
-      "texto": "60 día(s)"
+      "texto": "60 días"
     },
     "competencia": {
       "interesados": 0,
@@ -7180,10 +11194,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10780187"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10780187",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11091435",
+    "id_portafolio": "CO1.BDOS.10860561",
     "referencia": "SAMC-022-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
     "entidad": "MUNICIPIO DE CUBARA BOYACA",
     "nit_entidad": "800099196",
@@ -7205,7 +11223,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 15,
       "unidad": "día(s)",
-      "texto": "15 día(s)"
+      "texto": "15 días"
     },
     "competencia": {
       "interesados": 0,
@@ -7239,10 +11257,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10946389"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10946389",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 484,
+      "valor_12m": 26355094383.42,
+      "pagado_sobre_facturado_pct": 70.6,
+      "proveedores_top": [
+        {
+          "nombre": "ASOCIACION DE PADRES DE FAMILIA DEL RESTAURANTE ESCOLAR SAN MIGUEL",
+          "contratos": 3,
+          "valor": 2760015883.97
+        },
+        {
+          "nombre": "CONSTRUCCIONES 57 SAS",
+          "contratos": 5,
+          "valor": 2124343331.39
+        },
+        {
+          "nombre": "FUNCOSOCIAL",
+          "contratos": 4,
+          "valor": 1720231155.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11065135",
+    "id_portafolio": "CO1.BDOS.10734513",
     "referencia": "CM-005-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE AGUA DE DIOS",
     "nit_entidad": "890680149",
@@ -7294,10 +11337,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920937"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10920937",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 373,
+      "valor_12m": 19301374066.13,
+      "pagado_sobre_facturado_pct": 95.0,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO EQUIPACENTRO AGUA DE DIOS",
+          "contratos": 1,
+          "valor": 3816043586.08
+        },
+        {
+          "nombre": "UNION TEMPORAL MORO MORALES INGENIERIA 2026",
+          "contratos": 1,
+          "valor": 2271655820.0
+        },
+        {
+          "nombre": "POLARIS INGENIERIA Y CONSULTORIA SAS",
+          "contratos": 4,
+          "valor": 1550793136.72
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10986709",
+    "id_portafolio": "CO1.BDOS.10802079",
     "referencia": "UNAL-MED-2026-454026",
     "entidad": "UNIVERSIDAD NACIONAL DE COLOMBIA",
     "nit_entidad": "899999063",
@@ -7349,10 +11417,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10840483"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10840483",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11065609",
+    "id_portafolio": "CO1.BDOS.10880184",
     "referencia": "2026.081",
     "entidad": "Empresa de Desarrollo Urbano de La Ceja",
     "nit_entidad": "901105143",
@@ -7374,7 +11446,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 6,
       "unidad": "mes(es)",
-      "texto": "6 mes(es)"
+      "texto": "6 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7408,10 +11480,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Bogotá"
     },
     "score_calidad": 58,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10921090"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10921090",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11080248",
+    "id_portafolio": "CO1.BDOS.10894717",
     "referencia": "PROCESO COMPETITIVO DE SELECCIÓN No. PC-002-2026",
     "entidad": "ALCALDÍA MUNICIPIO DE SAN ROQUE",
     "nit_entidad": "890980850",
@@ -7433,7 +11509,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 32,
       "unidad": "día(s)",
-      "texto": "32 día(s)"
+      "texto": "32 días"
     },
     "competencia": {
       "interesados": 0,
@@ -7467,10 +11543,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 57,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10936603"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10936603",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 287,
+      "valor_12m": 32031794149.87,
+      "pagado_sobre_facturado_pct": 36.4,
+      "proveedores_top": [
+        {
+          "nombre": "EDUNA (PROVEEDOR)",
+          "contratos": 8,
+          "valor": 11100509251.0
+        },
+        {
+          "nombre": "EMPRESAS PUBLICAS DE SAN ROQUE S.A.S E.S.P",
+          "contratos": 4,
+          "valor": 3972543448.0
+        },
+        {
+          "nombre": "CORPORACION VIDA SOCIAL",
+          "contratos": 4,
+          "valor": 2830902871.64
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.9819592",
+    "id_portafolio": "CO1.BDOS.9652044",
     "referencia": "MP-0950-2026",
     "entidad": "ALCALDÍA MUNICIPIO DE PALMIRA",
     "nit_entidad": "891380007",
@@ -7492,7 +11593,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 11,
       "unidad": "mes(es)",
-      "texto": "11 mes(es)"
+      "texto": "11 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7523,13 +11624,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "900765378"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9053978",
+      "referencia": "MP-0950-2026",
+      "estado": "En ejecución",
+      "objeto": "PRESTAR SERVICIOS DE GESTIÓN INTEGRAL; SOPORTE Y MANTENIMIENTO DEL SISTEMA DE INFORMACIÓN SILIM PARA EL EFECTIVO COBRO DEL IMPUESTO DE ALUMBRADO PÚBLICO VIGENCIA 2026",
+      "fecha_firma": "2026-01-22T00:00:00",
+      "inicio_ejecucion": "2026-01-30T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 970349880.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "JIKKOSOFT S.A.S",
+      "nit_proveedor": "900765378",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9678621&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Juan David López Marín",
+        "ordenador_gasto": "Andres Mauricio Hormaza Tobon",
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 16,
+      "valor_total": 35580887123.84,
+      "primero": "2020-12-22T00:00:00",
+      "ultimo": "2026-08-31T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDÍA MUNICIPIO DE PALMIRA",
+          "contratos": 6,
+          "valor": 10850693265.84
+        },
+        {
+          "nombre": "GOBVALLE - HACIENDA",
+          "contratos": 1,
+          "valor": 8387822133.0
+        },
+        {
+          "nombre": "ALCALDIA MUNICIPIO DE IBAGUE*",
+          "contratos": 1,
+          "valor": 4500000000.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 2417,
+      "valor_12m": 487801511702.32,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "CVC",
+          "contratos": 1,
+          "valor": 238617509115.0
+        },
+        {
+          "nombre": "CONSORCIO GALERIA PALMIRA 25",
+          "contratos": 1,
+          "valor": 38643191888.0
+        },
+        {
+          "nombre": "UNION TEMPORAL NUTRIENDO PALMIRA 2026",
+          "contratos": 1,
+          "valor": 36872267972.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10977080",
+    "id_portafolio": "CO1.BDOS.10677930",
     "referencia": "LP-001-2026   (Fase de Selección (Presentación de ofertas))",
     "entidad": "ALCALDIA MUNICIPAL LA TEBAIDA QUINDIO",
     "nit_entidad": "890000564",
@@ -7551,7 +11733,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7585,10 +11767,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836247"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836247",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 820,
+      "valor_12m": 30146756010.3,
+      "pagado_sobre_facturado_pct": 79.1,
+      "proveedores_top": [
+        {
+          "nombre": "BANCOLOMBIA",
+          "contratos": 1,
+          "valor": 9000000000.0
+        },
+        {
+          "nombre": "CUERPO DE BOMBEROS VOLUNTARIOS DE LA TEBAIDA QUINDIO",
+          "contratos": 3,
+          "valor": 2030361664.0
+        },
+        {
+          "nombre": "EMPRESA PARA EL DESARROLLO TERRITORIAL - PROYECTA+",
+          "contratos": 1,
+          "valor": 1788034759.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10861072",
+    "id_portafolio": "CO1.BDOS.10677930",
     "referencia": "LP-001-2026",
     "entidad": "ALCALDIA MUNICIPAL LA TEBAIDA QUINDIO",
     "nit_entidad": "890000564",
@@ -7610,7 +11817,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 3,
       "unidad": "mes(es)",
-      "texto": "3 mes(es)"
+      "texto": "3 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7644,10 +11851,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10740633"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10740633",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 820,
+      "valor_12m": 30146756010.3,
+      "pagado_sobre_facturado_pct": 79.1,
+      "proveedores_top": [
+        {
+          "nombre": "BANCOLOMBIA",
+          "contratos": 1,
+          "valor": 9000000000.0
+        },
+        {
+          "nombre": "CUERPO DE BOMBEROS VOLUNTARIOS DE LA TEBAIDA QUINDIO",
+          "contratos": 3,
+          "valor": 2030361664.0
+        },
+        {
+          "nombre": "EMPRESA PARA EL DESARROLLO TERRITORIAL - PROYECTA+",
+          "contratos": 1,
+          "valor": 1788034759.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.2090805",
+    "id_portafolio": "CO1.BDOS.2028422",
     "referencia": "SI-CM-008-2021",
     "entidad": "MUNICIPIO DE BUCARAMANGA",
     "nit_entidad": "890201222",
@@ -7669,7 +11901,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 5,
       "unidad": "mes(es)",
-      "texto": "5 mes(es)"
+      "texto": "5 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7703,10 +11935,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 5521,
+      "valor_12m": 557064412564.89,
+      "pagado_sobre_facturado_pct": 36.5,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO MEJORAMIENTO VIAS BGA",
+          "contratos": 1,
+          "valor": 27860356158.0
+        },
+        {
+          "nombre": "EMPRESA DE ASEO DE BUCARAMANGA S.A. ESP.",
+          "contratos": 6,
+          "valor": 26250989348.71
+        },
+        {
+          "nombre": "UT BGA INNOVA2",
+          "contratos": 1,
+          "valor": 22117586708.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11034602",
+    "id_portafolio": "CO1.BDOS.10665723",
     "referencia": "MC-071-2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "MUNICIPIO DE MANIZALES",
     "nit_entidad": "890801053",
@@ -7728,7 +11985,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7762,10 +12019,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888441"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888441",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1411,
+      "valor_12m": 583478074833.46,
+      "pagado_sobre_facturado_pct": 51.2,
+      "proveedores_top": [
+        {
+          "nombre": "INSTITUTO DE FINANCIAMIENTO PROMOCIÓN Y DESARROLLO DE MANIZALES - INFI-MANIZALES",
+          "contratos": 10,
+          "valor": 83877866790.0
+        },
+        {
+          "nombre": "BANCO BILBAO VIZCAYA ARGENTARIA S.A. (OFICIAL)",
+          "contratos": 1,
+          "valor": 58900000000.0
+        },
+        {
+          "nombre": "CONSORCIO SOLUCION VIAL MANIZALES",
+          "contratos": 1,
+          "valor": 35346010947.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10848484",
+    "id_portafolio": "CO1.BDOS.10665723",
     "referencia": "MC-071-2026",
     "entidad": "MUNICIPIO DE MANIZALES",
     "nit_entidad": "890801053",
@@ -7787,7 +12069,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -7821,10 +12103,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10702899"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10702899",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1411,
+      "valor_12m": 583478074833.46,
+      "pagado_sobre_facturado_pct": 51.2,
+      "proveedores_top": [
+        {
+          "nombre": "INSTITUTO DE FINANCIAMIENTO PROMOCIÓN Y DESARROLLO DE MANIZALES - INFI-MANIZALES",
+          "contratos": 10,
+          "valor": 83877866790.0
+        },
+        {
+          "nombre": "BANCO BILBAO VIZCAYA ARGENTARIA S.A. (OFICIAL)",
+          "contratos": 1,
+          "valor": 58900000000.0
+        },
+        {
+          "nombre": "CONSORCIO SOLUCION VIAL MANIZALES",
+          "contratos": 1,
+          "valor": 35346010947.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11022683",
+    "id_portafolio": "CO1.BDOS.10837709",
     "referencia": "D-482-2026",
     "entidad": "MUNICIPIO DE PALERMO HUILA",
     "nit_entidad": "891180021",
@@ -7873,13 +12180,84 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "813002609"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482",
+    "contrato": {
+      "cantidad": 2,
+      "id": "CO1.PCCNTR.9951062",
+      "referencia": "100.17.01.482 DE 2026",
+      "estado": "En ejecución",
+      "objeto": "AUNAR ESFUERZOS ENTRE EL MUNICIPIO DE PALERMO Y LAS EMPRESAS PÚBLICAS DE PALERMO EPP E.S.P. PARA REALIZAR EL MEJORAMIENTO DEL ALUMBRADO PÚBLICO EN LA ZONA URBANA DEL MUNICIPIO DE PALERMO HUILA",
+      "fecha_firma": "2026-09-15T00:00:00",
+      "inicio_ejecucion": "2026-09-15T00:00:00",
+      "fin_ejecucion": "2026-12-14T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 1030973802.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "EMPRESAS PUBLICAS DE PALERMO ESP",
+      "nit_proveedor": "813002609",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903482&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Maria Jose Polania Caviedes",
+        "ordenador_gasto": "KLEYVER LAUREANO OVIEDO FARFAN",
+        "supervisor": "JESUS MARIA LOZADA CAMACHO"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 9,
+      "valor_total": 5734218571.0,
+      "primero": "2025-10-24T00:00:00",
+      "ultimo": "2026-09-15T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE PALERMO HUILA",
+          "contratos": 9,
+          "valor": 5734218571.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 633,
+      "valor_12m": 41784592929.5,
+      "pagado_sobre_facturado_pct": 81.8,
+      "proveedores_top": [
+        {
+          "nombre": "BANCOLOMBIA",
+          "contratos": 1,
+          "valor": 10590000000.0
+        },
+        {
+          "nombre": "EMPRESAS PUBLICAS DE PALERMO ESP",
+          "contratos": 9,
+          "valor": 5734218571.0
+        },
+        {
+          "nombre": "INCUBARHUILA",
+          "contratos": 3,
+          "valor": 2775472854.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11013436",
+    "id_portafolio": "CO1.BDOS.10827869",
     "referencia": "003-S.A.M.C-2026",
     "entidad": "UAE SETP AVANTE PASTO",
     "nit_entidad": "900358918",
@@ -7901,7 +12279,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 68,
       "unidad": "día(s)",
-      "texto": "68 día(s)"
+      "texto": "68 días"
     },
     "competencia": {
       "interesados": 0,
@@ -7935,10 +12313,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10961133"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10961133",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 69,
+      "valor_12m": 3129598919.38,
+      "pagado_sobre_facturado_pct": 0.0,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO AVANTE 2026",
+          "contratos": 1,
+          "valor": 493957100.0
+        },
+        {
+          "nombre": "PROYECTOS CONSTRUCCIONES Y MONTAJES SAS",
+          "contratos": 1,
+          "valor": 478858420.0
+        },
+        {
+          "nombre": "EMRPESA DE VIGILANCIA Y SEGURIDAD PRIVADA MAYAS LTDA",
+          "contratos": 1,
+          "valor": 455990605.37
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10379405",
+    "id_portafolio": "CO1.BDOS.10204708",
     "referencia": "SAMC-008-2026",
     "entidad": "ALCALDÍA LIBANO",
     "nit_entidad": "800100061",
@@ -7990,10 +12393,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10235897"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10235897",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 410,
+      "valor_12m": 24442074705.57,
+      "pagado_sobre_facturado_pct": 74.8,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO VIA LA TRINA - EL TESORO",
+          "contratos": 1,
+          "valor": 4081283150.0
+        },
+        {
+          "nombre": "ALCANOS DE COLOMBIA",
+          "contratos": 1,
+          "valor": 2210993718.0
+        },
+        {
+          "nombre": "EMSER ESP",
+          "contratos": 3,
+          "valor": 2028902583.19
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11048321",
+    "id_portafolio": "CO1.BDOS.10793846",
     "referencia": "SASI-02-2026 (Presentación de oferta)",
     "entidad": "ALCALDIA DE HONDA",
     "nit_entidad": "800100058",
@@ -8045,10 +12473,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903651"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10903651",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 338,
+      "valor_12m": 14172947408.45,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "REDES Y MULTISERVICIOS SAS",
+          "contratos": 7,
+          "valor": 1540409016.75
+        },
+        {
+          "nombre": "CONSORCIO PARQUE PERIODISTAS 2026",
+          "contratos": 1,
+          "valor": 1226388646.0
+        },
+        {
+          "nombre": "OTILIA DEL PILAR MORALES GIRALDO",
+          "contratos": 22,
+          "valor": 1217445383.72
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10978278",
+    "id_portafolio": "CO1.BDOS.10793846",
     "referencia": "SASI-02-2026",
     "entidad": "ALCALDIA DE HONDA",
     "nit_entidad": "800100058",
@@ -8100,10 +12553,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10833639"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10833639",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 338,
+      "valor_12m": 14172947408.45,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "REDES Y MULTISERVICIOS SAS",
+          "contratos": 7,
+          "valor": 1540409016.75
+        },
+        {
+          "nombre": "CONSORCIO PARQUE PERIODISTAS 2026",
+          "contratos": 1,
+          "valor": 1226388646.0
+        },
+        {
+          "nombre": "OTILIA DEL PILAR MORALES GIRALDO",
+          "contratos": 22,
+          "valor": 1217445383.72
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10390627",
+    "id_portafolio": "CO1.BDOS.10216124",
     "referencia": "SASI-06-2026",
     "entidad": "MUNICIPIO EL CARMEN DE VIBORAL",
     "nit_entidad": "890982616",
@@ -8152,13 +12630,89 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "71117007"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10247521"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10247521",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9521902",
+      "referencia": "190-CS-006-2026",
+      "estado": "En ejecución",
+      "objeto": "SUMINISTRO DE ELEMENTOS E INSUMOS ELÉCTRICOS PARA EL MANTENIMIENTO DE ALUMBRADO PÚBLICO E INFRAESTRUCTURA INSTITUCIONAL EN EL MUNICIPIO DE EL CARMEN DE VIBORAL",
+      "fecha_firma": "2026-05-22T00:00:00",
+      "inicio_ejecucion": "2026-05-22T00:00:00",
+      "fin_ejecucion": "2026-12-22T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 407153664.0,
+      "valor_facturado": 344261348.0,
+      "valor_pagado": 240933678.0,
+      "avance_pagos_pct": 59.2,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "EL PUNTO ELECTRICO Y FERRETERO",
+      "nit_proveedor": "71117007",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10275017&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Arley Jhoany Gomez Alzate",
+        "ordenador_gasto": "juan jose moreno soto",
+        "supervisor": "oscar dario sanchez bello"
+      }
+    },
+    "historial_contratista": {
+      "contratos": 12,
+      "valor_total": 2535092849.0,
+      "primero": "2021-06-11T00:00:00",
+      "ultimo": "2026-05-22T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO EL CARMEN DE VIBORAL",
+          "contratos": 10,
+          "valor": 2485504123.0
+        },
+        {
+          "nombre": "MUNICIPIO DE LA CEJA",
+          "contratos": 2,
+          "valor": 49588726.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 403,
+      "valor_12m": 65596157270.19,
+      "pagado_sobre_facturado_pct": 94.8,
+      "proveedores_top": [
+        {
+          "nombre": "EDUR",
+          "contratos": 23,
+          "valor": 17494425023.44
+        },
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 2,
+          "valor": 6126212330.0
+        },
+        {
+          "nombre": "CORPORACION DE PROFESIONALES ASESORES",
+          "contratos": 1,
+          "valor": 5376686808.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10922117",
+    "id_portafolio": "CO1.BDOS.10738216",
     "referencia": "SAMC 001-2026",
     "entidad": "INSTITUTO PARA LA EDUCACION FISICA LA RECREACION Y EL DEPORTE DE DUITAMA",
     "nit_entidad": "826000522",
@@ -8210,10 +12764,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10775748"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10775748",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 71,
+      "valor_12m": 1109513884.28,
+      "pagado_sobre_facturado_pct": 2.4,
+      "proveedores_top": [
+        {
+          "nombre": "UNIDOS FUNDACIÓN SOCIAL ONG",
+          "contratos": 2,
+          "valor": 173558000.0
+        },
+        {
+          "nombre": "COMITE PARALIMPICO COLOMBIANO",
+          "contratos": 1,
+          "valor": 123382607.0
+        },
+        {
+          "nombre": "FUNDACION CREANDO PROGRESO",
+          "contratos": 1,
+          "valor": 74657300.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.4471955",
+    "id_portafolio": "CO1.BDOS.4371225",
     "referencia": "062-2023",
     "entidad": "EMPRESA DE ENERGIA DEL GUAINIA LA CEIBA S.A. E.S.P",
     "nit_entidad": "8430000578",
@@ -8235,7 +12814,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -8269,10 +12848,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11061576",
+    "id_portafolio": "CO1.BDOS.10807309",
     "referencia": "DHMP-SA-SPOP-010 DE 2026 (Manifestación de interés (Menor Cuantía))",
     "entidad": "ALCALDIA DE PAICOL HUILA",
     "nit_entidad": "891180194",
@@ -8294,7 +12877,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -8328,10 +12911,35 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918191"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10918191",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 221,
+      "valor_12m": 5875455071.71,
+      "pagado_sobre_facturado_pct": 97.2,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA SOCIAL DEL ESTADO SANTA ROSA DE LIMA DE PAICOL *",
+          "contratos": 2,
+          "valor": 411374629.0
+        },
+        {
+          "nombre": "CARMENZA CEDEÑO BERNAL",
+          "contratos": 6,
+          "valor": 395602158.0
+        },
+        {
+          "nombre": "FOMCULTURA",
+          "contratos": 3,
+          "valor": 373231552.5
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.8946703",
+    "id_portafolio": "CO1.BDOS.8787601",
     "referencia": "2024-CAD0005",
     "entidad": "CENTRAL DE ABASTOS DE BUCARAMANGA S.A.",
     "nit_entidad": "890208395",
@@ -8353,7 +12961,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 120,
       "unidad": "día(s)",
-      "texto": "120 día(s)"
+      "texto": "120 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8387,10 +12995,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10979275",
+    "id_portafolio": "CO1.BDOS.5644884",
     "referencia": "CD-2023-106",
     "entidad": "EMPRESA DE SERVICIO DE ALUMBRADO PUBLICO DE YOPAL S.A.S. E.S.P.",
     "nit_entidad": "901380793",
@@ -8412,7 +13024,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 150,
       "unidad": "día(s)",
-      "texto": "150 día(s)"
+      "texto": "150 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8446,10 +13058,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11045110",
+    "id_portafolio": "CO1.BDOS.10860141",
     "referencia": "ARI.CM-022-2026",
     "entidad": "ARAUCA ILUMINADA SAS ESP",
     "nit_entidad": "901552362",
@@ -8471,7 +13087,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 8,
       "unidad": "mes(es)",
-      "texto": "8 mes(es)"
+      "texto": "8 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -8505,10 +13121,30 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 56,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10902490"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10902490",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 3346033791.54,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "Altair Tecnik S.A.S.",
+          "contratos": 1,
+          "valor": 3152430591.54
+        },
+        {
+          "nombre": "SOELCOING S.A.S.",
+          "contratos": 1,
+          "valor": 155803200.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.11037533",
+    "id_portafolio": "CO1.BDOS.10852000",
     "referencia": "CD-MNC-270-2026",
     "entidad": "HMI",
     "nit_entidad": "802013023",
@@ -8530,7 +13166,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 1,
       "unidad": "mes(es)",
-      "texto": "1 mes(es)"
+      "texto": "1 mes"
     },
     "competencia": {
       "interesados": 0,
@@ -8564,10 +13200,47 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "Soledad"
     },
     "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891448"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10891448",
+    "contrato": null,
+    "historial_contratista": {
+      "contratos": 23,
+      "valor_total": 2733056102.0,
+      "primero": "2022-06-03T00:00:00",
+      "ultimo": "2026-05-21T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "HMI",
+          "contratos": 17,
+          "valor": 2436056102.0
+        },
+        {
+          "nombre": "MUNICIPIO DE SOLEDAD",
+          "contratos": 4,
+          "valor": 220000000.0
+        },
+        {
+          "nombre": "INSTITUTO MUNICIPAL DE TRANSITO Y TRANSPORTEDE SOLEDAD",
+          "contratos": 2,
+          "valor": 77000000.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 2,
+      "valor_12m": 464125226.65,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "infraestructura hospitalaria barranquilla sas",
+          "contratos": 1,
+          "valor": 443612381.75
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.10996937",
+    "id_portafolio": "CO1.BDOS.10812072",
     "referencia": "MIC 200.1.094.2026",
     "entidad": "UNIVERSIDAD DEL VALLE",
     "nit_entidad": "890399010",
@@ -8589,7 +13262,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 106,
       "unidad": "día(s)",
-      "texto": "106 día(s)"
+      "texto": "106 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8623,10 +13296,19 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850675"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10850675",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1,
+      "valor_12m": 0.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": []
+    }
   },
   {
     "id": "CO1.REQ.10982914",
+    "id_portafolio": "CO1.BDOS.10798028",
     "referencia": "081-2026",
     "entidad": "E.S.E HOSPITAL BAUDILIO ACERO",
     "nit_entidad": "891800857",
@@ -8648,7 +13330,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "mes(es)",
-      "texto": "2 mes(es)"
+      "texto": "2 meses"
     },
     "competencia": {
       "interesados": 0,
@@ -8682,10 +13364,14 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 55,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836366"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836366",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.10373786",
+    "id_portafolio": "CO1.BDOS.10182084",
     "referencia": "SASIE-002-2026 (Presentación de oferta)",
     "entidad": "MUNICIPIO DE CISNEROS",
     "nit_entidad": "890910913",
@@ -8707,7 +13393,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 2,
       "unidad": "día(s)",
-      "texto": "2 día(s)"
+      "texto": "2 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8738,13 +13424,94 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 90000000.0,
       "departamento_proveedor": "Antioquia",
-      "ciudad_proveedor": "Bello"
+      "ciudad_proveedor": "Bello",
+      "nit_normalizado": "901421866"
     },
     "score_calidad": 53,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230787"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230787",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9496728",
+      "referencia": "CO1.PCCNTR.9496728",
+      "estado": "terminado",
+      "objeto": "COMPRAVENTA DE MATERIALES ELECTRICOS NECESARIOS PARA PRESTAR LOS SERVICIOS DE MANTENIMIENTO Y REPOSICION DEL ALUMBRADO PÚBLICO EN EL MUNICIPIO DE CISNEROS-ANTIOQUIA EN EJECUCION DEL PLAN DE DESARROLLO MUNICIPAL",
+      "fecha_firma": "2026-05-05T00:00:00",
+      "inicio_ejecucion": "2026-05-21T00:00:00",
+      "fin_ejecucion": "2026-05-23T00:00:00",
+      "ultima_actualizacion": "2026-08-06T00:00:00",
+      "valor": 135000000.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 10,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "V&S SUMINISTROS Y SOLUCIONES SAS",
+      "nit_proveedor": "901421866",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10230787&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "V&S SUMINISTROS Y SOLUCIONES SAS",
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 132,
+      "valor_total": 11497446142.32,
+      "primero": "2021-08-13T00:00:00",
+      "ultimo": "2026-09-11T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "MUNICIPIO DE CISNEROS",
+          "contratos": 116,
+          "valor": 9645544495.32
+        },
+        {
+          "nombre": "EMPRESA PARA LA COMPETITIVIDAD TERRITORIAL DEL MUNICIPIO DE GIRARDOTA",
+          "contratos": 2,
+          "valor": 1566684197.0
+        },
+        {
+          "nombre": "ASOCIACIÓN DE MUNICIPIOS DEL NORTE ANTIOQUEÑO- AMUNORTE",
+          "contratos": 1,
+          "valor": 176772922.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 219,
+      "valor_12m": 10162819360.78,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "V&S SUMINISTROS Y SOLUCIONES SAS",
+          "contratos": 27,
+          "valor": 2595006766.0
+        },
+        {
+          "nombre": "EMPRESA DE DESARROLLO URBANO DEL OCCIDENTE--EDUOCCIDENTE",
+          "contratos": 6,
+          "valor": 1260309940.0
+        },
+        {
+          "nombre": "OCCIDECOR*",
+          "contratos": 1,
+          "valor": 614213525.0
+        }
+      ]
+    }
   },
   {
     "id": "CO1.REQ.3619835",
+    "id_portafolio": "CO1.BDOS.2909808",
     "referencia": "PC-ESAL-2022-004",
     "entidad": "MUNICIPIO DE SANTO DOMINGO",
     "nit_entidad": "890983803",
@@ -8766,7 +13533,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 45,
       "unidad": "día(s)",
-      "texto": "45 día(s)"
+      "texto": "45 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8797,13 +13564,73 @@ window.PROSPECTS_DATA = [
       "es_consorcio": false,
       "valor_adjudicado": 0.0,
       "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "ciudad_proveedor": "No Definido",
+      "nit_normalizado": "811016502"
     },
     "score_calidad": 49,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index"
+    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.3674101",
+      "referencia": "CO1.PCCNTR.3674101",
+      "estado": "Cancelado",
+      "objeto": null,
+      "fecha_firma": null,
+      "inicio_ejecucion": null,
+      "fin_ejecucion": null,
+      "ultima_actualizacion": null,
+      "valor": 253281825.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": false,
+      "es_grupo": false,
+      "destino_gasto": "Inversión",
+      "origen_recursos": [
+        "Recursos propios",
+        "Recursos propios territoriales"
+      ],
+      "proveedor": "FUNDACION Y BCO DE ALIMENTOS CENTRAL MAYORISTA",
+      "nit_proveedor": "811016502",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.2914944&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": null,
+        "ordenador_gasto": null,
+        "supervisor": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 91,
+      "valor_total": 65546531043.36,
+      "primero": "2022-02-19T00:00:00",
+      "ultimo": "2026-09-08T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "ALCALDIA MUNICIPAL DE SANTA BARBARA",
+          "contratos": 7,
+          "valor": 11703008183.0
+        },
+        {
+          "nombre": "MUNICIPIO DE FRONTINO",
+          "contratos": 2,
+          "valor": 7130476643.0
+        },
+        {
+          "nombre": "ALCALDÍA MUNICIPIO DE SAN ROQUE",
+          "contratos": 7,
+          "valor": 6421299441.88
+        }
+      ]
+    },
+    "entidad_stats": null
   },
   {
     "id": "CO1.REQ.11091699",
+    "id_portafolio": "CO1.BDOS.10905973",
     "referencia": "CI-243-2026",
     "entidad": "MUNICIPIO DE CHIGORODO",
     "nit_entidad": "890980998",
@@ -8825,7 +13652,7 @@ window.PROSPECTS_DATA = [
     "plazo": {
       "valor": 43,
       "unidad": "día(s)",
-      "texto": "43 día(s)"
+      "texto": "43 días"
     },
     "competencia": {
       "interesados": 0,
@@ -8859,7 +13686,31 @@ window.PROSPECTS_DATA = [
       "ciudad_proveedor": "No Definido"
     },
     "score_calidad": 49,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947338"
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947338",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 291,
+      "valor_12m": 54372161894.27,
+      "pagado_sobre_facturado_pct": 75.7,
+      "proveedores_top": [
+        {
+          "nombre": "EMPRESA DE DESARROLLO TERRITORIAL DE DON MATIAS",
+          "contratos": 3,
+          "valor": 12725017133.52
+        },
+        {
+          "nombre": "Gustavo De Jesus Restrepo",
+          "contratos": 6,
+          "valor": 10362638041.0
+        },
+        {
+          "nombre": "EMPRESA PARA EL DESARROLLO URBANO Y HABITAT DEL MUNICIPIO DE APARTADÓ",
+          "contratos": 5,
+          "valor": 5431423965.1
+        }
+      ]
+    }
   }
 ];
-window.PROSPECTS_UPDATED_AT = "2026-09-28T01:55:17Z";
+window.PROSPECTS_UPDATED_AT = "2026-09-28T02:32:12Z";
