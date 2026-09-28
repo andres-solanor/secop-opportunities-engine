@@ -10,6 +10,7 @@ import sys
 from datetime import datetime, timezone
 from typing import Any, Dict, List
 
+from src.enrichers.contract_enricher import ContractEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
 from src.services.socrata_client import SocrataClient
@@ -272,6 +273,10 @@ def main():
     if raw_records:
         date_like = sorted(k for k in raw_records[0] if k.startswith(("fecha", "duracion", "unidad_de")))
         print(f"[*] Columnas de fecha/plazo en SECOP: {', '.join(date_like)}")
+
+    # Cruce con SECOP II Contratos: fechas de ejecución, pagos, contactos por rol,
+    # historial del contratista y comportamiento de la entidad.
+    ContractEnricher(client).enrich(prospects)
 
     base_dir = os.path.dirname(os.path.dirname(__file__))
     data_dir = os.path.join(base_dir, "data")

@@ -34,6 +34,7 @@ class SocrataClient:
         limit: int = 100,
         offset: int = 0,
         select: Optional[str] = None,
+        group: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         """
         Executes a SoQL query against a Socrata dataset.
@@ -48,6 +49,8 @@ class SocrataClient:
             params["$order"] = order
         if select:
             params["$select"] = select
+        if group:
+            params["$group"] = group
 
         query_string = urllib.parse.urlencode(params)
         url = f"{self.BASE_URL}/{dataset_id}.json?{query_string}"

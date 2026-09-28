@@ -148,6 +148,7 @@ class ScopeExtractor:
 
         return {
             "id": record.get("id_del_proceso") or record.get("referencia_del_proceso"),
+            "id_portafolio": record.get("id_del_portafolio"),
             "referencia": record.get("referencia_del_proceso"),
             "entidad": record.get("entidad"),
             "nit_entidad": record.get("nit_entidad"),
