@@ -1,5 +1,19 @@
 [
   {
+    "generated_at": "2026-09-29T16:50:15Z",
+    "started_at": "2026-09-29T16:47:22Z",
+    "duracion_s": 173.6,
+    "procesos_consultados": 682,
+    "curadas": 150,
+    "adjudicadas": 40,
+    "nuevas": 2,
+    "salieron": 3,
+    "nuevas_adjudicadas": 2,
+    "cruce_contratos": "ok",
+    "compras_planeadas": 80,
+    "fuentes_con_error": []
+  },
+  {
     "generated_at": "2026-09-28T18:30:37Z",
     "started_at": "2026-09-28T18:26:16Z",
     "duracion_s": 260.9,
