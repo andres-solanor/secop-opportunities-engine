@@ -7,7 +7,8 @@ Agregar un sector es editar ese archivo (y una prueba), no el código.
 import json
 import os
 import re
-from typing import Any, Dict
+import unicodedata
+from typing import Any, Dict, List
 
 TAXONOMY_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "taxonomy.json")
 
@@ -16,19 +17,45 @@ TAXONOMY_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 SIN_CLASIFICAR = "sin_clasificar"
 SIN_CLASIFICAR_NAME = "Sin clasificar"
 
-REQUIRED_KEYS = ("name", "keywords", "unspsc_prefixes", "weight")
+REQUIRED_KEYS = ("name", "grupo", "keywords", "unspsc_prefixes", "weight")
 
 
 class TaxonomyError(ValueError):
     """La taxonomía está mal formada: el pipeline no debe correr con ella."""
 
 
+def fold(text: Any) -> str:
+    """Minúsculas y sin tildes: 'Interventoría' y 'interventoria' comparan igual."""
+    decomposed = unicodedata.normalize("NFKD", str(text or ""))
+    return "".join(c for c in decomposed if not unicodedata.combining(c)).lower().strip()
+
+
+def _read(path: str) -> Dict[str, Any]:
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _validate_groups(groups: Any, path: str) -> List[Dict[str, Any]]:
+    if not isinstance(groups, list) or not groups:
+        raise TaxonomyError(f"{path}: falta el bloque 'grupos'")
+    for group in groups:
+        if not isinstance(group, dict) or not group.get("id") or not group.get("name"):
+            raise TaxonomyError(f"{path}: grupo mal formado: {group}")
+    return sorted(groups, key=lambda g: g.get("orden", 0))
+
+
+def load_groups(path: str = TAXONOMY_PATH) -> List[Dict[str, Any]]:
+    """Familias de sectores (`{id, name, orden}`), en el orden en que se muestran."""
+    return _validate_groups(_read(path).get("grupos"), path)
+
+
 def load_taxonomy(path: str = TAXONOMY_PATH) -> Dict[str, Dict[str, Any]]:
     """Devuelve `{clave_sector: definición}` y valida la forma mínima de cada sector."""
-    with open(path, encoding="utf-8") as f:
-        sectors = json.load(f).get("sectores")
+    content = _read(path)
+    sectors = content.get("sectores")
     if not isinstance(sectors, dict) or not sectors:
         raise TaxonomyError(f"{path}: falta el bloque 'sectores'")
+    group_ids = {g["id"] for g in _validate_groups(content.get("grupos"), path)}
 
     for key, data in sectors.items():
         if key == SIN_CLASIFICAR:
@@ -36,11 +63,17 @@ def load_taxonomy(path: str = TAXONOMY_PATH) -> Dict[str, Dict[str, Any]]:
         missing = [k for k in REQUIRED_KEYS if k not in data]
         if missing:
             raise TaxonomyError(f"sector '{key}': faltan {', '.join(missing)}")
-        if not data["keywords"] and not data["unspsc_prefixes"]:
-            raise TaxonomyError(f"sector '{key}': necesita palabras clave o prefijos UNSPSC")
+        if data["grupo"] not in group_ids:
+            raise TaxonomyError(f"sector '{key}': el grupo '{data['grupo']}' no está en 'grupos'")
         data.setdefault("excluir_si", {})
         data.setdefault("harvest", None)
         data.setdefault("unspsc_clasifica", False)
+        data.setdefault("tipos_contrato", [])
+        types = data["tipos_contrato"]
+        if not isinstance(types, list) or not all(isinstance(t, str) and t.strip() for t in types):
+            raise TaxonomyError(f"sector '{key}': tipos_contrato debe ser una lista de textos")
+        if not data["keywords"] and not data["unspsc_prefixes"] and not types:
+            raise TaxonomyError(f"sector '{key}': necesita palabras clave, prefijos UNSPSC o tipos de contrato")
         unknown = [kw for kw in data["excluir_si"] if kw not in data["keywords"]]
         if unknown:
             raise TaxonomyError(f"sector '{key}': excluir_si usa palabras que no son keywords: {unknown}")

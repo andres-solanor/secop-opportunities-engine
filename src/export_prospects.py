@@ -26,6 +26,7 @@ from src.harvest import GENERAL_WINDOW_DAYS, MIN_PRICE, HarvestError, harvest, u
 from src.schema import SchemaError, validate_dataset
 from src.services.socrata_client import SocrataClient
 from src.sync_status import build_meta, load_json, save_json, stamp_first_seen
+from src.taxonomy import load_groups
 
 log = logging.getLogger("secop")
 
@@ -191,12 +192,14 @@ def export_taxonomy(web_dir: str):
     uses exactly the same vocabulary as the SECOP enrichment pipeline."""
     os.makedirs(web_dir, exist_ok=True)
     taxonomy = {
-        key: {"name": data["name"], "keywords": data["keywords"]}
+        key: {"name": data["name"], "grupo": data["grupo"], "keywords": data["keywords"]}
         for key, data in ScopeExtractor.TAXONOMIES.items()
     }
+    groups = [{"id": g["id"], "name": g["name"]} for g in load_groups()]
     path = os.path.join(web_dir, "taxonomy.js")
     with open(path, "w", encoding="utf-8") as f:
         f.write("window.SECTOR_TAXONOMY = " + json.dumps(taxonomy, ensure_ascii=False, indent=2) + ";\n")
+        f.write("window.SECTOR_GROUPS = " + json.dumps(groups, ensure_ascii=False, indent=2) + ";\n")
     log.info("[+] Updated Web taxonomy: %s", path)
 
 

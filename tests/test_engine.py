@@ -109,12 +109,18 @@ class TestTaxonomyExport(unittest.TestCase):
             export_taxonomy(tmp)
             with open(os.path.join(tmp, "taxonomy.js"), encoding="utf-8") as f:
                 content = f.read()
-        prefix = "window.SECTOR_TAXONOMY = "
-        self.assertTrue(content.startswith(prefix))
-        exported = json.loads(content[len(prefix):].rstrip().rstrip(";"))
+        assignments = {}
+        for block in content.split(";\n"):
+            if block.strip():
+                name, _, value = block.partition(" = ")
+                assignments[name.strip()] = json.loads(value)
+        exported = assignments["window.SECTOR_TAXONOMY"]
+        groups = assignments["window.SECTOR_GROUPS"]
         self.assertEqual(set(exported), set(ScopeExtractor.TAXONOMIES))
+        group_ids = [g["id"] for g in groups]
         for key, data in ScopeExtractor.TAXONOMIES.items():
             self.assertEqual(exported[key]["keywords"], data["keywords"])
+            self.assertIn(exported[key]["grupo"], group_ids)
 
 
 

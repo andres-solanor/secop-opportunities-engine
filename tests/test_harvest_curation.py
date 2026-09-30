@@ -28,7 +28,7 @@ from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter, reason_group
 from src.harvest import HarvestError, build_queries, harvest, sector_where
 from src.services.socrata_client import SocrataClient, SocrataError
-from src.taxonomy import SIN_CLASIFICAR, TaxonomyError, load_taxonomy, normalize_unspsc
+from src.taxonomy import SIN_CLASIFICAR, TaxonomyError, fold, load_groups, load_taxonomy, normalize_unspsc
 
 TODAY = datetime(2026, 9, 30)
 
@@ -85,23 +85,54 @@ class TestTaxonomy(unittest.TestCase):
         self.assertEqual(normalize_unspsc("No definido"), "")
         self.assertEqual(normalize_unspsc(None), "")
 
-    def _write(self, tmp, sectors):
+    GROUPS = [{"id": "g", "name": "Grupo", "orden": 1}]
+    OK = {"name": "X", "grupo": "g", "keywords": ["x"], "unspsc_prefixes": [], "weight": 1}
+
+    def _write(self, tmp, sectors, groups=GROUPS):
         import json
         path = os.path.join(tmp, "taxonomy.json")
+        content = {"sectores": sectors}
+        if groups is not None:
+            content["grupos"] = groups
         with open(path, "w", encoding="utf-8") as f:
-            json.dump({"sectores": sectors}, f)
+            json.dump(content, f)
         return path
 
     def test_rejects_reserved_and_malformed_sectors(self):
         import tempfile
-        ok = {"name": "X", "keywords": ["x"], "unspsc_prefixes": [], "weight": 1}
+        ok = self.OK
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(TaxonomyError):
                 load_taxonomy(self._write(tmp, {SIN_CLASIFICAR: ok}))
             with self.assertRaises(TaxonomyError):
-                load_taxonomy(self._write(tmp, {"a": {"name": "A", "keywords": ["x"]}}))
+                load_taxonomy(self._write(tmp, {"a": {"name": "A", "grupo": "g", "keywords": ["x"]}}))
             with self.assertRaises(TaxonomyError):
                 load_taxonomy(self._write(tmp, {"a": dict(ok, excluir_si={"otra": ["y"]})}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(ok, tipos_contrato="Obra")}))
+
+    def test_every_sector_needs_a_known_group(self):
+        import tempfile
+        without_group = {k: v for k, v in self.OK.items() if k != "grupo"}
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": without_group}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(self.OK, grupo="otro")}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": self.OK}, groups=None))
+
+    def test_groups_come_in_display_order(self):
+        import tempfile
+        groups = [{"id": "b", "name": "B", "orden": 2}, {"id": "a", "name": "A", "orden": 1}]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = self._write(tmp, {"x": dict(self.OK, grupo="a")}, groups=groups)
+            self.assertEqual([g["id"] for g in load_groups(path)], ["a", "b"])
+
+    def test_every_real_sector_has_a_known_group(self):
+        group_ids = {g["id"] for g in load_groups()}
+        for key, sector in load_taxonomy().items():
+            self.assertIn(sector["grupo"], group_ids, key)
 
 
 class TestClassification(unittest.TestCase):
@@ -146,6 +177,35 @@ class TestClassification(unittest.TestCase):
         without = self.extractor.enrich(raw("A", codigo_principal_de_categoria="No definido"))
         score = lambda out: next(s for s in out["sectores"] if s["id"] == "acero_metalmecanica")["relevance_score"]  # noqa: E731
         self.assertEqual(score(with_code) - score(without), 25)
+
+    def test_contract_type_classifies_and_adds_score(self):
+        taxonomy = {
+            "obra": {"name": "Obra", "keywords": ["pavimento"], "unspsc_prefixes": [], "weight": 1,
+                     "tipos_contrato": ["Obra"]},
+            "otro": {"name": "Otro", "keywords": ["pavimento"], "unspsc_prefixes": [], "weight": 1},
+        }
+        extractor = ScopeExtractor(taxonomy)
+        by_type = extractor.enrich(raw("A", tipo_de_contrato="Obra", nombre_del_procedimiento="Adecuación de sede",
+                                       descripci_n_del_procedimiento="Adecuación de sede",
+                                       codigo_principal_de_categoria="No definido"))
+        self.assertEqual([s["id"] for s in by_type["sectores"]], ["obra"])
+        self.assertEqual(by_type["sectores"][0]["relevance_score"], 25)
+
+        both = extractor.enrich(raw("B", tipo_de_contrato="OBRA", nombre_del_procedimiento="Pavimento",
+                                    descripci_n_del_procedimiento="", codigo_principal_de_categoria="No definido"))
+        scores = {s["id"]: s["relevance_score"] for s in both["sectores"]}
+        self.assertEqual(scores["obra"] - scores["otro"], 25)
+
+    def test_contract_type_does_not_classify_sectors_without_the_rule(self):
+        taxonomy = {"otro": {"name": "Otro", "keywords": ["pavimento"], "unspsc_prefixes": [], "weight": 1}}
+        out = ScopeExtractor(taxonomy).enrich(raw("A", tipo_de_contrato="Obra", nombre_del_procedimiento="Adecuación",
+                                                  descripci_n_del_procedimiento="Adecuación",
+                                                  codigo_principal_de_categoria="No definido"))
+        self.assertEqual(out["sectores"], [])
+
+    def test_fold_ignores_accents_and_case(self):
+        self.assertEqual(fold(" Interventoría "), "interventoria")
+        self.assertEqual(fold(None), "")
 
     def test_adjusted_price_keeps_the_original(self):
         out = self.extractor.enrich(raw("CO1.REQ.1", precio_base="120000000000",

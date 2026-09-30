@@ -8,7 +8,7 @@ import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
-from src.taxonomy import load_taxonomy, normalize_unspsc
+from src.taxonomy import fold, load_taxonomy, normalize_unspsc
 
 
 class ScopeExtractor:
@@ -37,9 +37,11 @@ class ScopeExtractor:
             self.TAXONOMIES = taxonomy
         # Compile case-insensitive regex patterns for fast matching
         self.patterns = {}
+        self.contract_types = {}
         for sector_key, sector_data in self.TAXONOMIES.items():
             regexes = [re.compile(rf"\b{re.escape(kw)}\b", re.IGNORECASE) for kw in sector_data["keywords"]]
             self.patterns[sector_key] = regexes
+            self.contract_types[sector_key] = {fold(t) for t in sector_data.get("tipos_contrato") or []}
 
     def enrich(self, record: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -52,6 +54,7 @@ class ScopeExtractor:
         ]).lower()
 
         cat_code = normalize_unspsc(record.get("codigo_principal_de_categoria"))
+        contract_type = fold(record.get("tipo_de_contrato"))
 
         # 1. Match Sectors & Extract Detected Materials
         matched_sectors = []
@@ -72,11 +75,17 @@ class ScopeExtractor:
             # Check category code bonus
             has_cat_match = any(cat_code.startswith(prefix) for prefix in sector_data["unspsc_prefixes"])
 
+            # El tipo de contrato de SECOP (Obra, Interventoría...) nombra el sector mejor que
+            # cualquier palabra suelta: clasifica por sí solo y suma como el código.
+            has_type_match = bool(contract_type) and contract_type in self.contract_types[sector_key]
+
             # El código UNSPSC siempre suma puntaje, pero solo clasifica por sí solo (sin ninguna
             # palabra clave) en los sectores que lo declaran con `unspsc_clasifica`.
-            if matched_keywords or (has_cat_match and sector_data.get("unspsc_clasifica")):
+            if matched_keywords or has_type_match or (has_cat_match and sector_data.get("unspsc_clasifica")):
                 score = len(matched_keywords) * 15 * sector_data["weight"]
                 if has_cat_match:
+                    score += 25
+                if has_type_match:
                     score += 25
 
                 sector_scores[sector_key] = score

@@ -11,12 +11,24 @@
     "                  y marcarían como acero cualquier obra.",
     "  weight          peso del sector en el puntaje de relevancia.",
     "  harvest         qué se le pide a SECOP II: precio mínimo y patrones LIKE (en mayúsculas, % = comodín)",
-    "                  sobre el título y la descripción. null = el sector solo se alimenta de la descarga general."
+    "                  sobre el título y la descripción. null = el sector solo se alimenta de la descarga general.",
+    "                  Úsalo solo en sectores de nicho: la consulta es obligatoria (si falla, no se publica) y",
+    "                  tiene tope de filas. Los sectores de mucho volumen (obra, interventoría) van con null.",
+    "  grupo           id de uno de los 'grupos': la familia bajo la que aparece en el filtro de la web.",
+    "  tipos_contrato  valores exactos de tipo_de_contrato de SECOP II que bastan para clasificar en el",
+    "                  sector (sin importar tildes ni mayúsculas) y suman puntaje como el código UNSPSC.",
+    "  Los ids de sector no se cambian: los perfiles guardados en el navegador los usan."
   ],
-  "version": 1,
+  "version": 2,
+  "grupos": [
+    { "id": "obra_infraestructura", "name": "Obra e infraestructura", "orden": 1 },
+    { "id": "suministros_equipos", "name": "Suministros y equipos", "orden": 2 },
+    { "id": "servicios", "name": "Servicios", "orden": 3 }
+  ],
   "sectores": {
     "acero_metalmecanica": {
       "name": "Acero & Metalmecánica",
+      "grupo": "suministros_equipos",
       "keywords": [
         "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
         "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
@@ -42,6 +54,7 @@
     },
     "horeca_industrial": {
       "name": "HORECA & Maquinaria Gastronómica",
+      "grupo": "suministros_equipos",
       "keywords": [
         "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
         "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
@@ -63,6 +76,7 @@
     },
     "energia_solar_alumbrado": {
       "name": "Energía Solar & Alumbrado Público",
+      "grupo": "obra_infraestructura",
       "keywords": [
         "energía solar", "energia solar", "panel solar", "paneles solares",
         "sistema fotovoltaico", "sistemas fotovoltaicos", "fotovoltaica", "fotovoltaico",
@@ -83,6 +97,7 @@
     },
     "obra_civil_general": {
       "name": "Construcción & Obra Civil General",
+      "grupo": "obra_infraestructura",
       "keywords": [
         "obra civil", "obras civiles", "adecuación de infraestructura",
         "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
