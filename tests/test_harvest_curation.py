@@ -220,6 +220,59 @@ class TestClassification(unittest.TestCase):
         self.assertIsNone(awarded["precio_ajustado"])
 
 
+class TestSectorContent(unittest.TestCase):
+    """Un caso real (tomado de docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md) y un falso positivo por sector."""
+
+    def setUp(self):
+        self.extractor = ScopeExtractor()
+
+    def sector_ids(self, text, tipo="Suministros", code="No definido"):
+        record = raw("CO1.REQ.1", nombre_del_procedimiento=text, descripci_n_del_procedimiento=text,
+                     tipo_de_contrato=tipo, codigo_principal_de_categoria=code)
+        return [s["id"] for s in self.extractor.enrich(record)["sectores"]]
+
+    def test_school_feeding_is_its_own_sector_not_horeca(self):
+        ids = self.sector_ids("SUMINISTRO DIARIO DE COMPLEMENTO ALIMENTARIO SEGÚN MODALIDADES DE ATENCIÓN: "
+                              "RACIÓN INDUSTRIALIZADA, RACIÓN PREPARADA EN SITIO", tipo="Otro")
+        self.assertEqual(ids, ["alimentacion_escolar"])
+        self.assertEqual(self.sector_ids("Operación del programa de alimentación escolar PAE", tipo="Otro"),
+                         ["alimentacion_escolar"])
+
+    def test_catering_code_alone_is_not_school_feeding(self):
+        ids = self.sector_ids("SERVICIO DE HOSPEDAJE Y ALIMENTACIÓN PARA LA FUERZA PÚBLICA", tipo="Otro", code="V1.90101500")
+        self.assertEqual(ids, [])
+
+    def test_road_works_are_civil_works_by_type_and_by_keywords(self):
+        text = "MEJORAMIENTO DE VÍA TERCIARIA EN PAVIMENTO RIGIDO EN BONDIGUA-PASO DEL MANGO, DISTRITO DE SANTA MARTA"
+        self.assertEqual(self.sector_ids(text, tipo="Obra"), ["obra_civil_general"])
+        self.assertEqual(self.sector_ids(text, tipo="Otro"), ["obra_civil_general"])
+        self.assertIn("obra_civil_general", self.sector_ids("Adecuación de la sede administrativa", tipo="Obra"))
+
+    def test_supplies_for_a_hospital_or_equipment_upkeep_are_not_civil_works(self):
+        self.assertNotIn("obra_civil_general", self.sector_ids("Suministro de insumos médicos para el hospital y el colegio"))
+        self.assertNotIn("obra_civil_general", self.sector_ids("Mantenimiento preventivo de equipos de cómputo del parque"))
+
+    def test_supervision_contracts_are_interventoria(self):
+        text = ("REALIZAR LA INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, CONTABLE, LEGAL, SOCIAL, AMBIENTAL, "
+                "Y EN SEGURIDAD Y SALUD EN EL TRABAJO")
+        self.assertIn("interventoria_consultoria", self.sector_ids(text, tipo="Interventoría"))
+        self.assertIn("interventoria_consultoria", self.sector_ids("Estudios de mercado", tipo="Consultoría"))
+        self.assertNotIn("interventoria_consultoria", self.sector_ids("Suministro de elementos de oficina"))
+
+    def test_computers_and_licences_are_technology(self):
+        text = "ADQUISICIÓN DE EQUIPOS DE CÓMPUTO (WORKSTATION, AIO y PORTATILES), PARA EL FORTALECIMIENTO DE LOS PROCESOS"
+        self.assertEqual(self.sector_ids(text), ["tecnologia"])
+        self.assertEqual(self.sector_ids("Renovación de licencias", code="V1.43232300"), ["tecnologia"])
+        self.assertNotIn("tecnologia", self.sector_ids(
+            "SUMINISTRO DE LA DOTACIÓN DE CALZADO Y VESTIDO DE LABOR PARA LOS SERVIDORES"))
+
+    def test_water_treatment_is_water_and_sanitation(self):
+        text = ("CONSTRUCCIÓN, RECUPERACIÓN Y PUESTA EN FUNCIONAMIENTO DE LAS PLANTAS DE TRATAMIENTO DE POTABLE (PTAP) "
+                "Y PLANTAS DE TRATAMIENTO DE AGUAS RESIDUALES")
+        self.assertIn("agua_saneamiento", self.sector_ids(text, tipo="Obra"))
+        self.assertNotIn("agua_saneamiento", self.sector_ids("Suministro de agua en bolsa para la brigada"))
+
+
 class TestNoiseFilterReasons(unittest.TestCase):
 
     def test_reasons_are_grouped(self):

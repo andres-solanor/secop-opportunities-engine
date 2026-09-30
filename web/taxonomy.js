@@ -1,6 +1,7 @@
 window.SECTOR_TAXONOMY = {
   "acero_metalmecanica": {
     "name": "Acero & Metalmecánica",
+    "grupo": "suministros_equipos",
     "keywords": [
       "acero estructural",
       "acero de refuerzo",
@@ -41,6 +42,7 @@ window.SECTOR_TAXONOMY = {
   },
   "horeca_industrial": {
     "name": "HORECA & Maquinaria Gastronómica",
+    "grupo": "suministros_equipos",
     "keywords": [
       "cocina industrial",
       "cocinas industriales",
@@ -61,8 +63,6 @@ window.SECTOR_TAXONOMY = {
       "menaje institucional",
       "dotación de restaurante",
       "dotacion de restaurante",
-      "alimentación escolar",
-      "pae",
       "planta de procesamiento",
       "congelador industrial",
       "equipamiento gastronómico",
@@ -71,8 +71,26 @@ window.SECTOR_TAXONOMY = {
       "autoservicio de alimentos"
     ]
   },
+  "alimentacion_escolar": {
+    "name": "Alimentación Escolar (PAE)",
+    "grupo": "servicios",
+    "keywords": [
+      "pae",
+      "alimentación escolar",
+      "alimentacion escolar",
+      "complemento alimentario",
+      "complementos alimentarios",
+      "restaurante escolar",
+      "restaurantes escolares",
+      "ración industrializada",
+      "racion industrializada",
+      "ración preparada en sitio",
+      "racion preparada en sitio"
+    ]
+  },
   "energia_solar_alumbrado": {
     "name": "Energía Solar & Alumbrado Público",
+    "grupo": "obra_infraestructura",
     "keywords": [
       "energía solar",
       "energia solar",
@@ -102,6 +120,7 @@ window.SECTOR_TAXONOMY = {
   },
   "obra_civil_general": {
     "name": "Construcción & Obra Civil General",
+    "grupo": "obra_infraestructura",
     "keywords": [
       "obra civil",
       "obras civiles",
@@ -112,12 +131,100 @@ window.SECTOR_TAXONOMY = {
       "edificación",
       "edificacion",
       "pavimentación",
+      "pavimentacion",
       "mantenimiento de vías",
-      "hospital",
-      "colegio",
-      "escuela",
+      "mantenimiento de vias",
       "escenarios deportivos",
-      "parque"
+      "malla vial",
+      "mejoramiento de vía",
+      "mejoramiento de via",
+      "mejoramiento de vías",
+      "mejoramiento de vias",
+      "mejoramiento de la vía",
+      "mejoramiento de la via",
+      "vía terciaria",
+      "via terciaria",
+      "vías terciarias",
+      "vias terciarias",
+      "placa huella",
+      "pavimento rígido",
+      "pavimento rigido",
+      "pavimento flexible",
+      "infraestructura educativa",
+      "obras complementarias",
+      "infraestructura física",
+      "infraestructura fisica"
+    ]
+  },
+  "agua_saneamiento": {
+    "name": "Agua Potable & Saneamiento",
+    "grupo": "obra_infraestructura",
+    "keywords": [
+      "agua potable",
+      "aguas residuales",
+      "ptap",
+      "ptar",
+      "acueducto",
+      "acueductos",
+      "alcantarillado",
+      "alcantarillados",
+      "planta de tratamiento",
+      "plantas de tratamiento",
+      "saneamiento básico",
+      "saneamiento basico",
+      "tratamiento de aguas"
+    ]
+  },
+  "tecnologia": {
+    "name": "Tecnología & Equipos de Cómputo",
+    "grupo": "suministros_equipos",
+    "keywords": [
+      "equipos de cómputo",
+      "equipos de computo",
+      "equipo de cómputo",
+      "equipo de computo",
+      "computadores",
+      "infraestructura tecnológica",
+      "infraestructura tecnologica",
+      "equipos tecnológicos",
+      "equipos tecnologicos",
+      "licenciamiento",
+      "licencias de software",
+      "software",
+      "seguridad perimetral",
+      "centro de datos",
+      "cableado estructurado",
+      "redes de datos"
+    ]
+  },
+  "interventoria_consultoria": {
+    "name": "Interventoría & Consultoría",
+    "grupo": "servicios",
+    "keywords": [
+      "interventoría técnica",
+      "interventoria tecnica",
+      "interventoría integral",
+      "interventoria integral",
+      "interventoría administrativa",
+      "interventoria administrativa",
+      "estudios y diseños",
+      "estudios y disenos",
+      "consultoría especializada",
+      "consultoria especializada"
     ]
   }
 };
+window.SECTOR_GROUPS = [
+  {
+    "id": "obra_infraestructura",
+    "name": "Obra e infraestructura"
+  },
+  {
+    "id": "suministros_equipos",
+    "name": "Suministros y equipos"
+  },
+  {
+    "id": "servicios",
+    "name": "Servicios"
+  }
+];

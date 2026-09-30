@@ -88,7 +88,9 @@ class TestSecopEngine(unittest.TestCase):
         }
         enriched = self.scope_extractor.enrich(record)
         sector_ids = [s["id"] for s in enriched["sectores"]]
+        # Equipos de cocina para comedores del PAE: es HORECA (lo que se compra) y PAE (el programa).
         self.assertIn("horeca_industrial", sector_ids)
+        self.assertIn("alimentacion_escolar", sector_ids)
         self.assertIn("cocina industrial", enriched["materiales_detectados"])
         self.assertIn("cuarto frío", enriched["materiales_detectados"])
         self.assertTrue(enriched["contratista"]["es_consorcio"])

@@ -61,17 +61,35 @@
         "refrigeracion comercial", "estufa industrial", "estufas industriales",
         "campana extractora", "campanas extractoras", "marmita", "marmitas",
         "lavavajillas industrial", "menaje institucional", "dotación de restaurante",
-        "dotacion de restaurante", "alimentación escolar", "pae", "planta de procesamiento",
+        "dotacion de restaurante", "planta de procesamiento",
         "congelador industrial", "equipamiento gastronómico", "equipamiento gastronomico",
         "acero inoxidable 304", "autoservicio de alimentos"
       ],
       "excluir_si": {},
-      "unspsc_prefixes": ["4810", "5214", "9010", "4110"],
+      "unspsc_prefixes": ["4810", "5214", "4110"],
       "weight": 1.3,
       "harvest": {
         "precio_min": 50000000,
-        "titulo": ["COCINA", "REFRIGERACI", "HORNO", "GASTRON", "ALIMENTACI%ESCOLAR"],
+        "titulo": ["COCINA", "REFRIGERACI", "HORNO", "GASTRON"],
         "descripcion": ["CUARTO FR", "COCINA INDUSTRIAL"]
+      }
+    },
+    "alimentacion_escolar": {
+      "name": "Alimentación Escolar (PAE)",
+      "grupo": "servicios",
+      "keywords": [
+        "pae", "alimentación escolar", "alimentacion escolar", "complemento alimentario",
+        "complementos alimentarios", "restaurante escolar", "restaurantes escolares",
+        "ración industrializada", "racion industrializada", "ración preparada en sitio",
+        "racion preparada en sitio"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["9010"],
+      "weight": 1.0,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["ALIMENTACI%ESCOLAR"],
+        "descripcion": ["ALIMENTACI%ESCOLAR", "COMPLEMENTO ALIMENTARIO"]
       }
     },
     "energia_solar_alumbrado": {
@@ -101,12 +119,72 @@
       "keywords": [
         "obra civil", "obras civiles", "adecuación de infraestructura",
         "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
-        "edificación", "edificacion", "pavimentación", "mantenimiento de vías",
-        "hospital", "colegio", "escuela", "escenarios deportivos", "parque"
+        "edificación", "edificacion", "pavimentación", "pavimentacion",
+        "mantenimiento de vías", "mantenimiento de vias", "escenarios deportivos",
+        "malla vial", "mejoramiento de vía", "mejoramiento de via", "mejoramiento de vías",
+        "mejoramiento de vias", "mejoramiento de la vía", "mejoramiento de la via",
+        "vía terciaria", "via terciaria", "vías terciarias", "vias terciarias",
+        "placa huella", "pavimento rígido", "pavimento rigido", "pavimento flexible",
+        "infraestructura educativa", "obras complementarias", "infraestructura física",
+        "infraestructura fisica"
       ],
       "excluir_si": {},
       "unspsc_prefixes": ["7212", "7214", "7215"],
       "unspsc_clasifica": true,
+      "tipos_contrato": ["Obra"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "agua_saneamiento": {
+      "name": "Agua Potable & Saneamiento",
+      "grupo": "obra_infraestructura",
+      "keywords": [
+        "agua potable", "aguas residuales", "ptap", "ptar", "acueducto", "acueductos",
+        "alcantarillado", "alcantarillados", "planta de tratamiento", "plantas de tratamiento",
+        "saneamiento básico", "saneamiento basico", "tratamiento de aguas"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["4710"],
+      "unspsc_clasifica": true,
+      "weight": 1.1,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["ACUEDUCTO", "ALCANTARILLADO", "AGUA POTABLE", "PTAP", "PTAR"],
+        "descripcion": ["PLANTA DE TRATAMIENTO", "AGUAS RESIDUALES"]
+      }
+    },
+    "tecnologia": {
+      "name": "Tecnología & Equipos de Cómputo",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "equipos de cómputo", "equipos de computo", "equipo de cómputo", "equipo de computo",
+        "computadores", "infraestructura tecnológica", "infraestructura tecnologica",
+        "equipos tecnológicos", "equipos tecnologicos", "licenciamiento", "licencias de software",
+        "software", "seguridad perimetral", "centro de datos", "cableado estructurado",
+        "redes de datos"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["4321", "4322", "4323", "8111"],
+      "unspsc_clasifica": true,
+      "weight": 1.1,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["C%MPUTO", "LICENCIAMIENTO", "INFRAESTRUCTURA TECNOL%GICA", "SOFTWARE"],
+        "descripcion": ["EQUIPOS DE C%MPUTO", "LICENCIAMIENTO"]
+      }
+    },
+    "interventoria_consultoria": {
+      "name": "Interventoría & Consultoría",
+      "grupo": "servicios",
+      "keywords": [
+        "interventoría técnica", "interventoria tecnica", "interventoría integral",
+        "interventoria integral", "interventoría administrativa", "interventoria administrativa",
+        "estudios y diseños", "estudios y disenos", "consultoría especializada",
+        "consultoria especializada"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["8110"],
+      "tipos_contrato": ["Interventoría", "Consultoría"],
       "weight": 1.0,
       "harvest": null
     }

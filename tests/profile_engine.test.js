@@ -46,6 +46,13 @@ test('no detecta sectores con texto irrelevante', () => {
   assert.deepStrictEqual(E.detectSectors({ offerText: 'asesoría contable' }, TAXONOMY), []);
 });
 
+test('el operador del PAE es su propio sector, no HORECA', () => {
+  const ids = E.detectSectors({ offerText: 'Operamos el programa de alimentación escolar con ración preparada en sitio' }, TAXONOMY).map(d => d.id);
+  assert.deepStrictEqual(ids, ['alimentacion_escolar']);
+  const kitchen = E.detectSectors({ offerText: 'Fabricamos cocinas industriales y marmitas' }, TAXONOMY).map(d => d.id);
+  assert.deepStrictEqual(kitchen, ['horeca_industrial']);
+});
+
 test('afinidad alta cuando coinciden sector, material, zona, ticket y etapa', () => {
   const detected = E.detectSectors(steelProfile, TAXONOMY);
   const m = E.matchOpportunity(steelProfile, opp(), detected);
