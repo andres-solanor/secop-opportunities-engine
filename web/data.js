@@ -107,9 +107,9 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 2085,
-      "valor_12m": 986939408491.17,
-      "pagado_sobre_facturado_pct": 4.5,
+      "contratos_12m": 2084,
+      "valor_12m": 964121834385.27,
+      "pagado_sobre_facturado_pct": 4.9,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO ESTRATEGIA VIAL",
@@ -273,8 +273,8 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 763,
-      "valor_12m": 85951576766.42,
+      "contratos_12m": 762,
+      "valor_12m": 85939576766.42,
       "pagado_sobre_facturado_pct": 95.5,
       "proveedores_top": [
         {
@@ -666,9 +666,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 2085,
-      "valor_12m": 986939408491.17,
-      "pagado_sobre_facturado_pct": 4.5,
+      "contratos_12m": 2084,
+      "valor_12m": 964121834385.27,
+      "pagado_sobre_facturado_pct": 4.9,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO ESTRATEGIA VIAL",
@@ -757,8 +757,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1946,
-      "valor_12m": 1166685186733.59,
+      "contratos_12m": 1943,
+      "valor_12m": 1166229114197.18,
       "pagado_sobre_facturado_pct": 72.5,
       "proveedores_top": [
         {
@@ -832,8 +832,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -919,8 +919,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 4066,
-      "valor_12m": 899713843311.12,
+      "contratos_12m": 4043,
+      "valor_12m": 899419953311.12,
       "pagado_sobre_facturado_pct": 84.6,
       "proveedores_top": [
         {
@@ -994,8 +994,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "INGENIEROS & ARQUITECTOS CONSTRUCTORES S.A.S",
@@ -1156,8 +1156,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "sistemas fotovoltaicos",
-      "alumbrado publico"
+      "alumbrado publico",
+      "sistemas fotovoltaicos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1226,8 +1226,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1296,8 +1296,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -1731,7 +1731,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 8
+      "visualizaciones": 7
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
@@ -1750,8 +1750,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1825,8 +1825,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "energía solar"
+      "energía solar",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -1869,6 +1869,97 @@ window.PROSPECTS_DATA = [
     "nueva": false
   },
   {
+    "id": "CO1.REQ.11112099",
+    "id_portafolio": "CO1.BDOS.10926210",
+    "referencia": "SI008-2026",
+    "entidad": "ALCALDÍA MUNICIPAL DE COCORNÁ",
+    "nit_entidad": "890984634",
+    "departamento": "Antioquia",
+    "ciudad": "No Definido",
+    "precio": 467502560.0,
+    "precio_formateado": "$467,502,560 COP",
+    "modalidad": "Selección abreviada subasta inversa",
+    "tipo_contrato": "Suministros",
+    "descripcion": "SUMINISTRO DE LOS ALIMENTOS, INSUMOS Y DEMAS ELEMENTOS NECESARIOS PARA GARANTIZAR LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE, EN EL MUNICIPIO DE COCORNÁ - ANTIOQUIA, DURANTE EL PERÍODO COMPRENDIDO ENTRE EL 01 Y EL 27 DE NOVIEMBRE DE 2026, DE CONFORMIDAD CON LOS LINEAMIENTOS TÉCNICOS, ADMINISTRATIVOS Y FINANCIEROS VIGENTES",
+    "fecha_publicacion": "2026-09-28T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-28T00:00:00",
+      "ultima_actualizacion": "2026-09-28T00:00:00",
+      "cierre_ofertas": "2026-10-21T00:00:00",
+      "apertura_ofertas": "2026-10-26T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 27,
+      "unidad": "día(s)",
+      "texto": "27 días"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 83,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10967499",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 386,
+      "valor_12m": 24379826776.96,
+      "pagado_sobre_facturado_pct": 93.6,
+      "proveedores_top": [
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 2,
+          "valor": 3000263067.0
+        },
+        {
+          "nombre": "EMPRESA DE SERVICIOS PUBLICOS DE COCORNA",
+          "contratos": 2,
+          "valor": 286691231.0
+        },
+        {
+          "nombre": "M3 INGENIERIA Y CONSTRUCCION S.A.S",
+          "contratos": 3,
+          "valor": 262674930.0
+        }
+      ]
+    },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
+    "primera_vez": "2026-09-30T16:41:22Z",
+    "nueva": true
+  },
+  {
     "id": "CO1.REQ.11097146",
     "id_portafolio": "CO1.BDOS.10840344",
     "referencia": "SASI-009-2026 (Presentación de oferta)",
@@ -1886,7 +1977,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-24T00:00:00",
       "ultima_actualizacion": "2026-09-24T00:00:00",
       "cierre_ofertas": "2026-10-01T00:00:00",
-      "apertura_ofertas": "2026-10-14T00:00:00",
+      "apertura_ofertas": "2026-10-01T00:00:00",
       "adjudicacion": null
     },
     "plazo": null,
@@ -1928,9 +2019,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 417,
-      "valor_12m": 35317612746.8,
-      "pagado_sobre_facturado_pct": 52.5,
+      "contratos_12m": 415,
+      "valor_12m": 34905937919.8,
+      "pagado_sobre_facturado_pct": 53.7,
       "proveedores_top": [
         {
           "nombre": "Comercializadora Palacio G SAS",
@@ -2003,8 +2094,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energía solar"
+      "energía solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "ASOCIACION GREMIAL ODS POR COLOMBIA",
@@ -2073,8 +2164,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "sistemas fotovoltaicos",
-      "redes eléctricas"
+      "redes eléctricas",
+      "sistemas fotovoltaicos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -2089,8 +2180,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 712,
-      "valor_12m": 225690458347.63,
+      "contratos_12m": 711,
+      "valor_12m": 225685548347.63,
       "pagado_sobre_facturado_pct": 100.0,
       "proveedores_top": [
         {
@@ -2672,9 +2763,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 2085,
-      "valor_12m": 986939408491.17,
-      "pagado_sobre_facturado_pct": 4.5,
+      "contratos_12m": 2084,
+      "valor_12m": 964121834385.27,
+      "pagado_sobre_facturado_pct": 4.9,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO ESTRATEGIA VIAL",
@@ -2787,7 +2878,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-11T00:00:00",
       "ultima_actualizacion": "2026-09-11T00:00:00",
       "cierre_ofertas": "2026-09-17T00:00:00",
-      "apertura_ofertas": "2026-09-23T00:00:00",
+      "apertura_ofertas": "2026-09-17T00:00:00",
       "adjudicacion": "2026-09-23T00:00:00"
     },
     "plazo": {
@@ -3010,8 +3101,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "energía solar"
+      "energía solar",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "EDUR",
@@ -3776,6 +3867,97 @@ window.PROSPECTS_DATA = [
     "nueva": false
   },
   {
+    "id": "CO1.REQ.11111926",
+    "id_portafolio": "CO1.BDOS.10904533",
+    "referencia": "SA-003-2026",
+    "entidad": "MUNICIPIO DE SAN LUIS",
+    "nit_entidad": "890984376",
+    "departamento": "Antioquia",
+    "ciudad": "San Luis",
+    "precio": 208306989.0,
+    "precio_formateado": "$208,306,989 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Suministros",
+    "descripcion": "EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR - PAE, PARA LOS NIÑOS, NIÑAS Y ADOLESCENTES DE LA MATRÍCULA OFICIAL DEL MUNICIPIO DE SAN LUIS ANTIOQUIA, PARA LA VIGENCIA 2026  EN CUMPLIMIENTO DEL CONVENIO N° 26AS151F2599 CELEBRADO CON LA GOBERNACIÓN DE ANTIOQUIA",
+    "fecha_publicacion": "2026-09-28T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-28T00:00:00",
+      "ultima_actualizacion": "2026-09-28T00:00:00",
+      "cierre_ofertas": "2026-10-19T00:00:00",
+      "apertura_ofertas": "2026-10-19T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 30,
+      "unidad": "día(s)",
+      "texto": "30 días"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 0
+    },
+    "estado_secop": "Publicado",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "horeca_industrial",
+        "name": "HORECA & Maquinaria Gastronómica",
+        "matched_keywords": [
+          "alimentación escolar",
+          "pae"
+        ],
+        "relevance_score": 39.0
+      }
+    ],
+    "materiales_detectados": [
+      "pae",
+      "alimentación escolar"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 75,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10966962",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 327,
+      "valor_12m": 15416530348.64,
+      "pagado_sobre_facturado_pct": 77.9,
+      "proveedores_top": [
+        {
+          "nombre": "UNIPCOL",
+          "contratos": 1,
+          "valor": 2281211132.0
+        },
+        {
+          "nombre": "JQ DISTRIBUCIONES S.A.S",
+          "contratos": 6,
+          "valor": 195380000.0
+        },
+        {
+          "nombre": "SOCIEDAD COMERCIALIZADORA DE COMBUSTIBLE S.A.S",
+          "contratos": 4,
+          "valor": 113620240.0
+        }
+      ]
+    },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
+    "primera_vez": "2026-09-30T16:41:22Z",
+    "nueva": true
+  },
+  {
     "id": "CO1.REQ.11094380",
     "id_portafolio": "CO1.BDOS.10876119",
     "referencia": "SASIE-003-2026 (Presentación de oferta)",
@@ -3884,7 +4066,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-21T00:00:00",
       "ultima_actualizacion": "2026-09-21T00:00:00",
       "cierre_ofertas": "2026-10-02T00:00:00",
-      "apertura_ofertas": "2026-10-02T00:00:00",
+      "apertura_ofertas": "2026-10-13T00:00:00",
       "adjudicacion": null
     },
     "plazo": {
@@ -4110,9 +4292,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 3800,
-      "valor_12m": 653486071487.26,
-      "pagado_sobre_facturado_pct": 54.7,
+      "contratos_12m": 3784,
+      "valor_12m": 652657642916.26,
+      "pagado_sobre_facturado_pct": 54.4,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO SAN VICENTE 16",
@@ -5188,9 +5370,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 310,
-      "valor_12m": 23744244157.85,
-      "pagado_sobre_facturado_pct": 69.8,
+      "contratos_12m": 309,
+      "valor_12m": 23598780937.85,
+      "pagado_sobre_facturado_pct": 69.0,
       "proveedores_top": [
         {
           "nombre": "EMPRESA DE DESARROLLO SOSTENIBLE DEL MUNICIPIO DE LA UNION",
@@ -5260,8 +5442,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "sistema fotovoltaico",
       "energia renovable",
+      "sistema fotovoltaico",
       "fotovoltaico"
     ],
     "contratista": {
@@ -5277,9 +5459,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 309,
-      "valor_12m": 62075010373.47,
-      "pagado_sobre_facturado_pct": 51.5,
+      "contratos_12m": 308,
+      "valor_12m": 61977009373.47,
+      "pagado_sobre_facturado_pct": 51.2,
       "proveedores_top": [
         {
           "nombre": "INDUSTRIA MILITAR",
@@ -5621,7 +5803,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-11T00:00:00",
       "ultima_actualizacion": "2026-09-11T00:00:00",
       "cierre_ofertas": "2026-10-01T00:00:00",
-      "apertura_ofertas": "2026-10-01T00:00:00",
+      "apertura_ofertas": "2026-10-14T00:00:00",
       "adjudicacion": null
     },
     "plazo": null,
@@ -5663,9 +5845,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 417,
-      "valor_12m": 35317612746.8,
-      "pagado_sobre_facturado_pct": 52.5,
+      "contratos_12m": 415,
+      "valor_12m": 34905937919.8,
+      "pagado_sobre_facturado_pct": 53.7,
       "proveedores_top": [
         {
           "nombre": "Comercializadora Palacio G SAS",
@@ -6078,9 +6260,9 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 526,
-      "valor_12m": 48480110246.36,
-      "pagado_sobre_facturado_pct": 73.4,
+      "contratos_12m": 525,
+      "valor_12m": 48444814843.36,
+      "pagado_sobre_facturado_pct": 73.3,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO INARQ",
@@ -6123,7 +6305,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-08-28T00:00:00",
       "ultima_actualizacion": "2026-08-28T00:00:00",
       "cierre_ofertas": "2026-09-08T00:00:00",
-      "apertura_ofertas": "2026-09-18T00:00:00",
+      "apertura_ofertas": "2026-09-08T00:00:00",
       "adjudicacion": "2026-09-18T00:00:00"
     },
     "plazo": {
@@ -6320,8 +6502,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "hospital",
-      "vigas"
+      "vigas",
+      "hospital"
     ],
     "contratista": {
       "nombre": "FUNPRIMAVERA",
@@ -6394,8 +6576,8 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 913,
-      "valor_12m": 123971576801.93,
+      "contratos_12m": 911,
+      "valor_12m": 123890576801.93,
       "pagado_sobre_facturado_pct": 86.7,
       "proveedores_top": [
         {
@@ -6556,9 +6738,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1706,
-      "valor_12m": 180256663284.75,
-      "pagado_sobre_facturado_pct": 66.2,
+      "contratos_12m": 1705,
+      "valor_12m": 180220663284.75,
+      "pagado_sobre_facturado_pct": 66.3,
       "proveedores_top": [
         {
           "nombre": "ST. JUDE MEDICAL COLOMBIA LTDA.",
@@ -6645,9 +6827,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1706,
-      "valor_12m": 180256663284.75,
-      "pagado_sobre_facturado_pct": 66.2,
+      "contratos_12m": 1705,
+      "valor_12m": 180220663284.75,
+      "pagado_sobre_facturado_pct": 66.3,
       "proveedores_top": [
         {
           "nombre": "ST. JUDE MEDICAL COLOMBIA LTDA.",
@@ -6734,8 +6916,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 354,
-      "valor_12m": 24995068901.53,
+      "contratos_12m": 353,
+      "valor_12m": 24991468901.53,
       "pagado_sobre_facturado_pct": 84.6,
       "proveedores_top": [
         {
@@ -6823,9 +7005,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1706,
-      "valor_12m": 180256663284.75,
-      "pagado_sobre_facturado_pct": 66.2,
+      "contratos_12m": 1705,
+      "valor_12m": 180220663284.75,
+      "pagado_sobre_facturado_pct": 66.3,
       "proveedores_top": [
         {
           "nombre": "ST. JUDE MEDICAL COLOMBIA LTDA.",
@@ -6879,7 +7061,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 16
+      "visualizaciones": 18
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
@@ -7118,8 +7300,8 @@ window.PROSPECTS_DATA = [
     },
     "competencia": {
       "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 83
+      "ofertas": 1,
+      "visualizaciones": 87
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
@@ -7152,8 +7334,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1419,
-      "valor_12m": 584164745503.46,
+      "contratos_12m": 1416,
+      "valor_12m": 584127844807.46,
       "pagado_sobre_facturado_pct": 52.1,
       "proveedores_top": [
         {
@@ -7208,7 +7390,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 1
+      "visualizaciones": 4
     },
     "estado_secop": "Publicado",
     "fase": "Clarification submission",
@@ -7485,7 +7667,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 29
+      "visualizaciones": 31
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
@@ -7607,9 +7789,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 481,
-      "valor_12m": 52579957339.0,
-      "pagado_sobre_facturado_pct": 9.1,
+      "contratos_12m": 476,
+      "valor_12m": 52115440943.0,
+      "pagado_sobre_facturado_pct": 9.2,
       "proveedores_top": [
         {
           "nombre": "ASOURANOR",
@@ -7618,8 +7800,8 @@ window.PROSPECTS_DATA = [
         },
         {
           "nombre": "MATERIALES Y SUMINISTROS DEL OCCIDENTE",
-          "contratos": 46,
-          "valor": 1313577083.0
+          "contratos": 45,
+          "valor": 1308077083.0
         },
         {
           "nombre": "LOGISTICAS Y SUMINISTROS DEL OCCIDENTE",
@@ -7663,7 +7845,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 13
+      "visualizaciones": 14
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
@@ -7787,90 +7969,6 @@ window.PROSPECTS_DATA = [
     "entidad_stats": null,
     "ofertas": null,
     "sanciones": null,
-    "integrantes": null,
-    "primera_vez": null,
-    "nueva": false
-  },
-  {
-    "id": "CO1.REQ.11093635",
-    "id_portafolio": "CO1.BDOS.10860141",
-    "referencia": "ARI.CM-022-2026 (Presentación de oferta)",
-    "entidad": "ARAUCA ILUMINADA SAS ESP",
-    "nit_entidad": "901552362",
-    "departamento": "Arauca",
-    "ciudad": "Arauca",
-    "precio": 305855200.0,
-    "precio_formateado": "$305,855,200 COP",
-    "modalidad": "Concurso de méritos abierto",
-    "tipo_contrato": "Interventoría",
-    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA, SOCIAL Y AMBIENTAL AL PROYECTO IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
-    "fecha_publicacion": "2026-09-23T00:00:00",
-    "fechas": {
-      "publicacion": "2026-09-23T00:00:00",
-      "ultima_actualizacion": "2026-09-23T00:00:00",
-      "cierre_ofertas": "2026-09-28T00:00:00",
-      "apertura_ofertas": "2026-09-28T00:00:00",
-      "adjudicacion": null
-    },
-    "plazo": {
-      "valor": 8,
-      "unidad": "mes(es)",
-      "texto": "8 meses"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 1,
-      "visualizaciones": 6
-    },
-    "estado_secop": "Publicado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Licitación Abierta (En Ofertas)",
-    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
-    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "fotovoltaica"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "fotovoltaica"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 66,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948680",
-    "contrato": null,
-    "historial_contratista": null,
-    "entidad_stats": {
-      "contratos_12m": 3,
-      "valor_12m": 3346033791.54,
-      "pagado_sobre_facturado_pct": null,
-      "proveedores_top": [
-        {
-          "nombre": "Altair Tecnik S.A.S.",
-          "contratos": 1,
-          "valor": 3152430591.54
-        },
-        {
-          "nombre": "SOELCOING S.A.S.",
-          "contratos": 1,
-          "valor": 155803200.0
-        }
-      ]
-    },
-    "sanciones": null,
-    "ofertas": null,
     "integrantes": null,
     "primera_vez": null,
     "nueva": false
@@ -8154,8 +8252,8 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 538,
-      "valor_12m": 43738650046.14,
+      "contratos_12m": 536,
+      "valor_12m": 43725168046.14,
       "pagado_sobre_facturado_pct": 0.2,
       "proveedores_top": [
         {
@@ -8199,7 +8297,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-17T00:00:00",
       "ultima_actualizacion": "2026-09-17T00:00:00",
       "cierre_ofertas": "2026-09-30T00:00:00",
-      "apertura_ofertas": "2026-10-05T00:00:00",
+      "apertura_ofertas": "2026-09-30T00:00:00",
       "adjudicacion": null
     },
     "plazo": {
@@ -8481,8 +8579,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "fotovoltaica",
-      "energia solar"
+      "energia solar",
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -8654,9 +8752,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 780,
-      "valor_12m": 96013256836.89,
-      "pagado_sobre_facturado_pct": 83.1,
+      "contratos_12m": 774,
+      "valor_12m": 94992093111.78,
+      "pagado_sobre_facturado_pct": 82.7,
       "proveedores_top": [
         {
           "nombre": "SERVICIOS Y SUMINISTROS DEL ORIENTE OM SAS.",
@@ -8743,8 +8841,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 2742,
-      "valor_12m": 619171762101.37,
+      "contratos_12m": 2740,
+      "valor_12m": 619150495434.62,
       "pagado_sobre_facturado_pct": 100.0,
       "proveedores_top": [
         {
@@ -8832,9 +8930,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 3800,
-      "valor_12m": 653486071487.26,
-      "pagado_sobre_facturado_pct": 54.7,
+      "contratos_12m": 3784,
+      "valor_12m": 652657642916.26,
+      "pagado_sobre_facturado_pct": 54.4,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO SAN VICENTE 16",
@@ -9292,8 +9390,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 8142,
-      "valor_12m": 566855157343.12,
+      "contratos_12m": 8055,
+      "valor_12m": 565823423043.12,
       "pagado_sobre_facturado_pct": 97.9,
       "proveedores_top": [
         {
@@ -9405,7 +9503,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-16T00:00:00",
       "ultima_actualizacion": "2026-09-16T00:00:00",
       "cierre_ofertas": "2026-09-23T00:00:00",
-      "apertura_ofertas": "2026-10-06T00:00:00",
+      "apertura_ofertas": "2026-09-23T00:00:00",
       "adjudicacion": null
     },
     "plazo": {
@@ -9637,9 +9735,9 @@ window.PROSPECTS_DATA = [
     },
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 84,
-      "valor_12m": 83362335787.3,
-      "pagado_sobre_facturado_pct": 64.3,
+      "contratos_12m": 82,
+      "valor_12m": 74230236961.0,
+      "pagado_sobre_facturado_pct": 61.1,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO REFORESTACION 2025",
@@ -9647,14 +9745,14 @@ window.PROSPECTS_DATA = [
           "valor": 32860965480.0
         },
         {
-          "nombre": "CONSORCIO MEGACANAL",
-          "contratos": 1,
-          "valor": 9105368276.0
-        },
-        {
           "nombre": "OBRAS DEL NORTE S.A.S",
           "contratos": 1,
           "valor": 8159266669.0
+        },
+        {
+          "nombre": "CONSORCIO PERFOAGUAS",
+          "contratos": 1,
+          "valor": 7114666251.0
         }
       ]
     },
@@ -10536,8 +10634,8 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 477,
-      "valor_12m": 70719409593.95,
+      "contratos_12m": 476,
+      "valor_12m": 70710409593.95,
       "pagado_sobre_facturado_pct": 79.7,
       "proveedores_top": [
         {
@@ -10693,8 +10791,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 5712,
-      "valor_12m": 576017183103.53,
+      "contratos_12m": 5707,
+      "valor_12m": 575945066436.86,
       "pagado_sobre_facturado_pct": 37.1,
       "proveedores_top": [
         {
@@ -11130,9 +11228,9 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 309,
-      "valor_12m": 62075010373.47,
-      "pagado_sobre_facturado_pct": 51.5,
+      "contratos_12m": 308,
+      "valor_12m": 61977009373.47,
+      "pagado_sobre_facturado_pct": 51.2,
       "proveedores_top": [
         {
           "nombre": "INDUSTRIA MILITAR",
@@ -11492,8 +11590,8 @@ window.PROSPECTS_DATA = [
       ]
     },
     "entidad_stats": {
-      "contratos_12m": 158,
-      "valor_12m": 26095249141.0,
+      "contratos_12m": 157,
+      "valor_12m": 25958400141.0,
       "pagado_sobre_facturado_pct": 91.5,
       "proveedores_top": [
         {
@@ -11613,8 +11711,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 5338,
-      "valor_12m": 1652805755153.52,
+      "contratos_12m": 5333,
+      "valor_12m": 1652680755153.52,
       "pagado_sobre_facturado_pct": 99.4,
       "proveedores_top": [
         {
@@ -11702,8 +11800,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 5338,
-      "valor_12m": 1652805755153.52,
+      "contratos_12m": 5333,
+      "valor_12m": 1652680755153.52,
       "pagado_sobre_facturado_pct": 99.4,
       "proveedores_top": [
         {
@@ -11791,8 +11889,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 5338,
-      "valor_12m": 1652805755153.52,
+      "contratos_12m": 5333,
+      "valor_12m": 1652680755153.52,
       "pagado_sobre_facturado_pct": 99.4,
       "proveedores_top": [
         {
@@ -11862,8 +11960,8 @@ window.PROSPECTS_DATA = [
       }
     ],
     "materiales_detectados": [
-      "colegio",
-      "escuela"
+      "escuela",
+      "colegio"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -11923,7 +12021,7 @@ window.PROSPECTS_DATA = [
       "publicacion": "2026-09-23T00:00:00",
       "ultima_actualizacion": "2026-09-23T00:00:00",
       "cierre_ofertas": "2026-10-16T00:00:00",
-      "apertura_ofertas": "2026-10-16T00:00:00",
+      "apertura_ofertas": "2026-10-26T00:00:00",
       "adjudicacion": null
     },
     "plazo": {
@@ -11934,7 +12032,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 7
+      "visualizaciones": 9
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
@@ -11967,14 +12065,14 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 494,
-      "valor_12m": 116380924107.49,
+      "contratos_12m": 493,
+      "valor_12m": 116188074107.49,
       "pagado_sobre_facturado_pct": 49.4,
       "proveedores_top": [
         {
           "nombre": "SANITAS S.A.S.",
-          "contratos": 4,
-          "valor": 7377360590.0
+          "contratos": 3,
+          "valor": 7184510590.0
         },
         {
           "nombre": "KHYMOS S.A.S",
@@ -12023,7 +12121,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 19
+      "visualizaciones": 21
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
@@ -12056,9 +12154,9 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 427,
-      "valor_12m": 14314190886.69,
-      "pagado_sobre_facturado_pct": 98.8,
+      "contratos_12m": 426,
+      "valor_12m": 14201090886.69,
+      "pagado_sobre_facturado_pct": 98.7,
       "proveedores_top": [
         {
           "nombre": "CONSORCIO ESTUDIOS Y DISEÑOS SANEAMIENTO SEVILLA 2025",
@@ -12077,11 +12175,11 @@ window.PROSPECTS_DATA = [
         }
       ]
     },
-    "sanciones": null,
     "ofertas": null,
+    "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-29T16:50:15Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11009961",
@@ -12344,6 +12442,95 @@ window.PROSPECTS_DATA = [
     "nueva": false
   },
   {
+    "id": "CO1.REQ.11112383",
+    "id_portafolio": "CO1.BDOS.10865155",
+    "referencia": "PC-MS-SA-008-2026 (Manifestación de interés (Menor Cuantía)) (Presentación de oferta)",
+    "entidad": "MUNICIPIO DE SOCOTA",
+    "nit_entidad": "800026911",
+    "departamento": "Boyacá",
+    "ciudad": "Socotá",
+    "precio": 149956950.0,
+    "precio_formateado": "$149,956,950 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "MANTENIMIENTO, ADECUACIÓN Y ADQUISICIÓN DE LAMPARAS Y DEMAS ELEMENTOS ELÉCTRICOS PARA EL ADECUADO FUNCIONAMIENTO DE LA RED DE ALUMBRADO PÚBLICO RURAL Y URBANO DEL MUNICIPIO DE SOCOTA DEPARTAMENTO DE BOYACÁ",
+    "fecha_publicacion": "2026-09-28T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-28T00:00:00",
+      "ultima_actualizacion": "2026-09-28T00:00:00",
+      "cierre_ofertas": "2026-09-29T00:00:00",
+      "apertura_ofertas": "2026-09-29T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 meses"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 9
+    },
+    "estado_secop": "Publicado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Licitación Abierta (En Ofertas)",
+    "tipo_oportunidad": "Oportunidad de Alianza / Cotización",
+    "accion_sugerida": "Compartir la oportunidad con clientes aliados para que presenten oferta incluyendo nuestros suministros.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "alumbrado público"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "alumbrado público"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 58,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10967389",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 235,
+      "valor_12m": 13548341349.15,
+      "pagado_sobre_facturado_pct": 92.8,
+      "proveedores_top": [
+        {
+          "nombre": "persona natural",
+          "contratos": 2,
+          "valor": 797059865.35
+        },
+        {
+          "nombre": "ARQUING M&A SAS",
+          "contratos": 6,
+          "valor": 655568680.01
+        },
+        {
+          "nombre": "FERRETERIA ESPAÑOLA ING SAS",
+          "contratos": 2,
+          "valor": 495000000.0
+        }
+      ]
+    },
+    "ofertas": null,
+    "sanciones": null,
+    "integrantes": null,
+    "primera_vez": "2026-09-30T16:41:22Z",
+    "nueva": true
+  },
+  {
     "id": "CO1.REQ.10926537",
     "id_portafolio": "CO1.BDOS.10742904",
     "referencia": "ODC-DAD-0052-2026",
@@ -12440,7 +12627,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 17
+      "visualizaciones": 18
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
@@ -12524,8 +12711,8 @@ window.PROSPECTS_DATA = [
     "plazo": null,
     "competencia": {
       "interesados": 0,
-      "ofertas": 1,
-      "visualizaciones": 68
+      "ofertas": 9,
+      "visualizaciones": 72
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de oferta",
@@ -12983,7 +13170,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 66,
-      "visualizaciones": 179
+      "visualizaciones": 180
     },
     "estado_secop": "Evaluación",
     "fase": "Fase de Selección (Presentación de ofertas)",
@@ -13072,7 +13259,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 179
+      "visualizaciones": 180
     },
     "estado_secop": "Evaluación",
     "fase": "Presentación de observaciones",
@@ -13194,8 +13381,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 5712,
-      "valor_12m": 576017183103.53,
+      "contratos_12m": 5707,
+      "valor_12m": 575945066436.86,
       "pagado_sobre_facturado_pct": 37.1,
       "proveedores_top": [
         {
@@ -13250,7 +13437,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 83
+      "visualizaciones": 87
     },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
@@ -13283,8 +13470,97 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 1419,
-      "valor_12m": 584164745503.46,
+      "contratos_12m": 1416,
+      "valor_12m": 584127844807.46,
+      "pagado_sobre_facturado_pct": 52.1,
+      "proveedores_top": [
+        {
+          "nombre": "CONSORCIO SOLUCION VIAL MANIZALES",
+          "contratos": 1,
+          "valor": 35346010947.0
+        },
+        {
+          "nombre": "CONSORCIO ALCAZARES JS",
+          "contratos": 1,
+          "valor": 31214973120.0
+        },
+        {
+          "nombre": "CONSORCIO COMUNA OSMA",
+          "contratos": 1,
+          "valor": 15946420291.0
+        }
+      ]
+    },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
+    "primera_vez": null,
+    "nueva": false
+  },
+  {
+    "id": "CO1.REQ.10848484",
+    "id_portafolio": "CO1.BDOS.10665723",
+    "referencia": "MC-071-2026",
+    "entidad": "MUNICIPIO DE MANIZALES",
+    "nit_entidad": "890801053",
+    "departamento": "Caldas",
+    "ciudad": "Manizales",
+    "precio": 817710284.0,
+    "precio_formateado": "$817,710,284 COP",
+    "modalidad": "Selección Abreviada de Menor Cuantía",
+    "tipo_contrato": "Obra",
+    "descripcion": "SUMINISTRO, TRANSPORTE E INSTALACION Y MANTENIMIENTO CORRECTIVO Y PREVENTIVO DE LOS MODULOS DE ACERO INOXIDABLE, DESTINADOS PARA VENTAS INFORMALES UBICADOS SOBE EL ESPACIO PUBLICO DE LA CIUDAD DE MANIZALES",
+    "fecha_publicacion": "2026-08-13T00:00:00",
+    "fechas": {
+      "publicacion": "2026-08-13T00:00:00",
+      "ultima_actualizacion": "2026-08-13T00:00:00",
+      "cierre_ofertas": "2026-09-03T00:00:00",
+      "apertura_ofertas": "2026-09-03T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 2,
+      "unidad": "mes(es)",
+      "texto": "2 meses"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 0,
+      "visualizaciones": 87
+    },
+    "estado_secop": "Evaluación",
+    "fase": "Presentación de observaciones",
+    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "acero_metalmecanica",
+        "name": "Acero & Metalmecánica",
+        "matched_keywords": [
+          "acero inoxidable"
+        ],
+        "relevance_score": 18.0
+      }
+    ],
+    "materiales_detectados": [
+      "acero inoxidable"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10702899",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 1416,
+      "valor_12m": 584127844807.46,
       "pagado_sobre_facturado_pct": 52.1,
       "proveedores_top": [
         {
@@ -13556,9 +13832,9 @@ window.PROSPECTS_DATA = [
       "ofertas": 1,
       "visualizaciones": 20
     },
-    "estado_secop": "Evaluación",
+    "estado_secop": "Abierto",
     "fase": "Presentación de oferta",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
+    "etapa_comercial": "Proceso Activo (Abierto)",
     "tipo_oportunidad": "Monitoreo Comercial",
     "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
     "sectores": [
@@ -13587,8 +13863,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 340,
-      "valor_12m": 14250947408.45,
+      "contratos_12m": 339,
+      "valor_12m": 14238730948.45,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": [
         {
@@ -13672,8 +13948,8 @@ window.PROSPECTS_DATA = [
     "contrato": null,
     "historial_contratista": null,
     "entidad_stats": {
-      "contratos_12m": 340,
-      "valor_12m": 14250947408.45,
+      "contratos_12m": 339,
+      "valor_12m": 14238730948.45,
       "pagado_sobre_facturado_pct": null,
       "proveedores_top": [
         {
@@ -14038,7 +14314,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 13
+      "visualizaciones": 14
     },
     "estado_secop": "Evaluación",
     "fase": "Manifestación de interés (Menor Cuantía)",
@@ -14235,6 +14511,90 @@ window.PROSPECTS_DATA = [
     "nueva": false
   },
   {
+    "id": "CO1.REQ.11093635",
+    "id_portafolio": "CO1.BDOS.10860141",
+    "referencia": "ARI.CM-022-2026 (Presentación de oferta)",
+    "entidad": "ARAUCA ILUMINADA SAS ESP",
+    "nit_entidad": "901552362",
+    "departamento": "Arauca",
+    "ciudad": "Arauca",
+    "precio": 305855200.0,
+    "precio_formateado": "$305,855,200 COP",
+    "modalidad": "Concurso de méritos abierto",
+    "tipo_contrato": "Interventoría",
+    "descripcion": "INTERVENTORÍA TÉCNICA, ADMINISTRATIVA, FINANCIERA, JURÍDICA, SOCIAL Y AMBIENTAL AL PROYECTO IMPLEMENTACIÓN DE SISTEMAS DE ENERGÍA FOTOVOLTAICA EN INSTITUCIONES EDUCATIVAS DEL MUNICIPIO DE TAME, DEPARTAMENTO DE ARAUCA",
+    "fecha_publicacion": "2026-09-23T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-23T00:00:00",
+      "ultima_actualizacion": "2026-09-23T00:00:00",
+      "cierre_ofertas": "2026-09-28T00:00:00",
+      "apertura_ofertas": "2026-09-28T00:00:00",
+      "adjudicacion": null
+    },
+    "plazo": {
+      "valor": 8,
+      "unidad": "mes(es)",
+      "texto": "8 meses"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 7
+    },
+    "estado_secop": "Abierto",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Proceso Activo (Abierto)",
+    "tipo_oportunidad": "Monitoreo Comercial",
+    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
+    "sectores": [
+      {
+        "id": "energia_solar_alumbrado",
+        "name": "Energía Solar & Alumbrado Público",
+        "matched_keywords": [
+          "fotovoltaica"
+        ],
+        "relevance_score": 18.8
+      }
+    ],
+    "materiales_detectados": [
+      "fotovoltaica"
+    ],
+    "contratista": {
+      "nombre": "No Definido",
+      "nit": "No Definido",
+      "es_consorcio": false,
+      "valor_adjudicado": 0.0,
+      "departamento_proveedor": "No Definido",
+      "ciudad_proveedor": "No Definido"
+    },
+    "score_calidad": 56,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948680",
+    "contrato": null,
+    "historial_contratista": null,
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 3346033791.54,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": [
+        {
+          "nombre": "Altair Tecnik S.A.S.",
+          "contratos": 1,
+          "valor": 3152430591.54
+        },
+        {
+          "nombre": "SOELCOING S.A.S.",
+          "contratos": 1,
+          "valor": 155803200.0
+        }
+      ]
+    },
+    "sanciones": null,
+    "ofertas": null,
+    "integrantes": null,
+    "primera_vez": null,
+    "nueva": false
+  },
+  {
     "id": "CO1.REQ.11045110",
     "id_portafolio": "CO1.BDOS.10860141",
     "referencia": "ARI.CM-022-2026",
@@ -14263,7 +14623,7 @@ window.PROSPECTS_DATA = [
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 6
+      "visualizaciones": 7
     },
     "estado_secop": "Evaluación",
     "fase": "Selección de ofertas (borrador)",
@@ -14828,445 +15188,42 @@ window.PROSPECTS_DATA = [
     "integrantes": null,
     "primera_vez": null,
     "nueva": false
-  },
-  {
-    "id": "CO1.REQ.11091699",
-    "id_portafolio": "CO1.BDOS.10905973",
-    "referencia": "CI-243-2026",
-    "entidad": "MUNICIPIO DE CHIGORODO",
-    "nit_entidad": "890980998",
-    "departamento": "Antioquia",
-    "ciudad": "Chigorodó",
-    "precio": 236282120.0,
-    "precio_formateado": "$236,282,120 COP",
-    "modalidad": "Contratación directa",
-    "tipo_contrato": "Otro",
-    "descripcion": "OPERACION DEL PROGRAMA DE ALIMENTACION ESCOLAR PARA COMUNIDADES INDIGENAS A TRAVEZ DEL CUAL SE BRINDE UNA RACION ALIMENTICIA A LOS NIÑOS, NIÑAS Y ADOLECENTES DE LAS INSTITUCIONES OFICIALES (IEO) DEL MUNICIPIO DE CHIGORODO BENEFICIARIOS DEL PROGRAMA DE ALIMENTACION ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026, SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODO Y LA GOBERNACION DE ANTIOQUIA PARA LA VIGENCIA 2026-2",
-    "fecha_publicacion": "2026-09-23T00:00:00",
-    "fechas": {
-      "publicacion": "2026-09-23T00:00:00",
-      "ultima_actualizacion": "2026-09-23T00:00:00",
-      "cierre_ofertas": null,
-      "apertura_ofertas": null,
-      "adjudicacion": "2026-09-23T00:00:00"
-    },
-    "plazo": {
-      "valor": 43,
-      "unidad": "día(s)",
-      "texto": "43 días"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 0
-    },
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contrato firmado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "pae"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "pae"
-    ],
-    "contratista": {
-      "nombre": "UT PAE DIFERENCIAL CHIGORODO 2026",
-      "nit": "902028768",
-      "es_consorcio": true,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 49,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947338",
-    "contrato": {
-      "cantidad": 1,
-      "id": "CO1.PCCNTR.9983219",
-      "referencia": "CI-249-2026",
-      "estado": "Aprobado",
-      "objeto": "OPERACION DEL PROGRAMA DE ALIMENTACION ESCOLAR PARA COMUNIDADES INDIGENAS A TRAVEZ DEL CUAL SE BRINDE UNA RACION ALIMENTICIA A LOS NIÑOS; NIÑAS Y ADOLECENTES DE LAS INSTITUCIONES OFICIALES (IEO) DEL MUNICIPIO DE CHIGORODO BENEFICIARIOS DEL PROGRAMA DE ALIMENTACION ESCOLAR -PAE- CONFORME A LAS DISPOSICIONES DEL CONVENIO N°4600019363 DE 2026; SUSCRITO ENTRE EL MUNICIPIO DE CHIGORODO Y LA GOBERNACION DE ANTIOQUIA PARA LA VIGENCIA 2026-2",
-      "fecha_firma": "2026-09-23T00:00:00",
-      "inicio_ejecucion": null,
-      "fin_ejecucion": "2026-11-27T00:00:00",
-      "ultima_actualizacion": null,
-      "valor": 236282120.0,
-      "valor_facturado": 0.0,
-      "valor_pagado": 0.0,
-      "avance_pagos_pct": 0.0,
-      "anticipo": false,
-      "valor_anticipo": null,
-      "dias_adicionados": 0,
-      "prorrogable": false,
-      "es_pyme": false,
-      "es_grupo": true,
-      "destino_gasto": "Inversión",
-      "origen_recursos": [
-        "Recursos propios",
-        "Recursos propios territoriales"
-      ],
-      "direccion_ejecucion": "Carrera 104A Numero 100-08 Barrio Centro Chigorodó Antioquia COLOMBIA",
-      "condiciones_entrega": null,
-      "proveedor": "UT PAE DIFERENCIAL CHIGORODO 2026",
-      "nit_proveedor": "902028768",
-      "codigo_proveedor": "735397234",
-      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10947338&isFromPublicArea=True&isModal=true&asPopupView=true",
-      "contactos": {
-        "representante_legal": "Jaime Andres Rivera Donado",
-        "ordenador_gasto": "Tulia Irene Ruiz Garcia",
-        "supervisor": "Maria Isabel Mesa Gómez",
-        "ordenador_pago": "Maria Isabel Mesa Gómez"
-      }
-    },
-    "historial_contratista": {
-      "contratos": 2,
-      "valor_total": 847851049.0,
-      "primero": "2026-01-30T00:00:00",
-      "ultimo": "2026-09-23T00:00:00",
-      "entidades_top": [
-        {
-          "nombre": "MUNICIPIO DE CHIGORODO",
-          "contratos": 2,
-          "valor": 847851049.0
-        }
-      ]
-    },
-    "entidad_stats": {
-      "contratos_12m": 295,
-      "valor_12m": 54685074554.27,
-      "pagado_sobre_facturado_pct": 75.8,
-      "proveedores_top": [
-        {
-          "nombre": "Gustavo De Jesus Restrepo",
-          "contratos": 6,
-          "valor": 10362638041.0
-        },
-        {
-          "nombre": "CONSORCIO RED EDUCATIVA C&M",
-          "contratos": 1,
-          "valor": 3382640140.0
-        },
-        {
-          "nombre": "ARHO SOLUCIONES S.A.S",
-          "contratos": 1,
-          "valor": 650044968.0
-        }
-      ]
-    },
-    "ofertas": null,
-    "integrantes": [
-      {
-        "nombre": "CABILDO MAYOR DEL RESGUARDO INDIGENA RIO ALTO SAN JUAN",
-        "nit": "901788315",
-        "participacion": 50.0,
-        "lider": true,
-        "contratos": 10,
-        "valor_total": 7844737269.09
-      },
-      {
-        "nombre": "CABILDO MAYOR INDIGENA DE CHIGORODO",
-        "nit": "811003281",
-        "participacion": 50.0,
-        "lider": false,
-        "contratos": 12,
-        "valor_total": 4773081804.94
-      }
-    ],
-    "sanciones": null,
-    "primera_vez": null,
-    "nueva": false
-  },
-  {
-    "id": "CO1.REQ.3914972",
-    "id_portafolio": "CO1.BDOS.3819474",
-    "referencia": "Contratación N°036 de 2023",
-    "entidad": "NUTRICERES S.A.S.",
-    "nit_entidad": "9014774410",
-    "departamento": "Antioquia",
-    "ciudad": "Rionegro",
-    "precio": 155000000.0,
-    "precio_formateado": "$155,000,000 COP",
-    "modalidad": "Contratación régimen especial",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO DE CONTENEDORES ISOTÉRMICPS,ENTRE OTROS EN EL MARCO D ELOS CONTRATOS PARA SERVICIO DE ALIMENTACIÓN ESCOLAR Y CENTRO DE RECLUSIÓN TRANSITORIA",
-    "fecha_publicacion": null,
-    "fechas": {
-      "publicacion": null,
-      "ultima_actualizacion": null,
-      "cierre_ofertas": null,
-      "apertura_ofertas": null,
-      "adjudicacion": null
-    },
-    "plazo": {
-      "valor": 11,
-      "unidad": "mes(es)",
-      "texto": "11 meses"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 0
-    },
-    "estado_secop": "Borrador",
-    "fase": null,
-    "etapa_comercial": "Borrador de Pliegos",
-    "tipo_oportunidad": "Oportunidad Pre-Licitación",
-    "accion_sugerida": "Notificar a clientes contratistas para que soliciten observaciones o preparen propuesta de consorcio.",
-    "sectores": [
-      {
-        "id": "horeca_industrial",
-        "name": "HORECA & Maquinaria Gastronómica",
-        "matched_keywords": [
-          "alimentación escolar"
-        ],
-        "relevance_score": 19.5
-      }
-    ],
-    "materiales_detectados": [
-      "alimentación escolar"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 49,
-    "url_secop": "https://community.secop.gov.co/STS/Users/Login/Index",
-    "contrato": null,
-    "historial_contratista": null,
-    "entidad_stats": null,
-    "ofertas": null,
-    "sanciones": null,
-    "integrantes": null,
-    "primera_vez": null,
-    "nueva": false
-  },
-  {
-    "id": "CO1.REQ.11084754",
-    "id_portafolio": "CO1.BDOS.10847501",
-    "referencia": "STI-2026-307 (Manifestación de interés (Menor Cuantía))",
-    "entidad": "MUNICIPIO DE SEVILLA",
-    "nit_entidad": "800100527",
-    "departamento": "Valle del Cauca",
-    "ciudad": "Sevilla",
-    "precio": 273300000.0,
-    "precio_formateado": "$273,300,000 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO E INSTALACIÓN DE LUMINARIAS TIPO LED Y COMPONENTES ELÉCTRICOS DESTINADOS AL MEJORAMIENTO, FORTALECIMIENTO Y MODERNIZACIÓN DE LA INFRAESTRUCTURA DEL SISTEMA DE ALUMBRADO PÚBLICO PARA LA PRESTACIÓN EFICIENTE DEL SERVICIO EN EL MUNICIPIO DE SEVILLA, VALLE DEL CAUCA",
-    "fecha_publicacion": "2026-09-23T00:00:00",
-    "fechas": {
-      "publicacion": "2026-09-23T00:00:00",
-      "ultima_actualizacion": "2026-09-23T00:00:00",
-      "cierre_ofertas": "2026-09-29T00:00:00",
-      "apertura_ofertas": "2026-09-29T00:00:00",
-      "adjudicacion": null
-    },
-    "plazo": {
-      "valor": 60,
-      "unidad": "día(s)",
-      "texto": "60 días"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 19
-    },
-    "estado_secop": "Evaluación",
-    "fase": "Manifestación de interés (Menor Cuantía)",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 48,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10943142",
-    "contrato": null,
-    "historial_contratista": null,
-    "entidad_stats": {
-      "contratos_12m": 427,
-      "valor_12m": 14314190886.69,
-      "pagado_sobre_facturado_pct": 98.8,
-      "proveedores_top": [
-        {
-          "nombre": "CONSORCIO ESTUDIOS Y DISEÑOS SANEAMIENTO SEVILLA 2025",
-          "contratos": 1,
-          "valor": 382044000.0
-        },
-        {
-          "nombre": "MARTHA LILIANA ALFARO GARCIA",
-          "contratos": 1,
-          "valor": 183831937.31
-        },
-        {
-          "nombre": "CARLOS ARTURO ARIAS GARCIA",
-          "contratos": 1,
-          "valor": 167648563.84
-        }
-      ]
-    },
-    "sanciones": null,
-    "ofertas": null,
-    "integrantes": null,
-    "primera_vez": null,
-    "nueva": false
-  },
-  {
-    "id": "CO1.REQ.11032801",
-    "id_portafolio": "CO1.BDOS.10847501",
-    "referencia": "STI-2026-307",
-    "entidad": "MUNICIPIO DE SEVILLA",
-    "nit_entidad": "800100527",
-    "departamento": "Valle del Cauca",
-    "ciudad": "Sevilla",
-    "precio": 273300000.0,
-    "precio_formateado": "$273,300,000 COP",
-    "modalidad": "Selección Abreviada de Menor Cuantía",
-    "tipo_contrato": "Suministros",
-    "descripcion": "SUMINISTRO E INSTALACIÓN DE LUMINARIAS TIPO LED Y COMPONENTES ELÉCTRICOS DESTINADOS AL MEJORAMIENTO, FORTALECIMIENTO Y MODERNIZACIÓN DE LA INFRAESTRUCTURA DEL SISTEMA DE ALUMBRADO PÚBLICO PARA LA PRESTACIÓN EFICIENTE DEL SERVICIO EN EL MUNICIPIO DE SEVILLA, VALLE DEL CAUCA",
-    "fecha_publicacion": "2026-09-14T00:00:00",
-    "fechas": {
-      "publicacion": "2026-09-14T00:00:00",
-      "ultima_actualizacion": "2026-09-14T00:00:00",
-      "cierre_ofertas": "2026-09-24T00:00:00",
-      "apertura_ofertas": "2026-09-24T00:00:00",
-      "adjudicacion": null
-    },
-    "plazo": {
-      "valor": 60,
-      "unidad": "día(s)",
-      "texto": "60 días"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 0,
-      "visualizaciones": 19
-    },
-    "estado_secop": "Evaluación",
-    "fase": "Presentación de observaciones",
-    "etapa_comercial": "Proceso Activo (Evaluación)",
-    "tipo_oportunidad": "Monitoreo Comercial",
-    "accion_sugerida": "Hacer seguimiento al cierre de ofertas o adjudicación.",
-    "sectores": [
-      {
-        "id": "energia_solar_alumbrado",
-        "name": "Energía Solar & Alumbrado Público",
-        "matched_keywords": [
-          "alumbrado público"
-        ],
-        "relevance_score": 18.8
-      }
-    ],
-    "materiales_detectados": [
-      "alumbrado público"
-    ],
-    "contratista": {
-      "nombre": "No Definido",
-      "nit": "No Definido",
-      "es_consorcio": false,
-      "valor_adjudicado": 0.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
-    },
-    "score_calidad": 48,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10888665",
-    "contrato": null,
-    "historial_contratista": null,
-    "entidad_stats": {
-      "contratos_12m": 427,
-      "valor_12m": 14314190886.69,
-      "pagado_sobre_facturado_pct": 98.8,
-      "proveedores_top": [
-        {
-          "nombre": "CONSORCIO ESTUDIOS Y DISEÑOS SANEAMIENTO SEVILLA 2025",
-          "contratos": 1,
-          "valor": 382044000.0
-        },
-        {
-          "nombre": "MARTHA LILIANA ALFARO GARCIA",
-          "contratos": 1,
-          "valor": 183831937.31
-        },
-        {
-          "nombre": "CARLOS ARTURO ARIAS GARCIA",
-          "contratos": 1,
-          "valor": 167648563.84
-        }
-      ]
-    },
-    "ofertas": null,
-    "sanciones": null,
-    "integrantes": null,
-    "primera_vez": "2026-09-29T16:50:15Z",
-    "nueva": true
   }
 ];
-window.PROSPECTS_UPDATED_AT = "2026-09-29T16:50:15Z";
+window.PROSPECTS_UPDATED_AT = "2026-09-30T16:41:22Z";
 window.PROSPECTS_META = {
-  "generated_at": "2026-09-29T16:50:15Z",
-  "started_at": "2026-09-29T16:47:22Z",
-  "duracion_s": 173.6,
-  "procesos_consultados": 682,
+  "generated_at": "2026-09-30T16:41:22Z",
+  "started_at": "2026-09-30T16:38:58Z",
+  "duracion_s": 143.8,
+  "procesos_consultados": 683,
   "curadas": 150,
-  "adjudicadas": 40,
-  "nuevas": 2,
-  "salieron": 3,
-  "nuevas_adjudicadas": 2,
+  "adjudicadas": 39,
+  "nuevas": 3,
+  "salieron": 4,
+  "nuevas_adjudicadas": 0,
   "cruce_contratos": "ok",
   "compras_planeadas": 80,
   "fuentes_con_error": [],
-  "proxima_programada": "2026-09-30T11:00:00Z",
+  "proxima_programada": "2026-10-01T11:00:00Z",
   "ids_nuevas": [
-    "CO1.REQ.11107617",
-    "CO1.REQ.11032801"
+    "CO1.REQ.11112099",
+    "CO1.REQ.11111926",
+    "CO1.REQ.11112383"
   ],
-  "ids_nuevas_adjudicadas": [
-    "CO1.REQ.11019723",
-    "CO1.REQ.11091699"
-  ],
+  "ids_nuevas_adjudicadas": [],
   "fuentes": {
     "procesos": {
       "dataset": "p6dx-8zbt",
       "estado": "ok",
-      "registros": 682
+      "registros": 683
     },
     "contratos": {
       "dataset": "jbjy-vk9h",
       "estado": "ok",
-      "contratos": 42,
-      "historial": 40,
-      "entidades": 112,
-      "promovidos": 19,
+      "contratos": 41,
+      "historial": 39,
+      "entidades": 113,
+      "promovidos": 18,
       "reutilizados": 0,
       "errores": []
     },
@@ -15276,7 +15233,7 @@ window.PROSPECTS_META = {
     },
     "consorcios": {
       "estado": "ok",
-      "registros": 6
+      "registros": 5
     },
     "sanciones": {
       "estado": "ok",
@@ -15288,6 +15245,20 @@ window.PROSPECTS_META = {
     }
   },
   "historial": [
+    {
+      "generated_at": "2026-09-30T16:41:22Z",
+      "started_at": "2026-09-30T16:38:58Z",
+      "duracion_s": 143.8,
+      "procesos_consultados": 683,
+      "curadas": 150,
+      "adjudicadas": 39,
+      "nuevas": 3,
+      "salieron": 4,
+      "nuevas_adjudicadas": 0,
+      "cruce_contratos": "ok",
+      "compras_planeadas": 80,
+      "fuentes_con_error": []
+    },
     {
       "generated_at": "2026-09-29T16:50:15Z",
       "started_at": "2026-09-29T16:47:22Z",
