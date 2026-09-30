@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# Dos corridas a la vez competirían por el mismo commit de datos.
+concurrency:
+  group: daily-secop-refresh
+  cancel-in-progress: false
+
 jobs:
   harvest-and-update:
     runs-on: ubuntu-latest
@@ -21,6 +26,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Run tests before touching published data
+        run: |
+          python -m unittest discover tests
 
       - name: Harvest and enrich live SECOP II data
         run: |

@@ -1,0 +1,44 @@
+name: CI
+
+# Verifica cada pull request y cada push a main antes de que llegue a GitHub Pages.
+# Los commits diarios de datos los hace el bot con GITHUB_TOKEN y no disparan este workflow.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Lint (ruff)
+        run: |
+          python -m pip install --quiet ruff
+          ruff check .
+      - name: Pruebas Python
+        run: python -m unittest discover tests
+
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pruebas JavaScript
+        run: npm test
