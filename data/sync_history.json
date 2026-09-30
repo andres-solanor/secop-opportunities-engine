@@ -1,5 +1,23 @@
 [
   {
+    "generated_at": "2026-09-30T21:25:49Z",
+    "started_at": "2026-09-30T21:21:56Z",
+    "duracion_s": 232.5,
+    "procesos_consultados": 8805,
+    "curadas": 500,
+    "adjudicadas": 216,
+    "nuevas": 0,
+    "salieron": 122,
+    "nuevas_adjudicadas": 0,
+    "cruce_contratos": "ok",
+    "compras_planeadas": 80,
+    "fuentes_con_error": [],
+    "sin_clasificar": 1651,
+    "fuera_de_corte": 2662,
+    "taxonomia_version": 2,
+    "reclasificacion": true
+  },
+  {
     "generated_at": "2026-09-30T16:41:22Z",
     "started_at": "2026-09-30T16:38:58Z",
     "duracion_s": 143.8,
