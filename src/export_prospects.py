@@ -37,7 +37,23 @@ HIDDEN_SUMMARY = "hidden_summary.md"
 TARGET_COUNT = 150
 # La vista "fuera del tablero" se carga solo cuando el usuario la abre, pero el archivo se
 # versiona a diario: se limita para no inflar el repositorio. El reporte sí cubre todo.
-HIDDEN_WEB_MAX = 1000
+HIDDEN_WEB_MAX = 800
+HIDDEN_UNCLASSIFIED_SHARE = 0.75  # el resto del cupo es para las clasificadas fuera del corte
+
+
+def cap_hidden(hidden: List[Dict[str, Any]], limit: int = HIDDEN_WEB_MAX) -> List[Dict[str, Any]]:
+    """Recorta la lista para la web conservando los dos motivos.
+
+    Sin este reparto, los sin clasificar (que son muchos más) ocuparían todo el cupo y las
+    clasificadas fuera del corte nunca se verían. Cada grupo conserva su orden (mejor puntaje
+    primero) y el cupo que un grupo no usa pasa al otro.
+    """
+    unclassified = [h for h in hidden if h["motivo"] == "sin_sector"]
+    overflow = [h for h in hidden if h["motivo"] != "sin_sector"]
+    quota = int(limit * HIDDEN_UNCLASSIFIED_SHARE)
+    take_unclassified = min(len(unclassified), max(quota, limit - len(overflow)))
+    take_overflow = min(len(overflow), limit - take_unclassified)
+    return unclassified[:take_unclassified] + overflow[:take_overflow]
 
 
 def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = TARGET_COUNT) -> List[Dict[str, Any]]:
@@ -154,7 +170,7 @@ def export_hidden(hidden: List[Dict[str, Any]], report: str, data_dir: str, web_
         "total": len(hidden),
         "sin_sector": sum(1 for h in hidden if h["motivo"] == "sin_sector"),
         "fuera_de_corte": sum(1 for h in hidden if h["motivo"] == "fuera_de_corte"),
-        "items": hidden[:HIDDEN_WEB_MAX],
+        "items": cap_hidden(hidden),
     }
     web_path = os.path.join(web_dir, "hidden.js")
     with open(web_path, "w", encoding="utf-8") as f:

@@ -132,7 +132,6 @@ def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
         "departamento": item.get("departamento"),
         "ciudad": item.get("ciudad"),
         "precio": item.get("precio"),
-        "precio_formateado": item.get("precio_formateado"),
         "modalidad": item.get("modalidad"),
         "tipo_contrato": item.get("tipo_contrato"),
         "descripcion": description,

@@ -10,7 +10,15 @@ from datetime import datetime, timezone
 
 from src.curation import light_record
 from src.enrichers.scope_extractor import ScopeExtractor
-from src.export_prospects import BASE_DIR, DATASET_JSON, HIDDEN_WEB_MAX, export_dataset, export_hidden, parse_args
+from src.export_prospects import (
+    BASE_DIR,
+    DATASET_JSON,
+    HIDDEN_WEB_MAX,
+    cap_hidden,
+    export_dataset,
+    export_hidden,
+    parse_args,
+)
 from src.schema import SchemaError, validate_dataset, validate_hidden, validate_meta, validate_prospects
 from src.sync_status import build_meta
 
@@ -124,6 +132,21 @@ class TestExports(unittest.TestCase):
         self.assertEqual(len(payload["items"]), HIDDEN_WEB_MAX)
         self.assertEqual(payload["sin_sector"] + payload["fuera_de_corte"], payload["total"])
         self.assertEqual(len(full), HIDDEN_WEB_MAX + 10)
+
+    def test_cap_keeps_both_reasons_and_passes_unused_quota(self):
+        def items(reason, n):
+            return [{"id": f"{reason}{i}", "motivo": reason} for i in range(n)]
+
+        capped = cap_hidden(items("sin_sector", 500) + items("fuera_de_corte", 500), limit=100)
+        self.assertEqual(sum(1 for h in capped if h["motivo"] == "sin_sector"), 75)
+        self.assertEqual(sum(1 for h in capped if h["motivo"] == "fuera_de_corte"), 25)
+        self.assertEqual(capped[0]["id"], "sin_sector0")
+
+        few_overflow = cap_hidden(items("sin_sector", 500) + items("fuera_de_corte", 10), limit=100)
+        self.assertEqual(sum(1 for h in few_overflow if h["motivo"] == "sin_sector"), 90)
+        few_unclassified = cap_hidden(items("sin_sector", 10) + items("fuera_de_corte", 500), limit=100)
+        self.assertEqual(sum(1 for h in few_unclassified if h["motivo"] == "fuera_de_corte"), 90)
+        self.assertEqual(len(cap_hidden(items("sin_sector", 3), limit=100)), 3)
 
     def test_out_option_is_parsed(self):
         self.assertIsNone(parse_args([]).out)

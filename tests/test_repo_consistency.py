@@ -6,6 +6,8 @@ cuando se desincronizan.
 import os
 import unittest
 
+from src.tools.stamp_assets import GENERATED, INDEX, expected_versions, stamp
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORKFLOWS_DIR = os.path.join(ROOT, ".github", "workflows")
 MIRROR_DIR = os.path.join(ROOT, "ci")
@@ -34,6 +36,26 @@ class TestWorkflowMirror(unittest.TestCase):
         workflows = {f for f in os.listdir(WORKFLOWS_DIR) if f.endswith(".yml")}
         mirrors = {f for f in os.listdir(MIRROR_DIR) if f.endswith(".yml")}
         self.assertEqual(mirrors - workflows, set())
+
+
+class TestAssetVersions(unittest.TestCase):
+    """Si cambias un JS o CSS de web/, corre `python -m src.tools.stamp_assets`."""
+
+    def test_index_html_versions_match_file_contents(self):
+        with open(INDEX, encoding="utf-8") as f:
+            html = f.read()
+        self.assertEqual(
+            stamp(html, expected_versions(html)), html,
+            "web/index.html tiene versiones viejas: corre `python -m src.tools.stamp_assets`",
+        )
+
+    def test_generated_files_are_not_stamped_and_others_are(self):
+        html = '<link href="style.css?v=old"><script src="data.js?v=keep"></script><script src="app.js"></script>'
+        out = stamp(html, {"style.css": "aaa", "app.js": "bbb"})
+        self.assertIn('href="style.css?v=aaa"', out)
+        self.assertIn('src="app.js?v=bbb"', out)
+        self.assertIn('src="data.js?v=keep"', out)
+        self.assertTrue(GENERATED.isdisjoint(expected_versions(read(INDEX))))
 
 
 if __name__ == "__main__":
