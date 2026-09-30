@@ -23,7 +23,7 @@ from src.services.socrata_client import SocrataClient
 MIN_PRICE = 50_000_000
 SECTOR_WINDOW_DAYS = 120   # los sectores miran más atrás: son pocos procesos y muy relevantes
 GENERAL_WINDOW_DAYS = 14   # la descarga general es grande: ~230 procesos por día
-SECTOR_MAX_ROWS = 1000
+SECTOR_MAX_ROWS = 3000     # agua y tecnología pasaban de 1000 filas en 120 días (2026-09-30)
 GENERAL_MAX_ROWS = 5000
 AWARDED_MAX_ROWS = 3000
 

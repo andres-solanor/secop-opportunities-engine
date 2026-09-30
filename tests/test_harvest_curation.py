@@ -110,6 +110,8 @@ class TestTaxonomy(unittest.TestCase):
                 load_taxonomy(self._write(tmp, {"a": dict(ok, excluir_si={"otra": ["y"]})}))
             with self.assertRaises(TaxonomyError):
                 load_taxonomy(self._write(tmp, {"a": dict(ok, tipos_contrato="Obra")}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(ok, tipos_contrato=["Obra"], excluir_tipos_contrato=["OBRA"])}))
 
     def test_every_sector_needs_a_known_group(self):
         import tempfile
@@ -272,6 +274,65 @@ class TestSectorContent(unittest.TestCase):
         self.assertIn("agua_saneamiento", self.sector_ids(text, tipo="Obra"))
         self.assertNotIn("agua_saneamiento", self.sector_ids("Suministro de agua en bolsa para la brigada"))
 
+    def test_supervision_of_a_works_contract_is_only_interventoria(self):
+        text = ("INTERVENTORIA TECNICA, ADMINISTRATIVA Y FINANCIERA AL CONTRATO DE OBRA PUBLICA PARA MEJORAMIENTO DE "
+                "VIAS URBANAS MEDIANTE PAVIMENTO RIGIDO Y REPOSICIÓN DE REDES DE ACUEDUCTO")
+        self.assertEqual(self.sector_ids(text, tipo="Interventoría"), ["interventoria_consultoria"])
+        self.assertIn("obra_civil_general", self.sector_ids(text, tipo="Obra"))
+
+    def test_kitchen_equipment_for_school_canteens_is_horeca_and_pae(self):
+        ids = self.sector_ids("SUMINISTRO DE MENAJE, UTENSILIOS Y EQUIPOS DE COCINA PARA LOS COMEDORES ESCOLARES "
+                              "Y RESTAURANTES ESCOLARES DE LAS INSTITUCIONES EDUCATIVAS")
+        self.assertIn("horeca_industrial", ids)
+        self.assertIn("alimentacion_escolar", ids)
+
+    def test_medical_supplies_are_health(self):
+        self.assertEqual(self.sector_ids("SUMINISTRO DE DISPOSITIVOS MÉDICOS EN PRESENTACIÓN Y CANTIDAD QUE REQUIERE "
+                                         "EL HOSPITAL REGIONAL DE SOGAMOSO"), ["salud_insumos"])
+        self.assertEqual(self.sector_ids("Suministro de suturas", code="V1.42295400"), ["salud_insumos"])
+        self.assertNotIn("salud_insumos", self.sector_ids("Adecuación de la sede del hospital", tipo="Obra"))
+
+    def test_vehicles_and_machinery(self):
+        self.assertEqual(self.sector_ids("ADQUISICIÓN DE CAMIONETAS 4X4 BLINDADAS PARA LOS ESQUEMAS DE SEGURIDAD",
+                                         tipo="Compraventa"), ["vehiculos_maquinaria"])
+        self.assertIn("vehiculos_maquinaria", self.sector_ids(
+            "CONTRATAR LA ADQUISICION Y PUESTA EN FUNCIONAMIENTO DE MAQUINARIA AMARILLA"))
+        # Una obra vial menciona vehículos, pero no compra vehículos.
+        self.assertNotIn("vehiculos_maquinaria", self.sector_ids(
+            "Mejoramiento de la vía para el tránsito de vehículos", tipo="Obra"))
+
+    def test_uniforms_and_furniture(self):
+        self.assertEqual(self.sector_ids("SUMINISTRO DE LA DOTACIÓN DE CALZADO Y VESTIDO DE LABOR PARA LOS SERVIDORES"),
+                         ["dotacion_mobiliario"])
+        self.assertEqual(self.sector_ids("SUMINISTRO DE MOBILIARIO PARA LOS ESTABLECIMIENTOS EDUCATIVOS OFICIALES"),
+                         ["dotacion_mobiliario"])
+        self.assertNotIn("dotacion_mobiliario", self.sector_ids("Suministro de papelería y tóner"))
+
+    def test_false_positives_found_in_the_2026_09_30_sample(self):
+        self.assertEqual(self.sector_ids("CONTRATAR EL PROGRAMA INTEGRAL DE SEGUROS PARA LA COBERTURA DE LOS RIESGOS QUE "
+                                         "AMPAREN LOS BIENES MUEBLES E INMUEBLES", tipo="Seguros"), [])
+        self.assertNotIn("dotacion_mobiliario", self.sector_ids("Pólizas para los bienes muebles e inmuebles del municipio"))
+        self.assertNotIn("salud_insumos", self.sector_ids(
+            "SUMINISTRO A MONTO AGOTABLE DE INSUMOS QUÍMICOS, REACTIVOS Y ELEMENTOS PARA LA POTABILIZACIÓN DEL AGUA"))
+        self.assertNotIn("vehiculos_maquinaria", self.sector_ids(
+            "SERVICIO DE TRANSPORTE Y DISTRIBUCION DE AGUA POTABLE MEDIANTE VEHICULOS TIPO CARROTANQUE", tipo="Otro"))
+        self.assertNotIn("vehiculos_maquinaria", self.sector_ids(
+            "SUMINISTRO DE MEDICAMENTOS PARA LOS SERVICIOS DE URGENCIAS Y AMBULANCIAS"))
+        self.assertNotIn("eventos_logistica_viveres", self.sector_ids(
+            "Ensayos de aptitud para los eventos de interés en salud pública"))
+        self.assertNotIn("eventos_logistica_viveres", self.sector_ids(
+            "Operación del programa de alimentación escolar", code="V1.50193000"))
+        self.assertNotIn("horeca_industrial", self.sector_ids(
+            "SUMINISTRO DE COMPONENTES REFRACTARIOS Y MANTAS TERMICAS PARA HORNOS INDUSTRIALES"))
+
+    def test_events_logistics_and_groceries(self):
+        self.assertEqual(self.sector_ids("SUMINISTRO DE FRUTAS; VERDURAS Y HORTALIZAS PARA LOS COMEDORES DE TROPA"),
+                         ["eventos_logistica_viveres"])
+        self.assertIn("eventos_logistica_viveres", self.sector_ids(
+            "Operador logístico para la organización de eventos culturales", tipo="Otro"))
+        self.assertNotIn("eventos_logistica_viveres", self.sector_ids(
+            "Construcción de tarima para la organización de eventos", tipo="Obra"))
+
 
 class TestNoiseFilterReasons(unittest.TestCase):
 
@@ -426,8 +487,8 @@ class TestCuration(unittest.TestCase):
             raw("CO1.REQ.1", "P1"),
             raw("CO1.REQ.2", "P1"),                                   # duplicado
             raw("CO1.REQ.3", "P3", precio_base="1000"),               # rechazado
-            raw("CO1.REQ.4", "P4", nombre_del_procedimiento="Compra de uniformes",
-                descripci_n_del_procedimiento="Dotación de uniformes", codigo_principal_de_categoria="V1.53101500"),
+            raw("CO1.REQ.4", "P4", nombre_del_procedimiento="Compra de papelería",
+                descripci_n_del_procedimiento="Papelería y tóner para oficinas", codigo_principal_de_categoria="V1.44121600"),
             raw("CO1.REQ.5", "P5", adjudicado="Si", nombre_del_proveedor="ACEROS SAS"),
         ]
         return classify(records, NoiseFilter(), ScopeExtractor())
@@ -454,7 +515,7 @@ class TestCuration(unittest.TestCase):
         self.assertEqual(sorted(h["motivo"] for h in hidden), ["fuera_de_corte", "sin_sector"])
         unclassified = next(h for h in hidden if h["motivo"] == "sin_sector")
         self.assertEqual(unclassified["sectores"][0]["id"], SIN_CLASIFICAR)
-        self.assertEqual(unclassified["unspsc"], "53101500")
+        self.assertEqual(unclassified["unspsc"], "44121600")
         self.assertNotIn(curated[0]["id"], [h["id"] for h in hidden])
 
     def test_selection_balances_awarded_and_open(self):

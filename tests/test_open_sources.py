@@ -101,7 +101,8 @@ class TestOpenSources(unittest.TestCase):
         items = enricher().paa()
         self.assertEqual([i["id"] for i in items], ["P1"])
         self.assertEqual(items[0]["mes_esperado"], 11)
-        self.assertEqual(items[0]["sectores"][0]["id"], "acero_metalmecanica")
+        # El orden de los sectores sigue al de config/taxonomy.json: no se asume ninguno.
+        self.assertIn("acero_metalmecanica", [s["id"] for s in items[0]["sectores"]])
         self.assertNotIn("persona@gov.co", repr(items))
         self.assertNotIn("Pedro", repr(items))
 

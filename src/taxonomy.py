@@ -68,10 +68,15 @@ def load_taxonomy(path: str = TAXONOMY_PATH) -> Dict[str, Dict[str, Any]]:
         data.setdefault("excluir_si", {})
         data.setdefault("harvest", None)
         data.setdefault("unspsc_clasifica", False)
-        data.setdefault("tipos_contrato", [])
+        for field in ("tipos_contrato", "excluir_tipos_contrato"):
+            data.setdefault(field, [])
+            values = data[field]
+            if not isinstance(values, list) or not all(isinstance(t, str) and t.strip() for t in values):
+                raise TaxonomyError(f"sector '{key}': {field} debe ser una lista de textos")
         types = data["tipos_contrato"]
-        if not isinstance(types, list) or not all(isinstance(t, str) and t.strip() for t in types):
-            raise TaxonomyError(f"sector '{key}': tipos_contrato debe ser una lista de textos")
+        overlap = {fold(t) for t in types} & {fold(t) for t in data["excluir_tipos_contrato"]}
+        if overlap:
+            raise TaxonomyError(f"sector '{key}': un tipo de contrato no puede clasificar y excluir: {sorted(overlap)}")
         if not data["keywords"] and not data["unspsc_prefixes"] and not types:
             raise TaxonomyError(f"sector '{key}': necesita palabras clave, prefijos UNSPSC o tipos de contrato")
         unknown = [kw for kw in data["excluir_si"] if kw not in data["keywords"]]

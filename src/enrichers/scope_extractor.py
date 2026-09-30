@@ -38,10 +38,12 @@ class ScopeExtractor:
         # Compile case-insensitive regex patterns for fast matching
         self.patterns = {}
         self.contract_types = {}
+        self.excluded_types = {}
         for sector_key, sector_data in self.TAXONOMIES.items():
             regexes = [re.compile(rf"\b{re.escape(kw)}\b", re.IGNORECASE) for kw in sector_data["keywords"]]
             self.patterns[sector_key] = regexes
             self.contract_types[sector_key] = {fold(t) for t in sector_data.get("tipos_contrato") or []}
+            self.excluded_types[sector_key] = {fold(t) for t in sector_data.get("excluir_tipos_contrato") or []}
 
     def enrich(self, record: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -62,6 +64,9 @@ class ScopeExtractor:
         sector_scores = {}
 
         for sector_key, sector_data in self.TAXONOMIES.items():
+            # La interventoría de una obra menciona la obra, pero no es una obra: el sector la excluye.
+            if contract_type and contract_type in self.excluded_types[sector_key]:
+                continue
             exclusions = sector_data.get("excluir_si") or {}
             matched_keywords = []
             for pattern, kw_str in zip(self.patterns[sector_key], sector_data["keywords"], strict=True):
