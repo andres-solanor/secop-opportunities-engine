@@ -1,0 +1,99 @@
+{
+  "_doc": [
+    "Fuente única del vocabulario de sectores. La leen ScopeExtractor (clasificación),",
+    "src/harvest.py (consultas a SECOP II) y export_taxonomy (web/taxonomy.js).",
+    "Para agregar un sector: copia un bloque, cambia la clave y los campos, y agrega una prueba.",
+    "  keywords        términos que clasifican un proceso en el sector (frase completa, sin importar mayúsculas).",
+    "  excluir_si      { keyword: [términos] }: la keyword no cuenta si el texto contiene alguno de esos términos.",
+    "  unspsc_prefixes prefijos del código UNSPSC (sin el 'V1.'). Suman puntaje si además coincide una keyword.",
+    "  unspsc_clasifica true = el código basta para clasificar aunque no coincida ninguna keyword (por defecto false).",
+    "                  Úsalo solo si los prefijos son propios del sector: en Acero son códigos de construcción (72xx)",
+    "                  y marcarían como acero cualquier obra.",
+    "  weight          peso del sector en el puntaje de relevancia.",
+    "  harvest         qué se le pide a SECOP II: precio mínimo y patrones LIKE (en mayúsculas, % = comodín)",
+    "                  sobre el título y la descripción. null = el sector solo se alimenta de la descarga general."
+  ],
+  "version": 1,
+  "sectores": {
+    "acero_metalmecanica": {
+      "name": "Acero & Metalmecánica",
+      "keywords": [
+        "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
+        "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
+        "varilla", "varillas", "varilla de acero", "cubierta metálica", "cubiertas metálicas",
+        "estructura metálica", "estructuras metálicas", "estructura metalica",
+        "estructuras metalicas", "vigas", "perfilería", "perfiles", "lámina galvanizada",
+        "lamina galvanizada", "cercha", "cerchas", "puente metálico", "puente vehicular",
+        "reforzamiento estructural", "soldadura", "hierro figurado", "carpintería metálica",
+        "cerramientos metálicos", "malla eslabonada", "acero figurado", "acero inoxidable",
+        "suministro de acero"
+      ],
+      "excluir_si": {
+        "varilla": ["puesta a tierra", "cobre"],
+        "varillas": ["puesta a tierra", "cobre"]
+      },
+      "unspsc_prefixes": ["3010", "3026", "7214", "7212", "7210"],
+      "weight": 1.2,
+      "harvest": {
+        "precio_min": 100000000,
+        "titulo": ["ESTRUCTURA%MET", "VIGAS", "CUBIERTA%MET", "PERFILES"],
+        "descripcion": ["ACERO", "ESTRUCTURA%MET", "VIGAS", "CUBIERTA%MET", "VARILLA"]
+      }
+    },
+    "horeca_industrial": {
+      "name": "HORECA & Maquinaria Gastronómica",
+      "keywords": [
+        "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
+        "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
+        "refrigeracion comercial", "estufa industrial", "estufas industriales",
+        "campana extractora", "campanas extractoras", "marmita", "marmitas",
+        "lavavajillas industrial", "menaje institucional", "dotación de restaurante",
+        "dotacion de restaurante", "alimentación escolar", "pae", "planta de procesamiento",
+        "congelador industrial", "equipamiento gastronómico", "equipamiento gastronomico",
+        "acero inoxidable 304", "autoservicio de alimentos"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["4810", "5214", "9010", "4110"],
+      "weight": 1.3,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["COCINA", "REFRIGERACI", "HORNO", "GASTRON", "ALIMENTACI%ESCOLAR"],
+        "descripcion": ["CUARTO FR", "COCINA INDUSTRIAL"]
+      }
+    },
+    "energia_solar_alumbrado": {
+      "name": "Energía Solar & Alumbrado Público",
+      "keywords": [
+        "energía solar", "energia solar", "panel solar", "paneles solares",
+        "sistema fotovoltaico", "sistemas fotovoltaicos", "fotovoltaica", "fotovoltaico",
+        "energía renovable", "energia renovable", "luminarias led", "luminaria led",
+        "alumbrado público", "alumbrado publico", "subestación eléctrica", "subestacion electrica",
+        "redes eléctricas", "redes electricas", "transformador", "transformadores",
+        "inversor solar", "baterías solares", "baterias solares", "eficiencia energética"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["3911", "2611", "2610", "3912"],
+      "unspsc_clasifica": true,
+      "weight": 1.25,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["SOLAR", "FOTOVOLTAIC", "ALUMBRADO", "ILUMINACI"],
+        "descripcion": ["PANEL%SOLAR", "ENERGIA SOLAR", "LUMINARIA%LED"]
+      }
+    },
+    "obra_civil_general": {
+      "name": "Construcción & Obra Civil General",
+      "keywords": [
+        "obra civil", "obras civiles", "adecuación de infraestructura",
+        "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
+        "edificación", "edificacion", "pavimentación", "mantenimiento de vías",
+        "hospital", "colegio", "escuela", "escenarios deportivos", "parque"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["7212", "7214", "7215"],
+      "unspsc_clasifica": true,
+      "weight": 1.0,
+      "harvest": null
+    }
+  }
+}

@@ -6,7 +6,9 @@ Analyzes procurement text, metadata, and categories to identify target industry 
 
 import re
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
+
+from src.taxonomy import load_taxonomy, normalize_unspsc
 
 
 class ScopeExtractor:
@@ -27,65 +29,12 @@ class ScopeExtractor:
         "visualizaciones": (["visualizaciones_del", "visualizaciones_del_procedimiento"], "visualizaciones_del"),
     }
 
-    TAXONOMIES = {
-        "acero_metalmecanica": {
-            "name": "Acero & Metalmecánica",
-            "keywords": [
-                "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
-                "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
-                "varilla", "varillas", "varilla de acero", "cubierta metálica", "cubiertas metálicas",
-                "estructura metálica", "estructuras metálicas", "estructura metalica",
-                "estructuras metalicas", "vigas", "perfilería", "perfiles", "lámina galvanizada",
-                "lamina galvanizada", "cercha", "cerchas", "puente metálico", "puente vehicular",
-                "reforzamiento estructural", "soldadura", "hierro figurado", "carpintería metálica",
-                "cerramientos metálicos", "malla eslabonada", "acero figurado", "acero inoxidable",
-                "suministro de acero"
-            ],
-            "unspsc_prefixes": ["3010", "3026", "7214", "7212", "7210"],
-            "weight": 1.2
-        },
-        "horeca_industrial": {
-            "name": "HORECA & Maquinaria Gastronómica",
-            "keywords": [
-                "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
-                "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
-                "refrigeracion comercial", "estufa industrial", "estufas industriales",
-                "campana extractora", "campanas extractoras", "marmita", "marmitas",
-                "lavavajillas industrial", "menaje institucional", "dotación de restaurante",
-                "dotacion de restaurante", "alimentación escolar", "pae", "planta de procesamiento",
-                "congelador industrial", "equipamiento gastronómico", "equipamiento gastronomico",
-                "acero inoxidable 304", "autoservicio de alimentos"
-            ],
-            "unspsc_prefixes": ["4810", "5214", "9010", "4110"],
-            "weight": 1.3
-        },
-        "energia_solar_alumbrado": {
-            "name": "Energía Solar & Alumbrado Público",
-            "keywords": [
-                "energía solar", "energia solar", "panel solar", "paneles solares",
-                "sistema fotovoltaico", "sistemas fotovoltaicos", "fotovoltaica", "fotovoltaico",
-                "energía renovable", "energia renovable", "luminarias led", "luminaria led",
-                "alumbrado público", "alumbrado publico", "subestación eléctrica", "subestacion electrica",
-                "redes eléctricas", "redes electricas", "transformador", "transformadores",
-                "inversor solar", "baterías solares", "baterias solares", "eficiencia energética"
-            ],
-            "unspsc_prefixes": ["3911", "2611", "2610", "3912"],
-            "weight": 1.25
-        },
-        "obra_civil_general": {
-            "name": "Construcción & Obra Civil General",
-            "keywords": [
-                "obra civil", "obras civiles", "adecuación de infraestructura",
-                "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
-                "edificación", "edificacion", "pavimentación", "mantenimiento de vías",
-                "hospital", "colegio", "escuela", "escenarios deportivos", "parque"
-            ],
-            "unspsc_prefixes": ["7212", "7214", "7215"],
-            "weight": 1.0
-        }
-    }
+    # Sectores, palabras clave, exclusiones y prefijos UNSPSC: se editan en config/taxonomy.json.
+    TAXONOMIES = load_taxonomy()
 
-    def __init__(self):
+    def __init__(self, taxonomy: Optional[Dict[str, Dict[str, Any]]] = None):
+        if taxonomy is not None:
+            self.TAXONOMIES = taxonomy
         # Compile case-insensitive regex patterns for fast matching
         self.patterns = {}
         for sector_key, sector_data in self.TAXONOMIES.items():
@@ -102,7 +51,7 @@ class ScopeExtractor:
             str(record.get("categorias_adicionales") or ""),
         ]).lower()
 
-        cat_code = str(record.get("codigo_principal_de_categoria") or "").strip()
+        cat_code = normalize_unspsc(record.get("codigo_principal_de_categoria"))
 
         # 1. Match Sectors & Extract Detected Materials
         matched_sectors = []
@@ -110,15 +59,22 @@ class ScopeExtractor:
         sector_scores = {}
 
         for sector_key, sector_data in self.TAXONOMIES.items():
+            exclusions = sector_data.get("excluir_si") or {}
             matched_keywords = []
             for pattern, kw_str in zip(self.patterns[sector_key], sector_data["keywords"], strict=True):
-                if pattern.search(text_corpus):
-                    matched_keywords.append(kw_str)
+                if not pattern.search(text_corpus):
+                    continue
+                # "varilla" en "varilla de cobre para puesta a tierra" no es acero.
+                if any(term in text_corpus for term in exclusions.get(kw_str, [])):
+                    continue
+                matched_keywords.append(kw_str)
 
             # Check category code bonus
             has_cat_match = any(cat_code.startswith(prefix) for prefix in sector_data["unspsc_prefixes"])
 
-            if matched_keywords or has_cat_match:
+            # El código UNSPSC siempre suma puntaje, pero solo clasifica por sí solo (sin ninguna
+            # palabra clave) en los sectores que lo declaran con `unspsc_clasifica`.
+            if matched_keywords or (has_cat_match and sector_data.get("unspsc_clasifica")):
                 score = len(matched_keywords) * 15 * sector_data["weight"]
                 if has_cat_match:
                     score += 25
@@ -136,7 +92,7 @@ class ScopeExtractor:
         stage_info = self._determine_stage(record)
 
         # 3. Extract Contract & Winning Entity Information
-        price = self._parse_price(record)
+        price, price_adjustment = self._parse_price(record)
         contractor_info = self._extract_contractor_info(record)
 
         # 4. Compute Overall Lead Quality Score (0 - 100)
@@ -156,6 +112,8 @@ class ScopeExtractor:
             "ciudad": record.get("ciudad_entidad"),
             "precio": price,
             "precio_formateado": f"${price:,.0f} COP",
+            "precio_ajustado": price_adjustment,
+            "unspsc": cat_code or None,
             "modalidad": record.get("modalidad_de_contratacion"),
             "tipo_contrato": record.get("tipo_de_contrato"),
             "descripcion": record.get("descripci_n_del_procedimiento") or record.get("nombre_del_procedimiento"),
@@ -227,8 +185,14 @@ class ScopeExtractor:
             "ciudad_proveedor": record.get("ciudad_proveedor"),
         }
 
-    def _parse_price(self, record: Dict[str, Any]) -> float:
-        """Parses price, reconciles clerical 3-zero typos between base price and awarded price."""
+    def _parse_price(self, record: Dict[str, Any]) -> Tuple[float, Optional[Dict[str, Any]]]:
+        """Devuelve `(precio, ajuste)`.
+
+        El precio es el valor adjudicado si existe; si no, el precio base. `ajuste` es None
+        salvo cuando el precio base se corrigió por un posible error de digitación: en ese caso
+        guarda el valor original y el motivo, para que la cifra corregida nunca pase por dato
+        de SECOP sin avisar.
+        """
         try:
             p_base = float(record.get("precio_base") or 0)
         except (ValueError, TypeError):
@@ -241,10 +205,7 @@ class ScopeExtractor:
 
         # If contract has awarded amount, prioritize the real contract amount
         if p_adj > 0:
-            # Detect 3-zero typo where base price was entered in thousands or cents
-            if p_base > (p_adj * 100):
-                return p_adj
-            return p_adj
+            return p_adj, None
 
         # If base price has extreme clerical typo (e.g. municipal clerk enters $100B for small local contract)
         if p_base > 50_000_000_000:
@@ -252,9 +213,13 @@ class ScopeExtractor:
             tipo = str(record.get("tipo_de_contrato", "")).lower()
             # If not a mega-infrastructure tender, check for 1000x multiplier typo
             if "licitación pública" not in modalidad and "obra" not in tipo:
-                return p_base / 1000.0
+                return p_base / 1000.0, {
+                    "original": p_base,
+                    "motivo": "Precio base mayor a $50.000 millones en un proceso que no es licitación "
+                              "pública ni obra: se asume un error de digitación y se divide entre 1.000.",
+                }
 
-        return p_base
+        return p_base, None
 
     def _compute_lead_score(
         self,

@@ -19,7 +19,7 @@ cualquier error de red o de esquema se registra sin detener el pipeline diario.
 """
 
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Callable, Dict, Iterable, List, Optional
 
 from src.services.socrata_client import SocrataClient
@@ -254,7 +254,7 @@ class ContractEnricher:
                  previous: Optional[List[Dict[str, Any]]] = None):
         self.client = client
         self.log = log
-        self.today = today or datetime.utcnow()
+        self.today = today or datetime.now(timezone.utc).replace(tzinfo=None)
         self.stats: Dict[str, int] = {}
         self.errors: List[str] = []
         self.summary: Dict[str, Any] = {}

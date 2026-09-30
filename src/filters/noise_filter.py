@@ -6,6 +6,27 @@ and non-commercial administrative overhead to isolate true high-value business o
 
 from typing import Any, Dict, Optional, Tuple
 
+from src.taxonomy import normalize_unspsc
+
+# Motivos de rechazo agrupados para el reporte de "lo que no se ve": (prefijo del motivo, etiqueta).
+REASON_GROUPS = (
+    ("Procedure state is non-viable", "Estado no viable (cancelado, desierto, cerrado)"),
+    ("Price below threshold", "Valor por debajo del mínimo"),
+    ("Hard blocked OPS", "Tipo de contrato: prestación de servicios"),
+    ("Identified as individual professional service", "Texto de servicios profesionales de persona natural"),
+    ("Identified as administrative personnel overhead", "Categoría UNSPSC administrativa"),
+    ("Rejected non-competitive modality", "Contratación directa de valor bajo"),
+    ("Rejected modality", "Modalidad no comercial"),
+)
+
+
+def reason_group(reason: Optional[str]) -> str:
+    """Etiqueta estable de un motivo de rechazo (los motivos traen valores variables)."""
+    for prefix, label in REASON_GROUPS:
+        if (reason or "").startswith(prefix):
+            return label
+    return "Otro motivo"
+
 
 class NoiseFilter:
     """Evaluates SECOP II records to separate noise from commercial signal."""
@@ -100,7 +121,7 @@ class NoiseFilter:
             return False, "Identified as individual professional service (OPS)"
 
         # 3. UNSPSC Category Guard
-        cat_code = str(record.get("codigo_principal_de_categoria", "")).strip()
+        cat_code = normalize_unspsc(record.get("codigo_principal_de_categoria"))
         if any(cat_code.startswith(prefix) for prefix in self.BLOCKED_UNSPSC_PREFIXES):
             # If contract type is also services or direct, reject
             if "directa" in modality or "servicios" in contract_type:

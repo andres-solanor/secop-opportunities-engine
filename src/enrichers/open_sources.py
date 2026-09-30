@@ -15,7 +15,7 @@ Robustez: cada fuente es independiente; si una falla se reutiliza el dato de la 
 anterior y el refresco diario continúa.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 
 from src.enrichers.contract_enricher import (
@@ -66,7 +66,7 @@ class OpenSourcesEnricher:
         self.client = client
         self.taxonomy = taxonomy
         self.log = log
-        self.today = today or datetime.utcnow()
+        self.today = today or datetime.now(timezone.utc).replace(tzinfo=None)
         self.history_fn = history_fn
         self.paa_client = paa_client  # cliente con timeout mayor: el PAA es un dataset pesado
         self.previous = {p.get("id"): p for p in previous or [] if p.get("id")}

@@ -95,8 +95,22 @@ def build_meta(
     history: List[Dict[str, Any]],
     extra_sources: Optional[Dict[str, Dict[str, Any]]] = None,
     paa_count: int = 0,
+    queries: Optional[List[Dict[str, Any]]] = None,
+    funnel: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """Resumen de la corrida para la web y para el historial de sincronizaciones."""
+    """Resumen de la corrida para la web y para el historial de sincronizaciones.
+
+    `queries` es el estado de cada consulta de descarga (src/harvest.py) y `funnel` el embudo
+    de curaduría (src/curation.py: descargados, rechazados, sin clasificar, en tablero…).
+    """
+    queries = queries or []
+    failed_queries = [q["nombre"] for q in queries if q.get("estado") == "error"]
+    if not raw_count:
+        process_state = "sin_datos"
+    elif failed_queries:
+        process_state = "parcial"
+    else:
+        process_state = "ok"
     prev_by_id = {p.get("id"): p for p in previous if p.get("id")}
     current_ids = {p.get("id") for p in prospects}
     new_ids = [p["id"] for p in prospects if p.get("nueva")]
@@ -130,14 +144,19 @@ def build_meta(
         "compras_planeadas": paa_count,
         "fuentes_con_error": [k for k, v in (extra_sources or {}).items() if v.get("estado") == "error"],
     }
+    if funnel:
+        run["sin_clasificar"] = funnel["sin_clasificar"]
+        run["fuera_de_corte"] = funnel["fuera_de_corte"]
 
     return {
         **run,
         "proxima_programada": next_scheduled_run(finished_at),
         "ids_nuevas": new_ids,
         "ids_nuevas_adjudicadas": newly_awarded,
+        "embudo": funnel,
         "fuentes": {
-            "procesos": {"dataset": "p6dx-8zbt", "estado": "ok" if raw_count else "sin_datos", "registros": raw_count},
+            "procesos": {"dataset": "p6dx-8zbt", "estado": process_state, "registros": raw_count,
+                         "consultas": queries, "consultas_con_error": failed_queries},
             "contratos": {"dataset": "jbjy-vk9h", "estado": cross_state, **{k: v for k, v in cross.items() if k != "errores"},
                           "errores": errors[:5]},
             **(extra_sources or {}),
