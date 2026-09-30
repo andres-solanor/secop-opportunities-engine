@@ -15,12 +15,17 @@ Robustez: cada fuente es independiente; si una falla se reutiliza el dato de la 
 anterior y el refresco diario continúa.
 """
 
-import re
 from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional
 
 from src.enrichers.contract_enricher import (
-    EMPTY_VALUES, chunks, clean_name, normalize_nit, soql_in, to_float, to_iso,
+    EMPTY_VALUES,
+    chunks,
+    clean_name,
+    normalize_nit,
+    soql_in,
+    to_float,
+    to_iso,
 )
 
 OFFERS_DATASET = "wi7w-2nvm"

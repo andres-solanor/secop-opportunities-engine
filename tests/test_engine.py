@@ -3,8 +3,9 @@ Unit tests for SECOP II Opportunities Engine.
 """
 
 import unittest
-from src.filters.noise_filter import NoiseFilter
+
 from src.enrichers.scope_extractor import ScopeExtractor
+from src.filters.noise_filter import NoiseFilter
 
 
 class TestSecopEngine(unittest.TestCase):
@@ -101,6 +102,7 @@ class TestTaxonomyExport(unittest.TestCase):
         import json
         import os
         import tempfile
+
         from src.export_prospects import export_taxonomy
 
         with tempfile.TemporaryDirectory() as tmp:

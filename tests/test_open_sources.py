@@ -74,7 +74,9 @@ class TestOpenSources(unittest.TestCase):
         self.assertFalse(p["ofertas"]["proveedores"][1]["ganador"])
 
     def test_group_members_with_history_and_no_personal_contacts(self):
-        history = lambda nits: {"800000001": {"contratos": 12, "valor_total": 3e10}}
+        def history(nits):
+            return {"800000001": {"contratos": 12, "valor_total": 3e10}}
+
         p = enricher(history_fn=history).enrich([prospect()])[0]
         self.assertEqual([m["nombre"] for m in p["integrantes"]], ["ACERIA UNO SAS", "MONTAJES DOS SAS"])
         self.assertTrue(p["integrantes"][0]["lider"])

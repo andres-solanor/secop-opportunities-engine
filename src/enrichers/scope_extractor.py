@@ -111,7 +111,7 @@ class ScopeExtractor:
 
         for sector_key, sector_data in self.TAXONOMIES.items():
             matched_keywords = []
-            for pattern, kw_str in zip(self.patterns[sector_key], sector_data["keywords"]):
+            for pattern, kw_str in zip(self.patterns[sector_key], sector_data["keywords"], strict=True):
                 if pattern.search(text_corpus):
                     matched_keywords.append(kw_str)
 

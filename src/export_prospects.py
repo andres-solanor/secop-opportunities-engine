@@ -126,7 +126,7 @@ def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = 150
     adjudicados = [item for item in passed_items if "adjudicado" in item["etapa_comercial"].lower()]
     open_tenders = [item for item in passed_items if "adjudicado" not in item["etapa_comercial"].lower()]
 
-    print(f"[*] Post-filter qualified leads pool:")
+    print("[*] Post-filter qualified leads pool:")
     print(f"    - Adjudicados (B2B Proveedores): {len(adjudicados)}")
     print(f"    - Licitaciones Abiertas (Observatorio): {len(open_tenders)}")
 
