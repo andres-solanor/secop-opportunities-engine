@@ -1,0 +1,23 @@
+[project]
+name = "secop-opportunities-engine"
+version = "0.1.0"
+description = "Motor de oportunidades de contratación pública colombiana (SECOP II)"
+readme = "README.md"
+requires-python = ">=3.11"
+# Producción usa solo la biblioteca estándar: no agregar dependencias aquí.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["node_modules"]
+
+[tool.ruff.lint]
+# E/W: estilo, F: errores reales (nombres sin definir, imports sin usar),
+# I: orden de imports, B: errores frecuentes (bugbear).
+select = ["E", "F", "W", "I", "B"]
+# E501: hay consultas SoQL y textos en español largos; partirlos no mejora la lectura.
+ignore = ["E501"]
