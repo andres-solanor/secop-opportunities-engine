@@ -1,7 +1,8 @@
 """
 Diagnóstico de fuentes de datos abiertos (solo lectura, no modifica datos).
 
-Uso:  python -m src.tools.probe_sources
+Uso:  python -m src.tools.probe_sources             # catálogo, columnas y anexos
+      python -m src.tools.probe_sources --valores   # valores reales de modalidad, estado, tipo y fase
 Se ejecuta desde el workflow manual "Probe SECOP sources" porque el entorno de desarrollo
 no siempre tiene acceso a datos.gov.co. Imprime en el log:
   1. Datasets de SECOP encontrados en el catálogo de datos.gov.co (nombre, id, actualización).
@@ -11,8 +12,10 @@ no siempre tiene acceso a datos.gov.co. Imprime en el log:
 
 import json
 import os
+import sys
 import urllib.parse
 import urllib.request
+from datetime import datetime, timedelta, timezone
 
 from src.services.socrata_client import SocrataClient
 
@@ -66,7 +69,36 @@ def describe(client, label, dsid, where=None):
     return rows
 
 
+VALUE_COLUMNS = ("modalidad_de_contratacion", "estado_del_procedimiento", "tipo_de_contrato", "adjudicado", "fase")
+
+
+def value_distributions(client, days=120, log=print):
+    """Valores reales de las columnas que el pipeline usa en sus filtros, con su conteo.
+
+    SoQL compara por igualdad exacta: un filtro con un valor que no existe (por ejemplo
+    estado 'Adjudicado') devuelve cero filas sin dar error. Corre esto antes de escribir
+    o cambiar un filtro en src/harvest.py o src/filters/noise_filter.py.
+    """
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT00:00:00")
+    where = f"precio_base >= 50000000 AND fecha_de_publicacion_del >= '{since}'"
+    out = {}
+    for column in VALUE_COLUMNS:
+        try:
+            rows = client.query(select=f"{column}, count(*) as n", where=where, group=column, order="n DESC", limit=60)
+        except Exception as exc:  # noqa: BLE001
+            log(f"[!] {column}: {exc}")
+            continue
+        out[column] = [(r.get(column), int(r["n"])) for r in rows]
+        log(f"[*] {column} ({len(rows)} valores, procesos publicados desde {since[:10]}):")
+        for value, n in out[column]:
+            log(f"    {n:>8}  {value!r}")
+    return out
+
+
 def main():
+    if "--valores" in sys.argv[1:]:
+        value_distributions(SocrataClient(timeout=120))
+        return
     client = SocrataClient(timeout=60)
     found = search_catalog()
 
@@ -82,7 +114,7 @@ def main():
     # Anexos de un proceso real de la selección actual
     base = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
     try:
-        with open(os.path.join(base, "data", "prospects_prototype_50.json"), encoding="utf-8") as f:
+        with open(os.path.join(base, "data", "prospects.json"), encoding="utf-8") as f:
             prospects = json.load(f)
     except (OSError, ValueError):
         prospects = []

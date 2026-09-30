@@ -7,7 +7,6 @@ from datetime import datetime
 
 from src.enrichers.contract_enricher import ContractEnricher, normalize_nit, notice_uid, summarize_contracts
 
-
 RAW_CONTRACT = {
     "proceso_de_compra": "CO1.BDOS.100",
     "id_contrato": "CO1.PCCNTR.1",

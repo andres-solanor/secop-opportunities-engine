@@ -46,6 +46,13 @@ test('no detecta sectores con texto irrelevante', () => {
   assert.deepStrictEqual(E.detectSectors({ offerText: 'asesoría contable' }, TAXONOMY), []);
 });
 
+test('el operador del PAE es su propio sector, no HORECA', () => {
+  const ids = E.detectSectors({ offerText: 'Operamos el programa de alimentación escolar con ración preparada en sitio' }, TAXONOMY).map(d => d.id);
+  assert.deepStrictEqual(ids, ['alimentacion_escolar']);
+  const kitchen = E.detectSectors({ offerText: 'Fabricamos cocinas industriales y marmitas' }, TAXONOMY).map(d => d.id);
+  assert.deepStrictEqual(kitchen, ['horeca_industrial']);
+});
+
 test('afinidad alta cuando coinciden sector, material, zona, ticket y etapa', () => {
   const detected = E.detectSectors(steelProfile, TAXONOMY);
   const m = E.matchOpportunity(steelProfile, opp(), detected);
@@ -167,4 +174,13 @@ test('badges: sanción es riesgo y las ofertas muestran su número', () => {
   const offers = badges.find(b => b.id === 'ofertas');
   assert.strictEqual(offers.label, '3 ofertas');
   assert.strictEqual(E.cardBadges({ ...item, ofertas: { cantidad: 1 } }, now).find(b => b.id === 'ofertas').label, '1 oferta');
+});
+
+test('badges: un convenio adjudicado se marca como tal, en tono de atención', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Adjudicado (Contratista Seleccionado)', convenio: true };
+  const badge = E.cardBadges(item, now).find(b => b.id === 'convenio');
+  assert.strictEqual(badge.tone, 'warn');
+  assert.ok(!E.cardBadges({ ...item, convenio: false }, now).some(b => b.id === 'convenio'));
+  assert.strictEqual(E.BADGES.seguros.tone, 'warn');
 });

@@ -105,6 +105,19 @@
     if (window.showAppToast) window.showAppToast(message, type);
   }
 
+  /** Catálogo de sugerencias agrupado por familia de sectores (window.SECTOR_GROUPS). */
+  function catalogFamilies() {
+    const catalog = E.offerCatalog(TAXONOMY);
+    const families = (window.SECTOR_GROUPS || []).map(g => ({
+      name: g.name,
+      sectors: catalog.filter(sec => TAXONOMY[sec.id].grupo === g.id)
+    }));
+    const grouped = new Set(families.flatMap(f => f.sectors.map(s => s.id)));
+    const rest = catalog.filter(sec => !grouped.has(sec.id));
+    if (rest.length) families.push({ name: 'Otros sectores', sectors: rest });
+    return families.filter(f => f.sectors.length);
+  }
+
   function chip(label, { active = false, attrs = '' } = {}) {
     return `<button type="button" class="chip ${active ? 'active' : ''}" ${attrs}>${esc(label)}</button>`;
   }
@@ -197,20 +210,28 @@
     }
 
     if (wizardStep === 1) {
-      const catalog = E.offerCatalog(TAXONOMY);
       const tags = new Set(p.offerTags || []);
+      const detected = new Set(E.detectSectors(p, TAXONOMY).map(d => d.id));
       return `
         <label class="block-label">Describe tu oferta
           <textarea class="input textarea" data-field="offerText" rows="4" placeholder="Ej. Fabricamos y montamos estructuras metálicas, cerchas y cubiertas para colegios y escenarios deportivos. Entregamos en todo Antioquia en 15 días.">${esc(p.offerText)}</textarea>
         </label>
         <div class="detect-box" id="detectBox">${detectedHtml(p)}</div>
         <div class="catalog">
-          <div class="catalog-title">Sugerencias rápidas: toca lo que ofreces</div>
-          ${catalog.map(sec => `
-            <div class="catalog-group">
-              <div class="catalog-sector">${esc(sec.name)}</div>
-              <div class="chips">${sec.tags.map(t => chip(t, { active: tags.has(t), attrs: `data-tag="${esc(t)}"` })).join('')}</div>
-            </div>`).join('')}
+          <div class="catalog-title">Sugerencias rápidas: abre tu familia de sectores y toca lo que ofreces</div>
+          ${catalogFamilies().map(fam => {
+            // Abierta si ya eligió algo o detectamos uno de sus sectores; si no, cerrada para no abrumar.
+            const open = fam.sectors.some(sec => detected.has(sec.id) || sec.tags.some(t => tags.has(t)));
+            return `
+            <details class="catalog-family" data-sectors="${esc(fam.sectors.map(s => s.id).join(','))}" ${open ? 'open' : ''}>
+              <summary><span>${esc(fam.name)}</span><small>${esc(fam.sectors.map(s => s.name).join(' · '))}</small></summary>
+              ${fam.sectors.map(sec => `
+                <div class="catalog-group">
+                  <div class="catalog-sector">${esc(sec.name)}</div>
+                  <div class="chips">${sec.tags.map(t => chip(t, { active: tags.has(t), attrs: `data-tag="${esc(t)}"` })).join('')}</div>
+                </div>`).join('')}
+            </details>`;
+          }).join('')}
         </div>`;
     }
 
@@ -218,7 +239,7 @@
       return `
         <div class="block-label">Lo que necesitas para crecer <small>(elige varias)</small></div>
         <div class="chips">${Object.entries(E.NEEDS).map(([id, label]) => chip(label, { active: p.needs.includes(id), attrs: `data-need="${id}"` })).join('')}</div>
-        <div class="block-label" style="margin-top:1.25rem;">Conexiones que buscas</div>
+        <div class="block-label section-gap">Conexiones que buscas</div>
         <div class="chips">${Object.entries(E.CONNECTIONS).map(([id, label]) => chip(label, { active: p.connections.includes(id), attrs: `data-conn="${id}"` })).join('')}</div>`;
     }
 
@@ -228,9 +249,9 @@
         ${chip('🇨🇴 Todo el país', { active: p.nationwide, attrs: 'data-nationwide="1"' })}
         ${DEPARTMENTS.map(d => chip(d, { active: !p.nationwide && p.departments.includes(d), attrs: `data-dept="${esc(d)}"` })).join('')}
       </div>
-      <div class="block-label" style="margin-top:1.25rem;">Tamaño de contratos que puedes atender <small>(COP)</small></div>
+      <div class="block-label section-gap">Tamaño de contratos que puedes atender <small>(COP)</small></div>
       <div class="chips">${Object.entries(E.TICKETS).map(([id, t]) => chip(t.label, { active: p.tickets.includes(id), attrs: `data-ticket="${id}"` })).join('')}</div>
-      <div class="form-grid" style="margin-top:1.25rem;">
+      <div class="form-grid section-gap">
         <label>Años de experiencia<input class="input" type="number" min="0" max="80" data-field="experienceYears" value="${esc(p.experienceYears)}" placeholder="Ej. 8"></label>
         <label class="check-label"><input type="checkbox" data-field="hasRup" ${p.hasRup ? 'checked' : ''}> Inscrito en el RUP (Registro Único de Proponentes)</label>
       </div>`;
@@ -267,6 +288,11 @@
 
   function refreshLive() {
     document.getElementById('liveMarket').innerHTML = liveMarketLine(wizardDraft);
+    // Mientras escribe: se abre la familia del sector detectado (nunca se cierra una que abrió él).
+    const detected = new Set(E.detectSectors(wizardDraft, TAXONOMY).map(d => d.id));
+    modalBody.querySelectorAll('details.catalog-family').forEach(fam => {
+      if (fam.dataset.sectors.split(',').some(id => detected.has(id))) fam.open = true;
+    });
     const detectBox = document.getElementById('detectBox');
     if (detectBox) detectBox.innerHTML = detectedHtml(wizardDraft);
     document.getElementById('wizNext').disabled = !canAdvance(wizardDraft);
@@ -493,10 +519,10 @@
   function openSignIn() {
     openModal(`
       <div class="signin">
-        <div class="brand-icon" style="margin:0 auto 1rem;">⚡</div>
-        <h2 class="wizard-title" style="text-align:center;">Entra a tu radar de contratación pública</h2>
-        <p class="wizard-hint" style="text-align:center;">Tu perfil, tus oportunidades con afinidad y tu pipeline, guardados en tu cuenta.</p>
-        <div id="signinGoogleBtn" class="google-slot" style="justify-content:center;"></div>
+        <div class="brand-icon">⚡</div>
+        <h2 class="wizard-title">Entra a tu radar de contratación pública</h2>
+        <p class="wizard-hint">Tu perfil, tus oportunidades con afinidad y tu pipeline, guardados en tu cuenta.</p>
+        <div id="signinGoogleBtn" class="google-slot"></div>
         <p class="fine-print">Solo usamos tu nombre, correo y foto de Google. No publicamos nada en tu nombre.</p>
       </div>`);
     Auth.renderButton(document.getElementById('signinGoogleBtn'), { text: 'continue_with' });

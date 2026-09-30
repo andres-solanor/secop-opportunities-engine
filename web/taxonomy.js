@@ -1,6 +1,92 @@
 window.SECTOR_TAXONOMY = {
+  "obra_civil_general": {
+    "name": "Construcción & Obra Civil General",
+    "grupo": "obra_infraestructura",
+    "keywords": [
+      "obra civil",
+      "obras civiles",
+      "adecuación de infraestructura",
+      "adecuacion de infraestructura",
+      "construcción de sede",
+      "construccion de sede",
+      "edificación",
+      "edificacion",
+      "pavimentación",
+      "pavimentacion",
+      "mantenimiento de vías",
+      "mantenimiento de vias",
+      "escenarios deportivos",
+      "malla vial",
+      "mejoramiento de vía",
+      "mejoramiento de via",
+      "mejoramiento de vías",
+      "mejoramiento de vias",
+      "mejoramiento de la vía",
+      "mejoramiento de la via",
+      "vía terciaria",
+      "via terciaria",
+      "vías terciarias",
+      "vias terciarias",
+      "placa huella",
+      "pavimento rígido",
+      "pavimento rigido",
+      "pavimento flexible",
+      "infraestructura educativa",
+      "obras complementarias",
+      "infraestructura física",
+      "infraestructura fisica"
+    ]
+  },
+  "agua_saneamiento": {
+    "name": "Agua Potable & Saneamiento",
+    "grupo": "obra_infraestructura",
+    "keywords": [
+      "agua potable",
+      "aguas residuales",
+      "ptap",
+      "ptar",
+      "acueducto",
+      "acueductos",
+      "alcantarillado",
+      "alcantarillados",
+      "planta de tratamiento",
+      "plantas de tratamiento",
+      "tratamiento de aguas"
+    ]
+  },
+  "energia_solar_alumbrado": {
+    "name": "Energía Solar & Alumbrado Público",
+    "grupo": "obra_infraestructura",
+    "keywords": [
+      "energía solar",
+      "energia solar",
+      "panel solar",
+      "paneles solares",
+      "sistema fotovoltaico",
+      "sistemas fotovoltaicos",
+      "fotovoltaica",
+      "fotovoltaico",
+      "energía renovable",
+      "energia renovable",
+      "luminarias led",
+      "luminaria led",
+      "alumbrado público",
+      "alumbrado publico",
+      "subestación eléctrica",
+      "subestacion electrica",
+      "redes eléctricas",
+      "redes electricas",
+      "transformador",
+      "transformadores",
+      "inversor solar",
+      "baterías solares",
+      "baterias solares",
+      "eficiencia energética"
+    ]
+  },
   "acero_metalmecanica": {
     "name": "Acero & Metalmecánica",
+    "grupo": "suministros_equipos",
     "keywords": [
       "acero estructural",
       "acero de refuerzo",
@@ -41,6 +127,7 @@ window.SECTOR_TAXONOMY = {
   },
   "horeca_industrial": {
     "name": "HORECA & Maquinaria Gastronómica",
+    "grupo": "suministros_equipos",
     "keywords": [
       "cocina industrial",
       "cocinas industriales",
@@ -61,63 +148,186 @@ window.SECTOR_TAXONOMY = {
       "menaje institucional",
       "dotación de restaurante",
       "dotacion de restaurante",
-      "alimentación escolar",
-      "pae",
       "planta de procesamiento",
       "congelador industrial",
       "equipamiento gastronómico",
       "equipamiento gastronomico",
       "acero inoxidable 304",
-      "autoservicio de alimentos"
+      "autoservicio de alimentos",
+      "equipos de cocina",
+      "equipo de cocina",
+      "menaje",
+      "utensilios de cocina",
+      "dotación de cocina",
+      "dotacion de cocina"
     ]
   },
-  "energia_solar_alumbrado": {
-    "name": "Energía Solar & Alumbrado Público",
+  "tecnologia": {
+    "name": "Tecnología & Equipos de Cómputo",
+    "grupo": "suministros_equipos",
     "keywords": [
-      "energía solar",
-      "energia solar",
-      "panel solar",
-      "paneles solares",
-      "sistema fotovoltaico",
-      "sistemas fotovoltaicos",
-      "fotovoltaica",
-      "fotovoltaico",
-      "energía renovable",
-      "energia renovable",
-      "luminarias led",
-      "luminaria led",
-      "alumbrado público",
-      "alumbrado publico",
-      "subestación eléctrica",
-      "subestacion electrica",
-      "redes eléctricas",
-      "redes electricas",
-      "transformador",
-      "transformadores",
-      "inversor solar",
-      "baterías solares",
-      "baterias solares",
-      "eficiencia energética"
+      "equipos de cómputo",
+      "equipos de computo",
+      "equipo de cómputo",
+      "equipo de computo",
+      "computadores",
+      "infraestructura tecnológica",
+      "infraestructura tecnologica",
+      "equipos tecnológicos",
+      "equipos tecnologicos",
+      "licenciamiento",
+      "licencias de software",
+      "software",
+      "seguridad perimetral",
+      "centro de datos",
+      "cableado estructurado",
+      "redes de datos"
     ]
   },
-  "obra_civil_general": {
-    "name": "Construcción & Obra Civil General",
+  "salud_insumos": {
+    "name": "Salud: Insumos & Equipos Médicos",
+    "grupo": "suministros_equipos",
     "keywords": [
-      "obra civil",
-      "obras civiles",
-      "adecuación de infraestructura",
-      "adecuacion de infraestructura",
-      "construcción de sede",
-      "construccion de sede",
-      "edificación",
-      "edificacion",
-      "pavimentación",
-      "mantenimiento de vías",
-      "hospital",
-      "colegio",
-      "escuela",
-      "escenarios deportivos",
-      "parque"
+      "dispositivos médicos",
+      "dispositivos medicos",
+      "dispositivo médico",
+      "dispositivo medico",
+      "medicamentos",
+      "insumos médicos",
+      "insumos medicos",
+      "insumos hospitalarios",
+      "material médico quirúrgico",
+      "material medico quirurgico",
+      "médico quirúrgico",
+      "medico quirurgico",
+      "médico quirúrgicos",
+      "medico quirurgicos",
+      "reactivos",
+      "laboratorio clínico",
+      "laboratorio clinico",
+      "equipos biomédicos",
+      "equipos biomedicos",
+      "biomédicos",
+      "biomedicos",
+      "osteosíntesis",
+      "osteosintesis"
+    ]
+  },
+  "vehiculos_maquinaria": {
+    "name": "Vehículos & Maquinaria",
+    "grupo": "suministros_equipos",
+    "keywords": [
+      "vehículo",
+      "vehículos",
+      "vehiculo",
+      "vehiculos",
+      "camioneta",
+      "camionetas",
+      "motocicleta",
+      "motocicletas",
+      "ambulancia",
+      "ambulancias",
+      "volqueta",
+      "volquetas",
+      "maquinaria amarilla",
+      "maquinaria pesada",
+      "retroexcavadora",
+      "retroexcavadoras",
+      "motoniveladora",
+      "motoniveladoras",
+      "vibrocompactador",
+      "parque automotor"
+    ]
+  },
+  "dotacion_mobiliario": {
+    "name": "Dotación, Uniformes & Mobiliario",
+    "grupo": "suministros_equipos",
+    "keywords": [
+      "dotación de calzado",
+      "dotacion de calzado",
+      "calzado y vestido",
+      "vestido de labor",
+      "uniformes",
+      "prendas de vestir",
+      "ropa de trabajo",
+      "elementos de protección personal",
+      "elementos de proteccion personal",
+      "mobiliario",
+      "muebles",
+      "pupitres"
+    ]
+  },
+  "interventoria_consultoria": {
+    "name": "Interventoría & Consultoría",
+    "grupo": "servicios",
+    "keywords": [
+      "interventoría técnica",
+      "interventoria tecnica",
+      "interventoría integral",
+      "interventoria integral",
+      "interventoría administrativa",
+      "interventoria administrativa",
+      "estudios y diseños",
+      "estudios y disenos",
+      "consultoría especializada",
+      "consultoria especializada"
+    ]
+  },
+  "alimentacion_escolar": {
+    "name": "Alimentación Escolar (PAE)",
+    "grupo": "servicios",
+    "keywords": [
+      "pae",
+      "alimentación escolar",
+      "alimentacion escolar",
+      "complemento alimentario",
+      "complementos alimentarios",
+      "restaurante escolar",
+      "restaurantes escolares",
+      "ración industrializada",
+      "racion industrializada",
+      "ración preparada en sitio",
+      "racion preparada en sitio"
+    ]
+  },
+  "eventos_logistica_viveres": {
+    "name": "Eventos, Logística & Víveres",
+    "grupo": "servicios",
+    "keywords": [
+      "operador logístico",
+      "operador logistico",
+      "organización de eventos",
+      "organizacion de eventos",
+      "logística de eventos",
+      "logistica de eventos",
+      "realización de eventos",
+      "realizacion de eventos",
+      "eventos institucionales",
+      "víveres",
+      "viveres",
+      "alimentos perecederos",
+      "alimentos no perecederos",
+      "frutas",
+      "verduras",
+      "hortalizas",
+      "abarrotes",
+      "refrigerios",
+      "kit de alimentos",
+      "kits de alimentos"
     ]
   }
 };
+window.SECTOR_GROUPS = [
+  {
+    "id": "obra_infraestructura",
+    "name": "Obra e infraestructura"
+  },
+  {
+    "id": "suministros_equipos",
+    "name": "Suministros y equipos"
+  },
+  {
+    "id": "servicios",
+    "name": "Servicios"
+  }
+];

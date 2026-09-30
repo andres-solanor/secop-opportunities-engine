@@ -1,0 +1,282 @@
+{
+  "_doc": [
+    "Fuente única del vocabulario de sectores. La leen ScopeExtractor (clasificación),",
+    "src/harvest.py (consultas a SECOP II) y export_taxonomy (web/taxonomy.js).",
+    "Para agregar un sector: copia un bloque, cambia la clave y los campos, y agrega una prueba.",
+    "  keywords        términos que clasifican un proceso en el sector (frase completa, sin importar mayúsculas).",
+    "  excluir_si      { keyword: [términos] }: la keyword no cuenta si el texto contiene alguno de esos términos.",
+    "  unspsc_prefixes prefijos del código UNSPSC (sin el 'V1.'). Suman puntaje si además coincide una keyword.",
+    "  unspsc_clasifica true = el código basta para clasificar aunque no coincida ninguna keyword (por defecto false).",
+    "                  Úsalo solo si los prefijos son propios del sector: en Acero son códigos de construcción (72xx)",
+    "                  y marcarían como acero cualquier obra.",
+    "  weight          peso del sector en el puntaje de relevancia.",
+    "  harvest         qué se le pide a SECOP II: precio mínimo y patrones LIKE (en mayúsculas, % = comodín)",
+    "                  sobre el título y la descripción. null = el sector solo se alimenta de la descarga general.",
+    "                  Úsalo solo en sectores de nicho: la consulta es obligatoria (si falla, no se publica) y",
+    "                  tiene tope de filas. Los sectores de mucho volumen (obra, interventoría) van con null.",
+    "  grupo           id de uno de los 'grupos': la familia bajo la que aparece en el filtro de la web.",
+    "  tipos_contrato  valores exactos de tipo_de_contrato de SECOP II que bastan para clasificar en el",
+    "                  sector (sin importar tildes ni mayúsculas) y suman puntaje como el código UNSPSC.",
+    "  excluir_tipos_contrato  tipos de contrato que nunca entran al sector. La interventoría de una obra",
+    "                  menciona la obra, pero quien vende materiales no puede venderle nada.",
+    "  Los ids de sector no se cambian: los perfiles guardados en el navegador los usan."
+  ],
+  "version": 2,
+  "grupos": [
+    { "id": "obra_infraestructura", "name": "Obra e infraestructura", "orden": 1 },
+    { "id": "suministros_equipos", "name": "Suministros y equipos", "orden": 2 },
+    { "id": "servicios", "name": "Servicios", "orden": 3 }
+  ],
+  "sectores": {
+    "obra_civil_general": {
+      "name": "Construcción & Obra Civil General",
+      "grupo": "obra_infraestructura",
+      "keywords": [
+        "obra civil", "obras civiles", "adecuación de infraestructura",
+        "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
+        "edificación", "edificacion", "pavimentación", "pavimentacion",
+        "mantenimiento de vías", "mantenimiento de vias", "escenarios deportivos",
+        "malla vial", "mejoramiento de vía", "mejoramiento de via", "mejoramiento de vías",
+        "mejoramiento de vias", "mejoramiento de la vía", "mejoramiento de la via",
+        "vía terciaria", "via terciaria", "vías terciarias", "vias terciarias",
+        "placa huella", "pavimento rígido", "pavimento rigido", "pavimento flexible",
+        "infraestructura educativa", "obras complementarias", "infraestructura física",
+        "infraestructura fisica"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["7212", "7214", "7215"],
+      "unspsc_clasifica": true,
+      "tipos_contrato": ["Obra"],
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "agua_saneamiento": {
+      "name": "Agua Potable & Saneamiento",
+      "grupo": "obra_infraestructura",
+      "keywords": [
+        "agua potable", "aguas residuales", "ptap", "ptar", "acueducto", "acueductos",
+        "alcantarillado", "alcantarillados", "planta de tratamiento", "plantas de tratamiento",
+        "tratamiento de aguas"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["4710"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.1,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["ACUEDUCTO", "ALCANTARILLADO", "AGUA POTABLE", "PTAP", "PTAR"],
+        "descripcion": ["PLANTA DE TRATAMIENTO", "AGUAS RESIDUALES"]
+      }
+    },
+    "energia_solar_alumbrado": {
+      "name": "Energía Solar & Alumbrado Público",
+      "grupo": "obra_infraestructura",
+      "keywords": [
+        "energía solar", "energia solar", "panel solar", "paneles solares",
+        "sistema fotovoltaico", "sistemas fotovoltaicos", "fotovoltaica", "fotovoltaico",
+        "energía renovable", "energia renovable", "luminarias led", "luminaria led",
+        "alumbrado público", "alumbrado publico", "subestación eléctrica", "subestacion electrica",
+        "redes eléctricas", "redes electricas", "transformador", "transformadores",
+        "inversor solar", "baterías solares", "baterias solares", "eficiencia energética"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["3911", "2611", "2610", "3912"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.25,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["SOLAR", "FOTOVOLTAIC", "ALUMBRADO", "ILUMINACI"],
+        "descripcion": ["PANEL%SOLAR", "ENERGIA SOLAR", "LUMINARIA%LED"]
+      }
+    },
+    "acero_metalmecanica": {
+      "name": "Acero & Metalmecánica",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
+        "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
+        "varilla", "varillas", "varilla de acero", "cubierta metálica", "cubiertas metálicas",
+        "estructura metálica", "estructuras metálicas", "estructura metalica",
+        "estructuras metalicas", "vigas", "perfilería", "perfiles", "lámina galvanizada",
+        "lamina galvanizada", "cercha", "cerchas", "puente metálico", "puente vehicular",
+        "reforzamiento estructural", "soldadura", "hierro figurado", "carpintería metálica",
+        "cerramientos metálicos", "malla eslabonada", "acero figurado", "acero inoxidable",
+        "suministro de acero"
+      ],
+      "excluir_si": {
+        "varilla": ["puesta a tierra", "cobre"],
+        "varillas": ["puesta a tierra", "cobre"]
+      },
+      "unspsc_prefixes": ["3010", "3026", "7214", "7212", "7210"],
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.2,
+      "harvest": {
+        "precio_min": 100000000,
+        "titulo": ["ESTRUCTURA%MET", "VIGAS", "CUBIERTA%MET", "PERFILES"],
+        "descripcion": ["ACERO", "ESTRUCTURA%MET", "VIGAS", "CUBIERTA%MET", "VARILLA"]
+      }
+    },
+    "horeca_industrial": {
+      "name": "HORECA & Maquinaria Gastronómica",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
+        "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
+        "refrigeracion comercial", "estufa industrial", "estufas industriales",
+        "campana extractora", "campanas extractoras", "marmita", "marmitas",
+        "lavavajillas industrial", "menaje institucional", "dotación de restaurante",
+        "dotacion de restaurante", "planta de procesamiento",
+        "congelador industrial", "equipamiento gastronómico", "equipamiento gastronomico",
+        "acero inoxidable 304", "autoservicio de alimentos", "equipos de cocina", "equipo de cocina",
+        "menaje", "utensilios de cocina", "dotación de cocina", "dotacion de cocina"
+      ],
+      "excluir_si": {
+        "menaje": ["salas de lectura", "alimentos preparados", "alimentos diarios"],
+        "hornos industriales": ["refractari"]
+      },
+      "unspsc_prefixes": ["4810", "5214", "4110"],
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.3,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["COCINA", "REFRIGERACI", "HORNO", "GASTRON", "MENAJE"],
+        "descripcion": ["CUARTO FR", "COCINA INDUSTRIAL", "EQUIPOS DE COCINA"]
+      }
+    },
+    "tecnologia": {
+      "name": "Tecnología & Equipos de Cómputo",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "equipos de cómputo", "equipos de computo", "equipo de cómputo", "equipo de computo",
+        "computadores", "infraestructura tecnológica", "infraestructura tecnologica",
+        "equipos tecnológicos", "equipos tecnologicos", "licenciamiento", "licencias de software",
+        "software", "seguridad perimetral", "centro de datos", "cableado estructurado",
+        "redes de datos"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["4321", "4322", "4323"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.1,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["C%MPUTO", "LICENCIAMIENTO", "INFRAESTRUCTURA TECNOL%GICA", "SOFTWARE"],
+        "descripcion": ["EQUIPOS DE C%MPUTO", "LICENCIAMIENTO"]
+      }
+    },
+    "salud_insumos": {
+      "name": "Salud: Insumos & Equipos Médicos",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "dispositivos médicos", "dispositivos medicos", "dispositivo médico", "dispositivo medico",
+        "medicamentos", "insumos médicos", "insumos medicos", "insumos hospitalarios",
+        "material médico quirúrgico", "material medico quirurgico", "médico quirúrgico",
+        "medico quirurgico", "médico quirúrgicos", "medico quirurgicos", "reactivos",
+        "laboratorio clínico", "laboratorio clinico", "equipos biomédicos", "equipos biomedicos",
+        "biomédicos", "biomedicos", "osteosíntesis", "osteosintesis"
+      ],
+      "excluir_si": {
+        "reactivos": ["potabiliza", "tratamiento de agua"]
+      },
+      "unspsc_prefixes": ["42", "51"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "vehiculos_maquinaria": {
+      "name": "Vehículos & Maquinaria",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "vehículo", "vehículos", "vehiculo", "vehiculos", "camioneta", "camionetas",
+        "motocicleta", "motocicletas", "ambulancia", "ambulancias", "volqueta", "volquetas",
+        "maquinaria amarilla", "maquinaria pesada", "retroexcavadora", "retroexcavadoras",
+        "motoniveladora", "motoniveladoras", "vibrocompactador", "parque automotor"
+      ],
+      "excluir_si": {
+        "vehículo": ["carrotanque", "combustible", "tipo vehículo", "transporte de"],
+        "vehículos": ["carrotanque", "combustible", "transporte de"],
+        "vehiculo": ["carrotanque", "combustible", "transporte de"],
+        "vehiculos": ["carrotanque", "combustible", "transporte de"],
+        "parque automotor": ["combustible"],
+        "ambulancias": ["medicamentos"]
+      },
+      "unspsc_prefixes": ["2510", "2210"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Obra", "Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "dotacion_mobiliario": {
+      "name": "Dotación, Uniformes & Mobiliario",
+      "grupo": "suministros_equipos",
+      "keywords": [
+        "dotación de calzado", "dotacion de calzado", "calzado y vestido", "vestido de labor",
+        "uniformes", "prendas de vestir", "ropa de trabajo", "elementos de protección personal",
+        "elementos de proteccion personal", "mobiliario", "muebles", "pupitres"
+      ],
+      "excluir_si": {
+        "muebles": ["bienes muebles", "muebles e inmuebles", "muebles y enseres"]
+      },
+      "unspsc_prefixes": ["5310", "5311", "4618", "5610", "5611", "5612"],
+      "unspsc_clasifica": true,
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "interventoria_consultoria": {
+      "name": "Interventoría & Consultoría",
+      "grupo": "servicios",
+      "keywords": [
+        "interventoría técnica", "interventoria tecnica", "interventoría integral",
+        "interventoria integral", "interventoría administrativa", "interventoria administrativa",
+        "estudios y diseños", "estudios y disenos", "consultoría especializada",
+        "consultoria especializada"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["8110"],
+      "tipos_contrato": ["Interventoría", "Consultoría"],
+      "excluir_tipos_contrato": ["Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    },
+    "alimentacion_escolar": {
+      "name": "Alimentación Escolar (PAE)",
+      "grupo": "servicios",
+      "keywords": [
+        "pae", "alimentación escolar", "alimentacion escolar", "complemento alimentario",
+        "complementos alimentarios", "restaurante escolar", "restaurantes escolares",
+        "ración industrializada", "racion industrializada", "ración preparada en sitio",
+        "racion preparada en sitio"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["9010"],
+      "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": {
+        "precio_min": 50000000,
+        "titulo": ["ALIMENTACI%ESCOLAR"],
+        "descripcion": ["ALIMENTACI%ESCOLAR", "COMPLEMENTO ALIMENTARIO"]
+      }
+    },
+    "eventos_logistica_viveres": {
+      "name": "Eventos, Logística & Víveres",
+      "grupo": "servicios",
+      "keywords": [
+        "operador logístico", "operador logistico", "organización de eventos",
+        "organizacion de eventos", "logística de eventos", "logistica de eventos",
+        "realización de eventos", "realizacion de eventos", "eventos institucionales",
+        "víveres", "viveres", "alimentos perecederos", "alimentos no perecederos", "frutas",
+        "verduras", "hortalizas", "abarrotes", "refrigerios", "kit de alimentos", "kits de alimentos"
+      ],
+      "excluir_si": {},
+      "unspsc_prefixes": ["50"],
+      "excluir_tipos_contrato": ["Obra", "Interventoría", "Consultoría", "Seguros"],
+      "weight": 1.0,
+      "harvest": null
+    }
+  }
+}

@@ -15,12 +15,17 @@ Robustez: cada fuente es independiente; si una falla se reutiliza el dato de la 
 anterior y el refresco diario continúa.
 """
 
-import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 
 from src.enrichers.contract_enricher import (
-    EMPTY_VALUES, chunks, clean_name, normalize_nit, soql_in, to_float, to_iso,
+    EMPTY_VALUES,
+    chunks,
+    clean_name,
+    normalize_nit,
+    soql_in,
+    to_float,
+    to_iso,
 )
 
 OFFERS_DATASET = "wi7w-2nvm"
@@ -35,6 +40,7 @@ MONTHS = {
 PAA_MIN_VALUE = 200_000_000
 PAA_MAX_VALUE = 1_000_000_000_000  # por encima de $1 billón son errores de digitación típicos del PAA
 PAA_MAX_ITEMS = 80
+PAA_MIN_PREFIX = 4  # dígitos mínimos de un prefijo UNSPSC para consultar el PAA (ver fetch_paa)
 
 
 def is_consortium(name: Optional[str]) -> bool:
@@ -61,7 +67,7 @@ class OpenSourcesEnricher:
         self.client = client
         self.taxonomy = taxonomy
         self.log = log
-        self.today = today or datetime.utcnow()
+        self.today = today or datetime.now(timezone.utc).replace(tzinfo=None)
         self.history_fn = history_fn
         self.paa_client = paa_client  # cliente con timeout mayor: el PAA es un dataset pesado
         self.previous = {p.get("id"): p for p in previous or [] if p.get("id")}
@@ -205,7 +211,10 @@ class OpenSourcesEnricher:
 
     def fetch_paa(self) -> List[Dict[str, Any]]:
         prefixes = self.sector_prefixes()
-        all_prefixes = sorted({pre for pres in prefixes.values() for pre in pres})
+        # La consulta busca el prefijo como texto dentro de la lista de códigos: un segmento de dos
+        # dígitos ("42", salud) coincide con casi cualquier código y la consulta se vence (2026-09-30).
+        # Solo se consulta con prefijos de familia o más; la asignación de sector sí usa todos.
+        all_prefixes = sorted({pre for pres in prefixes.values() for pre in pres if len(pre) >= PAA_MIN_PREFIX})
         year = str(self.today.year)
         # Solo los meses que faltan del año: reduce mucho el volumen que filtra el servidor.
         remaining = [name.upper() for name, n in MONTHS.items() if n >= self.today.month]

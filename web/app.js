@@ -9,7 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentTab = 'proveedores'; // 'parati' | 'proveedores' | 'observatorio' | 'crm'
   const Profile = window.SecopProfile;
   const Engine = window.ProfileEngine;
+  const Dash = window.DashboardEngine;
+  const TAXONOMY = window.SECTOR_TAXONOMY || {};
+  const SECTOR_GROUPS = window.SECTOR_GROUPS || [];
   const sortSelect = document.getElementById('sortSelect');
+  // "Fuera del tablero": lo que pasó el filtro de ruido pero no está en la selección curada.
+  // Oculto por defecto; el archivo (hidden.js) se descarga solo cuando el usuario abre la vista
+  // o elige "Otros" en el filtro de sector.
+  const SHOW_HIDDEN_KEY = 'secop_show_hidden';
+  const HIDDEN_REASONS = {
+    sin_sector: { label: 'Sin clasificar', tone: 'warn', tip: 'Pasa el filtro de ruido pero no coincide con ningún sector configurado.' },
+    fuera_de_corte: { label: 'Clasificada, fuera del corte', tone: 'info', tip: 'Coincide con un sector, pero no entró a la selección del tablero por puntaje.' },
+    convenio: { label: 'Convenio abierto (ESAL)', tone: 'warn', tip: 'Convenio con una entidad sin ánimo de lucro aún sin adjudicar: una empresa no puede ofertar. Cuando se adjudique, el operador puede ser tu cliente.' }
+  };
+  // Pestañas donde "Otros" tiene sentido: sus procesos salen de hidden.js y se reparten como el tablero.
+  const OTHER_TABS = ['proveedores', 'observatorio', 'hidden'];
+  const sectorOptionEls = new Map(); // opciones del filtro de sector: id → { el, name }
+  let showHidden = localStorage.getItem(SHOW_HIDDEN_KEY) === '1';
+  let hiddenPayload = null;
+  let hiddenLoad = 'idle'; // 'idle' | 'loading' | 'ready' | 'error'
+  const hiddenControls = document.getElementById('hiddenControls');
+  const hiddenReasonSelect = document.getElementById('hiddenReasonSelect');
+  const hiddenFamilySelect = document.getElementById('hiddenFamilySelect');
+  const hiddenToggle = document.getElementById('toggleHidden');
+  const tabHidden = document.getElementById('tabHidden');
   const DAY_MS = 24 * 3600 * 1000;
   // Nota: las constantes usadas por las fichas deben declararse aquí, antes del primer renderView().
   const ACRONYMS = ['PAE', 'ESP', 'E.S.P.', 'SAS', 'S.A.S.', 'LED', 'SGR', 'SGP', 'IPS', 'ESE', 'ICBF', 'SENA', 'EPM', 'UT', 'BPIN', 'CDP', 'INVIAS', 'ANI', 'IE', 'PTAR', 'PTAP', 'SENA', 'EDU'];
@@ -29,6 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
     cerrada: { text: 'Ofertas cerradas', cls: 'stage-cerrada' },
     adjudicado: { text: 'Adjudicado', cls: 'stage-adjudicado' }
+  };
+  const TAB_BASE_NAMES = {
+    parati: 'oportunidades para ti',
+    proveedores: 'contratos adjudicados',
+    observatorio: 'licitaciones abiertas',
+    crm: 'oportunidades en CRM',
+    paa: 'compras planeadas',
+    hidden: 'procesos fuera del tablero'
   };
   const MIN_MATCH_SCORE = 55;
   let matchCache = new Map();
@@ -62,9 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.showAppToast = showToast;
 
   // Initialize
+  initSectors();
   initDepartments();
+  applyHiddenVisibility();
   if (Profile && Profile.getProfile()) activateTab('parati');
-  updateKpis(rawData);
   renderView();
 
   // Tab listeners
@@ -75,7 +107,60 @@ document.addEventListener('DOMContentLoaded', () => {
   function activateTab(tab) {
     document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     currentTab = tab;
+    if (tab === 'hidden') loadHidden();
+    if (Dash.isOtherSector(sectorSelect.value) && !OTHER_TABS.includes(tab)) sectorSelect.value = 'todos';
     renderView();
+  }
+
+  /** "Otros" en Radar u Observatorio: se muestran procesos sin sector de hidden.js (fichas livianas). */
+  function otherMode() {
+    return Dash.isOtherSector(sectorSelect.value) && (currentTab === 'proveedores' || currentTab === 'observatorio');
+  }
+
+  // ---------- Fuera del tablero ----------
+  function applyHiddenVisibility() {
+    tabHidden.hidden = !showHidden;
+    hiddenToggle.checked = showHidden;
+  }
+
+  hiddenToggle.addEventListener('change', () => {
+    showHidden = hiddenToggle.checked;
+    localStorage.setItem(SHOW_HIDDEN_KEY, showHidden ? '1' : '0');
+    applyHiddenVisibility();
+    if (showHidden) activateTab('hidden');
+    else if (currentTab === 'hidden') activateTab('proveedores');
+  });
+
+  [hiddenReasonSelect, hiddenFamilySelect].forEach(el => el.addEventListener('input', () => renderView()));
+
+  /** Descarga hidden.js la primera vez que se abre la vista. */
+  function loadHidden() {
+    if (hiddenLoad !== 'idle') return;
+    hiddenLoad = 'loading';
+    const script = document.createElement('script');
+    script.src = `hidden.js?v=${encodeURIComponent(window.PROSPECTS_UPDATED_AT || '')}`;
+    script.onload = () => {
+      hiddenPayload = window.HIDDEN_DATA || null;
+      hiddenLoad = hiddenPayload ? 'ready' : 'error';
+      if (hiddenPayload) {
+        Dash.hiddenFamilies(hiddenPayload.items).forEach(g => {
+          const opt = document.createElement('option');
+          opt.value = g.family;
+          opt.textContent = `${g.family} · ${g.count} ${g.count === 1 ? 'proceso' : 'procesos'}`;
+          hiddenFamilySelect.appendChild(opt);
+        });
+      }
+      renderView();
+    };
+    script.onerror = () => {
+      hiddenLoad = 'error';
+      renderView();
+    };
+    document.head.appendChild(script);
+  }
+
+  function hiddenItems() {
+    return hiddenPayload ? hiddenPayload.items : [];
   }
 
   window.showForYouTab = () => {
@@ -105,6 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
   [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
   });
+  sectorSelect.addEventListener('input', () => {
+    if (Dash.isOtherSector(sectorSelect.value)) loadHidden();
+  });
 
   btnResetFilters.addEventListener('click', () => {
     searchInput.value = '';
@@ -113,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     budgetSelect.value = '0';
     departmentSelect.value = 'todos';
     sortSelect.value = 'relevancia';
+    hiddenReasonSelect.value = 'todos';
+    hiddenFamilySelect.value = 'todas';
     onlyNew = false;
     renderView();
     showToast('Filtros restablecidos', 'info');
@@ -132,17 +222,76 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === detailModal) detailModal.classList.remove('active');
   });
 
+  // Accesibilidad de todos los modales (incluido el de perfil): al abrir, el foco entra al
+  // modal; al cerrar, vuelve a donde estaba; Escape cierra con el botón de cierre del propio modal.
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    let returnFocus = null;
+    new MutationObserver(() => {
+      const open = overlay.classList.contains('active');
+      if (open && !overlay.dataset.open) {
+        overlay.dataset.open = '1';
+        returnFocus = document.activeElement;
+        const close = overlay.querySelector('.modal-close');
+        if (close) close.focus();
+      } else if (!open && overlay.dataset.open) {
+        delete overlay.dataset.open;
+        if (returnFocus && document.contains(returnFocus)) returnFocus.focus();
+        returnFocus = null;
+      }
+    }).observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = Array.from(document.querySelectorAll('.modal-overlay.active')).pop();
+    const close = open && open.querySelector('.modal-close');
+    if (close) close.click();
+  });
+
+  // El filtro de sector se arma con la taxonomía del pipeline, agrupado por familia: un sector
+  // nuevo aparece solo. Al final, "Otros" (sin sector y seguros), que se carga de hidden.js.
+  function initSectors() {
+    const addGroup = (label, sectors) => {
+      const group = document.createElement('optgroup');
+      group.label = label;
+      sectors.forEach(({ id, name }) => {
+        const opt = document.createElement('option');
+        opt.value = id;
+        opt.textContent = name;
+        group.appendChild(opt);
+        sectorOptionEls.set(id, { el: opt, name });
+      });
+      sectorSelect.appendChild(group);
+    };
+    Dash.sectorGroups(TAXONOMY, SECTOR_GROUPS).forEach(g => addGroup(g.name, g.sectors));
+    addGroup('Otros', Dash.OTHER_OPTIONS);
+  }
+
+  /** Conteo de la pestaña activa junto a cada sector; "Otros" solo donde aplica y con hidden.js cargado. */
+  function updateSectorCounts() {
+    const base = currentTab === 'hidden' ? hiddenItems() : tabBaseline();
+    const counts = Dash.sectorCounts(base);
+    const others = currentTab === 'hidden' ? counts
+      : hiddenLoad === 'ready' ? Dash.sectorCounts(Dash.otherItems(hiddenItems(), currentTab)) : null;
+    sectorOptionEls.forEach(({ el, name }, id) => {
+      const isOther = Dash.isOtherSector(id);
+      el.disabled = isOther && !OTHER_TABS.includes(currentTab);
+      const n = isOther ? (others ? others[id] || 0 : null) : counts[id] || 0;
+      el.textContent = n === null || el.disabled ? name : `${name} (${n})`;
+    });
+  }
+
+  function sectorName(id) {
+    return sectorOptionEls.get(id)?.name || id;
+  }
+
+  function sectorGroupName(id) {
+    return Dash.sectorGroups(TAXONOMY, SECTOR_GROUPS).find(g => g.sectors.some(s => s.id === id))?.name || '';
+  }
+
   // Helper: Extract unique departments for dropdown
   function initDepartments() {
-    const depts = new Set();
-    rawData.forEach(item => {
-      if (item.departamento && item.departamento !== 'No Definido') {
-        depts.add(item.departamento);
-      }
-    });
-
-    const sortedDepts = Array.from(depts).sort();
-    sortedDepts.forEach(dept => {
+    Dash.departments(rawData).forEach(dept => {
       const opt = document.createElement('option');
       opt.value = dept;
       opt.textContent = dept;
@@ -150,82 +299,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter Pipeline
-  function getPaaFiltered() {
-    const query = searchInput.value.toLowerCase().trim();
-    const sectorVal = sectorSelect.value;
-    const minBudget = parseFloat(budgetSelect.value) || 0;
-    return PAA.filter(item => {
-      if (query && ![item.entidad, item.descripcion, item.modalidad].join(' ').toLowerCase().includes(query)) return false;
-      if (sectorVal !== 'todos' && !(item.sectores || []).some(s => s.id === sectorVal)) return false;
-      if (minBudget > 0 && (item.valor || 0) < minBudget) return false;
-      return true;
-    });
+  // Filter Pipeline (la lógica vive en dashboard-engine.js; aquí solo se leen los controles)
+  function currentFilters() {
+    return {
+      query: searchInput.value,
+      sector: sectorSelect.value,
+      stage: stageSelect.value,
+      minBudget: budgetSelect.value,
+      department: departmentSelect.value,
+      onlyNew
+    };
+  }
+
+  function tabContext() {
+    return { matchScore: i => getMatch(i)?.score || 0, minMatch: MIN_MATCH_SCORE, crmState };
+  }
+
+  /** La lista liviana no trae todas las fechas: solo se ordena por valor o por publicación. */
+  function sortHidden(list) {
+    const mode = sortSelect.value;
+    if (mode === 'valor') return [...list].sort((a, b) => (b.precio || 0) - (a.precio || 0));
+    if (mode === 'recientes') return [...list].sort((a, b) => String(b.fecha_publicacion || '').localeCompare(String(a.fecha_publicacion || '')));
+    if (mode === 'cierre') {
+      const key = it => (it.cierre_ofertas && it.cierre_ofertas >= new Date().toISOString().slice(0, 19) ? it.cierre_ofertas : '9999');
+      return [...list].sort((a, b) => key(a).localeCompare(key(b)));
+    }
+    return list;
+  }
+
+  /** Todo lo que pertenece a la pestaña activa, antes de los filtros del usuario. */
+  function tabBaseline() {
+    if (currentTab === 'paa') return PAA;
+    if (currentTab === 'hidden') return hiddenItems();
+    return Dash.tabItems(rawData, currentTab, tabContext());
   }
 
   function getFilteredData() {
-    if (currentTab === 'paa') return getPaaFiltered();
-    const query = searchInput.value.toLowerCase().trim();
-    const sectorVal = sectorSelect.value;
-    const stageVal = stageSelect.value;
-    const minBudget = parseFloat(budgetSelect.value) || 0;
-    const deptVal = departmentSelect.value;
-
-    const filtered = rawData.filter(item => {
-      // Tab based filtering: STRICTLY MUTUALLY EXCLUSIVE
-      const isAdjudicado = (item.etapa_comercial || '').toLowerCase().includes('adjudicado');
-      if (currentTab === 'parati') {
-        // Para Ti: ambas etapas, solo oportunidades con alta afinidad al perfil
-        if ((getMatch(item)?.score || 0) < MIN_MATCH_SCORE) return false;
-      } else if (currentTab === 'proveedores') {
-        // Radar B2B: Strictly for awarded contracts (direct supplier sales to the winning contractor)
-        if (!isAdjudicado) return false;
-      } else if (currentTab === 'observatorio') {
-        // Observatorio: Strictly for open tenders & drafts (prospective bidding before tender closes)
-        if (isAdjudicado) return false;
-      }
-
-      if (onlyNew && !item.nueva) return false;
-
-      // Keyword query
-      if (query) {
-        const corpus = [
-          item.referencia,
-          item.entidad,
-          item.descripcion,
-          item.contratista?.nombre,
-          item.contratista?.nit,
-          ...(item.materiales_detectados || [])
-        ].join(' ').toLowerCase();
-        if (!corpus.includes(query)) return false;
-      }
-
-      // Sector
-      if (sectorVal !== 'todos') {
-        const inSector = item.sectores && item.sectores.some(s => s.id === sectorVal);
-        if (!inSector) return false;
-      }
-
-      // Stage
-      if (stageVal !== 'todos') {
-        const stageStr = item.etapa_comercial.toLowerCase();
-        if (stageVal === 'adjudicado' && !stageStr.includes('adjudicado')) return false;
-        if (stageVal === 'ofertas' && !stageStr.includes('ofertas') && !stageStr.includes('abierta')) return false;
-        if (stageVal === 'borrador' && !stageStr.includes('borrador')) return false;
-      }
-
-      // Budget
-      if (minBudget > 0 && (item.precio || 0) < minBudget) {
-        return false;
-      }
-
-      // Department
-      if (deptVal !== 'todos' && item.departamento !== deptVal) {
-        return false;
-      }
-
-      return true;
-    });
+    const filters = currentFilters();
+    if (currentTab === 'paa') {
+      // El PAA no tiene etapa ni departamento de la entidad: solo aplican texto, sector y valor.
+      return Dash.applyFilters(PAA, { query: filters.query, sector: filters.sector, minBudget: filters.minBudget });
+    }
+    if (currentTab === 'hidden') {
+      return sortHidden(Dash.filterHidden(hiddenItems(), {
+        ...filters, onlyNew: false, reason: hiddenReasonSelect.value, family: hiddenFamilySelect.value
+      }));
+    }
+    if (otherMode()) {
+      return sortHidden(Dash.applyFilters(Dash.otherItems(hiddenItems(), currentTab), { ...filters, onlyNew: false }));
+    }
+    // El CRM muestra todo lo guardado: los filtros no aplican al tablero kanban.
+    const filtered = currentTab === 'crm' ? tabBaseline() : Dash.applyFilters(tabBaseline(), filters);
 
     if (currentTab === 'parati') {
       filtered.sort((a, b) => getMatch(b).score - getMatch(a).score || (b.precio || 0) - (a.precio || 0));
@@ -311,113 +435,96 @@ document.addEventListener('DOMContentLoaded', () => {
     return sorted;
   }
 
-  // Helper: Format currency in Colombian business terms
   function formatCop(val) {
-    if (val >= 1_000_000_000_000) {
-      return `$${(val / 1_000_000_000_000).toFixed(2).replace('.', ',')} Billones COP`;
-    } else if (val >= 1_000_000_000) {
-      return `$${(val / 1_000_000_000).toFixed(1).replace('.', ',')} Mil Millones COP`;
-    } else {
-      return `$${Math.round(val / 1_000_000).toLocaleString('es-CO')} Millones COP`;
-    }
+    return Dash.formatCop(val);
   }
 
   // Update Top KPIs dynamically per active tab AND active filters
   function updateKpis(filteredItems = []) {
-    let tabBaseline = rawData;
-    let baseName = 'esta vista';
-
-    if (currentTab === 'parati') {
-      tabBaseline = forYouItems();
-      baseName = 'oportunidades para ti';
-    } else if (currentTab === 'proveedores') {
-      tabBaseline = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
-      baseName = 'contratos adjudicados';
-    } else if (currentTab === 'observatorio') {
-      tabBaseline = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado'));
-      baseName = 'licitaciones abiertas';
-    } else if (currentTab === 'crm') {
-      tabBaseline = rawData.filter(i => crmState[i.id]);
-      baseName = 'oportunidades en CRM';
-    } else if (currentTab === 'paa') {
-      tabBaseline = PAA;
-      baseName = 'compras planeadas';
-    }
-
-    const baselineSum = tabBaseline.reduce((acc, curr) => acc + (curr.precio || 0), 0);
-    const filteredSum = filteredItems.reduce((acc, curr) => acc + (curr.precio || 0), 0);
-    const avgScore = filteredItems.length ? Math.round(filteredItems.reduce((acc, c) => acc + (c.score_calidad || 0), 0) / filteredItems.length) : 0;
-
-    const isFiltered = (filteredItems.length !== tabBaseline.length) || 
-                       searchInput.value.trim() !== '' || 
-                       sectorSelect.value !== 'todos' || 
-                       stageSelect.value !== 'todos' || 
-                       budgetSelect.value !== '0' || 
-                       departmentSelect.value !== 'todos';
+    const baseline = tabBaseline();
+    const baseName = TAB_BASE_NAMES[currentTab] || 'esta vista';
+    const k = Dash.kpis(filteredItems, baseline);
+    const isFiltered = k.count !== k.baselineCount || Dash.isFiltered(currentFilters());
 
     // 1. Pipeline Total Card
-    kpiTotalPipeline.textContent = formatCop(filteredSum);
+    kpiTotalPipeline.textContent = formatCop(k.sum);
     const kpiPipelineSub = document.querySelector('.kpi-emerald .kpi-sub');
     if (kpiPipelineSub) {
-      if (isFiltered && baselineSum > 0) {
-        const pct = Math.round((filteredSum / baselineSum) * 100);
-        kpiPipelineSub.textContent = `de ${formatCop(baselineSum)} en ${baseName} (${pct}%)`;
+      if (otherMode()) {
+        // Los procesos de "Otros" no son parte del tablero: no se comparan con su total.
+        kpiPipelineSub.textContent = 'En procesos sin sector (fuera del tablero)';
+      } else if (isFiltered && k.pct !== null) {
+        kpiPipelineSub.textContent = `de ${formatCop(k.baselineSum)} en ${baseName} (${k.pct}%)`;
       } else {
-        kpiPipelineSub.textContent = `Total en ${tabBaseline.length} ${baseName}`;
+        kpiPipelineSub.textContent = `Total en ${k.baselineCount} ${baseName}`;
       }
     }
 
     // 2. Count Card
-    document.getElementById('kpiTotalOpps').textContent = filteredItems.length;
+    kpiTotalOpps.textContent = k.count;
     const kpiOppsSub = document.querySelector('.kpi-cyan .kpi-sub');
     if (kpiOppsSub) {
-      kpiOppsSub.textContent = isFiltered ? `de ${tabBaseline.length} disponibles en ${baseName}` : `Calificadas sin OPS ni prestación de servicios`;
+      kpiOppsSub.textContent = otherMode() ? 'Muestra de procesos sin sector'
+        : isFiltered ? `de ${k.baselineCount} disponibles en ${baseName}` : `Calificadas sin OPS ni prestación de servicios`;
     }
 
-    // 3. Sector / Filter Card
+    // 3. Sector / Filter Card: con ~12 sectores ya no caben todos los nombres, solo los de más valor.
     const kpiSecTitle = document.getElementById('kpiSectorTitle');
     const kpiSecVal = document.getElementById('kpiSectorValue');
     const kpiSecSub = document.getElementById('kpiSectorSub');
     if (kpiSecTitle && kpiSecVal && kpiSecSub) {
-      if (sectorSelect.value !== 'todos') {
+      const sector = sectorSelect.value;
+      if (sector !== 'todos') {
         kpiSecTitle.textContent = 'Sector Filtrado';
-        kpiSecVal.textContent = sectorSelect.options[sectorSelect.selectedIndex].text;
-        kpiSecSub.textContent = `Visualizando este vertical específico`;
+        kpiSecVal.textContent = sectorName(sector);
+        kpiSecSub.textContent = Dash.isOtherSector(sector)
+          ? 'Procesos que no están en el tablero'
+          : [sectorGroupName(sector), !otherMode() && k.pct !== null ? `${k.pct}% del valor de ${baseName}` : ''].filter(Boolean).join(' · ');
       } else if (departmentSelect.value !== 'todos') {
         kpiSecTitle.textContent = 'Región Filtrada';
         kpiSecVal.textContent = departmentSelect.value;
         kpiSecSub.textContent = `Filtro geográfico activo`;
       } else {
+        const sectors = Dash.sectorOptions(TAXONOMY);
+        const top = Dash.topSectors(filteredItems, TAXONOMY, 2); // los nombres son largos: dos caben
+        const more = sectors.length - top.length;
         kpiSecTitle.textContent = 'Sectores Clave';
-        kpiSecVal.textContent = 'Acero, Solar & HORECA';
-        kpiSecSub.textContent = 'Metalmecánica, Energía & Gastronomía';
+        kpiSecVal.textContent = `${sectors.length} ${sectors.length === 1 ? 'sector' : 'sectores'}`;
+        kpiSecSub.textContent = top.length
+          ? `Más valor aquí: ${top.map(s => s.name).join(' · ')}${more > 0 ? ` y ${more} más` : ''}`
+          : '';
       }
     }
 
     // 4. Quality Score Card
-    document.getElementById('kpiAvgScore').textContent = currentTab === 'paa' ? '—' : `${avgScore} / 100`;
+    kpiAvgScore.textContent = k.avgScore === null ? '—' : `${k.avgScore} / 100`;
 
     // Tab badges (Zero duplication: Adjudicados vs Open Tenders)
-    const provCount = rawData.filter(i => (i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
-    const obsCount = rawData.filter(i => !(i.etapa_comercial || '').toLowerCase().includes('adjudicado')).length;
-    const crmCount = Object.keys(crmState).length;
-
-    document.getElementById('countProveedores').textContent = provCount;
-    document.getElementById('countObservatorio').textContent = obsCount;
-    document.getElementById('countCrm').textContent = crmCount;
+    document.getElementById('countProveedores').textContent = Dash.tabItems(rawData, 'proveedores').length;
+    document.getElementById('countObservatorio').textContent = Dash.tabItems(rawData, 'observatorio').length;
+    document.getElementById('countCrm').textContent = Dash.crmSummary(crmState, rawData).active;
     document.getElementById('countPaa').textContent = PAA.length;
     document.getElementById('countParaTi').textContent = Profile && Profile.getProfile() ? forYouItems().length : '✨';
+    // Todo lo que pasó el filtro y no está en el tablero: sin clasificar + clasificados que no entraron.
+    document.getElementById('countHidden').textContent = hiddenPayload ? hiddenPayload.total
+      : (META?.embudo ? META.embudo.sin_clasificar + META.embudo.clasificados - META.embudo.en_tablero : '…');
   }
 
   // Render View depending on current tab
   function renderView() {
     const filtered = getFilteredData();
+    updateSectorCounts();
     updateKpis(filtered);
+    hiddenControls.hidden = currentTab !== 'hidden';
 
     if (currentTab === 'crm') {
       cardsGrid.style.display = 'none';
       crmKanban.style.display = 'grid';
       renderCrmKanban();
+    } else if (currentTab === 'hidden' || otherMode()) {
+      cardsGrid.style.display = 'grid';
+      crmKanban.style.display = 'none';
+      renderHiddenCards(filtered);
     } else if (currentTab === 'paa') {
       cardsGrid.style.display = 'grid';
       crmKanban.style.display = 'none';
@@ -429,11 +536,92 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ---------- Fuera del tablero: sin clasificar y clasificadas que no entraron ----------
+  function hiddenMessage(icon, title, text) {
+    return `<div class="empty-foryou"><div class="empty-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div>`;
+  }
+
+  /** Badges de una ficha liviana: el motivo por el que no está en el tablero y lo que la identifica. */
+  function lightBadges(item) {
+    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
+    const badges = [{ icon: '', ...reason }];
+    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
+    if (item.convenio && item.motivo !== 'convenio') badges.push(Engine.BADGES.convenio);
+    return badges.map(badgeHtml).join('');
+  }
+
+  function renderHiddenCards(items) {
+    if (hiddenLoad === 'loading' || hiddenLoad === 'idle') {
+      resultsCount.textContent = 'Cargando los procesos fuera del tablero…';
+      cardsGrid.innerHTML = hiddenMessage('⏳', 'Cargando…', 'Se está descargando la lista de procesos fuera del tablero.');
+      return;
+    }
+    if (hiddenLoad === 'error') {
+      resultsCount.textContent = 'Fuera del tablero: sin datos';
+      cardsGrid.innerHTML = hiddenMessage('🗂️', 'Aún no hay datos de esta vista', 'La lista se genera en cada sincronización con SECOP II. Estará disponible después de la próxima corrida.');
+      return;
+    }
+
+    const p = hiddenPayload;
+    if (otherMode()) {
+      // hidden.js es una muestra (los de mayor puntaje): se dice cuántos hay en total.
+      const sector = sectorSelect.value;
+      const insurance = p.seguros || 0;
+      const total = sector === Dash.SEGUROS ? insurance : p.sin_sector - insurance;
+      const loaded = p.items.filter(i => i.motivo === 'sin_sector' && Dash.matchesSector(i, sector)).length;
+      const what = sector === Dash.SEGUROS ? 'seguros' : 'procesos sin sector';
+      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${what} en esta pestaña · <span class="freshness">no están en el tablero; la web carga una muestra de ${loaded} de ${total} (los de mayor puntaje)</span>`;
+    } else {
+      const capped = p.total > p.items.length
+        ? ` · la web carga ${p.items.length} de ${p.total}; el reporte completo está en <code>data/hidden_summary.md</code>`
+        : '';
+      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> de ${p.items.length} procesos fuera del tablero · <span class="freshness">${p.sin_sector} sin clasificar, ${p.fuera_de_corte} clasificados fuera del corte y ${p.convenio || 0} convenios abiertos${capped}</span>`;
+    }
+
+    if (!items.length) {
+      cardsGrid.innerHTML = hiddenMessage('🔍', 'Ningún proceso con estos filtros', otherMode()
+        ? 'Cambia de pestaña, de sector o limpia la búsqueda.'
+        : 'Cambia la familia UNSPSC, el motivo o la búsqueda.');
+      return;
+    }
+
+    cardsGrid.innerHTML = items.map(item => {
+      const awarded = Dash.isAwarded(item);
+      const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
+      const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
+      const meta = [item.modalidad, item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · ');
+      const published = item.fecha_publicacion ? `📅 Publicado ${escapeHtml(formatDate(new Date(item.fecha_publicacion)))}` : '';
+      const closing = item.cierre_ofertas && !awarded ? `⏳ Cierre ${escapeHtml(formatDate(new Date(item.cierre_ofertas), { withTime: true }))}` : '';
+      return `
+      <article class="opp-card opp-card-light">
+        <div>
+          <div class="opp-card-header">
+            <div>
+              <span class="stage-pill ${awarded ? 'stage-adjudicado' : 'stage-cerrada'}" title="Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">${escapeHtml((item.etapa_comercial || '').split('(')[0].trim())}</span>
+              <div class="card-sectors">${sectors}</div>
+            </div>
+            <div class="card-badges"><span class="badge badge-info" title="Familia UNSPSC (primeros 4 dígitos del código ${escapeHtml(item.unspsc || 'no reportado')})">UNSPSC ${escapeHtml(Dash.familyOf(item))}</span></div>
+          </div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
+          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
+          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
+          ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
+          ${published || closing ? `<div class="card-dates"><div class="date-meta">${[published, closing].filter(Boolean).join('<span class="dot">·</span>')}</div></div>` : ''}
+          <div class="badge-row">${lightBadges(item)}</div>
+          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
+        </div>
+        <div class="card-actions">
+          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
+        </div>
+      </article>`;
+    }).join('');
+  }
+
   // ---------- Compras planeadas (PAA) ----------
   function renderPaaCards(items) {
     resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${items.length === 1 ? 'compra planeada' : 'compras planeadas'} en los sectores del motor · <span class="freshness">Plan Anual de Adquisiciones ${new Date().getFullYear()}</span>`;
     if (!items.length) {
-      cardsGrid.innerHTML = `<div class="empty-foryou"><div style="font-size: 3rem;">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
+      cardsGrid.innerHTML = `<div class="empty-foryou"><div class="empty-icon">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
       return;
     }
     const nowMonth = new Date().getMonth() + 1;
@@ -456,7 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.valor || 0))}</div>
           ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
           <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || '')}</strong></div>
-          <div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${item.anio}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>
+          <div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>
           <div class="badge-row">
             <span class="badge badge-info" title="Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.">🗓️ Plan Anual</span>
             ${item.origen_recursos ? `<span class="badge badge-info" title="Origen de los recursos según el PAA">💰 ${escapeHtml(item.origen_recursos)}</span>` : ''}
@@ -481,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resultsCount.innerHTML = 'Oportunidades ordenadas por afinidad con tu perfil';
       cardsGrid.innerHTML = `
         <div class="empty-foryou">
-          <div style="font-size: 3rem; margin-bottom: 0.75rem;">✨</div>
+          <div class="empty-icon">✨</div>
           <h3>Crea tu perfil y te mostramos solo lo que es para ti</h3>
           <p>Cruzamos lo que ofreces, tu zona y tu tamaño con cada proceso de SECOP II y te explicamos por qué encaja.</p>
           <button class="btn btn-primary btn-lg" id="emptyForYouStart">Crear mi perfil en 2 minutos</button>
@@ -493,10 +681,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       cardsGrid.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
           <h3>No se encontraron oportunidades con los filtros seleccionados</h3>
-          <p style="margin-top: 0.5rem;">Intenta cambiar el sector, reducir el presupuesto mínimo o limpiar la búsqueda.</p>
+          <p>Intenta cambiar el sector, reducir el presupuesto mínimo o limpiar la búsqueda.</p>
         </div>
       `;
       return;
@@ -612,7 +800,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const stepDate = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
 
     return `
-      <article class="opp-card" id="card-${item.id}">
+      <article class="opp-card" id="card-${escapeHtml(item.id)}">
         <div>
           <div class="opp-card-header">
             <div>
@@ -882,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
         <p class="detail-sub">${plural(META.salieron, 'oportunidad salió', 'oportunidades salieron')} de la selección respecto a la corrida anterior.
           Próxima sincronización programada: <b>${escapeHtml(colombiaTime(META.proxima_programada))}</b>.</p>
+        ${META.reclasificacion ? '<p class="detail-sub">ℹ️ Esta corrida amplió los sectores del motor: los procesos que entraron al tablero solo por tener un sector nuevo no cuentan como nuevos.</p>' : ''}
         ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver ${META.nuevas === 1 ? 'la oportunidad nueva' : `solo las ${META.nuevas} nuevas`}</button>` : ''}
 
         <section class="detail-section">
@@ -975,19 +1164,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemEl = document.createElement('div');
         itemEl.className = 'kanban-item';
         itemEl.innerHTML = `
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem;">
-            <span style="font-size: 0.7rem; color: var(--accent-cyan); font-weight: 700;">${escapeHtml(opp.referencia || opp.id)}</span>
-            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald);">${opp.precio_formateado}</span>
+          <div class="kanban-item-head">
+            <span class="kanban-ref">${escapeHtml(opp.referencia || opp.id)}</span>
+            <span class="kanban-price">${escapeHtml(opp.precio_formateado)}</span>
           </div>
-          <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem;">
-            ${escapeHtml(opp.entidad || '')}
-          </div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">
-            ${escapeHtml(opp.contratista?.nombre || 'Sin contratista')}
-          </div>
-          <div style="display: flex; gap: 0.4rem; justify-content: flex-end;">
-            <button class="btn btn-outline btn-crm-move" data-id="${opp.id}" style="padding: 0.25rem 0.5rem; font-size: 0.7rem;">Mover Estado</button>
-            <button class="btn btn-primary btn-crm-pitch" data-id="${opp.id}" style="padding: 0.25rem 0.5rem; font-size: 0.7rem;">Pitch</button>
+          <div class="kanban-entity">${escapeHtml(opp.entidad || '')}</div>
+          <div class="kanban-contractor">${escapeHtml(opp.contratista?.nombre || 'Sin contratista')}</div>
+          <div class="kanban-actions">
+            <button class="btn btn-outline btn-sm btn-crm-move">Mover Estado</button>
+            <button class="btn btn-primary btn-sm btn-crm-pitch">Pitch</button>
           </div>
         `;
 
@@ -1009,7 +1194,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countColContactado').textContent = counts.contactado;
     document.getElementById('countColNegociacion').textContent = counts.negociacion;
     document.getElementById('countColGanado').textContent = counts.ganado;
-    resultsCount.innerHTML = `Mostrando <b>${Object.keys(crmState).length}</b> oportunidades en tu Pipeline CRM`;
+    // Una oportunidad guardada puede salir del dataset en una sincronización posterior:
+    // se cuenta aparte en vez de mostrar un total que no coincide con las columnas.
+    const crm = Dash.crmSummary(crmState, rawData);
+    const missing = crm.missing
+      ? ` · <span class="freshness">${crm.missing} ${crm.missing === 1 ? 'guardada ya no está' : 'guardadas ya no están'} en la selección actual de SECOP II</span>`
+      : '';
+    resultsCount.innerHTML = `Mostrando <b>${crm.active}</b> ${crm.active === 1 ? 'oportunidad' : 'oportunidades'} en tu Pipeline CRM${missing}`;
   }
 
   // Update CRM Status
@@ -1025,7 +1216,8 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast(`Guardado en CRM como: ${newStatus.toUpperCase()}`, 'success');
     }
     localStorage.setItem('secop_crm_state', JSON.stringify(crmState));
-    updateKpis(rawData);
+    // Los KPIs se recalculan con los filtros activos (antes volvían al total sin filtrar).
+    updateKpis(getFilteredData());
     if (currentTab === 'crm') renderCrmKanban();
   }
 
@@ -1060,26 +1252,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     modalBody.innerHTML = `
-      <div style="margin-bottom: 1.25rem;">
-        <span class="badge-count" style="background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); font-size: 0.75rem;">
-          ${item.tipo_oportunidad}
-        </span>
-        <h2 style="font-family: var(--font-heading); font-size: 1.4rem; margin-top: 0.5rem;">
-          ${escapeHtml(item.entidad)}
-        </h2>
-        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">
+      <div class="pitch-head">
+        <span class="badge-count pitch-type">${escapeHtml(item.tipo_oportunidad)}</span>
+        <h2 class="pitch-title">${escapeHtml(item.entidad)}</h2>
+        <div class="pitch-sub">
           Proceso: <b>${escapeHtml(item.referencia)}</b> • Monto: <b>${escapeHtml(item.precio_formateado)}</b>
         </div>
       </div>
 
-      <div style="margin-bottom: 1rem;">
-        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
-          Mensaje de Contacto Generado Automáticamente:
-        </div>
+      <div class="pitch-body">
+        <div class="pitch-label">Mensaje de Contacto Generado Automáticamente:</div>
         <div class="pitch-box" id="pitchText">${escapeHtml(pitchTemplate)}</div>
       </div>
 
-      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+      <div class="pitch-actions">
         <button class="btn btn-outline" id="btnCopyPitch">
           📋 Copiar al Portapapeles
         </button>
@@ -1110,6 +1296,10 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('No hay oportunidades para exportar con estos filtros', 'warning');
       return;
     }
+    if (currentTab === 'hidden' || otherMode()) {
+      exportHiddenToCsv(dataToExport);
+      return;
+    }
 
     const headers = [
       'ID', 'Referencia', 'Score', 'Etapa Comercial', 'Tipo Oportunidad',
@@ -1120,44 +1310,72 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const rows = dataToExport.map(item => [
-      `"${item.id || ''}"`,
-      `"${item.referencia || ''}"`,
+      item.id || '',
+      item.referencia || '',
       item.score_calidad || 0,
-      `"${item.etapa_comercial || ''}"`,
-      `"${item.tipo_oportunidad || ''}"`,
-      `"${(item.sectores || []).map(s => s.name).join(', ')}"`,
-      `"${(item.materiales_detectados || []).join(', ')}"`,
+      item.etapa_comercial || '',
+      item.tipo_oportunidad || '',
+      (item.sectores || []).map(s => s.name).join(', '),
+      (item.materiales_detectados || []).join(', '),
       item.precio || 0,
-      `"${(item.entidad || '').replace(/"/g, '""')}"`,
-      `"${item.departamento || ''}"`,
-      `"${item.ciudad || ''}"`,
-      `"${(item.contratista?.nombre || '').replace(/"/g, '""')}"`,
-      `"${item.contratista?.nit || ''}"`,
-      `"${item.url_secop || ''}"`,
-      ...[
-        STATE_LABELS[Engine.bidWindow(item).state].text,
-        (item.fechas?.cierre_ofertas || '').slice(0, 10),
-        (item.fechas?.adjudicacion || '').slice(0, 10),
-        (item.contrato?.inicio_ejecucion || '').slice(0, 10),
-        (item.contrato?.fin_ejecucion || '').slice(0, 10),
-        item.contrato?.estado || '',
-        personName(item.contrato?.contactos?.representante_legal || ''),
-        item.historial_contratista?.contratos ?? '',
-        Engine.nextStep(item).text
-      ].map(v => `"${String(v).replace(/"/g, '""')}"`)
+      item.entidad || '',
+      item.departamento || '',
+      item.ciudad || '',
+      item.contratista?.nombre || '',
+      item.contratista?.nit || '',
+      item.url_secop || '',
+      STATE_LABELS[Engine.bidWindow(item).state].text,
+      (item.fechas?.cierre_ofertas || '').slice(0, 10),
+      (item.fechas?.adjudicacion || '').slice(0, 10),
+      (item.contrato?.inicio_ejecucion || '').slice(0, 10),
+      (item.contrato?.fin_ejecucion || '').slice(0, 10),
+      item.contrato?.estado || '',
+      personName(item.contrato?.contactos?.representante_legal || ''),
+      item.historial_contratista?.contratos ?? '',
+      Engine.nextStep(item).text
     ]);
 
-    const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+    downloadCsv(Dash.buildCsv(headers, rows), `secop_oportunidades_${new Date().toISOString().slice(0, 10)}.csv`);
+    showToast(`Se exportaron ${dataToExport.length} oportunidades a CSV`, 'success');
+  }
+
+  /** La vista "fuera del tablero" usa la lista liviana: exporta sus propias columnas. */
+  function exportHiddenToCsv(items) {
+    const headers = ['ID', 'Referencia', 'Motivo', 'Sectores', 'Familia UNSPSC', 'C\u00F3digo UNSPSC', 'Valor COP', 'Entidad',
+      'Departamento', 'Ciudad', 'Modalidad', 'Tipo de contrato', 'Etapa', 'Publicaci\u00F3n', 'Cierre de ofertas', 'Descripci\u00F3n', 'Enlace SECOP'];
+    const rows = items.map(item => [
+      item.id || '',
+      item.referencia || '',
+      HIDDEN_REASONS[item.motivo]?.label || item.motivo || '',
+      (item.sectores || []).map(s => s.name).join(', '),
+      Dash.familyOf(item),
+      item.unspsc || '',
+      item.precio || 0,
+      item.entidad || '',
+      item.departamento || '',
+      item.ciudad || '',
+      item.modalidad || '',
+      item.tipo_contrato || '',
+      item.etapa_comercial || '',
+      (item.fecha_publicacion || '').slice(0, 10),
+      (item.cierre_ofertas || '').slice(0, 10),
+      item.descripcion || '',
+      item.url_secop || ''
+    ]);
+    downloadCsv(Dash.buildCsv(headers, rows), `secop_fuera_del_tablero_${new Date().toISOString().slice(0, 10)}.csv`);
+    showToast(`Se exportaron ${items.length} procesos fuera del tablero a CSV`, 'success');
+  }
+
+  function downloadCsv(csvContent, filename) {
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `secop_oportunidades_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', filename);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    showToast(`Se exportaron ${dataToExport.length} oportunidades a CSV`, 'success');
+    URL.revokeObjectURL(url);
   }
 
   // Toast System

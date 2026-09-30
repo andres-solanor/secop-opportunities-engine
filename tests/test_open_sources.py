@@ -74,7 +74,9 @@ class TestOpenSources(unittest.TestCase):
         self.assertFalse(p["ofertas"]["proveedores"][1]["ganador"])
 
     def test_group_members_with_history_and_no_personal_contacts(self):
-        history = lambda nits: {"800000001": {"contratos": 12, "valor_total": 3e10}}
+        def history(nits):
+            return {"800000001": {"contratos": 12, "valor_total": 3e10}}
+
         p = enricher(history_fn=history).enrich([prospect()])[0]
         self.assertEqual([m["nombre"] for m in p["integrantes"]], ["ACERIA UNO SAS", "MONTAJES DOS SAS"])
         self.assertTrue(p["integrantes"][0]["lider"])
@@ -99,9 +101,27 @@ class TestOpenSources(unittest.TestCase):
         items = enricher().paa()
         self.assertEqual([i["id"] for i in items], ["P1"])
         self.assertEqual(items[0]["mes_esperado"], 11)
-        self.assertEqual(items[0]["sectores"][0]["id"], "acero_metalmecanica")
+        # El orden de los sectores sigue al de config/taxonomy.json: no se asume ninguno.
+        self.assertIn("acero_metalmecanica", [s["id"] for s in items[0]["sectores"]])
         self.assertNotIn("persona@gov.co", repr(items))
         self.assertNotIn("Pedro", repr(items))
+
+    def test_paa_is_not_queried_with_two_digit_segments(self):
+        class Recorder(FakeClient):
+            def __init__(self):
+                super().__init__()
+                self.wheres = []
+
+            def query(self, dataset_id, where=None, **kw):
+                self.wheres.append(where or "")
+                return super().query(dataset_id, where=where, **kw)
+
+        client = Recorder()
+        taxonomy = {"salud": {"name": "Salud", "unspsc_prefixes": ["42"]},
+                    "acero": {"name": "Acero", "unspsc_prefixes": ["7214", "3010"]}}
+        OpenSourcesEnricher(client, taxonomy, log=lambda _: None, today=datetime(2026, 9, 28)).fetch_paa()
+        self.assertFalse(any("'%42%'" in w for w in client.wheres))
+        self.assertTrue(any("'%7214%'" in w for w in client.wheres))
 
     def test_month_number(self):
         self.assertEqual(month_number("Septiembre"), 9)

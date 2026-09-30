@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# Dos corridas a la vez competirían por el mismo commit de datos.
+concurrency:
+  group: daily-secop-refresh
+  cancel-in-progress: false
+
 jobs:
   harvest-and-update:
     runs-on: ubuntu-latest
@@ -22,6 +27,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Run tests before touching published data
+        run: |
+          python -m unittest discover tests
+
       - name: Harvest and enrich live SECOP II data
         run: |
           python -m src.export_prospects
@@ -30,7 +39,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ web/data.js web/taxonomy.js
+          git add data/ web/data.js web/taxonomy.js web/hidden.js
           if git diff --staged --quiet; then
             echo "No changes in SECOP II dataset today."
           else

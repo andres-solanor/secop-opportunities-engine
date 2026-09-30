@@ -3,8 +3,9 @@ Unit tests for SECOP II Opportunities Engine.
 """
 
 import unittest
-from src.filters.noise_filter import NoiseFilter
+
 from src.enrichers.scope_extractor import ScopeExtractor
+from src.filters.noise_filter import NoiseFilter
 
 
 class TestSecopEngine(unittest.TestCase):
@@ -87,7 +88,9 @@ class TestSecopEngine(unittest.TestCase):
         }
         enriched = self.scope_extractor.enrich(record)
         sector_ids = [s["id"] for s in enriched["sectores"]]
+        # Equipos de cocina para comedores del PAE: es HORECA (lo que se compra) y PAE (el programa).
         self.assertIn("horeca_industrial", sector_ids)
+        self.assertIn("alimentacion_escolar", sector_ids)
         self.assertIn("cocina industrial", enriched["materiales_detectados"])
         self.assertIn("cuarto frío", enriched["materiales_detectados"])
         self.assertTrue(enriched["contratista"]["es_consorcio"])
@@ -101,18 +104,25 @@ class TestTaxonomyExport(unittest.TestCase):
         import json
         import os
         import tempfile
+
         from src.export_prospects import export_taxonomy
 
         with tempfile.TemporaryDirectory() as tmp:
             export_taxonomy(tmp)
             with open(os.path.join(tmp, "taxonomy.js"), encoding="utf-8") as f:
                 content = f.read()
-        prefix = "window.SECTOR_TAXONOMY = "
-        self.assertTrue(content.startswith(prefix))
-        exported = json.loads(content[len(prefix):].rstrip().rstrip(";"))
+        assignments = {}
+        for block in content.split(";\n"):
+            if block.strip():
+                name, _, value = block.partition(" = ")
+                assignments[name.strip()] = json.loads(value)
+        exported = assignments["window.SECTOR_TAXONOMY"]
+        groups = assignments["window.SECTOR_GROUPS"]
         self.assertEqual(set(exported), set(ScopeExtractor.TAXONOMIES))
+        group_ids = [g["id"] for g in groups]
         for key, data in ScopeExtractor.TAXONOMIES.items():
             self.assertEqual(exported[key]["keywords"], data["keywords"])
+            self.assertIn(exported[key]["grupo"], group_ids)
 
 
 

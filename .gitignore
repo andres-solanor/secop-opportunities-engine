@@ -21,7 +21,19 @@ wheels/
 .installed.cfg
 *.egg
 venv/
+.venv/
 ENV/
+.env
+.ruff_cache/
+.pytest_cache/
+
+# Node (solo herramientas de desarrollo)
+node_modules/
+test-results/
+playwright-report/
+
+# Salidas locales del pipeline (python -m src.export_prospects --out ...)
+out/
 
 # IDEs
 .vscode/

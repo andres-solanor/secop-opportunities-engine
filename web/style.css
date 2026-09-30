@@ -582,8 +582,9 @@ body {
 }
 
 /* Pipeline CRM Kanban View */
+/* Oculto hasta que se abre la pestaña CRM: app.js cambia `style.display` al pintar cada vista. */
 .crm-kanban {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   margin-top: 1rem;
@@ -1266,6 +1267,55 @@ body {
 
 .catalog-group + .catalog-group {
   margin-top: 0.75rem;
+}
+
+/* Familias de sectores en el paso "¿Qué ofreces?": plegables para que ~12 sectores no abrumen. */
+.catalog-family {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+}
+
+.catalog-family + .catalog-family {
+  margin-top: 0.5rem;
+}
+
+.catalog-family > summary {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.catalog-family > summary small {
+  font-weight: 500;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.catalog-family[open] > summary {
+  margin-bottom: 0.65rem;
+}
+
+.section-gap {
+  margin-top: 1.25rem;
+}
+
+.signin .brand-icon {
+  margin: 0 auto 1rem;
+}
+
+.signin .wizard-title,
+.signin .wizard-hint {
+  text-align: center;
+}
+
+.signin .google-slot {
+  justify-content: center;
 }
 
 .catalog-sector {
@@ -2049,4 +2099,158 @@ body {
 
 .detail-section .sync-table .badge {
   cursor: default;
+}
+
+/* El atributo `hidden` debe ganar a los display de las clases (pestañas y controles son flex). */
+[hidden] {
+  display: none !important;
+}
+
+/* Estados vacíos (antes eran estilos en línea en app.js) */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  margin-top: 0.5rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Botones compactos */
+.btn-compact {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+/* Ítems del CRM kanban */
+.kanban-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.kanban-ref {
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.kanban-price {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+
+.kanban-entity {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.kanban-contractor {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.kanban-actions {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+/* Modal de pitch */
+.pitch-head {
+  margin-bottom: 1.25rem;
+}
+
+.pitch-type {
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+}
+
+.pitch-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.pitch-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.pitch-body {
+  margin-bottom: 1rem;
+}
+
+.pitch-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.pitch-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* Fuera del tablero */
+.toggle-hidden {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-hidden input {
+  accent-color: var(--accent-cyan);
+  cursor: pointer;
+}
+
+.view-tab-hidden {
+  border: 1px dashed var(--border-subtle);
+}
+
+.hidden-controls {
+  display: flex;
+  flex: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
+  min-width: 260px;
+}
+
+.opp-card-light {
+  border-style: dashed;
+}
+
+/* Foco visible al navegar con teclado */
+.btn:focus-visible,
+.view-tab:focus-visible,
+.modal-close:focus-visible,
+.filter-select:focus-visible,
+.toggle-hidden input:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
 }
