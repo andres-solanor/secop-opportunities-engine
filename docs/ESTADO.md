@@ -101,3 +101,32 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\plan-to-do-the-mighty-peacock.
   1. Pedir al dueño el visto bueno para `git push -u origin pro/foundation` y abrir el PR a `main`; el workflow de CI (`ci.yml`) correrá las cinco verificaciones.
   2. Después de fusionar, revisar la primera corrida diaria en `main`: que salga con código 0, que `meta.reclasificacion` sea true, que el PAA quede en estado ok y que cada sector tenga fichas en la web publicada.
   3. Decidir con el dueño si publicar GitHub Pages desde un artefacto del workflow (fila "Peso del repositorio"), antes de que se acumulen commits diarios de unos 3,5 MB.
+
+## Estado de la sesión — 2026-09-30 (cierre) · Claude Code · rama `pro/foundation` → `main`
+
+- **Terminado y publicado** (con el visto bueno del dueño):
+  - Push de `pro/foundation` y PR #1 (https://github.com/andres-solanor/secop-opportunities-engine/pull/1). El CI pasó en GitHub: python 3.11, python 3.14, node y e2e.
+  - Fusionado en `main` como `320621e` (commit de fusión; antes se integró el commit de datos diario de `main`, `e2300cc`).
+  - Corrida manual del refresco diario (run 36778941162): código 0, 116 pruebas antes de publicar, commit de datos `c2f71cb` con `web/hidden.js`.
+  - Meta publicada:
+    - `generated_at` 2026-09-30T21:25:49Z, `duracion_s` 232,5, 500 curadas (216 adjudicadas), `nuevas` 0.
+    - `reclasificacion` true, `taxonomia_version` 2, 80 compras planeadas, `fuentes_con_error` vacío.
+  - GitHub Pages construido desde `c2f71cb`. Verificado en el navegador sobre la URL publicada (https://andres-solanor.github.io/secop-opportunities-engine/web/):
+    - 12 de 12 casos en que el conteo del filtro coincide con las fichas.
+    - "Otros" carga, desactivado en el PAA; 300 convenios visibles en "Fuera del tablero".
+    - Sin errores de consola, sin desbordamiento en 390 px.
+- **Sin commit:** nada, salvo este bloque, que va en un PR de documentación.
+- **Estado de las carpetas:** `pro/foundation` está al día con `origin/main`. La carpeta de Antigravity (`Antigravity/Oportunities Engine`, rama `main`) está 59 commits detrás de `origin/main` y no se tocó: el dueño o Antigravity deben hacer `git pull` ahí antes de trabajar.
+- **Errores abiertos conocidos:**
+  - La tarjeta "Sectores Clave" ocupa 2 líneas en 390 px.
+  - `hidden.js` es una muestra (1500 de 4844 procesos fuera del tablero); "Otros" lo dice en el contador.
+  - Sector "Eventos, Logística & Víveres" pequeño (29 clasificados en la medición) tras quitar "eventos" suelto: revisar palabras clave con el reporte.
+  - Agua y saneamiento no tuvo compras planeadas en el PAA de esta corrida (el PAA solo usa el prefijo `4710`).
+  - Avisos de GitHub Actions en la corrida: acciones con Node.js 20 (`actions/checkout@v4`, `actions/setup-python@v5`) forzadas a Node 24, y `ubuntu-latest` pasa a Ubuntu 26 desde el 2026-10-19.
+  - Vienen de antes: revisar "vigas"; Prettier no instalado; archivo de reglas de Antigravity `[POR VERIFICAR]`.
+- **Pendientes para la próxima sesión (en orden):**
+  1. **Peso del repositorio** (decidido dejarlo para la próxima sesión): cada commit de datos agrega unos 3,5 MB (`web/data.js` 2,24 MB y `web/hidden.js` 1,32 MB en la corrida de prueba). Propuesta: publicar GitHub Pages desde un artefacto del workflow y dejar de versionar los archivos generados. Ver `docs/PLAN_ITERACIONES.md`, iteración 8.
+  2. Revisar la primera corrida programada (2026-10-01, 11:00 UTC): que salga con código 0, que `reclasificacion` ya no aparezca (la versión 2 quedó registrada) y que `nuevas` vuelva a contar lo publicado desde la corrida anterior.
+  3. Actualizar las versiones de las acciones de GitHub antes del cambio de runner del 2026-10-19. Las versiones nuevas están `[POR VERIFICAR]` en la documentación de cada acción. Cambiar también la copia en `ci/`: una prueba compara ambas.
+  4. Calidad de sectores: Eventos (pocas coincidencias), "vigas" en Acero, compras planeadas de Agua; cada ajuste con su prueba y una muestra de 20 procesos.
+  5. Deuda menor: Prettier, archivo de reglas de Antigravity, tarjeta KPI en una línea.
