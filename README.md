@@ -22,14 +22,26 @@ En SECOP II, una parte grande de lo que se publica son **contratos de prestació
 
 ---
 
-## 🚀 Sectores Especializados en el MVP
+## 🚀 Sectores
 
-| Sector | Insumos & Materiales Detectados | Público Objetivo |
+Doce sectores en tres familias. Son los grupos del filtro de sector de la web; la lista completa de palabras clave está en [`config/taxonomy.json`](config/taxonomy.json).
+
+| Familia | Sector | Qué detecta |
 |---|---|---|
-| 🏗️ **Acero & Metalmecánica** | Estructuras metálicas, perfiles, vigas, tubería estructural, varilla, cerchas, cubiertas. | Acerías, distribuidores de perfiles, talleres de soldadura e ingeniería estructural. |
-| 🍳 **HORECA & Gastronomía** | Cocinas industriales, hornos combinados, cuartos fríos, refrigeración, marmitas, dotación PAE. | Fabricantes y distribuidores de equipamiento institucional, frío comercial y catering. |
-| ☀️ **Energía Solar & Alumbrado** | Paneles solares, inversores fotovoltaicos, luminarias LED, transformadores, subestaciones eléctricas. | Empresas de ingeniería eléctrica, EPC solares y distribuidores de iluminación pública. |
-| 🏛️ **Obra Civil & Licitaciones** | Infraestructura vial, puentes, sedes educativas, hospitales, adecuación institucional. | Contratistas generales, consorcios y aliados de estructuración de licitaciones. |
+| Obra e infraestructura | 🏛️ **Construcción & Obra Civil General** | Contratos de tipo Obra, vías terciarias, malla vial, placa huella, infraestructura educativa. |
+| | 💧 **Agua Potable & Saneamiento** | Acueducto, alcantarillado, PTAP, PTAR, plantas de tratamiento. |
+| | ☀️ **Energía Solar & Alumbrado Público** | Paneles solares, fotovoltaica, luminarias LED, redes y subestaciones eléctricas. |
+| Suministros y equipos | 🏗️ **Acero & Metalmecánica** | Estructuras metálicas, perfiles, vigas, varilla, cerchas, cubiertas. |
+| | 🍳 **HORECA & Maquinaria Gastronómica** | Cocinas industriales, cuartos fríos, hornos, menaje y equipos de cocina. |
+| | 💻 **Tecnología & Equipos de Cómputo** | Equipos de cómputo, licenciamiento, infraestructura tecnológica, seguridad perimetral. |
+| | 🩺 **Salud: Insumos & Equipos Médicos** | Dispositivos médicos, medicamentos, material médico quirúrgico, equipos biomédicos. |
+| | 🚚 **Vehículos & Maquinaria** | Camionetas, motocicletas, ambulancias, volquetas, maquinaria amarilla, repuestos del parque automotor. |
+| | 👕 **Dotación, Uniformes & Mobiliario** | Calzado y vestido de labor, uniformes, elementos de protección personal, mobiliario. |
+| Servicios | 📐 **Interventoría & Consultoría** | Contratos de tipo Interventoría o Consultoría, estudios y diseños. |
+| | 🍎 **Alimentación Escolar (PAE)** | Programa de alimentación escolar, complemento alimentario, restaurantes escolares. |
+| | 🎪 **Eventos, Logística & Víveres** | Operador logístico, organización de eventos, víveres, frutas y verduras. |
+
+Lo que pasa el filtro de ruido sin sector aparece como **Otros** en el mismo filtro; los programas de seguros van ahí, identificados, porque solo una aseguradora puede ofertar. Los convenios con entidades sin ánimo de lucro (Decreto 092) se marcan: los adjudicados quedan en el Radar B2B (el operador compra insumos) y los abiertos salen del tablero.
 
 ---
 
@@ -39,7 +51,7 @@ En SECOP II, una parte grande de lo que se publica son **contratos de prestació
 flowchart LR
     A[SECOP II Socrata API<br/>datos.gov.co] --> B[Filtro de Ruido<br/>NoiseFilter]
     B --> C[Extractor de Alcance<br/>ScopeExtractor]
-    C --> D[Curador de Oportunidades<br/>150+ Leads con Score]
+    C --> D[Curador de Oportunidades<br/>500 con score y mínimo por sector]
     D --> E[Web App & Mini-CRM<br/>GitHub Pages]
     D --> F[Datasets Exportables<br/>JSON & CSV]
 ```

@@ -138,11 +138,11 @@ Estas mejoras se pueden hacer en cualquier momento:
 
 | Tarea | Talla | Detalle |
 |---|---|---|
-| Falsos positivos de taxonomía | S | **Hecho en parte (2026-09-30, rama `pro/foundation`):** exclusiones por palabra clave en `config/taxonomy.json` ("varilla" con "cobre" o "puesta a tierra"). **Pendiente del dueño:** separar "pae" / "alimentación escolar" de HORECA; revisar "vigas" |
+| Falsos positivos de taxonomía | S | **Hecho (2026-09-30, rama `pro/foundation`):** PAE es sector propio y HORECA solo equipos de cocina; exclusiones por palabra (`excluir_si`) y por tipo de contrato (`excluir_tipos_contrato`) con pruebas, tras leer 20 procesos por sector. Pendiente: revisar "vigas" |
 | Leads adjudicados recientes | S | **Hecho (2026-09-30):** la consulta vieja filtraba por estados que no existen en SECOP II y no devolvía nada. `src/harvest.py` usa `adjudicado = 'Si'` y una consulta de adjudicados de los últimos 14 días |
-| Más volumen | M | **Hecho en parte (2026-09-30):** las consultas paginan y lo que no entra al tablero queda en la vista "Fuera del tablero". Pendiente: subir el tablero de 150 a 400–600 y revisar el peso de `web/data.js` (cargar por partes si pasa de ~3 MB) |
-| Sectores nuevos | S | **Pendiente del dueño:** elegirlos con `data/hidden_summary.md` (muestra en `docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md`) y agregarlos a `config/taxonomy.json` |
-| Peso del repositorio | S | `web/data.js` y `web/hidden.js` se versionan a diario (unos 0,7 MB cada uno). Publicar GitHub Pages desde un artefacto del workflow evitaría esos commits |
+| Más volumen | M | **Hecho (2026-09-30):** el tablero pasa de 150 a 500 con mínimo de 20 por sector. En la corrida de prueba `web/data.js` pesó 2,24 MB (antes 0,61 MB) y la corrida tardó 449 s |
+| Sectores nuevos | S | **Hecho (2026-09-30):** 12 sectores en 3 familias, "Otros" (sin sector y seguros) en el filtro, convenios con entidades sin ánimo de lucro marcados. Muestra en `docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md` |
+| Peso del repositorio | S | **Más urgente desde el 2026-09-30:** con 500 registros `web/data.js` pesa 2,24 MB y `web/hidden.js` 1,32 MB, y ambos se versionan a diario. Publicar GitHub Pages desde un artefacto del workflow evitaría esos commits |
 | Proveedores registrados | S | El diagnóstico no encontró el dataset de "proveedores registrados" de SECOP II; buscarlo con `probe_sources` ampliando las búsquedas |
 | Cobertura de sanciones | S | `4n4q-k399` es SECOP I; buscar un equivalente de SECOP II o de la Procuraduría/Contraloría con datos abiertos |
 | PAA más preciso | S | Hoy se filtra por prefijos UNSPSC de los sectores; agregar palabras clave del sector sobre la descripción para descartar ruido |

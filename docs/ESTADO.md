@@ -10,9 +10,9 @@ Plan vigente: profesionalización del prototipo (base de ingeniería, calidad de
 | 1 | `AGENTS.md` compartido, `CLAUDE.md` que lo importa, este documento | Hecha |
 | 2 | Herramientas y CI: `pyproject.toml` (ruff), `package.json` (ESLint, Prettier, Playwright), `ci.yml`, pruebas antes del commit diario | Hecha, salvo Prettier (no está en `package.json`) |
 | 3 | Contrato de datos (`src/schema.py`), fallas de descarga visibles, paginación y reintentos, precios ajustados marcados, `--out`, renombrar `prospects_prototype_50.*` | Hecha |
-| 4 | Calidad de datos: valores reales de modalidad y estado, términos de exclusión, duplicados, adjudicados recientes | Hecha en parte: falta separar PAE de HORECA y revisar "vigas" |
-| 4b | Taxonomía en `config/taxonomy.json`, consultas generadas, descarga sin sector, grupo "sin clasificar" oculto por defecto, reporte de descubrimiento para elegir sectores nuevos | Hecha la base; **los sectores nuevos ya están decididos y faltan por implementar** (ver el bloque de abajo) |
-| 5 | Frontend: `web/dashboard-engine.js` con pruebas, sin estilos en línea, accesibilidad de modales, pruebas de humo con Playwright | Hecha en parte: quedan `style=` en `web/profile.js` (9) y `web/index.html` (1) |
+| 4 | Calidad de datos: valores reales de modalidad y estado, términos de exclusión, duplicados, adjudicados recientes | Hecha, salvo revisar "vigas" |
+| 4b | Taxonomía en `config/taxonomy.json`, consultas generadas, descarga sin sector, grupo "sin clasificar" oculto por defecto, reporte de descubrimiento para elegir sectores nuevos | Hecha: 12 sectores en 3 familias, "Otros", convenios marcados, tablero de 500 |
+| 5 | Frontend: `web/dashboard-engine.js` con pruebas, sin estilos en línea, accesibilidad de modales, pruebas de humo con Playwright | Hecha: filtro de sector agrupado con conteos; quedan 2 `style=` con valores de datos (ancho de barra, ángulo), a propósito |
 | 6 | README y documentación | Hecha |
 
 ## Formato del bloque
@@ -60,3 +60,44 @@ Bloque reconstruido al inicio de la sesión siguiente: la sesión original se co
   1. Editar `config/taxonomy.json` con los puntos 1 a 3, con una prueba por sector en `tests/test_harvest_curation.py`; regenerar `web/taxonomy.js` con el pipeline, no a mano.
   2. Correr `python -m src.export_prospects --out <carpeta temporal>` y leer el embudo y `hidden_summary.md` para resolver el punto 4 con cifras calculadas; mostrarle al dueño la propuesta de "Otros" antes de aplicarla.
   3. Correr `npm run test:e2e`, abrir el tablero con los datos nuevos y confirmar que muestra registros reales en cada sector; después pedir el visto bueno para el push y el PR.
+
+## Estado de la sesión — 2026-09-30 (tarde) · Claude Code · rama `pro/foundation`
+
+Plan de la sesión: `C:\Users\abner\.claude\plans\plan-to-do-the-mighty-peacock.md` (aprobado por el dueño).
+
+- **Decisiones del dueño en esta sesión:**
+  - Filtro de sector: un solo desplegable nativo, agrupado por familia, con conteo.
+  - "Otros" (lo sin sector) va como opción del filtro, no como sector.
+  - Tablero de unos 500 con mínimo por sector.
+  - Sectores extra: Salud, Vehículos y maquinaria, Dotación y mobiliario, Eventos/logística/víveres.
+  - Convenios con ESAL: marcarlos; los adjudicados quedan en el Radar y los abiertos salen del tablero.
+  - Seguros: en "Otros", identificados.
+- **Terminado y con commit:**
+  - `c443671` bloque de estado reconstruido de la sesión anterior.
+  - `0ec69fe` grupos de sectores y regla por tipo de contrato (`tipos_contrato`).
+  - `ebc11a8` PAE como sector; Obra civil ampliada; Agua, Tecnología, Interventoría.
+  - `c2f9cf4` cuatro sectores más; `excluir_tipos_contrato` (interventoría solo en su sector, seguros en ninguno); falsos positivos corregidos tras leer 20 procesos por sector; tope de consultas por sector 3000.
+  - `b6ac5a0` tablero de 500 con mínimo de 20 por sector; convenios marcados; lista oculta con 3 motivos y tope 1500; regla de "nueva" tras reclasificación; consulta del PAA sin prefijos de 2 dígitos.
+  - `6c3a4e5` web: filtro agrupado con conteos, "Otros" (sin sector / seguros) desde `hidden.js`, badges "Convenio ESAL" y "Solo aseguradoras", tarjeta KPI con los 2 sectores de más valor, onboarding por familias plegables, estilos en línea estáticos a CSS.
+- **Cifras medidas (una descarga de 8805 registros, misma data para antes y después):**
+  - Clasificados: 1466 → 3693. Sin clasificar: 3878 → 1651.
+  - HORECA tenía 431 procesos y 424 clasificaban solo por "pae"/"alimentación escolar" (372 + 29 + 23).
+  - Corrida completa con `--out`: 500 en tablero, todos los sectores con 20 o más; `web/data.js` 2.241.702 B (antes 614.665 B); `web/hidden.js` 1.315.029 B; 449 s (la última meta del repo decía 173,6 s).
+  - PAA solo, tras el arreglo: 80 compras en 146,7 s.
+- **Verificado:**
+  - ruff sin hallazgos; 116 pruebas Python; 36 pruebas Node; ESLint sin errores; 9 de 9 pruebas de humo, contra los datos del repo y contra un sitio de prueba con los datos de la corrida de 500.
+  - En el navegador, el número de cada opción del filtro coincide con las fichas mostradas (12 de 12 casos: 4 sectores y las 2 opciones de "Otros", en Radar y Observatorio).
+  - Sin errores de consola y sin desbordamiento horizontal en 390 px.
+- **Sin commit:** los cambios de documentación de este cierre (`AGENTS.md`, `README.md`, `docs/PLAN_ITERACIONES.md`, `docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md`, este archivo) van en el commit de cierre.
+- **Datos no regenerados, a propósito:** `data/*` y `web/data.js` de la rama siguen siendo los de `origin/main` (150 registros, taxonomía vieja). `AGENTS.md` prohíbe hacer commit de datos regenerados en una rama de trabajo; los publica el workflow diario en `main`. Hasta que corra ese workflow, la web de la rama muestra los 4 sectores viejos en los datos, "Otros" sin datos (no hay `hidden.js`) y los grupos del filtro con conteos en 0 para los sectores nuevos.
+- **Sin publicar:** `pro/foundation` no tiene rama remota; el push y el PR esperan al dueño.
+- **Errores abiertos conocidos:**
+  - La tarjeta "Sectores Clave" ocupa 2 líneas en 390 px (el plan pedía 1; los nombres de sector son largos).
+  - `hidden.js` es una muestra (1500 de 4844); "Otros" lo dice en el contador.
+  - En la corrida de prueba, la primera consulta del PAA se venció antes del arreglo de prefijos; después del arreglo no se ha visto en una corrida completa, solo aislada.
+  - Pendientes que vienen de antes: revisar "vigas"; Prettier no instalado; archivo de reglas de Antigravity `[POR VERIFICAR]`.
+  - La corrida diaria tardará más (449 s frente a 173,6 s) y los commits de datos pesarán unos 3,5 MB al día: ver "Peso del repositorio" en `docs/PLAN_ITERACIONES.md`.
+- **Próximas tres acciones:**
+  1. Pedir al dueño el visto bueno para `git push -u origin pro/foundation` y abrir el PR a `main`; el workflow de CI (`ci.yml`) correrá las cinco verificaciones.
+  2. Después de fusionar, revisar la primera corrida diaria en `main`: que salga con código 0, que `meta.reclasificacion` sea true, que el PAA quede en estado ok y que cada sector tenga fichas en la web publicada.
+  3. Decidir con el dueño si publicar GitHub Pages desde un artefacto del workflow (fila "Peso del repositorio"), antes de que se acumulen commits diarios de unos 3,5 MB.

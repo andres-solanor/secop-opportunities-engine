@@ -35,11 +35,11 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 
 | Ruta | Rol |
 |---|---|
-| `config/taxonomy.json` | **Fuente única del vocabulario de sectores:** palabras clave, exclusiones, prefijos UNSPSC, peso y lo que se le pide a SECOP II (`harvest`). La carga `src/taxonomy.py`. |
+| `config/taxonomy.json` | **Fuente única del vocabulario de sectores:** grupos (familias del filtro de la web), y por sector: grupo, palabras clave, exclusiones, prefijos UNSPSC, tipos de contrato que clasifican (`tipos_contrato`) o excluyen (`excluir_tipos_contrato`), peso y lo que se le pide a SECOP II (`harvest`). La carga `src/taxonomy.py`. Subir `version` al cambiar sectores: el pipeline no marca como "nuevas" las que solo entran por la reclasificación. |
 | `src/services/socrata_client.py` | Cliente HTTP de la API SODA (solo biblioteca estándar): reintentos, paginación (`query_all`) y token opcional `SOCRATA_APP_TOKEN`. |
 | `src/harvest.py` | Descarga: una consulta por sector (obligatorias: si falla una, la corrida se detiene) y dos generales (publicados y adjudicados de los últimos 14 días). Reporta el estado de cada consulta. |
-| `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. `reason_group` agrupa los motivos de rechazo. |
-| `src/curation.py` | Embudo: duplicados por portafolio, rechazados, sin clasificar, clasificados; selección del tablero (`select_curated`) y lista "fuera del tablero". `check_funnel` exige que todo sume. |
+| `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. `reason_group` agrupa los motivos de rechazo. `is_agreement` detecta convenios con entidades sin ánimo de lucro (Decreto 092, "aunar esfuerzos"): no se rechazan, se marcan (`convenio`). |
+| `src/curation.py` | Embudo: duplicados por portafolio, rechazados, sin clasificar, clasificados; selección del tablero (`select_curated`: 500, con un mínimo de 20 por sector y cupo de adjudicados) y lista "fuera del tablero" (motivos `sin_sector`, `fuera_de_corte`, `convenio`). Los convenios abiertos no van al tablero; los adjudicados sí. `check_funnel` exige que todo sume. |
 | `src/discovery.py` | Reporte `data/hidden_summary.md`: lo sin clasificar por familia UNSPSC, tipo de contrato y frases frecuentes, para decidir sectores nuevos. |
 | `src/schema.py` | Contrato de datos entre Python y la web. Se valida antes de escribir cualquier archivo. |
 | `src/enrichers/scope_extractor.py` | Clasifica por sector con la taxonomía (`ScopeExtractor.TAXONOMIES`), etapa comercial, score de calidad, precio (con `precio_ajustado` si se corrigió). |
@@ -51,7 +51,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/export_prospects.py` | Pipeline: descarga → curaduría → cruces → valida → exporta `data/*`, `web/data.js`, `web/hidden.js` y `web/taxonomy.js`. Con `--out DIR` escribe fuera del repositorio. |
 | `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → dashboard-engine → auth → app → profile`. |
 | `web/dashboard-engine.js` | Motor **puro, sin DOM** del tablero: pestañas, filtros, KPIs, CSV y lista "fuera del tablero". Exporta a `window.DashboardEngine` y CommonJS. |
-| `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, PAA, CRM y "Fuera del tablero", oculta por defecto), tarjetas, pitch, detalle. Lee los controles y pinta; la lógica va en los motores. |
+| `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, PAA, CRM y "Fuera del tablero", oculta por defecto), tarjetas, pitch, detalle. El filtro de sector va agrupado por familia (`SECTOR_GROUPS`), con conteo por pestaña y, al final, "Otros" (sin sector y seguros), que se carga de `hidden.js`. Lee los controles y pinta; la lógica va en los motores. |
 | `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`, `bidWindow` (estado real: abierta, borrador, cerrada o adjudicado), `cardBadges` y `BADGES`/`TONES` (convención de badges), `nextStep`. Exporta a `window.ProfileEngine` y CommonJS. |
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
@@ -89,7 +89,8 @@ Para regenerar solo la taxonomía web sin descargar datos:
 - **Idioma:** textos de UI, comentarios y documentación en español (Colombia); identificadores en inglés o español según el archivo existente.
 - **Seguridad de HTML:** todo dato dinámico que va a `innerHTML` pasa por `escapeHtml` (app.js) o `esc` (profile.js).
 - **Cache busting:** al cambiar un JS/CSS de `web/`, corre `python -m src.tools.stamp_assets`. Una prueba falla si `web/index.html` queda con versiones viejas.
-- **Taxonomía:** los sectores se editan en `config/taxonomy.json` (con su prueba) y `web/taxonomy.js` se regenera; nunca dupliques listas en JS ni en HTML. El filtro de sector de la web se arma solo.
+- **Taxonomía:** los sectores se editan en `config/taxonomy.json` (con su prueba) y `web/taxonomy.js` se regenera; nunca dupliques listas en JS ni en HTML. El filtro de sector de la web se arma solo. Antes de dar por bueno un sector, lee una muestra de 20 procesos clasificados: las palabras sueltas ("eventos", "muebles", "vehículo") traen falsos positivos, y cada uno que aparezca se excluye con `excluir_si` y una prueba.
+- **Prefijos UNSPSC de dos dígitos** (segmentos: salud `42`/`51`, alimentos `50`) sirven para clasificar, pero el PAA no los usa en la consulta (`PAA_MIN_PREFIX`): la búsqueda por texto coincidiría con casi cualquier código.
 - **Filtros contra SECOP II:** SoQL compara por igualdad exacta y un valor inexistente devuelve cero filas sin error. Antes de escribir un filtro por modalidad, estado o tipo, confirma los valores con `probe_sources --valores`. El código UNSPSC llega como `V1.72141000` o `UNSPECIFIED`: usa `normalize_unspsc`.
 - **Nada desaparece sin contarse:** si agregas un paso que descarta procesos, súmalo al embudo de `src/curation.py`.
 - La lógica va en los motores sin DOM (`profile-engine.js`, `dashboard-engine.js`, testeables con Node); la manipulación del DOM va en `profile.js`/`app.js`.
