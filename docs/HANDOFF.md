@@ -2,6 +2,8 @@
 
 Última actualización: 2026-09-28 · Rama: `claude/gmail-oauth-account-creation-t7o73y` (sin PR, por decisión del dueño).
 
+> **Estado de la última sesión (Claude o Antigravity):** [`ESTADO.md`](./ESTADO.md). Léelo primero.
+>
 > Documento de diseño detallado, con capturas, dirigido al revisor humano: [`DISENO_PERFILES.md`](./DISENO_PERFILES.md).
 
 ## Objetivo del producto
