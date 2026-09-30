@@ -16,7 +16,14 @@ from src.curation import (
     light_record,
     select_curated,
 )
-from src.discovery import family_of, group_by_family, render_report, top_terms
+from src.discovery import (
+    family_of,
+    frequent_phrases,
+    group_by_contract_type,
+    group_by_family,
+    render_report,
+    top_terms,
+)
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter, reason_group
 from src.harvest import HarvestError, build_queries, harvest, sector_where
@@ -378,6 +385,30 @@ class TestDiscovery(unittest.TestCase):
     def test_terms_ignore_generic_procurement_words(self):
         terms = top_terms(["Suministro de luminarias para el municipio", "Suministro de luminarias y postes"])
         self.assertEqual(terms, ["luminarias"])
+
+    def test_items_without_code_are_grouped_by_contract_type(self):
+        items = [
+            {"tipo_contrato": "Suministros", "precio": 200e6, "descripcion": "Suministro de aire acondicionado"},
+            {"tipo_contrato": "Suministros", "precio": 100e6, "descripcion": "Mantenimiento de aire acondicionado"},
+            {"tipo_contrato": None, "precio": 50e6, "descripcion": "Otro"},
+        ]
+        groups = group_by_contract_type(items)
+        self.assertEqual([(g["tipo"], g["procesos"], g["valor"]) for g in groups],
+                         [("Suministros", 2, 300e6), ("(sin tipo)", 1, 50e6)])
+
+    def test_frequent_phrases_count_processes_and_skip_generic_words(self):
+        items = [{"precio": 100e6, "descripcion": "Suministro de aire acondicionado, aire acondicionado central"},
+                 {"precio": 50e6, "descripcion": "Mantenimiento del aire acondicionado"}]
+        phrases = frequent_phrases(items, min_count=2)
+        self.assertEqual(phrases, [{"frase": "aire acondicionado", "procesos": 2, "valor": 150e6}])
+        report = render_report(
+            {"descargados": 2, "duplicados": 0, "rechazados": 0, "rechazados_por_motivo": {}, "sin_clasificar": 2,
+             "clasificados": 0, "en_tablero": 0, "fuera_de_corte": 0},
+            [], "2026-09-30T11:00:00Z", 14, phrases=phrases,
+            contract_types=[{"tipo": "Suministros", "procesos": 2, "valor": 150e6, "terminos": ["aire"]}],
+        )
+        self.assertIn("| aire acondicionado | 2 | $150 M |", report)
+        self.assertIn("2 de los 2 procesos sin clasificar no traen código UNSPSC", report)
 
     def test_report_figures_come_from_the_counts(self):
         counts = {"descargados": 900, "duplicados": 40, "rechazados": 300, "rechazados_por_motivo": {"Valor por debajo del mínimo": 300},

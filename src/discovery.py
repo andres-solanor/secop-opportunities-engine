@@ -66,6 +66,47 @@ def group_by_family(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return sorted(out, key=lambda g: (-g["procesos"], -g["valor"]))
 
 
+def group_by_contract_type(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Segunda vista para lo que no trae código UNSPSC: por tipo de contrato.
+
+    La mayoría de los procesos recién publicados llegan con el código 'UNSPECIFIED', así que
+    la familia UNSPSC no alcanza para describirlos.
+    """
+    groups: Dict[str, List[Dict[str, Any]]] = {}
+    for item in items:
+        groups.setdefault(item.get("tipo_contrato") or "(sin tipo)", []).append(item)
+    out = [{
+        "tipo": kind,
+        "procesos": len(members),
+        "valor": sum(m.get("precio") or 0 for m in members),
+        "terminos": top_terms([m.get("descripcion") or "" for m in members]),
+    } for kind, members in groups.items()]
+    return sorted(out, key=lambda g: (-g["procesos"], -g["valor"]))
+
+
+def frequent_phrases(items: List[Dict[str, Any]], limit: int = 40, min_count: int = 5) -> List[Dict[str, Any]]:
+    """Frases de dos palabras más repetidas (en cuántos procesos aparecen y cuánto suman).
+
+    Una frase como "aire acondicionado" o "equipos cómputo" nombra un sector mejor que una
+    palabra suelta. Las dos palabras deben ir seguidas en el texto y ninguna ser genérica.
+    """
+    counts: Counter = Counter()
+    values: Dict[str, float] = {}
+    for item in items:
+        words = re.findall(r"[a-záéíóúüñ]+", (item.get("descripcion") or "").lower())
+        phrases = {
+            f"{a} {b}" for a, b in zip(words, words[1:], strict=False)
+            if len(a) >= 4 and len(b) >= 4 and a not in STOPWORDS and b not in STOPWORDS
+        }
+        counts.update(phrases)
+        for phrase in phrases:
+            values[phrase] = values.get(phrase, 0) + (item.get("precio") or 0)
+    return [
+        {"frase": phrase, "procesos": n, "valor": values[phrase]}
+        for phrase, n in counts.most_common(limit) if n >= min_count
+    ]
+
+
 def millions(value: float) -> str:
     """$1.234 millones, con punto de miles como se escribe en Colombia."""
     return f"${value / 1_000_000:,.0f}".replace(",", ".") + " M"
@@ -82,6 +123,8 @@ def render_report(
     window_days: int,
     universe: Optional[Dict[str, Any]] = None,
     queries: Optional[List[Dict[str, Any]]] = None,
+    contract_types: Optional[List[Dict[str, Any]]] = None,
+    phrases: Optional[List[Dict[str, Any]]] = None,
 ) -> str:
     """Markdown del reporte. `counts` viene de `curation.funnel_counts`."""
     lines = [
@@ -147,4 +190,33 @@ def render_report(
             f"{', '.join(g['terminos'])} | {examples} |"
         )
     lines.append("")
+
+    if contract_types:
+        without_code = sum(g["procesos"] for g in contract_types)
+        lines += [
+            "## Sin clasificar y sin código UNSPSC, por tipo de contrato",
+            "",
+            f"{without_code} de los {counts['sin_clasificar']} procesos sin clasificar no traen código UNSPSC "
+            "(SECOP II los publica como `UNSPECIFIED`), así que la tabla anterior no los describe.",
+            "",
+            "| Tipo de contrato | Procesos | Valor | Términos frecuentes |",
+            "|---|---:|---:|---|",
+        ]
+        lines += [
+            f"| {cell(g['tipo'])} | {g['procesos']} | {millions(g['valor'])} | {', '.join(g['terminos'])} |"
+            for g in contract_types
+        ]
+        lines.append("")
+
+    if phrases:
+        lines += [
+            "## Frases más frecuentes en lo sin clasificar",
+            "",
+            "Frases de dos palabras y en cuántos procesos aparecen. Sirven como palabras clave de un sector nuevo.",
+            "",
+            "| Frase | Procesos | Valor |",
+            "|---|---:|---:|",
+        ]
+        lines += [f"| {cell(p['frase'])} | {p['procesos']} | {millions(p['valor'])} |" for p in phrases]
+        lines.append("")
     return "\n".join(lines)

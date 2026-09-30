@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from src.curation import build_hidden, check_funnel, classify, funnel_counts, select_curated
-from src.discovery import group_by_family, render_report
+from src.discovery import frequent_phrases, group_by_contract_type, group_by_family, render_report
 from src.enrichers.contract_enricher import ContractEnricher
 from src.enrichers.open_sources import OpenSourcesEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
@@ -275,9 +275,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     log.info("[*] Sincronización: %d nuevas, %d salieron, %d pasaron a adjudicadas, cruce de contratos: %s.",
              meta["nuevas"], meta["salieron"], meta["nuevas_adjudicadas"], meta["cruce_contratos"])
 
+    unclassified = funnel["unclassified"]
     report = render_report(
-        counts, group_by_family(funnel["unclassified"]), meta["generated_at"], GENERAL_WINDOW_DAYS,
+        counts, group_by_family(unclassified), meta["generated_at"], GENERAL_WINDOW_DAYS,
         universe=universe_summary(client, today), queries=harvested["consultas"],
+        contract_types=group_by_contract_type([u for u in unclassified if not u.get("unspsc")]),
+        phrases=frequent_phrases(unclassified),
     )
 
     # 6. Contrato de datos: se valida todo antes de escribir el primer archivo.
