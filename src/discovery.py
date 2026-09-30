@@ -143,8 +143,13 @@ def render_report(
         f"| Clasificados en un sector | {counts['clasificados']} |",
         f"| &nbsp;&nbsp;En el tablero | {counts['en_tablero']} |",
         f"| &nbsp;&nbsp;Fuera del corte (clasificados que no entraron al tablero) | {counts['fuera_de_corte']} |",
-        "",
     ]
+    if "convenios_abiertos" in counts:
+        lines += [
+            f"| Convenios abiertos con entidades sin ánimo de lucro, fuera del tablero "
+            f"(de los clasificados: {counts['convenios_abiertos_clasificados']}) | {counts['convenios_abiertos']} |",
+        ]
+    lines.append("")
 
     if queries:
         lines += ["## Consultas a SECOP II", "", "| Consulta | Estado | Filas | Llegó al tope |", "|---|---|---:|---|"]

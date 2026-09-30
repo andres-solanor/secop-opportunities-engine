@@ -6,7 +6,22 @@ and non-commercial administrative overhead to isolate true high-value business o
 
 from typing import Any, Dict, Optional, Tuple
 
-from src.taxonomy import normalize_unspsc
+from src.taxonomy import fold, normalize_unspsc
+
+# Convenios con entidades sin ánimo de lucro (Decreto 092 de 2017) y convenios de "aunar esfuerzos":
+# una empresa no puede ofertar en ellos, pero una vez adjudicados el operador es un comprador.
+# No se rechazan: se marcan y la curaduría decide dónde van (src/curation.py).
+AGREEMENT_CONTRACT_TYPES = {"decreto 092 de 2017"}
+AGREEMENT_PHRASES = ("aunar esfuerzos", "anuar esfuerzos", "integrar esfuerzos")
+
+
+def is_agreement(record: Dict[str, Any]) -> bool:
+    """¿Es un convenio con una entidad sin ánimo de lucro o entre entidades? (proceso crudo de SECOP II)"""
+    if fold(record.get("tipo_de_contrato")) in AGREEMENT_CONTRACT_TYPES:
+        return True
+    text = fold(" ".join(str(record.get(k) or "") for k in ("nombre_del_procedimiento", "descripci_n_del_procedimiento")))
+    return any(phrase in text for phrase in AGREEMENT_PHRASES)
+
 
 # Motivos de rechazo agrupados para el reporte de "lo que no se ve": (prefijo del motivo, etiqueta).
 REASON_GROUPS = (

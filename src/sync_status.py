@@ -43,23 +43,36 @@ def is_awarded(item: Dict[str, Any]) -> bool:
     return "adjudicado" in (item.get("etapa_comercial") or "").lower()
 
 
+def _event_date(p: Dict[str, Any]) -> Optional[str]:
+    """Fecha en que el proceso se volvió oportunidad: adjudicación si está adjudicado, si no publicación."""
+    fechas = p.get("fechas") or {}
+    date = fechas.get("adjudicacion") if is_awarded(p) else None
+    return date or p.get("fecha_publicacion") or fechas.get("publicacion")
+
+
 def stamp_first_seen(
     prospects: List[Dict[str, Any]],
     seen: Dict[str, Optional[str]],
     previous: List[Dict[str, Any]],
     now: datetime,
+    reclassified_since: Optional[str] = None,
 ) -> Dict[str, Optional[str]]:
     """Marca `primera_vez` y `nueva` en cada oportunidad y devuelve el registro actualizado.
 
     Si el registro aún no existe (primera corrida con esta función), se siembra con las
     oportunidades de la corrida anterior con fecha desconocida, para no contar como
     nuevas las 150 de golpe.
+
+    `reclassified_since` (fecha ISO de la corrida anterior) se usa cuando cambió la taxonomía:
+    muchos procesos entran al tablero solo porque ahora tienen sector. Esos se registran, pero
+    solo cuentan como nuevos si se publicaron (o adjudicaron) después de esa corrida.
     """
     registry = dict(seen)
     if not registry:
         registry = {p["id"]: None for p in previous if p.get("id")}
 
     stamp = iso(now)
+    cutoff = (reclassified_since or "")[:19]
     for p in prospects:
         pid = p.get("id")
         if not pid:
@@ -70,7 +83,8 @@ def stamp_first_seen(
         else:
             registry[pid] = stamp
             p["primera_vez"] = stamp
-            p["nueva"] = True
+            event = _event_date(p)
+            p["nueva"] = not cutoff or bool(event and event[:19] >= cutoff)
 
     # Poda: se olvidan los procesos vistos por primera vez hace más de SEEN_RETENTION_DAYS días.
     cutoff = iso(now - timedelta(days=SEEN_RETENTION_DAYS))
@@ -97,6 +111,8 @@ def build_meta(
     paa_count: int = 0,
     queries: Optional[List[Dict[str, Any]]] = None,
     funnel: Optional[Dict[str, Any]] = None,
+    taxonomy_version: Optional[int] = None,
+    reclassified: bool = False,
 ) -> Dict[str, Any]:
     """Resumen de la corrida para la web y para el historial de sincronizaciones.
 
@@ -147,6 +163,11 @@ def build_meta(
     if funnel:
         run["sin_clasificar"] = funnel["sin_clasificar"]
         run["fuera_de_corte"] = funnel["fuera_de_corte"]
+    if taxonomy_version is not None:
+        run["taxonomia_version"] = taxonomy_version
+    if reclassified:
+        # La web avisa que las "nuevas" de esta corrida excluyen lo que solo cambió de sector.
+        run["reclasificacion"] = True
 
     return {
         **run,

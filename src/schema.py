@@ -44,7 +44,7 @@ HIDDEN_FIELDS: Tuple[Tuple[str, tuple], ...] = (
     ("etapa_comercial", (str,)),
 )
 
-HIDDEN_REASONS = ("sin_sector", "fuera_de_corte")
+HIDDEN_REASONS = ("sin_sector", "fuera_de_corte", "convenio")
 MAX_ERRORS = 20
 
 

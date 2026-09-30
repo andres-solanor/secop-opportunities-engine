@@ -106,6 +106,23 @@ class TestOpenSources(unittest.TestCase):
         self.assertNotIn("persona@gov.co", repr(items))
         self.assertNotIn("Pedro", repr(items))
 
+    def test_paa_is_not_queried_with_two_digit_segments(self):
+        class Recorder(FakeClient):
+            def __init__(self):
+                super().__init__()
+                self.wheres = []
+
+            def query(self, dataset_id, where=None, **kw):
+                self.wheres.append(where or "")
+                return super().query(dataset_id, where=where, **kw)
+
+        client = Recorder()
+        taxonomy = {"salud": {"name": "Salud", "unspsc_prefixes": ["42"]},
+                    "acero": {"name": "Acero", "unspsc_prefixes": ["7214", "3010"]}}
+        OpenSourcesEnricher(client, taxonomy, log=lambda _: None, today=datetime(2026, 9, 28)).fetch_paa()
+        self.assertFalse(any("'%42%'" in w for w in client.wheres))
+        self.assertTrue(any("'%7214%'" in w for w in client.wheres))
+
     def test_month_number(self):
         self.assertEqual(month_number("Septiembre"), 9)
         self.assertEqual(month_number("11"), 11)

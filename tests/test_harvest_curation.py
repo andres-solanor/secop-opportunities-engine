@@ -522,14 +522,53 @@ class TestCuration(unittest.TestCase):
         extractor = ScopeExtractor()
         awarded = [extractor.enrich(raw(f"A{n}", adjudicado="Si", nombre_del_proveedor="X SAS")) for n in range(5)]
         opened = [extractor.enrich(raw(f"O{n}")) for n in range(5)]
-        picked = select_curated(awarded + opened, target_count=4, awarded_quota=2, open_quota=2)
+        picked = select_curated(awarded + opened, target_count=4, awarded_share=0.5, per_sector_min=0)
         self.assertEqual(sum(1 for p in picked if p["id"].startswith("A")), 2)
         self.assertEqual(sum(1 for p in picked if p["id"].startswith("O")), 2)
 
     def test_quota_not_filled_is_completed_from_the_other_group(self):
         extractor = ScopeExtractor()
         opened = [extractor.enrich(raw(f"O{n}")) for n in range(5)]
-        self.assertEqual(len(select_curated(opened, target_count=4, awarded_quota=2, open_quota=2)), 4)
+        self.assertEqual(len(select_curated(opened, target_count=4, awarded_share=0.5, per_sector_min=0)), 4)
+
+    def test_small_sector_keeps_its_minimum_against_better_scores(self):
+        extractor = ScopeExtractor()
+        works = [extractor.enrich(raw(f"W{n}", tipo_de_contrato="Obra", precio_base="5000000000",
+                                      nombre_del_procedimiento="Adecuación de sede", descripci_n_del_procedimiento="Adecuación de sede",
+                                      codigo_principal_de_categoria="No definido")) for n in range(10)]
+        steel = [extractor.enrich(raw(f"S{n}", precio_base="60000000")) for n in range(3)]
+        ranked = sorted(works + steel, key=lambda x: (x["score_calidad"], x["precio"]), reverse=True)
+        self.assertTrue(all(w["score_calidad"] > s["score_calidad"] for w in works for s in steel))
+        without = select_curated(ranked, target_count=5, per_sector_min=0)
+        self.assertFalse(any(p["id"].startswith("S") for p in without))
+        picked = select_curated(ranked, target_count=5, per_sector_min=2)
+        self.assertEqual(sum(1 for p in picked if p["id"].startswith("S")), 2)
+        self.assertEqual(len(picked), 5)
+
+    def test_open_agreements_leave_the_dashboard_but_awarded_ones_stay(self):
+        extractor = ScopeExtractor()
+        text = "AUNAR ESFUERZOS PARA LA EJECUCIÓN DEL PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE"
+        open_pae = extractor.enrich(raw("C1", "PC1", nombre_del_procedimiento=text, descripci_n_del_procedimiento=text,
+                                        tipo_de_contrato="Decreto 092 de 2017"))
+        awarded_pae = extractor.enrich(raw("C2", "PC2", nombre_del_procedimiento=text, descripci_n_del_procedimiento=text,
+                                           adjudicado="Si", nombre_del_proveedor="FUNDACION X"))
+        self.assertTrue(open_pae["convenio"] and awarded_pae["convenio"])
+        funnel = {"descargados": 2, "duplicados": 0, "rechazados": {}, "classified": [open_pae, awarded_pae], "unclassified": []}
+        curated = select_curated(funnel["classified"])
+        self.assertEqual([p["id"] for p in curated], ["C2"])
+        hidden = build_hidden(funnel, curated)
+        self.assertEqual([(h["id"], h["motivo"]) for h in hidden], [("C1", "convenio")])
+        self.assertTrue(hidden[0]["convenio"])
+        counts = funnel_counts(funnel, curated)
+        self.assertEqual((counts["convenios_abiertos"], counts["fuera_de_corte"]), (1, 0))
+        check_funnel(counts)
+
+    def test_agreement_detection(self):
+        from src.filters.noise_filter import is_agreement
+        self.assertTrue(is_agreement({"tipo_de_contrato": "Decreto 092 de 2017"}))
+        self.assertTrue(is_agreement({"descripci_n_del_procedimiento": "ANUAR ESFUERZOS TECNICOS Y FINANCIEROS"}))
+        self.assertTrue(is_agreement({"nombre_del_procedimiento": "Integrar esfuerzos para la ejecución del PAE"}))
+        self.assertFalse(is_agreement({"tipo_de_contrato": "Suministros", "descripci_n_del_procedimiento": "Suministro de menaje"}))
 
     def test_light_record_truncates_long_descriptions(self):
         item = ScopeExtractor().enrich(raw("A", descripci_n_del_procedimiento="x" * 900))

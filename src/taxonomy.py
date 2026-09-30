@@ -44,6 +44,11 @@ def _validate_groups(groups: Any, path: str) -> List[Dict[str, Any]]:
     return sorted(groups, key=lambda g: g.get("orden", 0))
 
 
+def taxonomy_version(path: str = TAXONOMY_PATH) -> int:
+    """Versión del vocabulario. Cambiarla avisa al pipeline que hubo una reclasificación."""
+    return int(_read(path).get("version", 1))
+
+
 def load_groups(path: str = TAXONOMY_PATH) -> List[Dict[str, Any]]:
     """Familias de sectores (`{id, name, orden}`), en el orden en que se muestran."""
     return _validate_groups(_read(path).get("grupos"), path)

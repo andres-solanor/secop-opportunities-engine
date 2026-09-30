@@ -32,6 +32,30 @@ class TestSyncStatus(unittest.TestCase):
         self.assertFalse(current[0]["nueva"])
         self.assertEqual(current[0]["primera_vez"], "2026-09-01T11:00:00Z")
 
+    def test_after_a_reclassification_only_recent_processes_are_new(self):
+        since = "2026-09-27T11:05:00Z"
+        old = dict(opp("OLD"), fecha_publicacion="2026-09-10T00:00:00")
+        fresh = dict(opp("FRESH"), fecha_publicacion="2026-09-28T08:00:00")
+        undated = opp("UNDATED")
+        awarded_now = dict(opp("AW", "Adjudicado (Contratista Seleccionado)"), fecha_publicacion="2026-08-01T00:00:00",
+                           fechas={"adjudicacion": "2026-09-28T09:00:00"})
+        current = [old, fresh, undated, awarded_now]
+        seen = stamp_first_seen(current, {"X": None}, [], NOW, reclassified_since=since)
+        self.assertEqual({p["id"]: p["nueva"] for p in current}, {"OLD": False, "FRESH": True, "UNDATED": False, "AW": True})
+        # Todos quedan registrados: mañana ninguno vuelve a contar como nuevo.
+        self.assertTrue(all(seen[p["id"]] == "2026-09-28T11:05:00Z" for p in current))
+
+    def test_without_reclassification_first_seen_is_new(self):
+        current = [dict(opp("OLD"), fecha_publicacion="2026-01-01T00:00:00")]
+        stamp_first_seen(current, {"X": None}, [], NOW)
+        self.assertTrue(current[0]["nueva"])
+
+    def test_meta_records_taxonomy_version_and_reclassification(self):
+        meta = build_meta([], [], 10, NOW, NOW, {}, [], taxonomy_version=2, reclassified=True)
+        self.assertEqual((meta["taxonomia_version"], meta["reclasificacion"]), (2, True))
+        self.assertEqual(meta["historial"][0]["taxonomia_version"], 2)
+        self.assertNotIn("reclasificacion", build_meta([], [], 10, NOW, NOW, {}, [], taxonomy_version=2))
+
     def test_old_entries_are_pruned(self):
         seen = {"OLD": "2025-01-01T00:00:00Z", "UNKNOWN": None}
         out = stamp_first_seen([opp("X")], seen, [], NOW)

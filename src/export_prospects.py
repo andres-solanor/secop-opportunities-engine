@@ -16,7 +16,7 @@ import sys
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from src.curation import build_hidden, check_funnel, classify, funnel_counts, select_curated
+from src.curation import TARGET_COUNT, build_hidden, check_funnel, classify, funnel_counts, select_curated
 from src.discovery import frequent_phrases, group_by_contract_type, group_by_family, render_report
 from src.enrichers.contract_enricher import ContractEnricher
 from src.enrichers.open_sources import OpenSourcesEnricher
@@ -26,7 +26,7 @@ from src.harvest import GENERAL_WINDOW_DAYS, MIN_PRICE, HarvestError, harvest, u
 from src.schema import SchemaError, validate_dataset
 from src.services.socrata_client import SocrataClient
 from src.sync_status import build_meta, load_json, save_json, stamp_first_seen
-from src.taxonomy import load_groups
+from src.taxonomy import load_groups, taxonomy_version
 
 log = logging.getLogger("secop")
 
@@ -35,26 +35,33 @@ DATASET_JSON = "prospects.json"
 DATASET_CSV = "prospects.csv"
 DATASET_SUMMARY = "prospects_summary.md"
 HIDDEN_SUMMARY = "hidden_summary.md"
-TARGET_COUNT = 150
-# La vista "fuera del tablero" se carga solo cuando el usuario la abre, pero el archivo se
-# versiona a diario: se limita para no inflar el repositorio. El reporte sí cubre todo.
-HIDDEN_WEB_MAX = 800
-HIDDEN_UNCLASSIFIED_SHARE = 0.75  # el resto del cupo es para las clasificadas fuera del corte
+# La vista "fuera del tablero" (y "Otros" en el filtro de sector) se carga solo cuando el
+# usuario la abre, pero el archivo se versiona a diario: se limita para no inflar el
+# repositorio. El reporte sí cubre todo.
+HIDDEN_WEB_MAX = 1500
+# Reparto del cupo por motivo. Si falta un motivo, su parte se reparte entre los demás.
+HIDDEN_SHARES = {"sin_sector": 0.6, "fuera_de_corte": 0.2, "convenio": 0.2}
 
 
 def cap_hidden(hidden: List[Dict[str, Any]], limit: int = HIDDEN_WEB_MAX) -> List[Dict[str, Any]]:
-    """Recorta la lista para la web conservando los dos motivos.
+    """Recorta la lista para la web conservando todos los motivos.
 
     Sin este reparto, los sin clasificar (que son muchos más) ocuparían todo el cupo y las
     clasificadas fuera del corte nunca se verían. Cada grupo conserva su orden (mejor puntaje
-    primero) y el cupo que un grupo no usa pasa al otro.
+    primero) y el cupo que un grupo no usa pasa a los otros.
     """
-    unclassified = [h for h in hidden if h["motivo"] == "sin_sector"]
-    overflow = [h for h in hidden if h["motivo"] != "sin_sector"]
-    quota = int(limit * HIDDEN_UNCLASSIFIED_SHARE)
-    take_unclassified = min(len(unclassified), max(quota, limit - len(overflow)))
-    take_overflow = min(len(overflow), limit - take_unclassified)
-    return unclassified[:take_unclassified] + overflow[:take_overflow]
+    groups = {m: [h for h in hidden if h["motivo"] == m] for m in HIDDEN_SHARES}
+    present = [m for m in HIDDEN_SHARES if groups[m]]
+    share_sum = sum(HIDDEN_SHARES[m] for m in present) or 1
+    take = {m: min(len(groups[m]), round(limit * HIDDEN_SHARES[m] / share_sum)) for m in present}
+    while sum(take.values()) > limit:  # el redondeo puede pasarse por uno
+        take[max(take, key=take.get)] -= 1
+    left = limit - sum(take.values())
+    for m in present:
+        extra = min(left, len(groups[m]) - take[m])
+        take[m] += extra
+        left -= extra
+    return [h for m in present for h in groups[m][:take[m]]]
 
 
 def build_curated_dataset(records: List[Dict[str, Any]], target_count: int = TARGET_COUNT) -> List[Dict[str, Any]]:
@@ -171,6 +178,9 @@ def export_hidden(hidden: List[Dict[str, Any]], report: str, data_dir: str, web_
         "total": len(hidden),
         "sin_sector": sum(1 for h in hidden if h["motivo"] == "sin_sector"),
         "fuera_de_corte": sum(1 for h in hidden if h["motivo"] == "fuera_de_corte"),
+        "convenio": sum(1 for h in hidden if h["motivo"] == "convenio"),
+        # Los seguros quedan en "Otros" identificados: solo aseguradoras pueden ofertar.
+        "seguros": sum(1 for h in hidden if h["motivo"] == "sin_sector" and h.get("tipo_contrato") == "Seguros"),
         "items": cap_hidden(hidden),
     }
     web_path = os.path.join(web_dir, "hidden.js")
@@ -243,9 +253,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     check_funnel(counts)
     hidden = build_hidden(funnel, prospects)
     log.info("[*] Embudo: %d descargados, %d duplicados, %d rechazados, %d sin clasificar, %d clasificados "
-             "(%d en tablero, %d fuera del corte).", counts["descargados"], counts["duplicados"],
-             counts["rechazados"], counts["sin_clasificar"], counts["clasificados"], counts["en_tablero"],
-             counts["fuera_de_corte"])
+             "(%d en tablero, %d fuera del corte); %d convenios abiertos fuera del tablero.", counts["descargados"],
+             counts["duplicados"], counts["rechazados"], counts["sin_clasificar"], counts["clasificados"],
+             counts["en_tablero"], counts["fuera_de_corte"], counts["convenios_abiertos"])
     report_field_coverage(prospects)
     date_like = sorted(k for k in raw_records[0] if k.startswith(("fecha", "duracion", "unidad_de")))
     log.info("[*] Columnas de fecha/plazo en SECOP: %s", ", ".join(date_like))
@@ -269,12 +279,18 @@ def main(argv: Optional[List[str]] = None) -> int:
     paa = open_sources.paa()
 
     # 5. Estado de la sincronización: nuevas (nunca vistas), salidas, nuevas adjudicadas e historial.
+    # Si cambió la taxonomía, lo que entra al tablero solo por tener sector nuevo no es "nueva".
     finished_at = datetime.now(timezone.utc)
-    seen = stamp_first_seen(prospects, load_json(os.path.join(state_dir, "seen_ids.json"), {}), previous, finished_at)
+    history = load_json(os.path.join(state_dir, "sync_history.json"), [])
+    version = taxonomy_version()
+    reclassified = bool(history) and history[0].get("taxonomia_version") != version
+    seen = stamp_first_seen(prospects, load_json(os.path.join(state_dir, "seen_ids.json"), {}), previous, finished_at,
+                            reclassified_since=history[0].get("generated_at") if reclassified else None)
     meta = build_meta(prospects, previous, len(raw_records), started_at, finished_at,
-                      enricher.summary, load_json(os.path.join(state_dir, "sync_history.json"), []),
+                      enricher.summary, history,
                       extra_sources=open_sources.summary, paa_count=len(paa),
-                      queries=harvested["consultas"], funnel=counts)
+                      queries=harvested["consultas"], funnel=counts,
+                      taxonomy_version=version, reclassified=reclassified)
     log.info("[*] Sincronización: %d nuevas, %d salieron, %d pasaron a adjudicadas, cruce de contratos: %s.",
              meta["nuevas"], meta["salieron"], meta["nuevas_adjudicadas"], meta["cruce_contratos"])
 

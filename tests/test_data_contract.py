@@ -116,8 +116,10 @@ class TestExports(unittest.TestCase):
         self.assertIn("window.PAA_DATA = ", content)
 
     def test_hidden_web_file_is_capped_but_counts_everything(self):
-        hidden = [light_record(prospect(f"ID{n}"), "sin_sector" if n % 2 else "fuera_de_corte")
-                  for n in range(HIDDEN_WEB_MAX + 10)]
+        reasons = ("sin_sector", "fuera_de_corte", "convenio")
+        hidden = [light_record(prospect(f"ID{n}"), reasons[n % 3]) for n in range(HIDDEN_WEB_MAX + 10)]
+        hidden[0]["tipo_contrato"] = "Seguros"
+        hidden[1]["tipo_contrato"] = "Seguros"  # fuera del corte: no cuenta como seguro en "Otros"
         with tempfile.TemporaryDirectory() as tmp:
             data_dir, web_dir = os.path.join(tmp, "data"), os.path.join(tmp, "web")
             export_hidden(hidden, "# reporte\n", data_dir, web_dir, "2026-09-30T11:05:00Z", full_dump=True)
@@ -130,8 +132,16 @@ class TestExports(unittest.TestCase):
         payload = json.loads(content[len(prefix):].rstrip().rstrip(";"))
         self.assertEqual(payload["total"], HIDDEN_WEB_MAX + 10)
         self.assertEqual(len(payload["items"]), HIDDEN_WEB_MAX)
-        self.assertEqual(payload["sin_sector"] + payload["fuera_de_corte"], payload["total"])
+        self.assertEqual(payload["sin_sector"] + payload["fuera_de_corte"] + payload["convenio"], payload["total"])
+        self.assertEqual(payload["seguros"], 1)
         self.assertEqual(len(full), HIDDEN_WEB_MAX + 10)
+
+    def test_cap_splits_three_reasons(self):
+        items = [{"id": f"{r}{i}", "motivo": r} for r in ("sin_sector", "fuera_de_corte", "convenio") for i in range(500)]
+        capped = cap_hidden(items, limit=100)
+        counts = {r: sum(1 for h in capped if h["motivo"] == r) for r in ("sin_sector", "fuera_de_corte", "convenio")}
+        self.assertEqual(counts, {"sin_sector": 60, "fuera_de_corte": 20, "convenio": 20})
+        self.assertEqual(len(cap_hidden(items, limit=7)), 7)
 
     def test_cap_keeps_both_reasons_and_passes_unused_quota(self):
         def items(reason, n):

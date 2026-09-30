@@ -8,6 +8,7 @@ import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
+from src.filters.noise_filter import is_agreement
 from src.taxonomy import fold, load_taxonomy, normalize_unspsc
 
 
@@ -130,6 +131,7 @@ class ScopeExtractor:
             "unspsc": cat_code or None,
             "modalidad": record.get("modalidad_de_contratacion"),
             "tipo_contrato": record.get("tipo_de_contrato"),
+            "convenio": is_agreement(record),
             "descripcion": record.get("descripci_n_del_procedimiento") or record.get("nombre_del_procedimiento"),
             "fecha_publicacion": dates["publicacion"],
             "fechas": dates,
