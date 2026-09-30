@@ -35,31 +35,49 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 
 | Ruta | Rol |
 |---|---|
-| `src/services/socrata_client.py` | Cliente HTTP de la API SODA (solo biblioteca estándar). |
-| `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. |
-| `src/enrichers/scope_extractor.py` | `TAXONOMIES` (sectores y palabras clave), etapa comercial, score de calidad. **Fuente única del vocabulario de sectores.** |
+| `config/taxonomy.json` | **Fuente única del vocabulario de sectores:** palabras clave, exclusiones, prefijos UNSPSC, peso y lo que se le pide a SECOP II (`harvest`). La carga `src/taxonomy.py`. |
+| `src/services/socrata_client.py` | Cliente HTTP de la API SODA (solo biblioteca estándar): reintentos, paginación (`query_all`) y token opcional `SOCRATA_APP_TOKEN`. |
+| `src/harvest.py` | Descarga: una consulta por sector (obligatorias: si falla una, la corrida se detiene) y dos generales (publicados y adjudicados de los últimos 14 días). Reporta el estado de cada consulta. |
+| `src/filters/noise_filter.py` | Descarta OPS, prestación de servicios y montos < umbral. `reason_group` agrupa los motivos de rechazo. |
+| `src/curation.py` | Embudo: duplicados por portafolio, rechazados, sin clasificar, clasificados; selección del tablero (`select_curated`) y lista "fuera del tablero". `check_funnel` exige que todo sume. |
+| `src/discovery.py` | Reporte `data/hidden_summary.md`: lo sin clasificar por familia UNSPSC, tipo de contrato y frases frecuentes, para decidir sectores nuevos. |
+| `src/schema.py` | Contrato de datos entre Python y la web. Se valida antes de escribir cualquier archivo. |
+| `src/enrichers/scope_extractor.py` | Clasifica por sector con la taxonomía (`ScopeExtractor.TAXONOMIES`), etapa comercial, score de calidad, precio (con `precio_ajustado` si se corrigió). |
 | `src/enrichers/contract_enricher.py` | Cruce con SECOP II Contratos (`jbjy-vk9h`): `contrato`, `historial_contratista`, `entidad_stats`. Promueve a adjudicados los procesos con contrato firmado. **Nunca** copia documentos, datos bancarios ni género. |
 | `src/enrichers/open_sources.py` | Fuentes abiertas gratuitas: ofertas por proceso (`wi7w-2nvm`), integrantes de consorcios (`ceth-n4bn`), sanciones SECOP I (`4n4q-k399`) y compras planeadas del PAA (`9sue-ezhx`, publicado como `window.PAA_DATA`). **Nunca** copia teléfonos, correos ni documentos de personas. |
 | `src/sync_status.py` | Estado de la sincronización: nuevas (nunca vistas, registro en `data/seen_ids.json`), salidas, nuevas adjudicadas, estado del cruce e historial (`data/sync_history.json`). Se publica como `window.PROSPECTS_META`. |
-| `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; también se puede correr con el workflow manual "Probe SECOP sources". |
-| `src/export_prospects.py` | Pipeline: descarga → filtra → enriquece → exporta `data/*`, `web/data.js` y `web/taxonomy.js`. |
-| `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → auth → app → profile`. |
-| `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, PAA, CRM), filtros, KPIs, tarjetas, pitch, CSV. |
+| `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; también se puede correr con el workflow manual "Probe SECOP sources". Con `--valores` lista los valores reales de modalidad, estado, tipo y fase. |
+| `src/tools/stamp_assets.py` | Sella en `web/index.html` la versión (`?v=`) de cada JS y CSS según su contenido. |
+| `src/export_prospects.py` | Pipeline: descarga → curaduría → cruces → valida → exporta `data/*`, `web/data.js`, `web/hidden.js` y `web/taxonomy.js`. Con `--out DIR` escribe fuera del repositorio. |
+| `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → dashboard-engine → auth → app → profile`. |
+| `web/dashboard-engine.js` | Motor **puro, sin DOM** del tablero: pestañas, filtros, KPIs, CSV y lista "fuera del tablero". Exporta a `window.DashboardEngine` y CommonJS. |
+| `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, PAA, CRM y "Fuera del tablero", oculta por defecto), tarjetas, pitch, detalle. Lee los controles y pinta; la lógica va en los motores. |
 | `web/profile-engine.js` | Motor **puro, sin DOM**: `detectSectors`, `analyzeProfile`, `matchOpportunity`, `bidWindow` (estado real: abierta, borrador, cerrada o adjudicado), `cardBadges` y `BADGES`/`TONES` (convención de badges), `nextStep`. Exporta a `window.ProfileEngine` y CommonJS. |
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |
-| `web/data.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. |
-| `.github/workflows/daily_secop_refresh.yml` | Cron diario 11:00 UTC: corre el pipeline y hace commit de datos. `ci/` guarda una copia de plantilla; mantener ambas iguales. |
+| `web/data.js`, `web/hidden.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. |
+| `.github/workflows/daily_secop_refresh.yml` | Cron diario 11:00 UTC: corre las pruebas, luego el pipeline, y hace commit de datos. |
+| `.github/workflows/ci.yml` | En cada pull request y push a `main`: ruff, pruebas Python (3.11 y 3.14), ESLint, pruebas Node y pruebas de humo con Playwright. |
+| `ci/` | Copia de plantilla de los workflows (para tokens sin alcance `workflow`). Una prueba falla si difiere de `.github/workflows/`. |
 
 ## Comandos
 
 ```bash
+ruff check .                             # lint Python (pip install ruff)
 python -m unittest discover tests        # pruebas Python
-node --test tests/profile_engine.test.js   # pruebas del motor de perfiles (Node 18+)
-python -m src.export_prospects           # refrescar datos (requiere red a datos.gov.co)
+npm ci                                   # herramientas de desarrollo JS (una vez)
+npm run lint                             # ESLint
+npm test                                 # pruebas de los motores JS (Node 22+)
+npm run test:e2e                         # pruebas de humo en Chromium (npx playwright install chromium, una vez)
+python -m src.export_prospects --out out # corrida real de prueba sin tocar data/ ni web/
+python -m src.export_prospects           # refrescar datos del repositorio (lo hace el workflow diario)
+python -m src.tools.probe_sources --valores  # valores reales de las columnas que usan los filtros
+python -m src.tools.stamp_assets         # sellar versiones de JS/CSS tras cambiarlos
 python -m http.server 8000 --directory web   # servir la web en http://localhost:8000
 ```
+
+**Antes de dar un cambio por terminado** corre las cinco verificaciones (ruff, pruebas Python, ESLint, pruebas Node y pruebas de humo). Si tocaste el pipeline, además una corrida real con `--out`.
 
 Para regenerar solo la taxonomía web sin descargar datos:
 `python -c "from src.export_prospects import export_taxonomy; export_taxonomy('web')"`
@@ -70,9 +88,12 @@ Para regenerar solo la taxonomía web sin descargar datos:
 - **Frontend:** JavaScript vanilla, sin build ni frameworks, sin dependencias npm en producción. Cada archivo es un IIFE que expone un objeto en `window`.
 - **Idioma:** textos de UI, comentarios y documentación en español (Colombia); identificadores en inglés o español según el archivo existente.
 - **Seguridad de HTML:** todo dato dinámico que va a `innerHTML` pasa por `escapeHtml` (app.js) o `esc` (profile.js).
-- **Cache busting:** al cambiar un JS/CSS, actualiza el sufijo `?v=AAAAMMDD_NN` en `web/index.html`.
-- **Taxonomía:** si cambias sectores o palabras clave, edita `ScopeExtractor.TAXONOMIES` y regenera `web/taxonomy.js`; nunca dupliques listas en JS.
-- La lógica de puntaje y análisis va en `profile-engine.js` (testeable con Node); la manipulación del DOM va en `profile.js`/`app.js`.
+- **Cache busting:** al cambiar un JS/CSS de `web/`, corre `python -m src.tools.stamp_assets`. Una prueba falla si `web/index.html` queda con versiones viejas.
+- **Taxonomía:** los sectores se editan en `config/taxonomy.json` (con su prueba) y `web/taxonomy.js` se regenera; nunca dupliques listas en JS ni en HTML. El filtro de sector de la web se arma solo.
+- **Filtros contra SECOP II:** SoQL compara por igualdad exacta y un valor inexistente devuelve cero filas sin error. Antes de escribir un filtro por modalidad, estado o tipo, confirma los valores con `probe_sources --valores`. El código UNSPSC llega como `V1.72141000` o `UNSPECIFIED`: usa `normalize_unspsc`.
+- **Nada desaparece sin contarse:** si agregas un paso que descarta procesos, súmalo al embudo de `src/curation.py`.
+- La lógica va en los motores sin DOM (`profile-engine.js`, `dashboard-engine.js`, testeables con Node); la manipulación del DOM va en `profile.js`/`app.js`.
+- **Sin estilos en línea** en el HTML que genera `app.js`: usa clases de `style.css`.
 - **Badges:** el tono es el significado (`risk`, `warn`, `good`, `info`). Un badge nuevo se agrega en `BADGES` (con `tip`) y en `cardBadges`; la guía de la UI se genera sola.
 - **`app.js`:** declara las constantes que usan las fichas al inicio del callback, antes del primer `renderView()`; si no, hay un error de "temporal dead zone" y la página queda sin fichas.
 - **Recomendaciones comerciales:** deben ser realistas para una empresa pequeña; si una recomendación supone capacidad disponible, di de dónde sale.
@@ -85,3 +106,4 @@ Para regenerar solo la taxonomía web sin descargar datos:
 | `secop_profiles` | Mapa `{ userId: perfil }` de perfiles guardados. |
 | `secop_profile_draft` | Perfil de visitante sin cuenta; se adopta al iniciar sesión. |
 | `secop_crm_state` | Estado del CRM `{ oppId: { status, updatedAt } }` (global, no por usuario). |
+| `secop_show_hidden` | `'1'` si el usuario activó la pestaña "Fuera del tablero". |

@@ -9,7 +9,7 @@
 
 ## 🎯 ¿Por qué existe este proyecto? (El Problema Resuelto)
 
-En Colombia, el **~75-80% de los procesos en SECOP II son contratos de prestación de servicios individuales (OPS)** o contrataciones directas sin demanda comercial de suministros. Además:
+En SECOP II, una parte grande de lo que se publica son **contratos de prestación de servicios** o contrataciones directas sin demanda comercial de suministros: entre el 16 y el 30 de septiembre de 2026, 1.969 de los 5.744 procesos publicados de $50 millones o más eran de prestación de servicios (conteo del pipeline; ver [`docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md`](docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md)). Además:
 1. Las empresas y proveedores pierden horas intentando encontrar procesos entre descripciones vagas.
 2. Los pliegos técnicos y anexos sepultan la información crítica de cantidades y materiales requeridos.
 3. Los proveedores de insumos (acero, maquinaria para cocina, energía solar) no se enteran a tiempo de quién ganó las obras públicas para ofrecerles sus suministros de inmediato.
@@ -48,6 +48,9 @@ flowchart LR
 * **Filtros Anti-Ruido:** Exclusión algorítmica de OPS, umbral de presupuesto mínimo ($50M+ COP) y descarte de procesos cancelados/desiertos.
 * **Frontend Web:** HTML5 Semántico, CSS3 moderno (Dark Obsidian Glassmorphism) y Javascript vanilla responsivo con persistencia local (`localStorage`) para seguimiento comercial.
 * **Automatización Serverless:** GitHub Actions ejecuta un cron diario a las 6:00 AM (hora Colombia) para actualizar el dataset automáticamente en GitHub Pages sin costo de servidor.
+* **Sectores como configuración:** los sectores, sus palabras clave y lo que se le pide a SECOP II viven en [`config/taxonomy.json`](config/taxonomy.json). Agregar un sector es editar ese archivo.
+* **Nada se pierde de vista:** cada proceso descargado queda contado (duplicado, rechazado con su motivo, sin clasificar o clasificado). Lo que pasa el filtro pero no entra al tablero se puede revisar en la vista **🔎 Fuera del tablero** (oculta por defecto) y en el reporte `data/hidden_summary.md`, que agrupa lo sin clasificar para decidir sectores nuevos.
+* **Contrato de datos:** el pipeline valida el dataset antes de publicarlo (`src/schema.py`); si algo no cumple, la corrida falla y la web conserva los datos del día anterior.
 
 ---
 
@@ -68,7 +71,7 @@ Los nombres de empresas y las oportunidades concretas se desbloquean al **guarda
 | `web/profile-engine.js` | Motor puro (sin DOM): detección de sector, análisis del perfil y puntaje de afinidad. Probado con `node --test tests/profile_engine.test.js`. |
 | `web/profile.js` | Onboarding, vista de perfil, banner y menú de cuenta. |
 | `web/auth.js` | Google Identity Services ("Sign in with Google"). |
-| `web/taxonomy.js` | Generado por el pipeline desde `ScopeExtractor.TAXONOMIES` (mismo vocabulario que Python). |
+| `web/taxonomy.js` | Generado por el pipeline desde `config/taxonomy.json` (mismo vocabulario que Python). |
 | `web/config.js` | `GOOGLE_CLIENT_ID` público. |
 
 ### Configurar Google OAuth
@@ -91,16 +94,23 @@ git clone https://github.com/andres-solanor/secop-opportunities-engine.git
 cd secop-opportunities-engine
 ```
 
-2. Ejecutar pruebas unitarias:
+2. Ejecutar las verificaciones (las mismas que corre CI en cada pull request):
 ```bash
-python -m unittest discover tests
-node --test tests/profile_engine.test.js
+python -m pip install ruff && ruff check .   # lint de Python
+python -m unittest discover tests            # pruebas de Python
+npm ci                                       # herramientas de desarrollo (solo la primera vez)
+npm run lint                                 # lint de JavaScript
+npm test                                     # pruebas de los motores de JavaScript
+npx playwright install chromium              # navegador de pruebas (solo la primera vez)
+npm run test:e2e                             # pruebas de humo en un navegador real
 ```
 
 3. Actualizar datos en vivo desde SECOP II:
 ```bash
-python -m src.export_prospects
+python -m src.export_prospects               # escribe en data/ y web/
+python -m src.export_prospects --out out     # corrida de prueba: escribe en out/ sin tocar el repositorio
 ```
+Opcional: define `SOCRATA_APP_TOKEN` para un límite de peticiones más alto en datos.gov.co.
 
 4. Abrir la interfaz web:
 ```bash

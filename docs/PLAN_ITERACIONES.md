@@ -138,9 +138,11 @@ Estas mejoras se pueden hacer en cualquier momento:
 
 | Tarea | Talla | Detalle |
 |---|---|---|
-| Falsos positivos de taxonomía | S | "varilla puesta a tierra… cobre" (EPM) se clasifica como acero; revisar también "pae" y "vigas". Agregar términos de exclusión por sector, con pruebas |
-| Leads adjudicados recientes | S | La consulta 4 de `export_prospects` debería priorizar `fecha_adjudicacion` de los últimos 60–90 días (hoy 12 de 22 tenían más de 90 días) |
-| Más volumen | M | Subir de 150 a 400–600 procesos curados; paginar consultas; revisar el peso de `web/data.js` (cargar por partes si pasa de ~3 MB) |
+| Falsos positivos de taxonomía | S | **Hecho en parte (2026-09-30, rama `pro/foundation`):** exclusiones por palabra clave en `config/taxonomy.json` ("varilla" con "cobre" o "puesta a tierra"). **Pendiente del dueño:** separar "pae" / "alimentación escolar" de HORECA; revisar "vigas" |
+| Leads adjudicados recientes | S | **Hecho (2026-09-30):** la consulta vieja filtraba por estados que no existen en SECOP II y no devolvía nada. `src/harvest.py` usa `adjudicado = 'Si'` y una consulta de adjudicados de los últimos 14 días |
+| Más volumen | M | **Hecho en parte (2026-09-30):** las consultas paginan y lo que no entra al tablero queda en la vista "Fuera del tablero". Pendiente: subir el tablero de 150 a 400–600 y revisar el peso de `web/data.js` (cargar por partes si pasa de ~3 MB) |
+| Sectores nuevos | S | **Pendiente del dueño:** elegirlos con `data/hidden_summary.md` (muestra en `docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md`) y agregarlos a `config/taxonomy.json` |
+| Peso del repositorio | S | `web/data.js` y `web/hidden.js` se versionan a diario (unos 0,7 MB cada uno). Publicar GitHub Pages desde un artefacto del workflow evitaría esos commits |
 | Proveedores registrados | S | El diagnóstico no encontró el dataset de "proveedores registrados" de SECOP II; buscarlo con `probe_sources` ampliando las búsquedas |
 | Cobertura de sanciones | S | `4n4q-k399` es SECOP I; buscar un equivalente de SECOP II o de la Procuraduría/Contraloría con datos abiertos |
 | PAA más preciso | S | Hoy se filtra por prefijos UNSPSC de los sectores; agregar palabras clave del sector sobre la descripción para descartar ruido |
