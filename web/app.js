@@ -11,11 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const Engine = window.ProfileEngine;
   const Dash = window.DashboardEngine;
   const TAXONOMY = window.SECTOR_TAXONOMY || {};
+  const SECTOR_GROUPS = window.SECTOR_GROUPS || [];
   const sortSelect = document.getElementById('sortSelect');
   // "Fuera del tablero": lo que pasó el filtro de ruido pero no está en la selección curada.
-  // Oculto por defecto; el archivo (hidden.js) se descarga solo cuando el usuario abre la vista.
+  // Oculto por defecto; el archivo (hidden.js) se descarga solo cuando el usuario abre la vista
+  // o elige "Otros" en el filtro de sector.
   const SHOW_HIDDEN_KEY = 'secop_show_hidden';
-  const HIDDEN_REASONS = { sin_sector: 'Sin clasificar', fuera_de_corte: 'Clasificada, fuera del corte' };
+  const HIDDEN_REASONS = {
+    sin_sector: { label: 'Sin clasificar', tone: 'warn', tip: 'Pasa el filtro de ruido pero no coincide con ningún sector configurado.' },
+    fuera_de_corte: { label: 'Clasificada, fuera del corte', tone: 'info', tip: 'Coincide con un sector, pero no entró a la selección del tablero por puntaje.' },
+    convenio: { label: 'Convenio abierto (ESAL)', tone: 'warn', tip: 'Convenio con una entidad sin ánimo de lucro aún sin adjudicar: una empresa no puede ofertar. Cuando se adjudique, el operador puede ser tu cliente.' }
+  };
+  // Pestañas donde "Otros" tiene sentido: sus procesos salen de hidden.js y se reparten como el tablero.
+  const OTHER_TABS = ['proveedores', 'observatorio', 'hidden'];
+  const sectorOptionEls = new Map(); // opciones del filtro de sector: id → { el, name }
   let showHidden = localStorage.getItem(SHOW_HIDDEN_KEY) === '1';
   let hiddenPayload = null;
   let hiddenLoad = 'idle'; // 'idle' | 'loading' | 'ready' | 'error'
@@ -99,7 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     currentTab = tab;
     if (tab === 'hidden') loadHidden();
+    if (Dash.isOtherSector(sectorSelect.value) && !OTHER_TABS.includes(tab)) sectorSelect.value = 'todos';
     renderView();
+  }
+
+  /** "Otros" en Radar u Observatorio: se muestran procesos sin sector de hidden.js (fichas livianas). */
+  function otherMode() {
+    return Dash.isOtherSector(sectorSelect.value) && (currentTab === 'proveedores' || currentTab === 'observatorio');
   }
 
   // ---------- Fuera del tablero ----------
@@ -175,6 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
   [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
   });
+  sectorSelect.addEventListener('input', () => {
+    if (Dash.isOtherSector(sectorSelect.value)) loadHidden();
+  });
 
   btnResetFilters.addEventListener('click', () => {
     searchInput.value = '';
@@ -230,14 +248,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (close) close.click();
   });
 
-  // El filtro de sector se arma con la taxonomía del pipeline: un sector nuevo aparece solo.
+  // El filtro de sector se arma con la taxonomía del pipeline, agrupado por familia: un sector
+  // nuevo aparece solo. Al final, "Otros" (sin sector y seguros), que se carga de hidden.js.
   function initSectors() {
-    Dash.sectorOptions(TAXONOMY).forEach(({ id, name }) => {
-      const opt = document.createElement('option');
-      opt.value = id;
-      opt.textContent = name;
-      sectorSelect.appendChild(opt);
+    const addGroup = (label, sectors) => {
+      const group = document.createElement('optgroup');
+      group.label = label;
+      sectors.forEach(({ id, name }) => {
+        const opt = document.createElement('option');
+        opt.value = id;
+        opt.textContent = name;
+        group.appendChild(opt);
+        sectorOptionEls.set(id, { el: opt, name });
+      });
+      sectorSelect.appendChild(group);
+    };
+    Dash.sectorGroups(TAXONOMY, SECTOR_GROUPS).forEach(g => addGroup(g.name, g.sectors));
+    addGroup('Otros', Dash.OTHER_OPTIONS);
+  }
+
+  /** Conteo de la pestaña activa junto a cada sector; "Otros" solo donde aplica y con hidden.js cargado. */
+  function updateSectorCounts() {
+    const base = currentTab === 'hidden' ? hiddenItems() : tabBaseline();
+    const counts = Dash.sectorCounts(base);
+    const others = currentTab === 'hidden' ? counts
+      : hiddenLoad === 'ready' ? Dash.sectorCounts(Dash.otherItems(hiddenItems(), currentTab)) : null;
+    sectorOptionEls.forEach(({ el, name }, id) => {
+      const isOther = Dash.isOtherSector(id);
+      el.disabled = isOther && !OTHER_TABS.includes(currentTab);
+      const n = isOther ? (others ? others[id] || 0 : null) : counts[id] || 0;
+      el.textContent = n === null || el.disabled ? name : `${name} (${n})`;
     });
+  }
+
+  function sectorName(id) {
+    return sectorOptionEls.get(id)?.name || id;
+  }
+
+  function sectorGroupName(id) {
+    return Dash.sectorGroups(TAXONOMY, SECTOR_GROUPS).find(g => g.sectors.some(s => s.id === id))?.name || '';
   }
 
   // Helper: Extract unique departments for dropdown
@@ -295,6 +344,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return sortHidden(Dash.filterHidden(hiddenItems(), {
         ...filters, onlyNew: false, reason: hiddenReasonSelect.value, family: hiddenFamilySelect.value
       }));
+    }
+    if (otherMode()) {
+      return sortHidden(Dash.applyFilters(Dash.otherItems(hiddenItems(), currentTab), { ...filters, onlyNew: false }));
     }
     // El CRM muestra todo lo guardado: los filtros no aplican al tablero kanban.
     const filtered = currentTab === 'crm' ? tabBaseline() : Dash.applyFilters(tabBaseline(), filters);
@@ -398,7 +450,10 @@ document.addEventListener('DOMContentLoaded', () => {
     kpiTotalPipeline.textContent = formatCop(k.sum);
     const kpiPipelineSub = document.querySelector('.kpi-emerald .kpi-sub');
     if (kpiPipelineSub) {
-      if (isFiltered && k.pct !== null) {
+      if (otherMode()) {
+        // Los procesos de "Otros" no son parte del tablero: no se comparan con su total.
+        kpiPipelineSub.textContent = 'En procesos sin sector (fuera del tablero)';
+      } else if (isFiltered && k.pct !== null) {
         kpiPipelineSub.textContent = `de ${formatCop(k.baselineSum)} en ${baseName} (${k.pct}%)`;
       } else {
         kpiPipelineSub.textContent = `Total en ${k.baselineCount} ${baseName}`;
@@ -409,27 +464,35 @@ document.addEventListener('DOMContentLoaded', () => {
     kpiTotalOpps.textContent = k.count;
     const kpiOppsSub = document.querySelector('.kpi-cyan .kpi-sub');
     if (kpiOppsSub) {
-      kpiOppsSub.textContent = isFiltered ? `de ${k.baselineCount} disponibles en ${baseName}` : `Calificadas sin OPS ni prestación de servicios`;
+      kpiOppsSub.textContent = otherMode() ? 'Muestra de procesos sin sector'
+        : isFiltered ? `de ${k.baselineCount} disponibles en ${baseName}` : `Calificadas sin OPS ni prestación de servicios`;
     }
 
-    // 3. Sector / Filter Card
+    // 3. Sector / Filter Card: con ~12 sectores ya no caben todos los nombres, solo los de más valor.
     const kpiSecTitle = document.getElementById('kpiSectorTitle');
     const kpiSecVal = document.getElementById('kpiSectorValue');
     const kpiSecSub = document.getElementById('kpiSectorSub');
     if (kpiSecTitle && kpiSecVal && kpiSecSub) {
-      if (sectorSelect.value !== 'todos') {
+      const sector = sectorSelect.value;
+      if (sector !== 'todos') {
         kpiSecTitle.textContent = 'Sector Filtrado';
-        kpiSecVal.textContent = sectorSelect.options[sectorSelect.selectedIndex].text;
-        kpiSecSub.textContent = `Visualizando este vertical específico`;
+        kpiSecVal.textContent = sectorName(sector);
+        kpiSecSub.textContent = Dash.isOtherSector(sector)
+          ? 'Procesos que no están en el tablero'
+          : [sectorGroupName(sector), !otherMode() && k.pct !== null ? `${k.pct}% del valor de ${baseName}` : ''].filter(Boolean).join(' · ');
       } else if (departmentSelect.value !== 'todos') {
         kpiSecTitle.textContent = 'Región Filtrada';
         kpiSecVal.textContent = departmentSelect.value;
         kpiSecSub.textContent = `Filtro geográfico activo`;
       } else {
         const sectors = Dash.sectorOptions(TAXONOMY);
+        const top = Dash.topSectors(filteredItems, TAXONOMY, 2); // los nombres son largos: dos caben
+        const more = sectors.length - top.length;
         kpiSecTitle.textContent = 'Sectores Clave';
         kpiSecVal.textContent = `${sectors.length} ${sectors.length === 1 ? 'sector' : 'sectores'}`;
-        kpiSecSub.textContent = sectors.map(s => s.name).join(' · ');
+        kpiSecSub.textContent = top.length
+          ? `Más valor aquí: ${top.map(s => s.name).join(' · ')}${more > 0 ? ` y ${more} más` : ''}`
+          : '';
       }
     }
 
@@ -442,12 +505,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countCrm').textContent = Dash.crmSummary(crmState, rawData).active;
     document.getElementById('countPaa').textContent = PAA.length;
     document.getElementById('countParaTi').textContent = Profile && Profile.getProfile() ? forYouItems().length : '✨';
-    document.getElementById('countHidden').textContent = hiddenPayload ? hiddenPayload.total : (META?.embudo ? META.embudo.sin_clasificar + META.embudo.fuera_de_corte : '…');
+    // Todo lo que pasó el filtro y no está en el tablero: sin clasificar + clasificados que no entraron.
+    document.getElementById('countHidden').textContent = hiddenPayload ? hiddenPayload.total
+      : (META?.embudo ? META.embudo.sin_clasificar + META.embudo.clasificados - META.embudo.en_tablero : '…');
   }
 
   // Render View depending on current tab
   function renderView() {
     const filtered = getFilteredData();
+    updateSectorCounts();
     updateKpis(filtered);
     hiddenControls.hidden = currentTab !== 'hidden';
 
@@ -455,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.style.display = 'none';
       crmKanban.style.display = 'grid';
       renderCrmKanban();
-    } else if (currentTab === 'hidden') {
+    } else if (currentTab === 'hidden' || otherMode()) {
       cardsGrid.style.display = 'grid';
       crmKanban.style.display = 'none';
       renderHiddenCards(filtered);
@@ -475,6 +541,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<div class="empty-foryou"><div class="empty-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div>`;
   }
 
+  /** Badges de una ficha liviana: el motivo por el que no está en el tablero y lo que la identifica. */
+  function lightBadges(item) {
+    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
+    const badges = [{ icon: '', ...reason }];
+    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
+    if (item.convenio && item.motivo !== 'convenio') badges.push(Engine.BADGES.convenio);
+    return badges.map(badgeHtml).join('');
+  }
+
   function renderHiddenCards(items) {
     if (hiddenLoad === 'loading' || hiddenLoad === 'idle') {
       resultsCount.textContent = 'Cargando los procesos fuera del tablero…';
@@ -488,13 +563,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const p = hiddenPayload;
-    const capped = p.total > p.items.length
-      ? ` · la web carga ${p.items.length} de ${p.total}; el reporte completo está en <code>data/hidden_summary.md</code>`
-      : '';
-    resultsCount.innerHTML = `Mostrando <b>${items.length}</b> de ${p.items.length} procesos fuera del tablero · <span class="freshness">${p.sin_sector} sin clasificar y ${p.fuera_de_corte} clasificados fuera del corte${capped}</span>`;
+    if (otherMode()) {
+      // hidden.js es una muestra (los de mayor puntaje): se dice cuántos hay en total.
+      const sector = sectorSelect.value;
+      const insurance = p.seguros || 0;
+      const total = sector === Dash.SEGUROS ? insurance : p.sin_sector - insurance;
+      const loaded = p.items.filter(i => i.motivo === 'sin_sector' && Dash.matchesSector(i, sector)).length;
+      const what = sector === Dash.SEGUROS ? 'seguros' : 'procesos sin sector';
+      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${what} en esta pestaña · <span class="freshness">no están en el tablero; la web carga una muestra de ${loaded} de ${total} (los de mayor puntaje)</span>`;
+    } else {
+      const capped = p.total > p.items.length
+        ? ` · la web carga ${p.items.length} de ${p.total}; el reporte completo está en <code>data/hidden_summary.md</code>`
+        : '';
+      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> de ${p.items.length} procesos fuera del tablero · <span class="freshness">${p.sin_sector} sin clasificar, ${p.fuera_de_corte} clasificados fuera del corte y ${p.convenio || 0} convenios abiertos${capped}</span>`;
+    }
 
     if (!items.length) {
-      cardsGrid.innerHTML = hiddenMessage('🔍', 'Ningún proceso con estos filtros', 'Cambia la familia UNSPSC, el motivo o la búsqueda.');
+      cardsGrid.innerHTML = hiddenMessage('🔍', 'Ningún proceso con estos filtros', otherMode()
+        ? 'Cambia de pestaña, de sector o limpia la búsqueda.'
+        : 'Cambia la familia UNSPSC, el motivo o la búsqueda.');
       return;
     }
 
@@ -520,7 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
           ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
           ${published || closing ? `<div class="card-dates"><div class="date-meta">${[published, closing].filter(Boolean).join('<span class="dot">·</span>')}</div></div>` : ''}
-          <div class="badge-row"><span class="badge ${item.motivo === 'sin_sector' ? 'badge-warn' : 'badge-info'}" title="${item.motivo === 'sin_sector' ? 'Pasa el filtro de ruido pero no coincide con ningún sector configurado.' : 'Coincide con un sector, pero no entró a la selección del tablero por puntaje.'}">${escapeHtml(HIDDEN_REASONS[item.motivo] || item.motivo)}</span></div>
+          <div class="badge-row">${lightBadges(item)}</div>
           <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
         </div>
         <div class="card-actions">
@@ -983,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
         <p class="detail-sub">${plural(META.salieron, 'oportunidad salió', 'oportunidades salieron')} de la selección respecto a la corrida anterior.
           Próxima sincronización programada: <b>${escapeHtml(colombiaTime(META.proxima_programada))}</b>.</p>
+        ${META.reclasificacion ? '<p class="detail-sub">ℹ️ Esta corrida amplió los sectores del motor: los procesos que entraron al tablero solo por tener un sector nuevo no cuentan como nuevos.</p>' : ''}
         ${META.nuevas ? `<button class="btn btn-primary" id="showOnlyNew">🔔 Ver ${META.nuevas === 1 ? 'la oportunidad nueva' : `solo las ${META.nuevas} nuevas`}</button>` : ''}
 
         <section class="detail-section">
@@ -1208,7 +1296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('No hay oportunidades para exportar con estos filtros', 'warning');
       return;
     }
-    if (currentTab === 'hidden') {
+    if (currentTab === 'hidden' || otherMode()) {
       exportHiddenToCsv(dataToExport);
       return;
     }
@@ -1258,7 +1346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rows = items.map(item => [
       item.id || '',
       item.referencia || '',
-      HIDDEN_REASONS[item.motivo] || item.motivo || '',
+      HIDDEN_REASONS[item.motivo]?.label || item.motivo || '',
       (item.sectores || []).map(s => s.name).join(', '),
       Dash.familyOf(item),
       item.unspsc || '',

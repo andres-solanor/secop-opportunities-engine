@@ -482,6 +482,8 @@
     contrato_modificado: { icon: '✏️', label: 'Contrato modificado', tone: 'warn', tip: 'El contrato tuvo modificaciones (valor, plazo u objeto). Revisa el expediente.' },
     prorroga: { icon: '📆', label: 'Con prórroga', tone: 'warn', tip: 'Al contrato se le adicionaron días de ejecución.' },
     contratista_nuevo: { icon: '🆕', label: 'Primer contrato', tone: 'warn', tip: 'El contratista no tiene otros contratos en SECOP II: verifica su capacidad antes de venderle a crédito.' },
+    convenio: { icon: '🤲', label: 'Convenio ESAL', tone: 'warn', tip: 'Convenio con una entidad sin ánimo de lucro (Decreto 092) o entre entidades: no se oferta como empresa, pero el operador que lo ejecuta compra insumos.' },
+    seguros: { icon: '🛡️', label: 'Solo aseguradoras', tone: 'warn', tip: 'Programa de seguros de la entidad: solo una compañía de seguros puede ofertar. Aparece en "Otros", fuera de los sectores.' },
     inicio_proximo: { icon: '🚀', label: 'Inicia pronto', tone: 'good', tip: 'La ejecución aún no empieza: es el mejor momento para ofrecer insumos.' },
     en_ejecucion: { icon: '▶️', label: 'En ejecución', tone: 'good', tip: 'El contrato está en ejecución: el contratista está comprando insumos.' },
     contratista_recurrente: { icon: '🔁', label: 'Contratista recurrente', tone: 'good', tip: 'El contratista tiene 5 o más contratos en SECOP II.' },
@@ -522,6 +524,7 @@
       if (c.es_pyme) ids.push('pyme');
     }
 
+    if (item.convenio) ids.push('convenio');
     if (item.nueva) ids.push('nueva');
     if (item.ofertas && item.ofertas.cantidad) ids.push('ofertas');
     if (bw.state !== 'adjudicado') ids.push('sin_ganador');

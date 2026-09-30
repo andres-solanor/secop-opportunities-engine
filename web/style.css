@@ -582,8 +582,9 @@ body {
 }
 
 /* Pipeline CRM Kanban View */
+/* Oculto hasta que se abre la pestaña CRM: app.js cambia `style.display` al pintar cada vista. */
 .crm-kanban {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   margin-top: 1rem;
@@ -1266,6 +1267,55 @@ body {
 
 .catalog-group + .catalog-group {
   margin-top: 0.75rem;
+}
+
+/* Familias de sectores en el paso "¿Qué ofreces?": plegables para que ~12 sectores no abrumen. */
+.catalog-family {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+}
+
+.catalog-family + .catalog-family {
+  margin-top: 0.5rem;
+}
+
+.catalog-family > summary {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.catalog-family > summary small {
+  font-weight: 500;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.catalog-family[open] > summary {
+  margin-bottom: 0.65rem;
+}
+
+.section-gap {
+  margin-top: 1.25rem;
+}
+
+.signin .brand-icon {
+  margin: 0 auto 1rem;
+}
+
+.signin .wizard-title,
+.signin .wizard-hint {
+  text-align: center;
+}
+
+.signin .google-slot {
+  justify-content: center;
 }
 
 .catalog-sector {

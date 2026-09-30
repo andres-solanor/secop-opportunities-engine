@@ -7,6 +7,29 @@
 (function (root) {
   const EMPTY_NAMES = ['Pendiente por Adjudicar', 'No Definido', 'No definido'];
   const SIN_CLASIFICAR = 'sin_clasificar';
+  // "Otros" en el filtro de sector: no son sectores de la taxonomía, salen de hidden.js.
+  // Los seguros van aparte e identificados: solo una aseguradora puede ofertar en ellos.
+  const SEGUROS = 'seguros';
+  const OTHER_OPTIONS = [
+    { id: SIN_CLASIFICAR, name: 'Otros: sin sector' },
+    { id: SEGUROS, name: 'Otros: seguros (solo aseguradoras)' }
+  ];
+
+  function isInsurance(item) {
+    return (item.tipo_contrato || '') === 'Seguros';
+  }
+
+  function isOtherSector(sector) {
+    return sector === SIN_CLASIFICAR || sector === SEGUROS;
+  }
+
+  /** ¿La oportunidad pertenece al sector elegido? Incluye las dos opciones de "Otros". */
+  function matchesSector(item, sector) {
+    if (!sector || sector === 'todos') return true;
+    if (sector === SEGUROS) return isInsurance(item);
+    const inSector = (item.sectores || []).some(s => s.id === sector);
+    return sector === SIN_CLASIFICAR ? inSector && !isInsurance(item) : inSector;
+  }
 
   function isAwarded(item) {
     return (item.etapa_comercial || '').toLowerCase().includes('adjudicado');
@@ -55,7 +78,7 @@
     return items.filter(item => {
       if (filters.onlyNew && !item.nueva) return false;
       if (query && !searchCorpus(item).includes(query)) return false;
-      if (sector !== 'todos' && !(item.sectores || []).some(s => s.id === sector)) return false;
+      if (!matchesSector(item, sector)) return false;
       if (!matchesStage(item, filters.stage)) return false;
       const value = item.precio != null ? item.precio : item.valor;
       if (minBudget > 0 && (value || 0) < minBudget) return false;
@@ -107,6 +130,55 @@
   /** Opciones del filtro de sector, generadas desde la taxonomía del pipeline. */
   function sectorOptions(taxonomy) {
     return Object.keys(taxonomy || {}).map(id => ({ id, name: taxonomy[id].name }));
+  }
+
+  /**
+   * Sectores agrupados por familia, en el orden de `groups` (window.SECTOR_GROUPS). Un sector
+   * con un grupo desconocido (o una taxonomía vieja sin grupos) va a "Otros sectores".
+   */
+  function sectorGroups(taxonomy, groups) {
+    const known = (groups || []).map(g => ({ id: g.id, name: g.name, sectors: [] }));
+    const byId = new Map(known.map(g => [g.id, g]));
+    const rest = { id: 'otros_sectores', name: 'Otros sectores', sectors: [] };
+    sectorOptions(taxonomy).forEach(s => {
+      (byId.get(taxonomy[s.id].grupo) || rest).sectors.push(s);
+    });
+    return [...known, rest].filter(g => g.sectors.length);
+  }
+
+  /** Cuántas oportunidades hay por sector (una oportunidad cuenta en cada uno de sus sectores). */
+  function sectorCounts(items) {
+    const counts = {};
+    const add = id => { counts[id] = (counts[id] || 0) + 1; };
+    items.forEach(item => {
+      // Un seguro sin sector cuenta en "Otros: seguros", no en "Otros: sin sector".
+      (item.sectores || []).forEach(s => { if (!(s.id === SIN_CLASIFICAR && isInsurance(item))) add(s.id); });
+      if (isInsurance(item)) add(SEGUROS);
+    });
+    return counts;
+  }
+
+  /**
+   * "Otros" en Radar B2B y Observatorio: los procesos sin sector de hidden.js, repartidos igual
+   * que el tablero (adjudicados al Radar, el resto al Observatorio). Es una muestra: hidden.js
+   * trae los de mayor puntaje, no todos.
+   */
+  function otherItems(hiddenItems, tab) {
+    const unclassified = (hiddenItems || []).filter(i => i.motivo === 'sin_sector');
+    return tab === 'proveedores' || tab === 'observatorio' ? tabItems(unclassified, tab) : [];
+  }
+
+  /** Sectores con más valor en una lista, para la tarjeta KPI (valor en COP, de mayor a menor). */
+  function topSectors(items, taxonomy, n) {
+    const acc = new Map();
+    items.forEach(item => (item.sectores || []).forEach(s => {
+      if (!taxonomy || !taxonomy[s.id]) return;
+      const cur = acc.get(s.id) || { id: s.id, name: taxonomy[s.id].name, value: 0, count: 0 };
+      cur.value += item.precio || 0;
+      cur.count += 1;
+      acc.set(s.id, cur);
+    }));
+    return [...acc.values()].sort((a, b) => b.value - a.value || b.count - a.count).slice(0, n);
   }
 
   /** El CRM guarda ids; una oportunidad puede salir del dataset en una sincronización posterior. */
@@ -165,7 +237,12 @@
   const api = {
     EMPTY_NAMES,
     SIN_CLASIFICAR,
+    SEGUROS,
+    OTHER_OPTIONS,
     isAwarded,
+    isInsurance,
+    isOtherSector,
+    matchesSector,
     tabItems,
     applyFilters,
     isFiltered,
@@ -173,6 +250,10 @@
     formatCop,
     departments,
     sectorOptions,
+    sectorGroups,
+    sectorCounts,
+    otherItems,
+    topSectors,
     crmSummary,
     csvCell,
     buildCsv,

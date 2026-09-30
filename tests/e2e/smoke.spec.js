@@ -54,10 +54,45 @@ test('las compras planeadas (PAA) se pintan', async ({ page }) => {
   await expect(cards(page)).toHaveCount(planned);
 });
 
-test('el filtro de sector sale de la taxonomía y filtra las fichas', async ({ page }) => {
+test('el filtro de sector sale de la taxonomía, agrupado, con "Otros" al final', async ({ page }) => {
   await openDashboard(page);
-  const sectors = await page.evaluate(() => Object.entries(window.SECTOR_TAXONOMY).map(([id, s]) => ({ id, name: s.name })));
-  await expect(page.locator('#sectorSelect option')).toHaveCount(sectors.length + 1);
+  const sectors = await page.evaluate(() => Object.keys(window.SECTOR_TAXONOMY));
+  // "Todos" + un sector por clave de la taxonomía + las dos opciones de "Otros".
+  await expect(page.locator('#sectorSelect option')).toHaveCount(sectors.length + 3);
+  const groups = await page.$$eval('#sectorSelect optgroup', els => els.map(e => e.label));
+  expect(groups[groups.length - 1]).toBe('Otros');
+  expect(groups.length).toBeGreaterThan(2);
+
+  // El número junto a cada sector es el de fichas que aparecen al elegirlo (pestaña Radar).
+  const target = await page.evaluate(() => {
+    const radar = window.PROSPECTS_DATA.filter(i => window.DashboardEngine.isAwarded(i));
+    const id = Object.keys(window.SECTOR_TAXONOMY).find(k => radar.some(i => i.sectores.some(s => s.id === k)));
+    return { id, n: radar.filter(i => i.sectores.some(s => s.id === id)).length };
+  });
+  await expect(page.locator(`#sectorSelect option[value="${target.id}"]`)).toHaveText(new RegExp(`\\(${target.n}\\)$`));
+  await page.selectOption('#sectorSelect', target.id);
+  await expect(cards(page)).toHaveCount(target.n);
+  await page.click('#btnResetFilters');
+});
+
+test('"Otros" muestra procesos sin sector y se desactiva en el PAA', async ({ page }) => {
+  const errors = await openDashboard(page);
+  await page.click('#tabObservatorio');
+  await page.selectOption('#sectorSelect', 'sin_clasificar');
+  // Con hidden.js: fichas livianas y la aclaración de que es una muestra. Sin él (antes de la
+  // primera sincronización con el pipeline nuevo): el aviso de que aún no hay datos.
+  await expect(page.locator('#cardsGrid .opp-card-light, #cardsGrid .empty-foryou').first()).toBeVisible();
+  await expect(page.locator('#resultsCount')).not.toHaveText(/Cargando/);
+  await page.click('#tabPaa');
+  await expect(page.locator('#sectorSelect')).toHaveValue('todos');
+  await expect(page.locator('#sectorSelect option[value="sin_clasificar"]')).toBeDisabled();
+  expect(errors.filter(e => !/hidden\.js|404/.test(e))).toEqual([]);
+});
+
+test('el filtro de sector filtra las fichas del Observatorio', async ({ page }) => {
+  await openDashboard(page);
+  const sectors = await page.evaluate(() => Object.keys(window.SECTOR_TAXONOMY).map(id => ({ id })));
+  expect(sectors.length).toBeGreaterThan(0);
 
   await page.click('#tabObservatorio');
   const before = await cards(page).count();

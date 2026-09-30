@@ -137,6 +137,55 @@ test('fuera del tablero: filtra por motivo, familia y filtros comunes', () => {
   assert.strictEqual(D.filterHidden(HIDDEN, {}).length, 3);
 });
 
+const INSURANCE = { id: 'H4', motivo: 'sin_sector', unspsc: null, precio: 2000e6, descripcion: 'Programa de seguros', tipo_contrato: 'Seguros', etapa_comercial: 'Licitación Abierta (En Ofertas)', sectores: [{ id: 'sin_clasificar', name: 'Sin clasificar' }], departamento: 'Cauca' };
+const AGREEMENT = { id: 'H5', motivo: 'convenio', convenio: true, unspsc: null, precio: 400e6, descripcion: 'Aunar esfuerzos PAE', etapa_comercial: 'Licitación Abierta (En Ofertas)', sectores: [{ id: 'alimentacion_escolar', name: 'PAE' }], departamento: 'Cauca' };
+
+test('los sectores se agrupan por familia en el orden de los grupos', () => {
+  const taxonomy = {
+    acero: { name: 'Acero', grupo: 'sum' },
+    obra: { name: 'Obra', grupo: 'obra' },
+    viejo: { name: 'Sin grupo' },
+    tec: { name: 'Tecnología', grupo: 'sum' }
+  };
+  const groups = [{ id: 'obra', name: 'Obra e infraestructura' }, { id: 'sum', name: 'Suministros' }, { id: 'vacio', name: 'Vacío' }];
+  assert.deepStrictEqual(D.sectorGroups(taxonomy, groups), [
+    { id: 'obra', name: 'Obra e infraestructura', sectors: [{ id: 'obra', name: 'Obra' }] },
+    { id: 'sum', name: 'Suministros', sectors: [{ id: 'acero', name: 'Acero' }, { id: 'tec', name: 'Tecnología' }] },
+    { id: 'otros_sectores', name: 'Otros sectores', sectors: [{ id: 'viejo', name: 'Sin grupo' }] }
+  ]);
+  assert.deepStrictEqual(D.sectorGroups(taxonomy, undefined).map(g => g.id), ['otros_sectores']);
+});
+
+test('conteo por sector: los seguros van en su propia opción de "Otros"', () => {
+  const counts = D.sectorCounts([...ITEMS, ...HIDDEN, INSURANCE]);
+  assert.strictEqual(counts.acero_metalmecanica, 2);
+  assert.strictEqual(counts.obra_civil_general, 2);
+  assert.strictEqual(counts[D.SIN_CLASIFICAR], 2);
+  assert.strictEqual(counts[D.SEGUROS], 1);
+});
+
+test('"Otros: sin sector" excluye los seguros y "Otros: seguros" solo los incluye', () => {
+  const list = [...HIDDEN, INSURANCE];
+  assert.deepStrictEqual(D.applyFilters(list, { sector: D.SIN_CLASIFICAR }).map(i => i.id), ['H1', 'H2']);
+  assert.deepStrictEqual(D.applyFilters(list, { sector: D.SEGUROS }).map(i => i.id), ['H4']);
+  assert.ok(D.isOtherSector(D.SEGUROS) && D.isOtherSector(D.SIN_CLASIFICAR) && !D.isOtherSector('obra_civil_general'));
+});
+
+test('"Otros" en Radar y Observatorio: solo sin sector, repartidos como el tablero', () => {
+  const hidden = [...HIDDEN, INSURANCE, AGREEMENT];
+  assert.deepStrictEqual(D.otherItems(hidden, 'proveedores').map(i => i.id), ['H2']);
+  assert.deepStrictEqual(D.otherItems(hidden, 'observatorio').map(i => i.id), ['H1', 'H4']);
+  assert.deepStrictEqual(D.otherItems(hidden, 'paa'), []);
+  assert.deepStrictEqual(D.otherItems(undefined, 'proveedores'), []);
+});
+
+test('sectores con más valor para la tarjeta KPI', () => {
+  const taxonomy = { acero_metalmecanica: { name: 'Acero' }, obra_civil_general: { name: 'Obra' } };
+  const top = D.topSectors(ITEMS, taxonomy, 1);
+  assert.deepStrictEqual(top, [{ id: 'acero_metalmecanica', name: 'Acero', value: 2000e6, count: 2 }]);
+  assert.deepStrictEqual(D.topSectors(HIDDEN, taxonomy, 3).map(s => s.id), ['obra_civil_general']);
+});
+
 test('fuera del tablero: familias UNSPSC con conteo y valor', () => {
   assert.deepStrictEqual(D.hiddenFamilies(HIDDEN), [
     { family: '5310', count: 2, value: 400e6 },
