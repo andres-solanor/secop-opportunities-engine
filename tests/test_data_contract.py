@@ -15,6 +15,7 @@ from src.export_prospects import (
     DATASET_JSON,
     HIDDEN_WEB_MAX,
     cap_hidden,
+    entity_stats,
     export_dataset,
     export_hidden,
     parse_args,
@@ -125,6 +126,21 @@ class TestExports(unittest.TestCase):
         self.assertTrue(content.startswith("window.PROSPECTS_DATA = "))
         self.assertIn('window.PROSPECTS_UPDATED_AT = "2026-09-30T11:05:00Z";', content)
         self.assertIn("window.PAA_DATA = ", content)
+        self.assertIn("window.ENTITY_STATS = ", content)
+        # JSON compacto: ni sangría ni espacios tras los separadores.
+        self.assertNotIn('\n  "', content)
+        self.assertNotIn('": ', content.split("window.PROSPECTS_UPDATED_AT")[0])
+
+    def test_entity_stats_has_one_entry_per_entity_with_card_fields_only(self):
+        stats = {"contratos_12m": 120, "valor_12m": 2e11, "pagado_sobre_facturado_pct": 91,
+                 "proveedores_top": [{"nombre": "X", "valor": 1}]}
+        items = [prospect("A", nit_entidad="890980040", entidad_stats=stats),
+                 prospect("B", nit_entidad="890980040-1", entidad_stats=stats),
+                 prospect("C", nit_entidad="N/A", entidad_stats=stats),
+                 prospect("D", nit_entidad="800000001")]
+        self.assertEqual(entity_stats(items), {
+            "890980040": {"contratos_12m": 120, "valor_12m": 2e11, "pagado_sobre_facturado_pct": 91},
+        })
 
     def test_hidden_web_file_is_capped_but_counts_everything(self):
         reasons = ("sin_sector", "fuera_de_corte", "convenio")

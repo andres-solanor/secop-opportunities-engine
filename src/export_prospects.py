@@ -18,7 +18,7 @@ from typing import Any, Dict, List, Optional
 
 from src.curation import TARGET_COUNT, build_hidden, check_funnel, classify, funnel_counts, select_curated
 from src.discovery import frequent_phrases, group_by_contract_type, group_by_family, render_report
-from src.enrichers.contract_enricher import ContractEnricher
+from src.enrichers.contract_enricher import ContractEnricher, normalize_nit
 from src.enrichers.open_sources import OpenSourcesEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
@@ -41,6 +41,29 @@ HIDDEN_SUMMARY = "hidden_summary.md"
 HIDDEN_WEB_MAX = 1500
 # Reparto del cupo por motivo. Si falta un motivo, su parte se reparte entre los demás.
 HIDDEN_SHARES = {"sin_sector": 0.6, "fuera_de_corte": 0.2, "convenio": 0.2}
+
+
+def compact_json(value: Any) -> str:
+    return json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+
+
+# Cifras de la entidad que leen las fichas (badges "Gran comprador" y "Registra pagos").
+ENTITY_CARD_FIELDS = ("contratos_12m", "valor_12m", "pagado_sobre_facturado_pct")
+
+
+def entity_stats(prospects: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """Diccionario {NIT: cifras de la entidad} para las fichas livianas y el PAA.
+
+    Sale de los `entidad_stats` que ya calculó el cruce con contratos: ninguna consulta nueva.
+    Una entrada por entidad (377 copias eran de 225 entidades el 2026-10-01).
+    """
+    out: Dict[str, Dict[str, Any]] = {}
+    for p in prospects:
+        stats = p.get("entidad_stats")
+        nit = normalize_nit(p.get("nit_entidad"))
+        if stats and nit and nit not in out:
+            out[nit] = {k: stats[k] for k in ENTITY_CARD_FIELDS if stats.get(k) is not None}
+    return out
 
 
 def cap_hidden(hidden: List[Dict[str, Any]], limit: int = HIDDEN_WEB_MAX) -> List[Dict[str, Any]]:
@@ -102,14 +125,17 @@ def export_dataset(prospects: List[Dict[str, Any]], data_dir: str, web_dir: str,
     log.info("[+] Saved JSON dataset: %s", json_path)
 
     # 2. Web JS Export (for GitHub Pages instant execution without CORS)
+    # JSON compacto: con sangría, ~27 % del archivo eran espacios (medido el 2026-10-01). Para leerlo
+    # a mano está data/prospects.json.
     generated_at = (meta or {}).get("generated_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(web_js_path, "w", encoding="utf-8") as f:
-        f.write("window.PROSPECTS_DATA = " + json.dumps(prospects, ensure_ascii=False, indent=2) + ";\n")
+        f.write("window.PROSPECTS_DATA = " + compact_json(prospects) + ";\n")
         f.write(f"window.PROSPECTS_UPDATED_AT = \"{generated_at}\";\n")
+        f.write("window.ENTITY_STATS = " + compact_json(entity_stats(prospects)) + ";\n")
         if meta:
-            f.write("window.PROSPECTS_META = " + json.dumps(meta, ensure_ascii=False, indent=2) + ";\n")
+            f.write("window.PROSPECTS_META = " + compact_json(meta) + ";\n")
         if paa is not None:
-            f.write("window.PAA_DATA = " + json.dumps(paa, ensure_ascii=False, indent=2) + ";\n")
+            f.write("window.PAA_DATA = " + compact_json(paa) + ";\n")
     log.info("[+] Updated Web App data: %s", web_js_path)
 
     # 3. CSV Export

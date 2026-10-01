@@ -574,7 +574,22 @@ class TestCuration(unittest.TestCase):
         item = ScopeExtractor().enrich(raw("A", descripci_n_del_procedimiento="x" * 900))
         light = light_record(item, "fuera_de_corte")
         self.assertLessEqual(len(light["descripcion"]), 241)
+        # Abierta: sin claves de adjudicación (ahorran bytes en dos tercios de la lista).
         self.assertNotIn("contratista", light)
+        self.assertNotIn("fecha_adjudicacion", light)
+
+    def test_light_record_of_awarded_carries_only_winner_and_date(self):
+        item = ScopeExtractor().enrich(raw("A", adjudicado="Si", estado_del_procedimiento="Adjudicado",
+                                           nombre_del_proveedor="CONSORCIO VIAS 2026"))
+        item["fechas"] = {"adjudicacion": "2026-09-20T00:00:00", "publicacion": "2026-08-01T00:00:00"}
+        item["nit_entidad"] = "890980040"
+        item["contrato"] = {"valor": 1}  # el contrato no viaja en la lista liviana
+        light = light_record(item, "fuera_de_corte")
+        self.assertEqual(light["fecha_adjudicacion"], "2026-09-20T00:00:00")
+        self.assertEqual(light["contratista"], {"nombre": "CONSORCIO VIAS 2026", "es_consorcio": True})
+        self.assertEqual(light["nit_entidad"], "890980040")
+        self.assertNotIn("contrato", light)
+        self.assertNotIn("fechas", light)
 
 
 class TestDiscovery(unittest.TestCase):
