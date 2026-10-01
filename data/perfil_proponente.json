@@ -1,0 +1,80 @@
+{
+  "dataset": "jbjy-vk9h",
+  "desde": "2025-10-01",
+  "valor_min": 50000000,
+  "tipos_contrato": [
+    "Obra",
+    "Suministros",
+    "Compraventa",
+    "Interventoría",
+    "Consultoría"
+  ],
+  "modalidades": [
+    {
+      "modalidad": "Selección abreviada subasta inversa",
+      "persona_natural": 910,
+      "juridica": 5266,
+      "sin_dato": 177
+    },
+    {
+      "modalidad": "Mínima cuantía",
+      "persona_natural": 1078,
+      "juridica": 4639,
+      "sin_dato": 84
+    },
+    {
+      "modalidad": "Selección Abreviada de Menor Cuantía",
+      "persona_natural": 609,
+      "juridica": 3652,
+      "sin_dato": 287
+    },
+    {
+      "modalidad": "Contratación régimen especial",
+      "persona_natural": 305,
+      "juridica": 2073,
+      "sin_dato": 23
+    },
+    {
+      "modalidad": "Concurso de méritos abierto",
+      "persona_natural": 183,
+      "juridica": 1682,
+      "sin_dato": 523
+    },
+    {
+      "modalidad": "Contratación directa",
+      "persona_natural": 169,
+      "juridica": 1965,
+      "sin_dato": 18
+    },
+    {
+      "modalidad": "Licitación pública Obra Publica",
+      "persona_natural": 36,
+      "juridica": 806,
+      "sin_dato": 619
+    },
+    {
+      "modalidad": "Contratación régimen especial (con ofertas)",
+      "persona_natural": 102,
+      "juridica": 962,
+      "sin_dato": 160
+    },
+    {
+      "modalidad": "Contratación Directa (con ofertas)",
+      "persona_natural": 15,
+      "juridica": 559,
+      "sin_dato": 15
+    },
+    {
+      "modalidad": "Licitación pública",
+      "persona_natural": 12,
+      "juridica": 302,
+      "sin_dato": 54
+    },
+    {
+      "modalidad": "Seleccion Abreviada Menor Cuantia Sin Manifestacion Interes",
+      "persona_natural": 1,
+      "juridica": 39,
+      "sin_dato": 9
+    }
+  ]
+}

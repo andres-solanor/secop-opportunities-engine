@@ -1231,7 +1231,7 @@
       ]
     },
     "ofertas": {
-      "cantidad": 28,
+      "cantidad": 26,
       "proveedores": [
         {
           "proveedor": "CONSORCIO DM 2026",
@@ -1265,13 +1265,6 @@
           "proveedor": "CONSORCIO CORREDOR NACIONAL 2026",
           "nit": null,
           "valor": 24546602674.0,
-          "fecha": "2026-06-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "Real del Obispo*",
-          "nit": null,
-          "valor": 24570265219.0,
           "fecha": "2026-06-05T00:00:00",
           "ganador": false
         },
@@ -1332,9 +1325,16 @@
           "ganador": false
         },
         {
-          "proveedor": "CONSORCIO JASPICSSA 2026",
+          "proveedor": "CONSORCIO RUTA 27",
           "nit": null,
-          "valor": 25242497952.0,
+          "valor": 25265550629.0,
+          "fecha": "2026-06-05T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO RUTA NACIONAL PLATO",
+          "nit": null,
+          "valor": 25290339089.0,
           "fecha": "2026-06-05T00:00:00",
           "ganador": false
         }
@@ -1397,9 +1397,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "alimentacion escolar",
       "alimentación escolar",
-      "alimentacion escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "UT ALIMENTAR Y DAR AMOR MOMPOX + LOBA",
@@ -1767,8 +1767,8 @@
     "nit_entidad": "892399999",
     "departamento": "Cesar",
     "ciudad": "Valledupar",
-    "precio": 16767846960.0,
-    "precio_formateado": "$16,767,846,960 COP",
+    "precio": 13611167720.0,
+    "precio_formateado": "$13,611,167,720 COP",
     "precio_ajustado": null,
     "unspsc": "93131608",
     "modalidad": "Licitación pública",
@@ -1811,15 +1811,15 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
       "alimentación escolar",
-      "complementos alimentarios"
+      "complementos alimentarios",
+      "pae"
     ],
     "contratista": {
       "nombre": "UNION TEMPORAL NUTRIR 2026",
       "nit": "902090475",
       "es_consorcio": true,
-      "valor_adjudicado": 16767846960.0,
+      "valor_adjudicado": 13611167720.0,
       "departamento_proveedor": "No Definido",
       "ciudad_proveedor": "Valledupar"
     },
@@ -3424,11 +3424,11 @@
       "cantidad": 1,
       "proveedores": [
         {
-          "proveedor": "CONSORCIO ESCENARIO DEPORTIVO",
-          "nit": null,
+          "proveedor": "CONSORCIO ESCENARIO DEPORTIVO ???????",
+          "nit": "902110854",
           "valor": 6979667341.03,
           "fecha": "2026-09-07T00:00:00",
-          "ganador": false
+          "ganador": true
         }
       ]
     },
@@ -3524,9 +3524,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "CONSORCIO PAMPLONITA PTAR",
@@ -3680,8 +3680,8 @@
     ],
     "materiales_detectados": [
       "vía terciaria",
-      "pavimento rigido",
-      "mejoramiento de vía"
+      "mejoramiento de vía",
+      "pavimento rigido"
     ],
     "contratista": {
       "nombre": "CONSORCIO BONDIGUA 500",
@@ -3986,8 +3986,8 @@
       }
     ],
     "materiales_detectados": [
-      "software",
-      "equipos de computo"
+      "equipos de computo",
+      "software"
     ],
     "contratista": {
       "nombre": "UT SIRED COMPUTO 2026",
@@ -4280,7 +4280,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10588885",
@@ -4334,9 +4334,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "alimentacion escolar",
       "complemento alimentario",
-      "alimentacion escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "UNION TEMPORAL ALIMENTANDO YUMBO 2026 II",
@@ -4637,9 +4637,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "complemento alimentario",
-      "pae",
-      "alimentación escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "Fundacion Accion Solidaria Por Colombia",
@@ -4788,8 +4788,8 @@
       }
     ],
     "materiales_detectados": [
-      "seguridad perimetral",
-      "software"
+      "software",
+      "seguridad perimetral"
     ],
     "contratista": {
       "nombre": "Grupo Microsistemas Colombia SAS",
@@ -4948,10 +4948,10 @@
       }
     ],
     "materiales_detectados": [
-      "ptar",
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "ptar",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "NEXO INTEGRA S.A.",
@@ -5993,116 +5993,7 @@
         }
       ]
     },
-    "ofertas": {
-      "cantidad": 37,
-      "proveedores": [
-        {
-          "proveedor": "CS FABRICAS JINT 31",
-          "nit": null,
-          "valor": 3572169376.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "Consultora Central S.A.S BIC",
-          "nit": "901665975",
-          "valor": 3582159290.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERFABRICA",
-          "nit": null,
-          "valor": 3582161651.01,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INVIAS 31",
-          "nit": "17195041",
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERCON 31",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO DISEÑOS 2026",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERCONSULT GC",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERVENTORIA TÉCNICA",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO IMGA ESTUDIOS",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERESTUDIOS 031 HC",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "VINTER",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTERFÁBRICAS BCI",
-          "nit": null,
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "SILVA CARREÑO",
-          "nit": "860504871",
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "ALMA Interventoría & Consultoría S.A.S",
-          "nit": "901573477",
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "Soluciones Avanzadas de Ingenieria y Construccion",
-          "nit": "900641841",
-          "valor": 3582161670.0,
-          "fecha": "2026-07-03T00:00:00",
-          "ganador": false
-        }
-      ]
-    },
+    "ofertas": null,
     "integrantes": [
       {
         "nombre": "HACER DE COLOMBIA SAS",
@@ -6527,11 +6418,11 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
-      "plantas de tratamiento",
       "tratamiento de aguas",
-      "ptar",
-      "aguas residuales"
+      "plantas de tratamiento",
+      "ptar"
     ],
     "contratista": {
       "nombre": "M&G CONSTRUCTORES Y CONSULTORES S.A.S.",
@@ -7458,81 +7349,7 @@
         }
       ]
     },
-    "ofertas": {
-      "cantidad": 10,
-      "proveedores": [
-        {
-          "proveedor": "CONSORCIO 4560 MEDIR FRONTERA",
-          "nit": null,
-          "valor": 2693305361.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO CONEXIÓN MEDELLIN 25",
-          "nit": null,
-          "valor": 2694618567.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "INGENIERIA MASTER S.A.S.",
-          "nit": "900915689",
-          "valor": 2694890890.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO DEPORTIVO LA FRONTERA",
-          "nit": null,
-          "valor": 2695359058.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "C INTER-FRONTERA",
-          "nit": null,
-          "valor": 2695708395.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTER FRONTERA",
-          "nit": null,
-          "valor": 2697361641.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INGENIERÍA UG21CELMAR",
-          "nit": null,
-          "valor": 2698569670.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO INTER TG 25",
-          "nit": null,
-          "valor": 2701440533.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO LA FRONTERA MEDELLIN",
-          "nit": null,
-          "valor": 2704207965.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        },
-        {
-          "proveedor": "CONSORCIO CMS 9898",
-          "nit": null,
-          "valor": 2705797580.0,
-          "fecha": "2026-08-05T00:00:00",
-          "ganador": false
-        }
-      ]
-    },
+    "ofertas": null,
     "integrantes": [
       {
         "nombre": "JORGE ALVARO SANCHEZ BLANCO",
@@ -7603,9 +7420,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "complemento alimentario",
-      "pae",
-      "alimentación escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "INVERSIONES ECONOMICAS PSS SAS",
@@ -8314,11 +8131,36 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 3,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-08-31T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EPIA SAS",
+          "nit": "830096621",
+          "valor": 2699991000.0,
+          "fecha": "2026-08-31T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "MAKEI SOLUCIONES Y ASESORIAS",
+          "nit": "901130840",
+          "valor": 2701000000.0,
+          "fecha": "2026-08-31T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10968486",
@@ -8666,12 +8508,12 @@
       }
     ],
     "materiales_detectados": [
-      "alcantarillado",
+      "acueducto",
       "aguas residuales",
-      "ptar",
-      "tratamiento de aguas",
+      "alcantarillado",
       "planta de tratamiento",
-      "acueducto"
+      "tratamiento de aguas",
+      "ptar"
     ],
     "contratista": {
       "nombre": "EMPRESA DE SERVICIOS PUBLICOS DE ACUEDUCTO, ALCANTARILLADO Y ASEO DE MOGOTES",
@@ -9218,18 +9060,7 @@
         }
       ]
     },
-    "ofertas": {
-      "cantidad": 1,
-      "proveedores": [
-        {
-          "proveedor": "MAV-UMB VIOTA",
-          "nit": null,
-          "valor": 1750318429.0,
-          "fecha": "2026-07-21T00:00:00",
-          "ganador": false
-        }
-      ]
-    },
+    "ofertas": null,
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
@@ -9449,10 +9280,10 @@
       }
     ],
     "materiales_detectados": [
-      "licencias de software",
-      "infraestructura tecnológica",
       "software",
-      "equipos de cómputo"
+      "equipos de cómputo",
+      "licencias de software",
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "RED ACCESS 2026",
@@ -11688,13 +11519,6 @@
           "ganador": false
         },
         {
-          "proveedor": "CONSORCIO SAN PEDRO HEG",
-          "nit": null,
-          "valor": 1439433814.0,
-          "fecha": "2026-08-26T00:00:00",
-          "ganador": false
-        },
-        {
           "proveedor": "C INTER CVP SPLIN",
           "nit": null,
           "valor": 1439433814.0,
@@ -11704,6 +11528,13 @@
         {
           "proveedor": "PROYECTOS E INTERVENTORIAS S.A.S.",
           "nit": "860403102",
+          "valor": 1439433814.0,
+          "fecha": "2026-08-26T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ECOS CVP SUBA",
+          "nit": null,
           "valor": 1439433814.0,
           "fecha": "2026-08-26T00:00:00",
           "ganador": false
@@ -12802,7 +12633,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10979212",
@@ -12945,11 +12776,22 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "ASODEICOL",
+          "nit": "900466966",
+          "valor": 1263938666.0,
+          "fecha": "2026-09-03T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10533532",
@@ -13096,7 +12938,18 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "ORACLE COLOMBIA LTDA",
+          "nit": "800103052",
+          "valor": 1260161195.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
@@ -13224,7 +13077,95 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 12,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Diseño Estrategico de Servicios Públicos S.A.S",
+          "nit": "811022240",
+          "valor": 1253627830.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Alfa y Omega Ingenieros S.A.S",
+          "nit": "811017902",
+          "valor": 1254033624.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO PMA RIONEGRO",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO RIONEGRO 2026.",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "MAV-UMB PMA RIO ABAJO",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Acueductos y Alcantarillados Sostenibles S.A E.S.P",
+          "nit": "811008426",
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO SCAI-TECNI 26",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO KS CONSULTORIA",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "AIRTIFICIAL CW INFRASTRUCTURAS COLOMBIA SAS",
+          "nit": "901200521",
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO CONSULACUEDUCTO 2026",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CCIO PMA RIONEGRO 26",
+          "nit": null,
+          "valor": 1254140300.0,
+          "fecha": "2026-07-07T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "integrantes": [
       {
         "nombre": "MRC INGENIEROS SAS",
@@ -13923,7 +13864,74 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 9,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Poll UPN",
+          "nit": null,
+          "valor": 1147227457.43,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "EMPRESA DE INFRAESTRUCTURA COLOMBIANA S.A.S",
+          "nit": "901629216",
+          "valor": 1159411297.25,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO AWP",
+          "nit": null,
+          "valor": 1159674586.02,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "SEGMENTOS SAS",
+          "nit": "901852888",
+          "valor": 1161849590.69,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO ATILA",
+          "nit": null,
+          "valor": 1166501577.96,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSTRUCCIONES PROCOLOMBIA SAS",
+          "nit": "901825946",
+          "valor": 1168554920.01,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO INFRAESTRUCTURA PISCINAS HGR",
+          "nit": null,
+          "valor": 1182818908.85,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO UPN TITANSAF",
+          "nit": null,
+          "valor": 1195010461.27,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "integrantes": [
       {
         "nombre": "FGD",
@@ -14152,9 +14160,9 @@
       }
     ],
     "materiales_detectados": [
+      "fotovoltaico",
       "sistema fotovoltaico",
-      "fotovoltaica",
-      "fotovoltaico"
+      "fotovoltaica"
     ],
     "contratista": {
       "nombre": "UNIÓN TEMPORAL REGISTRADURÍA FOTOVOLTAICA",
@@ -14377,8 +14385,8 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
-      "aguas residuales"
+      "aguas residuales",
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "EMPRESA DE DESARROLLO TERRITORIAL URBANO Y RURAL DE RISARALDA - EDUR",
@@ -14472,7 +14480,18 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "EMPRESA DE DESARROLLO TERRITORIAL URBANO Y RURAL DE RISARALDA - EDUR",
+          "nit": "900118630",
+          "valor": 1123875148.52,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
@@ -14781,9 +14800,9 @@
       }
     ],
     "materiales_detectados": [
-      "ptar",
       "acueducto",
-      "alcantarillado"
+      "alcantarillado",
+      "ptar"
     ],
     "contratista": {
       "nombre": "AZ CONSTRUCCIONES SAS",
@@ -14982,9 +15001,9 @@
       }
     ],
     "materiales_detectados": [
+      "seguridad perimetral",
       "licenciamiento",
-      "infraestructura tecnológica",
-      "seguridad perimetral"
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "UT DataSEYC",
@@ -15180,11 +15199,11 @@
     ],
     "materiales_detectados": [
       "reactivos",
-      "muebles",
+      "biomédicos",
       "equipos de cómputo",
-      "laboratorio clínico",
       "equipos biomédicos",
-      "biomédicos"
+      "muebles",
+      "laboratorio clínico"
     ],
     "contratista": {
       "nombre": "Comprolab S.A.S",
@@ -15498,9 +15517,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "alimentacion escolar",
       "alimentación escolar",
-      "alimentacion escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION SOMOS MANOS UNIDAS",
@@ -16349,8 +16368,8 @@
       }
     ],
     "materiales_detectados": [
-      "infraestructura tecnológica",
-      "redes de datos"
+      "redes de datos",
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "Corporación Colombia Digital",
@@ -16794,7 +16813,7 @@
       "ultima_actualizacion": "2026-06-30T00:00:00",
       "cierre_ofertas": "2026-07-09T00:00:00",
       "apertura_ofertas": "2026-07-09T00:00:00",
-      "adjudicacion": "2026-07-23T00:00:00"
+      "adjudicacion": null
     },
     "plazo": {
       "valor": 5,
@@ -16829,8 +16848,8 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
-      "aguas residuales"
+      "aguas residuales",
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "Consorcio Pozos sépticos VIVA 2026",
@@ -17381,7 +17400,25 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "Aron",
+          "nit": "900029467",
+          "valor": 2110550184.96,
+          "fecha": "2026-06-30T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "UT SOFTWARE CALI",
+          "nit": "902085638",
+          "valor": 2113740000.0,
+          "fecha": "2026-06-30T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "integrantes": [
       {
         "nombre": "IMPOINTER S.A.S.",
@@ -18111,8 +18148,8 @@
       }
     ],
     "materiales_detectados": [
-      "equipos de cómputo",
-      "computadores"
+      "computadores",
+      "equipos de cómputo"
     ],
     "contratista": {
       "nombre": "REDCOMPUTO LTDA",
@@ -18288,8 +18325,8 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
-      "aguas residuales"
+      "aguas residuales",
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "OBRAS PTAR 2026",
@@ -18532,7 +18569,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10573078",
@@ -18581,8 +18618,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "UT ALIMENTAR NORTE 2026",
@@ -19023,8 +19060,8 @@
       }
     ],
     "materiales_detectados": [
-      "ptar",
-      "alcantarillados"
+      "alcantarillados",
+      "ptar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -19117,8 +19154,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUPADESO",
@@ -19370,8 +19407,8 @@
       }
     ],
     "materiales_detectados": [
-      "planta de tratamiento",
       "acueducto",
+      "planta de tratamiento",
       "agua potable"
     ],
     "contratista": {
@@ -19575,7 +19612,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10381967",
@@ -19624,8 +19661,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "CONSORCIO CORDOBA NUTRE",
@@ -19882,8 +19919,8 @@
     ],
     "materiales_detectados": [
       "acueducto",
-      "mejoramiento de vías",
-      "alcantarillado"
+      "alcantarillado",
+      "mejoramiento de vías"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -19960,8 +19997,8 @@
     ],
     "materiales_detectados": [
       "pavimento rígido",
-      "acueducto",
-      "malla vial"
+      "malla vial",
+      "acueducto"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -20064,11 +20101,11 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
       "obras complementarias",
-      "ptar",
+      "aguas residuales",
+      "tratamiento de aguas",
       "planta de tratamiento",
-      "aguas residuales"
+      "ptar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -20229,9 +20266,9 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
       "plantas de tratamiento",
-      "aguas residuales"
+      "aguas residuales",
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -20388,8 +20425,8 @@
       }
     ],
     "materiales_detectados": [
-      "alcantarillado",
       "acueducto",
+      "alcantarillado",
       "pavimento flexible"
     ],
     "contratista": {
@@ -20559,8 +20596,8 @@
     ],
     "materiales_detectados": [
       "pavimento rígido",
-      "malla vial",
-      "alcantarillado"
+      "alcantarillado",
+      "malla vial"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -20815,8 +20852,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -20923,7 +20960,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11092906",
@@ -21107,7 +21144,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10951083",
@@ -21636,7 +21673,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10784749",
@@ -21771,8 +21808,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION COLOMBIA EMPRENDE V. I.",
@@ -21935,8 +21972,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPIO DE CHIQUINQUIRA+",
@@ -22087,8 +22124,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "ALCALDIA MUNICIPAL DE PUERTO BOYACA - BOYACA",
@@ -22336,8 +22373,8 @@
     ],
     "materiales_detectados": [
       "obras complementarias",
-      "alcantarillado",
-      "aguas residuales"
+      "aguas residuales",
+      "alcantarillado"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -22441,12 +22478,12 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
       "tratamiento de aguas",
-      "ptar",
-      "aguas residuales",
       "planta de tratamiento",
-      "interventoría técnica"
+      "interventoría técnica",
+      "ptar"
     ],
     "contratista": {
       "nombre": "INTERVENTORIA Y CONSTRUCCIONES PARRA SAS",
@@ -22708,9 +22745,9 @@
       }
     ],
     "materiales_detectados": [
+      "alcantarillado",
       "pavimento rígido",
-      "mejoramiento de vías",
-      "alcantarillado"
+      "mejoramiento de vías"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -22947,8 +22984,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION SOMOS MANOS UNIDAS",
@@ -23110,8 +23147,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPIO DE PAIPA",
@@ -23280,8 +23317,8 @@
       }
     ],
     "materiales_detectados": [
-      "interventoria integral",
-      "obras civiles"
+      "obras civiles",
+      "interventoria integral"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -23431,8 +23468,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION PROTEGER",
@@ -23858,8 +23895,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "luminarias led"
+      "luminarias led",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "M&O DISTRIBUCIONES Y TECNOLOGIA S.A.S.",
@@ -24033,9 +24070,9 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
+      "alumbrado público",
       "fotovoltaica",
-      "alumbrado público"
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -24114,9 +24151,9 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
+      "alumbrado público",
       "fotovoltaica",
-      "alumbrado público"
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -24440,8 +24477,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "alumbrado publico"
+      "alumbrado publico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -24520,8 +24557,8 @@
       }
     ],
     "materiales_detectados": [
-      "escenarios deportivos",
-      "estructura metálica"
+      "estructura metálica",
+      "escenarios deportivos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -24681,8 +24718,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPIO DE SAMACA",
@@ -24938,8 +24975,8 @@
       }
     ],
     "materiales_detectados": [
-      "pavimentacion",
-      "pavimento rigido"
+      "pavimento rigido",
+      "pavimentacion"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -25032,8 +25069,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "ALCALDIA MUNICIPIO DE MONIQUIRA+",
@@ -25234,7 +25271,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10665519",
@@ -25388,7 +25425,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11027191",
@@ -25533,8 +25570,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION ILUSION EN GRANDE",
@@ -25682,9 +25719,9 @@
       }
     ],
     "materiales_detectados": [
-      "dotación de calzado",
       "calzado y vestido",
-      "vestido de labor"
+      "vestido de labor",
+      "dotación de calzado"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -25777,8 +25814,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "alumbrado publico"
+      "alumbrado publico",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -25850,8 +25887,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION CONSTRUYENDO VIDA SANA",
@@ -26012,8 +26049,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACIÓN HUELLA PARA EL FUTURO",
@@ -26182,9 +26219,9 @@
       }
     ],
     "materiales_detectados": [
-      "alcantarillado",
       "acueducto",
-      "aguas residuales"
+      "aguas residuales",
+      "alcantarillado"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -26717,8 +26754,8 @@
       }
     ],
     "materiales_detectados": [
-      "estudios y diseños",
-      "alcantarillado"
+      "alcantarillado",
+      "estudios y diseños"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -26798,8 +26835,8 @@
       }
     ],
     "materiales_detectados": [
-      "alcantarillado",
       "acueducto",
+      "alcantarillado",
       "pavimento flexible"
     ],
     "contratista": {
@@ -26968,8 +27005,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPIO DE VILLA DE LEYVA//",
@@ -27270,8 +27307,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "ALCALDÍA MUNICIPAL DE AQUITANIA",
@@ -27422,8 +27459,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "La Provincia de La Paz",
@@ -27837,8 +27874,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION MAS",
@@ -27992,8 +28029,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "MUNICIPO DE VENTAQUEMADA",
@@ -29019,8 +29056,8 @@
       }
     ],
     "materiales_detectados": [
-      "equipos de cómputo",
-      "computadores"
+      "computadores",
+      "equipos de cómputo"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -29365,8 +29402,8 @@
       }
     ],
     "materiales_detectados": [
-      "acueductos",
-      "alcantarillados"
+      "alcantarillados",
+      "acueductos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -30107,9 +30144,9 @@
       }
     ],
     "materiales_detectados": [
-      "planta de tratamiento",
       "ptap",
-      "agua potable"
+      "agua potable",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "UT PTAP SILOS 2026",
@@ -31078,7 +31115,25 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-07-02T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "UNIÓN TEMPORAL INTERVENTORÍA PANELES SOLARES 2026",
+          "nit": null,
+          "valor": 831203619.0,
+          "fecha": "2026-07-02T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "integrantes": [
       {
         "nombre": "INGENIA COL S.A.S. ZOMAC",
@@ -31450,7 +31505,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10833754",
@@ -31504,9 +31559,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "alimentacion escolar",
       "alimentación escolar",
-      "alimentacion escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION DEDICADA A LA RESPONSABILIDAD SOCIAL FUND@R",
@@ -31600,7 +31655,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10874210",
@@ -31750,7 +31805,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10944600",
@@ -31985,9 +32040,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "MC REDES CAMPOALEGRE",
@@ -32079,7 +32134,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11014161",
@@ -32132,8 +32187,8 @@
       }
     ],
     "materiales_detectados": [
-      "eficiencia energética",
-      "fotovoltaico"
+      "fotovoltaico",
+      "eficiencia energética"
     ],
     "contratista": {
       "nombre": "PROMOTORA ENERGÉTICA DEL CENTRO S.A.S E.S.P",
@@ -32243,173 +32298,6 @@
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
     "nueva": false
-  },
-  {
-    "id": "CO1.REQ.10578096",
-    "id_portafolio": "CO1.BDOS.10285217",
-    "referencia": "UBPD-SASI-016-2026 (Presentación de oferta)",
-    "entidad": "Unidad de Busqueda de Personas Desaparecidas",
-    "nit_entidad": "901158482",
-    "departamento": "Distrito Capital de Bogotá",
-    "ciudad": "Bogotá",
-    "precio": 752720000.0,
-    "precio_formateado": "$752,720,000 COP",
-    "precio_ajustado": null,
-    "unspsc": "43211500",
-    "modalidad": "Selección abreviada subasta inversa",
-    "tipo_contrato": "Compraventa",
-    "convenio": false,
-    "descripcion": "Adquirir equipos de cómputo portátiles y monitores con las especificaciones técnicas requeridas para fortalecer y asegurar la operación misional, administrativa y técnica de la Unidad de Búsqueda de Personas dadas por Desaparecidas - UBPD, garantizando la disponibilidad de herramientas tecnológicas adecuadas para el desarrollo de las actividades institucionales y la prestación eficiente de los servicios de información.",
-    "fecha_publicacion": "2026-07-01T00:00:00",
-    "fechas": {
-      "publicacion": "2026-07-01T00:00:00",
-      "ultima_actualizacion": "2026-07-01T00:00:00",
-      "cierre_ofertas": "2026-07-14T00:00:00",
-      "apertura_ofertas": "2026-07-28T00:00:00",
-      "adjudicacion": "2026-08-11T00:00:00"
-    },
-    "plazo": {
-      "valor": 123,
-      "unidad": "día(s)",
-      "texto": "123 días"
-    },
-    "competencia": {
-      "interesados": 0,
-      "ofertas": 27,
-      "visualizaciones": 74
-    },
-    "estado_secop": "Seleccionado",
-    "fase": "Presentación de oferta",
-    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
-    "tipo_oportunidad": "Lead B2B de Venta Directa",
-    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
-    "sectores": [
-      {
-        "id": "tecnologia",
-        "name": "Tecnología & Equipos de Cómputo",
-        "matched_keywords": [
-          "equipos de cómputo"
-        ],
-        "relevance_score": 41.5
-      }
-    ],
-    "materiales_detectados": [
-      "equipos de cómputo"
-    ],
-    "contratista": {
-      "nombre": "UT AXEC UBPD PC 2026",
-      "nit": "000000000",
-      "es_consorcio": true,
-      "valor_adjudicado": 752720000.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "Bogotá"
-    },
-    "score_calidad": 88,
-    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10439254",
-    "contrato": {
-      "cantidad": 2,
-      "id": "CO1.PCCNTR.9791655",
-      "referencia": "581-2026-UBPD",
-      "estado": "Aprobado",
-      "objeto": "Adquirir equipos de cómputo portátiles y monitores con las especificaciones técnicas requeridas para fortalecer y asegurar la operación misional; administrativa y técnica de la Unidad de Búsqueda de Personas dadas por Desaparecidas - UBPD; garantizando la disponibilidad de herramientas tecnológicas adecuadas para el desarrollo de las actividades institucionales y la prestación eficiente de los servicios de información - LOTE 2 - Monitores.",
-      "fecha_firma": "2026-08-14T00:00:00",
-      "inicio_ejecucion": "2026-08-20T00:00:00",
-      "fin_ejecucion": "2026-12-19T00:00:00",
-      "ultima_actualizacion": null,
-      "valor": 816740000.0,
-      "valor_facturado": 0.0,
-      "valor_pagado": 0.0,
-      "avance_pagos_pct": 0.0,
-      "anticipo": false,
-      "valor_anticipo": null,
-      "dias_adicionados": 0,
-      "prorrogable": true,
-      "es_pyme": true,
-      "es_grupo": true,
-      "destino_gasto": "Inversión",
-      "origen_recursos": [
-        "Presupuesto General de la Nación"
-      ],
-      "direccion_ejecucion": "Bogotá D.C. y cuando se requiera; el resto del país Bogotá Distrito Capital de Bogotá COLOMBIA",
-      "condiciones_entrega": null,
-      "proveedor": "UT AXEC UBPD PC 2026",
-      "nit_proveedor": "000000000",
-      "codigo_proveedor": "737084145",
-      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10439254&isFromPublicArea=True&isModal=true&asPopupView=true",
-      "contactos": {
-        "representante_legal": "RAMIRO GONZALEZ CLAVIJO",
-        "ordenador_gasto": "Erik Alejandro Herrera Yepes",
-        "supervisor": "Juan David Garzón Rincón",
-        "ordenador_pago": null
-      }
-    },
-    "historial_contratista": {
-      "contratos": 187,
-      "valor_total": 708278036189.73,
-      "primero": "2017-10-23T00:00:00",
-      "ultimo": "2026-09-29T00:00:00",
-      "entidades_top": [
-        {
-          "nombre": "DIRECCIÓN GENERAL DE SANIDAD MILITAR+",
-          "contratos": 1,
-          "valor": 595523178912.0
-        },
-        {
-          "nombre": "GOBERNACION DE NARIÑO",
-          "contratos": 1,
-          "valor": 26826454458.51
-        },
-        {
-          "nombre": "ASO-CIT",
-          "contratos": 1,
-          "valor": 18347026062.0
-        }
-      ]
-    },
-    "entidad_stats": {
-      "contratos_12m": 665,
-      "valor_12m": 82024017692.26,
-      "pagado_sobre_facturado_pct": 91.6,
-      "proveedores_top": [
-        {
-          "nombre": "Geosystem 4D SAS",
-          "contratos": 1,
-          "valor": 3598511900.0
-        },
-        {
-          "nombre": "Agencia de Viajes y Turismo A Volar LTDA",
-          "contratos": 1,
-          "valor": 1171976572.0
-        },
-        {
-          "nombre": "COMPAÑIA DE INGENIEROS DE SISTEMAS ASOCIADOS COINSA SAS",
-          "contratos": 1,
-          "valor": 976651600.0
-        }
-      ]
-    },
-    "ofertas": null,
-    "integrantes": [
-      {
-        "nombre": "AXXION SAS",
-        "nit": "901476766",
-        "participacion": 87.0,
-        "lider": false,
-        "contratos": 6,
-        "valor_total": 760599817.0
-      },
-      {
-        "nombre": "SECURITY VIDEO EQUIPMENT S.A.S.",
-        "nit": "830005066",
-        "participacion": 13.0,
-        "lider": true,
-        "contratos": 153,
-        "valor_total": 78966401376.07
-      }
-    ],
-    "sanciones": null,
-    "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
   },
   {
     "id": "CO1.REQ.10632907",
@@ -32541,11 +32429,120 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 20,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO RED VIAL JFL",
+          "nit": null,
+          "valor": 694950996.25,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO INGENIERIA VIAL GT",
+          "nit": null,
+          "valor": 708952240.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "HDC INGENIERIAS SAS",
+          "nit": "901677633",
+          "valor": 709879379.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "Marva construcciones sas",
+          "nit": "901241893",
+          "valor": 714060916.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO TL 2026",
+          "nit": null,
+          "valor": 714817679.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO CJ GUAMO",
+          "nit": null,
+          "valor": 718267246.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO VIAL GUAMO 26",
+          "nit": null,
+          "valor": 719039138.91,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO CQCC",
+          "nit": "1094931670",
+          "valor": 720391851.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "miguel cardenas",
+          "nit": "901546806",
+          "valor": 721564924.83,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO D&G",
+          "nit": null,
+          "valor": 722806600.91,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "SHD SOCIEDAD DE PROFESIONALES SAS",
+          "nit": "901614653",
+          "valor": 728944218.48,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO VÍAS DEL GUAMO 26",
+          "nit": "111111121",
+          "valor": 736607010.0,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO VIA GUAMO IT 2026",
+          "nit": null,
+          "valor": 737367789.37,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "CONSORCIO PAVIMENTAR GUAMO",
+          "nit": null,
+          "valor": 743502434.79,
+          "fecha": "2026-07-09T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10819759",
@@ -32599,9 +32596,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "alimentacion escolar",
       "alimentación escolar",
-      "alimentacion escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "FUNDACION PASITOS DE EQUIDAD",
@@ -32711,7 +32708,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10366017",
@@ -32868,7 +32865,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10361018",
@@ -32921,8 +32918,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "VHZ INGENIERIA S.A.S",
@@ -33178,7 +33175,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10894682",
@@ -33229,8 +33226,8 @@
     ],
     "materiales_detectados": [
       "acueducto",
-      "acueductos",
-      "alcantarillado"
+      "alcantarillado",
+      "acueductos"
     ],
     "contratista": {
       "nombre": "EMPRESA DE SERVICIOS PUBLICOS DE SALADOBLANCO",
@@ -33330,7 +33327,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10740239",
@@ -33390,9 +33387,9 @@
       }
     ],
     "materiales_detectados": [
-      "planta de tratamiento",
       "ptap",
-      "agua potable"
+      "agua potable",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "PROVELCO",
@@ -33511,7 +33508,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10828888",
@@ -33759,7 +33756,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10386381",
@@ -33896,7 +33893,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10876948",
@@ -33950,9 +33947,9 @@
       }
     ],
     "materiales_detectados": [
-      "infraestructura tecnológica",
+      "equipos tecnológicos",
       "equipos de cómputo",
-      "equipos tecnológicos"
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "NILO TECH SAS",
@@ -34160,7 +34157,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10928512",
@@ -34314,7 +34311,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10379208",
@@ -34464,7 +34461,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10883572",
@@ -34710,7 +34707,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10972748",
@@ -34763,8 +34760,8 @@
       }
     ],
     "materiales_detectados": [
-      "interventoria tecnica",
-      "interventoría técnica"
+      "interventoría técnica",
+      "interventoria tecnica"
     ],
     "contratista": {
       "nombre": "FASED",
@@ -34863,7 +34860,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10628128",
@@ -35024,7 +35021,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10960636",
@@ -35079,10 +35076,10 @@
       }
     ],
     "materiales_detectados": [
-      "licenciamiento",
-      "infraestructura tecnológica",
+      "equipos tecnológicos",
       "software",
-      "equipos tecnológicos"
+      "licenciamiento",
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "UPKS",
@@ -35290,7 +35287,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11005084",
@@ -35459,7 +35456,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11017448",
@@ -35619,7 +35616,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10743159",
@@ -35680,10 +35677,10 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "CONSULTIN P&S S.A.S.",
@@ -35890,7 +35887,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10391419",
@@ -35944,9 +35941,9 @@
       }
     ],
     "materiales_detectados": [
+      "seguridad perimetral",
       "licenciamiento",
-      "infraestructura tecnológica",
-      "seguridad perimetral"
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "safety in deep sas",
@@ -36044,7 +36041,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11007204",
@@ -36105,9 +36102,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "víveres",
       "alimentación escolar",
-      "víveres"
+      "pae"
     ],
     "contratista": {
       "nombre": "JORGE ARMANDO OSORIO VALLEJO",
@@ -36232,6 +36229,161 @@
     "integrantes": null,
     "primera_vez": "2026-09-28T02:49:57Z",
     "nueva": false
+  },
+  {
+    "id": "CO1.REQ.10984079",
+    "id_portafolio": "CO1.BDOS.10799482",
+    "referencia": "SVO-001-2026",
+    "entidad": "EMPRESA DE SERVICIOS PUBLICOS DOMICILIARIOS DE ITUANGO S.A. E.S.P",
+    "nit_entidad": "900622585",
+    "departamento": "Antioquia",
+    "ciudad": "Ituango",
+    "precio": 622466658.0,
+    "precio_formateado": "$622,466,658 COP",
+    "precio_ajustado": null,
+    "unspsc": "81101516",
+    "modalidad": "Contratación régimen especial (con ofertas)",
+    "tipo_contrato": "Otro",
+    "convenio": false,
+    "descripcion": "EVALUACIÓN TÉCNICA, ANÁLISIS DE ALTERNATIVAS Y ELABORACIÓN DE LOS ESTUDIOS Y DISEÑOS DEL SISTEMA DE CAPTACIÓN, DESARENACIÓN, ADUCCIÓN Y CONDUCCIÓN DEL ACUEDUCTO URBANO, Y DE OPTIMIZACIÓN, AMPLIACIÓN Y REHABILITACIÓN DE LA PTAP DEL MUNICIPIO DE ITUANGO, DEPARTAMENTO DE ANTIOQUIA EN EL MARCO DEL PROYECTO BPIN 202500000046623 DE CONFORMIDAD CON LO ESTABLECIDO EN LA RESOLUCIÓN 330 DEL 2017 REGLAMENTO TÉCNICO PARA EL SECTOR DE AGUA POTABLE Y SANEAMIENTO BÁSICO (RAS)",
+    "fecha_publicacion": "2026-09-04T00:00:00",
+    "fechas": {
+      "publicacion": "2026-09-04T00:00:00",
+      "ultima_actualizacion": "2026-09-04T00:00:00",
+      "cierre_ofertas": "2026-09-07T00:00:00",
+      "apertura_ofertas": "2026-09-07T00:00:00",
+      "adjudicacion": "2026-09-15T00:00:00"
+    },
+    "plazo": {
+      "valor": 3,
+      "unidad": "mes(es)",
+      "texto": "3 meses"
+    },
+    "competencia": {
+      "interesados": 0,
+      "ofertas": 1,
+      "visualizaciones": 3
+    },
+    "estado_secop": "Seleccionado",
+    "fase": "Presentación de oferta",
+    "etapa_comercial": "Adjudicado (Contratista Seleccionado)",
+    "tipo_oportunidad": "Lead B2B de Venta Directa",
+    "accion_sugerida": "Contactar al contratista ganador/consorcio para ofrecer suministro y cotización inmediata.",
+    "sectores": [
+      {
+        "id": "agua_saneamiento",
+        "name": "Agua Potable & Saneamiento",
+        "matched_keywords": [
+          "agua potable",
+          "ptap",
+          "acueducto"
+        ],
+        "relevance_score": 49.5
+      },
+      {
+        "id": "interventoria_consultoria",
+        "name": "Interventoría & Consultoría",
+        "matched_keywords": [
+          "estudios y diseños"
+        ],
+        "relevance_score": 40.0
+      }
+    ],
+    "materiales_detectados": [
+      "acueducto",
+      "ptap",
+      "estudios y diseños",
+      "agua potable"
+    ],
+    "contratista": {
+      "nombre": "SOICISA S.A.S",
+      "nit": "901857608",
+      "es_consorcio": false,
+      "valor_adjudicado": 622466658.0,
+      "departamento_proveedor": "Antioquia",
+      "ciudad_proveedor": "Bello"
+    },
+    "score_calidad": 88,
+    "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10838422",
+    "contrato": {
+      "cantidad": 1,
+      "id": "CO1.PCCNTR.9947178",
+      "referencia": "SVO001-CONS001-2026",
+      "estado": "En ejecución",
+      "objeto": "EVALUACIÓN TÉCNICA; ANÁLISIS DE ALTERNATIVAS Y ELABORACIÓN DE LOS ESTUDIOS Y DISEÑOS DEL SISTEMA DE CAPTACIÓN; DESARENACIÓN; ADUCCIÓN Y CONDUCCIÓN DEL ACUEDUCTO URBANO; Y DE OPTIMIZACIÓN; AMPLIACIÓN Y REHABILITACIÓN DE LA PTAP DEL MUNICIPIO DE ITUANGO; DEPARTAMENTO DE ANTIOQUIA EN EL MARCO DEL PROYECTO BPIN 202500000046623 DE CONFORMIDAD CON LO ESTABLECIDO EN LA RESOLUCIÓN 330 DEL 2017 REGLAMENTO TÉCNICO PARA EL SECTOR DE AGUA POTABLE Y SANEAMIENTO BÁSICO (RAS)",
+      "fecha_firma": "2026-09-15T00:00:00",
+      "inicio_ejecucion": "2026-09-21T00:00:00",
+      "fin_ejecucion": "2026-12-31T00:00:00",
+      "ultima_actualizacion": null,
+      "valor": 622466658.0,
+      "valor_facturado": 0.0,
+      "valor_pagado": 0.0,
+      "avance_pagos_pct": 0.0,
+      "anticipo": false,
+      "valor_anticipo": null,
+      "dias_adicionados": 0,
+      "prorrogable": false,
+      "es_pyme": true,
+      "es_grupo": false,
+      "destino_gasto": "Funcionamiento",
+      "origen_recursos": [
+        "Recursos propios"
+      ],
+      "direccion_ejecucion": "AREA URBANA Ituango Antioquia COLOMBIA",
+      "condiciones_entrega": null,
+      "proveedor": "SOICISA S.A.S",
+      "nit_proveedor": "901857608",
+      "codigo_proveedor": "731028031",
+      "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10838422&isFromPublicArea=True&isModal=true&asPopupView=true",
+      "contactos": {
+        "representante_legal": "Lina Marcela Alzate Leal",
+        "ordenador_gasto": null,
+        "supervisor": null,
+        "ordenador_pago": null
+      }
+    },
+    "historial_contratista": {
+      "contratos": 1,
+      "valor_total": 622466658.0,
+      "primero": "2026-09-15T00:00:00",
+      "ultimo": "2026-09-15T00:00:00",
+      "entidades_top": [
+        {
+          "nombre": "EMPRESA DE SERVICIOS PUBLICOS DOMICILIARIOS DE ITUANGO S.A. E.S.P",
+          "contratos": 1,
+          "valor": 622466658.0
+        }
+      ]
+    },
+    "entidad_stats": {
+      "contratos_12m": 3,
+      "valor_12m": 750279025.0,
+      "pagado_sobre_facturado_pct": null,
+      "proveedores_top": []
+    },
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "Confidencial",
+          "nit": null,
+          "valor": 0.0,
+          "fecha": "2026-09-04T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "SOICISA S.A.S",
+          "nit": "901857608",
+          "valor": 622466658.0,
+          "fecha": "2026-09-04T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
+    "sanciones": null,
+    "integrantes": null,
+    "primera_vez": "2026-10-01T16:58:24Z",
+    "nueva": true
   },
   {
     "id": "CO1.REQ.10752119",
@@ -36925,7 +37077,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10588939",
@@ -36985,8 +37137,8 @@
       }
     ],
     "materiales_detectados": [
-      "retroexcavadora",
-      "alcantarillado"
+      "alcantarillado",
+      "retroexcavadora"
     ],
     "contratista": {
       "nombre": "DINISSAN",
@@ -37140,8 +37292,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado publico",
       "fotovoltaico",
+      "alumbrado publico",
       "luminarias led"
     ],
     "contratista": {
@@ -37247,7 +37399,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10849598",
@@ -37377,7 +37529,25 @@
       "pagado_sobre_facturado_pct": 91.9,
       "proveedores_top": []
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "Alfa AM",
+          "nit": "830133470",
+          "valor": 475000000.0,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "ARCRON SAS",
+          "nit": "900093151",
+          "valor": 480000000.0,
+          "fecha": "2026-08-14T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
@@ -37733,7 +37903,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10586247",
@@ -37793,8 +37963,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "ECOURBANISMOS SAS",
@@ -37941,8 +38111,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -38031,8 +38201,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -38125,8 +38295,8 @@
       }
     ],
     "materiales_detectados": [
-      "laboratorio clinico",
-      "reactivos"
+      "reactivos",
+      "laboratorio clinico"
     ],
     "contratista": {
       "nombre": "Technomedical S.A.S.",
@@ -38303,8 +38473,8 @@
       }
     ],
     "materiales_detectados": [
-      "dispositivos médicos",
-      "dispositivos medicos"
+      "dispositivos medicos",
+      "dispositivos médicos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -38491,7 +38661,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11007815",
@@ -38892,9 +39062,9 @@
       }
     ],
     "materiales_detectados": [
-      "software",
+      "laboratorio clínico",
       "reactivos",
-      "laboratorio clínico"
+      "software"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -39061,7 +39231,18 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "INVERSIONES JORTER SAS",
+          "nit": "901824060",
+          "valor": 1295910000.0,
+          "fecha": "2026-07-15T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-09-30T21:25:49Z",
@@ -39126,7 +39307,7 @@
       "marmita"
     ],
     "contratista": {
-      "nombre": "UNIÓN TEMPORAL INTERSAM 2026",
+      "nombre": "U.T. MATERIAL ACERADO 2026",
       "nit": "No Definido",
       "es_consorcio": true,
       "valor_adjudicado": 1174254840.0,
@@ -39363,8 +39544,8 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
-      "alimentación escolar"
+      "alimentación escolar",
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -39445,8 +39626,8 @@
     ],
     "materiales_detectados": [
       "maquinaria amarilla",
-      "vehiculos",
-      "malla vial"
+      "malla vial",
+      "vehiculos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -39976,10 +40157,10 @@
       }
     ],
     "materiales_detectados": [
-      "software",
-      "licencias de software",
+      "mobiliario",
       "equipos de cómputo",
-      "mobiliario"
+      "licencias de software",
+      "software"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -40167,11 +40348,11 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
       "obras complementarias",
-      "ptar",
-      "planta de tratamiento",
       "aguas residuales",
+      "tratamiento de aguas",
+      "planta de tratamiento",
+      "ptar",
       "interventoría integral"
     ],
     "contratista": {
@@ -40546,7 +40727,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11040208",
@@ -40793,9 +40974,9 @@
       }
     ],
     "materiales_detectados": [
-      "laboratorio clinico",
       "dispositivos medicos",
-      "reactivos"
+      "reactivos",
+      "laboratorio clinico"
     ],
     "contratista": {
       "nombre": "CASA DE LA DIABETES CALI LTDA",
@@ -40872,8 +41053,8 @@
       }
     ],
     "materiales_detectados": [
-      "infraestructura tecnológica",
-      "equipos de cómputo"
+      "equipos de cómputo",
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -41125,7 +41306,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11110953",
@@ -41217,7 +41398,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11100021",
@@ -41370,10 +41551,10 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -41567,8 +41748,8 @@
       }
     ],
     "materiales_detectados": [
-      "planta de tratamiento",
       "acueducto",
+      "planta de tratamiento",
       "agua potable"
     ],
     "contratista": {
@@ -41672,9 +41853,9 @@
     ],
     "materiales_detectados": [
       "obras complementarias",
-      "planta de tratamiento",
       "ptap",
-      "agua potable"
+      "agua potable",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -41785,7 +41966,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11060037",
@@ -42236,8 +42417,8 @@
       }
     ],
     "materiales_detectados": [
-      "sistema fotovoltaico",
-      "fotovoltaico"
+      "fotovoltaico",
+      "sistema fotovoltaico"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -42409,10 +42590,10 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -42699,7 +42880,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11065063",
@@ -42894,8 +43075,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -43143,8 +43324,8 @@
       }
     ],
     "materiales_detectados": [
-      "software",
-      "equipos de computo"
+      "equipos de computo",
+      "software"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -43430,8 +43611,8 @@
     ],
     "materiales_detectados": [
       "obras complementarias",
-      "estructuras metálicas",
-      "infraestructura física"
+      "infraestructura física",
+      "estructuras metálicas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -43563,7 +43744,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10647708",
@@ -43616,8 +43797,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "paneles solares"
+      "paneles solares",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -43695,8 +43876,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "alumbrado público"
+      "alumbrado público",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -43798,10 +43979,10 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "alcantarillado",
-      "tratamiento de aguas",
       "estudios y diseños",
-      "aguas residuales"
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -44124,8 +44305,8 @@
     ],
     "materiales_detectados": [
       "acueducto",
-      "interventoría técnica",
-      "alcantarillado"
+      "alcantarillado",
+      "interventoría técnica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -44206,8 +44387,8 @@
     ],
     "materiales_detectados": [
       "pavimento rígido",
-      "malla vial",
-      "alcantarillado"
+      "alcantarillado",
+      "malla vial"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -44504,7 +44685,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10630864",
@@ -44657,10 +44838,10 @@
       }
     ],
     "materiales_detectados": [
-      "ptar",
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "ptar",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -45392,8 +45573,8 @@
       }
     ],
     "materiales_detectados": [
-      "energía solar",
-      "fotovoltaica"
+      "fotovoltaica",
+      "energía solar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -45727,8 +45908,8 @@
       }
     ],
     "materiales_detectados": [
-      "interventoria tecnica",
-      "alcantarillado"
+      "alcantarillado",
+      "interventoria tecnica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -45829,9 +46010,9 @@
       }
     ],
     "materiales_detectados": [
-      "mantenimiento de vias",
+      "maquinaria pesada",
       "vehículos",
-      "maquinaria pesada"
+      "mantenimiento de vias"
     ],
     "contratista": {
       "nombre": "IGM COLOMBIA SAS",
@@ -46243,9 +46424,9 @@
       }
     ],
     "materiales_detectados": [
-      "estudios y diseños",
       "acueducto",
-      "alcantarillado"
+      "alcantarillado",
+      "estudios y diseños"
     ],
     "contratista": {
       "nombre": "ALAMO CONSTRUCTORES SAS",
@@ -46335,9 +46516,9 @@
       }
     ],
     "materiales_detectados": [
-      "varilla",
+      "varilla de acero",
       "acero estructural",
-      "varilla de acero"
+      "varilla"
     ],
     "contratista": {
       "nombre": "Ferreteria Los Fierros",
@@ -46776,9 +46957,9 @@
       }
     ],
     "materiales_detectados": [
-      "laboratorio clinico",
+      "insumos medicos",
       "reactivos",
-      "insumos medicos"
+      "laboratorio clinico"
     ],
     "contratista": {
       "nombre": "REACTIVOS DEL VALLE SAS",
@@ -46797,7 +46978,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11098974",
@@ -46955,8 +47136,8 @@
     "materiales_detectados": [
       "acueducto",
       "consultoría especializada",
-      "agua potable",
-      "alcantarillado"
+      "alcantarillado",
+      "agua potable"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -47447,8 +47628,8 @@
       }
     ],
     "materiales_detectados": [
-      "planta de tratamiento",
-      "acueducto"
+      "acueducto",
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -47858,8 +48039,8 @@
       }
     ],
     "materiales_detectados": [
-      "ptar",
-      "tratamiento de aguas"
+      "tratamiento de aguas",
+      "ptar"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -47952,8 +48133,8 @@
       }
     ],
     "materiales_detectados": [
-      "software",
-      "computadores"
+      "computadores",
+      "software"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48094,7 +48275,7 @@
       "publicacion": "2026-09-24T00:00:00",
       "ultima_actualizacion": "2026-09-24T00:00:00",
       "cierre_ofertas": "2026-10-14T00:00:00",
-      "apertura_ofertas": "2026-10-14T00:00:00",
+      "apertura_ofertas": "2026-10-26T00:00:00",
       "adjudicacion": null
     },
     "plazo": {
@@ -48105,7 +48286,7 @@
     "competencia": {
       "interesados": 0,
       "ofertas": 0,
-      "visualizaciones": 10
+      "visualizaciones": 11
     },
     "estado_secop": "Publicado",
     "fase": "Presentación de observaciones",
@@ -48224,8 +48405,8 @@
       }
     ],
     "materiales_detectados": [
-      "tratamiento de aguas",
-      "aguas residuales"
+      "aguas residuales",
+      "tratamiento de aguas"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48305,9 +48486,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "interventoria tecnica",
-      "aguas residuales"
+      "interventoria tecnica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48347,7 +48528,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10899576",
@@ -48408,9 +48589,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "interventoria tecnica",
-      "aguas residuales"
+      "interventoria tecnica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48450,7 +48631,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10783547",
@@ -48539,7 +48720,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11108574",
@@ -48639,7 +48820,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11103984",
@@ -48692,8 +48873,8 @@
       }
     ],
     "materiales_detectados": [
-      "infraestructura tecnológica",
-      "computadores"
+      "computadores",
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48733,7 +48914,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10698537",
@@ -48793,9 +48974,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48814,7 +48995,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10760391",
@@ -48870,9 +49051,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -48912,7 +49093,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10832623",
@@ -48966,9 +49147,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
       "alimentación escolar",
-      "complementos alimentarios"
+      "complementos alimentarios",
+      "pae"
     ],
     "contratista": {
       "nombre": "CONSORCIO NUTRE FUTURO SANTANDER",
@@ -49053,7 +49234,18 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "CONSORCIO NUTRE FUTURO SANTANDER",
+          "nit": "902104118",
+          "valor": 119826846340.0,
+          "fecha": "2026-08-12T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "integrantes": [
       {
         "nombre": "MCD Y COMPAÑIA SAS",
@@ -49092,7 +49284,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11068761",
@@ -49159,7 +49351,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11092307",
@@ -49247,7 +49439,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10891571",
@@ -49343,7 +49535,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11113420",
@@ -49441,7 +49633,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11037433",
@@ -49525,7 +49717,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11074067",
@@ -49592,7 +49784,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11113793",
@@ -49680,7 +49872,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11069343",
@@ -49778,7 +49970,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10763262",
@@ -49837,8 +50029,8 @@
       }
     ],
     "materiales_detectados": [
-      "alumbrado público",
-      "eficiencia energética"
+      "eficiencia energética",
+      "alumbrado público"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -49878,7 +50070,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10908233",
@@ -49978,7 +50170,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11113294",
@@ -50066,7 +50258,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11008813",
@@ -50079,7 +50271,7 @@
     "precio": 22407403467.0,
     "precio_formateado": "$22,407,403,467 COP",
     "precio_ajustado": null,
-    "unspsc": "90101800",
+    "unspsc": "90101700",
     "modalidad": "Licitación pública",
     "tipo_contrato": "Suministros",
     "convenio": false,
@@ -50154,7 +50346,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10802904",
@@ -50324,7 +50516,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11092046",
@@ -50416,7 +50608,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10625092",
@@ -50493,7 +50685,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10811521",
@@ -50585,7 +50777,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.1708840",
@@ -50639,9 +50831,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "complemento alimentario",
-      "pae",
-      "alimentación escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -50681,7 +50873,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11118102",
@@ -50779,7 +50971,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10510881",
@@ -50879,7 +51071,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10377853",
@@ -50930,9 +51122,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "complemento alimentario",
       "pae",
-      "alimentación escolar",
       "ración industrializada"
     ],
     "contratista": {
@@ -51043,7 +51235,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10847322",
@@ -51131,7 +51323,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10846170",
@@ -51208,7 +51400,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9039867",
@@ -51373,7 +51565,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10845044",
@@ -51428,10 +51620,10 @@
       }
     ],
     "materiales_detectados": [
-      "ración preparada en sitio",
       "complemento alimentario",
-      "complementos alimentarios",
-      "ración industrializada"
+      "ración preparada en sitio",
+      "ración industrializada",
+      "complementos alimentarios"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -51504,11 +51696,29 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 2,
+      "proveedores": [
+        {
+          "proveedor": "UNIÓN TEMPORAL BGA ALIMENTAR 26",
+          "nit": null,
+          "valor": 4972046560.0,
+          "fecha": "2026-09-08T00:00:00",
+          "ganador": false
+        },
+        {
+          "proveedor": "UT BGA.INNOVA2",
+          "nit": null,
+          "valor": 5006525760.0,
+          "fecha": "2026-09-08T00:00:00",
+          "ganador": false
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10832178",
@@ -51568,9 +51778,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "CONSORCIO PTAR HUILA",
@@ -51673,7 +51883,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10530519",
@@ -51733,9 +51943,9 @@
       }
     ],
     "materiales_detectados": [
+      "aguas residuales",
       "tratamiento de aguas",
-      "planta de tratamiento",
-      "aguas residuales"
+      "planta de tratamiento"
     ],
     "contratista": {
       "nombre": "CONSORCIO PTAR HUILA",
@@ -51838,7 +52048,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10755829",
@@ -52048,7 +52258,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11017786",
@@ -52146,7 +52356,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10391024",
@@ -52200,9 +52410,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "complemento alimentario",
-      "pae",
-      "alimentación escolar"
+      "pae"
     ],
     "contratista": {
       "nombre": "UNION TEMPORAL CÉNIT",
@@ -52398,7 +52608,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10520146",
@@ -52496,7 +52706,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10381067",
@@ -52559,7 +52769,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9110344",
@@ -52620,9 +52830,9 @@
       }
     ],
     "materiales_detectados": [
-      "pavimentacion",
       "obras complementarias",
-      "alcantarillado"
+      "alcantarillado",
+      "pavimentacion"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -52662,7 +52872,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.7226674",
@@ -52750,7 +52960,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.8459037",
@@ -52834,7 +53044,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11084499",
@@ -52932,7 +53142,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10802717",
@@ -53030,7 +53240,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10935946",
@@ -53182,7 +53392,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10844753",
@@ -53255,7 +53465,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.2538855",
@@ -53349,7 +53559,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.9771684",
@@ -53441,7 +53651,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11112245",
@@ -53529,7 +53739,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10827691",
@@ -53617,7 +53827,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11054766",
@@ -53684,7 +53894,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11034953",
@@ -53831,7 +54041,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10609342",
@@ -54068,10 +54278,10 @@
       }
     ],
     "materiales_detectados": [
-      "dispositivos médicos",
-      "equipos de cómputo",
+      "laboratorio clínico",
       "reactivos",
-      "laboratorio clínico"
+      "equipos de cómputo",
+      "dispositivos médicos"
     ],
     "contratista": {
       "nombre": "Comprolab S.A.S",
@@ -54497,7 +54707,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10783165",
@@ -54557,8 +54767,8 @@
       }
     ],
     "materiales_detectados": [
-      "equipos de cómputo",
-      "mobiliario"
+      "mobiliario",
+      "equipos de cómputo"
     ],
     "contratista": {
       "nombre": "AMAZU S.A.S.",
@@ -54656,7 +54866,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10514029",
@@ -54716,8 +54926,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "Gustavo De Jesus Restrepo",
@@ -54876,8 +55086,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "DISTRIBUCIONES CARDOMS SAS",
@@ -55162,7 +55372,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10996836",
@@ -55222,8 +55432,8 @@
       }
     ],
     "materiales_detectados": [
-      "estructura metálica",
-      "infraestructura física"
+      "infraestructura física",
+      "estructura metálica"
     ],
     "contratista": {
       "nombre": "EULHYN MAYRELL CORREA ORTIZ",
@@ -55606,7 +55816,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10715184",
@@ -55666,8 +55876,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "mobiliario"
+      "mobiliario",
+      "menaje"
     ],
     "contratista": {
       "nombre": "ELIZABETH CRISTINA MUÑOZ ESCOBAR",
@@ -55825,7 +56035,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11022320",
@@ -55882,9 +56092,9 @@
       }
     ],
     "materiales_detectados": [
-      "infraestructura tecnológica",
+      "mobiliario",
       "equipos de cómputo",
-      "mobiliario"
+      "infraestructura tecnológica"
     ],
     "contratista": {
       "nombre": "SISTEMAS AVANZADOS EN TELECOMUNICACIONES S.A.S",
@@ -55995,7 +56205,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11035669",
@@ -56049,9 +56259,9 @@
       }
     ],
     "materiales_detectados": [
-      "camioneta",
+      "motocicletas",
       "maquinaria amarilla",
-      "motocicletas"
+      "camioneta"
     ],
     "contratista": {
       "nombre": "ESTACIÓN DE SERVICIO MUÑOZ",
@@ -56162,7 +56372,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11013027",
@@ -56186,7 +56396,7 @@
       "ultima_actualizacion": "2026-09-09T00:00:00",
       "cierre_ofertas": "2026-09-16T00:00:00",
       "apertura_ofertas": "2026-09-22T00:00:00",
-      "adjudicacion": "2026-09-24T00:00:00"
+      "adjudicacion": null
     },
     "plazo": {
       "valor": 4,
@@ -56369,8 +56579,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "Deicy Bravo Jojoa",
@@ -56686,7 +56896,7 @@
     ],
     "sanciones": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10503613",
@@ -56746,8 +56956,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "AGINNOVA",
@@ -57105,7 +57315,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10992620",
@@ -57690,7 +57900,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10629618",
@@ -58046,11 +58256,22 @@
         }
       ]
     },
-    "ofertas": null,
+    "ofertas": {
+      "cantidad": 1,
+      "proveedores": [
+        {
+          "proveedor": "MIAGA S.A.S.",
+          "nit": "901301441",
+          "valor": 660000000.0,
+          "fecha": "2026-08-29T00:00:00",
+          "ganador": true
+        }
+      ]
+    },
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11111844",
@@ -58140,7 +58361,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11066764",
@@ -58201,9 +58422,9 @@
       }
     ],
     "materiales_detectados": [
-      "equipos biomédicos",
+      "biomédicos",
       "mobiliario",
-      "biomédicos"
+      "equipos biomédicos"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -58286,8 +58507,8 @@
       }
     ],
     "materiales_detectados": [
-      "camioneta",
-      "parque automotor"
+      "parque automotor",
+      "camioneta"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -58327,7 +58548,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11009515",
@@ -58508,7 +58729,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11077699",
@@ -58602,7 +58823,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11115842",
@@ -58675,7 +58896,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10875617",
@@ -58820,8 +59041,8 @@
       }
     ],
     "materiales_detectados": [
-      "acero de refuerzo",
-      "alcantarillado"
+      "alcantarillado",
+      "acero de refuerzo"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -58915,7 +59136,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11105584",
@@ -58976,9 +59197,9 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
+      "equipos de cocina",
       "alimentación escolar",
-      "equipos de cocina"
+      "menaje"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -59110,7 +59331,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10888540",
@@ -59262,7 +59483,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10926537",
@@ -59403,9 +59624,9 @@
       }
     ],
     "materiales_detectados": [
+      "alimentación escolar",
       "pae",
-      "menaje",
-      "alimentación escolar"
+      "menaje"
     ],
     "contratista": {
       "nombre": "COMERCIALIZADORA E INVERSIONES D.O.",
@@ -59573,10 +59794,10 @@
     ],
     "materiales_detectados": [
       "licencias de software",
-      "software",
+      "biomédicos",
       "equipos de cómputo",
       "equipos biomédicos",
-      "biomédicos"
+      "software"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -59595,7 +59816,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10369226",
@@ -60084,9 +60305,9 @@
       }
     ],
     "materiales_detectados": [
-      "pae",
+      "víveres",
       "alimentación escolar",
-      "víveres"
+      "pae"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -60126,7 +60347,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10916146",
@@ -60350,7 +60571,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10874713",
@@ -60406,8 +60627,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "restaurantes escolares"
+      "restaurantes escolares",
+      "menaje"
     ],
     "contratista": {
       "nombre": "PUBLIUNIVERSAL",
@@ -60580,8 +60801,8 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "mobiliario"
+      "mobiliario",
+      "menaje"
     ],
     "contratista": {
       "nombre": "DISTRICOM V&O ASOCIADOS SAS",
@@ -60973,7 +61194,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10534976",
@@ -60983,8 +61204,8 @@
     "nit_entidad": "899999034",
     "departamento": "Huila",
     "ciudad": "Pitalito",
-    "precio": 8233737.0,
-    "precio_formateado": "$8,233,737 COP",
+    "precio": 36116000.0,
+    "precio_formateado": "$36,116,000 COP",
     "precio_ajustado": null,
     "unspsc": "48101805",
     "modalidad": "Mínima cuantía",
@@ -61029,16 +61250,16 @@
       }
     ],
     "materiales_detectados": [
-      "menaje",
-      "mobiliario"
+      "mobiliario",
+      "menaje"
     ],
     "contratista": {
-      "nombre": "ANZETY INGENIERIA SAS",
+      "nombre": "ALEXANDER GONZALEZ IPUZ",
       "nit": "901257667",
       "es_consorcio": false,
-      "valor_adjudicado": 8233737.0,
-      "departamento_proveedor": "No Definido",
-      "ciudad_proveedor": "No Definido"
+      "valor_adjudicado": 36116000.0,
+      "departamento_proveedor": "Huila",
+      "ciudad_proveedor": "Garzón"
     },
     "score_calidad": 70,
     "url_secop": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10396222",
@@ -61195,7 +61416,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10825420",
@@ -61512,8 +61733,8 @@
       }
     ],
     "materiales_detectados": [
-      "cocina industrial",
-      "estructura metálica"
+      "estructura metálica",
+      "cocina industrial"
     ],
     "contratista": {
       "nombre": "No Definido",
@@ -61553,7 +61774,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10390031",
@@ -61701,7 +61922,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10985040",
@@ -62173,7 +62394,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.10925354",
@@ -62746,7 +62967,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11105105",
@@ -62909,7 +63130,7 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   },
   {
     "id": "CO1.REQ.11094657",
@@ -62997,6 +63218,6 @@
     "sanciones": null,
     "integrantes": null,
     "primera_vez": "2026-10-01T15:13:57Z",
-    "nueva": true
+    "nueva": false
   }
 ]
