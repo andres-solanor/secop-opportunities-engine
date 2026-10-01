@@ -150,6 +150,38 @@ Estas mejoras se pueden hacer en cualquier momento:
 
 ---
 
+## Iteración 9: Experiencia del tablero y persona natural (sin backend) · **M**
+
+Pedido del dueño del 2026-10-01. Ya está hecho, en la rama `pro/ux-filters`:
+- la mínima cuantía entra al tablero (`eb3ee21`);
+- filtros por modalidad y por fecha del estado actual (`96e86ee`).
+
+Lo que sigue, en este orden:
+
+| # | Tarea | Talla | Detalle |
+|---|---|---|---|
+| 9.0 | **Actualizar las GitHub Actions — antes del 2026-10-19** | S | `actions/checkout@v4`, `setup-python@v5`, `setup-node@v4` y `upload-artifact@v4` en `.github/workflows/*.yml` **y** en `ci/` (una prueba compara ambos). Las versiones nuevas están `[POR VERIFICAR]` en la página de releases de cada acción. El push requiere un token con alcance `workflow`. |
+| 9.1 | Umbral propio para la mínima cuantía | S | Hoy la mínima cuantía solo entra si vale 50 M o más (`MIN_PRICE`). En SECOP II, del 2026-09-17 al 2026-10-01, se publicaron (sin prestación de servicios): 208 por debajo de 10 M, 202 entre 10 y 20 M, 469 entre 20 y 50 M, y 209 de 50 M o más. Un umbral menor solo para esta modalidad (consulta general aparte) sube el volumen y la duración de la corrida. Medir con `--out` y decidir con el dueño. Si agrega un descarte, sumarlo al embudo. |
+| 9.2 | Selector de tema: sistema, claro, oscuro y Matrix | M | (1) Pasar a tokens las 122 constantes de color de `style.css` que hoy están fuera de `:root`; el tema oscuro actual queda como los tokens por defecto. (2) Agregar `:root[data-theme="light"]` y `[data-theme="matrix"]` (fondo negro, verde fósforo, fuente monoespaciada del sistema, sin animación). (3) Crear `web/theme.js` en el `<head>`, antes del CSS para evitar el parpadeo; usa `localStorage.secop_theme` y `prefers-color-scheme`. (4) Un `<select>` en la barra superior. (5) Una prueba de humo por tema. (6) Agregar `secop_theme` a la tabla de `AGENTS.md`. |
+| 9.3 | Persona natural | M | Ver la tabla de abajo. (1) Nueva fuente `perfil_proponente` en `open_sources.py`: una consulta agregada a `jbjy-vk9h` (modalidad × `tipodocproveedor`, últimos 12 meses), restringida a contratos parecidos al tablero (valor ≥ umbral, sin tipos de OPS; confirmar los valores con `probe_sources --valores`). Se publica en `meta.perfil_proponente` y se valida en `schema.py`. (2) Badge 👤 "Persona natural gana N%" cuando la modalidad supera un umbral de producto; proponer 20 % tras ver la tabla calculada y confirmarlo con el dueño. (3) Una opción en el filtro de modalidad: "Más accesibles a persona natural". (4) Una línea en el detalle. Es una observación del mercado, no un requisito legal: el pliego manda (RUP, experiencia). |
+| 9.4 | Fichas y detalle del PAA y de "Fuera del tablero" como las del Observatorio | M | **Pipeline:** `light_record` agrega `fechas`, `fecha_adjudicacion`, `plazo`, `competencia`, `nit_entidad`, `fase` y `contratista`; medir cuánto crece `hidden.js`. `fetch_paa` agrega el mes esperado de inicio, el valor de la vigencia actual, las vigencias futuras y su estado, la fecha de la versión y el grupo de procedimiento; **nunca** los contactos personales. **Web:** un solo constructor de ficha para las tres vistas. El detalle de lo oculto reutiliza `openDetailModal` y agrega una sección con el motivo. El detalle del PAA es nuevo: planeación, códigos UNSPSC, estadísticas de la entidad y "procesos de esta entidad en el tablero" (cruce por `nit_entidad`). Con `fecha_adjudicacion`, el filtro de tiempo deja de excluir los adjudicados de "Fuera del tablero". |
+
+**Por qué persona natural apunta a la mínima cuantía y no a la menor cuantía.** La tabla viene de una consulta de solo lectura del 2026-10-01 a SECOP II Contratos (`jbjy-vk9h`). Cuenta los contratos firmados desde el 2026-01-01, sin "Prestación de servicios", y el porcentaje que ganó un proponente con cédula de ciudadanía:
+
+| Modalidad | Contratos | % con cédula |
+|---|---:|---:|
+| Mínima cuantía | 35.271 | 25,3 |
+| Selección abreviada subasta inversa | 4.623 | 13,2 |
+| Selección abreviada de menor cuantía | 6.481 | 9,2 |
+| Contratación régimen especial (con ofertas) | 6.658 | 9,2 |
+| Concurso de méritos abierto | 1.421 | 7,9 |
+| Licitación pública Obra Pública | 836 | 3,0 |
+| Licitación pública | 1.292 | 2,4 |
+
+La "Contratación régimen especial" sin ofertas (84,4 %) y la "Contratación directa" (96,2 %) están dominadas por contratos con personas. Por eso la cifra que publique el pipeline debe restringirse a contratos parecidos a los del tablero. Estas cifras son contexto de diseño: en la web solo se muestran las que calcule el pipeline.
+
+---
+
 ## Orden recomendado
 
 ```mermaid
@@ -163,7 +195,7 @@ flowchart LR
     I2 --> I5[5. Pagos]
 ```
 
-1. **Ahora, sin decisiones pendientes:** iteración 8, que mejora la demo con poco riesgo.
+1. **Ahora, sin decisiones pendientes:** iteración 9 (empezando por 9.0, que tiene fecha límite) e iteración 8, que mejoran la demo con poco riesgo.
 2. **Tras decidir el backend:** iteraciones 1 → 2 → 3, que forman el camino al "wow" pagado.
 3. **En paralelo, cuando haya usuarios:** iteraciones 7 (retención) y 5 (ingresos).
 4. **Cuando haya revisión legal:** iteración 6.
