@@ -44,14 +44,28 @@ PAA = [
 ]
 
 
+# Filas agregadas de jbjy-vk9h con los valores reales de `tipodocproveedor` (2026-10-01).
+PROFILE = [
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Ciudadanía", "n": "19"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Extranjería", "n": "1"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "NIT", "n": "80"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "No Definido", "n": "3"},
+    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "NIT", "n": "40"},
+    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "Otro", "n": "2"},
+]
+
+
 class FakeClient:
     def __init__(self, fail=()):
         self.fail = fail
+        self.calls = []
 
-    def query(self, dataset_id, where=None, **_):
+    def query(self, dataset_id, where=None, **kw):
+        self.calls.append({"dataset_id": dataset_id, "where": where, **kw})
         if dataset_id in self.fail:
             raise RuntimeError("timeout")
-        return {"wi7w-2nvm": OFFERS, "ceth-n4bn": GROUP, "4n4q-k399": SANCTIONS, "9sue-ezhx": PAA}.get(dataset_id, [])
+        return {"wi7w-2nvm": OFFERS, "ceth-n4bn": GROUP, "4n4q-k399": SANCTIONS, "9sue-ezhx": PAA,
+                "jbjy-vk9h": PROFILE}.get(dataset_id, [])
 
 
 def prospect():
@@ -122,6 +136,27 @@ class TestOpenSources(unittest.TestCase):
         OpenSourcesEnricher(client, taxonomy, log=lambda _: None, today=datetime(2026, 9, 28)).fetch_paa()
         self.assertFalse(any("'%42%'" in w for w in client.wheres))
         self.assertTrue(any("'%7214%'" in w for w in client.wheres))
+
+    def test_bidder_profile_counts_natural_persons_by_modality(self):
+        client = FakeClient()
+        profile = enricher(client).bidder_profile()
+        rows = {r["modalidad"]: r for r in profile["modalidades"]}
+        self.assertEqual(rows["Mínima cuantía"], {"modalidad": "Mínima cuantía", "persona_natural": 20, "juridica": 80, "sin_dato": 3})
+        self.assertEqual(rows["Licitación pública"]["sin_dato"], 2)
+        self.assertEqual(profile["desde"], "2025-09-28")
+        # La consulta se restringe a contratos parecidos a los del tablero: sin prestación de servicios.
+        where = client.calls[-1]["where"]
+        self.assertIn("valor_del_contrato >= 50000000", where)
+        self.assertIn("'Suministros'", where)
+        self.assertNotIn("Prestación de servicios", where)
+        self.assertEqual(client.calls[-1]["group"], "modalidad_de_contratacion, tipodocproveedor")
+
+    def test_bidder_profile_reuses_previous_on_failure(self):
+        previous = {"desde": "2025-09-01", "modalidades": [{"modalidad": "X", "persona_natural": 1, "juridica": 1, "sin_dato": 0}]}
+        e = enricher(FakeClient(fail=("jbjy-vk9h",)), previous_profile=previous)
+        self.assertEqual(e.bidder_profile(), previous)
+        self.assertEqual(e.summary["perfil_proponente"]["estado"], "error")
+        self.assertIsNone(enricher(FakeClient(fail=("jbjy-vk9h",))).bidder_profile())
 
     def test_month_number(self):
         self.assertEqual(month_number("Septiembre"), 9)

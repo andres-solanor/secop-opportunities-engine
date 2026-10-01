@@ -119,6 +119,18 @@ def validate_meta(meta: Any) -> List[str]:
             errors.append(f"meta: falta '{name}'")
         elif not isinstance(meta[name], types):
             errors.append(f"meta: '{name}' tiene tipo {type(meta[name]).__name__}")
+    profile = meta.get("perfil_proponente")
+    if profile is not None:  # opcional: si la fuente falla y no hay corrida anterior, va en null
+        rows = profile.get("modalidades") if isinstance(profile, dict) else None
+        if not isinstance(rows, list):
+            errors.append("meta: 'perfil_proponente' sin lista de modalidades")
+        else:
+            for row in rows:
+                if not isinstance(row, dict) or not isinstance(row.get("modalidad"), str) or not all(
+                    isinstance(row.get(k), int) and not isinstance(row.get(k), bool) and row[k] >= 0
+                    for k in ("persona_natural", "juridica", "sin_dato")
+                ):
+                    errors.append(f"meta: fila de 'perfil_proponente' mal formada: {row!r}"[:200])
     return errors
 
 

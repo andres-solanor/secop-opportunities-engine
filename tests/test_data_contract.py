@@ -100,6 +100,17 @@ class TestHiddenAndMetaContract(unittest.TestCase):
         meta = build_meta([], [], 5, NOW, NOW, None, [])
         self.assertEqual(meta["fuentes"]["procesos"]["estado"], "ok")
         self.assertIsNone(meta["embudo"])
+        self.assertIsNone(meta["perfil_proponente"])
+        self.assertEqual(validate_meta(meta), [])
+
+    def test_meta_bidder_profile_shape_is_checked(self):
+        good = {"desde": "2025-10-01", "modalidades": [{"modalidad": "Mínima cuantía", "persona_natural": 20, "juridica": 80, "sin_dato": 3}]}
+        meta = build_meta([], [], 5, NOW, NOW, None, [], bidder_profile=good)
+        self.assertEqual(meta["perfil_proponente"], good)
+        self.assertEqual(validate_meta(meta), [])
+        bad = {"modalidades": [{"modalidad": "Mínima cuantía", "persona_natural": "20", "juridica": 80, "sin_dato": 3}]}
+        self.assertTrue(validate_meta(dict(meta, perfil_proponente=bad)))
+        self.assertTrue(validate_meta(dict(meta, perfil_proponente={"desde": "x"})))
 
 
 class TestExports(unittest.TestCase):
