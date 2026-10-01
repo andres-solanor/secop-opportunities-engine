@@ -399,7 +399,40 @@
     return Array.from(groups.values()).sort((a, b) => b.count - a.count || b.value - a.value);
   }
 
+  // ---------- Enlaces para compartir (#op=<id>) ----------
+  // El hash no viaja al servidor y funciona en GitHub Pages sin backend.
+  const DEEP_LINK_KEY = 'op';
+
+  /** "#op=CO1.REQ.123" → "CO1.REQ.123"; null si el hash no es un enlace a una oportunidad. */
+  function parseDeepLink(hash) {
+    const params = new URLSearchParams(String(hash || '').replace(/^#/, ''));
+    const id = (params.get(DEEP_LINK_KEY) || '').trim();
+    return id || null;
+  }
+
+  function deepLinkHash(id) {
+    return `#${DEEP_LINK_KEY}=${encodeURIComponent(id)}`;
+  }
+
+  /**
+   * Busca una oportunidad compartida: tablero, luego PAA, luego lo oculto (si ya se cargó).
+   * Devuelve { item, source: 'board'|'paa'|'hidden', tab } o null.
+   */
+  function findOpportunity(id, sources = {}) {
+    if (!id) return null;
+    const board = (sources.board || []).find(i => i.id === id);
+    if (board) return { item: board, source: 'board', tab: isAwarded(board) ? 'proveedores' : 'observatorio' };
+    const paa = (sources.paa || []).find(i => String(i.id) === id);
+    if (paa) return { item: paa, source: 'paa', tab: 'paa' };
+    const hidden = (sources.hidden || []).find(i => i.id === id);
+    if (hidden) return { item: hidden, source: 'hidden', tab: 'hidden' };
+    return null;
+  }
+
   const api = {
+    parseDeepLink,
+    deepLinkHash,
+    findOpportunity,
     EMPTY_NAMES,
     SIN_CLASIFICAR,
     SEGUROS,

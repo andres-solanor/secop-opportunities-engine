@@ -29,6 +29,8 @@ DESCRIPTION_MAX = 240
 TARGET_COUNT = 500
 AWARDED_SHARE = 0.43      # adjudicados (Radar B2B) frente a abiertos (Observatorio): era 65 de 150
 PER_SECTOR_MIN = 20       # cada sector conserva al menos esto, aunque otro tenga mejores puntajes
+# Nombres de contratista que SECOP o el extractor ponen cuando aún no hay ganador conocido.
+EMPTY_CONTRACTOR = {"Pendiente por Adjudicar", "No Definido", "No definido"}
 
 
 def is_awarded(item: Dict[str, Any]) -> bool:
@@ -153,11 +155,15 @@ def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
     if len(description) > DESCRIPTION_MAX:
         description = description[:DESCRIPTION_MAX].rstrip() + "…"
     sectors = item.get("sectores") or [{"id": SIN_CLASIFICAR, "name": SIN_CLASIFICAR_NAME}]
-    return {
+    record = {
         "id": item.get("id"),
         "referencia": item.get("referencia"),
+        # Llave de contratos y ofertas en SECOP II: el detalle los consulta en vivo con ella.
+        "id_portafolio": item.get("id_portafolio"),
         "motivo": motivo,
         "entidad": item.get("entidad"),
+        # Para cruzar con el diccionario de entidades (window.ENTITY_STATS) sin copiar sus cifras.
+        "nit_entidad": item.get("nit_entidad"),
         "departamento": item.get("departamento"),
         "ciudad": item.get("ciudad"),
         "precio": item.get("precio"),
@@ -173,6 +179,15 @@ def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
         "sectores": [{"id": s["id"], "name": s["name"]} for s in sectors],
         "url_secop": item.get("url_secop"),
     }
+    # Solo lo que cambia la decisión en una ficha liviana adjudicada: cuándo y quién ganó. Las
+    # abiertas no llevan estas claves. El resto (contrato, ofertas, consorcio) se consulta en
+    # vivo al abrir el detalle.
+    if is_awarded(item):
+        record["fecha_adjudicacion"] = (item.get("fechas") or {}).get("adjudicacion")
+        contractor = item.get("contratista") or {}
+        if contractor.get("nombre") and contractor["nombre"] not in EMPTY_CONTRACTOR:
+            record["contratista"] = {"nombre": contractor["nombre"], "es_consorcio": bool(contractor.get("es_consorcio"))}
+    return record
 
 
 def build_hidden(funnel: Dict[str, Any], curated: List[Dict[str, Any]]) -> List[Dict[str, Any]]:

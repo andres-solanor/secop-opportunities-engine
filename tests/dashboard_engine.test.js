@@ -277,6 +277,30 @@ test('el filtro "accesibles a persona natural" usa el umbral del motor', () => {
   assert.deepStrictEqual(D.applyFilters(items, { modality: D.PERSONA_NATURAL }), [], 'sin perfil publicado no se adivina');
 });
 
+// ---------- Enlaces para compartir ----------
+test('el enlace #op=<id> se arma y se lee igual, con caracteres especiales', () => {
+  assert.strictEqual(D.deepLinkHash('CO1.REQ.123'), '#op=CO1.REQ.123');
+  assert.strictEqual(D.parseDeepLink(D.deepLinkHash('MarketplaceCO1715807499')), 'MarketplaceCO1715807499');
+  assert.strictEqual(D.parseDeepLink(D.deepLinkHash('A B&C=D')), 'A B&C=D');
+  assert.strictEqual(D.parseDeepLink(''), null);
+  assert.strictEqual(D.parseDeepLink('#otra=1'), null);
+  assert.strictEqual(D.parseDeepLink('#op='), null);
+});
+
+test('una oportunidad compartida se busca en el tablero, el PAA y lo oculto, en ese orden', () => {
+  const sources = {
+    board: [opp('B1', AWARDED), opp('O1')],
+    paa: [{ id: 'P1', anio: 2026, mes_esperado: 11 }],
+    hidden: [{ id: 'H1', motivo: 'sin_sector' }, { id: 'B1', motivo: 'sin_sector' }]
+  };
+  assert.deepStrictEqual([D.findOpportunity('B1', sources).source, D.findOpportunity('B1', sources).tab], ['board', 'proveedores']);
+  assert.strictEqual(D.findOpportunity('O1', sources).tab, 'observatorio');
+  assert.strictEqual(D.findOpportunity('P1', sources).tab, 'paa');
+  assert.strictEqual(D.findOpportunity('H1', sources).source, 'hidden');
+  assert.strictEqual(D.findOpportunity('NO.EXISTE', sources), null);
+  assert.strictEqual(D.findOpportunity('H1', { board: [] }), null, 'sin hidden.js cargado no se encuentra lo oculto');
+});
+
 // ---------- Tiempo ----------
 test('la fecha del filtro de tiempo es la del estado actual', () => {
   const awarded = opp('T1', { ...AWARDED, fechas: { publicacion: '2026-08-01T00:00:00', adjudicacion: '2026-09-28T00:00:00' } });

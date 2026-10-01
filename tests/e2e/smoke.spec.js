@@ -176,6 +176,146 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
 });
 
+test('fichas livianas y del PAA usan la misma estructura: ganador, adjudicación y cifras de la entidad', async ({ page }) => {
+  // Datos de prueba con los campos nuevos (los del repositorio pueden ser anteriores).
+  const awardedOn = new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString().slice(0, 10) + 'T00:00:00';
+  const light = {
+    id: 'CO1.REQ.TEST1', motivo: 'fuera_de_corte', entidad: 'MUNICIPIO DE PRUEBA', nit_entidad: '800000001',
+    precio: 300000000, modalidad: 'Mínima cuantía', tipo_contrato: 'Suministros', descripcion: 'Suministro de prueba',
+    unspsc: '30102200', etapa_comercial: 'Adjudicado (Contratista Seleccionado)', estado_secop: 'Adjudicado',
+    fecha_publicacion: '2026-08-01T00:00:00', fecha_adjudicacion: awardedOn,
+    contratista: { nombre: 'CONSORCIO DE PRUEBA 2026', es_consorcio: true },
+    sectores: [{ id: 'acero_metalmecanica', name: 'Acero & Metalmecánica' }], url_secop: 'https://example.org/x'
+  };
+  await page.route('**/hidden.js*', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.HIDDEN_DATA = ${JSON.stringify({ items: [light], total: 1, sin_sector: 0, fuera_de_corte: 1, convenio: 0 })};`
+  }));
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    const inject = `\n(function(){var p=(window.PAA_DATA||[])[0];window.ENTITY_STATS=Object.assign({},window.ENTITY_STATS,{'800000001':{valor_12m:2e11,pagado_sobre_facturado_pct:90}});if(p){p.nit_entidad='800000001';}})();\n`;
+    await route.fulfill({ response: res, body: body + inject });
+  });
+  await openDashboard(page);
+
+  await page.check('#toggleHidden');
+  const card = page.locator('#cardsGrid .opp-card-light').first();
+  await expect(card).toContainText('CONSORCIO DE PRUEBA 2026');
+  await expect(card.locator('.stage-pill')).toHaveText('Adjudicado');
+  await expect(card).toContainText('Adjudicado hace 5 días');
+  await expect(card).toContainText('Gran comprador');
+  await expect(card).toContainText('Clasificada, fuera del corte');
+
+  await page.click('#tabPaa');
+  await expect(page.locator('#cardsGrid .opp-card').first()).toContainText('Gran comprador');
+});
+
+test('detalle de lo oculto: abre al instante y completa en vivo; si SECOP II falla, lo dice', async ({ page }) => {
+  const light = {
+    id: 'CO1.REQ.LIVE1', id_portafolio: 'CO1.BDOS.LIVE1', motivo: 'sin_sector', entidad: 'MUNICIPIO EN VIVO', nit_entidad: '800000002',
+    precio: 400000000, modalidad: 'Licitación pública', tipo_contrato: 'Obra', descripcion: 'Obra de prueba en vivo',
+    unspsc: '72141000', etapa_comercial: 'Adjudicado (Contratista Seleccionado)', estado_secop: 'Adjudicado',
+    fecha_publicacion: '2026-08-01T00:00:00', fecha_adjudicacion: '2026-09-20T00:00:00',
+    contratista: { nombre: 'CONSORCIO EN VIVO', es_consorcio: true },
+    sectores: [{ id: 'sin_clasificar', name: 'Sin clasificar' }], url_secop: 'https://example.org/live'
+  };
+  await page.route('**/hidden.js*', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.HIDDEN_DATA = ${JSON.stringify({ items: [light], total: 1, sin_sector: 1, fuera_de_corte: 0, convenio: 0 })};`
+  }));
+  // SECOP II simulado: nunca se consulta el servicio real desde las pruebas.
+  let failSecop = false;
+  await page.route('https://www.datos.gov.co/**', route => {
+    if (failSecop) return route.fulfill({ status: 503, body: 'down' });
+    const url = decodeURIComponent(route.request().url());
+    let body = [];
+    if (url.includes('jbjy-vk9h') && url.includes('proceso_de_compra')) {
+      body = [{ proceso_de_compra: 'CO1.BDOS.LIVE1', estado_contrato: 'En ejecución', valor_del_contrato: '395000000', fecha_de_firma: '2026-09-25T00:00:00.000', nombre_representante_legal: 'ANA PRUEBA' }];
+    } else if (url.includes('wi7w-2nvm')) {
+      body = [{ identificador_de_la_oferta: 'X1', nombre_proveedor: 'CONSORCIO EN VIVO', nit_del_proveedor: '901', valor_de_la_oferta: '395000000' }];
+    } else if (url.includes('jbjy-vk9h')) {
+      body = [{ contratos: '42', valor: '9000000000', facturado: '100', pagado: '80' }];
+    }
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify(body) });
+  });
+  await openDashboard(page);
+  await page.check('#toggleHidden');
+  await page.locator('#cardsGrid .opp-card-light .btn-detail').first().click();
+  const modal = page.locator('#modalBody');
+  await expect(modal).toContainText('Por qué no está en el tablero');
+  await expect(modal).toContainText('Datos consultados en vivo en SECOP II');
+  await expect(modal).toContainText('Ana Prueba');
+  await expect(modal).toContainText('1 oferta recibida');
+  await expect(modal).toContainText('La entidad en los últimos 12 meses');
+  await page.keyboard.press('Escape');
+
+  failSecop = true;
+  await page.evaluate(() => window.SecopLive.clearCache());
+  await page.locator('#cardsGrid .opp-card-light .btn-detail').first().click();
+  await expect(modal).toContainText('No se pudo consultar SECOP II en vivo');
+  await expect(modal).toContainText('Por qué no está en el tablero');
+});
+
+test('detalle del PAA: planeación y procesos de la entidad en el tablero', async ({ page }) => {
+  await page.route('https://www.datos.gov.co/**', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
+  await openDashboard(page);
+  await page.click('#tabPaa');
+  await page.locator('#cardsGrid .btn-detail').first().click();
+  await expect(page.locator('#modalBody')).toContainText('Planeación (Plan Anual de Adquisiciones)');
+  await expect(page.locator('#modalBody')).toContainText('Es una intención de compra');
+});
+
+test('compartir: el botón copia un enlace #op= y ese enlace abre la ficha en su pestaña', async ({ page }) => {
+  // Portapapeles simulado y sin menú nativo de compartir: la prueba no depende del sistema.
+  await page.addInitScript(() => {
+    window.__copied = null;
+    Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: t => { window.__copied = t; return Promise.resolve(); } }, configurable: true });
+  });
+  await openDashboard(page);
+  const target = await page.evaluate(() => window.DashboardEngine.tabItems(window.PROSPECTS_DATA, 'observatorio')[0]);
+  await page.click('#tabObservatorio');
+  await page.locator(`[id="card-${target.id}"] [data-action="share"]`).click();
+  const copied = await page.evaluate(() => window.__copied);
+  expect(copied).toContain(`#op=${encodeURIComponent(target.id)}`);
+  expect(copied).toContain(target.entidad);
+
+  // Abrir el enlace en una página nueva: pestaña correcta, detalle abierto y ficha resaltada.
+  const link = copied.split('\n').pop();
+  const fresh = await page.context().newPage();
+  await fresh.goto(link);
+  await expect(fresh.locator('#detailModal')).toHaveClass(/active/);
+  await expect(fresh.locator('#modalBody .detail-title')).toHaveText(target.entidad);
+  await expect(fresh.locator('#tabObservatorio')).toHaveClass(/active/);
+  // Al cerrar, el hash se limpia: recargar no vuelve a abrir el detalle.
+  await fresh.keyboard.press('Escape');
+  await expect(fresh.locator('#detailModal')).not.toHaveClass(/active/);
+  expect(new URL(fresh.url()).hash).toBe('');
+});
+
+test('enlace a algo fuera del tablero o que ya no existe', async ({ page }) => {
+  const light = {
+    id: 'CO1.REQ.SOLO.OCULTO', motivo: 'sin_sector', entidad: 'ENTIDAD OCULTA', precio: 100000000, descripcion: 'Proceso oculto',
+    etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', sectores: [], url_secop: ''
+  };
+  await page.route('**/hidden.js*', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.HIDDEN_DATA = ${JSON.stringify({ items: [light], total: 1, sin_sector: 1, fuera_de_corte: 0, convenio: 0 })};`
+  }));
+  // SECOP II simulado: el proceso desconocido no existe.
+  await page.route('https://www.datos.gov.co/**', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
+
+  await page.goto('/index.html#op=CO1.REQ.SOLO.OCULTO');
+  await expect(page.locator('#modalBody')).toContainText('ENTIDAD OCULTA');
+  await expect(page.locator('#modalBody')).toContainText('Por qué no está en el tablero');
+
+  await page.goto('/index.html#op=CO1.REQ.NO.EXISTE');
+  await page.reload();
+  await expect(page.locator('#modalBody')).toContainText('Esta oportunidad ya no está disponible');
+  await expect(page.locator('#cardsGrid .opp-card').first()).toBeVisible();
+});
+
 test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) => {
   await openDashboard(page);
   await page.locator('#cardsGrid .btn-detail').first().click();

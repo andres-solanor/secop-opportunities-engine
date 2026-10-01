@@ -82,6 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const META = window.PROSPECTS_META || null;
   // Persona natural: cifra por modalidad calculada por el pipeline (meta.perfil_proponente).
   const BIDDER_SHARES = Dash.bidderShares(META && META.perfil_proponente);
+  // Cifras por entidad (NIT) para las fichas livianas y el PAA: una entrada por entidad.
+  const ENTITY_STATS = window.ENTITY_STATS || {};
+  // Consultas en vivo a SECOP II para el detalle de lo que no está en el tablero (secop-live.js).
+  const Live = window.SecopLive;
+  // Fichas pintadas (todas las vistas), por id: las usa el clic delegado de sus botones.
+  const cardItems = new Map();
+  // Un enlace compartido que apunta a algo de hidden.js espera a que se descargue.
+  let pendingDeepLink = false;
+  const SHARE_BUTTON = '<button class="btn btn-outline btn-icon" data-action="share" title="Compartir un enlace directo a esta oportunidad" aria-label="Compartir">📤</button>';
   const HAS_BIDDER_SHARES = Object.keys(BIDDER_SHARES).length > 0;
   // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
@@ -158,10 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       renderView();
+      resumeDeepLink();
     };
     script.onerror = () => {
       hiddenLoad = 'error';
       renderView();
+      resumeDeepLink();
     };
     document.head.appendChild(script);
   }
@@ -225,10 +236,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modalClose.addEventListener('click', () => {
     detailModal.classList.remove('active');
+    clearDeepLink();
   });
 
   detailModal.addEventListener('click', (e) => {
-    if (e.target === detailModal) detailModal.classList.remove('active');
+    if (e.target === detailModal) {
+      detailModal.classList.remove('active');
+      clearDeepLink();
+    }
   });
 
   // Accesibilidad de todos los modales (incluido el de perfil): al abrir, el foco entra al
@@ -617,17 +632,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<div class="empty-foryou"><div class="empty-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div>`;
   }
 
-  /** Badges de una ficha liviana: el motivo por el que no está en el tablero y lo que la identifica. */
-  function lightBadges(item) {
-    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
-    const badges = [{ icon: '', ...reason }];
-    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
-    if (item.convenio && item.motivo !== 'convenio') badges.push(Engine.BADGES.convenio);
-    const pn = cardBadges(item).find(b => b.id === 'persona_natural');
-    if (pn) badges.push(pn);
-    return badges.map(badgeHtml).join('');
-  }
-
   function renderHiddenCards(items) {
     if (hiddenLoad === 'loading' || hiddenLoad === 'idle') {
       resultsCount.textContent = 'Cargando los procesos fuera del tablero…';
@@ -663,36 +667,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    cardsGrid.innerHTML = items.map(item => {
-      const awarded = Dash.isAwarded(item);
-      const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
-      const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
-      const meta = [modalityLabel(item), item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · ');
-      const published = item.fecha_publicacion ? `📅 Publicado ${escapeHtml(formatDate(new Date(item.fecha_publicacion)))}` : '';
-      const closing = item.cierre_ofertas && !awarded ? `⏳ Cierre ${escapeHtml(formatDate(new Date(item.cierre_ofertas), { withTime: true }))}` : '';
-      return `
-      <article class="opp-card opp-card-light">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill ${awarded ? 'stage-adjudicado' : 'stage-cerrada'}" title="Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">${escapeHtml((item.etapa_comercial || '').split('(')[0].trim())}</span>
-              <div class="card-sectors">${sectors}</div>
-            </div>
-            <div class="card-badges"><span class="badge badge-info" title="Familia UNSPSC (primeros 4 dígitos del código ${escapeHtml(item.unspsc || 'no reportado')})">UNSPSC ${escapeHtml(Dash.familyOf(item))}</span></div>
-          </div>
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
-          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
-          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
-          ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
-          ${published || closing ? `<div class="card-dates"><div class="date-meta">${[published, closing].filter(Boolean).join('<span class="dot">·</span>')}</div></div>` : ''}
-          <div class="badge-row">${lightBadges(item)}</div>
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
-        </div>
-        <div class="card-actions">
-          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
-        </div>
-      </article>`;
-    }).join('');
+    cardItems.clear();
+    items.forEach(i => cardItems.set(i.id, i));
+    cardsGrid.innerHTML = items.map(lightCardHtml).join('');
   }
 
   // ---------- Compras planeadas (PAA) ----------
@@ -702,40 +679,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.innerHTML = `<div class="empty-foryou"><div class="empty-icon">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
       return;
     }
-    const nowMonth = new Date().getMonth() + 1;
-    cardsGrid.innerHTML = items.map(item => {
-      const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
-      const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
-      const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
-      // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
-      const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
-      const meta = [readableText(modalityLabel(item)), term].filter(Boolean).map(escapeHtml).join(' · ');
-      return `
-      <article class="opp-card">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill stage-planeada"><span class="pulse-dot"></span>Planeada · ${escapeHtml(monthName)}</span>
-              <div class="card-sectors">${(item.sectores || []).map(s => escapeHtml(s.name)).join(' • ')}</div>
-            </div>
-          </div>
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.valor || 0))}</div>
-          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
-          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || '')}</strong></div>
-          <div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>
-          <div class="badge-row">
-            <span class="badge badge-info" title="Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.">🗓️ Plan Anual</span>
-            ${item.origen_recursos ? `<span class="badge badge-info" title="Origen de los recursos según el PAA">💰 ${escapeHtml(item.origen_recursos)}</span>` : ''}
-            ${cardBadges(item).filter(b => b.id === 'persona_natural').map(badgeHtml).join('')}
-          </div>
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion))}</p>
-          <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>
-        </div>
-        <div class="card-actions">
-          ${item.url_proceso ? `<a href="${escapeHtml(item.url_proceso)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Proceso relacionado</a>` : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
-        </div>
-      </article>`;
-    }).join('');
+    cardItems.clear();
+    items.forEach(i => cardItems.set(i.id, i));
+    cardsGrid.innerHTML = items.map(paaCardHtml).join('');
   }
 
   // Render Card Grid
@@ -769,6 +715,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    cardItems.clear();
+    filtered.forEach(i => cardItems.set(i.id, i));
     cardsGrid.innerHTML = filtered.map(item => createCardHtml(item)).join('');
 
     // Attach card event listeners
@@ -849,6 +797,133 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${h.contratos} ${h.contratos === 1 ? 'contrato' : 'contratos'} en SECOP II · ${Engine.formatCopShort(h.valor_total || 0)}${since}`;
   }
 
+  // ---------- Estructura común de las fichas (tablero, fuera del tablero y PAA) ----------
+
+  /** Cifras de la entidad: las del registro (tablero) o las del diccionario por NIT (fichas livianas y PAA). */
+  function entityStatsOf(item) {
+    if (item.entidad_stats) return item.entidad_stats;
+    const nit = String(item.nit_entidad || '').replace(/\D/g, '');
+    return (nit && ENTITY_STATS[nit]) || null;
+  }
+
+  /**
+   * Un registro liviano (hidden.js) con la forma que esperan bidWindow, cardDatesHtml, nextStep y
+   * cardBadges: las fechas van dentro de `fechas` y las cifras de la entidad salen del diccionario.
+   */
+  function boardShape(item) {
+    return {
+      ...item,
+      fechas: { publicacion: item.fecha_publicacion, cierre_ofertas: item.cierre_ofertas, adjudicacion: item.fecha_adjudicacion },
+      entidad_stats: entityStatsOf(item)
+    };
+  }
+
+  function badgeRowHtml(badges, max = 4) {
+    if (!badges.length) return '';
+    const visible = badges.slice(0, max);
+    const more = badges.length - visible.length;
+    return `<div class="badge-row">${visible.map(badgeHtml).join('')}${more > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${more}</span>` : ''}</div>`;
+  }
+
+  function stepHtml(step) {
+    const date = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
+    return `<div class="next-step">➜ ${escapeHtml(step.text)}${date}</div>`;
+  }
+
+  /**
+   * Esqueleto común de todas las fichas. `c`: { item, light, pill: {cls, text, title}, corner,
+   * price, meta, dates, badges, extra, step, actions }. Lo dinámico llega ya escapado, salvo los
+   * campos de `item`, que se escapan aquí.
+   */
+  function cardShell(c) {
+    const item = c.item;
+    const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
+    return `
+      <article class="opp-card${c.light ? ' opp-card-light' : ''}" id="card-${escapeHtml(item.id)}" data-id="${escapeHtml(item.id)}">
+        <div>
+          <div class="opp-card-header">
+            <div>
+              <span class="stage-pill ${c.pill.cls}" title="${escapeHtml(c.pill.title || '')}"><span class="pulse-dot"></span>${escapeHtml(c.pill.text)}</span>
+              <div class="card-sectors">${(item.sectores || []).map(s => escapeHtml(s.name)).join(' • ')}</div>
+            </div>
+            ${c.corner ? `<div class="card-badges">${c.corner}</div>` : ''}
+          </div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(c.price || 0))}</div>
+          ${c.meta ? `<div class="opp-meta">${c.meta}</div>` : ''}
+          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
+          ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
+          ${c.dates || ''}
+          ${badgeRowHtml(c.badges || [])}
+          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
+          ${c.extra || ''}
+          ${c.step ? stepHtml(c.step) : ''}
+        </div>
+        <div class="card-actions">${c.actions || ''}</div>
+      </article>`;
+  }
+
+  function secopLinkHtml(url, label = '') {
+    if (!url) return '';
+    return label
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">${label}</a>`
+      : `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>`;
+  }
+
+  /** Ficha liviana (fuera del tablero y "Otros"): misma estructura, solo con lo que trae hidden.js. */
+  function lightCardHtml(item) {
+    const view = boardShape(item);
+    const bw = Engine.bidWindow(view);
+    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
+    const badges = [{ icon: '', ...reason }];
+    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
+    // El motivo "convenio" ya lo dice el primer badge.
+    badges.push(...cardBadges(view).filter(b => !(b.id === 'convenio' && item.motivo === 'convenio')));
+    const winner = item.contratista && item.contratista.nombre;
+    const winnerBox = winner ? `
+          <div class="contractor-box">
+            <div class="contractor-box-title"><span>🏆 Contratista</span>${item.contratista.es_consorcio ? '<span>Consorcio / UT</span>' : ''}</div>
+            <div class="contractor-name">${escapeHtml(winner)}</div>
+          </div>` : '';
+    return cardShell({
+      item,
+      light: true,
+      pill: { cls: STATE_LABELS[bw.state].cls, text: STATE_LABELS[bw.state].text, title: `Estado SECOP: ${item.estado_secop || 'N/D'}` },
+      corner: `<span class="badge badge-info" title="Familia UNSPSC (primeros 4 dígitos del código ${escapeHtml(item.unspsc || 'no reportado')})">UNSPSC ${escapeHtml(Dash.familyOf(item))}</span>`,
+      price: item.precio,
+      meta: [modalityLabel(item), item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · '),
+      dates: cardDatesHtml(view),
+      badges,
+      extra: winnerBox,
+      step: Engine.nextStep(view),
+      actions: `<button class="btn btn-outline btn-detail" data-action="light-detail">🔎 Detalle</button>${secopLinkHtml(item.url_secop)}${SHARE_BUTTON}`
+    });
+  }
+
+  /** Ficha del PAA: misma estructura; sus fechas son un mes esperado, no un cierre. */
+  function paaCardHtml(item) {
+    const nowMonth = new Date().getMonth() + 1;
+    const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
+    const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
+    const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
+    // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
+    const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
+    const badges = [{ icon: '🗓️', label: 'Plan Anual', tone: 'info', tip: 'Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.' }];
+    if (item.origen_recursos) badges.push({ icon: '💰', label: item.origen_recursos, tone: 'info', tip: 'Origen de los recursos según el PAA' });
+    // De los badges del tablero, solo los que aplican a una compra futura: la entidad y la persona natural.
+    badges.push(...Engine.cardBadges({ entidad_stats: entityStatsOf(item) }, new Date(), { personaNatural: friendlyShare(item) })
+      .filter(b => ['gran_comprador', 'pagos_registrados', 'persona_natural'].includes(b.id)));
+    return cardShell({
+      item,
+      pill: { cls: 'stage-planeada', text: `Planeada · ${monthName}` },
+      price: item.valor,
+      meta: [readableText(modalityLabel(item)), term].filter(Boolean).map(escapeHtml).join(' · '),
+      dates: `<div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>`,
+      badges,
+      step: { text: 'Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya' },
+      actions: `<button class="btn btn-outline btn-detail" data-action="paa-detail">🔎 Detalle</button>${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado</span>'}${SHARE_BUTTON}`
+    });
+  }
+
   // Create Card HTML Template
   function createCardHtml(item) {
     const currentStatus = crmState[item.id]?.status || 'ninguno';
@@ -861,11 +936,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `<span class="match-pill ${match.score >= 75 ? 'match-high' : match.score >= MIN_MATCH_SCORE ? '' : 'match-low'}" title="Afinidad con tu perfil">✨ ${match.score}%</span>`
       : `<div class="score-badge ${item.score_calidad >= 80 ? 'score-high' : 'score-med'}" title="Calidad del lead: sector, valor y etapa (0-100)">⚡ ${item.score_calidad} pts</div>`;
 
-    const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
     const metaLine = [modalityLabel(item), Engine.formatTerm(item.plazo)].filter(Boolean).map(escapeHtml).join(' · ');
-    const badges = cardBadges(item);
-    const visibleBadges = badges.slice(0, 4);
-    const moreBadges = badges.length - visibleBadges.length;
     const reasons = match && match.reasons.length
       ? `<div class="match-line">✨ ${match.reasons.slice(0, 3).map(escapeHtml).join(' · ')}</div>`
       : '';
@@ -882,56 +953,29 @@ document.addEventListener('DOMContentLoaded', () => {
             ${(item.integrantes || []).length ? `<div class="contractor-meta">🤝 Integrantes: ${item.integrantes.slice(0, 3).map(m => `${escapeHtml(m.nombre)}${m.participacion ? ` (${m.participacion}%${m.lider ? ', líder' : ''})` : ''}`).join(' · ')}${item.integrantes.length > 3 ? ` · +${item.integrantes.length - 3}` : ''}</div>` : ''}
           </div>` : '';
 
-    const step = Engine.nextStep(item);
-    const stepDate = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
-
-    return `
-      <article class="opp-card" id="card-${escapeHtml(item.id)}">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill ${stateLabel.cls}" title="${escapeHtml(item.etapa_comercial)} · Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">
-                <span class="pulse-dot"></span>
-                ${stateLabel.text}
-              </span>
-              <div class="card-sectors">${sectors}</div>
-            </div>
-            <div class="card-badges">${scoreBadge}</div>
-          </div>
-
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
-          ${metaLine ? `<div class="opp-meta">${metaLine}</div>` : ''}
-          <div class="opp-entity">
-            <span>🏛️</span>
-            <strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong>
-          </div>
-          <div class="opp-location">📍 ${escapeHtml([item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', '))}</div>
-          ${cardDatesHtml(item)}
-          ${visibleBadges.length ? `<div class="badge-row">${visibleBadges.map(badgeHtml).join('')}${moreBadges > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${moreBadges}</span>` : ''}</div>` : ''}
-
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">
-            ${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}
-          </p>
-          ${reasons}
-          ${contractorBlock}
-
-          <div class="next-step">➜ ${escapeHtml(step.text)}${stepDate}</div>
-        </div>
-
-        <div class="card-actions">
+    return cardShell({
+      item,
+      pill: { cls: stateLabel.cls, text: stateLabel.text, title: `${item.etapa_comercial} · Estado SECOP: ${item.estado_secop || 'N/D'}` },
+      corner: scoreBadge,
+      price: item.precio,
+      meta: metaLine,
+      dates: cardDatesHtml(item),
+      badges: cardBadges(item),
+      extra: reasons + contractorBlock,
+      step: Engine.nextStep(item),
+      actions: `
           <button class="btn btn-primary btn-pitch">💬 Pitch</button>
           <button class="btn btn-outline btn-detail">🔎 Detalle</button>
-          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>` : ''}
+          ${secopLinkHtml(item.url_secop)}
+          ${SHARE_BUTTON}
           <select class="filter-select crm-select" aria-label="Guardar en CRM">
             <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
             <option value="contactado" ${currentStatus === 'contactado' ? 'selected' : ''}>📞 Contactado</option>
             <option value="negociacion" ${currentStatus === 'negociacion' ? 'selected' : ''}>💼 En Cotización</option>
             <option value="ganado" ${currentStatus === 'ganado' ? 'selected' : ''}>🏆 Ganado</option>
-          </select>
-        </div>
-      </article>
-    `;
+          </select>`
+    });
   }
 
   // ---------- Vista de detalle ----------
@@ -939,7 +983,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return value ? `<div class="dl-row"><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>` : '';
   }
 
-  function openDetailModal(item) {
+  /**
+   * Vista de detalle. `opts`: { top (html tras el próximo paso), live (html del estado de la
+   * consulta en vivo), keepScroll (al refrescar con lo que llegó en vivo, no saltar arriba) }.
+   */
+  function openDetailModal(item, opts = {}) {
     const bw = Engine.bidWindow(item);
     const c = item.contrato;
     const h = item.historial_contratista;
@@ -976,6 +1024,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="detail-sub">${escapeHtml(Engine.formatCopShort(item.precio || 0))} · ${escapeHtml(modalityLabel(item))} · Ref. <code>${escapeHtml(item.referencia || item.id)}</code></div>
         <div class="next-step">➜ ${escapeHtml(step.text)}${step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b>` : ''}</div>
         ${badges.length ? `<div class="badge-row">${badges.map(b => `${badgeHtml(b)}`).join('')}</div>` : ''}
+        ${opts.top || ''}
+        ${opts.live || ''}
 
         <section class="detail-section">
           <h3>Objeto</h3>
@@ -1073,13 +1123,252 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="detail-actions">
           ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
+          <button class="btn btn-outline" id="detailShare">📤 Compartir</button>
           <button class="btn btn-primary" id="detailPitch">💬 Generar pitch</button>
         </div>
       </div>
     `;
     document.getElementById('detailPitch').addEventListener('click', () => openPitchModal(item));
+    document.getElementById('detailShare').addEventListener('click', () => shareOpportunity(item));
+    detailModal.dataset.itemId = item.id || '';
     detailModal.classList.add('active');
-    detailModal.querySelector('.modal-content').scrollTop = 0;
+    if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
+  }
+
+  // ---------- Detalle en vivo (fuera del tablero y PAA): window.SecopLive ----------
+  function liveNote(state, errors = []) {
+    if (state === 'loading') return '<div class="live-note" role="status">⏳ Consultando SECOP II en vivo: contrato, ofertas y la entidad. La primera consulta puede tardar unos segundos.</div>';
+    if (state === 'error') return '<div class="live-note live-note-warn" role="status">No se pudo consultar SECOP II en vivo. Abre el expediente en SECOP II para ver el detalle completo.</div>';
+    const names = { contrato: 'el contrato', ofertas: 'las ofertas', entidad_stats: 'las cifras de la entidad' };
+    if (errors.length) return `<div class="live-note live-note-warn" role="status">Consulta en vivo parcial: no respondió ${escapeHtml(errors.map(e => names[e] || e).join(', '))}.</div>`;
+    return '<div class="live-note" role="status">✓ Datos consultados en vivo en SECOP II.</div>';
+  }
+
+  /** Detalle de un proceso fuera del tablero: abre con lo que trae la ficha y completa en vivo. */
+  function openLightDetail(item) {
+    const reason = HIDDEN_REASONS[item.motivo];
+    const top = item.en_vivo
+      ? '<section class="detail-section"><h3>Ya no está en el tablero</h3><p>Este proceso salió de la selección del tablero; estos datos se consultaron en vivo en SECOP II.</p></section>'
+      : reason ? `<section class="detail-section"><h3>Por qué no está en el tablero</h3><p><b>${escapeHtml(reason.label)}.</b> ${escapeHtml(reason.tip)}</p></section>` : '';
+    const view = boardShape(item);
+    if (!Live || !(item.id_portafolio || item.nit_entidad)) {
+      openDetailModal(view, { top });
+      return;
+    }
+    openDetailModal(view, { top, live: liveNote('loading') });
+    Live.processDetail({ portfolio: item.id_portafolio, nitEntidad: item.nit_entidad, winnerNit: item.contratista && item.contratista.nit })
+      .then(r => {
+        if (detailModal.dataset.itemId !== item.id || !detailModal.classList.contains('active')) return;
+        // Ninguna consulta respondió: es una caída, no un resultado parcial.
+        if (r.errores.length && !r.contrato && !r.ofertas && !r.entidad_stats) {
+          openDetailModal(view, { top, live: liveNote('error'), keepScroll: true });
+          return;
+        }
+        const merged = { ...view, contrato: r.contrato || null, ofertas: r.ofertas || null, entidad_stats: r.entidad_stats || view.entidad_stats };
+        openDetailModal(merged, { top, live: liveNote('ok', r.errores), keepScroll: true });
+      })
+      .catch(() => {
+        if (detailModal.dataset.itemId === item.id) openDetailModal(view, { top, live: liveNote('error'), keepScroll: true });
+      });
+  }
+
+  /** Detalle de una compra planeada: planeación, la entidad (diccionario o en vivo) y sus procesos en el tablero. */
+  function openPaaDetail(item, liveStats, state) {
+    const stats = liveStats || entityStatsOf(item);
+    const money = v => (v || v === 0 ? escapeHtml(Engine.formatCopShort(v)) : '');
+    const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
+    const nit = String(item.nit_entidad || '').replace(/\D/g, '');
+    const onBoard = nit ? rawData.filter(i => String(i.nit_entidad || '').replace(/\D/g, '') === nit) : [];
+    const sectorNames = (item.sectores || []).map(s => s.name).join(', ');
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="stage-pill stage-planeada"><span class="pulse-dot"></span>Planeada · ${escapeHtml(monthName)}</span>
+        <h2 class="detail-title">${escapeHtml(item.entidad || '')}</h2>
+        <div class="detail-sub">${money(item.valor)}${modalityLabel(item) ? ` · ${escapeHtml(readableText(modalityLabel(item)))}` : ''}</div>
+        <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>
+        ${state ? liveNote(state) : ''}
+        <section class="detail-section">
+          <h3>Objeto</h3>
+          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+        </section>
+        <section class="detail-section">
+          <h3>Planeación (Plan Anual de Adquisiciones)</h3>
+          <dl>
+            ${detailRow('Publicación esperada', `${escapeHtml(monthName)} de ${escapeHtml(item.anio)}`)}
+            ${detailRow('Valor estimado', money(item.valor))}
+            ${detailRow('Modalidad prevista', escapeHtml(readableText(modalityLabel(item))))}
+            ${detailRow('Duración prevista', escapeHtml(item.duracion && /\d/.test(item.duracion) ? item.duracion : ''))}
+            ${detailRow('Origen de los recursos', escapeHtml(item.origen_recursos || ''))}
+            ${detailRow('Sectores', escapeHtml(sectorNames))}
+            ${detailRow('Códigos UNSPSC', escapeHtml((item.unspsc || []).join(', ')))}
+            ${detailRow('Versión del PAA', escapeHtml(item.version_paa || ''))}
+          </dl>
+          <p class="legal-note">Fuente: SECOP II · Plan Anual de Adquisiciones. Es una intención de compra: la entidad puede cambiarla o no publicarla.</p>
+        </section>
+        ${stats ? `
+        <section class="detail-section">
+          <h3>La entidad en los últimos 12 meses</h3>
+          <dl>
+            ${detailRow('Contratos firmados', escapeHtml(String(stats.contratos_12m ?? '')))}
+            ${detailRow('Valor contratado', money(stats.valor_12m))}
+            ${detailRow('Pagos registrados', stats.pagado_sobre_facturado_pct != null ? `${stats.pagado_sobre_facturado_pct}% de lo facturado` : '')}
+          </dl>
+        </section>` : ''}
+        ${onBoard.length ? `
+        <section class="detail-section">
+          <h3>Procesos de esta entidad en el tablero (${onBoard.length})</h3>
+          <ul class="contact-list">${onBoard.slice(0, 5).map(o => `<li><b>${escapeHtml(Engine.formatCopShort(o.precio || 0))} · ${escapeHtml(STATE_LABELS[Engine.bidWindow(o).state].text)}</b><span>${escapeHtml(readableText(o.descripcion || '').slice(0, 140))}</span></li>`).join('')}</ul>
+          <p class="legal-note">Te ayudan a conocer cómo contrata la entidad antes de que publique esta compra.</p>
+        </section>` : ''}
+        <div class="detail-actions">
+          ${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado en SECOP II') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
+          <button class="btn btn-outline" id="detailShare">📤 Compartir</button>
+        </div>
+      </div>`;
+    document.getElementById('detailShare').addEventListener('click', () => shareOpportunity(item));
+    detailModal.dataset.itemId = item.id || '';
+    detailModal.classList.add('active');
+    if (!state || state === 'loading') detailModal.querySelector('.modal-content').scrollTop = 0;
+    // Sin cifras en el diccionario, se consultan en vivo (una consulta agregada).
+    if (!stats && !state && Live && nit) {
+      openPaaDetail(item, null, 'loading');
+      Live.processDetail({ nitEntidad: nit })
+        .then(r => { if (detailModal.dataset.itemId === item.id) openPaaDetail(item, r.entidad_stats, r.errores.length ? 'error' : 'ok'); })
+        .catch(() => { if (detailModal.dataset.itemId === item.id) openPaaDetail(item, null, 'error'); });
+    }
+  }
+
+  // Botones de las fichas livianas y del PAA (delegación: se pintan muchas y cambian con cada filtro).
+  cardsGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    const card = btn.closest('[data-id]');
+    const item = card && cardItems.get(card.dataset.id);
+    if (!item) return;
+    if (btn.dataset.action === 'light-detail') openLightDetail(item);
+    else if (btn.dataset.action === 'paa-detail') openPaaDetail(item);
+    else if (btn.dataset.action === 'share') shareOpportunity(item);
+  });
+
+  // ---------- Compartir: enlace directo a una oportunidad (#op=<id>) ----------
+  function shareUrl(item) {
+    return `${window.location.origin}${window.location.pathname}${Dash.deepLinkHash(item.id)}`;
+  }
+
+  /** Texto para compartir: solo datos públicos del proceso. */
+  function shareText(item) {
+    const desc = readableText(item.descripcion || '');
+    const short = desc.length > 140 ? `${desc.slice(0, 140).trim()}…` : desc;
+    let when = '';
+    if (item.mes_esperado) {
+      when = ` · publicación esperada en ${MONTH_NAMES[item.mes_esperado - 1]} de ${item.anio}`;
+    } else {
+      const bw = Engine.bidWindow(item.fechas ? item : boardShape(item));
+      if (bw.state === 'abierta' && bw.date) when = ` · cierra el ${formatDate(bw.date)}`;
+      else if (bw.state === 'adjudicado' && bw.date) when = ` · adjudicado el ${formatDate(bw.date)}`;
+    }
+    return `${short}\n🏛️ ${item.entidad || ''} · ${Engine.formatCopShort(item.precio ?? item.valor ?? 0)}${when}`;
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise((resolve, reject) => {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.className = 'visually-hidden';
+      document.body.appendChild(area);
+      area.select();
+      const ok = document.execCommand && document.execCommand('copy');
+      area.remove();
+      if (ok) resolve(); else reject(new Error('copy'));
+    });
+  }
+
+  /** En el celular abre el menú de compartir del sistema (WhatsApp, etc.); en el computador, copia el enlace. */
+  function shareOpportunity(item) {
+    const url = shareUrl(item);
+    const text = shareText(item);
+    const touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (touch && navigator.share) {
+      navigator.share({ title: 'Oportunidad en SECOP II', text, url }).catch(() => {});
+      return;
+    }
+    copyText(`${text}\n${url}`)
+      .then(() => showToast('Enlace copiado: pégalo en WhatsApp, un correo o donde quieras', 'success'))
+      .catch(() => showToast(`Copia este enlace: ${url}`, 'info'));
+  }
+
+  // ---------- Abrir un enlace compartido ----------
+  function clearDeepLink() {
+    if (Dash.parseDeepLink(window.location.hash)) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  function highlightCard(id) {
+    const el = document.getElementById(`card-${id}`);
+    if (!el) return; // los filtros activos pueden ocultarla: el detalle se abre igual
+    el.scrollIntoView({ block: 'center' });
+    el.classList.add('card-highlight');
+    setTimeout(() => el.classList.remove('card-highlight'), 4000);
+  }
+
+  function showUnavailable(failed) {
+    modalBody.innerHTML = `
+      <div class="detail">
+        <h2 class="detail-title">Esta oportunidad ya no está disponible</h2>
+        <p>${failed
+          ? 'No se pudo consultar SECOP II en este momento. Intenta abrir el enlace más tarde.'
+          : 'El proceso salió del tablero o el enlace está incompleto. Revisa las oportunidades vigentes en el tablero.'}</p>
+      </div>`;
+    detailModal.classList.add('active');
+  }
+
+  /** Lo que no está en ningún archivo publicado se busca en vivo en SECOP II (enlaces viejos). */
+  function openMissing(id) {
+    if (!Live) {
+      showUnavailable(false);
+      return;
+    }
+    detailModal.dataset.itemId = id;
+    modalBody.innerHTML = `<div class="detail"><h2 class="detail-title">Buscando la oportunidad…</h2>${liveNote('loading')}</div>`;
+    detailModal.classList.add('active');
+    Live.lookupProcess(id)
+      .then(p => {
+        if (detailModal.dataset.itemId !== id) return;
+        if (p) openLightDetail(p);
+        else showUnavailable(false);
+      })
+      .catch(() => { if (detailModal.dataset.itemId === id) showUnavailable(true); });
+  }
+
+  function handleDeepLink() {
+    const id = Dash.parseDeepLink(window.location.hash);
+    if (!id) return;
+    const found = Dash.findOpportunity(id, { board: rawData, paa: PAA, hidden: hiddenLoad === 'ready' ? hiddenItems() : null });
+    if (found && found.source === 'board') {
+      activateTab(found.tab);
+      highlightCard(id);
+      openDetailModal(found.item);
+    } else if (found && found.source === 'paa') {
+      activateTab('paa');
+      highlightCard(id);
+      openPaaDetail(found.item);
+    } else if (found) {
+      openLightDetail(found.item);
+    } else if (hiddenLoad === 'idle' || hiddenLoad === 'loading') {
+      pendingDeepLink = true;
+      loadHidden();
+    } else {
+      openMissing(id);
+    }
+  }
+
+  function resumeDeepLink() {
+    if (!pendingDeepLink) return;
+    pendingDeepLink = false;
+    handleDeepLink();
   }
 
   // ---------- Estado de la sincronización con SECOP ----------
@@ -1501,4 +1790,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
+  // Enlaces compartidos (#op=<id>): al final, cuando todas las constantes del callback ya existen.
+  window.addEventListener('hashchange', handleDeepLink);
+  handleDeepLink();
 });

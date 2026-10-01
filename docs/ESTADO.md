@@ -246,3 +246,51 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Con el visto bueno del dueño: push de `pro/persona-natural`, PR, fusión si el CI pasa y una corrida del refresco diario para que el badge aparezca en la web publicada.
   2. **9.4:** fichas y detalle del PAA y de "Fuera del tablero" como las del Observatorio. Agrega `fecha_adjudicacion` a `light_record`, lo que también arregla el filtro de tiempo en esa vista.
   3. **9.2**, temas, o **9.5**, volumen, según prefiera el dueño.
+
+## Estado de la sesión — 2026-10-01 (noche) · Claude Code · rama `pro/lean-cards`
+
+- **Publicado antes de este bloque** (con el visto bueno del dueño):
+  - PR #5 (persona natural), fusionado como `e06c7f7`.
+  - Corrida manual del refresco: commit de datos `e06ddc4`, publicado en GitHub Pages.
+  - Verificado en el sitio publicado:
+    - Observatorio: 48 fichas con el badge.
+    - PAA: 5 fichas con el badge.
+    - Radar: opción oculta.
+    - Sin errores de consola.
+  - Después corrió el refresco programado: commit de datos `9ee1071`.
+- **Decisión del dueño:** cuestionar la iteración 9.4 por rendimiento y escalabilidad antes de construirla, y agregar enlaces para compartir una ficha. Plan aprobado: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly-dongarra.md`. Resultado: tres niveles (ficha liviana, diccionario de entidades y detalle en vivo); el detalle está en la fila 9.4 de `PLAN_ITERACIONES.md`.
+- **Terminado y con commit, sin publicar** (rama `pro/lean-cards`, desde `origin/main` `9ee1071`):
+  - `33c5ca1`, pipeline: en `hidden.js`, los adjudicados llevan `fecha_adjudicacion` y `contratista`, y todas las fichas llevan `nit_entidad`. `window.ENTITY_STATS` se calcula desde los `entidad_stats` que ya existen. `data.js` va en JSON compacto.
+  - `471b339`, web: `cardShell`, una sola estructura de ficha para el tablero, lo oculto y el PAA. Las fichas ocultas usan `bidWindow`, el bloque de fechas y el próximo paso, y muestran el ganador y los badges de la entidad.
+  - `4d85407`, web: `web/secop-live.js`, el detalle en vivo para lo oculto y el PAA. También agrega `id_portafolio` a `light_record`.
+  - `f1c9fb0`, web: compartir con el enlace `#op=<id>`.
+    - Botón 📤 en fichas y detalle.
+    - Un id que ya no está en los datos publicados se busca en vivo; si no existe, aparece el mensaje "ya no está disponible".
+    - Etiquetas Open Graph genéricas.
+  - Commit de documentación: este bloque, la iteración 9.4 reescrita, 9.5 ampliada y `AGENTS.md`.
+- **Corrida real** con `--out` a la carpeta temporal: código 0, mismo embudo que el día (7125 descargados, 500 en tablero).
+  - `hidden.js` creció 12,1 % (1.297.446 → 1.454.148 B), **por encima de la meta de 10 %**.
+  - En la corrida anterior, sin `id_portafolio`: `data.js` −22,4 % (2.192.037 → 1.701.219 B) y `hidden.js` +8,0 %.
+  - Adjudicados ocultos: 541 de 543 con fecha y 531 con ganador.
+  - Cifras de entidad: llegan a 523 de 1500 ocultos y a 37 de 80 compras del PAA.
+- **Verificado:**
+  - ruff; 123 pruebas Python; 52 pruebas Node (7 nuevas de `secop-live`); ESLint; 17 de 17 pruebas de humo. Las nuevas cubren las fichas livianas, el detalle en vivo con datos.gov.co simulado (éxito y caída), el detalle del PAA, compartir con el portapapeles simulado y los enlaces a oculto y a inexistente.
+  - Contra SECOP II real, sin simular: `SecopLive` devolvió para un proceso del tablero el mismo contrato, las mismas ofertas y las mismas cifras de entidad que el pipeline.
+  - En el navegador, sobre el sitio de la corrida con SECOP II real, a 1360 y 390 px:
+    - El detalle oculto se completó en vivo en 2,0 a 2,5 s.
+    - "Últimos 30 días" en lo oculto: 1174 fichas.
+    - El PAA mostró 56 badges de entidad.
+    - El enlace `#op=` abrió el detalle correcto en la pestaña correcta.
+    - Sin errores de consola y sin desbordamiento.
+- **Incidente:** una corrida de pruebas de humo falló entera con `MemoryError` del servidor de prueba de Python mientras el pipeline corría en paralelo. Al terminar la corrida, las 13 pruebas pasaron sin cambios en el código. La causa exacta de memoria no está verificada. Recomendación: no correr el pipeline y las pruebas de humo a la vez.
+- **Sin commit:** nada.
+- **Sin publicar:** `pro/lean-cards`. Push, PR y fusión los decide el dueño. Después de fusionar hace falta una corrida del refresco para publicar los campos nuevos de `hidden.js` y `ENTITY_STATS`. Hasta entonces la web funciona igual, pero sin ganador ni fecha en lo oculto, y el detalle en vivo de lo oculto solo trae la entidad, porque falta `id_portafolio`.
+- **Errores abiertos conocidos:**
+  - `hidden.js` +12,1 % frente a la meta de 10 %. Hay una propuesta para recortarlo (`noticeUID` en vez de la URL) en 9.5.
+  - La vista previa al compartir es genérica: el sitio es estático.
+  - Límites de uso anónimo de datos.gov.co `[POR VERIFICAR]`; solo se consulta cuando alguien abre un detalle.
+  - Vienen de antes: la etiqueta "Más accesibles a persona natural" se corta en el filtro de escritorio; "(0%)" en la tarjeta "Pipeline analizado"; la mínima cuantía de Tuluá `[POR VERIFICAR]`; la tarjeta KPI en 2 líneas a 390 px; "vigas"; Prettier; el e2e del CI tardó 8 min por la descarga de Chromium.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/lean-cards`, PR, fusión si el CI pasa y una corrida del refresco. Luego, verificar en el sitio publicado el ganador en lo oculto, el detalle en vivo y un enlace `#op=` abierto desde otro dispositivo.
+  2. **9.2**, temas: claro, oscuro, sistema y Matrix.
+  3. **9.5**, volumen: paginar las fichas, toda la lista oculta, sacar los datos de git, separar ficha y detalle, y `noticeUID`.
