@@ -1226,6 +1226,24 @@ body {
   padding: 0.15rem 0.45rem;
 }
 
+/* "Ver más": fila completa al final de la cuadrícula de fichas (app.js: paginate). */
+.load-more {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0 1rem;
+}
+
+.load-more .btn {
+  min-width: 14rem;
+  justify-content: center;
+}
+
+.load-more-count {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
 .empty-foryou {
   grid-column: 1 / -1;
   text-align: center;

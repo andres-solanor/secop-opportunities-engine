@@ -184,6 +184,19 @@ test('activeFilters devuelve solo los controles que se apartan de su valor por d
   assert.deepStrictEqual(D.activeFilters(undefined), []);
 });
 
+test('pageInfo y limitToShow: páginas de PAGE_SIZE fichas', () => {
+  const P = D.PAGE_SIZE;
+  assert.deepStrictEqual(D.pageInfo(0), { shown: 0, remaining: 0, next: 0 });
+  assert.deepStrictEqual(D.pageInfo(P - 1), { shown: P - 1, remaining: 0, next: 0 });
+  assert.deepStrictEqual(D.pageInfo(P * 2 + 5), { shown: P, remaining: P + 5, next: P });
+  assert.deepStrictEqual(D.pageInfo(P * 2 + 5, P * 2), { shown: P * 2, remaining: 5, next: 5 });
+  assert.deepStrictEqual(D.pageInfo(10, 1000), { shown: 10, remaining: 0, next: 0 });
+  assert.strictEqual(D.limitToShow(0), P);
+  assert.strictEqual(D.limitToShow(P - 1), P);
+  assert.strictEqual(D.limitToShow(P), P * 2);
+  assert.strictEqual(D.limitToShow(-1), P);
+});
+
 test('"Otros" en Radar y Observatorio: solo sin sector, repartidos como el tablero', () => {
   const hidden = [...HIDDEN, INSURANCE, AGREEMENT];
   assert.deepStrictEqual(D.otherItems(hidden, 'proveedores').map(i => i.id), ['H2']);
