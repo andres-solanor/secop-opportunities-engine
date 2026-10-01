@@ -159,10 +159,13 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
     await route.fulfill({ response: res, body: `${body}\nwindow.PROSPECTS_META = Object.assign(window.PROSPECTS_META || {}, { perfil_proponente: ${JSON.stringify(profile)} });\n` });
   });
   await openDashboard(page);
+  // En el Radar todo está adjudicado: no se marca y la opción se oculta.
+  await expect(page.locator('#modalitySelect option[value="persona_natural"]')).toBeHidden();
+  await page.click('#tabObservatorio');
   const expected = await page.evaluate(() => {
     const D = window.DashboardEngine;
     const shares = D.bidderShares(window.PROSPECTS_META.perfil_proponente);
-    return D.tabItems(window.PROSPECTS_DATA, 'proveedores').filter(i => D.personaNaturalFriendly(shares, i)).length;
+    return D.tabItems(window.PROSPECTS_DATA, 'observatorio').filter(i => D.personaNaturalFriendly(shares, i)).length;
   });
   expect(expected).toBeGreaterThan(0);
   await expect(page.locator('#modalitySelect option[value="persona_natural"]')).toHaveText(new RegExp(`\\(${expected}\\)$`));

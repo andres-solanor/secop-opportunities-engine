@@ -726,6 +726,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="badge-row">
             <span class="badge badge-info" title="Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.">🗓️ Plan Anual</span>
             ${item.origen_recursos ? `<span class="badge badge-info" title="Origen de los recursos según el PAA">💰 ${escapeHtml(item.origen_recursos)}</span>` : ''}
+            ${cardBadges(item).filter(b => b.id === 'persona_natural').map(badgeHtml).join('')}
           </div>
           <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion))}</p>
           <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>

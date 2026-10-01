@@ -267,6 +267,12 @@ test('el filtro "accesibles a persona natural" usa el umbral del motor', () => {
   assert.strictEqual(D.PERSONA_NATURAL_MIN_PCT, 12);
   assert.ok(D.personaNaturalFriendly(shares, items[0]));
   assert.strictEqual(D.personaNaturalFriendly(shares, items[1]), null);
+  // Adjudicado: ya no se puede ofertar, no se marca; la cifra sigue disponible para el detalle.
+  const awarded = opp('PN4', { ...AWARDED, modalidad: 'Mínima cuantía' });
+  assert.strictEqual(D.personaNaturalFriendly(shares, awarded), null);
+  assert.ok(D.personaNaturalShare(shares, awarded));
+  // El PAA (sin etapa) sí se marca: es una compra futura.
+  assert.ok(D.personaNaturalFriendly(shares, { modalidad: 'MINIMA CUANTIA', anio: 2026, mes_esperado: 11 }));
   assert.deepStrictEqual(D.applyFilters(items, { modality: D.PERSONA_NATURAL, bidderShares: shares }).map(i => i.id), ['PN1']);
   assert.deepStrictEqual(D.applyFilters(items, { modality: D.PERSONA_NATURAL }), [], 'sin perfil publicado no se adivina');
 });

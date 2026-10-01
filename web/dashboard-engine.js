@@ -116,8 +116,12 @@
     return (shares && shares[modalityOf(item)]) || null;
   }
 
-  /** La cifra si la modalidad supera el umbral (para el badge y el filtro); si no, null. */
+  /**
+   * La cifra si la modalidad supera el umbral (para el badge y el filtro); si no, null.
+   * Un adjudicado ya no admite proponentes: no se marca (el detalle sigue mostrando la cifra).
+   */
   function personaNaturalFriendly(shares, item) {
+    if (isAwarded(item)) return null;
     const share = personaNaturalShare(shares, item);
     return share && share.pct >= PERSONA_NATURAL_MIN_PCT ? share : null;
   }
