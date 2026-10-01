@@ -318,3 +318,18 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Con el visto bueno del dueño: push de `pro/themes`, PR y fusión si el CI pasa. Luego, probar los cuatro temas en el sitio publicado y abrir un enlace `#op=` desde el celular.
   2. **9.5 (1):** pintar las fichas en páginas de unas 60, con "ver más" (`app.js` hoy pinta todas). Medir el tiempo de pintado antes y después.
   3. **9.5 (6) y (2):** `noticeUID` en vez de la URL en `hidden.js`, para volver a la meta de peso. Después, publicar toda la lista oculta (3976), midiendo el peso con `--out`.
+
+## Estado de la sesión — 2026-10-01 (madrugada) · Claude Code · rama `pro/look-and-feel`
+
+- **Publicado:** con el visto bueno del dueño, PR #7 (temas) pasó el CI (python 3.11 y 3.14, node, e2e) y se fusionó como `ddfbc40`. No necesita corrida del refresco.
+- **Terminado y con commit, sin publicar** (rama `pro/look-and-feel`, desde `ddfbc40`):
+  - `0f4b932`, iteración 9.6 en `PLAN_ITERACIONES.md` con la evaluación de Impeccable frente a Taste y el resultado del detector.
+  - Commit de documentación: este bloque.
+- **Probado, sin instalar nada en el repositorio:** `npx impeccable detect` sobre la web local a 390 px y sobre `style.css`. Las cifras están en `PLAN_ITERACIONES.md`, sección "Aspecto visual". El escaneo a 1280 px se cortó por tiempo (`Runtime.evaluate timed out`).
+- **Sin commit:** nada.
+- **Pendiente de decisión del dueño:** instalar la skill Impeccable, en el proyecto (agrega hooks que también vería Antigravity) o global solo para Claude; y aprobar 9.6 (a) y (b).
+- **Errores abiertos conocidos:** los del bloque anterior. Además, 9.6 (a): texto atenuado a 3,8:1 y blanco sobre cian a 2,4:1 en el tema oscuro.
+- **Próximas tres acciones:**
+  1. Push y PR de `pro/look-and-feel` (solo documentación), si el dueño lo aprueba.
+  2. **9.6 (a):** corregir el contraste en los tokens de cada tema y agregar una prueba de humo que lo mida; volver a correr `npx impeccable detect` para comparar.
+  3. **9.6 (b):** barra superior, tarjeta KPI y etiqueta de persona natural a 390 px. Después, 9.5 (1).
