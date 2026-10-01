@@ -23,6 +23,17 @@
     return sector === SIN_CLASIFICAR || sector === SEGUROS;
   }
 
+  /**
+   * Controles de filtro que se apartan de su valor por defecto, para resaltarlos.
+   * Recibe [{ id, value, defaultValue }] y devuelve los ids activos, en el mismo orden.
+   * Un texto de búsqueda con solo espacios no cuenta como filtro.
+   */
+  function activeFilters(controls) {
+    return (controls || [])
+      .filter(c => String(c.value ?? '').trim() !== String(c.defaultValue ?? '').trim())
+      .map(c => c.id);
+  }
+
   /** ¿La oportunidad pertenece al sector elegido? Incluye las dos opciones de "Otros". */
   function matchesSector(item, sector) {
     if (!sector || sector === 'todos') return true;
@@ -440,6 +451,7 @@
     isAwarded,
     isInsurance,
     isOtherSector,
+    activeFilters,
     matchesSector,
     tabItems,
     MODALITIES,

@@ -4,7 +4,7 @@ Sella las versiones de los archivos estáticos en web/index.html (cache busting)
 Uso:  python -m src.tools.stamp_assets          # reescribe los sufijos ?v=
       python -m src.tools.stamp_assets --check  # solo verifica (sale con 1 si hay alguno viejo)
 
-Cada `<script src="app.js?v=...">` y `<link href="style.css?v=...">` recibe como versión un
+Cada `<script src="app.js?v=...">`, `<link href="style.css?v=...">` y el favicon (`.svg`) recibe como versión un
 resumen del contenido del archivo: si el archivo cambia, cambia la URL y el navegador lo vuelve
 a descargar. Reemplaza el sufijo `?v=AAAAMMDD_NN` que había que actualizar a mano.
 
@@ -21,7 +21,7 @@ from typing import Dict
 WEB_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")
 INDEX = os.path.join(WEB_DIR, "index.html")
 GENERATED = {"data.js", "taxonomy.js", "hidden.js"}
-ASSET = re.compile(r'(?P<attr>src|href)="(?P<file>[\w.-]+\.(?:js|css))(?:\?v=(?P<version>[\w.-]*))?"')
+ASSET = re.compile(r'(?P<attr>src|href)="(?P<file>[\w.-]+\.(?:js|css|svg))(?:\?v=(?P<version>[\w.-]*))?"')
 
 
 def content_version(path: str) -> str:

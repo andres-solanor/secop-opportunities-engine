@@ -587,6 +587,24 @@ document.addEventListener('DOMContentLoaded', () => {
       : (META?.embudo ? META.embudo.sin_clasificar + META.embudo.clasificados - META.embudo.en_tablero : '…');
   }
 
+  /**
+   * Resalta cada filtro que no está en su valor por defecto (la primera opción del select,
+   * o vacío en la búsqueda) y muestra en "Limpiar filtros" cuántos hay activos y visibles.
+   */
+  function markActiveFilters() {
+    const controls = [searchInput, sectorSelect, stageSelect, modalitySelect, ageSelect, budgetSelect, departmentSelect, sortSelect];
+    if (currentTab === 'hidden') controls.push(hiddenReasonSelect, hiddenFamilySelect);
+    const all = [...controls, hiddenReasonSelect, hiddenFamilySelect];
+    const active = new Set(Dash.activeFilters(controls.map(el => ({
+      id: el.id,
+      value: el.value,
+      defaultValue: el.tagName === 'SELECT' ? (el.options[0]?.value ?? '') : ''
+    }))));
+    all.forEach(el => el.classList.toggle('is-active', active.has(el.id)));
+    btnResetFilters.classList.toggle('is-active', active.size > 0);
+    btnResetFilters.textContent = active.size ? `Limpiar filtros (${active.size})` : 'Limpiar filtros';
+  }
+
   // Render View depending on current tab
   function renderView() {
     updateAgeOptions();
@@ -595,6 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateModalityCounts(filterBase());
     updateKpis(filtered);
     hiddenControls.hidden = currentTab !== 'hidden';
+    markActiveFilters();
 
     if (currentTab === 'crm') {
       cardsGrid.style.display = 'none';

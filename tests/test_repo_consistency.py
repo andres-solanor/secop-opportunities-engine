@@ -80,6 +80,13 @@ class TestAssetVersions(unittest.TestCase):
         self.assertIn('src="data.js?v=keep"', out)
         self.assertTrue(GENERATED.isdisjoint(expected_versions(read(INDEX))))
 
+    def test_favicon_is_linked_and_stamped(self):
+        html = read(INDEX)
+        self.assertRegex(html, r'<link rel="icon" type="image/svg\+xml" href="favicon\.svg\?v=\w+">')
+        self.assertIn("favicon.svg", expected_versions(html))
+        root = os.path.join(os.path.dirname(os.path.dirname(INDEX)), "index.html")
+        self.assertIn('href="web/favicon.svg"', read(root))
+
 
 if __name__ == "__main__":
     unittest.main()

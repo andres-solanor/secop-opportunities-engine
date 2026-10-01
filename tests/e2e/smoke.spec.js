@@ -125,6 +125,26 @@ test('el filtro de modalidad cuenta y filtra las fichas del Radar', async ({ pag
   await expect(cards(page)).toHaveCount(before);
 });
 
+test('los filtros en uso se resaltan y "Limpiar filtros" dice cuántos hay', async ({ page }) => {
+  await openDashboard(page);
+  const active = () => page.$$eval('.filter-bar .is-active', els => els.map(e => e.id));
+  expect(await active()).toEqual([]);
+  await expect(page.locator('#btnResetFilters')).toHaveText('Limpiar filtros');
+
+  await page.selectOption('#budgetSelect', '500000000');
+  await page.fill('#searchInput', 'obra');
+  expect((await active()).sort()).toEqual(['budgetSelect', 'searchInput']);
+  await expect(page.locator('#btnResetFilters')).toHaveText('Limpiar filtros (2)');
+  await expect(page.locator('#btnResetFilters')).toHaveClass(/is-active/);
+  // El resaltado se ve: el borde del filtro activo no es el de reposo.
+  const border = id => page.$eval(id, el => getComputedStyle(el).borderColor);
+  expect(await border('#budgetSelect')).not.toBe(await border('#stageSelect'));
+
+  await page.click('#btnResetFilters');
+  expect(await active()).toEqual([]);
+  await expect(page.locator('#btnResetFilters')).toHaveText('Limpiar filtros');
+});
+
 test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM', async ({ page }) => {
   await openDashboard(page);
   await expect(page.locator('#ageSelect option[value="30"]')).toHaveText(/^Adjudicado:/);
