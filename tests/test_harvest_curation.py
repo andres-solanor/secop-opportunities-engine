@@ -113,6 +113,20 @@ class TestTaxonomy(unittest.TestCase):
             with self.assertRaises(TaxonomyError):
                 load_taxonomy(self._write(tmp, {"a": dict(ok, tipos_contrato=["Obra"], excluir_tipos_contrato=["OBRA"])}))
 
+    def test_compra_a_names_other_existing_sectors(self):
+        import tempfile
+        ok = self.OK
+        with tempfile.TemporaryDirectory() as tmp:
+            sectors = load_taxonomy(self._write(tmp, {"a": dict(ok, compra_a=["b"]), "b": ok}))
+            self.assertEqual(sectors["a"]["compra_a"], ["b"])
+            self.assertEqual(sectors["b"]["compra_a"], [])  # opcional
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(ok, compra_a=["no_existe"])}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(ok, compra_a=["a"])}))
+            with self.assertRaises(TaxonomyError):
+                load_taxonomy(self._write(tmp, {"a": dict(ok, compra_a="b"), "b": ok}))
+
     def test_every_sector_needs_a_known_group(self):
         import tempfile
         without_group = {k: v for k, v in self.OK.items() if k != "grupo"}

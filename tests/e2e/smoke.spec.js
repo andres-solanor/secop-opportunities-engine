@@ -539,6 +539,31 @@ test('empresas cliente: cambiar de empresa cambia el perfil activo y su lista co
   expect(own).toBe('Aceros Propios');
 });
 
+test('de ganadores a proveedores: el detalle dice qué puede comprar el ganador y "Para Ti" lo usa', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('secop_session', JSON.stringify({ id: 'demo:local', provider: 'demo', name: 'Cuenta Demo', givenName: 'Demo' }));
+    localStorage.setItem('secop_profiles', JSON.stringify({ 'demo:local': {
+      role: 'proveedor', companyName: 'Aceros Demo', offerText: 'Suministro de acero de refuerzo y estructuras metálicas',
+      offerTags: [], sectors: [], needs: [], connections: [], departments: [], nationwide: true, tickets: [] } }));
+  });
+  await openDashboard(page);
+  // Un adjudicado de obra civil (y no de acero) del Radar, que es la pestaña inicial.
+  const target = await page.evaluate(() => {
+    const radar = window.DashboardEngine.tabItems(window.PROSPECTS_DATA, 'proveedores');
+    const hit = radar.find(i => i.sectores.some(s => s.id === 'obra_civil_general') && !i.sectores.some(s => s.id === 'acero_metalmecanica'));
+    return hit ? hit.id : null;
+  });
+  test.skip(!target, 'los datos no traen un adjudicado de obra civil sin acero');
+  await page.goto('about:blank');
+  await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
+  await expect(page.locator('#modalBody')).toContainText('Qué puede necesitar el ganador');
+  await expect(page.locator('#modalBody')).toContainText('Acero & Metalmecánica');
+  await page.click('#modalClose');
+
+  await page.click('#tabParaTi');
+  await expect(page.locator('#cardsGrid .match-line', { hasText: 'El ganador puede comprarte' }).first()).toBeVisible();
+});
+
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {
   await openDashboard(page);
   await page.click('#tabParaTi');

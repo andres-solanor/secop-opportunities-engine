@@ -87,6 +87,12 @@ def load_taxonomy(path: str = TAXONOMY_PATH) -> Dict[str, Dict[str, Any]]:
         unknown = [kw for kw in data["excluir_si"] if kw not in data["keywords"]]
         if unknown:
             raise TaxonomyError(f"sector '{key}': excluir_si usa palabras que no son keywords: {unknown}")
+        data.setdefault("compra_a", [])
+    # compra_a nombra otros sectores: se valida cuando ya se leyeron todos.
+    for key, data in sectors.items():
+        buys = data["compra_a"]
+        if not isinstance(buys, list) or any(b not in sectors or b == key for b in buys):
+            raise TaxonomyError(f"sector '{key}': compra_a debe listar ids de otros sectores: {buys}")
     return sectors
 
 

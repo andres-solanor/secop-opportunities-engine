@@ -1050,6 +1050,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const step = Engine.nextStep(item);
     const share = Dash.personaNaturalShare(BIDDER_SHARES, item);
     const profile = META && META.perfil_proponente;
+    const suppliers = Engine.supplierSectors(item, TAXONOMY);
 
     const timeline = [
       ['Publicación', f.publicacion],
@@ -1123,6 +1124,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ${detailRow('Último contrato', h?.ultimo ? d(h.ultimo) : '')}
             ${detailRow('Entidades con las que más contrata', h?.entidades_top?.length ? h.entidades_top.map(t => `${escapeHtml(t.nombre)} <small>(${t.contratos} · ${money(t.valor)})</small>`).join('<br>') : '')}
           </dl>
+        </section>` : ''}
+
+        ${bw.state === 'adjudicado' && suppliers.length ? `
+        <section class="detail-section">
+          <h3>🧩 Qué puede necesitar el ganador</h3>
+          <p>Quien ejecuta contratos de ${escapeHtml((item.sectores || []).map(s => s.name).join(', '))} suele comprar a: ${suppliers.map(s => `<b>${escapeHtml(s.name)}</b>`).join(', ')}.</p>
+          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.</p>
         </section>` : ''}
 
         ${(item.integrantes || []).length ? `

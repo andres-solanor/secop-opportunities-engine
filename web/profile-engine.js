@@ -184,6 +184,19 @@
   }
 
   /** Puntaje 0-100 de afinidad entre el perfil y una oportunidad, con razones legibles. */
+  /**
+   * Sectores a los que suele comprar quien gana un contrato de estos sectores (`compra_a` en
+   * config/taxonomy.json). Es una posibilidad comercial, no una necesidad confirmada del contrato.
+   */
+  function supplierSectors(item, taxonomy = root.SECTOR_TAXONOMY || {}) {
+    const own = new Set((item.sectores || []).map(s => s.id));
+    const out = [];
+    own.forEach(id => ((taxonomy[id] && taxonomy[id].compra_a) || []).forEach(sup => {
+      if (!own.has(sup) && !out.includes(sup) && taxonomy[sup]) out.push(sup);
+    }));
+    return out.map(id => ({ id, name: taxonomy[id].name }));
+  }
+
   function matchOpportunity(profile, item, detected, now = new Date()) {
     const reasons = [];
     let score = 0;
@@ -194,6 +207,14 @@
     if (sharedSectors.length) {
       score += 40;
       reasons.push(`Sector: ${sharedSectors.map(s => s.name).join(', ')}`);
+    }
+    // Un adjudicado de otro sector cuyo ganador suele comprar lo que ofreces: lead de suministro.
+    const buyerOf = !sharedSectors.length && stageOf(item) === 'adjudicado'
+      ? supplierSectors(item).filter(s => detectedIds.has(s.id))
+      : [];
+    if (buyerOf.length) {
+      score += 35;
+      reasons.push(`El ganador puede comprarte: ${buyerOf.map(s => s.name).join(', ')}`);
     }
 
     const profileKeywords = new Set(detected.flatMap(d => d.keywords.map(normalize)));
@@ -238,7 +259,7 @@
     }
 
     // Sin sector compartido la afinidad no puede ser alta, aunque coincidan zona y ticket.
-    if (!sharedSectors.length && itemSectors.length) score = Math.min(score, 35);
+    if (!sharedSectors.length && !buyerOf.length && itemSectors.length) score = Math.min(score, 35);
 
     return { score: Math.max(0, Math.min(100, Math.round(score))), reasons };
   }
@@ -658,6 +679,7 @@
     TONES,
     offerCatalog,
     detectSectors,
+    supplierSectors,
     matchOpportunity,
     analyzeProfile,
     formatCopShort

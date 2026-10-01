@@ -228,7 +228,7 @@ def export_taxonomy(web_dir: str):
     uses exactly the same vocabulary as the SECOP enrichment pipeline."""
     os.makedirs(web_dir, exist_ok=True)
     taxonomy = {
-        key: {"name": data["name"], "grupo": data["grupo"], "keywords": data["keywords"]}
+        key: {"name": data["name"], "grupo": data["grupo"], "keywords": data["keywords"], "compra_a": data["compra_a"]}
         for key, data in ScopeExtractor.TAXONOMIES.items()
     }
     groups = [{"id": g["id"], "name": g["name"]} for g in load_groups()]

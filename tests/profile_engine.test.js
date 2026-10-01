@@ -60,9 +60,31 @@ test('afinidad alta cuando coinciden sector, material, zona, ticket y etapa', ()
   assert.ok(m.reasons.some(r => r.includes('Antioquia')));
 });
 
+test('supplierSectors: lo que suele comprar el ganador sale de compra_a, sin repetir ni incluir sus propios sectores', () => {
+  const obra = opp({ sectores: [{ id: 'obra_civil_general', name: 'Obra' }, { id: 'acero_metalmecanica', name: 'Acero' }] });
+  const ids = E.supplierSectors(obra, TAXONOMY).map(s => s.id);
+  assert.ok(!ids.includes('acero_metalmecanica'), 'el contrato ya es de acero: no se sugiere a sí mismo');
+  assert.ok(ids.includes('vehiculos_maquinaria'));
+  assert.deepStrictEqual(E.supplierSectors(opp({ sectores: [{ id: 'tecnologia', name: 'TI' }] }), TAXONOMY), []);
+});
+
+test('un adjudicado de obra civil es lead para un proveedor de acero: "el ganador puede comprarte"', () => {
+  const detected = E.detectSectors(steelProfile, TAXONOMY);
+  const obra = { sectores: [{ id: 'obra_civil_general', name: 'Construcción & Obra Civil General' }], materiales_detectados: [] };
+  const awarded = E.matchOpportunity(steelProfile, opp(obra), detected);
+  assert.ok(awarded.score >= 55, `score ${awarded.score}`);
+  assert.ok(awarded.reasons.some(r => r.startsWith('El ganador puede comprarte: Acero')));
+  // Abierto: todavía no hay a quién venderle; sigue con el tope de "sin sector compartido".
+  const open = E.matchOpportunity(steelProfile, opp({ ...obra, etapa_comercial: 'Licitación Abierta (En Ofertas)' }), detected);
+  assert.ok(open.score <= 35, `score ${open.score}`);
+  // Una coincidencia directa de sector sigue por encima.
+  assert.ok(E.matchOpportunity(steelProfile, opp(), detected).score > awarded.score);
+});
+
 test('sin sector compartido la afinidad queda limitada', () => {
   const detected = E.detectSectors(steelProfile, TAXONOMY);
-  const m = E.matchOpportunity(steelProfile, opp({ sectores: [{ id: 'horeca_industrial', name: 'HORECA' }], materiales_detectados: [] }), detected);
+  // Tecnología no le compra a acero (compra_a): ni sector compartido ni lead de suministro.
+  const m = E.matchOpportunity(steelProfile, opp({ sectores: [{ id: 'tecnologia', name: 'Tecnología' }], materiales_detectados: [] }), detected);
   assert.ok(m.score <= 35, `score ${m.score}`);
 });
 
@@ -119,7 +141,7 @@ test('lista corta: primero lo abierto por afinidad y cierre, con próximo paso; 
     opp({ id: 'ADJ' }),
     open('LATE', '2026-10-20T00:00:00'),
     open('SOON', '2026-10-05T00:00:00'),
-    opp({ id: 'OTHER', sectores: [{ id: 'horeca_industrial', name: 'HORECA' }], materiales_detectados: [], departamento: 'Meta' })
+    opp({ id: 'OTHER', sectores: [{ id: 'tecnologia', name: 'Tecnología' }], materiales_detectados: [], departamento: 'Meta' })
   ];
   const list = E.shortList(steelProfile, items, detected, { now });
   const ids = list.map(r => r.item.id);

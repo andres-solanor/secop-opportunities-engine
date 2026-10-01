@@ -35,6 +35,11 @@ window.SECTOR_TAXONOMY = {
       "obras complementarias",
       "infraestructura física",
       "infraestructura fisica"
+    ],
+    "compra_a": [
+      "acero_metalmecanica",
+      "vehiculos_maquinaria",
+      "dotacion_mobiliario"
     ]
   },
   "agua_saneamiento": {
@@ -52,6 +57,10 @@ window.SECTOR_TAXONOMY = {
       "planta de tratamiento",
       "plantas de tratamiento",
       "tratamiento de aguas"
+    ],
+    "compra_a": [
+      "acero_metalmecanica",
+      "vehiculos_maquinaria"
     ]
   },
   "energia_solar_alumbrado": {
@@ -82,6 +91,10 @@ window.SECTOR_TAXONOMY = {
       "baterías solares",
       "baterias solares",
       "eficiencia energética"
+    ],
+    "compra_a": [
+      "acero_metalmecanica",
+      "vehiculos_maquinaria"
     ]
   },
   "acero_metalmecanica": {
@@ -123,7 +136,8 @@ window.SECTOR_TAXONOMY = {
       "acero figurado",
       "acero inoxidable",
       "suministro de acero"
-    ]
+    ],
+    "compra_a": []
   },
   "horeca_industrial": {
     "name": "HORECA & Maquinaria Gastronómica",
@@ -160,6 +174,9 @@ window.SECTOR_TAXONOMY = {
       "utensilios de cocina",
       "dotación de cocina",
       "dotacion de cocina"
+    ],
+    "compra_a": [
+      "acero_metalmecanica"
     ]
   },
   "tecnologia": {
@@ -182,7 +199,8 @@ window.SECTOR_TAXONOMY = {
       "centro de datos",
       "cableado estructurado",
       "redes de datos"
-    ]
+    ],
+    "compra_a": []
   },
   "salud_insumos": {
     "name": "Salud: Insumos & Equipos Médicos",
@@ -211,7 +229,8 @@ window.SECTOR_TAXONOMY = {
       "biomedicos",
       "osteosíntesis",
       "osteosintesis"
-    ]
+    ],
+    "compra_a": []
   },
   "vehiculos_maquinaria": {
     "name": "Vehículos & Maquinaria",
@@ -237,7 +256,8 @@ window.SECTOR_TAXONOMY = {
       "motoniveladoras",
       "vibrocompactador",
       "parque automotor"
-    ]
+    ],
+    "compra_a": []
   },
   "dotacion_mobiliario": {
     "name": "Dotación, Uniformes & Mobiliario",
@@ -255,7 +275,8 @@ window.SECTOR_TAXONOMY = {
       "mobiliario",
       "muebles",
       "pupitres"
-    ]
+    ],
+    "compra_a": []
   },
   "interventoria_consultoria": {
     "name": "Interventoría & Consultoría",
@@ -271,7 +292,8 @@ window.SECTOR_TAXONOMY = {
       "estudios y disenos",
       "consultoría especializada",
       "consultoria especializada"
-    ]
+    ],
+    "compra_a": []
   },
   "alimentacion_escolar": {
     "name": "Alimentación Escolar (PAE)",
@@ -288,6 +310,11 @@ window.SECTOR_TAXONOMY = {
       "racion industrializada",
       "ración preparada en sitio",
       "racion preparada en sitio"
+    ],
+    "compra_a": [
+      "horeca_industrial",
+      "eventos_logistica_viveres",
+      "dotacion_mobiliario"
     ]
   },
   "eventos_logistica_viveres": {
@@ -314,7 +341,8 @@ window.SECTOR_TAXONOMY = {
       "refrigerios",
       "kit de alimentos",
       "kits de alimentos"
-    ]
+    ],
+    "compra_a": []
   }
 };
 window.SECTOR_GROUPS = [
