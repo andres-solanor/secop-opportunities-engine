@@ -23,7 +23,8 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 - **No edites a mano los archivos generados** (`web/data.js`, `web/taxonomy.js`, `data/*`). En una rama de trabajo tampoco se hace commit de datos regenerados: los publica el workflow diario en `main`.
 - **Relevo por documento, no por memoria.** Al terminar una sesión, agrega un bloque `## Estado de la sesión` al final de `docs/ESTADO.md` (formato en ese archivo). Debe bastar para que el otro agente retome con solo leerlo.
 - **Una corrección, una prueba, un commit.** Corre las dos suites antes de dar algo por terminado.
-- **Subir cambios (`git push`) y abrir PR lo decide el dueño.** Los cambios en `.github/workflows/` requieren un token con alcance `workflow`.
+- **Subir cambios (`git push`) y abrir PR lo decide el dueño**, salvo la autorización permanente de Claude Code que está en `CLAUDE.md`. Los cambios en `.github/workflows/` requieren un token con alcance `workflow`.
+- **Un PR por entregable**, en una rama corta que se fusiona apenas pasa el CI. Los arreglos pequeños que se publicarían o revertirían juntos van en una sola rama, con un commit por arreglo.
 
 ## Integridad de datos
 
