@@ -96,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
   const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   let onlyNew = false;
+  // Fichas en páginas (DashboardEngine.PAGE_SIZE): el límite vuelve a una página cuando cambia
+  // la pestaña o un filtro (pageKey), y "Ver más" lo sube. listItems es la lista completa filtrada.
+  let pageLimit = Dash.PAGE_SIZE;
+  let pageKey = '';
+  let listItems = [];
   const detailModal = document.getElementById('detailModal');
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
@@ -605,8 +610,30 @@ document.addEventListener('DOMContentLoaded', () => {
     btnResetFilters.textContent = active.size ? `Limpiar filtros (${active.size})` : 'Limpiar filtros';
   }
 
+  /** Vuelve a la primera página si cambió la pestaña o algún filtro desde el último pintado. */
+  function syncPageLimit() {
+    const f = currentFilters();
+    const key = JSON.stringify([currentTab, f.query, f.sector, f.stage, f.minBudget, f.department,
+      f.modality, f.age, f.onlyNew, sortSelect.value, hiddenReasonSelect.value, hiddenFamilySelect.value]);
+    if (key !== pageKey) {
+      pageKey = key;
+      pageLimit = Dash.PAGE_SIZE;
+    }
+  }
+
+  /** Primera(s) página(s) de la lista y, si quedan, el botón "Ver más" (va al final de la cuadrícula). */
+  function paginate(items) {
+    listItems = items;
+    const page = Dash.pageInfo(items.length, pageLimit);
+    const more = page.remaining
+      ? `<div class="load-more"><button type="button" class="btn btn-outline" data-action="more">Ver ${page.next} más <span class="load-more-count">(${page.remaining} sin mostrar)</span></button></div>`
+      : '';
+    return { shown: items.slice(0, page.shown), more };
+  }
+
   // Render View depending on current tab
   function renderView() {
+    syncPageLimit();
     updateAgeOptions();
     const filtered = getFilteredData();
     updateSectorCounts();
@@ -686,9 +713,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const { shown, more } = paginate(items);
     cardItems.clear();
-    items.forEach(i => cardItems.set(i.id, i));
-    cardsGrid.innerHTML = items.map(lightCardHtml).join('');
+    shown.forEach(i => cardItems.set(i.id, i));
+    cardsGrid.innerHTML = shown.map(lightCardHtml).join('') + more;
   }
 
   // ---------- Compras planeadas (PAA) ----------
@@ -698,9 +726,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.innerHTML = `<div class="empty-foryou"><div class="empty-icon">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
       return;
     }
+    const { shown, more } = paginate(items);
     cardItems.clear();
-    items.forEach(i => cardItems.set(i.id, i));
-    cardsGrid.innerHTML = items.map(paaCardHtml).join('');
+    shown.forEach(i => cardItems.set(i.id, i));
+    cardsGrid.innerHTML = shown.map(paaCardHtml).join('') + more;
   }
 
   // Render Card Grid
@@ -734,12 +763,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const { shown, more } = paginate(filtered);
     cardItems.clear();
-    filtered.forEach(i => cardItems.set(i.id, i));
-    cardsGrid.innerHTML = filtered.map(item => createCardHtml(item)).join('');
+    shown.forEach(i => cardItems.set(i.id, i));
+    cardsGrid.innerHTML = shown.map(item => createCardHtml(item)).join('') + more;
 
     // Attach card event listeners
-    filtered.forEach(item => {
+    shown.forEach(item => {
       const cardEl = document.getElementById(`card-${item.id}`);
       if (!cardEl) return;
 
@@ -1261,6 +1291,15 @@ document.addEventListener('DOMContentLoaded', () => {
   cardsGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
+    if (btn.dataset.action === 'more') {
+      // La primera ficha nueva recibe el foco, para seguir leyendo desde ahí con el teclado.
+      const firstNew = Dash.pageInfo(listItems.length, pageLimit).shown;
+      pageLimit += Dash.PAGE_SIZE;
+      renderView();
+      const next = cardsGrid.querySelectorAll('[data-id]')[firstNew];
+      if (next) next.querySelector('button, a, select')?.focus({ preventScroll: true });
+      return;
+    }
     const card = btn.closest('[data-id]');
     const item = card && cardItems.get(card.dataset.id);
     if (!item) return;
@@ -1326,6 +1365,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function highlightCard(id) {
+    // Si la ficha está en la lista pero después de la página pintada, se amplía el límite.
+    const index = listItems.findIndex(i => i.id === id);
+    if (index >= pageLimit) {
+      pageLimit = Dash.limitToShow(index);
+      renderView();
+    }
     const el = document.getElementById(`card-${id}`);
     if (!el) return; // los filtros activos pueden ocultarla: el detalle se abre igual
     el.scrollIntoView({ block: 'center' });

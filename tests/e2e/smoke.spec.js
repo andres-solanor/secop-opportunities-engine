@@ -21,6 +21,13 @@ async function openDashboard(page) {
 
 const cards = page => page.locator('#cardsGrid .opp-card');
 const number = async locator => Number((await locator.textContent()).trim());
+// Las fichas se pintan en páginas: el total está en el conteo de resultados y se pintan a lo sumo PAGE_SIZE.
+const { PAGE_SIZE } = require('../../web/dashboard-engine.js');
+const listedCount = page => number(page.locator('#resultsCount b'));
+async function expectListed(page, n) {
+  await expect(page.locator('#resultsCount b')).toHaveText(String(n));
+  await expect(page.locator('#cardsGrid .opp-card')).toHaveCount(Math.min(n, PAGE_SIZE));
+}
 
 test('carga sin errores y muestra oportunidades y KPIs reales', async ({ page }) => {
   const errors = await openDashboard(page);
@@ -42,16 +49,49 @@ test('Radar y Observatorio se reparten todo el dataset sin repetir', async ({ pa
   expect(radar + observatorio).toBe(total);
 
   await page.click('#tabProveedores');
-  await expect(cards(page)).toHaveCount(radar);
+  await expectListed(page,radar);
   await page.click('#tabObservatorio');
-  await expect(cards(page)).toHaveCount(observatorio);
+  await expectListed(page,observatorio);
+});
+
+test('las fichas se pintan en páginas: "Ver más" agrega una y un filtro vuelve a la primera', async ({ page }) => {
+  await openDashboard(page);
+  await page.click('#tabObservatorio');
+  const total = await listedCount(page);
+  test.skip(total <= PAGE_SIZE, 'los datos no alcanzan para una segunda página');
+  await expect(cards(page)).toHaveCount(PAGE_SIZE);
+  const more = page.locator('#cardsGrid [data-action="more"]');
+  await expect(more).toContainText(`(${total - PAGE_SIZE} sin mostrar)`);
+
+  await more.click();
+  await expect(cards(page)).toHaveCount(Math.min(total, PAGE_SIZE * 2));
+  // El foco pasa a la primera ficha nueva.
+  expect(await page.evaluate(n => document.activeElement.closest('[data-id]') === document.querySelectorAll('#cardsGrid [data-id]')[n], PAGE_SIZE)).toBe(true);
+
+  // Cambiar de orden o de filtro vuelve a la primera página.
+  await page.selectOption('#sortSelect', 'valor');
+  await expect(cards(page)).toHaveCount(PAGE_SIZE);
+});
+
+test('un enlace compartido a una ficha fuera de la primera página la pinta y la resalta', async ({ page }) => {
+  await openDashboard(page);
+  // Una ficha del Radar (pestaña inicial) que no está en la primera página pintada.
+  const target = await page.evaluate(() => {
+    const radar = window.DashboardEngine.tabItems(window.PROSPECTS_DATA, 'proveedores');
+    const missing = radar.find(i => !document.getElementById(`card-${i.id}`));
+    return missing ? missing.id : null;
+  });
+  test.skip(!target, 'los datos no alcanzan para una segunda página');
+  await page.goto('about:blank');
+  await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
+  await expect(page.locator(`[id="card-${target}"]`)).toBeVisible();
 });
 
 test('las compras planeadas (PAA) se pintan', async ({ page }) => {
   await openDashboard(page);
   const planned = await number(page.locator('#countPaa'));
   await page.click('#tabPaa');
-  await expect(cards(page)).toHaveCount(planned);
+  await expectListed(page,planned);
 });
 
 test('el filtro de sector sale de la taxonomía, agrupado, con "Otros" al final', async ({ page }) => {
@@ -71,7 +111,7 @@ test('el filtro de sector sale de la taxonomía, agrupado, con "Otros" al final'
   });
   await expect(page.locator(`#sectorSelect option[value="${target.id}"]`)).toHaveText(new RegExp(`\\(${target.n}\\)$`));
   await page.selectOption('#sectorSelect', target.id);
-  await expect(cards(page)).toHaveCount(target.n);
+  await expectListed(page,target.n);
   await page.click('#btnResetFilters');
 });
 
@@ -95,23 +135,23 @@ test('el filtro de sector filtra las fichas del Observatorio', async ({ page }) 
   expect(sectors.length).toBeGreaterThan(0);
 
   await page.click('#tabObservatorio');
-  const before = await cards(page).count();
+  const before = await listedCount(page);
   const counts = await page.evaluate(() => {
     const open = window.PROSPECTS_DATA.filter(i => !window.DashboardEngine.isAwarded(i));
     return Object.keys(window.SECTOR_TAXONOMY).map(id => ({ id, n: open.filter(i => i.sectores.some(s => s.id === id)).length }));
   });
   const target = counts.find(c => c.n > 0 && c.n < before) || counts.find(c => c.n > 0);
   await page.selectOption('#sectorSelect', target.id);
-  await expect(cards(page)).toHaveCount(target.n);
+  await expectListed(page,target.n);
   await expect(page.locator('#kpiTotalOpps')).toHaveText(String(target.n));
 
   await page.click('#btnResetFilters');
-  await expect(cards(page)).toHaveCount(before);
+  await expectListed(page,before);
 });
 
 test('el filtro de modalidad cuenta y filtra las fichas del Radar', async ({ page }) => {
   await openDashboard(page);
-  const before = await cards(page).count();
+  const before = await listedCount(page);
   const target = await page.evaluate(() => {
     const D = window.DashboardEngine;
     const counts = D.modalityCounts(D.tabItems(window.PROSPECTS_DATA, 'proveedores'));
@@ -120,9 +160,9 @@ test('el filtro de modalidad cuenta y filtra las fichas del Radar', async ({ pag
   });
   await expect(page.locator(`#modalitySelect option[value="${target.id}"]`)).toHaveText(new RegExp(`\\(${target.n}\\)$`));
   await page.selectOption('#modalitySelect', target.id);
-  await expect(cards(page)).toHaveCount(target.n);
+  await expectListed(page,target.n);
   await page.click('#btnResetFilters');
-  await expect(cards(page)).toHaveCount(before);
+  await expectListed(page,before);
 });
 
 test('los filtros en uso se resaltan y "Limpiar filtros" dice cuántos hay', async ({ page }) => {
@@ -202,7 +242,7 @@ test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM'
     return D.applyFilters(D.tabItems(window.PROSPECTS_DATA, 'proveedores'), { age: '90' }).length;
   });
   await page.selectOption('#ageSelect', '90');
-  await expect(cards(page)).toHaveCount(expected);
+  await expectListed(page,expected);
 });
 
 test('persona natural: opción del filtro, badge y línea en el detalle cuando hay perfil publicado', async ({ page }) => {
@@ -231,7 +271,7 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   expect(expected).toBeGreaterThan(0);
   await expect(page.locator('#modalitySelect option[value="persona_natural"]')).toHaveText(new RegExp(`\\(${expected}\\)$`));
   await page.selectOption('#modalitySelect', 'persona_natural');
-  await expect(cards(page)).toHaveCount(expected);
+  await expectListed(page,expected);
   await page.locator('#cardsGrid .btn-detail').first().click();
   await expect(page.locator('#modalBody')).toContainText('Persona natural gana 14,7%');
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');

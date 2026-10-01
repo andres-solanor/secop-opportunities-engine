@@ -34,6 +34,24 @@
       .map(c => c.id);
   }
 
+  /** Fichas por página: el tablero pinta las primeras y un botón "Ver más" agrega las siguientes. */
+  const PAGE_SIZE = 60;
+
+  /**
+   * Paginación de las fichas: cuántas se pintan con el límite actual, cuántas faltan y cuántas
+   * agrega el siguiente "Ver más".
+   */
+  function pageInfo(total, limit = PAGE_SIZE) {
+    const shown = Math.max(0, Math.min(total, limit));
+    const remaining = Math.max(0, total - shown);
+    return { shown, remaining, next: Math.min(PAGE_SIZE, remaining) };
+  }
+
+  /** Límite mínimo (en páginas completas) para que la ficha de la posición `index` quede pintada. */
+  function limitToShow(index) {
+    return index < 0 ? PAGE_SIZE : (Math.floor(index / PAGE_SIZE) + 1) * PAGE_SIZE;
+  }
+
   /** ¿La oportunidad pertenece al sector elegido? Incluye las dos opciones de "Otros". */
   function matchesSector(item, sector) {
     if (!sector || sector === 'todos') return true;
@@ -452,6 +470,9 @@
     isInsurance,
     isOtherSector,
     activeFilters,
+    PAGE_SIZE,
+    pageInfo,
+    limitToShow,
     matchesSector,
     tabItems,
     MODALITIES,
