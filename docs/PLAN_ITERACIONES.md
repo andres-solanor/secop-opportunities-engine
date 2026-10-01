@@ -37,7 +37,7 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 
 | # | Tarea | Talla | Detalle |
 |---|---|---|---|
-| A1 | 9.6 (b) móvil a 390 px | S | Barra superior, tarjeta KPI y etiqueta de persona natural. Prueba de humo a 390 px |
+| A1 | ~~9.6 (b) móvil a 390 px~~ | S | **Hecho (2026-10-01, rama `pro/mobile-390`).** Hasta 560 px de ancho: la barra deja de ser fija y pasa de cuatro filas (228 px) a dos (118 px): marca y cuenta arriba; sincronización, tema y CSV abajo, con CSV solo con ícono. Los KPI usan 2 columnas: los pesos y el sector (que con un filtro muestra un nombre largo) van cada uno en su fila; oportunidades y score van lado a lado. Los botones de la ficha ya no parten "🔎 Detalle". La etiqueta de persona natural ya no se cortaba. Pruebas de humo a 390 y 360 px |
 | A2 | 9.5 (1) fichas en páginas | S–M | Unas 60 por página con "ver más". Medir el tiempo de pintado antes y después |
 | A3 | Cabos sueltos de datos | S | "(0%)" en "Pipeline analizado"; "vigas"; Tuluá `[POR VERIFICAR]`; PAA más preciso (palabras clave sobre la descripción); cobertura de sanciones de SECOP II |
 | A4 | Peso del repositorio | S | Publicar GitHub Pages desde un artefacto del workflow y dejar de versionar `web/*.js` generados. Requiere un token con alcance `workflow` |

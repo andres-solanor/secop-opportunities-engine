@@ -405,3 +405,21 @@ Este bloque reemplaza las "próximas acciones" de los bloques anteriores.
   1. Con el visto bueno del dueño: push de `pro/favicon-390`, PR y fusión si el CI pasa.
   2. **A1 = 9.6 (b):** móvil a 390 px, con prueba de humo.
   3. **A2 = 9.5 (1):** fichas en páginas. Después, A3 a A7 en el orden del plan (las demos son A6 y A7).
+
+## Estado de la sesión — 2026-10-01 (noche) · Claude Code · rama `pro/mobile-390`
+
+Este bloque reemplaza las "próximas acciones" del anterior.
+
+- **Publicado:** con el visto bueno del dueño, PR #10 (favicon, filtros resaltados y plan) pasó el CI y se fusionó como `963fac5`.
+- **Terminado y con commit, sin publicar** (rama `pro/mobile-390`, desde `963fac5`): A1, que es 9.6 (b), con el detalle en el plan.
+  - Verificado: ruff, pruebas Python, ESLint, 63 Node y 25 de 25 de humo, con 2 nuevas a 390 y 360 px.
+  - Capturas a 390 px y a 1360 px: el escritorio no cambia.
+  - La prueba a 360 px encontró un error real: "12 sectores" desbordaba en una columna de un tercio. Por eso el sector va en su propia fila.
+- **Sin commit:** nada.
+- **Errores abiertos conocidos:**
+  - Los del bloque anterior, menos 9.6 (b).
+  - A 390 px, la píldora de sincronización corta el texto con "…". El estado completo se ve al tocarla, en el modal de sincronización; el `title` es fijo y no lo repite.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/mobile-390`, PR y fusión si el CI pasa.
+  2. **A2 = 9.5 (1):** fichas en páginas de unas 60, con "ver más", midiendo el tiempo de pintado antes y después.
+  3. **A3:** cabos sueltos de datos. Empezar por "(0%)" en "Pipeline analizado", que solo toca la web.
