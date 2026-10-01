@@ -74,6 +74,12 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 5. **Alertas** (iteración 7): lo que trae de vuelta a los usuarios.
 6. **Monetización:** se decide con datos de uso. Opciones ya diseñadas: créditos (iteración 2) o suscripción.
 
+### Lista de deseos (investigar después)
+
+Ideas del dueño para una sesión futura. No hay trabajo hecho todavía.
+
+- **Croma** (pedido del 2026-10-01): ver qué se puede integrar de Croma (documentación: https://docs.usecroma.com/introduction) y leer los aprendizajes de la hackatón en `C:\Users\abner\Claude\Projects\Hackaton croma` (carpeta local del dueño, fuera del repositorio). Qué es Croma y cómo encaja `[POR VERIFICAR]`: no se ha leído ninguna de las dos fuentes.
+
 ### Preguntas abiertas de la sesión
 
 - **Segmento 2:** ¿cómo trabajan? Proponer 3 o 4 entrevistas antes de diseñar. Preguntas: qué miran primero, en qué etapa entran (PAA, borrador, abierto), qué información les falta hoy y qué no deberían ver en una herramienta. Línea de producto mientras tanto: solo datos públicos y visibilidad temprana; nada que perfile a funcionarios como personas.
