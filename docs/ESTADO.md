@@ -463,3 +463,48 @@ Este bloque reemplaza las "próximas acciones" de los anteriores. Desde esta ses
   1. Fusionar el PR de A7 si el CI pasa.
   2. Llevar al dueño las decisiones 1 a 4 con cifras. Con su respuesta, A4 o A5 (2).
   3. Fase B: exploración de un día en Hostinger (`verify.php` y un lead en MySQL), cuando el dueño confirme el plan de hosting.
+
+## Estado de la sesión — 2026-10-01 (noche, cierre) · Claude Code · rama `pro/session-close`
+
+Este bloque reemplaza las "próximas acciones" de los anteriores.
+
+- **Publicado en `main`** (CI en verde en cada PR):
+
+  | PR | Contenido |
+  |---|---|
+  | #16 | De ganadores a proveedores, A7 |
+  | #17 | Pages desde un artefacto, A4 |
+  | #18 | Ajuste de A7, toda la lista oculta (A5.2), búsqueda con pausa, lo leído en hPanel y Croma en la lista de deseos |
+
+- **Cambio de despliegue (A4), ya en producción:**
+  - La fuente de Pages pasó a "GitHub Actions" (`build_type=workflow`, por la API, con el token de Claude, que tiene el alcance `workflow`).
+  - Verificado: el push de PR #17 publicó sin consultar SECOP, y la corrida manual `36940306045` (build y deploy) terminó con éxito.
+  - En el sitio publicado: datos de las 23:27 UTC, 500 en el tablero, 5000 de 6033 fuera del tablero, sin errores.
+  - El historial se encadenó: la entrada de las 23:27 quedó sobre la de las 18:13, descargada del sitio.
+  - `main` ya no recibe commits del bot.
+- **Decisiones del dueño en esta sesión:**
+  - A7: decidir Claude. Ver `DISENO_PERFILES.md` §6.
+  - A4: hacerlo.
+  - A5.2: hacerlo si no rompe el navegador; medido en el plan.
+  - Lo que queda de A3 (PAA y sanciones): explicárselo después.
+  - Hostinger: Claude lo revisa en el panel.
+- **hPanel** (solo lectura; no se cambió nada; detalle en el plan, fase B):
+  - `analytikz.com.co` ya corre como app Node.js. El plan admite Node 18 a 24, MySQL con acceso remoto y 3 GB de RAM.
+  - SSH existe pero está inactivo.
+  - Cron no aparece en el menú de la app Node.
+  - Recomendación: backend en Node (Hono o Express) en un subdominio, no en PHP.
+- **Sin commit:** nada.
+- **Errores abiertos y observaciones:**
+  - Las corridas de la noche consultan 9624 procesos, frente a 7125 en las de la tarde. Pasó dos veces. La causa queda `[POR VERIFICAR]`.
+  - Fuera del tablero hay 6033 y se publican 5000: el techo de seguridad de `HIDDEN_WEB_MAX` ya corta.
+  - Siguen abiertos los del bloque anterior: la píldora a 390 px, los hallazgos de Impeccable (9.6 c), la vista previa genérica y los límites de datos.gov.co.
+- **Pendiente del dueño:**
+  - el `GOOGLE_CLIENT_ID`;
+  - activar SSH en hPanel cuando empiece la fase B;
+  - la explicación de A3 (PAA más preciso y sanciones);
+  - la dirección visual (9.6 c).
+- **Lista de deseos:** Croma (plan, "Lista de deseos"). No se investigó.
+- **Próximas tres acciones:**
+  1. Revisar mañana la corrida programada de las 11:00 UTC: la primera del cron con el despliegue nuevo.
+  2. Investigar por qué la corrida de la noche descarga 9624 procesos y la de la tarde 7125. Decidir si `HIDDEN_WEB_MAX` sube o se queda en 5000.
+  3. Fase B: exploración de un día con una app Node en un subdominio de Hostinger (ID token de Google y un lead en MySQL), cuando el dueño entregue el `GOOGLE_CLIENT_ID` y active SSH.
