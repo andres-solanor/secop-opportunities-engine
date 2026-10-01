@@ -86,7 +86,17 @@ test('los KPIs de una lista vacía no inventan cifras', () => {
   assert.strictEqual(k.count, 0);
   assert.strictEqual(k.sum, 0);
   assert.strictEqual(k.pct, null);
+  assert.strictEqual(k.pctLabel, null);
   assert.strictEqual(k.avgScore, null);
+});
+
+test('una parte positiva que redondea a 0 % se muestra "<1%"; una vacía, "0%"', () => {
+  // El caso real: $601 millones de $1,06 billones (0,06 %).
+  const small = { id: 'S', precio: 601e6 };
+  const big = { id: 'B', precio: 1.06e12 };
+  assert.strictEqual(D.kpis([small], [small, big]).pctLabel, '<1%');
+  assert.strictEqual(D.kpis([], [small, big]).pctLabel, '0%');
+  assert.strictEqual(D.kpis([ITEMS[0], ITEMS[1]], ITEMS).pctLabel, '95%');
 });
 
 test('formatCop usa millones, miles de millones y billones', () => {

@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Los procesos de "Otros" no son parte del tablero: no se comparan con su total.
         kpiPipelineSub.textContent = 'En procesos sin sector (fuera del tablero)';
       } else if (isFiltered && k.pct !== null) {
-        kpiPipelineSub.textContent = `de ${formatCop(k.baselineSum)} en ${baseName} (${k.pct}%)`;
+        kpiPipelineSub.textContent = `de ${formatCop(k.baselineSum)} en ${baseName} (${k.pctLabel})`;
       } else {
         kpiPipelineSub.textContent = `Total en ${k.baselineCount} ${baseName}`;
       }
@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
         kpiSecVal.textContent = sectorName(sector);
         kpiSecSub.textContent = Dash.isOtherSector(sector)
           ? 'Procesos que no están en el tablero'
-          : [sectorGroupName(sector), !otherMode() && k.pct !== null ? `${k.pct}% del valor de ${baseName}` : ''].filter(Boolean).join(' · ');
+          : [sectorGroupName(sector), !otherMode() && k.pct !== null ? `${k.pctLabel} del valor de ${baseName}` : ''].filter(Boolean).join(' · ');
       } else if (departmentSelect.value !== 'todos') {
         kpiSecTitle.textContent = 'Región Filtrada';
         kpiSecVal.textContent = departmentSelect.value;
