@@ -163,3 +163,34 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Con el visto bueno del dueño: `git push -u origin pro/ux-filters` y abrir el PR a `main`.
   2. Iteración 9.0: actualizar las GitHub Actions en `.github/workflows/` y `ci/` **antes del 2026-10-19**. Las versiones están `[POR VERIFICAR]` en sus páginas de releases. El push requiere un token con alcance `workflow`.
   3. Iteración 9.3 (persona natural) y luego 9.4 (fichas del PAA y de lo oculto), según `PLAN_ITERACIONES.md`. 9.2 (temas) puede ir en paralelo.
+
+## Estado de la sesión — 2026-10-01 (cierre) · Claude Code · rama `pro/next`
+
+- **Publicado** (con el visto bueno del dueño):
+  - Push de `pro/ux-filters` y PR #3 (https://github.com/andres-solanor/secop-opportunities-engine/pull/3). El CI pasó: python 3.11, python 3.14, node y e2e.
+  - Fusionado en `main` como `7db3cc8`.
+  - El dueño corrió a mano "Daily SECOP II Refresh & Deploy" (15:07 UTC): éxito, commit de datos `f0a549e`. GitHub Pages se construyó desde `f0a549e` (15:14 UTC).
+- **Verificado en los datos publicados** (`f0a549e`):
+  - `generated_at` 2026-10-01T15:13:57Z, 380,3 s, 500 curadas (226 adjudicadas), 129 nuevas, 133 salieron, 80 compras planeadas, `fuentes_con_error` vacío.
+  - "Modalidad no comercial": 3 rechazados.
+  - Mínima cuantía: 8 en el tablero (6 en el Radar, 2 en el Observatorio) y 127 en la muestra de `hidden.js`.
+- **Verificado en el sitio publicado** (navegador, 1360 px):
+  - "Mínima cuantía (6)" en el Radar muestra 6 fichas y "(2)" en el Observatorio, 2.
+  - "Adjudicado: últimos 7 días": 41 fichas, con la nota "1 sin fecha conocida".
+  - Sin errores de consola.
+- **Pregunta del dueño: ¿bastan 500?** Respuesta con cifras en la iteración 9.5 de `PLAN_ITERACIONES.md`:
+  - Para la demo, sí. Los sectores pequeños ya agotan su oferta y el navegador no es el límite (38 ms de carga).
+  - Los límites reales son el peso del repositorio, la duración de la corrida y que `app.js` pinta todas las fichas a la vez.
+  - Propuesta: paginar las fichas, publicar toda la lista liviana fuera del tablero, sacar los datos de git y solo después subir el tablero completo.
+- **Sin commit:** nada. Este bloque y la fila 9.5 van en la rama `pro/next`, creada desde `origin/main` `f0a549e`.
+- **Sin publicar:** `pro/next` (solo documentación). Push y PR los decide el dueño. Hasta entonces, el `ESTADO.md` de `main` termina en el bloque anterior.
+- **Errores abiertos conocidos:**
+  - La tarjeta "Pipeline analizado" muestra "(0%)" cuando el porcentaje filtrado es menor que 0,5 %. Ejemplo: $601 millones de $1,06 billones, que da 0,06 %. Es cosmético; mostrar "<1 %".
+  - Adjudicados sin fecha de adjudicación en "Fuera del tablero" (se corrige en 9.4).
+  - La mínima cuantía de $6.800 millones de Tuluá sigue `[POR VERIFICAR]` en el expediente.
+  - Vienen de antes: la tarjeta KPI ocupa 2 líneas en 390 px; "vigas"; Prettier; el archivo de reglas de Antigravity `[POR VERIFICAR]`.
+  - Las corridas programadas llegan de 5 a 7 h tarde (retraso de GitHub); se puede correr a mano.
+- **Próximas tres acciones:**
+  1. **9.0, antes del 2026-10-19:** actualizar las GitHub Actions en `.github/workflows/` y en `ci/`. Las versiones están `[POR VERIFICAR]` en sus páginas de releases. El push requiere un token con alcance `workflow`.
+  2. **9.3, persona natural:** una consulta agregada a `jbjy-vk9h`, `meta.perfil_proponente`, el badge y una opción en el filtro de modalidad. El umbral se confirma con el dueño viendo la tabla calculada.
+  3. **9.4, fichas del PAA y de lo oculto, y después 9.5, volumen.** 9.2 (temas) puede ir en paralelo.

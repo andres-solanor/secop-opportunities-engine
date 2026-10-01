@@ -4,6 +4,7 @@ cuando se desincronizan.
 """
 
 import os
+import re
 import unittest
 
 from src.tools.stamp_assets import GENERATED, INDEX, expected_versions, stamp
@@ -36,6 +37,28 @@ class TestWorkflowMirror(unittest.TestCase):
         workflows = {f for f in os.listdir(WORKFLOWS_DIR) if f.endswith(".yml")}
         mirrors = {f for f in os.listdir(MIRROR_DIR) if f.endswith(".yml")}
         self.assertEqual(mirrors - workflows, set())
+
+    # Primera versión mayor de cada acción que corre en Node 24 (notas de cada release). Las
+    # anteriores corren en Node 20, que GitHub retira con el cambio de runner del 2026-10-19.
+    NODE24_MAJORS = {
+        "actions/checkout": 5,
+        "actions/setup-python": 6,
+        "actions/setup-node": 5,
+        "actions/upload-artifact": 6,
+    }
+
+    def test_actions_run_on_node24(self):
+        pattern = re.compile(r"uses:\s*(actions/[\w-]+)@v(\d+)")
+        found = 0
+        for name in sorted(f for f in os.listdir(WORKFLOWS_DIR) if f.endswith(".yml")):
+            for action, major in pattern.findall(read(os.path.join(WORKFLOWS_DIR, name))):
+                found += 1
+                self.assertIn(action, self.NODE24_MAJORS, f"{name}: acción sin versión mínima conocida ({action})")
+                self.assertGreaterEqual(
+                    int(major), self.NODE24_MAJORS[action],
+                    f"{name}: {action}@v{major} corre en Node 20; usa v{self.NODE24_MAJORS[action]} o superior",
+                )
+        self.assertTrue(found, "no se encontraron acciones en los workflows")
 
 
 class TestAssetVersions(unittest.TestCase):
