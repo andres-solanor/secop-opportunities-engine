@@ -84,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const BIDDER_SHARES = Dash.bidderShares(META && META.perfil_proponente);
   // Cifras por entidad (NIT) para las fichas livianas y el PAA: una entrada por entidad.
   const ENTITY_STATS = window.ENTITY_STATS || {};
+  // Consultas en vivo a SECOP II para el detalle de lo que no está en el tablero (secop-live.js).
+  const Live = window.SecopLive;
+  // Fichas pintadas fuera del tablero y del PAA, por id: las usa el clic delegado de sus botones.
+  const cardItems = new Map();
   const HAS_BIDDER_SHARES = Object.keys(BIDDER_SHARES).length > 0;
   // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
@@ -654,6 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    cardItems.clear();
+    items.forEach(i => cardItems.set(i.id, i));
     cardsGrid.innerHTML = items.map(lightCardHtml).join('');
   }
 
@@ -664,6 +670,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.innerHTML = `<div class="empty-foryou"><div class="empty-icon">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
       return;
     }
+    cardItems.clear();
+    items.forEach(i => cardItems.set(i.id, i));
     cardsGrid.innerHTML = items.map(paaCardHtml).join('');
   }
 
@@ -876,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badges,
       extra: winnerBox,
       step: Engine.nextStep(view),
-      actions: secopLinkHtml(item.url_secop, '🔗 Abrir en SECOP II')
+      actions: `<button class="btn btn-outline btn-detail" data-action="light-detail">🔎 Detalle</button>${secopLinkHtml(item.url_secop)}`
     });
   }
 
@@ -901,7 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: `<div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>`,
       badges,
       step: { text: 'Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya' },
-      actions: item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'
+      actions: `<button class="btn btn-outline btn-detail" data-action="paa-detail">🔎 Detalle</button>${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado</span>'}`
     });
   }
 
@@ -963,7 +971,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return value ? `<div class="dl-row"><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>` : '';
   }
 
-  function openDetailModal(item) {
+  /**
+   * Vista de detalle. `opts`: { top (html tras el próximo paso), live (html del estado de la
+   * consulta en vivo), keepScroll (al refrescar con lo que llegó en vivo, no saltar arriba) }.
+   */
+  function openDetailModal(item, opts = {}) {
     const bw = Engine.bidWindow(item);
     const c = item.contrato;
     const h = item.historial_contratista;
@@ -1000,6 +1012,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="detail-sub">${escapeHtml(Engine.formatCopShort(item.precio || 0))} · ${escapeHtml(modalityLabel(item))} · Ref. <code>${escapeHtml(item.referencia || item.id)}</code></div>
         <div class="next-step">➜ ${escapeHtml(step.text)}${step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b>` : ''}</div>
         ${badges.length ? `<div class="badge-row">${badges.map(b => `${badgeHtml(b)}`).join('')}</div>` : ''}
+        ${opts.top || ''}
+        ${opts.live || ''}
 
         <section class="detail-section">
           <h3>Objeto</h3>
@@ -1102,9 +1116,122 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
     document.getElementById('detailPitch').addEventListener('click', () => openPitchModal(item));
+    detailModal.dataset.itemId = item.id || '';
     detailModal.classList.add('active');
-    detailModal.querySelector('.modal-content').scrollTop = 0;
+    if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
   }
+
+  // ---------- Detalle en vivo (fuera del tablero y PAA): window.SecopLive ----------
+  function liveNote(state, errors = []) {
+    if (state === 'loading') return '<div class="live-note" role="status">⏳ Consultando SECOP II en vivo: contrato, ofertas y la entidad. La primera consulta puede tardar unos segundos.</div>';
+    if (state === 'error') return '<div class="live-note live-note-warn" role="status">No se pudo consultar SECOP II en vivo. Abre el expediente en SECOP II para ver el detalle completo.</div>';
+    const names = { contrato: 'el contrato', ofertas: 'las ofertas', entidad_stats: 'las cifras de la entidad' };
+    if (errors.length) return `<div class="live-note live-note-warn" role="status">Consulta en vivo parcial: no respondió ${escapeHtml(errors.map(e => names[e] || e).join(', '))}.</div>`;
+    return '<div class="live-note" role="status">✓ Datos consultados en vivo en SECOP II.</div>';
+  }
+
+  /** Detalle de un proceso fuera del tablero: abre con lo que trae la ficha y completa en vivo. */
+  function openLightDetail(item) {
+    const reason = HIDDEN_REASONS[item.motivo];
+    const top = item.en_vivo
+      ? '<section class="detail-section"><h3>Ya no está en el tablero</h3><p>Este proceso salió de la selección del tablero; estos datos se consultaron en vivo en SECOP II.</p></section>'
+      : reason ? `<section class="detail-section"><h3>Por qué no está en el tablero</h3><p><b>${escapeHtml(reason.label)}.</b> ${escapeHtml(reason.tip)}</p></section>` : '';
+    const view = boardShape(item);
+    if (!Live || !(item.id_portafolio || item.nit_entidad)) {
+      openDetailModal(view, { top });
+      return;
+    }
+    openDetailModal(view, { top, live: liveNote('loading') });
+    Live.processDetail({ portfolio: item.id_portafolio, nitEntidad: item.nit_entidad, winnerNit: item.contratista && item.contratista.nit })
+      .then(r => {
+        if (detailModal.dataset.itemId !== item.id || !detailModal.classList.contains('active')) return;
+        // Ninguna consulta respondió: es una caída, no un resultado parcial.
+        if (r.errores.length && !r.contrato && !r.ofertas && !r.entidad_stats) {
+          openDetailModal(view, { top, live: liveNote('error'), keepScroll: true });
+          return;
+        }
+        const merged = { ...view, contrato: r.contrato || null, ofertas: r.ofertas || null, entidad_stats: r.entidad_stats || view.entidad_stats };
+        openDetailModal(merged, { top, live: liveNote('ok', r.errores), keepScroll: true });
+      })
+      .catch(() => {
+        if (detailModal.dataset.itemId === item.id) openDetailModal(view, { top, live: liveNote('error'), keepScroll: true });
+      });
+  }
+
+  /** Detalle de una compra planeada: planeación, la entidad (diccionario o en vivo) y sus procesos en el tablero. */
+  function openPaaDetail(item, liveStats, state) {
+    const stats = liveStats || entityStatsOf(item);
+    const money = v => (v || v === 0 ? escapeHtml(Engine.formatCopShort(v)) : '');
+    const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
+    const nit = String(item.nit_entidad || '').replace(/\D/g, '');
+    const onBoard = nit ? rawData.filter(i => String(i.nit_entidad || '').replace(/\D/g, '') === nit) : [];
+    const sectorNames = (item.sectores || []).map(s => s.name).join(', ');
+    modalBody.innerHTML = `
+      <div class="detail">
+        <span class="stage-pill stage-planeada"><span class="pulse-dot"></span>Planeada · ${escapeHtml(monthName)}</span>
+        <h2 class="detail-title">${escapeHtml(item.entidad || '')}</h2>
+        <div class="detail-sub">${money(item.valor)}${modalityLabel(item) ? ` · ${escapeHtml(readableText(modalityLabel(item)))}` : ''}</div>
+        <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>
+        ${state ? liveNote(state) : ''}
+        <section class="detail-section">
+          <h3>Objeto</h3>
+          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+        </section>
+        <section class="detail-section">
+          <h3>Planeación (Plan Anual de Adquisiciones)</h3>
+          <dl>
+            ${detailRow('Publicación esperada', `${escapeHtml(monthName)} de ${escapeHtml(item.anio)}`)}
+            ${detailRow('Valor estimado', money(item.valor))}
+            ${detailRow('Modalidad prevista', escapeHtml(readableText(modalityLabel(item))))}
+            ${detailRow('Duración prevista', escapeHtml(item.duracion && /\d/.test(item.duracion) ? item.duracion : ''))}
+            ${detailRow('Origen de los recursos', escapeHtml(item.origen_recursos || ''))}
+            ${detailRow('Sectores', escapeHtml(sectorNames))}
+            ${detailRow('Códigos UNSPSC', escapeHtml((item.unspsc || []).join(', ')))}
+            ${detailRow('Versión del PAA', escapeHtml(item.version_paa || ''))}
+          </dl>
+          <p class="legal-note">Fuente: SECOP II · Plan Anual de Adquisiciones. Es una intención de compra: la entidad puede cambiarla o no publicarla.</p>
+        </section>
+        ${stats ? `
+        <section class="detail-section">
+          <h3>La entidad en los últimos 12 meses</h3>
+          <dl>
+            ${detailRow('Contratos firmados', escapeHtml(String(stats.contratos_12m ?? '')))}
+            ${detailRow('Valor contratado', money(stats.valor_12m))}
+            ${detailRow('Pagos registrados', stats.pagado_sobre_facturado_pct != null ? `${stats.pagado_sobre_facturado_pct}% de lo facturado` : '')}
+          </dl>
+        </section>` : ''}
+        ${onBoard.length ? `
+        <section class="detail-section">
+          <h3>Procesos de esta entidad en el tablero (${onBoard.length})</h3>
+          <ul class="contact-list">${onBoard.slice(0, 5).map(o => `<li><b>${escapeHtml(Engine.formatCopShort(o.precio || 0))} · ${escapeHtml(STATE_LABELS[Engine.bidWindow(o).state].text)}</b><span>${escapeHtml(readableText(o.descripcion || '').slice(0, 140))}</span></li>`).join('')}</ul>
+          <p class="legal-note">Te ayudan a conocer cómo contrata la entidad antes de que publique esta compra.</p>
+        </section>` : ''}
+        <div class="detail-actions">
+          ${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado en SECOP II') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
+        </div>
+      </div>`;
+    detailModal.dataset.itemId = item.id || '';
+    detailModal.classList.add('active');
+    if (!state || state === 'loading') detailModal.querySelector('.modal-content').scrollTop = 0;
+    // Sin cifras en el diccionario, se consultan en vivo (una consulta agregada).
+    if (!stats && !state && Live && nit) {
+      openPaaDetail(item, null, 'loading');
+      Live.processDetail({ nitEntidad: nit })
+        .then(r => { if (detailModal.dataset.itemId === item.id) openPaaDetail(item, r.entidad_stats, r.errores.length ? 'error' : 'ok'); })
+        .catch(() => { if (detailModal.dataset.itemId === item.id) openPaaDetail(item, null, 'error'); });
+    }
+  }
+
+  // Botones de las fichas livianas y del PAA (delegación: se pintan muchas y cambian con cada filtro).
+  cardsGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    const card = btn.closest('[data-id]');
+    const item = card && cardItems.get(card.dataset.id);
+    if (!item) return;
+    if (btn.dataset.action === 'light-detail') openLightDetail(item);
+    else if (btn.dataset.action === 'paa-detail') openPaaDetail(item);
+  });
 
   // ---------- Estado de la sincronización con SECOP ----------
   const BOGOTA = { timeZone: 'America/Bogota' };

@@ -158,6 +158,8 @@ def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
     record = {
         "id": item.get("id"),
         "referencia": item.get("referencia"),
+        # Llave de contratos y ofertas en SECOP II: el detalle los consulta en vivo con ella.
+        "id_portafolio": item.get("id_portafolio"),
         "motivo": motivo,
         "entidad": item.get("entidad"),
         # Para cruzar con el diccionario de entidades (window.ENTITY_STATS) sin copiar sus cifras.

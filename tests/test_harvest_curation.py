@@ -579,7 +579,7 @@ class TestCuration(unittest.TestCase):
         self.assertNotIn("fecha_adjudicacion", light)
 
     def test_light_record_of_awarded_carries_only_winner_and_date(self):
-        item = ScopeExtractor().enrich(raw("A", adjudicado="Si", estado_del_procedimiento="Adjudicado",
+        item = ScopeExtractor().enrich(raw("A", "CO1.BDOS.7", adjudicado="Si", estado_del_procedimiento="Adjudicado",
                                            nombre_del_proveedor="CONSORCIO VIAS 2026"))
         item["fechas"] = {"adjudicacion": "2026-09-20T00:00:00", "publicacion": "2026-08-01T00:00:00"}
         item["nit_entidad"] = "890980040"
@@ -588,6 +588,7 @@ class TestCuration(unittest.TestCase):
         self.assertEqual(light["fecha_adjudicacion"], "2026-09-20T00:00:00")
         self.assertEqual(light["contratista"], {"nombre": "CONSORCIO VIAS 2026", "es_consorcio": True})
         self.assertEqual(light["nit_entidad"], "890980040")
+        self.assertEqual(light["id_portafolio"], "CO1.BDOS.7")  # llave del detalle en vivo
         self.assertNotIn("contrato", light)
         self.assertNotIn("fechas", light)
 
