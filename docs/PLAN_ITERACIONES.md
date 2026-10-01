@@ -9,6 +9,78 @@
 
 ---
 
+## Visión y prioridades (sesión de co-creación del 2026-10-01)
+
+Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomendado"** del final mientras no se revise.
+
+**El producto es un módulo del motor de conexiones.** El motor ya existe como prototipo en otro código, hecho rápido y con mucho por mejorar (ruta y alcance `[POR VERIFICAR]`). El tablero de SECOP sirve para tres cosas:
+1. Captar leads: empresas, consultores y otros actores que dejan su oferta y sus necesidades.
+2. Conectar pares entre sí.
+3. Mostrar a cada uno las oportunidades del Estado para lo que ofrece, y también las que crean los **ganadores de contratos**, que van a necesitar sus insumos o capacidades para cumplir.
+
+**Para quién se construye ahora:**
+
+| # | Segmento | Qué necesita | Estado |
+|---|---|---|---|
+| 1 | Firma de abogados que prepara a personas y empresas para licitar | Varias empresas cliente por cuenta; lista corta por cliente con fechas, requisitos y competencia | Prioridad de la demo |
+| 2 | Quienes estructuran proyectos con los decisores del Estado | Visibilidad temprana: PAA, historial y cifras de la entidad | **En descubrimiento.** El dueño aún no sabe cómo trabajan. No se diseña nada específico hasta entrevistarlos (ver "Preguntas abiertas") |
+| 3 | El dueño, sus clientes y aliados | Mapear oportunidades por oferta | Ya lo cubre el tablero |
+
+**Modelo de negocio:** primero gratis y cobrar después. Se maximizan usuarios, leads y calidad de datos, y el modelo de cobro se elige con datos de uso. El monedero y los pagos (iteraciones 2 y 5) bajan de prioridad. Siguen documentados.
+
+**Orden de trabajo acordado:**
+1. **Fase A, próximas 2–3 semanas:** pulir el tablero y la calidad de datos, sin cabos sueltos, y armar dos demos de impacto (la firma de abogados y "de ganadores a proveedores"). Todo sin backend.
+2. **Fase B:** con el frente pulido, desbloquear lo potente: backend, cuenta real y captación de leads.
+3. **Fase C:** planear la IA (piloto de anexos) sobre ese backend.
+
+### Fase A: pulido, datos y dos demos (sin backend)
+
+| # | Tarea | Talla | Detalle |
+|---|---|---|---|
+| A1 | 9.6 (b) móvil a 390 px | S | Barra superior, tarjeta KPI y etiqueta de persona natural. Prueba de humo a 390 px |
+| A2 | 9.5 (1) fichas en páginas | S–M | Unas 60 por página con "ver más". Medir el tiempo de pintado antes y después |
+| A3 | Cabos sueltos de datos | S | "(0%)" en "Pipeline analizado"; "vigas"; Tuluá `[POR VERIFICAR]`; PAA más preciso (palabras clave sobre la descripción); cobertura de sanciones de SECOP II |
+| A4 | Peso del repositorio | S | Publicar GitHub Pages desde un artefacto del workflow y dejar de versionar `web/*.js` generados. Requiere un token con alcance `workflow` |
+| A5 | 9.5 (6) y (2) | S | `noticeUID` en vez de la URL completa y toda la lista fuera del tablero en `hidden.js` |
+| A6 | **Demo firma de abogados** | M | Varias **empresas cliente** por usuario (selector en el menú de cuenta; hoy `secop_profiles` guarda un perfil por usuario). Una vista imprimible por empresa cliente con su lista corta: fechas, estado, competencia (ofertas) y próximo paso. Los requisitos del pliego llegan con la IA (fase C); mientras tanto la vista enlaza el proceso en SECOP |
+| A7 | **Demo de ganadores a proveedores** | M | En lo adjudicado: quién ganó, por cuánto y qué insumos suele necesitar ese tipo de contrato. Un mapa sector → insumos en `config/taxonomy.json` (por ejemplo, obra civil → acero, maquinaria, señalización), con su prueba; nada de listas en JS. En "Para Ti": "ganadores que pueden comprarte", cruzando la oferta del perfil con ese mapa. El texto lo dice claro: es una posibilidad comercial, no una necesidad confirmada |
+| A8 | `GOOGLE_CLIENT_ID` real | S | El dueño crea el cliente OAuth en Google Cloud (orígenes: el dominio de GitHub Pages y `localhost`) y entrega el ID, que es público |
+| A9 | 9.6 (c) identidad visual | M | Con tope de tiempo y solo si el dueño aprueba la dirección. Va después de las demos y antes de la fase B ("lo potente, con el frente pulido") |
+
+### Fase B: backend y captación de leads
+
+**Opciones de backend.** El dueño ya paga Hostinger, plan **Hosting Web Empresarial** (hosting compartido). Supabase tiene un año gratis que se activa al decidir.
+
+| | Hostinger Empresarial | Supabase |
+|---|---|---|
+| Qué corre | PHP, MySQL y cron, según lo que suele ofrecer un hosting compartido; Node o Python persistentes `[POR VERIFICAR en hPanel]` | Postgres, autenticación con Google, funciones y políticas por fila |
+| Costo extra | Ninguno, ya está pagado | Gratis un año; después `[POR VERIFICAR]` |
+| Trabajo | Escribir a mano la verificación del token de Google (JWKS), las sesiones y los permisos | Viene hecho; el trabajo es configurar |
+| Riesgo | Seguridad propia y PHP: un segundo lenguaje en el repositorio | Dependencia de un tercero; el reloj del año gratis |
+
+**Antes de decidir:** una exploración de un día en Hostinger, con un `verify.php` que valide un ID token de Google y guarde un lead en MySQL. Hay que confirmar en hPanel la versión de PHP, el acceso SSH, el cron y si hay Node.js. Si sale bien, Hostinger alcanza para la fase B. Si la IA de la fase C necesita procesos largos (descargar y leer pliegos de 51 MB), esa parte puede seguir en GitHub Actions.
+
+**Alcance de la fase B:** la iteración 1 (cuenta real, perfiles y CRM en el servidor), más:
+- **Captación de leads:** el perfil de visitante (`secop_profile_draft`), con oferta y necesidades, se guarda en el servidor con consentimiento explícito (Ley 1581 de 2012). Es la puerta de entrada al motor de conexiones.
+- **Esquema de perfil compartido** con el motor de conexiones: un solo contrato de datos (oferta, necesidades, sectores, zonas, NIT), para que el prototipo existente lo pueda leer. Para definirlo hay que revisar ese código.
+
+### Largo plazo: el motor de conexiones
+
+1. **Identidad y perfil únicos** entre módulos: un usuario y un perfil, aunque cada módulo tenga su propia vista.
+2. **Conexión entre pares:** cruce oferta ↔ necesidad entre perfiles, con la misma lógica de afinidad de `profile-engine.js`, ampliada.
+3. **Red de subcontratación:** ganadores ↔ proveedores, con el historial de contratos (`jbjy-vk9h`) y consorcios (`ceth-n4bn`) como evidencia de quién trabaja con quién.
+4. **IA:** análisis de anexos (iteración 3) y encaje (iteración 4), que convierten "puede interesarte" en "esto te piden y esto te falta".
+5. **Alertas** (iteración 7): lo que trae de vuelta a los usuarios.
+6. **Monetización:** se decide con datos de uso. Opciones ya diseñadas: créditos (iteración 2) o suscripción.
+
+### Preguntas abiertas de la sesión
+
+- **Segmento 2:** ¿cómo trabajan? Proponer 3 o 4 entrevistas antes de diseñar. Preguntas: qué miran primero, en qué etapa entran (PAA, borrador, abierto), qué información les falta hoy y qué no deberían ver en una herramienta. Línea de producto mientras tanto: solo datos públicos y visibilidad temprana; nada que perfile a funcionarios como personas.
+- **Motor de conexiones:** ¿dónde está el código del prototipo? ¿Qué usuarios y qué esquema de perfil tiene? Hace falta para el esquema compartido de la fase B.
+- **Demo de la firma:** ¿hay una firma real dispuesta a probarla? Con una empresa cliente de verdad, la demo usa datos reales y no inventados.
+
+---
+
 ## 0. Punto de partida (lo que ya está en la demo)
 
 Sitio estático en GitHub Pages con sincronización diaria desde SECOP II. Incluye:
@@ -251,9 +323,10 @@ flowchart LR
 
 | Decisión | Bloquea | Referencia |
 |---|---|---|
-| Backend (Supabase o Firebase) | 1, 2, 6, 7 | `CREDITOS_IA.md` §9.1 |
+| Backend: Hostinger Empresarial (ya pagado) o Supabase; Firebase ya no se considera. Se decide tras la exploración de un día de la fase B | 1, 2, 6, 7 | Sección "Fase B" arriba; `CREDITOS_IA.md` §9.1 |
 | Valor del crédito y bono de bienvenida | 2 | §9.3 |
 | Modelo de IA (Opus 5 o Sonnet 5; ¿DeepSeek?) | 3 | §9.2 |
 | Pasarela de pagos | 5 | §9.4 |
 | Contactos personales y revisión legal | 6 | §9.5 |
-| `GOOGLE_CLIENT_ID` real | 1 | `HANDOFF.md` |
+| `GOOGLE_CLIENT_ID` real: **decidido (2026-10-01)**, el dueño lo crea y lo entrega (tarea A8) | 1 | `HANDOFF.md` |
+| Modelo de negocio: **decidido (2026-10-01)**, primero gratis y cobrar después; baja la prioridad de 2 y 5 | 2, 5 | Sección "Visión y prioridades" |
