@@ -81,6 +81,16 @@ test('un adjudicado de obra civil es lead para un proveedor de acero: "el ganado
   assert.ok(E.matchOpportunity(steelProfile, opp(), detected).score > awarded.score);
 });
 
+test('el ganador deja de ser lead de suministro cuando ya no compra: >90 días o contrato terminado', () => {
+  const now = new Date('2026-10-01T12:00:00');
+  const detected = E.detectSectors(steelProfile, TAXONOMY);
+  const obra = { sectores: [{ id: 'obra_civil_general', name: 'Obra' }], materiales_detectados: [] };
+  const lead = o => E.matchOpportunity(steelProfile, opp({ ...obra, ...o }), detected, now).reasons.some(r => r.startsWith('El ganador'));
+  assert.ok(lead({ fechas: { adjudicacion: '2026-08-15T00:00:00' } }), '47 días: sigue comprando');
+  assert.ok(!lead({ fechas: { adjudicacion: '2026-05-01T00:00:00' } }), '153 días: contrato avanzado');
+  assert.ok(!lead({ fechas: { adjudicacion: '2026-09-01T00:00:00' }, contrato: { fin_ejecucion: '2026-09-20T00:00:00' } }), 'contrato terminado');
+});
+
 test('sin sector compartido la afinidad queda limitada', () => {
   const detected = E.detectSectors(steelProfile, TAXONOMY);
   // Tecnología no le compra a acero (compra_a): ni sector compartido ni lead de suministro.

@@ -36,9 +36,10 @@ DATASET_CSV = "prospects.csv"
 DATASET_SUMMARY = "prospects_summary.md"
 HIDDEN_SUMMARY = "hidden_summary.md"
 # La vista "fuera del tablero" (y "Otros" en el filtro de sector) se carga solo cuando el
-# usuario la abre, pero el archivo se versiona a diario: se limita para no inflar el
-# repositorio. El reporte sí cubre todo.
-HIDDEN_WEB_MAX = 1500
+# usuario la abre y pinta 60 fichas por página: desde el 2026-10-01 se publica toda la lista
+# (3976 ese día). El tope es solo un techo de seguridad si un día el volumen se dispara.
+# El reporte cubre todo siempre.
+HIDDEN_WEB_MAX = 5000
 # Reparto del cupo por motivo. Si falta un motivo, su parte se reparte entre los demás.
 HIDDEN_SHARES = {"sin_sector": 0.6, "fuera_de_corte": 0.2, "convenio": 0.2}
 

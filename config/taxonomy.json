@@ -35,7 +35,7 @@
     "obra_civil_general": {
       "name": "Construcción & Obra Civil General",
       "grupo": "obra_infraestructura",
-      "compra_a": ["acero_metalmecanica", "vehiculos_maquinaria", "dotacion_mobiliario"],
+      "compra_a": ["acero_metalmecanica", "vehiculos_maquinaria"],
       "keywords": [
         "obra civil", "obras civiles", "adecuación de infraestructura",
         "adecuacion de infraestructura", "construcción de sede", "construccion de sede",

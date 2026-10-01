@@ -38,8 +38,7 @@ window.SECTOR_TAXONOMY = {
     ],
     "compra_a": [
       "acero_metalmecanica",
-      "vehiculos_maquinaria",
-      "dotacion_mobiliario"
+      "vehiculos_maquinaria"
     ]
   },
   "agua_saneamiento": {

@@ -197,6 +197,14 @@
     return out.map(id => ({ id, name: taxonomy[id].name }));
   }
 
+  /** ¿El ganador sigue comprando insumos? Adjudicado hace 90 días o menos y contrato sin terminar. */
+  function stillBuying(item, now = new Date()) {
+    const awarded = toDate((item.fechas || {}).adjudicacion);
+    if (awarded && (now - awarded) / DAY_MS > 90) return false;
+    const end = item.contrato && toDate(item.contrato.fin_ejecucion);
+    return !(end && end < now);
+  }
+
   function matchOpportunity(profile, item, detected, now = new Date()) {
     const reasons = [];
     let score = 0;
@@ -208,8 +216,9 @@
       score += 40;
       reasons.push(`Sector: ${sharedSectors.map(s => s.name).join(', ')}`);
     }
-    // Un adjudicado de otro sector cuyo ganador suele comprar lo que ofreces: lead de suministro.
-    const buyerOf = !sharedSectors.length && stageOf(item) === 'adjudicado'
+    // Un adjudicado de otro sector cuyo ganador suele comprar lo que ofreces: lead de suministro,
+    // solo mientras sigue comprando (como nextStep: adjudicado hace 90 días o menos y sin terminar).
+    const buyerOf = !sharedSectors.length && stageOf(item) === 'adjudicado' && stillBuying(item, now)
       ? supplierSectors(item).filter(s => detectedIds.has(s.id))
       : [];
     if (buyerOf.length) {
