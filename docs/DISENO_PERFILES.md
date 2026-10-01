@@ -172,7 +172,7 @@ Puntaje de 0 a 100 por cada par perfil ↔ oportunidad.
 | Etapa según rol | hasta +10 | Proveedor: adjudicado 10, abierto 7, borrador 6. Contratista y consultor: abierto o borrador 9–10, adjudicado 3 |
 | **Tope** | máx. 35 | Si no comparte sector (ni es un ganador que puede comprarte), la afinidad nunca es alta aunque coincidan zona y ticket |
 
-**Umbral de "Para Ti": 55.** Por diseño, sin sector compartido ni relación de compra es imposible llegar a ese umbral. Efecto medido con los datos del repositorio del 2026-10-01: un perfil de acero, nacional y sin ticket, pasa de 21 a 109 oportunidades en "Para Ti"; 88 entran como "el ganador puede comprarte". Las coincidencias directas de sector siguen arriba, porque suman 40 y materiales.
+**Umbral de "Para Ti": 55.** Por diseño, sin sector compartido ni relación de compra es imposible llegar a ese umbral. Efecto medido con los datos del repositorio del 2026-10-01: un perfil de acero, nacional y sin ticket, pasa de 21 a 89 oportunidades en "Para Ti"; 68 entran como "el ganador puede comprarte". Las coincidencias directas de sector siguen arriba, porque suman 40 y materiales. El ganador solo cuenta mientras sigue comprando: adjudicado hace 90 días o menos y contrato sin terminar (`stillBuying`, el mismo corte que `nextStep`). Sin ese filtro eran 109. Decidido por Claude con el visto bueno del dueño ("go with your gut").
 
 **Ejemplo trabajado** (el caso de la prueba automatizada): un proveedor de acero en Antioquia con ticket de $200M–$1.000M, frente a un contrato adjudicado de $500M en Antioquia que pide "cerchas":
 `40 (sector) + 8 (1 material) + 15 (zona) + 15 (ticket) + 10 (adjudicado para proveedor) = 88%`.
