@@ -1,5 +1,22 @@
 [
   {
+    "generated_at": "2026-10-01T15:13:57Z",
+    "started_at": "2026-10-01T15:07:37Z",
+    "duracion_s": 380.3,
+    "procesos_consultados": 7125,
+    "curadas": 500,
+    "adjudicadas": 226,
+    "nuevas": 129,
+    "salieron": 133,
+    "nuevas_adjudicadas": 0,
+    "cruce_contratos": "ok",
+    "compras_planeadas": 80,
+    "fuentes_con_error": [],
+    "sin_clasificar": 1192,
+    "fuera_de_corte": 2333,
+    "taxonomia_version": 2
+  },
+  {
     "generated_at": "2026-09-30T21:25:49Z",
     "started_at": "2026-09-30T21:21:56Z",
     "duracion_s": 232.5,
