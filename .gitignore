@@ -45,3 +45,6 @@ out/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Caché local del hook de diseño de Impeccable (instalado global para Claude)
+.impeccable/

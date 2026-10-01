@@ -347,3 +347,35 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Push y PR de `pro/look-and-feel` (solo documentación), si el dueño lo aprueba.
   2. **9.6 (a):** corregir el contraste en los tokens de cada tema y agregar una prueba de humo que lo mida; volver a correr `npx impeccable detect` para comparar.
   3. **9.6 (b):** barra superior, tarjeta KPI y etiqueta de persona natural a 390 px. Después, 9.5 (1).
+
+## Estado de la sesión — 2026-10-01 (cierre final) · Claude Code · rama `pro/wrap-up`
+
+Este bloque reemplaza las "próximas acciones" de los bloques anteriores de esta fecha.
+
+- **Publicado en esta sesión** (con el visto bueno del dueño, CI en verde: python 3.11 y 3.14, node, e2e):
+  - PR #7, temas (9.2), fusionado como `ddfbc40`;
+  - PR #8, contraste (9.6 a) y la evaluación de 9.6, fusionado como `2cad7cf`.
+  - Ninguno necesita corrida del refresco.
+- **Sitio publicado:** verificado al inicio con los datos de `ebb63f3`. No se volvió a revisar después de PR #7 y PR #8: los temas y el contraste quedaron probados en local, con capturas y pruebas de humo.
+- **Terminado y con commit, sin publicar** (rama `pro/wrap-up`, desde `2cad7cf`): este bloque y el resumen de lo que sigue en `PLAN_ITERACIONES.md`. Push y PR los decide el dueño.
+- **Sin commit:** nada.
+- **Herramientas fuera del repositorio:** Impeccable está instalado global para Claude, con hooks `PostToolUse` y `Stop` en `~/.claude/settings.json`. Al cerrar cada respuesta, el hook `Stop` reporta 4 hallazgos previos en `style.css`, sin ignorar ninguno:
+  - 3 franjas laterales (`.action-banner`, `.next-step`, `.live-note`), que corresponden a 9.6 (c);
+  - la transición de `width` en `.strength-bar span`, de bajo costo.
+- **Errores abiertos conocidos:**
+  - A 390 px: barra superior en tres filas, tarjeta KPI en dos líneas y la etiqueta de persona natural cortada (9.6 b).
+  - El escaneo de escritorio de `impeccable detect` se corta por tiempo porque la página pinta todas las fichas (9.5, punto 1).
+  - `hidden.js` +12,1 % frente a la meta de 10 % (9.5, punto 6).
+  - Playwright emula `prefers-color-scheme: light`: las pruebas de humo sin tema corren en claro.
+  - Vienen de antes:
+    - la vista previa genérica al compartir;
+    - los límites de datos.gov.co `[POR VERIFICAR]`;
+    - "(0%)" en "Pipeline analizado";
+    - Tuluá `[POR VERIFICAR]`;
+    - "vigas";
+    - Prettier;
+    - el e2e del CI tardó 8 min en una corrida anterior; en esta sesión tardó 2 min 8 s en PR #7.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/wrap-up`, PR y fusión. Revisar los cuatro temas en el sitio publicado.
+  2. **9.6 (b):** compactar la barra superior a 390 px (por ejemplo, CSV solo con ícono), la tarjeta KPI y la etiqueta de persona natural. Medir con `npx impeccable detect --viewport 390x844` y agregar una prueba de humo a 390 px.
+  3. **9.5 (1):** pintar las fichas en páginas de unas 60, con "ver más", midiendo el tiempo de pintado antes y después. Luego, escanear el escritorio con el detector.
