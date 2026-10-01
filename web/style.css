@@ -2223,6 +2223,126 @@ body {
     flex-basis: 100%;
     padding: 0.5rem;
   }
+  /* El ícono y el texto de "Detalle" van en la misma línea. */
+  .card-actions .btn {
+    white-space: nowrap;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+}
+
+/* Móvil (9.6 b): la barra superior pasa de cuatro filas fijas (228 px a 390 px de ancho) a dos
+   que se desplazan con la página, y los KPI a una cuadrícula de 2 × 2. */
+@media (max-width: 560px) {
+  .navbar {
+    position: static;
+    padding: 0.75rem 1rem;
+    gap: 0.6rem;
+  }
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.6rem;
+  }
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.05rem;
+  }
+  .brand-title {
+    font-size: 1.15rem;
+  }
+  /* "Live SECOP II" es decorativo: la píldora de sincronización ya dice el estado real. */
+  .brand-badge {
+    display: none;
+  }
+  /* Fila 1: marca y cuenta. Fila 2: sincronización, tema y CSV. `display: contents` deja los
+     controles como hijos de la barra, y el ::after de ancho completo parte la línea. */
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .nav-actions {
+    display: contents;
+  }
+  .navbar::after {
+    content: '';
+    flex-basis: 100%;
+    order: 1;
+  }
+  .theme-picker,
+  #btnExportCsv {
+    order: 3;
+  }
+  .nav-actions .btn,
+  .theme-select {
+    padding: 0.45rem 0.6rem;
+  }
+  #btnExportCsv .btn-label {
+    display: none;
+  }
+  /* Base 0: si la base fuera el ancho del texto, la línea se partiría antes de encoger la píldora. */
+  .sync-pill {
+    order: 2;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.45rem 0.7rem;
+  }
+  #syncStatusText {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .account-area {
+    flex: 0 0 auto;
+  }
+
+  /* KPI: la cifra en pesos y el sector (que con un filtro muestra un nombre largo) ocupan cada
+     uno su fila; oportunidades y score van lado a lado, solo con título y cifra. `dense` sube
+     el score junto a oportunidades aunque en el HTML venga después del sector. */
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: row dense;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .kpi-card.kpi-amber {
+    grid-column: 1 / -1;
+  }
+  .kpi-amber .kpi-value {
+    white-space: normal;
+  }
+  /* Columna flexible: la cifra baja al pie, así las tres quedan alineadas aunque un título
+     ocupe tres líneas. */
+  .kpi-card {
+    padding: 0.75rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .kpi-card .kpi-value {
+    margin-top: auto;
+  }
+  .kpi-card.kpi-emerald {
+    grid-column: 1 / -1;
+  }
+  .kpi-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+  .kpi-value {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+  .kpi-emerald .kpi-value {
+    font-size: 1.4rem;
+  }
+  .kpi-sub {
+    font-size: 0.7rem;
+  }
+  .kpi-cyan .kpi-sub,
+  .kpi-violet .kpi-sub {
+    display: none;
+  }
 }
 
 /* ==========================================================

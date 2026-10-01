@@ -145,6 +145,47 @@ test('los filtros en uso se resaltan y "Limpiar filtros" dice cuántos hay', asy
   await expect(page.locator('#btnResetFilters')).toHaveText('Limpiar filtros');
 });
 
+for (const width of [390, 360]) {
+  test(`a ${width} px: barra en dos filas, KPI en una línea y sin desbordar`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await openDashboard(page);
+    const m = await page.evaluate(() => {
+      const box = sel => document.querySelector(sel).getBoundingClientRect();
+      const line = el => parseFloat(getComputedStyle(el).lineHeight) || el.getBoundingClientRect().height;
+      return {
+        scrollW: document.documentElement.scrollWidth,
+        navPosition: getComputedStyle(document.querySelector('.navbar')).position,
+        brandTop: box('.brand').top,
+        accountTop: box('#accountArea').top,
+        syncTop: box('#syncStatus').top,
+        csvTop: box('#btnExportCsv').top,
+        // Las cifras van en una línea; el sector puede ser un nombre largo y partirse, pero no desbordar.
+        kpiWrapped: [...document.querySelectorAll('.kpi-value')]
+          .filter(el => el.scrollWidth > el.clientWidth + 1 ||
+            (el.id !== 'kpiSectorValue' && el.getBoundingClientRect().height > line(el) * 1.5))
+          .map(el => el.textContent),
+        wrappedButtons: [...document.querySelectorAll('#cardsGrid .card-actions .btn')].slice(0, 20)
+          .filter(el => el.getBoundingClientRect().height > 60).length
+      };
+    });
+    expect(m.scrollW).toBe(width);
+    expect(m.navPosition).toBe('static');
+    // Fila 1: marca y cuenta; fila 2: sincronización y CSV, sin una tercera fila.
+    expect(Math.abs(m.brandTop - m.accountTop)).toBeLessThan(12);
+    expect(Math.abs(m.syncTop - m.csvTop)).toBeLessThan(12);
+    expect(m.syncTop).toBeGreaterThan(m.brandTop);
+    expect(m.kpiWrapped).toEqual([]);
+    expect(m.wrappedButtons).toBe(0);
+
+    // Con un sector filtrado, el KPI muestra su nombre (largo) y la página sigue sin desbordar.
+    const sector = await page.$eval('#sectorSelect optgroup option', o => o.value);
+    await page.selectOption('#sectorSelect', sector);
+    await expect(page.locator('#kpiSectorTitle')).toHaveText('Sector Filtrado');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
+    expect(await page.$eval('#kpiSectorValue', el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+  });
+}
+
 test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM', async ({ page }) => {
   await openDashboard(page);
   await expect(page.locator('#ageSelect option[value="30"]')).toHaveText(/^Adjudicado:/);

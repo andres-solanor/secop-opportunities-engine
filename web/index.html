@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=ef7a879e73">
+  <link rel="stylesheet" href="style.css?v=daaa14486e">
 </head>
 <body>
 
@@ -36,8 +36,8 @@
         <span class="visually-hidden">Tema</span>
         <select id="themeSelect" class="filter-select theme-select" aria-label="Tema"></select>
       </label>
-      <button class="btn btn-outline" id="btnExportCsv">
-        <span>📥</span> Exportar CSV
+      <button class="btn btn-outline" id="btnExportCsv" aria-label="Exportar CSV" title="Exportar CSV">
+        <span aria-hidden="true">📥</span> <span class="btn-label">Exportar CSV</span>
       </button>
       <button class="sync-pill" id="syncStatus" type="button" title="Estado de la sincronización con SECOP II">
         <span class="sync-dot"></span><span id="syncStatusText">SECOP II</span>
