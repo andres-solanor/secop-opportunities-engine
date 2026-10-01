@@ -493,6 +493,30 @@ body {
   border-color: var(--accent-cyan);
 }
 
+/* Filtro en uso (app.js: markActiveFilters): borde doble y fondo teñido con el acento,
+   para saber de un vistazo qué filtros están recortando la lista. El texto conserva su
+   color, así el contraste es el mismo que en reposo. El padding baja 1px para que el
+   borde de 2px no mueva la barra. */
+.filter-select.is-active,
+.input-search.is-active {
+  border: 2px solid var(--accent-cyan);
+  background: rgba(var(--rgb-cyan), 0.12);
+  font-weight: 600;
+}
+
+.filter-select.is-active {
+  padding: calc(0.7rem - 1px) calc(1rem - 1px);
+}
+
+.input-search.is-active {
+  padding: calc(0.7rem - 1px) calc(1rem - 1px) calc(0.7rem - 1px) calc(2.6rem - 1px);
+}
+
+.btn.is-active {
+  border-color: var(--accent-cyan);
+  background: rgba(var(--rgb-cyan), 0.12);
+}
+
 .filter-select option {
   background: var(--surface-solid);
   color: var(--text-primary);

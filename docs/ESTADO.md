@@ -379,3 +379,29 @@ Este bloque reemplaza las "próximas acciones" de los bloques anteriores de esta
   1. Con el visto bueno del dueño: push de `pro/wrap-up`, PR y fusión. Revisar los cuatro temas en el sitio publicado.
   2. **9.6 (b):** compactar la barra superior a 390 px (por ejemplo, CSV solo con ícono), la tarjeta KPI y la etiqueta de persona natural. Medir con `npx impeccable detect --viewport 390x844` y agregar una prueba de humo a 390 px.
   3. **9.5 (1):** pintar las fichas en páginas de unas 60, con "ver más", midiendo el tiempo de pintado antes y después. Luego, escanear el escritorio con el detector.
+
+## Estado de la sesión — 2026-10-01 (tarde) · Claude Code · rama `pro/favicon-390`
+
+Este bloque reemplaza las "próximas acciones" de los bloques anteriores.
+
+- **Al empezar:** `pro/wrap-up` ya estaba fusionada en `main` (PR #9, `893b631`). La rama `pro/favicon-390` sale de ahí.
+- **Terminado y con commit, sin publicar:**
+  - `f54091d`, favicon y resaltado de los filtros en uso (pedido del dueño):
+    - Favicon: `web/favicon.svg`, enlazado desde `web/index.html` y desde la redirección de la raíz. `stamp_assets` ahora también sella los `.svg`.
+    - Filtros: cada filtro fuera de su valor por defecto queda con borde de 2 px y fondo teñido. El botón muestra "Limpiar filtros (n)". La lógica está en `DashboardEngine.activeFilters`.
+    - Verificado: ruff (con `uvx ruff`, porque `ruff` no está en el PATH de esta máquina); 124 pruebas Python; ESLint; 63 Node; 23 de 23 de humo. Capturas en oscuro, claro y Matrix: el resaltado se ve en los tres y el favicon responde 200 `image/svg+xml`.
+  - Commit de documentación: la sesión de co-creación, en la sección "Visión y prioridades" de `PLAN_ITERACIONES.md`, y este bloque.
+- **Decisiones del dueño en la sesión:**
+  - El tablero es un módulo del motor de conexiones (prototipo en otro código).
+  - Segmentos: la firma de abogados, quienes estructuran proyectos con el Estado (en descubrimiento) y el dueño con sus aliados.
+  - Primero gratis y cobrar después.
+  - Fase A: pulido, datos y dos demos (la firma y "de ganadores a proveedores"). Después, backend; luego, IA.
+  - El dueño entregará el `GOOGLE_CLIENT_ID` real.
+  - Backend: Hostinger Empresarial o Supabase, sin decidir. Se decide con una exploración de un día.
+- **Sin commit:** nada.
+- **Hook de Impeccable:** reporta 3 `dark-glow` previos, del cian en `box-shadow` de `style.css`, como el foco de `.input-search`. No son de este cambio. Quedan para 9.6 (c), sin ignorarlos.
+- **Errores abiertos conocidos:** los del bloque anterior, salvo los que pasan a la tarea A3 del plan.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/favicon-390`, PR y fusión si el CI pasa.
+  2. **A1 = 9.6 (b):** móvil a 390 px, con prueba de humo.
+  3. **A2 = 9.5 (1):** fichas en páginas. Después, A3 a A7 en el orden del plan (las demos son A6 y A7).

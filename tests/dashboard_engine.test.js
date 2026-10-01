@@ -171,6 +171,19 @@ test('"Otros: sin sector" excluye los seguros y "Otros: seguros" solo los incluy
   assert.ok(D.isOtherSector(D.SEGUROS) && D.isOtherSector(D.SIN_CLASIFICAR) && !D.isOtherSector('obra_civil_general'));
 });
 
+test('activeFilters devuelve solo los controles que se apartan de su valor por defecto', () => {
+  const controls = [
+    { id: 'searchInput', value: '   ', defaultValue: '' },
+    { id: 'sectorSelect', value: 'salud', defaultValue: 'todos' },
+    { id: 'stageSelect', value: 'todos', defaultValue: 'todos' },
+    { id: 'budgetSelect', value: '500000000', defaultValue: '0' },
+    { id: 'sortSelect', value: 'relevancia', defaultValue: 'relevancia' }
+  ];
+  assert.deepStrictEqual(D.activeFilters(controls), ['sectorSelect', 'budgetSelect']);
+  assert.deepStrictEqual(D.activeFilters([{ id: 'searchInput', value: ' vías ', defaultValue: '' }]), ['searchInput']);
+  assert.deepStrictEqual(D.activeFilters(undefined), []);
+});
+
 test('"Otros" en Radar y Observatorio: solo sin sector, repartidos como el tablero', () => {
   const hidden = [...HIDDEN, INSURANCE, AGREEMENT];
   assert.deepStrictEqual(D.otherItems(hidden, 'proveedores').map(i => i.id), ['H2']);
