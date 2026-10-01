@@ -50,6 +50,20 @@ class TestSecopEngine(unittest.TestCase):
         self.assertTrue(passes)
         self.assertIsNone(reason)
 
+    def test_noise_filter_accepts_minima_cuantia(self):
+        # SECOP II escribe la modalidad como "Mínima cuantía" (sin "Contratación"): antes se
+        # rechazaba toda como "modalidad no comercial" (2026-10-01).
+        for modality in ("Mínima cuantía", "Minima cuantia"):
+            record = {
+                "precio_base": "60000000",
+                "tipo_de_contrato": "Suministros",
+                "modalidad_de_contratacion": modality,
+                "codigo_principal_de_categoria": "V1.30111600",
+                "descripci_n_del_procedimiento": "Suministro de cemento y agregados",
+            }
+            passes, reason = self.noise_filter.evaluate(record)
+            self.assertTrue(passes, f"{modality}: {reason}")
+
     def test_scope_extractor_identifies_steel_vertical(self):
         record = {
             "id_del_proceso": "CO1.REQ.12345",

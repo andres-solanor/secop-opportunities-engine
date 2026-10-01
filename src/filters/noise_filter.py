@@ -60,8 +60,9 @@ class NoiseFilter:
         "concurso de meritos",
         "régimen especial",
         "regimen especial",
-        "contratación mínima cuantía",
-        "contratacion minima cuantia",
+        # SECOP II la publica como "Mínima cuantía", sin "Contratación" delante.
+        "mínima cuantía",
+        "minima cuantia",
     }
 
     BLOCKED_CONTRACT_TYPES = {
