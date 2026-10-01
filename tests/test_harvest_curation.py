@@ -595,6 +595,20 @@ class TestCuration(unittest.TestCase):
         self.assertNotIn("contratista", light)
         self.assertNotIn("fecha_adjudicacion", light)
 
+    def test_light_record_keeps_only_the_notice_uid_of_standard_urls(self):
+        from src.curation import SECOP_NOTICE_URL, compact_secop_url
+        self.assertEqual(compact_secop_url(SECOP_NOTICE_URL + "CO1.NTC.9621408"), {"notice_uid": "CO1.NTC.9621408"})
+        # Otra forma (la página de inicio de sesión de SECOP, que sí aparece en los datos) viaja completa.
+        login = "https://community.secop.gov.co/STS/Users/Login/Index"
+        self.assertEqual(compact_secop_url(login), {"url_secop": login})
+        self.assertEqual(compact_secop_url(SECOP_NOTICE_URL + "CO1.NTC.1&extra=1"), {"url_secop": SECOP_NOTICE_URL + "CO1.NTC.1&extra=1"})
+        self.assertEqual(compact_secop_url(None), {"url_secop": None})
+        item = ScopeExtractor().enrich(raw("A"))
+        item["url_secop"] = SECOP_NOTICE_URL + "CO1.NTC.5"
+        light = light_record(item, "fuera_de_corte")
+        self.assertEqual(light["notice_uid"], "CO1.NTC.5")
+        self.assertNotIn("url_secop", light)
+
     def test_light_record_of_awarded_carries_only_winner_and_date(self):
         item = ScopeExtractor().enrich(raw("A", "CO1.BDOS.7", adjudicado="Si", estado_del_procedimiento="Adjudicado",
                                            nombre_del_proveedor="CONSORCIO VIAS 2026"))

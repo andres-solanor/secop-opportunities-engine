@@ -164,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
       hiddenPayload = window.HIDDEN_DATA || null;
       hiddenLoad = hiddenPayload ? 'ready' : 'error';
       if (hiddenPayload) {
+        // hidden.js trae solo el noticeUID: se reconstruye la URL una vez, para fichas, detalle y CSV.
+        hiddenPayload.items.forEach(i => { i.url_secop = Dash.secopUrl(i); });
         Dash.hiddenFamilies(hiddenPayload.items).forEach(g => {
           const opt = document.createElement('option');
           opt.value = g.family;
