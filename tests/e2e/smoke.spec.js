@@ -343,6 +343,58 @@ test('"Fuera del tablero" está oculto por defecto y se abre con el interruptor'
   expect(errors.filter(e => !/hidden\.js|404/.test(e))).toEqual([]);
 });
 
+// Temas: el fondo de la página sale de --bg-main de cada tema en style.css.
+const THEME_CASES = [
+  { theme: 'light', background: 'rgb(244, 246, 251)' },
+  { theme: 'dark', background: 'rgb(9, 13, 22)' },
+  { theme: 'matrix', background: 'rgb(0, 0, 0)' }
+];
+
+for (const { theme, background } of THEME_CASES) {
+  test(`tema ${theme}: se elige en el selector, pinta las fichas y se recuerda al recargar`, async ({ page }) => {
+    const errors = await openDashboard(page);
+    await page.selectOption('#themeSelect', theme);
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe(background);
+    await expect(cards(page).first()).toBeVisible();
+    if (theme === 'matrix') {
+      expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toMatch(/monospace/);
+      expect(await page.evaluate(() => getComputedStyle(document.querySelector('.pulse-dot') || document.body).animationName)).toBe('none');
+    }
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+    await expect(page.locator('#themeSelect')).toHaveValue(theme);
+    expect(await page.evaluate(() => localStorage.getItem('secop_theme'))).toBe(theme);
+    expect(errors).toEqual([]);
+  });
+}
+
+test('tema del sistema: por defecto sigue al sistema operativo y cambia en vivo', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await openDashboard(page);
+  await expect(page.locator('#themeSelect')).toHaveValue('system');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+
+  // Un valor guardado inválido no rompe la página: vuelve a "sistema".
+  await page.evaluate(() => localStorage.setItem('secop_theme', 'neon'));
+  await page.reload();
+  await expect(page.locator('#themeSelect')).toHaveValue('system');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+});
+
+test('theme.js carga antes del CSS para que el tema no parpadee', async ({ page }) => {
+  await page.goto('/index.html');
+  const scriptFirst = await page.evaluate(() => {
+    const script = document.querySelector('head script[src^="theme.js"]');
+    const css = document.querySelector('head link[href^="style.css"]');
+    return !!(script && css && (script.compareDocumentPosition(css) & Node.DOCUMENT_POSITION_FOLLOWING));
+  });
+  expect(scriptFirst).toBe(true);
+});
+
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {
   await openDashboard(page);
   await page.click('#tabParaTi');

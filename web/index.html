@@ -11,10 +11,12 @@
   <meta property="og:title" content="Oportunidad de contratación pública · SECOP II">
   <meta property="og:description" content="Te compartieron una oportunidad de SECOP II: ábrela para ver valor, fechas, entidad y próximo paso.">
   <meta property="og:locale" content="es_CO">
+  <!-- Antes del CSS: pone el tema en <html> antes del primer pintado, para que no parpadee. -->
+  <script src="theme.js?v=f2cc244762"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4f194c9402">
+  <link rel="stylesheet" href="style.css?v=fa63562a11">
 </head>
 <body>
 
@@ -29,6 +31,10 @@
     </div>
 
     <div class="nav-actions">
+      <label class="theme-picker" title="Tema de la página">
+        <span class="visually-hidden">Tema</span>
+        <select id="themeSelect" class="filter-select theme-select" aria-label="Tema"></select>
+      </label>
       <button class="btn btn-outline" id="btnExportCsv">
         <span>📥</span> Exportar CSV
       </button>
