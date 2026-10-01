@@ -2326,7 +2326,7 @@ body {
     grid-column: 1 / -1;
   }
   .kpi-title {
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     letter-spacing: 0.03em;
   }
   .kpi-value {
