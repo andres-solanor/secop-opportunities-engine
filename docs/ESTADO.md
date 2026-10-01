@@ -318,3 +318,32 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Con el visto bueno del dueño: push de `pro/themes`, PR y fusión si el CI pasa. Luego, probar los cuatro temas en el sitio publicado y abrir un enlace `#op=` desde el celular.
   2. **9.5 (1):** pintar las fichas en páginas de unas 60, con "ver más" (`app.js` hoy pinta todas). Medir el tiempo de pintado antes y después.
   3. **9.5 (6) y (2):** `noticeUID` en vez de la URL en `hidden.js`, para volver a la meta de peso. Después, publicar toda la lista oculta (3976), midiendo el peso con `--out`.
+
+## Estado de la sesión — 2026-10-01 (madrugada) · Claude Code · rama `pro/look-and-feel`
+
+- **Publicado:** con el visto bueno del dueño, PR #7 (temas) pasó el CI (python 3.11 y 3.14, node, e2e) y se fusionó como `ddfbc40`. No necesita corrida del refresco.
+- **Terminado y con commit, sin publicar** (rama `pro/look-and-feel`, desde `ddfbc40`):
+  - `0f4b932`, iteración 9.6 en `PLAN_ITERACIONES.md` con la evaluación de Impeccable frente a Taste y el resultado del detector.
+  - Commit de documentación: este bloque.
+- **Probado, sin instalar nada en el repositorio:** `npx impeccable detect` sobre la web local a 390 px y sobre `style.css`. Las cifras están en `PLAN_ITERACIONES.md`, sección "Aspecto visual". El escaneo a 1280 px se cortó por tiempo (`Runtime.evaluate timed out`).
+- **Sin commit:** nada.
+- **Impeccable instalado global, solo para Claude** (decisión del dueño), sin nada en el repositorio:
+  - skill en `~/.claude/skills/impeccable` (motor v0.1.5, windows-x64) y 4 agentes `impeccable-*` en `~/.claude/agents`.
+  - Hooks en `~/.claude/settings.json`: `PostToolUse` sobre Edit y Write (5 s) y `Stop` (30 s), junto al hook `run_project_tests.py` que ya existía.
+  - El instalador con `--scope=global` igual escribió los hooks en un `.claude/settings.local.json` de la carpeta desde donde se corrió. Se movieron a mano y ese archivo se borró.
+  - Probado con una entrada simulada sobre `web/style.css`: el `Stop` devolvió los 4 hallazgos del CSS. El hook no revisa archivos fuera del proyecto.
+- **Pendiente de decisión del dueño:** aprobar 9.6 (b).
+- **Continuación, 9.6 (a) hecha** con el visto bueno del dueño: `c51a329`, contraste WCAG AA en los tres temas (detalle en el plan).
+  - Verificado: ruff; 123 pruebas Python; 62 Node (7 nuevas de contraste); ESLint; 22 de 22 de humo.
+  - Capturas a 1360 y 390 px sin desbordamiento.
+  - Los hooks de Impeccable corren en esta sesión: el `PostToolUse` respondió al editar `style.css`.
+  - Sin publicar: `pro/look-and-feel` (plan, estado y `c51a329`). Push, PR y fusión los decide el dueño. No hace falta corrida del refresco.
+  - **Próximas tres acciones (reemplazan las de arriba):**
+    1. Con el visto bueno del dueño: push de `pro/look-and-feel`, PR y fusión si el CI pasa.
+    2. **9.6 (b):** barra superior, tarjeta KPI y etiqueta de persona natural a 390 px.
+    3. **9.5 (1):** pintar las fichas en páginas de unas 60; el escaneo de escritorio del detector se corta por tiempo mientras no se haga.
+- **Errores abiertos conocidos:** los del bloque anterior. Además, 9.6 (a): texto atenuado a 3,8:1 y blanco sobre cian a 2,4:1 en el tema oscuro.
+- **Próximas tres acciones:**
+  1. Push y PR de `pro/look-and-feel` (solo documentación), si el dueño lo aprueba.
+  2. **9.6 (a):** corregir el contraste en los tokens de cada tema y agregar una prueba de humo que lo mida; volver a correr `npx impeccable detect` para comparar.
+  3. **9.6 (b):** barra superior, tarjeta KPI y etiqueta de persona natural a 390 px. Después, 9.5 (1).

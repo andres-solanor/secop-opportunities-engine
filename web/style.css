@@ -29,9 +29,10 @@
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  /* Contraste: tests/theme_contrast.test.js exige 4,5:1 (WCAG AA) en los tres temas. */
+  --text-muted: #7c8aa0;
   --text-soft: #cbd5e1;
-  --text-on-accent: #fff;
+  --text-on-accent: #04101e;
   --text-on-accent-strong: #04101e;
   --text-on-toast: #fff;
 
@@ -39,7 +40,7 @@
   --accent-cyan-deep: #0284c7;
   --accent-emerald: #10b981;
   --accent-amber: #f59e0b;
-  --accent-violet: #8b5cf6;
+  --accent-violet: #9d7bf7;
   --accent-rose: #f43f5e;
 
   /* Canales RGB de los acentos y de las capas, para las transparencias. */
@@ -94,22 +95,22 @@
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #64748b;
+  --text-muted: #586579;
   --text-soft: #334155;
   --text-on-accent: #fff;
   --text-on-accent-strong: #fff;
   --text-on-toast: #fff;
 
-  --accent-cyan: #0891b2;
-  --accent-cyan-deep: #0369a1;
-  --accent-emerald: #059669;
-  --accent-amber: #d97706;
+  --accent-cyan: #0e7490;
+  --accent-cyan-deep: #155e75;
+  --accent-emerald: #047857;
+  --accent-amber: #a84d08;
   --accent-violet: #7c3aed;
   --accent-rose: #e11d48;
 
-  --rgb-cyan: 8, 145, 178;
-  --rgb-emerald: 5, 150, 105;
-  --rgb-amber: 217, 119, 6;
+  --rgb-cyan: 14, 116, 144;
+  --rgb-emerald: 4, 120, 87;
+  --rgb-amber: 168, 77, 8;
   --rgb-violet: 124, 58, 237;
   --rgb-rose: 225, 29, 72;
   --rgb-slate: 100, 116, 139;
@@ -148,7 +149,7 @@
 
   --text-primary: #33ff66;
   --text-secondary: #22c55e;
-  --text-muted: #15803d;
+  --text-muted: #1fa34a;
   --text-soft: #4ade80;
   --text-on-accent: #000;
   --text-on-accent-strong: #000;

@@ -158,7 +158,7 @@ Pedido del dueño del 2026-10-01. Ya está hecho:
 - 9.0, GitHub Actions v7 (`27d6512`, PR #4);
 - 9.3, persona natural (`20511d9`, `46be449` y `f19a36f`, PR #5);
 - 9.4, fichas livianas y enlaces para compartir (`33c5ca1`, `471b339`, `4d85407` y `f1c9fb0`, PR #6);
-- 9.2, selector de tema (rama `pro/themes`).
+- 9.2, selector de tema (`26e4b55`, PR #7).
 
 Lo que sigue, en este orden:
 
@@ -170,6 +170,47 @@ Lo que sigue, en este orden:
 | 9.3 | ~~Persona natural~~ | M | **Hecho (2026-10-01):** la consulta se restringe a obra, suministros, compraventa, interventoría y consultoría, de 50 M o más ("Otro" y "Decreto 092" quedan fuera). El umbral es 12 %, elegido por el dueño viendo la tabla calculada. La web agrupa las modalidades como el filtro, así que "Régimen especial", con y sin ofertas, queda en 11,8 % y no se marca. No se marca lo adjudicado, porque ya no admite proponentes; el detalle sí muestra la cifra. En la corrida de prueba se marcaron 48 de 274 procesos del Observatorio y 5 de 80 del PAA. Diseño original: (1) Nueva fuente `perfil_proponente` en `open_sources.py`: una consulta agregada a `jbjy-vk9h` (modalidad × `tipodocproveedor`, últimos 12 meses), restringida a contratos parecidos al tablero (valor ≥ umbral, sin tipos de OPS; confirmar los valores con `probe_sources --valores`). Se publica en `meta.perfil_proponente` y se valida en `schema.py`. (2) Badge 👤 "Persona natural gana N%" cuando la modalidad supera un umbral de producto; proponer 20 % tras ver la tabla calculada y confirmarlo con el dueño. (3) Una opción en el filtro de modalidad: "Más accesibles a persona natural". (4) Una línea en el detalle. Es una observación del mercado, no un requisito legal: el pliego manda (RUP, experiencia). |
 | 9.4 | ~~Fichas livianas y enlaces para compartir~~ | M | **Hecho (2026-10-01), replanteado tras medir.** El diseño original copiaba muchos campos a cada registro; se cambió por tres niveles. (1) **Ficha:** solo lo que cambia la decisión. En los adjudicados ocultos se agregan `fecha_adjudicacion` y `contratista`, y se agregan `nit_entidad` e `id_portafolio`. (2) **Diccionario:** `window.ENTITY_STATS`, una entrada por entidad (225), que alimenta los badges de lo oculto y del PAA sin consultas nuevas. (3) **Detalle en vivo** (`web/secop-live.js`): contrato, ofertas y entidad se consultan en datos.gov.co al abrirlo. Contra SECOP II real coincidió con el cruce del pipeline y tardó de 2,0 a 2,5 s. Además: una sola estructura de ficha (`cardShell`), `data.js` en JSON compacto y enlace directo `#op=<id>` con botón 📤. Medido en la corrida de prueba: `data.js` bajó 22,4 % (2.192.037 → 1.701.219 B en la medición sin `id_portafolio`). `hidden.js` subió 12,1 % (1.297.446 → 1.454.148 B; gzip +29 KB), por encima de la meta de 10 %; `id_portafolio` es la mayor parte del aumento. Descartado por bajo valor: `plazo`, `fase` y `competencia` en lo oculto, y el mes de inicio, el valor de la vigencia y las vigencias futuras del PAA. |
 | 9.5 | Más datos visibles sin perder rendimiento | M | **Medido el 2026-10-01** sobre la corrida publicada `f0a549e`: 7125 descargados, 3284 clasificados, 500 en el tablero (15 %), 2333 fuera del corte, 898 sin sector y 745 convenios. `data.js` pesa 2.192.037 B (4,4 KB por registro; 284.702 B en gzip; 38 ms de carga en Node). `hidden.js` pesa 1.297.446 B (1500 registros; 188.275 B en gzip; 22 ms). Los sectores pequeños (Vehículos, Eventos y Acero con 21; HORECA y Salud con 22; Dotación con 26) agotan su oferta: subir de 500 agregaría sobre todo Obra civil, PAE, Agua e Interventoría. **Propuesta, en orden:** (1) Pintar las fichas en páginas (unas 60, con "ver más"); hoy `app.js` pinta todas. (2) Publicar en `hidden.js` toda la lista fuera del tablero (3976, sin el tope `HIDDEN_WEB_MAX = 1500`). Proporcionalmente serían unos 0,5 MB en gzip `[POR VERIFICAR con una corrida]`, y la lista solo se descarga al abrir la vista. Conviene después de 9.4. (3) Dejar de versionar los datos (GitHub Pages desde un artefacto del workflow; fila "Peso del repositorio" de la iteración 8). (4) Solo entonces, probar un tablero de 800 a 1000 registros completos, midiendo la duración de la corrida (hoy 380 s) y el peso. (5) **Separar ficha y detalle en el tablero:** lo que solo usa el detalle (`contrato`, salvo los 7 campos que leen los badges; `ofertas.proveedores`; `proveedores_top`; `entidades_top`) va a un `details.js` que se descarga al abrir el primer detalle. Medido el 2026-10-01: −33 % del JSON y −38 % en gzip en la carga inicial. Conviene junto con (4). (6) Para recortar `hidden.js`: guardar solo el `noticeUID` en vez de la URL completa de SECOP (la URL es el 13 % del archivo) y reconstruirla en la web. |
+| 9.6 | Aspecto visual: accesibilidad primero, identidad después | S + M | Pedido del dueño del 2026-10-01. Herramienta elegida: **Impeccable**; el razonamiento y las cifras están en la sección "Aspecto visual" debajo de esta tabla. Tres partes, en este orden: **(a) ~~Contraste~~ (S): hecho (2026-10-01, `c51a329`).** Solo cambian tokens de `:root`:
+  - oscuro: texto atenuado, texto del botón cian y violeta;
+  - claro: texto atenuado, cian, esmeralda y ámbar;
+  - Matrix: texto atenuado.
+
+  `tests/theme_contrast.test.js` mide desde `style.css` el texto, los acentos usados como texto y los botones de acento sobre fondo, ficha, recuadro y modal, y exige 4,5:1 en los tres temas. El detector bajó de 913 a 11 hallazgos de contraste; los 11 son muestras sobre desenfoque o degradado que, a ojo, se leen. **(b) Móvil (S, hacer):** los errores abiertos de 390 px: barra superior en tres filas, tarjeta KPI en dos líneas y la etiqueta de persona natural cortada (`/impeccable adapt`). **(c) Identidad visual (M, con tope de tiempo y decisión del dueño):** paleta, tipografía (Inter en el 99 % del texto), brillos de color, franjas laterales y puntos que pulsan. Primero `/impeccable critique` y una sola dirección visual propuesta con capturas; se construye solo si el dueño la aprueba. Fuera de alcance: animación con GSAP o librerías (la web no usa dependencias), y rediseñar el tema Matrix, que es negro puro a propósito. |
+
+**Aspecto visual (9.6): Impeccable o Taste.** Evaluado el 2026-10-01 con los README de los repositorios y una prueba del detector sobre la web local.
+
+- **Impeccable** (`pbakaus/impeccable`, Apache-2.0):
+  - Trabaja sobre código existente: `audit`, `critique`, `polish`, `adapt`, `harden`, `quieter`, `distill`.
+  - Trae un **detector determinista** (61 reglas, sin LLM ni clave de API): `npx impeccable detect <archivo|URL> [--viewport 390x844]`.
+  - Guarda el contexto del producto en `PRODUCT.md` y `DESIGN.md`.
+  - El instalador también agrega hooks al proyecto. Hay que decidir si va en el repositorio o global, porque el repositorio lo comparte Antigravity.
+- **Taste** (`leonxlnx/taste-skill`, MIT):
+  - Está pensado para landing pages y portafolios nuevos, con React, Tailwind y animación con GSAP.
+  - Su v2 es experimental.
+  - Su `redesign-skill` sí aplica a proyectos existentes, pero sin detector.
+  - Choca con dos reglas del repositorio: JavaScript sin dependencias y un tablero denso, no una landing page.
+- **Alternativa más liviana:** `frontend-design` de Anthropic, la base de la que partió Impeccable. Es solo guía, sin detector.
+
+**Resultado del detector** (web local con los datos del repositorio, a 390 × 844; los colores reportados son los del tema oscuro):
+- 2517 hallazgos, repetidos por cada ficha. Por regla:
+  - `ai-color-palette`: 1139 (cian sobre fondo oscuro, degradados cian).
+  - `low-contrast`: 913.
+  - `dark-glow`: 231 (sombras de color).
+  - `side-tab`: 230 (franjas de color en un costado).
+  - Una vez cada uno: Inter en el 99 % del texto, el punto que pulsa, el brillo radial del banner de perfil y mayúsculas en texto largo.
+- Pares de contraste:
+  - `#64748b` sobre `#101726`: 454 veces, 3,8:1.
+  - `#64748b` sobre `#0c111d`: 223 veces.
+  - Blanco sobre `#06b6d4` (botón "Pitch"): 227 veces, 2,4:1.
+  - WCAG AA pide 4,5:1.
+- Sobre `style.css`: 3 franjas laterales y 1 transición de `width`.
+- El escaneo de escritorio (1280 px) se cortó por tiempo: la página pinta todas las fichas, lo mismo que ataca 9.5 (1).
+- Los contrastes de 1,0:1 a 2,3:1 en el banner de perfil se miden sobre un degradado translúcido. Pueden ser falsos positivos: revisarlos a ojo.
+
+**¿Vale la pena?**
+- (a) y (b) sí: son accesibilidad y errores ya listados. Son baratos gracias a los tokens de 9.2.
+- (c) es en parte gusto. El "aspecto de IA" (neón cian, brillos) puede restar confianza ante una empresa pequeña que licita, pero no está medido.
+- El orden propone que la iteración 1 (backend), aún bloqueada por decisiones del dueño, no espere a (c). (c) va con tope de tiempo y solo tras aprobar una dirección.
 
 **Por qué persona natural apunta a la mínima cuantía y no a la menor cuantía.** La tabla viene de una consulta de solo lectura del 2026-10-01 a SECOP II Contratos (`jbjy-vk9h`). Cuenta los contratos firmados desde el 2026-01-01, sin "Prestación de servicios", y el porcentaje que ganó un proponente con cédula de ciudadanía:
 
