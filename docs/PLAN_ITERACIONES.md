@@ -158,9 +158,10 @@ Pedido del dueño del 2026-10-01. Ya está hecho:
 - 9.0, GitHub Actions v7 (`27d6512`, PR #4);
 - 9.3, persona natural (`20511d9`, `46be449` y `f19a36f`, PR #5);
 - 9.4, fichas livianas y enlaces para compartir (`33c5ca1`, `471b339`, `4d85407` y `f1c9fb0`, PR #6);
-- 9.2, selector de tema (`26e4b55`, PR #7).
+- 9.2, selector de tema (`26e4b55`, PR #7);
+- 9.6 (a), contraste WCAG AA en los tres temas (`c51a329`, PR #8).
 
-Lo que sigue, en este orden:
+Lo que sigue, en este orden: **9.6 (b)** (móvil, S), **9.5 (1)** (fichas en páginas, que también destraba el escaneo de escritorio del detector), **9.5 (6) y (2)** (`noticeUID` y toda la lista oculta) y, con aprobación del dueño, **9.6 (c)** (identidad visual). 9.1 sigue esperando una decisión del dueño con una corrida de `--out`.
 
 | # | Tarea | Talla | Detalle |
 |---|---|---|---|
