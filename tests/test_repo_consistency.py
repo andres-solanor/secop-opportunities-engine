@@ -45,6 +45,10 @@ class TestWorkflowMirror(unittest.TestCase):
         "actions/setup-python": 6,
         "actions/setup-node": 5,
         "actions/upload-artifact": 6,
+        # Verificado en el action.yml de cada versión (2026-10-01): deploy-pages v4 usa node20 y v5
+        # node24; upload-pages-artifact v4 usa upload-artifact v4 y v5 usa upload-artifact v7.
+        "actions/deploy-pages": 5,
+        "actions/upload-pages-artifact": 5,
     }
 
     def test_actions_run_on_node24(self):
@@ -59,6 +63,28 @@ class TestWorkflowMirror(unittest.TestCase):
                     f"{name}: {action}@v{major} corre en Node 20; usa v{self.NODE24_MAJORS[action]} o superior",
                 )
         self.assertTrue(found, "no se encontraron acciones en los workflows")
+
+
+class TestPagesDeploy(unittest.TestCase):
+    """El sitio se publica desde un artefacto: los datos no se versionan y el estado de la
+    corrida anterior se descarga del sitio publicado."""
+
+    WORKFLOW = os.path.join(WORKFLOWS_DIR, "daily_secop_refresh.yml")
+
+    def test_restores_every_state_file_the_pipeline_reads(self):
+        source = read(os.path.join(ROOT, "src", "export_prospects.py"))
+        state = set(re.findall(r'os\.path\.join\(state_dir, "([\w.]+)"\)', source))
+        if "os.path.join(state_dir, DATASET_JSON)" in source:
+            state.add("prospects.json")
+        self.assertGreaterEqual(len(state), 5, "no se encontraron los archivos de estado")
+        data_files = re.search(r"DATA_FILES: >-\n((?:\s{4}.+\n)+)", read(self.WORKFLOW)).group(1).split()
+        self.assertEqual(state - set(data_files), set(), "el workflow no restaura todo el estado")
+
+    def test_does_not_commit_data_to_main(self):
+        workflow = read(self.WORKFLOW)
+        self.assertNotIn("git push", workflow)
+        self.assertNotIn("contents: write", workflow)
+        self.assertIn("actions/deploy-pages@", workflow)
 
 
 class TestAssetVersions(unittest.TestCase):

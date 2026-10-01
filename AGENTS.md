@@ -18,9 +18,9 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
   | `Antigravity/oportunities-engine-pro` | Claude Code | `pro/*` |
 
   Ningún agente edita archivos en la carpeta del otro ni cambia de rama en ella.
-- **Actualiza antes de empezar.** `git fetch origin` y revisa si tu rama está detrás. `main` recibe un commit diario del bot de datos y puede recibir trabajo de sesiones de Claude en la nube.
+- **Actualiza antes de empezar.** `git fetch origin` y revisa si tu rama está detrás. `main` puede recibir trabajo de sesiones de Claude en la nube. Desde el 2026-10-01 el bot de datos ya no hace commits: publica en GitHub Pages.
 - **Nunca `git stash` / `git stash pop` a secas.** Los worktrees comparten una sola pila de stash y el otro agente puede sacar tu entrada. Usa un commit temporal `WIP:`.
-- **No edites a mano los archivos generados** (`web/data.js`, `web/taxonomy.js`, `data/*`). En una rama de trabajo tampoco se hace commit de datos regenerados: los publica el workflow diario en `main`.
+- **No edites a mano los archivos generados** (`web/data.js`, `web/taxonomy.js`, `data/*`). Tampoco se hace commit de datos regenerados (`web/data.js`, `web/hidden.js`, `data/*`). Los del repositorio son una foto fija para pruebas y desarrollo local; los vigentes viven en el sitio publicado, que actualiza el workflow diario. `web/taxonomy.js` sí se versiona, porque cambia con `config/taxonomy.json`.
 - **Relevo por documento, no por memoria.** Al terminar una sesión, agrega un bloque `## Estado de la sesión` al final de `docs/ESTADO.md` (formato en ese archivo). Debe bastar para que el otro agente retome con solo leerlo.
 - **Una corrección, una prueba, un commit.** Corre las dos suites antes de dar algo por terminado.
 - **Subir cambios (`git push`) y abrir PR lo decide el dueño**, salvo la autorización permanente de Claude Code que está en `CLAUDE.md`. Los cambios en `.github/workflows/` requieren un token con alcance `workflow`.
@@ -60,7 +60,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |
 | `web/data.js`, `web/hidden.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data.js` va en JSON compacto y trae `window.ENTITY_STATS` (una entrada por NIT de entidad con las cifras que leen los badges); las fichas livianas y el PAA lo cruzan por `nit_entidad`. En `hidden.js`, solo los adjudicados llevan `fecha_adjudicacion` y `contratista`. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. `data/paa.json` y `data/perfil_proponente.json` se reutilizan si su fuente falla. |
-| `.github/workflows/daily_secop_refresh.yml` | Cron diario 11:00 UTC: corre las pruebas, luego el pipeline, y hace commit de datos. |
+| `.github/workflows/daily_secop_refresh.yml` | Publica el sitio en GitHub Pages desde un artefacto (fuente de Pages: "GitHub Actions"). El cron diario de las 11:00 UTC y el disparo manual corren las pruebas, descargan del sitio publicado el estado anterior (`DATA_FILES`), corren el pipeline y publican. Un push a `main` publica el código nuevo con los datos ya publicados, sin consultar SECOP. Si la descarga del estado falla, no publica: queda lo de ayer. No hace commits. Si un cambio de código necesita datos regenerados, dispara el workflow a mano después de fusionar. |
 | `.github/workflows/ci.yml` | En cada pull request y push a `main`: ruff, pruebas Python (3.11 y 3.14), ESLint, pruebas Node y pruebas de humo con Playwright. |
 | `ci/` | Copia de plantilla de los workflows (para tokens sin alcance `workflow`). Una prueba falla si difiere de `.github/workflows/`. |
 
@@ -74,7 +74,7 @@ npm run lint                             # ESLint
 npm test                                 # pruebas de los motores JS (Node 22+)
 npm run test:e2e                         # pruebas de humo en Chromium (npx playwright install chromium, una vez)
 python -m src.export_prospects --out out # corrida real de prueba sin tocar data/ ni web/
-python -m src.export_prospects           # refrescar datos del repositorio (lo hace el workflow diario)
+python -m src.export_prospects           # regenerar los datos locales (no se hace commit; el workflow diario publica en Pages)
 python -m src.tools.probe_sources --valores  # valores reales de las columnas que usan los filtros
 python -m src.tools.stamp_assets         # sellar versiones de JS/CSS tras cambiarlos
 python -m http.server 8000 --directory web   # servir la web en http://localhost:8000
