@@ -327,7 +327,12 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   - Commit de documentación: este bloque.
 - **Probado, sin instalar nada en el repositorio:** `npx impeccable detect` sobre la web local a 390 px y sobre `style.css`. Las cifras están en `PLAN_ITERACIONES.md`, sección "Aspecto visual". El escaneo a 1280 px se cortó por tiempo (`Runtime.evaluate timed out`).
 - **Sin commit:** nada.
-- **Pendiente de decisión del dueño:** instalar la skill Impeccable, en el proyecto (agrega hooks que también vería Antigravity) o global solo para Claude; y aprobar 9.6 (a) y (b).
+- **Impeccable instalado global, solo para Claude** (decisión del dueño), sin nada en el repositorio:
+  - skill en `~/.claude/skills/impeccable` (motor v0.1.5, windows-x64) y 4 agentes `impeccable-*` en `~/.claude/agents`.
+  - Hooks en `~/.claude/settings.json`: `PostToolUse` sobre Edit y Write (5 s) y `Stop` (30 s), junto al hook `run_project_tests.py` que ya existía.
+  - El instalador con `--scope=global` igual escribió los hooks en un `.claude/settings.local.json` de la carpeta desde donde se corrió. Se movieron a mano y ese archivo se borró.
+  - Probado con una entrada simulada sobre `web/style.css`: el `Stop` devolvió los 4 hallazgos del CSS. El hook no revisa archivos fuera del proyecto.
+- **Pendiente de decisión del dueño:** aprobar 9.6 (a) y (b).
 - **Errores abiertos conocidos:** los del bloque anterior. Además, 9.6 (a): texto atenuado a 3,8:1 y blanco sobre cian a 2,4:1 en el tema oscuro.
 - **Próximas tres acciones:**
   1. Push y PR de `pro/look-and-feel` (solo documentación), si el dueño lo aprueba.
