@@ -298,12 +298,15 @@
     const filteredSum = sum(filtered);
     const baselineSum = sum(baseline);
     const scored = filtered.filter(it => typeof it.score_calidad === 'number');
+    const pct = baselineSum > 0 ? Math.round((filteredSum / baselineSum) * 100) : null;
     return {
       count: filtered.length,
       baselineCount: baseline.length,
       sum: filteredSum,
       baselineSum,
-      pct: baselineSum > 0 ? Math.round((filteredSum / baselineSum) * 100) : null,
+      pct,
+      // Texto del porcentaje: una parte positiva que redondea a 0 se muestra "<1%", no "0%".
+      pctLabel: pct === null ? null : (pct === 0 && filteredSum > 0 ? '<1%' : `${pct}%`),
       avgScore: scored.length ? Math.round(scored.reduce((acc, it) => acc + it.score_calidad, 0) / scored.length) : null
     };
   }
