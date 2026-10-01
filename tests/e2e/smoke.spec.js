@@ -165,6 +165,15 @@ test('el filtro de modalidad cuenta y filtra las fichas del Radar', async ({ pag
   await expectListed(page,before);
 });
 
+test('la búsqueda espera a que se deje de escribir y entonces filtra', async ({ page }) => {
+  await openDashboard(page);
+  const before = await listedCount(page);
+  // Se escribe tecla por tecla: mientras se escribe, la lista no se vuelve a pintar.
+  await page.locator('#searchInput').pressSequentially('zzzz-ninguna', { delay: 20 });
+  expect(await listedCount(page)).toBe(before);
+  await expect(page.locator('#cardsGrid .empty-state')).toBeVisible();
+});
+
 test('los filtros en uso se resaltan y "Limpiar filtros" dice cuántos hay', async ({ page }) => {
   await openDashboard(page);
   const active = () => page.$$eval('.filter-bar .is-active', els => els.map(e => e.id));
@@ -173,8 +182,9 @@ test('los filtros en uso se resaltan y "Limpiar filtros" dice cuántos hay', asy
 
   await page.selectOption('#budgetSelect', '500000000');
   await page.fill('#searchInput', 'obra');
-  expect((await active()).sort()).toEqual(['budgetSelect', 'searchInput']);
+  // La búsqueda se aplica al dejar de escribir (SEARCH_DEBOUNCE_MS): primero se espera el conteo.
   await expect(page.locator('#btnResetFilters')).toHaveText('Limpiar filtros (2)');
+  expect((await active()).sort()).toEqual(['budgetSelect', 'searchInput']);
   await expect(page.locator('#btnResetFilters')).toHaveClass(/is-active/);
   // El resaltado se ve: el borde del filtro activo no es el de reposo.
   const border = id => page.$eval(id, el => getComputedStyle(el).borderColor);

@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let onlyNew = false;
   // Fichas en páginas (DashboardEngine.PAGE_SIZE): el límite vuelve a una página cuando cambia
   // la pestaña o un filtro (pageKey), y "Ver más" lo sube. listItems es la lista completa filtrada.
+  const SEARCH_DEBOUNCE_MS = 200;
   let pageLimit = Dash.PAGE_SIZE;
   let pageKey = '';
   let listItems = [];
@@ -212,8 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter input listeners
-  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect, modalitySelect, ageSelect].forEach(el => {
+  [sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect, modalitySelect, ageSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
+  });
+  // La búsqueda espera a que se deje de escribir: con 5000 procesos fuera del tablero, filtrar en
+  // cada tecla tardaba 0,76 s en un teléfono de gama media (CPU 4x más lenta).
+  let searchTimer = null;
+  searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(renderView, SEARCH_DEBOUNCE_MS);
   });
   sectorSelect.addEventListener('input', () => {
     if (Dash.isOtherSector(sectorSelect.value)) loadHidden();
