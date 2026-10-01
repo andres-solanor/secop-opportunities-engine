@@ -294,3 +294,27 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. Con el visto bueno del dueño: push de `pro/lean-cards`, PR, fusión si el CI pasa y una corrida del refresco. Luego, verificar en el sitio publicado el ganador en lo oculto, el detalle en vivo y un enlace `#op=` abierto desde otro dispositivo.
   2. **9.2**, temas: claro, oscuro, sistema y Matrix.
   3. **9.5**, volumen: paginar las fichas, toda la lista oculta, sacar los datos de git, separar ficha y detalle, y `noticeUID`.
+
+## Estado de la sesión — 2026-10-01 (cierre de la noche) · Claude Code · rama `pro/themes`
+
+- **Publicado antes de este bloque:** PR #6 (`pro/lean-cards`) fusionado como `0f070dd`; después corrió el refresco `ebb63f3` (2026-10-01 18:13 UTC). En ese commit, `hidden.js` trae 1500 fichas con `id_portafolio` y 530 con `contratista`, y `data.js` trae `window.ENTITY_STATS` (225 entidades, leído en el sitio publicado).
+- **Verificado en el sitio publicado** (`https://andres-solanor.github.io/secop-opportunities-engine/web/`), en Chrome de escritorio:
+  - el enlace `#op=CO1.REQ.11080376`, un adjudicado fuera del tablero, abrió su detalle;
+  - el detalle mostró el ganador ("EMPRESA DE DESARROLLO URBANO DE MEDELLIN"), la fecha de adjudicación y "Datos consultados en vivo en SECOP II";
+  - sin errores de consola.
+  - **No verificado:** abrir el enlace desde otro dispositivo.
+- **Terminado y con commit, sin publicar** (rama `pro/themes`, desde `origin/main` `ebb63f3`):
+  - `26e4b55`, 9.2, selector de tema: sistema, claro, oscuro y Matrix. Detalle en la fila 9.2 de `PLAN_ITERACIONES.md`, y `theme.js` y `secop_theme` en `AGENTS.md`.
+  - Commit de documentación: este bloque y el plan.
+- **Verificado:** ruff (con `uvx ruff`: no está instalado en el Python del sistema); 123 pruebas Python; 55 pruebas Node (3 nuevas); ESLint; 22 de 22 pruebas de humo (5 nuevas). Capturas con Playwright de los tres temas a 1360 y 390 px (tablero, Observatorio y detalle): sin desbordamiento horizontal, y el oscuro se ve igual que antes.
+- **Sin commit:** nada.
+- **Sin publicar:** `pro/themes`. Push, PR y fusión los decide el dueño. No hace falta corrida del refresco: solo cambian JS, CSS y HTML.
+- **Errores abiertos conocidos:**
+  - A 390 px la barra superior ocupa tres filas: tema y CSV; sincronización; sesión. Ya se partía antes del selector. Se podría compactar, por ejemplo con el CSV solo como ícono en móvil.
+  - Matrix: el texto atenuado (`--text-muted` `#15803d`) se lee, pero con poco contraste sobre negro. No está medido.
+  - Playwright emula por defecto `prefers-color-scheme: light`. Desde ahora, las pruebas de humo que no eligen tema corren en el tema claro.
+  - Vienen de antes: `hidden.js` +12,1 % frente a la meta de 10 %; la vista previa genérica al compartir; los límites de datos.gov.co `[POR VERIFICAR]`; la etiqueta de persona natural cortada; "(0%)" en "Pipeline analizado"; Tuluá `[POR VERIFICAR]`; la tarjeta KPI en 2 líneas a 390 px; "vigas"; Prettier; el e2e del CI en 8 min.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/themes`, PR y fusión si el CI pasa. Luego, probar los cuatro temas en el sitio publicado y abrir un enlace `#op=` desde el celular.
+  2. **9.5 (1):** pintar las fichas en páginas de unas 60, con "ver más" (`app.js` hoy pinta todas). Medir el tiempo de pintado antes y después.
+  3. **9.5 (6) y (2):** `noticeUID` en vez de la URL en `hidden.js`, para volver a la meta de peso. Después, publicar toda la lista oculta (3976), midiendo el peso con `--out`.
