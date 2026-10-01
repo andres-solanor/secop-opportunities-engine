@@ -82,6 +82,50 @@
     return MODALITIES.find(x => x.id === id).label;
   }
 
+  // ---------- Persona natural ----------
+  // Del perfil del proponente que publica el pipeline (meta.perfil_proponente): por modalidad,
+  // qué parte de los contratos parecidos a los del tablero la ganó una persona natural.
+  // Umbral elegido por el dueño el 2026-10-01 viendo la tabla calculada (mínima cuantía 18,8 %,
+  // subasta 14,7 %, menor cuantía 14,3 %, régimen especial 12,8 %, licitación < 5 %).
+  const PERSONA_NATURAL = 'persona_natural';
+  const PERSONA_NATURAL_MIN_PCT = 12;
+  const PROFILE_MIN_CONTRACTS = 100; // con menos contratos con dato, el porcentaje no es estable
+
+  /** { idModalidad: { pct, natural, juridica, contratos } }; las filas se agrupan como el filtro. */
+  function bidderShares(profile) {
+    const acc = {};
+    ((profile && profile.modalidades) || []).forEach(row => {
+      const id = modalityOf({ modalidad: row.modalidad });
+      if (id === 'otra' || id === 'sin_dato') return;
+      const a = acc[id] || (acc[id] = { natural: 0, juridica: 0 });
+      a.natural += row.persona_natural || 0;
+      a.juridica += row.juridica || 0;
+    });
+    const out = {};
+    Object.entries(acc).forEach(([id, a]) => {
+      const known = a.natural + a.juridica;
+      if (known >= PROFILE_MIN_CONTRACTS) {
+        out[id] = { pct: Math.round((a.natural / known) * 1000) / 10, natural: a.natural, juridica: a.juridica, contratos: known };
+      }
+    });
+    return out;
+  }
+
+  /** La cifra de la modalidad de la oportunidad, o null si no hay dato suficiente. */
+  function personaNaturalShare(shares, item) {
+    return (shares && shares[modalityOf(item)]) || null;
+  }
+
+  /**
+   * La cifra si la modalidad supera el umbral (para el badge y el filtro); si no, null.
+   * Un adjudicado ya no admite proponentes: no se marca (el detalle sigue mostrando la cifra).
+   */
+  function personaNaturalFriendly(shares, item) {
+    if (isAwarded(item)) return null;
+    const share = personaNaturalShare(shares, item);
+    return share && share.pct >= PERSONA_NATURAL_MIN_PCT ? share : null;
+  }
+
   function modalityCounts(items) {
     const counts = {};
     items.forEach(item => {
@@ -178,8 +222,9 @@
 
   /**
    * Filtros del usuario. `filters`: { query, sector, stage, minBudget, department, onlyNew,
-   * modality, age, now }. Los campos ausentes o en su valor neutro ('todos', 'todas', 0, '')
-   * no filtran. `now` solo existe para las pruebas.
+   * modality, age, bidderShares, now }. Los campos ausentes o en su valor neutro ('todos',
+   * 'todas', 0, '') no filtran. `modality: 'persona_natural'` usa `bidderShares` (bidderShares()).
+   * `now` solo existe para las pruebas.
    */
   function applyFilters(items, filters = {}) {
     const query = (filters.query || '').toLowerCase().trim();
@@ -194,7 +239,9 @@
       if (query && !searchCorpus(item).includes(query)) return false;
       if (!matchesSector(item, sector)) return false;
       if (!matchesStage(item, filters.stage)) return false;
-      if (modality !== 'todas' && modalityOf(item) !== modality) return false;
+      if (modality === PERSONA_NATURAL) {
+        if (!personaNaturalFriendly(filters.bidderShares, item)) return false;
+      } else if (modality !== 'todas' && modalityOf(item) !== modality) return false;
       if (!matchesAge(item, filters.age, now)) return false;
       const value = item.precio != null ? item.precio : item.valor;
       if (minBudget > 0 && (value || 0) < minBudget) return false;
@@ -366,6 +413,11 @@
     modalityOf,
     modalityLabel,
     modalityCounts,
+    PERSONA_NATURAL,
+    PERSONA_NATURAL_MIN_PCT,
+    bidderShares,
+    personaNaturalShare,
+    personaNaturalFriendly,
     stateDate,
     ageOptions,
     matchesAge,

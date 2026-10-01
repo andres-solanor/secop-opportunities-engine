@@ -274,9 +274,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         previous_paa=load_json(os.path.join(state_dir, "paa.json"), []),
         history_fn=lambda nits: enricher.fetch_contractor_history(nits),
         paa_client=SocrataClient(timeout=120),
+        previous_profile=load_json(os.path.join(state_dir, "perfil_proponente.json"), None),
     )
     open_sources.enrich(prospects)
     paa = open_sources.paa()
+    bidder_profile = open_sources.bidder_profile()
 
     # 5. Estado de la sincronización: nuevas (nunca vistas), salidas, nuevas adjudicadas e historial.
     # Si cambió la taxonomía, lo que entra al tablero solo por tener sector nuevo no es "nueva".
@@ -290,7 +292,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                       enricher.summary, history,
                       extra_sources=open_sources.summary, paa_count=len(paa),
                       queries=harvested["consultas"], funnel=counts,
-                      taxonomy_version=version, reclassified=reclassified)
+                      taxonomy_version=version, reclassified=reclassified,
+                      bidder_profile=bidder_profile)
     log.info("[*] Sincronización: %d nuevas, %d salieron, %d pasaron a adjudicadas, cruce de contratos: %s.",
              meta["nuevas"], meta["salieron"], meta["nuevas_adjudicadas"], meta["cruce_contratos"])
 
@@ -310,6 +313,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     save_json(os.path.join(data_dir, "paa.json"), paa)
+    if bidder_profile:
+        save_json(os.path.join(data_dir, "perfil_proponente.json"), bidder_profile)
     save_json(os.path.join(data_dir, "seen_ids.json"), seen)
     save_json(os.path.join(data_dir, "sync_history.json"), meta["historial"])
     export_dataset(prospects, data_dir, web_dir, meta, paa)

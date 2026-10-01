@@ -194,3 +194,55 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly
   1. **9.0, antes del 2026-10-19:** actualizar las GitHub Actions en `.github/workflows/` y en `ci/`. Las versiones están `[POR VERIFICAR]` en sus páginas de releases. El push requiere un token con alcance `workflow`.
   2. **9.3, persona natural:** una consulta agregada a `jbjy-vk9h`, `meta.perfil_proponente`, el badge y una opción en el filtro de modalidad. El umbral se confirma con el dueño viendo la tabla calculada.
   3. **9.4, fichas del PAA y de lo oculto, y después 9.5, volumen.** 9.2 (temas) puede ir en paralelo.
+
+## Estado de la sesión — 2026-10-01 (continuación) · Claude Code · rama `pro/persona-natural`
+
+- **Terminado y publicado:**
+  - PR #4 (https://github.com/andres-solanor/secop-opportunities-engine/pull/4), fusionado como `120a533` con el visto bueno del dueño.
+  - Incluye `27d6512`: las GitHub Actions pasan a v7 (Node 24) en `.github/workflows/` y `ci/`, más una prueba que impide volver a versiones de Node 20.
+  - Antes de cambiar, revisé las notas de cada versión mayor: ninguna entrada que usamos cambió.
+  - El CI del PR pasó con v7, y las anotaciones de Node 20 desaparecieron. Solo queda el aviso informativo de Ubuntu 26.
+  - Python 3.11.16 y 3.14.8 tienen binarios para Ubuntu 26.04, según el manifiesto de `actions/python-versions`.
+- **Terminado y con commit, sin publicar** (rama `pro/persona-natural`, desde `120a533`):
+  - `20511d9`, pipeline: `OpenSourcesEnricher.bidder_profile` hace una consulta agregada a `jbjy-vk9h`.
+    - Cubre los últimos 12 meses, contratos de 50 M o más de obra, suministros, compraventa, interventoría y consultoría.
+    - Cuenta, por modalidad, cuántos ganó una persona natural, una empresa o alguien sin dato.
+    - Va en `meta.perfil_proponente`, se valida en `schema.py` y, si la fuente falla, se reutiliza `data/perfil_proponente.json`.
+  - `46be449`, web:
+    - `DashboardEngine.bidderShares` agrupa las modalidades como el filtro y exige 100 contratos con dato como mínimo.
+    - Umbral `PERSONA_NATURAL_MIN_PCT` = 12, elegido por el dueño.
+    - Badge "Persona natural gana N%", una opción en el filtro de modalidad y una sección "¿Quién gana en esta modalidad?" en el detalle.
+  - `f19a36f`, corrección tras ver datos reales: lo adjudicado no se marca (en el Radar marcaba 89 procesos en los que ya no se puede ofertar), y las fichas del PAA pintan el badge.
+  - Commit de documentación: este bloque, la iteración 9 actualizada y `AGENTS.md`.
+- **Corrida real** con `--out` a la carpeta temporal: código 0. Fuente `perfil_proponente` ok, 27.334 contratos agregados, 11 modalidades desde 2025-10-01.
+  - Porcentaje de persona natural:
+
+    | Modalidad | % |
+    |---|---:|
+    | Mínima cuantía | 18,9 |
+    | Subasta | 14,7 |
+    | Menor cuantía | 14,2 |
+    | Régimen especial (con y sin ofertas) | 11,8 |
+    | Concurso | 9,8 |
+    | Directa | 6,8 |
+    | Licitación | 4,2 |
+
+  - "Régimen especial" no se marca: por separado, la variante sin ofertas daba 12,8 % en la consulta exploratoria, pero la web la agrupa con la de ofertas.
+- **Verificado:**
+  - ruff; 121 pruebas Python; 43 pruebas Node; ESLint; 12 de 12 pruebas de humo, una nueva de persona natural que inyecta un perfil en `data.js`.
+  - En el navegador, sobre el sitio de la corrida, a 1360 y 390 px:
+    - Observatorio: 48 fichas y 48 badges.
+    - PAA: 5 fichas y 5 badges.
+    - Radar: 0 (opción oculta).
+    - El detalle muestra la cifra.
+    - Sin errores de consola ni desbordamiento.
+- **Incidente local:** un servidor de prueba mío quedó abierto en el puerto 8765 (el `pkill` no funciona en Windows), y Playwright lo reutilizó (`reuseExistingServer`). Se detuvo con `taskkill`; a partir de ahí los servidores se cierran por PID. El CI no se afecta, porque siempre arranca un servidor nuevo.
+- **Sin commit:** nada.
+- **Sin publicar:** `pro/persona-natural`. Push y PR los decide el dueño. Mientras no se fusione y corra el refresco diario, la web publicada no muestra el badge: los datos actuales no traen `perfil_proponente`.
+- **Errores abiertos conocidos:**
+  - Si se elige "Más accesibles a persona natural" y se cambia al Radar, el filtro queda en "(0)" con el mensaje de vacío. Es coherente con el filtro de sector, pero se puede mejorar.
+  - Vienen de antes: "(0%)" en la tarjeta "Pipeline analizado"; los adjudicados sin fecha en "Fuera del tablero"; la mínima cuantía de Tuluá `[POR VERIFICAR]`; la tarjeta KPI en 2 líneas a 390 px; "vigas"; Prettier.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: push de `pro/persona-natural`, PR, fusión si el CI pasa y una corrida del refresco diario para que el badge aparezca en la web publicada.
+  2. **9.4:** fichas y detalle del PAA y de "Fuera del tablero" como las del Observatorio. Agrega `fecha_adjudicacion` a `light_record`, lo que también arregla el filtro de tiempo en esa vista.
+  3. **9.2**, temas, o **9.5**, volumen, según prefiera el dueño.

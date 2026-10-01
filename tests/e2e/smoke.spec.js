@@ -144,6 +144,38 @@ test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM'
   await expect(cards(page)).toHaveCount(expected);
 });
 
+test('persona natural: opción del filtro, badge y línea en el detalle cuando hay perfil publicado', async ({ page }) => {
+  // Los datos del repositorio pueden no traer el perfil todavía: se agrega al final de data.js.
+  const profile = {
+    desde: '2025-10-01', valor_min: 50000000, tipos_contrato: ['Obra', 'Suministros'],
+    modalidades: [
+      { modalidad: 'Selección abreviada subasta inversa', persona_natural: 910, juridica: 5266, sin_dato: 177 },
+      { modalidad: 'Licitación pública', persona_natural: 12, juridica: 302, sin_dato: 54 }
+    ]
+  };
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    await route.fulfill({ response: res, body: `${body}\nwindow.PROSPECTS_META = Object.assign(window.PROSPECTS_META || {}, { perfil_proponente: ${JSON.stringify(profile)} });\n` });
+  });
+  await openDashboard(page);
+  // En el Radar todo está adjudicado: no se marca y la opción se oculta.
+  await expect(page.locator('#modalitySelect option[value="persona_natural"]')).toBeHidden();
+  await page.click('#tabObservatorio');
+  const expected = await page.evaluate(() => {
+    const D = window.DashboardEngine;
+    const shares = D.bidderShares(window.PROSPECTS_META.perfil_proponente);
+    return D.tabItems(window.PROSPECTS_DATA, 'observatorio').filter(i => D.personaNaturalFriendly(shares, i)).length;
+  });
+  expect(expected).toBeGreaterThan(0);
+  await expect(page.locator('#modalitySelect option[value="persona_natural"]')).toHaveText(new RegExp(`\\(${expected}\\)$`));
+  await page.selectOption('#modalitySelect', 'persona_natural');
+  await expect(cards(page)).toHaveCount(expected);
+  await page.locator('#cardsGrid .btn-detail').first().click();
+  await expect(page.locator('#modalBody')).toContainText('Persona natural gana 14,7%');
+  await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
+});
+
 test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) => {
   await openDashboard(page);
   await page.locator('#cardsGrid .btn-detail').first().click();

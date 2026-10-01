@@ -230,6 +230,53 @@ test('el filtro de modalidad y sus conteos', () => {
   assert.ok(!D.isFiltered({ modality: 'todas', age: 'todas' }));
 });
 
+// ---------- Persona natural ----------
+// Forma de meta.perfil_proponente (open_sources.fetch_bidder_profile).
+const PROFILE = {
+  desde: '2025-10-01',
+  modalidades: [
+    { modalidad: 'Mínima cuantía', persona_natural: 1019, juridica: 4391, sin_dato: 62 },
+    { modalidad: 'Contratación régimen especial', persona_natural: 305, juridica: 2073, sin_dato: 23 },
+    { modalidad: 'Contratación régimen especial (con ofertas)', persona_natural: 102, juridica: 962, sin_dato: 160 },
+    { modalidad: 'Licitación pública', persona_natural: 12, juridica: 302, sin_dato: 54 },
+    { modalidad: 'Licitación pública Obra Publica', persona_natural: 36, juridica: 806, sin_dato: 619 },
+    { modalidad: 'Concurso de méritos abierto', persona_natural: 5, juridica: 50, sin_dato: 0 }
+  ]
+};
+
+test('el perfil del proponente se agrupa como el filtro de modalidad', () => {
+  const shares = D.bidderShares(PROFILE);
+  assert.deepStrictEqual(shares.minima_cuantia, { pct: 18.8, natural: 1019, juridica: 4391, contratos: 5410 });
+  // Régimen especial con y sin ofertas se suman: (305 + 102) / (2378 + 1064).
+  assert.strictEqual(shares.regimen_especial.contratos, 3442);
+  assert.strictEqual(shares.regimen_especial.pct, 11.8);
+  // Licitación pública y de obra se suman; los desconocidos no cuentan en el porcentaje.
+  assert.strictEqual(shares.licitacion.contratos, 1156);
+  // Con menos de 100 contratos con dato no hay cifra.
+  assert.strictEqual(shares.concurso, undefined);
+  assert.deepStrictEqual(D.bidderShares(null), {});
+});
+
+test('el filtro "accesibles a persona natural" usa el umbral del motor', () => {
+  const shares = D.bidderShares(PROFILE);
+  const items = [
+    opp('PN1', { modalidad: 'Mínima cuantía' }),
+    opp('PN2', { modalidad: 'Licitación pública' }),
+    opp('PN3', { modalidad: 'Concurso de méritos abierto' })
+  ];
+  assert.strictEqual(D.PERSONA_NATURAL_MIN_PCT, 12);
+  assert.ok(D.personaNaturalFriendly(shares, items[0]));
+  assert.strictEqual(D.personaNaturalFriendly(shares, items[1]), null);
+  // Adjudicado: ya no se puede ofertar, no se marca; la cifra sigue disponible para el detalle.
+  const awarded = opp('PN4', { ...AWARDED, modalidad: 'Mínima cuantía' });
+  assert.strictEqual(D.personaNaturalFriendly(shares, awarded), null);
+  assert.ok(D.personaNaturalShare(shares, awarded));
+  // El PAA (sin etapa) sí se marca: es una compra futura.
+  assert.ok(D.personaNaturalFriendly(shares, { modalidad: 'MINIMA CUANTIA', anio: 2026, mes_esperado: 11 }));
+  assert.deepStrictEqual(D.applyFilters(items, { modality: D.PERSONA_NATURAL, bidderShares: shares }).map(i => i.id), ['PN1']);
+  assert.deepStrictEqual(D.applyFilters(items, { modality: D.PERSONA_NATURAL }), [], 'sin perfil publicado no se adivina');
+});
+
 // ---------- Tiempo ----------
 test('la fecha del filtro de tiempo es la del estado actual', () => {
   const awarded = opp('T1', { ...AWARDED, fechas: { publicacion: '2026-08-01T00:00:00', adjudicacion: '2026-09-28T00:00:00' } });

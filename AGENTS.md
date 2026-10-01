@@ -44,7 +44,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/schema.py` | Contrato de datos entre Python y la web. Se valida antes de escribir cualquier archivo. |
 | `src/enrichers/scope_extractor.py` | Clasifica por sector con la taxonomía (`ScopeExtractor.TAXONOMIES`), etapa comercial, score de calidad, precio (con `precio_ajustado` si se corrigió). |
 | `src/enrichers/contract_enricher.py` | Cruce con SECOP II Contratos (`jbjy-vk9h`): `contrato`, `historial_contratista`, `entidad_stats`. Promueve a adjudicados los procesos con contrato firmado. **Nunca** copia documentos, datos bancarios ni género. |
-| `src/enrichers/open_sources.py` | Fuentes abiertas gratuitas: ofertas por proceso (`wi7w-2nvm`), integrantes de consorcios (`ceth-n4bn`), sanciones SECOP I (`4n4q-k399`) y compras planeadas del PAA (`9sue-ezhx`, publicado como `window.PAA_DATA`). **Nunca** copia teléfonos, correos ni documentos de personas. |
+| `src/enrichers/open_sources.py` | Fuentes abiertas gratuitas: ofertas por proceso (`wi7w-2nvm`), integrantes de consorcios (`ceth-n4bn`), sanciones SECOP I (`4n4q-k399`) y compras planeadas del PAA (`9sue-ezhx`, publicado como `window.PAA_DATA`). Perfil del proponente (`meta.perfil_proponente`): una consulta agregada a `jbjy-vk9h` con los contratos por modalidad ganados por persona natural o por empresa; la web calcula el porcentaje y el umbral del badge (`DashboardEngine.PERSONA_NATURAL_MIN_PCT`). **Nunca** copia teléfonos, correos ni documentos de personas. |
 | `src/sync_status.py` | Estado de la sincronización: nuevas (nunca vistas, registro en `data/seen_ids.json`), salidas, nuevas adjudicadas, estado del cruce e historial (`data/sync_history.json`). Se publica como `window.PROSPECTS_META`. |
 | `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; también se puede correr con el workflow manual "Probe SECOP sources". Con `--valores` lista los valores reales de modalidad, estado, tipo y fase. |
 | `src/tools/stamp_assets.py` | Sella en `web/index.html` la versión (`?v=`) de cada JS y CSS según su contenido. |
@@ -56,7 +56,7 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `web/profile.js` | UI de perfiles: onboarding de 4 pasos, vista "Perfil de Oportunidades", banner, menú de cuenta. Expone `window.SecopProfile`. |
 | `web/auth.js` | Google Identity Services. Expone `window.SecopAuth`. Modo demo si no hay `GOOGLE_CLIENT_ID`. |
 | `web/config.js` | `window.APP_CONFIG.GOOGLE_CLIENT_ID` (público, no es secreto). |
-| `web/data.js`, `web/hidden.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. |
+| `web/data.js`, `web/hidden.js`, `web/taxonomy.js`, `data/*` | **Generados** por el pipeline. No editar a mano. `data/seen_ids.json` y `data/sync_history.json` persisten entre corridas: no borrarlos. `data/paa.json` y `data/perfil_proponente.json` se reutilizan si su fuente falla. |
 | `.github/workflows/daily_secop_refresh.yml` | Cron diario 11:00 UTC: corre las pruebas, luego el pipeline, y hace commit de datos. |
 | `.github/workflows/ci.yml` | En cada pull request y push a `main`: ruff, pruebas Python (3.11 y 3.14), ESLint, pruebas Node y pruebas de humo con Playwright. |
 | `ci/` | Copia de plantilla de los workflows (para tokens sin alcance `workflow`). Una prueba falla si difiere de `.github/workflows/`. |
