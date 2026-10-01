@@ -700,7 +700,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const total = sector === Dash.SEGUROS ? insurance : p.sin_sector - insurance;
       const loaded = p.items.filter(i => i.motivo === 'sin_sector' && Dash.matchesSector(i, sector)).length;
       const what = sector === Dash.SEGUROS ? 'seguros' : 'procesos sin sector';
-      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${what} en esta pestaña · <span class="freshness">no están en el tablero; la web carga una muestra de ${loaded} de ${total} (los de mayor puntaje)</span>`;
+      const sample = loaded < total ? `; la web carga una muestra de ${loaded} de ${total} (los de mayor puntaje)` : '';
+      resultsCount.innerHTML = `Mostrando <b>${items.length}</b> ${what} en esta pestaña · <span class="freshness">no están en el tablero${sample}</span>`;
     } else {
       const capped = p.total > p.items.length
         ? ` · la web carga ${p.items.length} de ${p.total}; el reporte completo está en <code>data/hidden_summary.md</code>`
