@@ -34,6 +34,16 @@
       .map(c => c.id);
   }
 
+  /** Prefijo de la URL pública de un proceso; la lista liviana (hidden.js) solo trae el noticeUID. */
+  const SECOP_NOTICE_URL = 'https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=';
+
+  /** URL del proceso en SECOP II: la completa si viene, o la reconstruida desde notice_uid. */
+  function secopUrl(item) {
+    if (!item) return '';
+    if (item.url_secop) return item.url_secop;
+    return item.notice_uid ? SECOP_NOTICE_URL + item.notice_uid : '';
+  }
+
   /** Fichas por página: el tablero pinta las primeras y un botón "Ver más" agrega las siguientes. */
   const PAGE_SIZE = 60;
 
@@ -473,6 +483,8 @@
     isInsurance,
     isOtherSector,
     activeFilters,
+    SECOP_NOTICE_URL,
+    secopUrl,
     PAGE_SIZE,
     pageInfo,
     limitToShow,

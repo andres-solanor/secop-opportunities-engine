@@ -145,6 +145,19 @@ def select_curated(
     return selected
 
 
+# La URL pública de un proceso de SECOP II solo cambia en el noticeUID. En la lista liviana se
+# guarda solo ese id (la URL completa era cerca del 10 % de hidden.js) y la web la reconstruye
+# con DashboardEngine.secopUrl. Una URL que no sigue el patrón viaja completa.
+SECOP_NOTICE_URL = "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID="
+NOTICE_UID = re.compile(r"^" + re.escape(SECOP_NOTICE_URL) + r"(CO1\.NTC\.\d+)$")
+
+
+def compact_secop_url(url: Any) -> Dict[str, Any]:
+    """{"notice_uid": "CO1.NTC.123"} si la URL sigue el patrón; si no, {"url_secop": url}."""
+    match = NOTICE_UID.match(url) if isinstance(url, str) else None
+    return {"notice_uid": match.group(1)} if match else {"url_secop": url}
+
+
 def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
     """Versión liviana de una oportunidad para la vista "fuera del tablero".
 
@@ -177,7 +190,7 @@ def light_record(item: Dict[str, Any], motivo: str) -> Dict[str, Any]:
         "fecha_publicacion": item.get("fecha_publicacion"),
         "cierre_ofertas": (item.get("fechas") or {}).get("cierre_ofertas"),
         "sectores": [{"id": s["id"], "name": s["name"]} for s in sectors],
-        "url_secop": item.get("url_secop"),
+        **compact_secop_url(item.get("url_secop")),
     }
     # Solo lo que cambia la decisión en una ficha liviana adjudicada: cuándo y quién ganó. Las
     # abiertas no llevan estas claves. El resto (contrato, ofertas, consorcio) se consulta en

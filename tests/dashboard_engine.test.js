@@ -194,6 +194,15 @@ test('activeFilters devuelve solo los controles que se apartan de su valor por d
   assert.deepStrictEqual(D.activeFilters(undefined), []);
 });
 
+test('secopUrl reconstruye la URL desde notice_uid y respeta una URL completa', () => {
+  assert.strictEqual(D.secopUrl({ notice_uid: 'CO1.NTC.9621408' }),
+    'https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9621408');
+  assert.strictEqual(D.secopUrl({ url_secop: 'https://community.secop.gov.co/STS/Users/Login/Index' }),
+    'https://community.secop.gov.co/STS/Users/Login/Index');
+  assert.strictEqual(D.secopUrl({}), '');
+  assert.strictEqual(D.secopUrl(null), '');
+});
+
 test('pageInfo y limitToShow: páginas de PAGE_SIZE fichas', () => {
   const P = D.PAGE_SIZE;
   assert.deepStrictEqual(D.pageInfo(0), { shown: 0, remaining: 0, next: 0 });
