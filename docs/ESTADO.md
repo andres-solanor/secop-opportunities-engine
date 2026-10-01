@@ -130,3 +130,36 @@ Plan de la sesión: `C:\Users\abner\.claude\plans\plan-to-do-the-mighty-peacock.
   3. Actualizar las versiones de las acciones de GitHub antes del cambio de runner del 2026-10-19. Las versiones nuevas están `[POR VERIFICAR]` en la documentación de cada acción. Cambiar también la copia en `ci/`: una prueba compara ambas.
   4. Calidad de sectores: Eventos (pocas coincidencias), "vigas" en Acero, compras planeadas de Agua; cada ajuste con su prueba y una muestra de 20 procesos.
   5. Deuda menor: Prettier, archivo de reglas de Antigravity, tarjeta KPI en una línea.
+
+## Estado de la sesión — 2026-10-01 · Claude Code · rama `pro/ux-filters`
+
+Plan de la sesión: `C:\Users\abner\.claude\plans\let-s-review-whats-next-bubbly-dongarra.md`. El dueño pidió entregar rápido lo crítico y dejar lo demás en la hoja de ruta, que quedó como iteración 9 de `docs/PLAN_ITERACIONES.md`.
+
+- **Terminado y con commit** (rama `pro/ux-filters`, creada desde `origin/main` `6462bdf`):
+  - `eb3ee21` Corrección: el filtro de ruido rechazaba toda la mínima cuantía. SECOP II publica la modalidad como "Mínima cuantía" y la lista solo tenía "contratación mínima cuantía". Incluye su prueba en `tests/test_engine.py`.
+  - `96e86ee` Dos filtros nuevos en la web:
+    - Modalidad: `DashboardEngine.MODALITIES`, con conteo por pestaña.
+    - Fecha del estado actual: adjudicación en el Radar, publicación en el Observatorio, mes esperado en el PAA. El texto cambia con la pestaña, el filtro se oculta en el CRM y el resultado dice cuántos quedan fuera por no tener fecha.
+    - Con pruebas en Node y dos pruebas de humo nuevas.
+  - Commit de documentación: iteración 9 en `PLAN_ITERACIONES.md` y este bloque.
+- **Cron diario** (diagnóstico de solo lectura): el workflow está activo. Las corridas programadas (cron 11:00 UTC) arrancaron a las 16:38, 16:47 y 18:26 UTC los días 30, 29 y 28 de septiembre. GitHub las retrasa de 5 a 7 horas, así que no está roto. A las 14:24 UTC del 2026-10-01 la de hoy aún no había corrido.
+- **Corrida real** con `--out` a la carpeta temporal de la sesión: código 0, 370 s.
+  - Embudo: 7125 descargados, 1678 rechazados, 1192 sin clasificar, 3284 clasificados, 500 en tablero.
+  - "Modalidad no comercial": 3 rechazados. En la meta publicada el 2026-09-30T21:25:49Z eran 467. Son días distintos, así que no es una comparación exacta.
+  - Mínima cuantía: 8 en el tablero (6 adjudicadas) y 127 en la muestra de `hidden.js`, todas `sin_sector`.
+  - `web/data.js` 2.257.424 B, `web/hidden.js` 1.297.618 B (1500 de 3976).
+  - Rara: una mínima cuantía de $6.800 millones (Tuluá, "CONVOCATORIA PÚBLICA 330.20.5.21-2026", suministro de energía). Ese valor supera de lejos el tope habitual de la modalidad; puede ser un error de la entidad en SECOP. `[POR VERIFICAR]` en el expediente.
+- **Verificado:**
+  - ruff sin hallazgos (con `uvx ruff`: en esta máquina `ruff` no está en el PATH); 117 pruebas Python; 40 pruebas Node; ESLint sin errores; 11 de 11 pruebas de humo.
+  - En el navegador, sobre el sitio de la corrida nueva, a 1360 y 390 px: en Radar, Observatorio y PAA, el conteo de cada opción de modalidad coincide con las fichas (21 de 21 casos por ancho). En el Radar, los filtros de tiempo suman: 202 en 90 días + 21 de más de 90 + 3 sin fecha = 226 adjudicadas. Sin errores de consola y sin desbordamiento horizontal.
+- **Sin commit:** nada. Los datos regenerados no se suben (regla de `AGENTS.md`); la mínima cuantía aparecerá en la web cuando corra el workflow diario en `main` después de fusionar.
+- **Sin publicar:** `pro/ux-filters` no tiene rama remota; el push y el PR los decide el dueño.
+- **Errores abiertos conocidos:**
+  - En "Fuera del tablero", los adjudicados no tienen fecha de adjudicación (no viene en `light_record`) y el filtro de tiempo los excluye. Se corrige en 9.4.
+  - Ninguna mínima cuantía por debajo de 50 M entra al tablero (`MIN_PRICE`). Ver 9.1.
+  - "Próximos 3 meses" del PAA es igual a "todo", porque el PAA ya trae solo los meses que faltan del año (octubre a diciembre).
+  - Vienen de antes: la tarjeta KPI ocupa 2 líneas en 390 px; "vigas"; Prettier; el archivo de reglas de Antigravity `[POR VERIFICAR]`.
+- **Próximas tres acciones:**
+  1. Con el visto bueno del dueño: `git push -u origin pro/ux-filters` y abrir el PR a `main`.
+  2. Iteración 9.0: actualizar las GitHub Actions en `.github/workflows/` y `ci/` **antes del 2026-10-19**. Las versiones están `[POR VERIFICAR]` en sus páginas de releases. El push requiere un token con alcance `workflow`.
+  3. Iteración 9.3 (persona natural) y luego 9.4 (fichas del PAA y de lo oculto), según `PLAN_ITERACIONES.md`. 9.2 (temas) puede ir en paralelo.

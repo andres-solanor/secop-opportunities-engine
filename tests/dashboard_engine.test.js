@@ -192,3 +192,76 @@ test('fuera del tablero: familias UNSPSC con conteo y valor', () => {
     { family: 'sin código', count: 1, value: 900e6 }
   ]);
 });
+
+// ---------- Modalidad ----------
+test('la modalidad se reconoce con los valores reales de SECOP II y del PAA', () => {
+  const cases = [
+    ['Selección abreviada subasta inversa', 'subasta'],
+    ['SELECCION ABREVIADA CON SUBASTA INVERSA', 'subasta'],
+    ['Licitación pública Obra Publica', 'licitacion'],
+    ['LICITACION PUBLICA (OBRA PUBLICA)', 'licitacion'],
+    ['Selección Abreviada de Menor Cuantía', 'menor_cuantia'],
+    ['Seleccion Abreviada Menor Cuantia Sin Manifestacion Interes', 'menor_cuantia'],
+    ['Mínima cuantía', 'minima_cuantia'],
+    ['Concurso de méritos abierto', 'concurso'],
+    ['Contratación régimen especial (con ofertas)', 'regimen_especial'],
+    ['Contratación Directa (con ofertas)', 'directa'],
+    ['Enajenación de bienes con subasta', 'otra'],
+    [null, 'sin_dato'],
+    ['No Definido', 'sin_dato']
+  ];
+  cases.forEach(([modalidad, id]) => assert.strictEqual(D.modalityOf({ modalidad }), id, String(modalidad)));
+  assert.strictEqual(D.modalityLabel({ modalidad: 'Selección abreviada subasta inversa' }), 'Subasta inversa');
+  assert.strictEqual(D.modalityLabel({ modalidad: 'Enajenación de bienes con subasta' }), 'Enajenación de bienes con subasta');
+  assert.strictEqual(D.modalityLabel({ modalidad: null }), '');
+});
+
+test('el filtro de modalidad y sus conteos', () => {
+  const items = [
+    opp('M1', { modalidad: 'Mínima cuantía' }),
+    opp('M2', { modalidad: 'Licitación pública' }),
+    opp('M3', { modalidad: 'Licitación pública Obra Publica' })
+  ];
+  assert.deepStrictEqual(D.applyFilters(items, { modality: 'licitacion' }).map(i => i.id), ['M2', 'M3']);
+  assert.deepStrictEqual(D.applyFilters(items, { modality: 'minima_cuantia' }).map(i => i.id), ['M1']);
+  assert.strictEqual(D.applyFilters(items, { modality: 'todas' }).length, 3);
+  assert.deepStrictEqual(D.modalityCounts(items), { minima_cuantia: 1, licitacion: 2 });
+  assert.ok(D.isFiltered({ modality: 'subasta' }));
+  assert.ok(!D.isFiltered({ modality: 'todas', age: 'todas' }));
+});
+
+// ---------- Tiempo ----------
+test('la fecha del filtro de tiempo es la del estado actual', () => {
+  const awarded = opp('T1', { ...AWARDED, fechas: { publicacion: '2026-08-01T00:00:00', adjudicacion: '2026-09-28T00:00:00' } });
+  const open = opp('T2', { fechas: { publicacion: '2026-09-20T00:00:00' } });
+  const light = opp('T3', { fecha_publicacion: '2026-09-25T00:00:00' });
+  const awardedNoDate = opp('T4', { ...AWARDED, fecha_publicacion: '2026-09-30T00:00:00' });
+  const planned = { id: 'P1', anio: 2026, mes_esperado: 11 };
+  assert.strictEqual(D.stateDate(awarded).getDate(), 28);
+  assert.strictEqual(D.stateDate(open).getDate(), 20);
+  assert.strictEqual(D.stateDate(light).getDate(), 25);
+  assert.strictEqual(D.stateDate(awardedNoDate), null, 'un adjudicado sin fecha de adjudicación no usa la de publicación');
+  assert.deepStrictEqual([D.stateDate(planned).getMonth(), D.stateDate(planned).getDate()], [10, 1]);
+  assert.strictEqual(D.countUndated([awarded, awardedNoDate]), 1);
+});
+
+test('el filtro de tiempo mira atrás en el tablero y adelante en el PAA', () => {
+  const now = new Date(2026, 9, 1, 10, 0); // 1 de octubre de 2026
+  const items = [
+    opp('A3', { fechas: { publicacion: '2026-09-28T00:00:00' } }), // hace 3 días
+    opp('A20', { fechas: { publicacion: '2026-09-11T00:00:00' } }), // hace 20 días
+    opp('A120', { fechas: { publicacion: '2026-06-03T00:00:00' } }), // hace 120 días
+    opp('SIN', {})
+  ];
+  const ids = age => D.applyFilters(items, { age, now }).map(i => i.id);
+  assert.deepStrictEqual(ids('7'), ['A3']);
+  assert.deepStrictEqual(ids('30'), ['A3', 'A20']);
+  assert.deepStrictEqual(ids('gt90'), ['A120']);
+  assert.deepStrictEqual(ids('todas'), ['A3', 'A20', 'A120', 'SIN']);
+
+  const paa = [10, 11, 12].map(m => ({ id: `P${m}`, anio: 2026, mes_esperado: m, sectores: [] }));
+  assert.deepStrictEqual(D.applyFilters(paa, { age: 'mes', now }).map(i => i.id), ['P10']);
+  assert.deepStrictEqual(D.applyFilters(paa, { age: '3m', now }).map(i => i.id), ['P10', 'P11', 'P12']);
+  assert.deepStrictEqual(D.ageOptions('paa').map(o => o.id), ['mes', '3m']);
+  assert.deepStrictEqual(D.ageOptions('crm'), []);
+});

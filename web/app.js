@@ -36,15 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const DAY_MS = 24 * 3600 * 1000;
   // Nota: las constantes usadas por las fichas deben declararse aquí, antes del primer renderView().
   const ACRONYMS = ['PAE', 'ESP', 'E.S.P.', 'SAS', 'S.A.S.', 'LED', 'SGR', 'SGP', 'IPS', 'ESE', 'ICBF', 'SENA', 'EPM', 'UT', 'BPIN', 'CDP', 'INVIAS', 'ANI', 'IE', 'PTAR', 'PTAP', 'SENA', 'EDU'];
-  const MODALITY_LABELS = [
-    ['licitacion publica', 'Licitación pública'],
-    ['menor cuantia', 'Menor cuantía'],
-    ['subasta', 'Subasta inversa'],
-    ['concurso de meritos', 'Concurso de méritos'],
-    ['minima cuantia', 'Mínima cuantía'],
-    ['contratacion directa', 'Contratación directa'],
-    ['regimen especial', 'Régimen especial']
-  ];
+  // Filtro de tiempo: la fecha que mide depende de la pestaña (DashboardEngine.stateDate).
+  const AGE_PREFIX = {
+    proveedores: 'Adjudicado',
+    observatorio: 'Publicado',
+    paa: 'Se publica',
+    parati: 'Último movimiento',
+    hidden: 'Último movimiento'
+  };
+  const modalityOptionEls = new Map(); // opciones del filtro de modalidad: id → { el, label }
+  let ageTab = null; // pestaña para la que se armaron las opciones del filtro de tiempo
 
   // Etiqueta de la ficha según la ventana real de participación (ProfileEngine.bidWindow).
   const STATE_LABELS = {
@@ -73,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const stageSelect = document.getElementById('stageSelect');
   const budgetSelect = document.getElementById('budgetSelect');
   const departmentSelect = document.getElementById('departmentSelect');
+  const modalitySelect = document.getElementById('modalitySelect');
+  const ageSelect = document.getElementById('ageSelect');
   const resultsCount = document.getElementById('resultsCount');
   const btnResetFilters = document.getElementById('btnResetFilters');
   const btnExportCsv = document.getElementById('btnExportCsv');
@@ -94,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize
   initSectors();
+  initModalities();
   initDepartments();
   applyHiddenVisibility();
   if (Profile && Profile.getProfile()) activateTab('parati');
@@ -187,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter input listeners
-  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect].forEach(el => {
+  [searchInput, sectorSelect, stageSelect, budgetSelect, departmentSelect, sortSelect, modalitySelect, ageSelect].forEach(el => {
     el.addEventListener('input', () => renderView());
   });
   sectorSelect.addEventListener('input', () => {
@@ -200,6 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
     stageSelect.value = 'todos';
     budgetSelect.value = '0';
     departmentSelect.value = 'todos';
+    modalitySelect.value = 'todas';
+    ageSelect.value = 'todas';
     sortSelect.value = 'relevancia';
     hiddenReasonSelect.value = 'todos';
     hiddenFamilySelect.value = 'todas';
@@ -307,8 +313,52 @@ document.addEventListener('DOMContentLoaded', () => {
       stage: stageSelect.value,
       minBudget: budgetSelect.value,
       department: departmentSelect.value,
+      modality: modalitySelect.value,
+      age: ageSelect.value,
       onlyNew
     };
+  }
+
+  // Modalidad de contratación: catálogo del motor, con el conteo de la pestaña activa.
+  function initModalities() {
+    Dash.MODALITIES.forEach(({ id, label }) => {
+      const opt = document.createElement('option');
+      opt.value = id;
+      opt.textContent = label;
+      modalitySelect.appendChild(opt);
+      modalityOptionEls.set(id, { el: opt, label });
+    });
+  }
+
+  /** Las modalidades sin procesos en la pestaña se ocultan, salvo la que está elegida. */
+  function updateModalityCounts(base) {
+    const counts = Dash.modalityCounts(base);
+    modalityOptionEls.forEach(({ el, label }, id) => {
+      const n = counts[id] || 0;
+      el.textContent = `${label} (${n})`;
+      el.hidden = n === 0 && modalitySelect.value !== id;
+    });
+  }
+
+  /** El filtro de tiempo se rearma al cambiar de pestaña: mira atrás en el tablero y adelante en el PAA. */
+  function updateAgeOptions() {
+    if (ageTab === currentTab) return;
+    const options = Dash.ageOptions(currentTab);
+    const prefix = AGE_PREFIX[currentTab] || 'Fecha';
+    const keep = options.some(o => o.id === ageSelect.value) ? ageSelect.value : 'todas';
+    ageSelect.innerHTML = '';
+    ageSelect.appendChild(new Option('Cualquier fecha', 'todas'));
+    options.forEach(o => ageSelect.appendChild(new Option(`${prefix}: ${o.label}`, o.id)));
+    ageSelect.value = keep;
+    ageSelect.hidden = !options.length;
+    ageTab = currentTab;
+  }
+
+  /** Base de los conteos de los filtros: lo que hay en la pestaña antes de filtrar. */
+  function filterBase() {
+    if (currentTab === 'hidden') return hiddenItems();
+    if (otherMode()) return Dash.otherItems(hiddenItems(), currentTab);
+    return tabBaseline();
   }
 
   function tabContext() {
@@ -337,8 +387,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function getFilteredData() {
     const filters = currentFilters();
     if (currentTab === 'paa') {
-      // El PAA no tiene etapa ni departamento de la entidad: solo aplican texto, sector y valor.
-      return Dash.applyFilters(PAA, { query: filters.query, sector: filters.sector, minBudget: filters.minBudget });
+      // El PAA no tiene etapa ni departamento de la entidad: aplican texto, sector, valor, modalidad y mes.
+      return Dash.applyFilters(PAA, {
+        query: filters.query, sector: filters.sector, minBudget: filters.minBudget, modality: filters.modality, age: filters.age
+      });
     }
     if (currentTab === 'hidden') {
       return sortHidden(Dash.filterHidden(hiddenItems(), {
@@ -512,8 +564,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render View depending on current tab
   function renderView() {
+    updateAgeOptions();
     const filtered = getFilteredData();
     updateSectorCounts();
+    updateModalityCounts(filterBase());
     updateKpis(filtered);
     hiddenControls.hidden = currentTab !== 'hidden';
 
@@ -534,6 +588,18 @@ document.addEventListener('DOMContentLoaded', () => {
       crmKanban.style.display = 'none';
       renderCards(filtered);
     }
+    noteUndated();
+  }
+
+  /** Con el filtro de tiempo activo, se dice cuántos procesos quedan fuera por no tener fecha. */
+  function noteUndated() {
+    if (currentTab === 'crm' || ageSelect.value === 'todas') return;
+    const undated = Dash.countUndated(filterBase());
+    if (!undated) return;
+    const note = document.createElement('span');
+    note.className = 'freshness';
+    note.textContent = ` · ${undated} sin fecha conocida no se muestran`;
+    resultsCount.appendChild(note);
   }
 
   // ---------- Fuera del tablero: sin clasificar y clasificadas que no entraron ----------
@@ -589,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const awarded = Dash.isAwarded(item);
       const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
       const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
-      const meta = [item.modalidad, item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · ');
+      const meta = [modalityLabel(item), item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · ');
       const published = item.fecha_publicacion ? `📅 Publicado ${escapeHtml(formatDate(new Date(item.fecha_publicacion)))}` : '';
       const closing = item.cierre_ofertas && !awarded ? `⏳ Cierre ${escapeHtml(formatDate(new Date(item.cierre_ofertas), { withTime: true }))}` : '';
       return `
@@ -631,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
       // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
       const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
-      const meta = [item.modalidad && item.modalidad !== 'No Definido' ? readableText(item.modalidad) : '', term].filter(Boolean).map(escapeHtml).join(' · ');
+      const meta = [readableText(modalityLabel(item)), term].filter(Boolean).map(escapeHtml).join(' · ');
       return `
       <article class="opp-card">
         <div>
@@ -739,9 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function modalityLabel(item) {
-    const m = Engine.normalize(item.modalidad);
-    const found = MODALITY_LABELS.find(([k]) => m.includes(k));
-    return found ? found[1] : (item.modalidad || '');
+    return Dash.modalityLabel(item) || '';
   }
 
   function badgeHtml(b) {
