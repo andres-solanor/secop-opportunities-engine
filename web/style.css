@@ -2624,3 +2624,162 @@ body {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 2px;
 }
+
+/* ==========================================================
+   Empresas cliente y lista corta (profile.js)
+   ========================================================== */
+.client-list {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.client-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.8rem 1rem;
+  background: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.client-row.active {
+  border-color: var(--accent-cyan);
+  background: rgba(var(--rgb-cyan), 0.08);
+}
+
+.client-name {
+  font-weight: 600;
+}
+
+.client-active {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-left: 0.4rem;
+}
+
+.client-sectors {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+.client-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.shortlist-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.shortlist-rows {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.shortlist-row {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  break-inside: avoid;
+}
+
+.sl-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.sl-entity {
+  font-weight: 600;
+  flex: 1;
+  min-width: 10rem;
+}
+
+.sl-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.sl-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.4rem 0;
+}
+
+.sl-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.sl-step {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.sl-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  color: var(--accent-cyan);
+}
+
+/* Imprimir la lista corta: solo el modal, en blanco y negro y sin controles. */
+@media print {
+  body.print-shortlist > *:not(#profileModal) {
+    display: none !important;
+  }
+  body.print-shortlist {
+    background: #fff;
+    color: #000;
+  }
+  body.print-shortlist #profileModal {
+    position: static;
+    display: block;
+    background: none;
+    backdrop-filter: none;
+  }
+  body.print-shortlist #profileModal .modal-content {
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+    color: #000;
+    width: 100%;
+    max-width: none;
+  }
+  body.print-shortlist .modal-close,
+  body.print-shortlist .no-print {
+    display: none !important;
+  }
+  body.print-shortlist .shortlist-row {
+    border-color: #999;
+  }
+  body.print-shortlist .sl-desc,
+  body.print-shortlist .sl-meta,
+  body.print-shortlist .wizard-hint,
+  body.print-shortlist .fine-print {
+    color: #333;
+  }
+  body.print-shortlist .match-pill,
+  body.print-shortlist .sl-link {
+    color: #000;
+    background: none;
+    border: 1px solid #999;
+  }
+}

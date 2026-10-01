@@ -496,6 +496,49 @@ test('theme.js carga antes del CSS para que el tema no parpadee', async ({ page 
   expect(scriptFirst).toBe(true);
 });
 
+test('empresas cliente: cambiar de empresa cambia el perfil activo y su lista corta imprimible', async ({ page }) => {
+  // Cuenta demo con su empresa propia y una empresa cliente guardadas.
+  await page.addInitScript(() => {
+    if (sessionStorage.getItem('seeded')) return;
+    sessionStorage.setItem('seeded', '1');
+    const user = { id: 'demo:local', provider: 'demo', name: 'Cuenta Demo', givenName: 'Demo', email: '', picture: '', hostedDomain: '' };
+    localStorage.setItem('secop_session', JSON.stringify(user));
+    localStorage.setItem('secop_profiles', JSON.stringify({ 'demo:local': {
+      role: 'proveedor', companyName: 'Aceros Propios', offerText: 'Estructuras metálicas y acero de refuerzo',
+      offerTags: [], sectors: [], needs: [], connections: [], departments: [], nationwide: true, tickets: [] } }));
+    localStorage.setItem('secop_client_book', JSON.stringify({ 'demo:local': { active: 'propia', clients: [{
+      id: 'c1', role: 'proveedor', companyName: 'Obras Cliente SAS', offerText: 'Construcción de obra civil, vías y pavimentación',
+      offerTags: [], sectors: [], needs: [], connections: [], departments: [], nationwide: true, tickets: [] }] } }));
+  });
+  await openDashboard(page);
+  await expect(page.locator('#profileHero .hero-kicker')).toContainText('Aceros Propios');
+
+  await page.click('#accountBtn');
+  await page.click('#accountDropdown [data-action="clients"]');
+  await expect(page.locator('.client-row')).toHaveCount(2);
+  await page.click('.client-row [data-use="c1"]');
+  await expect(page.locator('#profileHero .hero-kicker')).toContainText('Empresa cliente: Obras Cliente SAS');
+  const book = await page.evaluate(() => JSON.parse(localStorage.getItem('secop_client_book'))['demo:local']);
+  expect(book.active).toBe('c1');
+
+  // Lista corta de la empresa en uso: encabezado con su nombre, filas con afinidad o el aviso, y modo de impresión.
+  await page.click('.client-row [data-shortlist="c1"]');
+  await expect(page.locator('.shortlist .reveal-title')).toHaveText('Obras Cliente SAS');
+  await expect(page.locator('.shortlist-row, .shortlist .reveal-note').first()).toBeVisible();
+  const scores = await page.$$eval('.shortlist-row .match-pill', els => els.map(e => parseInt(e.textContent, 10)));
+  expect(scores.every(s => s >= 55)).toBe(true);
+  await expect(page.locator('body')).toHaveClass(/print-shortlist/);
+  await page.click('#profileModalClose');
+  await expect(page.locator('body')).not.toHaveClass(/print-shortlist/);
+
+  // Agregar otra empresa abre el asistente marcado como empresa nueva, y el perfil propio sigue intacto.
+  await page.click('#profileHero #heroClients');
+  await page.click('#addClientBtn');
+  await expect(page.locator('.wizard-step-label')).toContainText('Nueva empresa cliente');
+  const own = await page.evaluate(() => JSON.parse(localStorage.getItem('secop_profiles'))['demo:local'].companyName);
+  expect(own).toBe('Aceros Propios');
+});
+
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {
   await openDashboard(page);
   await page.click('#tabParaTi');

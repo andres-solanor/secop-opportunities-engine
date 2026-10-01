@@ -83,6 +83,52 @@ test('analyzeProfile construye mercado, conexiones y recomendaciones', () => {
   assert.ok(a.strength.score > 0 && a.strength.score < 100);
 });
 
+test('libreta de empresas cliente: agregar, editar, activar y quitar sin mutar', () => {
+  const empty = E.clientBook(null);
+  assert.deepStrictEqual(empty, { active: E.OWN_PROFILE, clients: [] });
+
+  const first = E.addClient(empty, { companyName: 'Ferretería Uno' });
+  assert.strictEqual(first.id, 'c1');
+  assert.strictEqual(first.book.active, 'c1');
+  assert.deepStrictEqual(empty.clients, []); // la original no cambia
+
+  const second = E.addClient(first.book, { companyName: 'Obras Dos' });
+  assert.strictEqual(second.id, 'c2');
+  assert.strictEqual(E.activeClient(second.book).companyName, 'Obras Dos');
+
+  const edited = E.updateClient(second.book, 'c1', { companyName: 'Ferretería Uno SAS' });
+  assert.strictEqual(edited.clients[0].companyName, 'Ferretería Uno SAS');
+  assert.strictEqual(edited.clients[0].id, 'c1');
+
+  // Quitar la activa vuelve al perfil propio; el siguiente id no reutiliza uno borrado por debajo del máximo.
+  const removed = E.removeClient(edited, 'c2');
+  assert.strictEqual(removed.active, E.OWN_PROFILE);
+  assert.strictEqual(E.activeClient(removed), null);
+  assert.strictEqual(E.addClient(removed, {}).id, 'c2');
+
+  // Un activo que no existe (libreta vieja o manipulada) cae al perfil propio.
+  assert.strictEqual(E.setActiveClient(removed, 'c9').active, E.OWN_PROFILE);
+  assert.strictEqual(E.setActiveClient(removed, 'c1').active, 'c1');
+});
+
+test('lista corta: primero lo abierto por afinidad y cierre, con próximo paso; nada bajo el umbral', () => {
+  const now = new Date('2026-10-01T12:00:00');
+  const detected = E.detectSectors(steelProfile, TAXONOMY);
+  const open = (id, cierre) => opp({ id, etapa_comercial: 'Licitación Abierta (En Ofertas)', contratista: { nombre: 'Pendiente por Adjudicar' }, fechas: { cierre_ofertas: cierre } });
+  const items = [
+    opp({ id: 'ADJ' }),
+    open('LATE', '2026-10-20T00:00:00'),
+    open('SOON', '2026-10-05T00:00:00'),
+    opp({ id: 'OTHER', sectores: [{ id: 'horeca_industrial', name: 'HORECA' }], materiales_detectados: [], departamento: 'Meta' })
+  ];
+  const list = E.shortList(steelProfile, items, detected, { now });
+  const ids = list.map(r => r.item.id);
+  assert.ok(!ids.includes('OTHER'), 'lo que no tiene afinidad no entra');
+  assert.ok(ids.indexOf('SOON') < ids.indexOf('ADJ') && ids.indexOf('LATE') < ids.indexOf('ADJ'), ids.join());
+  assert.ok(list.every(r => r.match.score >= 55 && r.step && r.step.text));
+  assert.strictEqual(E.shortList(steelProfile, items, detected, { now, limit: 1 }).length, 1);
+});
+
 test('perfil vacío no rompe el análisis', () => {
   const a = E.analyzeProfile({}, [opp()], TAXONOMY);
   assert.strictEqual(a.detected.length, 0);
