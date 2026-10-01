@@ -49,7 +49,8 @@ Motor que descarga procesos de contratación pública colombiana (SECOP II, API 
 | `src/tools/probe_sources.py` | Diagnóstico de solo lectura de datasets de datos.gov.co; también se puede correr con el workflow manual "Probe SECOP sources". Con `--valores` lista los valores reales de modalidad, estado, tipo y fase. |
 | `src/tools/stamp_assets.py` | Sella en `web/index.html` la versión (`?v=`) de cada JS y CSS según su contenido. |
 | `src/export_prospects.py` | Pipeline: descarga → curaduría → cruces → valida → exporta `data/*`, `web/data.js`, `web/hidden.js` y `web/taxonomy.js`. Con `--out DIR` escribe fuera del repositorio. |
-| `web/index.html` | Página única. Orden de scripts importa: `config → data → taxonomy → profile-engine → dashboard-engine → secop-live → auth → app → profile`. |
+| `web/index.html` | Página única. Orden de scripts importa: `theme.js` va en el `<head>`, antes de `style.css`; al final del `<body>`, `config → data → taxonomy → profile-engine → dashboard-engine → secop-live → auth → app → profile`. |
+| `web/theme.js` | Tema: sistema, claro, oscuro o Matrix. Pone `data-theme` en `<html>` antes del primer pintado y llena el selector `#themeSelect`. Los colores son tokens de `:root` en `style.css` (uno por tema); fuera de ellos solo el botón de Google lleva colores literales. Lógica pura (`normalize`, `resolve`) también en CommonJS. |
 | `web/dashboard-engine.js` | Motor **puro, sin DOM** del tablero: pestañas, filtros, KPIs, CSV y lista "fuera del tablero". Exporta a `window.DashboardEngine` y CommonJS. |
 | `web/secop-live.js` | Consultas **en vivo, solo de lectura** a datos.gov.co desde el navegador (CORS abierto): contrato, ofertas y cifras de la entidad para el detalle de lo que no está en el tablero (fuera del tablero y PAA). Devuelve las mismas formas que el pipeline; caché por sesión; tiempo límite de 15 s. Sin DOM: `window.SecopLive` y CommonJS. Las pruebas de humo simulan datos.gov.co con `page.route`: nunca consultan el servicio real. |
 | `web/app.js` | Tablero: pestañas (Para Ti, Radar B2B, Observatorio, PAA, CRM y "Fuera del tablero", oculta por defecto), tarjetas, pitch, detalle. El filtro de sector va agrupado por familia (`SECTOR_GROUPS`), con conteo por pestaña y, al final, "Otros" (sin sector y seguros), que se carga de `hidden.js`. Lee los controles y pinta; la lógica va en los motores. |
@@ -109,3 +110,4 @@ Para regenerar solo la taxonomía web sin descargar datos:
 | `secop_profile_draft` | Perfil de visitante sin cuenta; se adopta al iniciar sesión. |
 | `secop_crm_state` | Estado del CRM `{ oppId: { status, updatedAt } }` (global, no por usuario). |
 | `secop_show_hidden` | `'1'` si el usuario activó la pestaña "Fuera del tablero". |
+| `secop_theme` | Tema elegido: `system` (por defecto), `light`, `dark` o `matrix`. Un valor inválido vuelve a `system`. |
