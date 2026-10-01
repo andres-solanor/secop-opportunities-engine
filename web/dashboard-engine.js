@@ -44,6 +44,117 @@
     return items;
   }
 
+  /** Minúsculas y sin tildes: SECOP escribe la misma modalidad con y sin tildes, y el PAA en MAYÚSCULAS. */
+  function normalize(text) {
+    return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+  }
+
+  // ---------- Modalidad de contratación ----------
+  // Valores reales (2026-10-01): "Selección abreviada subasta inversa", "Licitación pública Obra
+  // Publica", "Contratación régimen especial (con ofertas)", "Mínima cuantía"; en el PAA,
+  // "SELECCION ABREVIADA CON SUBASTA INVERSA", "LICITACION PUBLICA (OBRA PUBLICA)" o vacío.
+  // "Enajenación de bienes con subasta" no es subasta inversa: cae en "Otras modalidades".
+  const MODALITIES = [
+    { id: 'licitacion', label: 'Licitación pública', match: 'licitacion publica' },
+    { id: 'menor_cuantia', label: 'Menor cuantía', match: 'menor cuantia' },
+    { id: 'subasta', label: 'Subasta inversa', match: 'subasta inversa' },
+    { id: 'minima_cuantia', label: 'Mínima cuantía', match: 'minima cuantia' },
+    { id: 'concurso', label: 'Concurso de méritos', match: 'concurso de meritos' },
+    { id: 'regimen_especial', label: 'Régimen especial', match: 'regimen especial' },
+    { id: 'directa', label: 'Contratación directa', match: 'contratacion directa' },
+    { id: 'otra', label: 'Otras modalidades' },
+    { id: 'sin_dato', label: 'Sin modalidad reportada' }
+  ];
+  const EMPTY_MODALITY = ['', 'no definido', 'null'];
+
+  function modalityOf(item) {
+    const m = normalize(item.modalidad);
+    if (EMPTY_MODALITY.includes(m)) return 'sin_dato';
+    const found = MODALITIES.find(x => x.match && m.includes(x.match));
+    return found ? found.id : 'otra';
+  }
+
+  /** Etiqueta corta para la ficha; las modalidades poco comunes conservan su texto original. */
+  function modalityLabel(item) {
+    const id = modalityOf(item);
+    if (id === 'sin_dato') return '';
+    if (id === 'otra') return item.modalidad;
+    return MODALITIES.find(x => x.id === id).label;
+  }
+
+  function modalityCounts(items) {
+    const counts = {};
+    items.forEach(item => {
+      const id = modalityOf(item);
+      counts[id] = (counts[id] || 0) + 1;
+    });
+    return counts;
+  }
+
+  // ---------- Fecha del estado actual ----------
+  // Un solo filtro de tiempo para todas las pestañas: mide la fecha que importa según el estado.
+  //   adjudicado → fecha de adjudicación; publicado o en borrador → fecha de publicación;
+  //   compra planeada (PAA) → primer día del mes esperado (fecha futura).
+  const AGE_PAST = [
+    { id: '7', label: 'últimos 7 días', maxDays: 7 },
+    { id: '30', label: 'últimos 30 días', maxDays: 30 },
+    { id: '90', label: 'últimos 90 días', maxDays: 90 },
+    { id: 'gt90', label: 'hace más de 90 días', minDays: 91 }
+  ];
+  const AGE_FUTURE = [
+    { id: 'mes', label: 'este mes', maxMonths: 0 },
+    { id: '3m', label: 'próximos 3 meses', maxMonths: 2 }
+  ];
+
+  function toDate(value) {
+    if (!value) return null;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function isPlanned(item) {
+    return item.mes_esperado != null && item.anio != null;
+  }
+
+  /**
+   * Fecha del estado actual, o null si no se conoce. Un adjudicado sin fecha de adjudicación
+   * devuelve null (no la de publicación): "adjudicado hace 7 días" no puede ser una suposición.
+   */
+  function stateDate(item) {
+    if (isPlanned(item)) return new Date(Number(item.anio), Number(item.mes_esperado) - 1, 1);
+    const fechas = item.fechas || {};
+    if (isAwarded(item)) return toDate(fechas.adjudicacion || item.fecha_adjudicacion);
+    return toDate(fechas.publicacion || item.fecha_publicacion);
+  }
+
+  /** Opciones del filtro de tiempo para una pestaña: el PAA mira hacia adelante; el CRM no filtra. */
+  function ageOptions(tab) {
+    if (tab === 'crm') return [];
+    return tab === 'paa' ? AGE_FUTURE : AGE_PAST;
+  }
+
+  function matchesAge(item, age, now = new Date()) {
+    if (!age || age === 'todas') return true;
+    const d = stateDate(item);
+    if (!d) return false;
+    const future = AGE_FUTURE.find(o => o.id === age);
+    if (future) {
+      const months = (d.getFullYear() - now.getFullYear()) * 12 + d.getMonth() - now.getMonth();
+      return months >= 0 && months <= future.maxMonths;
+    }
+    const past = AGE_PAST.find(o => o.id === age);
+    if (!past) return true;
+    const startOfDay = x => new Date(x.getFullYear(), x.getMonth(), x.getDate()).getTime();
+    const days = Math.round((startOfDay(now) - startOfDay(d)) / (24 * 3600 * 1000));
+    if (past.maxDays != null) return days <= past.maxDays;
+    return days >= past.minDays;
+  }
+
+  /** Cuántas oportunidades no tienen fecha para el filtro de tiempo (no aparecen al filtrar). */
+  function countUndated(items) {
+    return items.filter(item => !stateDate(item)).length;
+  }
+
   function matchesStage(item, stage) {
     if (!stage || stage === 'todos') return true;
     const text = (item.etapa_comercial || '').toLowerCase();
@@ -66,20 +177,25 @@
   }
 
   /**
-   * Filtros del usuario. `filters`: { query, sector, stage, minBudget, department, onlyNew }.
-   * Los campos ausentes o en su valor neutro ('todos', 0, '') no filtran.
+   * Filtros del usuario. `filters`: { query, sector, stage, minBudget, department, onlyNew,
+   * modality, age, now }. Los campos ausentes o en su valor neutro ('todos', 'todas', 0, '')
+   * no filtran. `now` solo existe para las pruebas.
    */
   function applyFilters(items, filters = {}) {
     const query = (filters.query || '').toLowerCase().trim();
     const sector = filters.sector || 'todos';
     const department = filters.department || 'todos';
+    const modality = filters.modality || 'todas';
     const minBudget = Number(filters.minBudget) || 0;
+    const now = filters.now || new Date();
 
     return items.filter(item => {
       if (filters.onlyNew && !item.nueva) return false;
       if (query && !searchCorpus(item).includes(query)) return false;
       if (!matchesSector(item, sector)) return false;
       if (!matchesStage(item, filters.stage)) return false;
+      if (modality !== 'todas' && modalityOf(item) !== modality) return false;
+      if (!matchesAge(item, filters.age, now)) return false;
       const value = item.precio != null ? item.precio : item.valor;
       if (minBudget > 0 && (value || 0) < minBudget) return false;
       if (department !== 'todos' && item.departamento !== department) return false;
@@ -94,6 +210,8 @@
       (filters.stage && filters.stage !== 'todos') ||
       (Number(filters.minBudget) || 0) > 0 ||
       (filters.department && filters.department !== 'todos') ||
+      (filters.modality && filters.modality !== 'todas') ||
+      (filters.age && filters.age !== 'todas') ||
       filters.onlyNew
     );
   }
@@ -244,6 +362,14 @@
     isOtherSector,
     matchesSector,
     tabItems,
+    MODALITIES,
+    modalityOf,
+    modalityLabel,
+    modalityCounts,
+    stateDate,
+    ageOptions,
+    matchesAge,
+    countUndated,
     applyFilters,
     isFiltered,
     kpis,

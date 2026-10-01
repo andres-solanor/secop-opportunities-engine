@@ -109,6 +109,41 @@ test('el filtro de sector filtra las fichas del Observatorio', async ({ page }) 
   await expect(cards(page)).toHaveCount(before);
 });
 
+test('el filtro de modalidad cuenta y filtra las fichas del Radar', async ({ page }) => {
+  await openDashboard(page);
+  const before = await cards(page).count();
+  const target = await page.evaluate(() => {
+    const D = window.DashboardEngine;
+    const counts = D.modalityCounts(D.tabItems(window.PROSPECTS_DATA, 'proveedores'));
+    const [id, n] = Object.entries(counts).sort((a, b) => a[1] - b[1])[0];
+    return { id, n };
+  });
+  await expect(page.locator(`#modalitySelect option[value="${target.id}"]`)).toHaveText(new RegExp(`\\(${target.n}\\)$`));
+  await page.selectOption('#modalitySelect', target.id);
+  await expect(cards(page)).toHaveCount(target.n);
+  await page.click('#btnResetFilters');
+  await expect(cards(page)).toHaveCount(before);
+});
+
+test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM', async ({ page }) => {
+  await openDashboard(page);
+  await expect(page.locator('#ageSelect option[value="30"]')).toHaveText(/^Adjudicado:/);
+  await page.click('#tabObservatorio');
+  await expect(page.locator('#ageSelect option[value="30"]')).toHaveText(/^Publicado:/);
+  await page.click('#tabPaa');
+  await expect(page.locator('#ageSelect option[value="3m"]')).toHaveText(/^Se publica:/);
+  await page.click('#tabCrm');
+  await expect(page.locator('#ageSelect')).toBeHidden();
+
+  await page.click('#tabProveedores');
+  const expected = await page.evaluate(() => {
+    const D = window.DashboardEngine;
+    return D.applyFilters(D.tabItems(window.PROSPECTS_DATA, 'proveedores'), { age: '90' }).length;
+  });
+  await page.selectOption('#ageSelect', '90');
+  await expect(cards(page)).toHaveCount(expected);
+});
+
 test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) => {
   await openDashboard(page);
   await page.locator('#cardsGrid .btn-detail').first().click();
