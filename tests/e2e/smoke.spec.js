@@ -176,6 +176,41 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
 });
 
+test('fichas livianas y del PAA usan la misma estructura: ganador, adjudicación y cifras de la entidad', async ({ page }) => {
+  // Datos de prueba con los campos nuevos (los del repositorio pueden ser anteriores).
+  const awardedOn = new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString().slice(0, 10) + 'T00:00:00';
+  const light = {
+    id: 'CO1.REQ.TEST1', motivo: 'fuera_de_corte', entidad: 'MUNICIPIO DE PRUEBA', nit_entidad: '800000001',
+    precio: 300000000, modalidad: 'Mínima cuantía', tipo_contrato: 'Suministros', descripcion: 'Suministro de prueba',
+    unspsc: '30102200', etapa_comercial: 'Adjudicado (Contratista Seleccionado)', estado_secop: 'Adjudicado',
+    fecha_publicacion: '2026-08-01T00:00:00', fecha_adjudicacion: awardedOn,
+    contratista: { nombre: 'CONSORCIO DE PRUEBA 2026', es_consorcio: true },
+    sectores: [{ id: 'acero_metalmecanica', name: 'Acero & Metalmecánica' }], url_secop: 'https://example.org/x'
+  };
+  await page.route('**/hidden.js*', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.HIDDEN_DATA = ${JSON.stringify({ items: [light], total: 1, sin_sector: 0, fuera_de_corte: 1, convenio: 0 })};`
+  }));
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    const inject = `\n(function(){var p=(window.PAA_DATA||[])[0];window.ENTITY_STATS=Object.assign({},window.ENTITY_STATS,{'800000001':{valor_12m:2e11,pagado_sobre_facturado_pct:90}});if(p){p.nit_entidad='800000001';}})();\n`;
+    await route.fulfill({ response: res, body: body + inject });
+  });
+  await openDashboard(page);
+
+  await page.check('#toggleHidden');
+  const card = page.locator('#cardsGrid .opp-card-light').first();
+  await expect(card).toContainText('CONSORCIO DE PRUEBA 2026');
+  await expect(card.locator('.stage-pill')).toHaveText('Adjudicado');
+  await expect(card).toContainText('Adjudicado hace 5 días');
+  await expect(card).toContainText('Gran comprador');
+  await expect(card).toContainText('Clasificada, fuera del corte');
+
+  await page.click('#tabPaa');
+  await expect(page.locator('#cardsGrid .opp-card').first()).toContainText('Gran comprador');
+});
+
 test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) => {
   await openDashboard(page);
   await page.locator('#cardsGrid .btn-detail').first().click();

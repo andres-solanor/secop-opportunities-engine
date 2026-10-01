@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const META = window.PROSPECTS_META || null;
   // Persona natural: cifra por modalidad calculada por el pipeline (meta.perfil_proponente).
   const BIDDER_SHARES = Dash.bidderShares(META && META.perfil_proponente);
+  // Cifras por entidad (NIT) para las fichas livianas y el PAA: una entrada por entidad.
+  const ENTITY_STATS = window.ENTITY_STATS || {};
   const HAS_BIDDER_SHARES = Object.keys(BIDDER_SHARES).length > 0;
   // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
@@ -617,17 +619,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return `<div class="empty-foryou"><div class="empty-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div>`;
   }
 
-  /** Badges de una ficha liviana: el motivo por el que no está en el tablero y lo que la identifica. */
-  function lightBadges(item) {
-    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
-    const badges = [{ icon: '', ...reason }];
-    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
-    if (item.convenio && item.motivo !== 'convenio') badges.push(Engine.BADGES.convenio);
-    const pn = cardBadges(item).find(b => b.id === 'persona_natural');
-    if (pn) badges.push(pn);
-    return badges.map(badgeHtml).join('');
-  }
-
   function renderHiddenCards(items) {
     if (hiddenLoad === 'loading' || hiddenLoad === 'idle') {
       resultsCount.textContent = 'Cargando los procesos fuera del tablero…';
@@ -663,36 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    cardsGrid.innerHTML = items.map(item => {
-      const awarded = Dash.isAwarded(item);
-      const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
-      const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
-      const meta = [modalityLabel(item), item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · ');
-      const published = item.fecha_publicacion ? `📅 Publicado ${escapeHtml(formatDate(new Date(item.fecha_publicacion)))}` : '';
-      const closing = item.cierre_ofertas && !awarded ? `⏳ Cierre ${escapeHtml(formatDate(new Date(item.cierre_ofertas), { withTime: true }))}` : '';
-      return `
-      <article class="opp-card opp-card-light">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill ${awarded ? 'stage-adjudicado' : 'stage-cerrada'}" title="Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">${escapeHtml((item.etapa_comercial || '').split('(')[0].trim())}</span>
-              <div class="card-sectors">${sectors}</div>
-            </div>
-            <div class="card-badges"><span class="badge badge-info" title="Familia UNSPSC (primeros 4 dígitos del código ${escapeHtml(item.unspsc || 'no reportado')})">UNSPSC ${escapeHtml(Dash.familyOf(item))}</span></div>
-          </div>
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
-          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
-          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
-          ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
-          ${published || closing ? `<div class="card-dates"><div class="date-meta">${[published, closing].filter(Boolean).join('<span class="dot">·</span>')}</div></div>` : ''}
-          <div class="badge-row">${lightBadges(item)}</div>
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
-        </div>
-        <div class="card-actions">
-          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
-        </div>
-      </article>`;
-    }).join('');
+    cardsGrid.innerHTML = items.map(lightCardHtml).join('');
   }
 
   // ---------- Compras planeadas (PAA) ----------
@@ -702,40 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsGrid.innerHTML = `<div class="empty-foryou"><div class="empty-icon">🗓️</div><h3>No hay compras planeadas con estos filtros</h3><p>El Plan Anual de Adquisiciones se actualiza en cada sincronización.</p></div>`;
       return;
     }
-    const nowMonth = new Date().getMonth() + 1;
-    cardsGrid.innerHTML = items.map(item => {
-      const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
-      const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
-      const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
-      // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
-      const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
-      const meta = [readableText(modalityLabel(item)), term].filter(Boolean).map(escapeHtml).join(' · ');
-      return `
-      <article class="opp-card">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill stage-planeada"><span class="pulse-dot"></span>Planeada · ${escapeHtml(monthName)}</span>
-              <div class="card-sectors">${(item.sectores || []).map(s => escapeHtml(s.name)).join(' • ')}</div>
-            </div>
-          </div>
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.valor || 0))}</div>
-          ${meta ? `<div class="opp-meta">${meta}</div>` : ''}
-          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || '')}</strong></div>
-          <div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>
-          <div class="badge-row">
-            <span class="badge badge-info" title="Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.">🗓️ Plan Anual</span>
-            ${item.origen_recursos ? `<span class="badge badge-info" title="Origen de los recursos según el PAA">💰 ${escapeHtml(item.origen_recursos)}</span>` : ''}
-            ${cardBadges(item).filter(b => b.id === 'persona_natural').map(badgeHtml).join('')}
-          </div>
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion))}</p>
-          <div class="next-step">➜ Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya</div>
-        </div>
-        <div class="card-actions">
-          ${item.url_proceso ? `<a href="${escapeHtml(item.url_proceso)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Proceso relacionado</a>` : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
-        </div>
-      </article>`;
-    }).join('');
+    cardsGrid.innerHTML = items.map(paaCardHtml).join('');
   }
 
   // Render Card Grid
@@ -849,6 +778,133 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${h.contratos} ${h.contratos === 1 ? 'contrato' : 'contratos'} en SECOP II · ${Engine.formatCopShort(h.valor_total || 0)}${since}`;
   }
 
+  // ---------- Estructura común de las fichas (tablero, fuera del tablero y PAA) ----------
+
+  /** Cifras de la entidad: las del registro (tablero) o las del diccionario por NIT (fichas livianas y PAA). */
+  function entityStatsOf(item) {
+    if (item.entidad_stats) return item.entidad_stats;
+    const nit = String(item.nit_entidad || '').replace(/\D/g, '');
+    return (nit && ENTITY_STATS[nit]) || null;
+  }
+
+  /**
+   * Un registro liviano (hidden.js) con la forma que esperan bidWindow, cardDatesHtml, nextStep y
+   * cardBadges: las fechas van dentro de `fechas` y las cifras de la entidad salen del diccionario.
+   */
+  function boardShape(item) {
+    return {
+      ...item,
+      fechas: { publicacion: item.fecha_publicacion, cierre_ofertas: item.cierre_ofertas, adjudicacion: item.fecha_adjudicacion },
+      entidad_stats: entityStatsOf(item)
+    };
+  }
+
+  function badgeRowHtml(badges, max = 4) {
+    if (!badges.length) return '';
+    const visible = badges.slice(0, max);
+    const more = badges.length - visible.length;
+    return `<div class="badge-row">${visible.map(badgeHtml).join('')}${more > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${more}</span>` : ''}</div>`;
+  }
+
+  function stepHtml(step) {
+    const date = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
+    return `<div class="next-step">➜ ${escapeHtml(step.text)}${date}</div>`;
+  }
+
+  /**
+   * Esqueleto común de todas las fichas. `c`: { item, light, pill: {cls, text, title}, corner,
+   * price, meta, dates, badges, extra, step, actions }. Lo dinámico llega ya escapado, salvo los
+   * campos de `item`, que se escapan aquí.
+   */
+  function cardShell(c) {
+    const item = c.item;
+    const location = [item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', ');
+    return `
+      <article class="opp-card${c.light ? ' opp-card-light' : ''}" id="card-${escapeHtml(item.id)}" data-id="${escapeHtml(item.id)}">
+        <div>
+          <div class="opp-card-header">
+            <div>
+              <span class="stage-pill ${c.pill.cls}" title="${escapeHtml(c.pill.title || '')}"><span class="pulse-dot"></span>${escapeHtml(c.pill.text)}</span>
+              <div class="card-sectors">${(item.sectores || []).map(s => escapeHtml(s.name)).join(' • ')}</div>
+            </div>
+            ${c.corner ? `<div class="card-badges">${c.corner}</div>` : ''}
+          </div>
+          <div class="opp-price">${escapeHtml(Engine.formatCopShort(c.price || 0))}</div>
+          ${c.meta ? `<div class="opp-meta">${c.meta}</div>` : ''}
+          <div class="opp-entity"><span>🏛️</span><strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong></div>
+          ${location ? `<div class="opp-location">📍 ${escapeHtml(location)}</div>` : ''}
+          ${c.dates || ''}
+          ${badgeRowHtml(c.badges || [])}
+          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}</p>
+          ${c.extra || ''}
+          ${c.step ? stepHtml(c.step) : ''}
+        </div>
+        <div class="card-actions">${c.actions || ''}</div>
+      </article>`;
+  }
+
+  function secopLinkHtml(url, label = '') {
+    if (!url) return '';
+    return label
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">${label}</a>`
+      : `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>`;
+  }
+
+  /** Ficha liviana (fuera del tablero y "Otros"): misma estructura, solo con lo que trae hidden.js. */
+  function lightCardHtml(item) {
+    const view = boardShape(item);
+    const bw = Engine.bidWindow(view);
+    const reason = HIDDEN_REASONS[item.motivo] || { label: item.motivo, tone: 'info', tip: '' };
+    const badges = [{ icon: '', ...reason }];
+    if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
+    // El motivo "convenio" ya lo dice el primer badge.
+    badges.push(...cardBadges(view).filter(b => !(b.id === 'convenio' && item.motivo === 'convenio')));
+    const winner = item.contratista && item.contratista.nombre;
+    const winnerBox = winner ? `
+          <div class="contractor-box">
+            <div class="contractor-box-title"><span>🏆 Contratista</span>${item.contratista.es_consorcio ? '<span>Consorcio / UT</span>' : ''}</div>
+            <div class="contractor-name">${escapeHtml(winner)}</div>
+          </div>` : '';
+    return cardShell({
+      item,
+      light: true,
+      pill: { cls: STATE_LABELS[bw.state].cls, text: STATE_LABELS[bw.state].text, title: `Estado SECOP: ${item.estado_secop || 'N/D'}` },
+      corner: `<span class="badge badge-info" title="Familia UNSPSC (primeros 4 dígitos del código ${escapeHtml(item.unspsc || 'no reportado')})">UNSPSC ${escapeHtml(Dash.familyOf(item))}</span>`,
+      price: item.precio,
+      meta: [modalityLabel(item), item.tipo_contrato].filter(v => v && v !== 'No Definido').map(escapeHtml).join(' · '),
+      dates: cardDatesHtml(view),
+      badges,
+      extra: winnerBox,
+      step: Engine.nextStep(view),
+      actions: secopLinkHtml(item.url_secop, '🔗 Abrir en SECOP II')
+    });
+  }
+
+  /** Ficha del PAA: misma estructura; sus fechas son un mes esperado, no un cierre. */
+  function paaCardHtml(item) {
+    const nowMonth = new Date().getMonth() + 1;
+    const monthName = MONTH_NAMES[(item.mes_esperado || 1) - 1];
+    const monthsAway = (item.mes_esperado || nowMonth) - nowMonth;
+    const when = monthsAway <= 0 ? 'este mes' : monthsAway === 1 ? 'el próximo mes' : `en ${monthsAway} meses`;
+    // El plazo solo se muestra si trae número (algunas entidades digitan solo la unidad).
+    const term = item.duracion && /\d/.test(item.duracion) ? item.duracion.replace('(s)', 's').replace('(es)', 'es') : '';
+    const badges = [{ icon: '🗓️', label: 'Plan Anual', tone: 'info', tip: 'Proviene del Plan Anual de Adquisiciones (SECOP II): la entidad planea contratarlo, pero el proceso aún puede no existir.' }];
+    if (item.origen_recursos) badges.push({ icon: '💰', label: item.origen_recursos, tone: 'info', tip: 'Origen de los recursos según el PAA' });
+    // De los badges del tablero, solo los que aplican a una compra futura: la entidad y la persona natural.
+    badges.push(...Engine.cardBadges({ entidad_stats: entityStatsOf(item) }, new Date(), { personaNatural: friendlyShare(item) })
+      .filter(b => ['gran_comprador', 'pagos_registrados', 'persona_natural'].includes(b.id)));
+    return cardShell({
+      item,
+      pill: { cls: 'stage-planeada', text: `Planeada · ${monthName}` },
+      price: item.valor,
+      meta: [readableText(modalityLabel(item)), term].filter(Boolean).map(escapeHtml).join(' · '),
+      dates: `<div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>`,
+      badges,
+      step: { text: 'Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya' },
+      actions: item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'
+    });
+  }
+
   // Create Card HTML Template
   function createCardHtml(item) {
     const currentStatus = crmState[item.id]?.status || 'ninguno';
@@ -861,11 +917,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `<span class="match-pill ${match.score >= 75 ? 'match-high' : match.score >= MIN_MATCH_SCORE ? '' : 'match-low'}" title="Afinidad con tu perfil">✨ ${match.score}%</span>`
       : `<div class="score-badge ${item.score_calidad >= 80 ? 'score-high' : 'score-med'}" title="Calidad del lead: sector, valor y etapa (0-100)">⚡ ${item.score_calidad} pts</div>`;
 
-    const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
     const metaLine = [modalityLabel(item), Engine.formatTerm(item.plazo)].filter(Boolean).map(escapeHtml).join(' · ');
-    const badges = cardBadges(item);
-    const visibleBadges = badges.slice(0, 4);
-    const moreBadges = badges.length - visibleBadges.length;
     const reasons = match && match.reasons.length
       ? `<div class="match-line">✨ ${match.reasons.slice(0, 3).map(escapeHtml).join(' · ')}</div>`
       : '';
@@ -882,56 +934,28 @@ document.addEventListener('DOMContentLoaded', () => {
             ${(item.integrantes || []).length ? `<div class="contractor-meta">🤝 Integrantes: ${item.integrantes.slice(0, 3).map(m => `${escapeHtml(m.nombre)}${m.participacion ? ` (${m.participacion}%${m.lider ? ', líder' : ''})` : ''}`).join(' · ')}${item.integrantes.length > 3 ? ` · +${item.integrantes.length - 3}` : ''}</div>` : ''}
           </div>` : '';
 
-    const step = Engine.nextStep(item);
-    const stepDate = step.date ? ` · <b>${escapeHtml(formatDate(step.date))}</b> (${escapeHtml(relativeDays(step.date))})` : '';
-
-    return `
-      <article class="opp-card" id="card-${escapeHtml(item.id)}">
-        <div>
-          <div class="opp-card-header">
-            <div>
-              <span class="stage-pill ${stateLabel.cls}" title="${escapeHtml(item.etapa_comercial)} · Estado SECOP: ${escapeHtml(item.estado_secop || 'N/D')}">
-                <span class="pulse-dot"></span>
-                ${stateLabel.text}
-              </span>
-              <div class="card-sectors">${sectors}</div>
-            </div>
-            <div class="card-badges">${scoreBadge}</div>
-          </div>
-
-          <div class="opp-price">${escapeHtml(Engine.formatCopShort(item.precio || 0))}</div>
-          ${metaLine ? `<div class="opp-meta">${metaLine}</div>` : ''}
-          <div class="opp-entity">
-            <span>🏛️</span>
-            <strong>${escapeHtml(item.entidad || 'Entidad no especificada')}</strong>
-          </div>
-          <div class="opp-location">📍 ${escapeHtml([item.ciudad, item.departamento].filter(v => v && v !== 'No Definido').join(', '))}</div>
-          ${cardDatesHtml(item)}
-          ${visibleBadges.length ? `<div class="badge-row">${visibleBadges.map(badgeHtml).join('')}${moreBadges > 0 ? `<span class="badge badge-more" title="Ver todos en el detalle">+${moreBadges}</span>` : ''}</div>` : ''}
-
-          <p class="opp-desc" title="${escapeHtml(item.descripcion || '')}">
-            ${escapeHtml(readableText(item.descripcion) || 'Sin descripción detallada.')}
-          </p>
-          ${reasons}
-          ${contractorBlock}
-
-          <div class="next-step">➜ ${escapeHtml(step.text)}${stepDate}</div>
-        </div>
-
-        <div class="card-actions">
+    return cardShell({
+      item,
+      pill: { cls: stateLabel.cls, text: stateLabel.text, title: `${item.etapa_comercial} · Estado SECOP: ${item.estado_secop || 'N/D'}` },
+      corner: scoreBadge,
+      price: item.precio,
+      meta: metaLine,
+      dates: cardDatesHtml(item),
+      badges: cardBadges(item),
+      extra: reasons + contractorBlock,
+      step: Engine.nextStep(item),
+      actions: `
           <button class="btn btn-primary btn-pitch">💬 Pitch</button>
           <button class="btn btn-outline btn-detail">🔎 Detalle</button>
-          ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-icon" title="Abrir expediente en SECOP II" aria-label="Abrir en SECOP II">🔗</a>` : ''}
+          ${secopLinkHtml(item.url_secop)}
           <select class="filter-select crm-select" aria-label="Guardar en CRM">
             <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
             <option value="contactado" ${currentStatus === 'contactado' ? 'selected' : ''}>📞 Contactado</option>
             <option value="negociacion" ${currentStatus === 'negociacion' ? 'selected' : ''}>💼 En Cotización</option>
             <option value="ganado" ${currentStatus === 'ganado' ? 'selected' : ''}>🏆 Ganado</option>
-          </select>
-        </div>
-      </article>
-    `;
+          </select>`
+    });
   }
 
   // ---------- Vista de detalle ----------
