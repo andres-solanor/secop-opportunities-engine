@@ -109,6 +109,7 @@ Para regenerar solo la taxonomía web sin descargar datos:
 | `secop_session` | Usuario actual (claims del ID token de Google, o `demo:local`). |
 | `secop_profiles` | Mapa `{ userId: perfil }` de perfiles guardados. |
 | `secop_profile_draft` | Perfil de visitante sin cuenta; se adopta al iniciar sesión. |
+| `secop_client_book` | Empresas cliente por usuario `{ userId: { active, clients: [perfil + id] } }` (`ProfileEngine.clientBook`). `active` es `propia` (el perfil de `secop_profiles`) o el id de una empresa cliente; el perfil activo define "Para Ti", la afinidad y la lista corta. |
 | `secop_crm_state` | Estado del CRM `{ oppId: { status, updatedAt } }` (global, no por usuario). |
 | `secop_show_hidden` | `'1'` si el usuario activó la pestaña "Fuera del tablero". |
 | `secop_theme` | Tema elegido: `system` (por defecto), `light`, `dark` o `matrix`. Un valor inválido vuelve a `system`. |

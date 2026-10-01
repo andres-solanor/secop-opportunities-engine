@@ -11,6 +11,8 @@
 (function () {
   const DRAFT_KEY = 'secop_profile_draft';
   const PROFILES_KEY = 'secop_profiles';
+  // Empresas cliente por usuario (ProfileEngine.clientBook): { userId: { active, clients } }.
+  const CLIENTS_KEY = 'secop_client_book';
   const E = window.ProfileEngine;
   const Auth = window.SecopAuth;
   const DATA = window.PROSPECTS_DATA || [];
@@ -34,6 +36,8 @@
   const listeners = [];
   let wizardStep = 0;
   let wizardDraft = null;
+  // true cuando el asistente crea una empresa cliente nueva (no edita el perfil activo).
+  let wizardNewClient = false;
   let analysisCache = null;
 
   // ---------- Persistencia ----------
@@ -45,24 +49,63 @@
     }
   }
 
-  function getProfile() {
+  /** Libreta de empresas cliente del usuario con sesión (vacía sin sesión). */
+  function readBook() {
+    const user = Auth.getUser();
+    return E.clientBook(user ? readJson(CLIENTS_KEY, {})[user.id] : null);
+  }
+
+  function writeBook(book) {
+    const user = Auth.getUser();
+    if (!user) return;
+    const all = readJson(CLIENTS_KEY, {});
+    all[user.id] = book;
+    localStorage.setItem(CLIENTS_KEY, JSON.stringify(all));
+  }
+
+  /** Perfil de la empresa propia (sin empresas cliente). */
+  function getOwnProfile() {
     const user = Auth.getUser();
     if (user) return readJson(PROFILES_KEY, {})[user.id] || null;
     return readJson(DRAFT_KEY, null);
   }
 
+  /** Perfil activo: la empresa cliente elegida o, si no hay, la propia. Todo lo demás lo usa. */
+  function getProfile() {
+    return E.activeClient(readBook()) || getOwnProfile();
+  }
+
+  function profileChanged() {
+    analysisCache = null;
+    const profile = getProfile();
+    listeners.forEach(fn => fn(profile));
+  }
+
   function saveProfile(profile) {
     profile.updatedAt = new Date().toISOString();
     const user = Auth.getUser();
-    if (user) {
+    const book = readBook();
+    if (user && book.active !== E.OWN_PROFILE) {
+      writeBook(E.updateClient(book, book.active, profile));
+    } else if (user) {
       const all = readJson(PROFILES_KEY, {});
       all[user.id] = profile;
       localStorage.setItem(PROFILES_KEY, JSON.stringify(all));
     } else {
       localStorage.setItem(DRAFT_KEY, JSON.stringify(profile));
     }
-    analysisCache = null;
-    listeners.forEach(fn => fn(profile));
+    profileChanged();
+  }
+
+  function saveNewClient(profile) {
+    profile.updatedAt = new Date().toISOString();
+    writeBook(E.addClient(readBook(), profile).book);
+    profileChanged();
+  }
+
+  function setActiveClient(id) {
+    writeBook(E.setActiveClient(readBook(), id));
+    profileChanged();
   }
 
   /** Al iniciar sesión, el borrador anónimo se convierte en el perfil de la cuenta. */
@@ -162,8 +205,9 @@
     };
   }
 
-  function openWizard(step = 0) {
-    wizardDraft = { ...emptyProfile(), ...(getProfile() || {}) };
+  function openWizard(step = 0, { newClient = false } = {}) {
+    wizardNewClient = newClient;
+    wizardDraft = newClient ? { ...emptyProfile(), website: '' } : { ...emptyProfile(), ...(getProfile() || {}) };
     wizardStep = step;
     renderWizard();
   }
@@ -271,7 +315,7 @@
         <div class="wizard-progress">
           ${STEPS.map((_, i) => `<span class="${i <= wizardStep ? 'done' : ''}"></span>`).join('')}
         </div>
-        <div class="wizard-step-label">Paso ${wizardStep + 1} de ${STEPS.length}</div>
+        <div class="wizard-step-label">${wizardNewClient ? 'Nueva empresa cliente · ' : ''}Paso ${wizardStep + 1} de ${STEPS.length}</div>
         <h2 class="wizard-title">${step.title}</h2>
         <p class="wizard-hint">${step.hint}</p>
         <div class="wizard-body">${wizardStepHtml(p)}</div>
@@ -363,7 +407,9 @@
         renderWizard();
         return;
       }
-      saveProfile({ ...p });
+      if (wizardNewClient) saveNewClient({ ...p });
+      else saveProfile({ ...p });
+      wizardNewClient = false;
       openProfileView({ celebrate: true });
     });
   }
@@ -515,6 +561,121 @@
     if (locked) Auth.renderButton(document.getElementById('revealGoogleBtn'), { text: 'signup_with' });
   }
 
+  // ---------- Empresas cliente y lista corta ----------
+  function profileLabel(profile, fallback) {
+    return (profile && profile.companyName) || fallback;
+  }
+
+  function openClientsView() {
+    const book = readBook();
+    const own = getOwnProfile();
+    const row = (id, profile, label) => {
+      const active = book.active === id;
+      const sectors = profile ? E.detectSectors(profile, TAXONOMY).map(d => d.name).slice(0, 3).join(' · ') : 'Sin perfil todavía';
+      return `
+        <li class="client-row${active ? ' active' : ''}">
+          <div class="client-info">
+            <div class="client-name">${esc(label)}${active ? ' <span class="client-active">En uso</span>' : ''}</div>
+            <div class="client-sectors">${esc(sectors || 'Sin sector detectado')}</div>
+          </div>
+          <div class="client-actions">
+            ${active ? '' : `<button type="button" class="btn btn-outline btn-sm" data-use="${esc(id)}">Usar</button>`}
+            ${profile ? `<button type="button" class="btn btn-outline btn-sm" data-shortlist="${esc(id)}">📄 Lista corta</button>` : ''}
+            ${id !== E.OWN_PROFILE ? `<button type="button" class="btn btn-outline btn-sm" data-remove="${esc(id)}" aria-label="Quitar ${esc(label)}">Quitar</button>` : ''}
+          </div>
+        </li>`;
+    };
+    openModal(`
+      <div class="clients">
+        <h2 class="wizard-title">🏢 Empresas cliente</h2>
+        <p class="wizard-hint">Prepara a varias empresas para licitar desde una sola cuenta. La que está en uso define "Para Ti", la afinidad de las fichas y la lista corta.</p>
+        <ul class="client-list">
+          ${row(E.OWN_PROFILE, own, profileLabel(own, 'Mi empresa'))}
+          ${book.clients.map(c => row(c.id, c, profileLabel(c, 'Empresa sin nombre'))).join('')}
+        </ul>
+        <button type="button" class="btn btn-primary" id="addClientBtn">＋ Agregar empresa cliente</button>
+      </div>`);
+    modalBody.querySelectorAll('[data-use]').forEach(b => b.addEventListener('click', () => {
+      setActiveClient(b.dataset.use);
+      toast(`Ahora trabajas para ${profileLabel(getProfile(), 'tu empresa')}`, 'success');
+      openClientsView();
+    }));
+    modalBody.querySelectorAll('[data-shortlist]').forEach(b => b.addEventListener('click', () => {
+      setActiveClient(b.dataset.shortlist);
+      openShortList();
+    }));
+    modalBody.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
+      const name = profileLabel(readBook().clients.find(c => c.id === b.dataset.remove), 'esta empresa');
+      writeBook(E.removeClient(readBook(), b.dataset.remove));
+      profileChanged();
+      toast(`${name} salió de tus empresas cliente`, 'info');
+      openClientsView();
+    }));
+    document.getElementById('addClientBtn').addEventListener('click', () => openWizard(0, { newClient: true }));
+  }
+
+  /** Lista corta imprimible de la empresa en uso: lo que conviene revisar con ella esta semana. */
+  function openShortList() {
+    const profile = getProfile();
+    const a = getAnalysis();
+    if (!profile || !a) {
+      openWizard(0);
+      return;
+    }
+    const now = new Date();
+    const rows = E.shortList(profile, DATA, a.detected, { now });
+    const updated = window.PROSPECTS_UPDATED_AT ? new Date(window.PROSPECTS_UPDATED_AT) : null;
+    const dateText = d => d.toLocaleDateString('es-CO', { day: 'numeric', month: 'short', year: 'numeric' });
+    const windowText = r => {
+      const w = r.window;
+      if (w.state === 'abierta') return w.date ? `Abierta · cierra ${dateText(w.date)}` : 'Abierta';
+      if (w.state === 'borrador') return 'Borrador de pliegos';
+      if (w.state === 'cerrada') return 'Cerrada, en evaluación';
+      return w.date ? `Adjudicada ${dateText(w.date)}` : 'Adjudicada';
+    };
+    // Mientras el proceso está abierto, SECOP no muestra las ofertas: "0 ofertas" se leería como
+    // "sin competencia". El número solo se muestra si es positivo o si el proceso ya cerró.
+    const competition = r => {
+      const n = (r.item.competencia || {}).ofertas;
+      if (typeof n !== 'number' || (n === 0 && (r.window.state === 'abierta' || r.window.state === 'borrador'))) return '';
+      return `${n} ${n === 1 ? 'oferta' : 'ofertas'}`;
+    };
+    document.body.classList.add('print-shortlist');
+    openModal(`
+      <div class="shortlist">
+        <div class="shortlist-head">
+          <div>
+            <div class="block-kicker">Lista corta · SECOP II</div>
+            <h2 class="reveal-title">${esc(profileLabel(profile, 'Mi empresa'))}</h2>
+            <p class="wizard-hint">${esc(a.detected.map(d => d.name).join(' · ') || 'Sin sector detectado')} · generada el ${esc(dateText(now))}${updated ? ` con datos del ${esc(dateText(updated))}` : ''}</p>
+          </div>
+          <button type="button" class="btn btn-primary no-print" id="printShortList">🖨️ Imprimir o guardar PDF</button>
+        </div>
+        ${rows.length ? `
+        <ol class="shortlist-rows">
+          ${rows.map(r => `
+            <li class="shortlist-row">
+              <div class="sl-top">
+                <span class="match-pill">${r.match.score}%</span>
+                <span class="sl-entity">${esc(r.item.entidad || '')}</span>
+                <span class="sl-value">${esc(E.formatCopShort(r.item.precio || 0))}</span>
+              </div>
+              <p class="sl-desc">${esc((r.item.descripcion || '').slice(0, 220))}</p>
+              <div class="sl-meta">${esc([windowText(r), [r.item.ciudad, r.item.departamento].filter(Boolean).join(', '), competition(r)].filter(Boolean).join(' · '))}</div>
+              <div class="sl-step">→ ${esc(r.step.text)}${r.step.date ? ` · <b>${esc(dateText(r.step.date))}</b>` : ''}</div>
+              ${r.item.url_secop ? `<a class="sl-link" href="${esc(r.item.url_secop)}" target="_blank" rel="noopener noreferrer">${esc(r.item.referencia || 'Ver en SECOP II')}</a>` : ''}
+            </li>`).join('')}
+        </ol>` : '<p class="reveal-note">Hoy no hay procesos en el tablero con afinidad suficiente para esta empresa. Ajusta su oferta o su zona en el perfil.</p>'}
+        <p class="fine-print">Afinidad calculada con el perfil de la empresa sobre el tablero publicado; los requisitos habilitantes están en el pliego de cada proceso en SECOP II.</p>
+      </div>`);
+    document.getElementById('printShortList').addEventListener('click', () => window.print());
+  }
+
+  // Al cerrar el modal, la página vuelve a imprimirse completa.
+  new MutationObserver(() => {
+    if (!modal.classList.contains('active')) document.body.classList.remove('print-shortlist');
+  }).observe(modal, { attributes: true, attributeFilter: ['class'] });
+
   // ---------- Cuenta y banner ----------
   function openSignIn() {
     openModal(`
@@ -547,6 +708,8 @@
           <div class="account-email">${esc(user.email || 'Modo demo local')}</div>
           <button type="button" data-action="profile">👤 Mi perfil de oportunidades</button>
           <button type="button" data-action="edit">✏️ Editar perfil</button>
+          <button type="button" data-action="clients">🏢 Empresas cliente</button>
+          <button type="button" data-action="shortlist">📄 Lista corta</button>
           <button type="button" data-action="signout">↩︎ Cerrar sesión</button>
         </div>
       </div>`;
@@ -561,6 +724,8 @@
       dd.classList.remove('open');
       if (item.dataset.action === 'profile') openProfileView();
       if (item.dataset.action === 'edit') openWizard(0);
+      if (item.dataset.action === 'clients') openClientsView();
+      if (item.dataset.action === 'shortlist') openShortList();
       if (item.dataset.action === 'signout') {
         Auth.signOut();
         toast('Sesión cerrada', 'info');
@@ -591,23 +756,26 @@
     }
 
     const a = getAnalysis();
+    const forClient = readBook().active !== E.OWN_PROFILE;
     hero.innerHTML = `
       <div class="hero-profile">
         ${strengthRing(a.strength.score)}
         <div>
-          <div class="hero-kicker">${a.role.icon} ${esc(profile.companyName || a.role.short)}${user ? '' : ' · perfil sin guardar'}</div>
+          <div class="hero-kicker">${forClient ? '🏢 Empresa cliente: ' : a.role.icon + ' '}${esc(profile.companyName || a.role.short)}${user ? '' : ' · perfil sin guardar'}</div>
           <h2>${a.matchCount} oportunidades con alta afinidad · ${E.formatCopShort(a.market.totalValue)} en tu mercado</h2>
           <p>${esc(a.valueProp)}</p>
         </div>
       </div>
       <div class="hero-actions">
         ${user
-          ? '<button type="button" class="btn btn-primary" id="heroMatches">⚡ Ver para ti</button><button type="button" class="btn btn-outline" id="heroProfile">👤 Mi perfil</button>'
+          ? `<button type="button" class="btn btn-primary" id="heroMatches">⚡ Ver para ti</button><button type="button" class="btn btn-outline" id="heroProfile">👤 ${forClient ? 'Perfil' : 'Mi perfil'}</button>${forClient || readBook().clients.length ? '<button type="button" class="btn btn-outline" id="heroClients">🏢 Cambiar empresa</button>' : ''}`
           : '<div id="heroGoogleBtn" class="google-slot"></div><button type="button" class="link-btn" id="heroProfile">Ver mi perfil</button>'}
       </div>`;
     document.getElementById('heroProfile').addEventListener('click', () => openProfileView());
     const hm = document.getElementById('heroMatches');
     if (hm) hm.addEventListener('click', () => window.showForYouTab && window.showForYouTab());
+    const hc = document.getElementById('heroClients');
+    if (hc) hc.addEventListener('click', openClientsView);
     if (!user) Auth.renderButton(document.getElementById('heroGoogleBtn'), { text: 'signup_with' });
   }
 
@@ -639,6 +807,8 @@
     matchItem,
     openWizard,
     openProfileView,
+    openClientsView,
+    openShortList,
     openSignIn,
     onChange: fn => listeners.push(fn)
   };

@@ -578,7 +578,71 @@
     return { text: 'Contacta al contratista: está comprando insumos para ejecutar' };
   }
 
+  // ---------- Empresas cliente (una firma que prepara a varias empresas para licitar) ----------
+  // Libreta por usuario: { active, clients: [{ id, ...perfil }] }. `active` es OWN_PROFILE (el
+  // perfil propio, que sigue en secop_profiles) o el id de una empresa cliente. Funciones puras:
+  // devuelven una libreta nueva y no tocan la que reciben.
+  const OWN_PROFILE = 'propia';
+
+  function clientBook(raw) {
+    const clients = raw && Array.isArray(raw.clients) ? raw.clients.filter(c => c && c.id) : [];
+    const active = raw && clients.some(c => c.id === raw.active) ? raw.active : OWN_PROFILE;
+    return { active, clients };
+  }
+
+  /** Agrega una empresa cliente y la deja activa. El id es el siguiente "cN" libre. */
+  function addClient(rawBook, profile) {
+    const book = clientBook(rawBook);
+    const used = book.clients.map(c => Number(String(c.id).replace(/^c/, '')) || 0);
+    const id = `c${Math.max(0, ...used) + 1}`;
+    return { book: { active: id, clients: [...book.clients, { ...profile, id }] }, id };
+  }
+
+  function updateClient(rawBook, id, profile) {
+    const book = clientBook(rawBook);
+    return { ...book, clients: book.clients.map(c => (c.id === id ? { ...profile, id } : c)) };
+  }
+
+  /** Quita una empresa cliente; si era la activa, vuelve al perfil propio. */
+  function removeClient(rawBook, id) {
+    const book = clientBook(rawBook);
+    return { active: book.active === id ? OWN_PROFILE : book.active, clients: book.clients.filter(c => c.id !== id) };
+  }
+
+  function setActiveClient(rawBook, id) {
+    return clientBook({ ...clientBook(rawBook), active: id });
+  }
+
+  /** Empresa cliente activa, o null si se trabaja con el perfil propio. */
+  function activeClient(rawBook) {
+    const book = clientBook(rawBook);
+    return book.clients.find(c => c.id === book.active) || null;
+  }
+
+  /**
+   * Lista corta para una empresa: los procesos con afinidad >= minScore. Primero los que aún
+   * admiten acción (abiertos o en borrador), por afinidad y luego por cierre más próximo;
+   * después, los demás por afinidad. Cada fila trae su afinidad y su próximo paso.
+   */
+  function shortList(profile, items, detected, { now = new Date(), limit = 15, minScore = 55 } = {}) {
+    const rows = (items || [])
+      .map(item => ({ item, match: matchOpportunity(profile, item, detected, now), window: bidWindow(item, now) }))
+      .filter(r => r.match.score >= minScore);
+    const actionable = r => r.window.state === 'abierta' || r.window.state === 'borrador';
+    const closing = r => (r.window.state === 'abierta' && r.window.date ? r.window.date.getTime() : Infinity);
+    rows.sort((a, b) => (actionable(b) - actionable(a)) || (b.match.score - a.match.score) || (closing(a) - closing(b)));
+    return rows.slice(0, limit).map(r => ({ ...r, step: nextStep(r.item, now) }));
+  }
+
   const api = {
+    OWN_PROFILE,
+    clientBook,
+    addClient,
+    updateClient,
+    removeClient,
+    setActiveClient,
+    activeClient,
+    shortList,
     ROLES,
     NEEDS,
     CONNECTIONS,
