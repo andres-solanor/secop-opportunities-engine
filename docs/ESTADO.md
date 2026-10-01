@@ -423,3 +423,43 @@ Este bloque reemplaza las "próximas acciones" del anterior.
   1. Con el visto bueno del dueño: push de `pro/mobile-390`, PR y fusión si el CI pasa.
   2. **A2 = 9.5 (1):** fichas en páginas de unas 60, con "ver más", midiendo el tiempo de pintado antes y después.
   3. **A3:** cabos sueltos de datos. Empezar por "(0%)" en "Pipeline analizado", que solo toca la web.
+
+## Estado de la sesión — 2026-10-01 (cierre) · Claude Code · rama `pro/winners-suppliers`
+
+Este bloque reemplaza las "próximas acciones" de los anteriores. Desde esta sesión, Claude publica sin preguntar cuando el CI pasa (`CLAUDE.md`, "Autonomía para publicar").
+
+- **Publicado en `main`** (CI en verde en cada uno):
+
+  | PR | Contenido |
+  |---|---|
+  | #11 | Móvil, A1 |
+  | #12 | Páginas, A2 |
+  | #13 | <1 %, vigas y Tuluá, A3 |
+  | #14 | `noticeUID`, A5 (6) |
+  | #15 | Empresas cliente y lista corta, A6 |
+
+  - Ninguno necesita corrida del refresco. El próximo refresco diario ya escribe `hidden.js` con `notice_uid`, y la web lo lee desde el PR #14.
+- **Terminado y con commit:** A7, de ganadores a proveedores, en `pro/winners-suppliers`. Este bloque va en el mismo PR.
+  - Verificado: ruff, Python, ESLint, 70 de Node y 29 de 29 de humo. Captura del detalle con datos reales.
+  - Corrida `--out` hecha antes de publicar: ver "Corridas reales" abajo.
+- **Corridas reales `--out` de esta sesión** (lectura contra datos.gov.co; salida en el scratchpad, sin tocar `data/` ni `web/`):
+  - Para A5 (6): embudo de 7125 descargados y 500 en el tablero; `hidden.js` 1500 de 3976, −119.232 B (−8,2 %).
+  - Para A7: el mismo embudo (7125 descargados, 500 en el tablero), así que `compra_a` no cambia la clasificación. El `taxonomy.js` exportado lleva `compra_a` y es idéntico al del commit.
+- **Sin commit:** nada.
+- **Decisiones del dueño pendientes** (Claude no las toma solo):
+  1. **A7:** revisar el mapa sector → compras (`compra_a`) y el peso de +35. Con un perfil de acero, "Para Ti" pasa de 21 a 109.
+  2. **A4:** publicar Pages desde un artefacto. Toca `.github/workflows/` y necesita un token con alcance `workflow`.
+  3. **A5 (2):** publicar toda la lista fuera del tablero (3976 en vez de 1500).
+  4. **A3, lo que queda:** PAA más preciso y cobertura de sanciones de SECOP II. Cambian qué se publica.
+  5. **A8:** el `GOOGLE_CLIENT_ID` real.
+  6. **A9:** dirección visual (9.6 c).
+  7. **Fase B:** Hostinger o Supabase.
+- **Errores abiertos conocidos:**
+  - A 390 px la píldora de sincronización corta el texto.
+  - Los hallazgos previos de Impeccable (Inter, el punto que pulsa, brillos y franjas) quedan para 9.6 (c).
+  - La vista previa genérica al compartir.
+  - Los límites de datos.gov.co `[POR VERIFICAR]`.
+- **Próximas tres acciones:**
+  1. Fusionar el PR de A7 si el CI pasa.
+  2. Llevar al dueño las decisiones 1 a 4 con cifras. Con su respuesta, A4 o A5 (2).
+  3. Fase B: exploración de un día en Hostinger (`verify.php` y un lead en MySQL), cuando el dueño confirme el plan de hosting.

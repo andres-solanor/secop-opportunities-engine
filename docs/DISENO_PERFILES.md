@@ -165,13 +165,14 @@ Puntaje de 0 a 100 por cada par perfil ↔ oportunidad.
 | Componente | Puntos | Regla |
 |---|---|---|
 | Sector compartido | +40 | La oportunidad tiene un sector que el perfil también tiene |
+| El ganador puede comprarte | +35 | Solo en adjudicados sin sector compartido: el sector del contrato le compra (`compra_a` en `config/taxonomy.json`) a un sector del perfil. Ejemplo: un adjudicado de obra civil es lead para un proveedor de acero. Agregado el 2026-10-01 (A7) |
 | Materiales | +8 por material, máx. +15 | Materiales detectados en la oportunidad que el perfil ofrece |
 | Zona | +15 / +10 / 0 | Coincide / perfil nacional o sin zona / fuera de zona |
 | Ticket | +15 / +7 / +8 / 0 | Dentro del rango / supera hasta 3× (viable en consorcio) / sin rango definido / fuera |
 | Etapa según rol | hasta +10 | Proveedor: adjudicado 10, abierto 7, borrador 6. Contratista y consultor: abierto o borrador 9–10, adjudicado 3 |
-| **Tope** | máx. 35 | Si no comparte sector, la afinidad nunca es alta aunque coincidan zona y ticket |
+| **Tope** | máx. 35 | Si no comparte sector (ni es un ganador que puede comprarte), la afinidad nunca es alta aunque coincidan zona y ticket |
 
-**Umbral de "Para Ti": 55.** Por diseño, sin sector compartido es imposible llegar a ese umbral.
+**Umbral de "Para Ti": 55.** Por diseño, sin sector compartido ni relación de compra es imposible llegar a ese umbral. Efecto medido con los datos del repositorio del 2026-10-01: un perfil de acero, nacional y sin ticket, pasa de 21 a 109 oportunidades en "Para Ti"; 88 entran como "el ganador puede comprarte". Las coincidencias directas de sector siguen arriba, porque suman 40 y materiales.
 
 **Ejemplo trabajado** (el caso de la prueba automatizada): un proveedor de acero en Antioquia con ticket de $200M–$1.000M, frente a un contrato adjudicado de $500M en Antioquia que pide "cerchas":
 `40 (sector) + 8 (1 material) + 15 (zona) + 15 (ticket) + 10 (adjudicado para proveedor) = 88%`.

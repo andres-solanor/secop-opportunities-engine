@@ -19,6 +19,10 @@
     "                  sector (sin importar tildes ni mayúsculas) y suman puntaje como el código UNSPSC.",
     "  excluir_tipos_contrato  tipos de contrato que nunca entran al sector. La interventoría de una obra",
     "                  menciona la obra, pero quien vende materiales no puede venderle nada.",
+    "  compra_a        ids de otros sectores a los que suele comprar quien gana un contrato de este sector",
+    "                  (opcional). En la web, un adjudicado de este sector es un lead para un perfil de esos",
+    "                  sectores (\"el ganador puede comprarte\"). Es una posibilidad comercial, no una necesidad",
+    "                  confirmada del contrato: no clasifica ni cambia qué se descarga.",
     "  Los ids de sector no se cambian: los perfiles guardados en el navegador los usan."
   ],
   "version": 3,
@@ -31,6 +35,7 @@
     "obra_civil_general": {
       "name": "Construcción & Obra Civil General",
       "grupo": "obra_infraestructura",
+      "compra_a": ["acero_metalmecanica", "vehiculos_maquinaria", "dotacion_mobiliario"],
       "keywords": [
         "obra civil", "obras civiles", "adecuación de infraestructura",
         "adecuacion de infraestructura", "construcción de sede", "construccion de sede",
@@ -54,6 +59,7 @@
     "agua_saneamiento": {
       "name": "Agua Potable & Saneamiento",
       "grupo": "obra_infraestructura",
+      "compra_a": ["acero_metalmecanica", "vehiculos_maquinaria"],
       "keywords": [
         "agua potable", "aguas residuales", "ptap", "ptar", "acueducto", "acueductos",
         "alcantarillado", "alcantarillados", "planta de tratamiento", "plantas de tratamiento",
@@ -73,6 +79,7 @@
     "energia_solar_alumbrado": {
       "name": "Energía Solar & Alumbrado Público",
       "grupo": "obra_infraestructura",
+      "compra_a": ["acero_metalmecanica", "vehiculos_maquinaria"],
       "keywords": [
         "energía solar", "energia solar", "panel solar", "paneles solares",
         "sistema fotovoltaico", "sistemas fotovoltaicos", "fotovoltaica", "fotovoltaico",
@@ -123,6 +130,7 @@
     "horeca_industrial": {
       "name": "HORECA & Maquinaria Gastronómica",
       "grupo": "suministros_equipos",
+      "compra_a": ["acero_metalmecanica"],
       "keywords": [
         "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
         "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
@@ -247,6 +255,7 @@
     "alimentacion_escolar": {
       "name": "Alimentación Escolar (PAE)",
       "grupo": "servicios",
+      "compra_a": ["horeca_industrial", "eventos_logistica_viveres", "dotacion_mobiliario"],
       "keywords": [
         "pae", "alimentación escolar", "alimentacion escolar", "complemento alimentario",
         "complementos alimentarios", "restaurante escolar", "restaurantes escolares",
