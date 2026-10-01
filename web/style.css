@@ -2112,6 +2112,22 @@ body {
   border-left-color: var(--accent-amber);
 }
 
+/* Ficha a la que lleva un enlace compartido (#op=<id>). */
+.opp-card.card-highlight {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 2px var(--border-glow), var(--shadow-hover);
+}
+
+/* Fuera de la vista pero accesible (área temporal para copiar al portapapeles). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .detail-section .sync-table .badge {
   cursor: default;
 }

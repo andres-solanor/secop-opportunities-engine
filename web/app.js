@@ -86,8 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const ENTITY_STATS = window.ENTITY_STATS || {};
   // Consultas en vivo a SECOP II para el detalle de lo que no está en el tablero (secop-live.js).
   const Live = window.SecopLive;
-  // Fichas pintadas fuera del tablero y del PAA, por id: las usa el clic delegado de sus botones.
+  // Fichas pintadas (todas las vistas), por id: las usa el clic delegado de sus botones.
   const cardItems = new Map();
+  // Un enlace compartido que apunta a algo de hidden.js espera a que se descargue.
+  let pendingDeepLink = false;
+  const SHARE_BUTTON = '<button class="btn btn-outline btn-icon" data-action="share" title="Compartir un enlace directo a esta oportunidad" aria-label="Compartir">📤</button>';
   const HAS_BIDDER_SHARES = Object.keys(BIDDER_SHARES).length > 0;
   // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
@@ -164,10 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       renderView();
+      resumeDeepLink();
     };
     script.onerror = () => {
       hiddenLoad = 'error';
       renderView();
+      resumeDeepLink();
     };
     document.head.appendChild(script);
   }
@@ -231,10 +236,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modalClose.addEventListener('click', () => {
     detailModal.classList.remove('active');
+    clearDeepLink();
   });
 
   detailModal.addEventListener('click', (e) => {
-    if (e.target === detailModal) detailModal.classList.remove('active');
+    if (e.target === detailModal) {
+      detailModal.classList.remove('active');
+      clearDeepLink();
+    }
   });
 
   // Accesibilidad de todos los modales (incluido el de perfil): al abrir, el foco entra al
@@ -706,6 +715,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    cardItems.clear();
+    filtered.forEach(i => cardItems.set(i.id, i));
     cardsGrid.innerHTML = filtered.map(item => createCardHtml(item)).join('');
 
     // Attach card event listeners
@@ -884,7 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badges,
       extra: winnerBox,
       step: Engine.nextStep(view),
-      actions: `<button class="btn btn-outline btn-detail" data-action="light-detail">🔎 Detalle</button>${secopLinkHtml(item.url_secop)}`
+      actions: `<button class="btn btn-outline btn-detail" data-action="light-detail">🔎 Detalle</button>${secopLinkHtml(item.url_secop)}${SHARE_BUTTON}`
     });
   }
 
@@ -909,7 +920,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: `<div class="card-dates"><div class="date-main">🗓️ Publicación esperada ${escapeHtml(when)}<span>${escapeHtml(monthName)} de ${escapeHtml(item.anio)}${item.version_paa ? ` · PAA versión ${escapeHtml(item.version_paa)}` : ''}</span></div></div>`,
       badges,
       step: { text: 'Prepárate antes de que publiquen: revisa requisitos habituales y busca aliados desde ya' },
-      actions: `<button class="btn btn-outline btn-detail" data-action="paa-detail">🔎 Detalle</button>${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado</span>'}`
+      actions: `<button class="btn btn-outline btn-detail" data-action="paa-detail">🔎 Detalle</button>${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado') : '<span class="paa-note">Aún sin proceso publicado</span>'}${SHARE_BUTTON}`
     });
   }
 
@@ -956,6 +967,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="btn btn-primary btn-pitch">💬 Pitch</button>
           <button class="btn btn-outline btn-detail">🔎 Detalle</button>
           ${secopLinkHtml(item.url_secop)}
+          ${SHARE_BUTTON}
           <select class="filter-select crm-select" aria-label="Guardar en CRM">
             <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
@@ -1111,11 +1123,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="detail-actions">
           ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
+          <button class="btn btn-outline" id="detailShare">📤 Compartir</button>
           <button class="btn btn-primary" id="detailPitch">💬 Generar pitch</button>
         </div>
       </div>
     `;
     document.getElementById('detailPitch').addEventListener('click', () => openPitchModal(item));
+    document.getElementById('detailShare').addEventListener('click', () => shareOpportunity(item));
     detailModal.dataset.itemId = item.id || '';
     detailModal.classList.add('active');
     if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
@@ -1208,8 +1222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>` : ''}
         <div class="detail-actions">
           ${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado en SECOP II') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
+          <button class="btn btn-outline" id="detailShare">📤 Compartir</button>
         </div>
       </div>`;
+    document.getElementById('detailShare').addEventListener('click', () => shareOpportunity(item));
     detailModal.dataset.itemId = item.id || '';
     detailModal.classList.add('active');
     if (!state || state === 'loading') detailModal.querySelector('.modal-content').scrollTop = 0;
@@ -1231,7 +1247,129 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!item) return;
     if (btn.dataset.action === 'light-detail') openLightDetail(item);
     else if (btn.dataset.action === 'paa-detail') openPaaDetail(item);
+    else if (btn.dataset.action === 'share') shareOpportunity(item);
   });
+
+  // ---------- Compartir: enlace directo a una oportunidad (#op=<id>) ----------
+  function shareUrl(item) {
+    return `${window.location.origin}${window.location.pathname}${Dash.deepLinkHash(item.id)}`;
+  }
+
+  /** Texto para compartir: solo datos públicos del proceso. */
+  function shareText(item) {
+    const desc = readableText(item.descripcion || '');
+    const short = desc.length > 140 ? `${desc.slice(0, 140).trim()}…` : desc;
+    let when = '';
+    if (item.mes_esperado) {
+      when = ` · publicación esperada en ${MONTH_NAMES[item.mes_esperado - 1]} de ${item.anio}`;
+    } else {
+      const bw = Engine.bidWindow(item.fechas ? item : boardShape(item));
+      if (bw.state === 'abierta' && bw.date) when = ` · cierra el ${formatDate(bw.date)}`;
+      else if (bw.state === 'adjudicado' && bw.date) when = ` · adjudicado el ${formatDate(bw.date)}`;
+    }
+    return `${short}\n🏛️ ${item.entidad || ''} · ${Engine.formatCopShort(item.precio ?? item.valor ?? 0)}${when}`;
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise((resolve, reject) => {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.className = 'visually-hidden';
+      document.body.appendChild(area);
+      area.select();
+      const ok = document.execCommand && document.execCommand('copy');
+      area.remove();
+      if (ok) resolve(); else reject(new Error('copy'));
+    });
+  }
+
+  /** En el celular abre el menú de compartir del sistema (WhatsApp, etc.); en el computador, copia el enlace. */
+  function shareOpportunity(item) {
+    const url = shareUrl(item);
+    const text = shareText(item);
+    const touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (touch && navigator.share) {
+      navigator.share({ title: 'Oportunidad en SECOP II', text, url }).catch(() => {});
+      return;
+    }
+    copyText(`${text}\n${url}`)
+      .then(() => showToast('Enlace copiado: pégalo en WhatsApp, un correo o donde quieras', 'success'))
+      .catch(() => showToast(`Copia este enlace: ${url}`, 'info'));
+  }
+
+  // ---------- Abrir un enlace compartido ----------
+  function clearDeepLink() {
+    if (Dash.parseDeepLink(window.location.hash)) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  function highlightCard(id) {
+    const el = document.getElementById(`card-${id}`);
+    if (!el) return; // los filtros activos pueden ocultarla: el detalle se abre igual
+    el.scrollIntoView({ block: 'center' });
+    el.classList.add('card-highlight');
+    setTimeout(() => el.classList.remove('card-highlight'), 4000);
+  }
+
+  function showUnavailable(failed) {
+    modalBody.innerHTML = `
+      <div class="detail">
+        <h2 class="detail-title">Esta oportunidad ya no está disponible</h2>
+        <p>${failed
+          ? 'No se pudo consultar SECOP II en este momento. Intenta abrir el enlace más tarde.'
+          : 'El proceso salió del tablero o el enlace está incompleto. Revisa las oportunidades vigentes en el tablero.'}</p>
+      </div>`;
+    detailModal.classList.add('active');
+  }
+
+  /** Lo que no está en ningún archivo publicado se busca en vivo en SECOP II (enlaces viejos). */
+  function openMissing(id) {
+    if (!Live) {
+      showUnavailable(false);
+      return;
+    }
+    detailModal.dataset.itemId = id;
+    modalBody.innerHTML = `<div class="detail"><h2 class="detail-title">Buscando la oportunidad…</h2>${liveNote('loading')}</div>`;
+    detailModal.classList.add('active');
+    Live.lookupProcess(id)
+      .then(p => {
+        if (detailModal.dataset.itemId !== id) return;
+        if (p) openLightDetail(p);
+        else showUnavailable(false);
+      })
+      .catch(() => { if (detailModal.dataset.itemId === id) showUnavailable(true); });
+  }
+
+  function handleDeepLink() {
+    const id = Dash.parseDeepLink(window.location.hash);
+    if (!id) return;
+    const found = Dash.findOpportunity(id, { board: rawData, paa: PAA, hidden: hiddenLoad === 'ready' ? hiddenItems() : null });
+    if (found && found.source === 'board') {
+      activateTab(found.tab);
+      highlightCard(id);
+      openDetailModal(found.item);
+    } else if (found && found.source === 'paa') {
+      activateTab('paa');
+      highlightCard(id);
+      openPaaDetail(found.item);
+    } else if (found) {
+      openLightDetail(found.item);
+    } else if (hiddenLoad === 'idle' || hiddenLoad === 'loading') {
+      pendingDeepLink = true;
+      loadHidden();
+    } else {
+      openMissing(id);
+    }
+  }
+
+  function resumeDeepLink() {
+    if (!pendingDeepLink) return;
+    pendingDeepLink = false;
+    handleDeepLink();
+  }
 
   // ---------- Estado de la sincronización con SECOP ----------
   const BOGOTA = { timeZone: 'America/Bogota' };
@@ -1652,4 +1790,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
+  // Enlaces compartidos (#op=<id>): al final, cuando todas las constantes del callback ya existen.
+  window.addEventListener('hashchange', handleDeepLink);
+  handleDeepLink();
 });

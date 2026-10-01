@@ -266,6 +266,56 @@ test('detalle del PAA: planeación y procesos de la entidad en el tablero', asyn
   await expect(page.locator('#modalBody')).toContainText('Es una intención de compra');
 });
 
+test('compartir: el botón copia un enlace #op= y ese enlace abre la ficha en su pestaña', async ({ page }) => {
+  // Portapapeles simulado y sin menú nativo de compartir: la prueba no depende del sistema.
+  await page.addInitScript(() => {
+    window.__copied = null;
+    Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: t => { window.__copied = t; return Promise.resolve(); } }, configurable: true });
+  });
+  await openDashboard(page);
+  const target = await page.evaluate(() => window.DashboardEngine.tabItems(window.PROSPECTS_DATA, 'observatorio')[0]);
+  await page.click('#tabObservatorio');
+  await page.locator(`[id="card-${target.id}"] [data-action="share"]`).click();
+  const copied = await page.evaluate(() => window.__copied);
+  expect(copied).toContain(`#op=${encodeURIComponent(target.id)}`);
+  expect(copied).toContain(target.entidad);
+
+  // Abrir el enlace en una página nueva: pestaña correcta, detalle abierto y ficha resaltada.
+  const link = copied.split('\n').pop();
+  const fresh = await page.context().newPage();
+  await fresh.goto(link);
+  await expect(fresh.locator('#detailModal')).toHaveClass(/active/);
+  await expect(fresh.locator('#modalBody .detail-title')).toHaveText(target.entidad);
+  await expect(fresh.locator('#tabObservatorio')).toHaveClass(/active/);
+  // Al cerrar, el hash se limpia: recargar no vuelve a abrir el detalle.
+  await fresh.keyboard.press('Escape');
+  await expect(fresh.locator('#detailModal')).not.toHaveClass(/active/);
+  expect(new URL(fresh.url()).hash).toBe('');
+});
+
+test('enlace a algo fuera del tablero o que ya no existe', async ({ page }) => {
+  const light = {
+    id: 'CO1.REQ.SOLO.OCULTO', motivo: 'sin_sector', entidad: 'ENTIDAD OCULTA', precio: 100000000, descripcion: 'Proceso oculto',
+    etapa_comercial: 'Licitación Abierta (En Ofertas)', estado_secop: 'Publicado', sectores: [], url_secop: ''
+  };
+  await page.route('**/hidden.js*', route => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.HIDDEN_DATA = ${JSON.stringify({ items: [light], total: 1, sin_sector: 1, fuera_de_corte: 0, convenio: 0 })};`
+  }));
+  // SECOP II simulado: el proceso desconocido no existe.
+  await page.route('https://www.datos.gov.co/**', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
+
+  await page.goto('/index.html#op=CO1.REQ.SOLO.OCULTO');
+  await expect(page.locator('#modalBody')).toContainText('ENTIDAD OCULTA');
+  await expect(page.locator('#modalBody')).toContainText('Por qué no está en el tablero');
+
+  await page.goto('/index.html#op=CO1.REQ.NO.EXISTE');
+  await page.reload();
+  await expect(page.locator('#modalBody')).toContainText('Esta oportunidad ya no está disponible');
+  await expect(page.locator('#cardsGrid .opp-card').first()).toBeVisible();
+});
+
 test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) => {
   await openDashboard(page);
   await page.locator('#cardsGrid .btn-detail').first().click();
