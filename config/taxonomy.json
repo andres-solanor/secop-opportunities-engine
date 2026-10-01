@@ -21,7 +21,7 @@
     "                  menciona la obra, pero quien vende materiales no puede venderle nada.",
     "  Los ids de sector no se cambian: los perfiles guardados en el navegador los usan."
   ],
-  "version": 2,
+  "version": 3,
   "grupos": [
     { "id": "obra_infraestructura", "name": "Obra e infraestructura", "orden": 1 },
     { "id": "suministros_equipos", "name": "Suministros y equipos", "orden": 2 },
@@ -108,7 +108,8 @@
       ],
       "excluir_si": {
         "varilla": ["puesta a tierra", "cobre"],
-        "varillas": ["puesta a tierra", "cobre"]
+        "varillas": ["puesta a tierra", "cobre"],
+        "vigas": ["amarre", "arrastre", "concreto", "columnas"]
       },
       "unspsc_prefixes": ["3010", "3026", "7214", "7212", "7210"],
       "excluir_tipos_contrato": ["Interventoría", "Consultoría", "Seguros"],

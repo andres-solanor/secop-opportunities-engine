@@ -161,6 +161,23 @@ class TestClassification(unittest.TestCase):
         )
         self.assertIn("acero_metalmecanica", ids)
 
+    def test_concrete_beams_are_not_steel(self):
+        # Muestra real de SECOP II (2026-10-01): "vigas" casi siempre es obra en concreto.
+        ids = self.sector_ids(
+            nombre_del_procedimiento="Mejoramiento de sede educativa",
+            descripci_n_del_procedimiento="Demolición y desmonte de techo, mampostería, pañete, piso, columnas, vigas y amarre de techos",
+            codigo_principal_de_categoria="No definido",
+        )
+        self.assertNotIn("acero_metalmecanica", ids)
+
+    def test_steel_beams_are_still_steel(self):
+        ids = self.sector_ids(
+            nombre_del_procedimiento="Suministro de vigas",
+            descripci_n_del_procedimiento="Suministro de vigas de acero tipo IPE para bodega",
+            codigo_principal_de_categoria="No definido",
+        )
+        self.assertIn("acero_metalmecanica", ids)
+
     def test_unspsc_with_version_prefix_matches_sector(self):
         ids = self.sector_ids(
             nombre_del_procedimiento="Adquisición de elementos",
