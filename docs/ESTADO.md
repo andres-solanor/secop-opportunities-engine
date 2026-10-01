@@ -389,7 +389,7 @@ Este bloque reemplaza las "próximas acciones" de los bloques anteriores.
   - `f54091d`, favicon y resaltado de los filtros en uso (pedido del dueño):
     - Favicon: `web/favicon.svg`, enlazado desde `web/index.html` y desde la redirección de la raíz. `stamp_assets` ahora también sella los `.svg`.
     - Filtros: cada filtro fuera de su valor por defecto queda con borde de 2 px y fondo teñido. El botón muestra "Limpiar filtros (n)". La lógica está en `DashboardEngine.activeFilters`.
-    - Verificado: ruff (con `uvx ruff`, porque `ruff` no está en el PATH de esta máquina); 115 pruebas Python; ESLint; 63 Node; 23 de 23 de humo. Capturas en oscuro, claro y Matrix: el resaltado se ve en los tres y el favicon responde 200 `image/svg+xml`.
+    - Verificado: ruff (con `uvx ruff`, porque `ruff` no está en el PATH de esta máquina); 124 pruebas Python; ESLint; 63 Node; 23 de 23 de humo. Capturas en oscuro, claro y Matrix: el resaltado se ve en los tres y el favicon responde 200 `image/svg+xml`.
   - Commit de documentación: la sesión de co-creación, en la sección "Visión y prioridades" de `PLAN_ITERACIONES.md`, y este bloque.
 - **Decisiones del dueño en la sesión:**
   - El tablero es un módulo del motor de conexiones (prototipo en otro código).
