@@ -153,6 +153,18 @@ test('badges: riesgo primero y consorcio sin marca de contratista nuevo', () => 
   assert.ok(badges.every(b => E.TONES[b.tone]));
 });
 
+test('badge de persona natural: solo con la cifra que pasa quien llama, con el porcentaje real', () => {
+  const now = new Date('2026-09-28T12:00:00');
+  const item = { etapa_comercial: 'Licitación Abierta (En Ofertas)', modalidad: 'Mínima cuantía' };
+  assert.ok(!E.cardBadges(item, now).some(b => b.id === 'persona_natural'));
+  const share = { pct: 18.8, natural: 1019, juridica: 4391, contratos: 5410 };
+  const badge = E.cardBadges(item, now, { personaNatural: share }).find(b => b.id === 'persona_natural');
+  assert.strictEqual(badge.label, 'Persona natural gana 18,8%');
+  assert.strictEqual(badge.tone, 'info');
+  assert.match(badge.tip, /1019 de 5410/);
+  assert.match(badge.tip, /no un requisito/);
+});
+
 test('nextStep prioriza el inicio de ejecución futuro en adjudicados', () => {
   const now = new Date('2026-09-28T12:00:00');
   const item = { etapa_comercial: 'Adjudicado (Contrato firmado)', fechas: { adjudicacion: '2026-09-20T00:00:00' }, contrato: { estado: 'Aprobado', inicio_ejecucion: '2026-10-05T00:00:00' } };

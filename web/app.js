@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnResetFilters = document.getElementById('btnResetFilters');
   const btnExportCsv = document.getElementById('btnExportCsv');
   const META = window.PROSPECTS_META || null;
+  // Persona natural: cifra por modalidad calculada por el pipeline (meta.perfil_proponente).
+  const BIDDER_SHARES = Dash.bidderShares(META && META.perfil_proponente);
+  const HAS_BIDDER_SHARES = Object.keys(BIDDER_SHARES).length > 0;
   // Compras planeadas (Plan Anual de Adquisiciones): se normaliza `precio` para reutilizar KPIs y filtros.
   const PAA = (window.PAA_DATA || []).map(x => ({ ...x, precio: x.valor }));
   const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -315,13 +318,18 @@ document.addEventListener('DOMContentLoaded', () => {
       department: departmentSelect.value,
       modality: modalitySelect.value,
       age: ageSelect.value,
+      bidderShares: BIDDER_SHARES,
       onlyNew
     };
   }
 
   // Modalidad de contratación: catálogo del motor, con el conteo de la pestaña activa.
+  // Primero, si el pipeline publicó el perfil del proponente, "más accesibles a persona natural".
   function initModalities() {
-    Dash.MODALITIES.forEach(({ id, label }) => {
+    const options = HAS_BIDDER_SHARES
+      ? [{ id: Dash.PERSONA_NATURAL, label: '🧑‍💼 Más accesibles a persona natural' }, ...Dash.MODALITIES]
+      : Dash.MODALITIES;
+    options.forEach(({ id, label }) => {
       const opt = document.createElement('option');
       opt.value = id;
       opt.textContent = label;
@@ -333,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /** Las modalidades sin procesos en la pestaña se ocultan, salvo la que está elegida. */
   function updateModalityCounts(base) {
     const counts = Dash.modalityCounts(base);
+    if (HAS_BIDDER_SHARES) counts[Dash.PERSONA_NATURAL] = base.filter(i => friendlyShare(i)).length;
     modalityOptionEls.forEach(({ el, label }, id) => {
       const n = counts[id] || 0;
       el.textContent = `${label} (${n})`;
@@ -389,7 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentTab === 'paa') {
       // El PAA no tiene etapa ni departamento de la entidad: aplican texto, sector, valor, modalidad y mes.
       return Dash.applyFilters(PAA, {
-        query: filters.query, sector: filters.sector, minBudget: filters.minBudget, modality: filters.modality, age: filters.age
+        query: filters.query, sector: filters.sector, minBudget: filters.minBudget,
+        modality: filters.modality, age: filters.age, bidderShares: filters.bidderShares
       });
     }
     if (currentTab === 'hidden') {
@@ -613,6 +623,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const badges = [{ icon: '', ...reason }];
     if (Dash.isInsurance(item)) badges.push(Engine.BADGES.seguros);
     if (item.convenio && item.motivo !== 'convenio') badges.push(Engine.BADGES.convenio);
+    const pn = cardBadges(item).find(b => b.id === 'persona_natural');
+    if (pn) badges.push(pn);
     return badges.map(badgeHtml).join('');
   }
 
@@ -808,6 +820,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return Dash.modalityLabel(item) || '';
   }
 
+  /** Cifra de persona natural de la modalidad si supera el umbral (DashboardEngine); si no, null. */
+  function friendlyShare(item) {
+    return Dash.personaNaturalFriendly(BIDDER_SHARES, item);
+  }
+
+  function cardBadges(item) {
+    return Engine.cardBadges(item, new Date(), { personaNatural: friendlyShare(item) });
+  }
+
   function badgeHtml(b) {
     return `<span class="badge badge-${b.tone}" title="${escapeHtml(b.tip)}">${b.icon} ${escapeHtml(b.label)}</span>`;
   }
@@ -841,7 +862,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sectors = (item.sectores || []).map(s => escapeHtml(s.name)).join(' • ');
     const metaLine = [modalityLabel(item), Engine.formatTerm(item.plazo)].filter(Boolean).map(escapeHtml).join(' · ');
-    const badges = Engine.cardBadges(item);
+    const badges = cardBadges(item);
     const visibleBadges = badges.slice(0, 4);
     const moreBadges = badges.length - visibleBadges.length;
     const reasons = match && match.reasons.length
@@ -925,8 +946,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const f = item.fechas || {};
     const d = v => (v ? escapeHtml(formatDate(new Date(v))) : '');
     const money = v => (v || v === 0 ? escapeHtml(Engine.formatCopShort(v)) : '');
-    const badges = Engine.cardBadges(item);
+    const badges = cardBadges(item);
     const step = Engine.nextStep(item);
+    const share = Dash.personaNaturalShare(BIDDER_SHARES, item);
+    const profile = META && META.perfil_proponente;
 
     const timeline = [
       ['Publicación', f.publicacion],
@@ -957,6 +980,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>Objeto</h3>
           <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
         </section>
+
+        ${share ? `
+        <section class="detail-section">
+          <h3>¿Quién gana en esta modalidad?</h3>
+          <p>Desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}, <b>${escapeHtml(String(share.pct).replace('.', ','))}%</b> de los contratos de ${escapeHtml(modalityLabel(item))} (${share.natural} de ${share.contratos} con tipo de proponente conocido) los ganó una persona natural; el resto, empresas.</p>
+          <p class="legal-note">Fuente: SECOP II · Contratos. Contratos de ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
+        </section>` : ''}
 
         ${timeline.length ? `
         <section class="detail-section">

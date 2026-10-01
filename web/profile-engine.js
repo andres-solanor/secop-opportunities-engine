@@ -492,6 +492,7 @@
     ofertas: { icon: '👥', label: 'Ofertas recibidas', tone: 'info', tip: 'Número de ofertas presentadas en el proceso (SECOP II · ofertas por proceso): mide la competencia real.' },
     nueva: { icon: '🔔', label: 'Nueva', tone: 'good', tip: 'Apareció por primera vez en la última sincronización con SECOP II.' },
     sin_ganador: { icon: '👤', label: 'Sin ganador aún', tone: 'info', tip: 'El proceso todavía no tiene contratista seleccionado.' },
+    persona_natural: { icon: '🧑‍💼', label: 'Accesible a persona natural', tone: 'info', tip: 'En esta modalidad, una parte relevante de los contratos parecidos (12 meses, SECOP II · Contratos) la ganan personas naturales. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.' },
     consorcio: { icon: '🤝', label: 'Consorcio / UT', tone: 'info', tip: 'El ganador es un consorcio o unión temporal: las compras pueden hacerlas sus integrantes.' },
     pyme: { icon: '🏪', label: 'Pyme', tone: 'info', tip: 'El contratista está registrado como pyme.' },
     regalias: { icon: '🏛️', label: 'Regalías', tone: 'info', tip: 'El contrato se financia con recursos del Sistema General de Regalías.' },
@@ -499,8 +500,12 @@
   };
   const TONE_ORDER = ['risk', 'warn', 'good', 'info'];
 
-  /** Badges de una oportunidad, ordenados de mayor a menor importancia (riesgo primero). */
-  function cardBadges(item, now = new Date()) {
+  /**
+   * Badges de una oportunidad, ordenados de mayor a menor importancia (riesgo primero).
+   * `opts.personaNatural`: la cifra de la modalidad si supera el umbral
+   * (DashboardEngine.personaNaturalFriendly); el motor no decide el umbral.
+   */
+  function cardBadges(item, now = new Date(), opts = {}) {
     const ids = [];
     const c = item.contrato;
     const history = item.historial_contratista;
@@ -528,6 +533,8 @@
     if (item.nueva) ids.push('nueva');
     if (item.ofertas && item.ofertas.cantidad) ids.push('ofertas');
     if (bw.state !== 'adjudicado') ids.push('sin_ganador');
+    const pn = opts.personaNatural;
+    if (pn && pn.pct != null) ids.push('persona_natural');
     const consortium = (item.contratista && item.contratista.es_consorcio) || (c && c.es_grupo);
     if (bw.state === 'adjudicado' && consortium) ids.push('consorcio');
     if (history && history.contratos >= 5) ids.push('contratista_recurrente');
@@ -536,10 +543,19 @@
     if (entity && entity.pagado_sobre_facturado_pct >= 80) ids.push('pagos_registrados');
 
     const dynamicLabels = {
-      ofertas: () => `${item.ofertas.cantidad} ${item.ofertas.cantidad === 1 ? 'oferta' : 'ofertas'}`
+      ofertas: () => `${item.ofertas.cantidad} ${item.ofertas.cantidad === 1 ? 'oferta' : 'ofertas'}`,
+      persona_natural: () => `Persona natural gana ${String(pn.pct).replace('.', ',')}%`
+    };
+    const dynamicTips = {
+      persona_natural: () => `En los últimos 12 meses, ${pn.natural} de ${pn.contratos} contratos parecidos de esta modalidad (con tipo de proponente conocido) los ganó una persona natural (SECOP II · Contratos). Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.`
     };
     return ids
-      .map(id => ({ id, ...BADGES[id], ...(dynamicLabels[id] ? { label: dynamicLabels[id]() } : {}) }))
+      .map(id => ({
+        id,
+        ...BADGES[id],
+        ...(dynamicLabels[id] ? { label: dynamicLabels[id]() } : {}),
+        ...(dynamicTips[id] ? { tip: dynamicTips[id]() } : {})
+      }))
       .sort((a, b) => TONE_ORDER.indexOf(a.tone) - TONE_ORDER.indexOf(b.tone));
   }
 
