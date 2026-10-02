@@ -535,6 +535,6 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
 - `HIDDEN_WEB_MAX` (5000) ya corta: hay 6033 fuera del tablero.
 - La API puede servir una versión vieja durante horas después de una recarga. Una corrida en ese intervalo publica datos de la versión anterior; no es un error del pipeline.
 
-**Decisiones del dueño (cambian qué se descarga o publica):**
-1. Subir `GENERAL_MAX_ROWS` (por ejemplo, de 5000 a 8000) y `AWARDED_MAX_ROWS`, y actualizar el comentario de "~230 procesos por día".
-2. Dejar `HIDDEN_WEB_MAX` en 5000 o subirlo hasta cubrir los 6033.
+**Decidido por el dueño el 2026-10-02** ("aplica las recomendaciones"):
+1. `GENERAL_MAX_ROWS` pasa de 5000 a 8000 y `AWARDED_MAX_ROWS` de 3000 a 5000. Se agregó una prueba que exige al menos 1,5 veces el volumen medido, y el comentario dice ahora ~400 procesos por día hábil.
+2. `HIDDEN_WEB_MAX` se queda en 5000. Cubrir los 6033 haría el archivo cerca de 20 % más pesado, con unos +0,3 s al abrir la vista en un teléfono lento.

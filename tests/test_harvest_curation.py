@@ -26,7 +26,7 @@ from src.discovery import (
 )
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter, reason_group
-from src.harvest import HarvestError, build_queries, harvest, sector_where
+from src.harvest import AWARDED_MAX_ROWS, GENERAL_MAX_ROWS, HarvestError, build_queries, harvest, sector_where
 from src.services.socrata_client import SocrataClient, SocrataError
 from src.taxonomy import SIN_CLASIFICAR, TaxonomyError, fold, load_groups, load_taxonomy, normalize_unspsc
 
@@ -486,13 +486,19 @@ class TestHarvest(unittest.TestCase):
         self.assertEqual(states, {"sector:acero": "ok", "general:publicados": "ok", "general:adjudicados": "error"})
 
     def test_same_process_from_two_queries_is_kept_once_and_truncation_is_flagged(self):
-        many = [raw(f"G{n}") for n in range(5000)]
+        many = [raw(f"G{n}") for n in range(GENERAL_MAX_ROWS)]
         client = FakeHarvestClient(rows_per_query={"VIGAS": [raw("A"), raw("G1")], "adjudicado = 'Si'": [], "precio_base >= 50000000": many})
         out = harvest(client, TAXONOMY, TODAY, log=lambda _: None)
-        self.assertEqual(len(out["records"]), 5001)
+        self.assertEqual(len(out["records"]), GENERAL_MAX_ROWS + 1)
         flags = {q["nombre"]: q["truncada"] for q in out["consultas"]}
         self.assertTrue(flags["general:publicados"])
         self.assertFalse(flags["sector:acero"])
+
+    def test_general_caps_leave_headroom_over_the_measured_volume(self):
+        # Medido tras la recarga de SECOP II del 2026-10-01: publicados 4148 y adjudicados 2178 en
+        # 14 días. Con menos de 1,5 veces eso, unos días de más volumen truncarían la ventana.
+        self.assertGreaterEqual(GENERAL_MAX_ROWS, 1.5 * 4148)
+        self.assertGreaterEqual(AWARDED_MAX_ROWS, 1.5 * 2178)
 
 
 class TestCuration(unittest.TestCase):
