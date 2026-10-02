@@ -495,7 +495,7 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
   - Recomendación: backend en Node (Hono o Express) en un subdominio, no en PHP.
 - **Sin commit:** nada.
 - **Errores abiertos y observaciones:**
-  - Las corridas de la noche consultan 9624 procesos, frente a 7125 en las de la tarde. Pasó dos veces. La causa queda `[POR VERIFICAR]`.
+  - Las corridas de la noche consultan 9624 procesos, frente a 7125 en las de la tarde. Pasó dos veces. Causa encontrada: ver "Recarga de la fuente" abajo.
   - Fuera del tablero hay 6033 y se publican 5000: el techo de seguridad de `HIDDEN_WEB_MAX` ya corta.
   - Siguen abiertos los del bloque anterior: la píldora a 390 px, los hallazgos de Impeccable (9.6 c), la vista previa genérica y los límites de datos.gov.co.
 - **Pendiente del dueño:**
@@ -506,5 +506,35 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
 - **Lista de deseos:** Croma (plan, "Lista de deseos"). No se investigó.
 - **Próximas tres acciones:**
   1. Revisar mañana la corrida programada de las 11:00 UTC: la primera del cron con el despliegue nuevo.
-  2. Investigar por qué la corrida de la noche descarga 9624 procesos y la de la tarde 7125. Decidir si `HIDDEN_WEB_MAX` sube o se queda en 5000.
+  2. ~~Investigar por qué la corrida de la noche descarga 9624 procesos y la de la tarde 7125~~ (hecho: "Recarga de la fuente"). Queda la decisión de los topes.
   3. Fase B: exploración de un día con una app Node en un subdominio de Hostinger (ID token de Google y un lead en MySQL), cuando el dueño entregue el `GOOGLE_CLIENT_ID` y active SSH.
+
+### Recarga de la fuente (investigado el 2026-10-02, 00:00–00:30 UTC; solo consultas de lectura)
+
+**Qué pasó.** En la misma fecha UTC, las corridas de las 22:27 y las 22:45 descargaron 7125 procesos y la de las 23:07 descargó 9624.
+
+| Consulta | Corrida de las 22:34 | Corrida de las 23:14 |
+|---|---:|---:|
+| `general:publicados` | 2166 | 4148 |
+| `general:adjudicados` | 971 | 2178 |
+| Seis consultas de sector | | entre +5 y +10 % |
+
+**Causa: SECOP II reemplazó el dataset completo.**
+- Las 9.249.545 filas de `p6dx-8zbt` tienen el mismo `:created_at`: 2026-10-01T17:30:18 UTC.
+- `rowsUpdatedAt` del dataset es 2026-10-01T20:16:23 UTC.
+- La API siguió devolviendo la versión anterior hasta entre las 22:52 y las 23:07 UTC. Con la ventana del 1 de octubre, la fuente devuelve hoy exactamente las cifras de la corrida de las 23:14.
+- El código y las ventanas de consulta no cambiaron entre corridas.
+
+**¿Es crecimiento real?** Sí, en su mayor parte. El universo de 14 días ($50 M o más, desde el 2026-09-17) pasó de 3736 a 6997 filas (de `hidden_summary.md` publicado a las 18:13 y a las 23:27). Esas 6997 filas son 6244 procesos distintos, y casi todos los tipos de contrato se duplican por igual. Por qué la versión anterior tenía menos procesos `[POR VERIFICAR]`: no se conservan sus ids.
+
+**Filas idénticas repetidas.** Cerca del 11 % de las filas son copias exactas; un proceso (`CO1.REQ.11077517`) aparece 205 veces. El paso de duplicados del embudo ya las quita.
+
+**Riesgos para el pipeline:**
+- `general:publicados` usa 4148 de su tope de 5000 (83 %). Con unos 400 procesos por día hábil (antes se estimaban ~230), puede llegar al tope en pocos días. Al llegar, se pierden los más viejos de la ventana, porque la consulta ordena del más nuevo al más viejo. El estado lo marca como `truncada`.
+- `general:adjudicados` usa el 73 % de su tope; los sectores, hasta el 66 %.
+- `HIDDEN_WEB_MAX` (5000) ya corta: hay 6033 fuera del tablero.
+- La API puede servir una versión vieja durante horas después de una recarga. Una corrida en ese intervalo publica datos de la versión anterior; no es un error del pipeline.
+
+**Decisiones del dueño (cambian qué se descarga o publica):**
+1. Subir `GENERAL_MAX_ROWS` (por ejemplo, de 5000 a 8000) y `AWARDED_MAX_ROWS`, y actualizar el comentario de "~230 procesos por día".
+2. Dejar `HIDDEN_WEB_MAX` en 5000 o subirlo hasta cubrir los 6033.
