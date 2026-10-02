@@ -119,6 +119,16 @@ def validate_meta(meta: Any) -> List[str]:
             errors.append(f"meta: falta '{name}'")
         elif not isinstance(meta[name], types):
             errors.append(f"meta: '{name}' tiene tipo {type(meta[name]).__name__}")
+    coverage = meta.get("cobertura_unspsc")
+    if coverage is not None:  # opcional: el monitor puede fallar sin detener la corrida
+        weeks = coverage.get("semanas") if isinstance(coverage, dict) else None
+        if not isinstance(weeks, list) or not all(
+            isinstance(w, dict) and isinstance(w.get("semana"), str)
+            and all(isinstance(w.get(k), int) and not isinstance(w.get(k), bool) and w[k] >= 0 for k in ("procesos", "con_codigo"))
+            and w["con_codigo"] <= w["procesos"]
+            for w in weeks
+        ):
+            errors.append("meta: 'cobertura_unspsc' mal formada")
     profile = meta.get("perfil_proponente")
     if profile is not None:  # opcional: si la fuente falla y no hay corrida anterior, va en null
         rows = profile.get("modalidades") if isinstance(profile, dict) else None

@@ -1628,6 +1628,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <tbody>${history.slice(0, 10).map(h => `<tr><td>${escapeHtml(colombiaTime(h.generated_at))}</td><td>+${h.nuevas}</td><td>${h.nuevas_adjudicadas}</td><td>${h.curadas}</td><td>${escapeHtml((CROSS_STATES[h.cruce_contratos] || '').split(' ')[0])}</td></tr>`).join('')}</tbody>
           </table>
         </section>` : ''}
+
+        ${(META.cobertura_unspsc?.semanas || []).length ? `
+        <section class="detail-section">
+          <h3>Procesos con código UNSPSC en SECOP II</h3>
+          <table class="sync-table">
+            <thead><tr><th>Semana (desde el lunes)</th><th>Procesos</th><th>Con código</th></tr></thead>
+            <tbody>${META.cobertura_unspsc.semanas.slice().reverse().map(w => `<tr><td>${escapeHtml(formatDate(new Date(`${w.semana}T00:00:00`)))}</td><td>${w.procesos.toLocaleString('es-CO')}</td><td>${w.procesos ? Math.round((100 * w.con_codigo) / w.procesos) : 0} %</td></tr>`).join('')}</tbody>
+          </table>
+          <p class="legal-note">Desde mediados de septiembre de 2026, SECOP II publica casi todos los procesos sin su código UNSPSC. Mientras no vuelva, la clasificación por sector se apoya en las palabras clave.</p>
+        </section>` : ''}
         <p class="legal-note">La sincronización corre automáticamente todos los días a las 6:00 a. m. (hora Colombia) en GitHub Actions. "Nueva" significa que el proceso nunca había aparecido en la selección.</p>
       </div>`;
     const btn = document.getElementById('showOnlyNew');

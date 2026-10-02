@@ -287,6 +287,26 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
 });
 
+test('el panel de sincronización muestra la cobertura UNSPSC por semana, la más reciente primero', async ({ page }) => {
+  const coverage = { precio_min: 50000000, semanas: [
+    { semana: '2026-09-07', procesos: 4068, con_codigo: 3773 },
+    { semana: '2026-09-14', procesos: 3855, con_codigo: 1412 }
+  ] };
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    await route.fulfill({ response: res, body: `${body}\nwindow.PROSPECTS_META = Object.assign(window.PROSPECTS_META || {}, { cobertura_unspsc: ${JSON.stringify(coverage)} });\n` });
+  });
+  await openDashboard(page);
+  await page.click('#syncStatus');
+  const section = page.locator('.detail-section', { hasText: 'Procesos con código UNSPSC' });
+  await expect(section).toBeVisible();
+  const rows = await section.locator('tbody tr').allTextContents();
+  expect(rows).toHaveLength(2);
+  expect(rows[0]).toContain('37 %'); // 1412 de 3855, la semana más reciente arriba
+  expect(rows[1]).toContain('93 %');
+});
+
 test('el detalle ordena los bloques según el estado: el adjudicado empieza por el contratista', async ({ page }) => {
   // Sin consultas reales: la entidad en vivo ("quién gana") se simula vacía.
   await page.route('**/resource/jbjy-vk9h.json*', route => route.fulfill({ contentType: 'application/json', body: '[]' }));

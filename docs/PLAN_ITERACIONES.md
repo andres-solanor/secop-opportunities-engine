@@ -67,11 +67,23 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
   | **15 de septiembre al 2 de octubre** | **9 % (751 de 8479)** |
 
   Faltan en todos los estados, también en "Publicado". Si es un retraso de SECOP o un cambio del dataset está `[POR VERIFICAR]`: hay que volver a medir esa ventana en las próximas recargas. Las categorías adicionales (`categorias_adicionales`) llegan como "No definido" en la muestra reciente.
-- No se encontró en datos.gov.co un catálogo UNSPSC con nombres (la búsqueda devuelve datasets de SECOP I). Sin nombres, un código como `72141000` no le dice nada al usuario. La fuente del catálogo en español está `[POR VERIFICAR]` (Colombia Compra Eficiente publica el clasificador).
+- No se encontró en datos.gov.co un catálogo UNSPSC con nombres (la búsqueda devuelve datasets de SECOP I).
+
+**Catálogo** (archivos del dueño en su carpeta de descargas, leídos el 2026-10-02; nada se copió al repositorio):
+
+| Archivo | Versión | Contenido | Aviso |
+|---|---|---|---|
+| `clasificador_de_bienes_y_servicios_v14_1.xls` (y una copia con el mismo contenido) | v14 en español, de Colombia Compra Eficiente | 56 segmentos, 420 familias, 3818 clases, 49.022 productos | "Esta traducción no puede ser explotada comercialmente." |
+| `unspcs-clasificador-…-en-espanol.xlsx` | La misma v14, reempaquetada por un servicio de alertas de licitaciones | | "UNDP es el único propietario de todos los derechos" |
+| `unspsc-english-v260801.1.xlsx` | v26 en inglés (UNDP, 18 de marzo de 2025) | 58 segmentos, 559 familias, 7998 clases, 149.849 productos | © UNDP |
+
+**La v14 en español basta.** Resuelve el 100 % de los códigos de los 159.405 contratos de $50 M o más firmados en 2026 (`jbjy-vk9h`, 4552 códigos distintos): 37 % al nivel de producto y 63 % al de clase. La v26 no resuelve mejor ninguno: SECOP II usa la v14 (el prefijo "V1.").
+
+**Decisión del dueño pendiente:** el aviso de la v14 prohíbe explotarla comercialmente, y el producto piensa cobrar después. Hay que decidir si se publica (nombres de clase y de los productos que aparecen en SECOP, unos 4.500) o si se pide permiso o asesoría.
 
 **Propuesta, en orden:**
-1. **Vigilar la cobertura.** Agregar al reporte diario el porcentaje de procesos con código por semana de publicación, para ver si vuelve.
-2. **Detalle.** Mostrar el código principal y los adicionales con su nombre por segmento, familia y clase. Depende del catálogo.
+1. ~~**Vigilar la cobertura.**~~ **Hecho (2026-10-02).** `src/harvest.py: unspsc_coverage` cuenta en el servidor, por semana de publicación (8 semanas), los procesos con código. Sale en `meta.cobertura_unspsc`, en `hidden_summary.md` y en el panel de sincronización. Primera medición: 93–96 % hasta la semana del 7 de septiembre; luego 37 %, 3 % y 1 % en las semanas del 14, 21 y 28.
+2. **Detalle.** Mostrar el código principal y los adicionales con su nombre por segmento, familia y clase. Depende de la decisión sobre la licencia del catálogo.
 3. **Perfil.** Un campo opcional: "códigos UNSPSC de tu RUP", con un buscador por nombre. Es el dato que la firma de abogados ya tiene de cada empresa cliente.
 4. **Encaje.** Sumar afinidad por nivel compartido (clase de 6 dígitos > familia de 4 > segmento de 2) y un badge "Tu RUP cubre esta clasificación". Si el proceso no trae código, el encaje sigue por palabras clave, como hoy.
 

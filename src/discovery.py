@@ -125,6 +125,7 @@ def render_report(
     queries: Optional[List[Dict[str, Any]]] = None,
     contract_types: Optional[List[Dict[str, Any]]] = None,
     phrases: Optional[List[Dict[str, Any]]] = None,
+    unspsc_coverage: Optional[Dict[str, Any]] = None,
 ) -> str:
     """Markdown del reporte. `counts` viene de `curation.funnel_counts`."""
     lines = [
@@ -175,6 +176,22 @@ def render_report(
         lines += [f"| {cell(r['valor'])} | {r['procesos']} |" for r in universe["por_tipo_contrato"]]
         lines += ["", "| Modalidad | Procesos |", "|---|---:|"]
         lines += [f"| {cell(r['valor'])} | {r['procesos']} |" for r in universe["por_modalidad"]]
+        lines.append("")
+
+    if unspsc_coverage and unspsc_coverage.get("semanas"):
+        lines += [
+            "## Procesos con código UNSPSC, por semana de publicación",
+            "",
+            f"Procesos de {millions(unspsc_coverage['precio_min'])} o más, contados en el servidor. Desde el "
+            "2026-09-15 SECOP II publica casi todos sin código (docs/PLAN_ITERACIONES.md, A10): esta tabla "
+            "dice si vuelve.",
+            "",
+            "| Semana (lunes) | Procesos | Con código | % |",
+            "|---|---:|---:|---:|",
+        ]
+        for w in unspsc_coverage["semanas"]:
+            pct = round(100 * w["con_codigo"] / w["procesos"]) if w["procesos"] else 0
+            lines.append(f"| {w['semana']} | {w['procesos']} | {w['con_codigo']} | {pct} % |")
         lines.append("")
 
     shown = families[:TOP_FAMILIES]
