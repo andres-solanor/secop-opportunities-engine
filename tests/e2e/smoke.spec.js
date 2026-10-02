@@ -290,7 +290,6 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
 test('quién gana: el país (perfil publicado) y la entidad (en vivo, simulado), con su proveedor habitual', async ({ page }) => {
   // Se toma un proceso del tablero con NIT de entidad y modalidad conocida, y se publica un perfil
   // con esa modalidad. datos.gov.co se simula: la prueba nunca consulta el servicio real.
-  let target = null;
   await page.route('**/data.js*', async route => {
     const res = await route.fetch();
     const body = await res.text();
@@ -317,7 +316,7 @@ test('quién gana: el país (perfil publicado) y la entidad (en vivo, simulado),
       : [{ n: '8', v: '1200000000' }]) });
   });
   await openDashboard(page);
-  target = await page.evaluate(() => window.__whoWinsTarget);
+  const target = await page.evaluate(() => window.__whoWinsTarget);
   test.skip(!target, 'los datos no traen un proceso con NIT y modalidad conocida');
   await page.goto('about:blank');
   await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
