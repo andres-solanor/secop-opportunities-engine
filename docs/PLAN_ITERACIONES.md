@@ -100,11 +100,26 @@ Es decir, el 100 % se puede mostrar al menos con el nombre de su clase sin tocar
 **Ideas para los productos (el único hueco), en orden de recomendación:**
 1. **Nombre público de la clase y el código del producto** (por ejemplo, "Servicios de construcción de autopistas y carreteras · 72141003"). Riesgo nulo y sirve hoy.
 2. **Etiqueta propia derivada del uso:** los términos más frecuentes del objeto de los contratos con ese producto ("pavimentación · placa huella · vías terciarias, según 312 contratos"). Es una creación propia sobre datos CC BY-SA y también sirve para el encaje.
-3. **Traducción propia desde el inglés** (v26 de UNDP). Evita la traducción de CCE, pero las condiciones de uso de UNDP están `[POR VERIFICAR]`.
+3. **Traducción propia desde el inglés** (v26 de UNDP). Evita la traducción de CCE. El dueño la prefiere (2026-10-02), pero **necesita permiso escrito de UNDP** (ver "Condiciones de UNDP" abajo).
 4. **Pedirle a CCE** que publique el clasificador completo con la misma licencia CC BY-SA con la que ya publica familias y clases.
 5. **No recomendado:** recortar o parafrasear los nombres de CCE. Sigue siendo una obra derivada de la traducción que protege el aviso.
 
 Esto no es asesoría legal: es cómo reducir el riesgo con lo que se pudo verificar.
+
+**Condiciones de UNDP** (revisadas el 2026-10-02):
+- **Página actual de UNSPSC** (`undp.org/unspsc`, leída en el navegador): lo describe como "an open, global, multi-sector standard", dice "You may browse and download the current version of the code at no cost", da como contacto `info.unspsc@undp.org` y no enlaza condiciones propias.
+- **Condiciones generales de UNDP** (`undp.org/copyright-terms-use`, texto leído en el navegador). Aplican "Unless otherwise specified in any Special Terms": permiten descargar y copiar "for the User's personal, non-commercial use, without any right to resell or redistribute them or to compile or create derivative works therefrom".
+- **Una traducción es una obra derivada**, así que con las condiciones generales la opción 3 no está permitida para un producto comercial sin autorización.
+- **Las condiciones específicas de UNSPSC** solo se encontraron en copias de buscador del antiguo `unspsc.org`, que hoy redirige a otro dominio: `[POR VERIFICAR]` con UNDP. Según esas copias:
+  - el uso es gratuito;
+  - se puede integrar el código en una solución comercial firmando un "addendum" a los términos;
+  - crear obras derivadas o combinarlo con otro sistema de codificación requiere permiso escrito previo.
+- **Camino:** escribir a `info.unspsc@undp.org` y pedir tres cosas:
+  1. el addendum de uso comercial;
+  2. permiso para publicar una traducción propia al español de los nombres (o, mejor, usar la traducción oficial al español que UNDP ofrezca);
+  3. confirmar si mostrar los códigos que ya trae SECOP II necesita algo más.
+
+  Mientras no haya respuesta, la opción 1 (nombres públicos de clase, licencia CC BY-SA del Estado colombiano) sigue siendo la de riesgo nulo y cubre el 100 % de los contratos a nivel de clase.
 
 **Propuesta, en orden:**
 1. ~~**Vigilar la cobertura.**~~ **Hecho (2026-10-02).** `src/harvest.py: unspsc_coverage` cuenta en el servidor, por semana de publicación (8 semanas), los procesos con código. Sale en `meta.cobertura_unspsc`, en `hidden_summary.md` y en el panel de sincronización. Primera medición: 93–96 % hasta la semana del 7 de septiembre; luego 37 %, 3 % y 1 % en las semanas del 14, 21 y 28.
