@@ -22,10 +22,13 @@ from src.services.socrata_client import SocrataClient
 
 MIN_PRICE = 50_000_000
 SECTOR_WINDOW_DAYS = 120   # los sectores miran más atrás: son pocos procesos y muy relevantes
-GENERAL_WINDOW_DAYS = 14   # la descarga general es grande: ~230 procesos por día
+GENERAL_WINDOW_DAYS = 14   # la descarga general es grande: ~400 procesos por día hábil (2026-10-01)
 SECTOR_MAX_ROWS = 3000     # agua y tecnología pasaban de 1000 filas en 120 días (2026-09-30)
-GENERAL_MAX_ROWS = 5000
-AWARDED_MAX_ROWS = 3000
+# Tras la recarga completa de SECOP II del 2026-10-01, publicados llegó a 4148 filas (83 % del
+# tope anterior, 5000) y adjudicados a 2178 (73 % de 3000). Al llegar al tope se pierden los más
+# viejos de la ventana: se deja holgura de casi el doble (docs/ESTADO.md, "Recarga de la fuente").
+GENERAL_MAX_ROWS = 8000
+AWARDED_MAX_ROWS = 5000
 
 # Lo que el filtro de ruido descartaría de todos modos: no vale la pena descargarlo.
 GENERAL_EXCLUSIONS = (
