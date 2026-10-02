@@ -47,6 +47,33 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 | A7 | ~~**Demo de ganadores a proveedores**~~ (hecho el 2026-10-01, rama `pro/winners-suppliers`: `compra_a` en la taxonomía para obra civil, agua, energía, PAE y HORECA; "🧩 Qué puede necesitar el ganador" en el detalle de lo adjudicado; +35 en la afinidad, ver `DISENO_PERFILES.md` §6. Ajuste (decisión delegada por el dueño): el ganador cuenta solo si se adjudicó hace 90 días o menos y su contrato no ha terminado; obra civil deja de apuntar a dotación. Un perfil de acero pasa de 21 a 89 en "Para Ti") | M | En lo adjudicado: quién ganó, por cuánto y qué insumos suele necesitar ese tipo de contrato. Un mapa sector → insumos en `config/taxonomy.json` (por ejemplo, obra civil → acero, maquinaria, señalización), con su prueba; nada de listas en JS. En "Para Ti": "ganadores que pueden comprarte", cruzando la oferta del perfil con ese mapa. El texto lo dice claro: es una posibilidad comercial, no una necesidad confirmada |
 | A8 | `GOOGLE_CLIENT_ID` real | S | El dueño crea el cliente OAuth en Google Cloud (orígenes: el dominio de GitHub Pages y `localhost`) y entrega el ID, que es público |
 | A9 | 9.6 (c) identidad visual | M | Con tope de tiempo y solo si el dueño aprueba la dirección. Va después de las demos y antes de la fase B ("lo potente, con el frente pulido") |
+| A10 | **UNSPSC: en el detalle y como criterio de encaje** (idea del dueño del 2026-10-02) | M | Ver "UNSPSC" debajo de esta tabla. Antes de construir: confirmar si los códigos que faltan desde mediados de septiembre vuelven, y conseguir el catálogo de nombres |
+
+### UNSPSC (A10): hallazgos y propuesta
+
+**Por qué importa.** El RUP inscribe a cada proveedor en códigos UNSPSC, y los pliegos piden estar inscrito en códigos concretos como requisito habilitante (`[POR VERIFICAR]` en una muestra de pliegos). Por eso encajar por UNSPSC es encajar por lo que de verdad habilita, no solo por palabras clave. Le sirve sobre todo a la firma de abogados, que prepara el RUP de sus empresas cliente.
+
+**Qué hay hoy** (consultas de lectura del 2026-10-02):
+- El pipeline guarda solo el código principal (`unspsc`), lo usa para clasificar por prefijos de sector (`unspsc_prefixes`) y para el reporte de lo sin clasificar. El perfil de empresa no lo usa.
+- En el tablero, 331 de 500 procesos traen código; en contratos (`jbjy-vk9h`) firmados desde el 1 de septiembre, 4485 de 6849. El PAA lo trae en las 80 compras.
+- **Caída reciente** en procesos de $50 M o más (`p6dx-8zbt`), con código principal:
+
+  | Publicados | Con código |
+  |---|---:|
+  | Abril | 91 % (11.785 de 12.968) |
+  | Junio | 91 % |
+  | Agosto | 95 % |
+  | 1 al 15 de septiembre | 93 % |
+  | **15 de septiembre al 2 de octubre** | **9 % (751 de 8479)** |
+
+  Faltan en todos los estados, también en "Publicado". Si es un retraso de SECOP o un cambio del dataset está `[POR VERIFICAR]`: hay que volver a medir esa ventana en las próximas recargas. Las categorías adicionales (`categorias_adicionales`) llegan como "No definido" en la muestra reciente.
+- No se encontró en datos.gov.co un catálogo UNSPSC con nombres (la búsqueda devuelve datasets de SECOP I). Sin nombres, un código como `72141000` no le dice nada al usuario. La fuente del catálogo en español está `[POR VERIFICAR]` (Colombia Compra Eficiente publica el clasificador).
+
+**Propuesta, en orden:**
+1. **Vigilar la cobertura.** Agregar al reporte diario el porcentaje de procesos con código por semana de publicación, para ver si vuelve.
+2. **Detalle.** Mostrar el código principal y los adicionales con su nombre por segmento, familia y clase. Depende del catálogo.
+3. **Perfil.** Un campo opcional: "códigos UNSPSC de tu RUP", con un buscador por nombre. Es el dato que la firma de abogados ya tiene de cada empresa cliente.
+4. **Encaje.** Sumar afinidad por nivel compartido (clase de 6 dígitos > familia de 4 > segmento de 2) y un badge "Tu RUP cubre esta clasificación". Si el proceso no trae código, el encaje sigue por palabras clave, como hoy.
 
 ### Fase B: backend y captación de leads
 
