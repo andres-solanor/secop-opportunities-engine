@@ -1088,6 +1088,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ['Supervisor del contrato (entidad)', c.contactos?.supervisor, item.entidad],
       ['Ordenador de pago (entidad)', c.contactos?.ordenador_pago, item.entidad]
     ].filter(([, name]) => name) : [];
+    const blocks = detailBlocks(item, { bw, c, h, e, d, money, share, profile, suppliers, national, entityWinnersOn, timeline, now, contacts });
 
     modalBody.innerHTML = `
       <div class="detail">
@@ -1099,113 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${opts.top || ''}
         ${opts.live || ''}
 
-        <section class="detail-section">
-          <h3>Objeto</h3>
-          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
-        </section>
-
-        ${share || national || entityWinnersOn ? `
-        <section class="detail-section who-wins">
-          <h3>¿Quién gana en esta modalidad?</h3>
-          ${entityWinnersOn ? `<div class="who-wins-block" id="whoWinsEntity"><p class="who-wins-loading" role="status">⏳ Consultando en SECOP II a quién le contrata esta entidad en ${escapeHtml(modalityLabel(item))}…</p></div>` : ''}
-          ${national ? `
-          <div class="who-wins-block">
-            <h4>En todo el país</h4>
-            <p>${national.contratos.toLocaleString('es-CO')} contratos parecidos en ${escapeHtml(modalityLabel(item))}. Los 3 que más ganan se llevan el <b>${national.share} %</b>: ${escapeHtml(CONCENTRATION_TEXT[national.concentracion])}.</p>
-            ${winnersList(national.top)}
-          </div>` : ''}
-          ${share ? `<p class="who-wins-natural">🧑‍💼 Persona natural: <b>${escapeHtml(String(share.pct).replace('.', ','))} %</b> de los contratos (${share.natural} de ${share.contratos} con tipo de proponente conocido).</p>` : ''}
-          <p class="legal-note">Fuente: SECOP II · Contratos firmados desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}: ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
-        </section>` : ''}
-
-        ${timeline.length ? `
-        <section class="detail-section">
-          <h3>Cronograma</h3>
-          <ol class="timeline">
-            ${timeline.map(([label, v]) => `<li class="${new Date(v).getTime() > now ? 'future' : ''}"><span>${escapeHtml(label)}</span><b>${d(v)}</b><em>${escapeHtml(relativeDays(new Date(v)))}</em></li>`).join('')}
-          </ol>
-        </section>` : ''}
-
-        ${c ? `
-        <section class="detail-section">
-          <h3>Contrato ${c.cantidad > 1 ? `(${c.cantidad} lotes)` : ''}</h3>
-          <dl>
-            ${detailRow('Estado', escapeHtml(c.estado || ''))}
-            ${detailRow('Valor', money(c.valor))}
-            ${detailRow('Facturado / pagado', c.valor_facturado || c.valor_pagado ? `${money(c.valor_facturado || 0)} / ${money(c.valor_pagado || 0)}` : '')}
-            ${detailRow('Días adicionados', c.dias_adicionados ? `${c.dias_adicionados} días` : '')}
-            ${detailRow('Origen de los recursos', escapeHtml((c.origen_recursos || []).join(', ')))}
-            ${detailRow('Destino del gasto', escapeHtml(c.destino_gasto || ''))}
-            ${detailRow('Lugar de ejecución', escapeHtml(c.direccion_ejecucion || ''))}
-            ${detailRow('Condiciones de entrega', escapeHtml(c.condiciones_entrega || ''))}
-          </dl>
-        </section>` : ''}
-
-        ${winnerName(item) ? `
-        <section class="detail-section">
-          <h3>Contratista</h3>
-          <dl>
-            ${detailRow('Nombre', escapeHtml(winnerName(item)))}
-            ${detailRow('NIT', escapeHtml(validNit(item.contratista?.nit)))}
-            ${detailRow('Trayectoria', escapeHtml(historyLine(h)))}
-            ${detailRow('Último contrato', h?.ultimo ? d(h.ultimo) : '')}
-            ${detailRow('Entidades con las que más contrata', h?.entidades_top?.length ? h.entidades_top.map(t => `${escapeHtml(t.nombre)} <small>(${t.contratos} · ${money(t.valor)})</small>`).join('<br>') : '')}
-          </dl>
-        </section>` : ''}
-
-        ${bw.state === 'adjudicado' && suppliers.length ? `
-        <section class="detail-section">
-          <h3>🧩 Qué puede necesitar el ganador</h3>
-          <p>Quien ejecuta contratos de ${escapeHtml((item.sectores || []).map(s => s.name).join(', '))} suele comprar a: ${suppliers.map(s => `<b>${escapeHtml(s.name)}</b>`).join(', ')}.</p>
-          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.</p>
-        </section>` : ''}
-
-        ${(item.integrantes || []).length ? `
-        <section class="detail-section">
-          <h3>Integrantes del consorcio o unión temporal</h3>
-          <table class="sync-table">
-            <thead><tr><th>Empresa</th><th>NIT</th><th>Participación</th><th>Trayectoria en SECOP II</th></tr></thead>
-            <tbody>${item.integrantes.map(m => `<tr><td>${escapeHtml(m.nombre)}${m.lider ? ' <span class="badge badge-info">Líder</span>' : ''}</td><td>${escapeHtml(m.nit || '—')}</td><td>${m.participacion != null ? `${m.participacion}%` : '—'}</td><td>${m.contratos ? `${m.contratos} contratos · ${money(m.valor_total)}` : '—'}</td></tr>`).join('')}</tbody>
-          </table>
-          <p class="legal-note">Fuente: SECOP II · Grupos de proveedores. Las compras del contrato suelen hacerlas los integrantes, sobre todo el líder.</p>
-        </section>` : ''}
-
-        ${item.ofertas ? `
-        <section class="detail-section">
-          <h3>Competencia: ${plural(item.ofertas.cantidad, 'oferta recibida', 'ofertas recibidas')}</h3>
-          <table class="sync-table">
-            <thead><tr><th>Proponente</th><th>NIT</th><th>Valor ofertado</th></tr></thead>
-            <tbody>${item.ofertas.proveedores.map(o => `<tr><td>${escapeHtml(o.proveedor || '—')}${o.ganador ? ' <span class="badge badge-good">Ganador</span>' : ''}</td><td>${escapeHtml(o.nit || '—')}</td><td>${o.valor ? money(o.valor) : '—'}</td></tr>`).join('')}</tbody>
-          </table>
-          <p class="legal-note">Fuente: SECOP II · Ofertas por proceso. Los proponentes que no ganaron son posibles aliados o competidores en procesos similares.</p>
-        </section>` : ''}
-
-        ${(item.sanciones || []).length ? `
-        <section class="detail-section">
-          <h3>⚠️ Sanciones registradas</h3>
-          <ul class="contact-list">${item.sanciones.map(s => `<li><b>${escapeHtml(s.sancionado || '')}</b><span>${escapeHtml(s.entidad || '')}${s.resolucion ? ` · ${escapeHtml(s.resolucion)}` : ''}${s.valor ? ` · ${money(s.valor)}` : ''}${s.fecha ? ` · ${d(s.fecha)}` : ''}${s.url ? ` · <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">ver</a>` : ''}</span></li>`).join('')}</ul>
-          <p class="legal-note">Fuente: SECOP I · Multas y sanciones (datos abiertos). Puede no incluir sanciones recientes registradas en otras plataformas.</p>
-        </section>` : ''}
-
-        ${contacts.length ? `
-        <section class="detail-section">
-          <h3>Contactos por rol</h3>
-          <ul class="contact-list">
-            ${contacts.map(([role, name, org]) => `<li><b>${escapeHtml(personName(name))}</b><span>${escapeHtml(role)}${org ? ` · ${escapeHtml(org)}` : ''}</span></li>`).join('')}
-          </ul>
-          <p class="legal-note">Fuente: SECOP II · Contratos electrónicos (datos abiertos). Son datos públicos de la contratación (Ley 1712 de 2014); úsalos solo con finalidad comercial legítima (Ley 1581 de 2012). Las comunicaciones con la entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
-        </section>` : ''}
-
-        ${e ? `
-        <section class="detail-section">
-          <h3>La entidad en los últimos 12 meses</h3>
-          <dl>
-            ${detailRow('Contratos firmados', escapeHtml(String(e.contratos_12m)))}
-            ${detailRow('Valor contratado', money(e.valor_12m))}
-            ${detailRow('Pagos registrados', e.pagado_sobre_facturado_pct != null ? `${e.pagado_sobre_facturado_pct}% de lo facturado <small>(muchas entidades no registran todos sus pagos en SECOP)</small>` : '')}
-            ${detailRow('Principales contratistas (obra y suministro)', e.proveedores_top?.length ? e.proveedores_top.map(t => `${escapeHtml(t.nombre)} <small>(${money(t.valor)})</small>`).join('<br>') : '')}
-          </dl>
-        </section>` : ''}
+        ${Dash.detailOrder(bw.state).map(id => blocks[id] || '').join('')}
 
         <div class="detail-actions">
           ${item.url_secop ? `<a href="${escapeHtml(item.url_secop)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🔗 Abrir en SECOP II</a>` : ''}
@@ -1220,6 +1115,124 @@ document.addEventListener('DOMContentLoaded', () => {
     detailModal.classList.add('active');
     if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
     if (entityWinnersOn) loadEntityWinners(item, rawModalities, profile);
+  }
+
+  /**
+   * Bloques del detalle por id (DashboardEngine.detailOrder decide el orden según el estado).
+   * Un bloque sin datos es ''.
+   */
+  function detailBlocks(item, ctx) {
+    const { bw, c, h, e, d, money, share, profile, suppliers, national, entityWinnersOn, timeline, now, contacts } = ctx;
+    return {
+      objeto: `
+        <section class="detail-section">
+          <h3>Objeto</h3>
+          <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+        </section>`,
+
+      quien_gana: share || national || entityWinnersOn ? `
+        <section class="detail-section who-wins">
+          <h3>¿Quién gana en esta modalidad?</h3>
+          ${entityWinnersOn ? `<div class="who-wins-block" id="whoWinsEntity"><p class="who-wins-loading" role="status">⏳ Consultando en SECOP II a quién le contrata esta entidad en ${escapeHtml(modalityLabel(item))}…</p></div>` : ''}
+          ${national ? `
+          <div class="who-wins-block">
+            <h4>En todo el país</h4>
+            <p>${national.contratos.toLocaleString('es-CO')} contratos parecidos en ${escapeHtml(modalityLabel(item))}. Los 3 que más ganan se llevan el <b>${national.share} %</b>: ${escapeHtml(CONCENTRATION_TEXT[national.concentracion])}.</p>
+            ${winnersList(national.top)}
+          </div>` : ''}
+          ${share ? `<p class="who-wins-natural">🧑‍💼 Persona natural: <b>${escapeHtml(String(share.pct).replace('.', ','))} %</b> de los contratos (${share.natural} de ${share.contratos} con tipo de proponente conocido).</p>` : ''}
+          <p class="legal-note">Fuente: SECOP II · Contratos firmados desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}: ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
+        </section>` : '',
+
+      cronograma: timeline.length ? `
+        <section class="detail-section">
+          <h3>Cronograma</h3>
+          <ol class="timeline">
+            ${timeline.map(([label, v]) => `<li class="${new Date(v).getTime() > now ? 'future' : ''}"><span>${escapeHtml(label)}</span><b>${d(v)}</b><em>${escapeHtml(relativeDays(new Date(v)))}</em></li>`).join('')}
+          </ol>
+        </section>` : '',
+
+      contrato: c ? `
+        <section class="detail-section">
+          <h3>Contrato ${c.cantidad > 1 ? `(${c.cantidad} lotes)` : ''}</h3>
+          <dl>
+            ${detailRow('Estado', escapeHtml(c.estado || ''))}
+            ${detailRow('Valor', money(c.valor))}
+            ${detailRow('Facturado / pagado', c.valor_facturado || c.valor_pagado ? `${money(c.valor_facturado || 0)} / ${money(c.valor_pagado || 0)}` : '')}
+            ${detailRow('Días adicionados', c.dias_adicionados ? `${c.dias_adicionados} días` : '')}
+            ${detailRow('Origen de los recursos', escapeHtml((c.origen_recursos || []).join(', ')))}
+            ${detailRow('Destino del gasto', escapeHtml(c.destino_gasto || ''))}
+            ${detailRow('Lugar de ejecución', escapeHtml(c.direccion_ejecucion || ''))}
+            ${detailRow('Condiciones de entrega', escapeHtml(c.condiciones_entrega || ''))}
+          </dl>
+        </section>` : '',
+
+      contratista: winnerName(item) ? `
+        <section class="detail-section">
+          <h3>Contratista</h3>
+          <dl>
+            ${detailRow('Nombre', escapeHtml(winnerName(item)))}
+            ${detailRow('NIT', escapeHtml(validNit(item.contratista?.nit)))}
+            ${detailRow('Trayectoria', escapeHtml(historyLine(h)))}
+            ${detailRow('Último contrato', h?.ultimo ? d(h.ultimo) : '')}
+            ${detailRow('Entidades con las que más contrata', h?.entidades_top?.length ? h.entidades_top.map(t => `${escapeHtml(t.nombre)} <small>(${t.contratos} · ${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : '',
+
+      necesidades: bw.state === 'adjudicado' && suppliers.length ? `
+        <section class="detail-section">
+          <h3>🧩 Qué puede necesitar el ganador</h3>
+          <p>Quien ejecuta contratos de ${escapeHtml((item.sectores || []).map(s => s.name).join(', '))} suele comprar a: ${suppliers.map(s => `<b>${escapeHtml(s.name)}</b>`).join(', ')}.</p>
+          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.</p>
+        </section>` : '',
+
+      integrantes: (item.integrantes || []).length ? `
+        <section class="detail-section">
+          <h3>Integrantes del consorcio o unión temporal</h3>
+          <table class="sync-table">
+            <thead><tr><th>Empresa</th><th>NIT</th><th>Participación</th><th>Trayectoria en SECOP II</th></tr></thead>
+            <tbody>${item.integrantes.map(m => `<tr><td>${escapeHtml(m.nombre)}${m.lider ? ' <span class="badge badge-info">Líder</span>' : ''}</td><td>${escapeHtml(m.nit || '—')}</td><td>${m.participacion != null ? `${m.participacion}%` : '—'}</td><td>${m.contratos ? `${m.contratos} contratos · ${money(m.valor_total)}` : '—'}</td></tr>`).join('')}</tbody>
+          </table>
+          <p class="legal-note">Fuente: SECOP II · Grupos de proveedores. Las compras del contrato suelen hacerlas los integrantes, sobre todo el líder.</p>
+        </section>` : '',
+
+      competencia: item.ofertas ? `
+        <section class="detail-section">
+          <h3>Competencia: ${plural(item.ofertas.cantidad, 'oferta recibida', 'ofertas recibidas')}</h3>
+          <table class="sync-table">
+            <thead><tr><th>Proponente</th><th>NIT</th><th>Valor ofertado</th></tr></thead>
+            <tbody>${item.ofertas.proveedores.map(o => `<tr><td>${escapeHtml(o.proveedor || '—')}${o.ganador ? ' <span class="badge badge-good">Ganador</span>' : ''}</td><td>${escapeHtml(o.nit || '—')}</td><td>${o.valor ? money(o.valor) : '—'}</td></tr>`).join('')}</tbody>
+          </table>
+          <p class="legal-note">Fuente: SECOP II · Ofertas por proceso. Los proponentes que no ganaron son posibles aliados o competidores en procesos similares.</p>
+        </section>` : '',
+
+      sanciones: (item.sanciones || []).length ? `
+        <section class="detail-section">
+          <h3>⚠️ Sanciones registradas</h3>
+          <ul class="contact-list">${item.sanciones.map(s => `<li><b>${escapeHtml(s.sancionado || '')}</b><span>${escapeHtml(s.entidad || '')}${s.resolucion ? ` · ${escapeHtml(s.resolucion)}` : ''}${s.valor ? ` · ${money(s.valor)}` : ''}${s.fecha ? ` · ${d(s.fecha)}` : ''}${s.url ? ` · <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">ver</a>` : ''}</span></li>`).join('')}</ul>
+          <p class="legal-note">Fuente: SECOP I · Multas y sanciones (datos abiertos). Puede no incluir sanciones recientes registradas en otras plataformas.</p>
+        </section>` : '',
+
+      contactos: contacts.length ? `
+        <section class="detail-section">
+          <h3>Contactos por rol</h3>
+          <ul class="contact-list">
+            ${contacts.map(([role, name, org]) => `<li><b>${escapeHtml(personName(name))}</b><span>${escapeHtml(role)}${org ? ` · ${escapeHtml(org)}` : ''}</span></li>`).join('')}
+          </ul>
+          <p class="legal-note">Fuente: SECOP II · Contratos electrónicos (datos abiertos). Son datos públicos de la contratación (Ley 1712 de 2014); úsalos solo con finalidad comercial legítima (Ley 1581 de 2012). Las comunicaciones con la entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
+        </section>` : '',
+
+      entidad: e ? `
+        <section class="detail-section">
+          <h3>La entidad en los últimos 12 meses</h3>
+          <dl>
+            ${detailRow('Contratos firmados', escapeHtml(String(e.contratos_12m)))}
+            ${detailRow('Valor contratado', money(e.valor_12m))}
+            ${detailRow('Pagos registrados', e.pagado_sobre_facturado_pct != null ? `${e.pagado_sobre_facturado_pct}% de lo facturado <small>(muchas entidades no registran todos sus pagos en SECOP)</small>` : '')}
+            ${detailRow('Principales contratistas (obra y suministro)', e.proveedores_top?.length ? e.proveedores_top.map(t => `${escapeHtml(t.nombre)} <small>(${money(t.valor)})</small>`).join('<br>') : '')}
+          </dl>
+        </section>` : ''
+    };
   }
 
   /** Los 3 que más ganan: nombre, persona natural si lo es, contratos y valor. */

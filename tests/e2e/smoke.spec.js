@@ -287,6 +287,40 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
 });
 
+test('el detalle ordena los bloques según el estado: el adjudicado empieza por el contratista', async ({ page }) => {
+  // Sin consultas reales: la entidad en vivo ("quién gana") se simula vacía.
+  await page.route('**/resource/jbjy-vk9h.json*', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
+  await openDashboard(page);
+  const pick = state => page.evaluate(s => {
+    const E = window.ProfileEngine;
+    const it = window.PROSPECTS_DATA.find(i => E.bidWindow(i).state === s && (s !== 'adjudicado' || (i.contratista && i.contrato)));
+    return it ? it.id : null;
+  }, state);
+  const headings = async id => {
+    await page.goto('about:blank');
+    await page.goto(`/index.html#op=${encodeURIComponent(id)}`);
+    await expect(page.locator('#modalBody .detail-section h3').first()).toBeVisible();
+    return page.$$eval('#modalBody .detail-section h3', hs => hs.map(h => h.textContent.trim()));
+  };
+  const idx = (list, prefix) => list.findIndex(t => t.includes(prefix));
+
+  const awarded = await pick('adjudicado');
+  test.skip(!awarded, 'los datos no traen un adjudicado con contrato');
+  const a = await headings(awarded);
+  expect(a[0]).toBe('Objeto');
+  expect(a[1]).toBe('Contratista');
+  expect(idx(a, 'Contratista')).toBeLessThan(idx(a, 'Contrato'));
+  if (idx(a, 'Quién gana') >= 0) expect(idx(a, 'Quién gana')).toBe(a.length - 1);
+
+  const open = await pick('abierta');
+  if (open) {
+    const o = await headings(open);
+    expect(o[0]).toBe('Objeto');
+    if (idx(o, 'Cronograma') >= 0 && idx(o, 'La entidad') >= 0) expect(idx(o, 'Cronograma')).toBeLessThan(idx(o, 'La entidad'));
+    if (idx(o, 'Quién gana') >= 0) expect(idx(o, 'Quién gana')).toBe(o.length - 1);
+  }
+});
+
 test('quién gana: el país (perfil publicado) y la entidad (en vivo, simulado), con su proveedor habitual', async ({ page }) => {
   // Se toma un proceso del tablero con NIT de entidad y modalidad conocida, y se publica un perfil
   // con esa modalidad. datos.gov.co se simula: la prueba nunca consulta el servicio real.
