@@ -113,6 +113,15 @@ class TestHiddenAndMetaContract(unittest.TestCase):
         self.assertTrue(validate_meta(dict(meta, perfil_proponente=bad)))
         self.assertTrue(validate_meta(dict(meta, perfil_proponente={"desde": "x"})))
 
+    def test_meta_unspsc_coverage_is_optional_but_checked(self):
+        good = {"precio_min": 50000000, "semanas": [{"semana": "2026-09-14", "procesos": 3855, "con_codigo": 1412}]}
+        meta = build_meta([], [], 5, NOW, NOW, None, [], unspsc_coverage=good)
+        self.assertEqual(meta["cobertura_unspsc"], good)
+        self.assertEqual(validate_meta(meta), [])
+        self.assertEqual(validate_meta(dict(meta, cobertura_unspsc=None)), [])
+        more_than_all = {"semanas": [{"semana": "2026-09-14", "procesos": 10, "con_codigo": 11}]}
+        self.assertTrue(validate_meta(dict(meta, cobertura_unspsc=more_than_all)))
+
     def test_meta_bidder_profile_top_winners_are_optional_but_checked(self):
         row = {"modalidad": "Mínima cuantía", "persona_natural": 20, "juridica": 80, "sin_dato": 3, "valor": 1e10}
         top = [{"nombre": "FERRETERIA UNO SAS", "contratos": 12, "valor": 9e8, "persona_natural": False}]

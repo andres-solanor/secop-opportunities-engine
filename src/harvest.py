@@ -138,6 +138,43 @@ def harvest(
     return {"records": records, "consultas": statuses}
 
 
+UNSPSC_COVERAGE_WEEKS = 8
+
+
+def week_start(day: str) -> str:
+    """Lunes de la semana de una fecha ISO ("2026-09-17T00:00:00.000" → "2026-09-14")."""
+    d = datetime.strptime(day[:10], "%Y-%m-%d")
+    return (d - timedelta(days=d.weekday())).strftime("%Y-%m-%d")
+
+
+def unspsc_coverage(client: SocrataClient, today: datetime, weeks: int = UNSPSC_COVERAGE_WEEKS) -> Optional[Dict[str, Any]]:
+    """Qué parte de los procesos publicados trae código UNSPSC, por semana de publicación.
+
+    Desde el 2026-09-15 SECOP II publica casi todos los procesos sin código (9 % frente a 91–95 %
+    antes; docs/PLAN_ITERACIONES.md, A10). Se mide en el servidor, sobre todo el universo
+    (≥ valor mínimo), para ver si vuelve. Devuelve None si falla: es un monitor, no un dato crítico.
+    """
+    since_day = today - timedelta(days=7 * weeks)
+    since = soql_date(since_day - timedelta(days=since_day.weekday()))  # desde un lunes: semanas completas
+    where = f"precio_base >= {MIN_PRICE} AND fecha_de_publicacion_del >= '{since}'"
+    has_code = "codigo_principal_de_categoria IS NOT NULL AND codigo_principal_de_categoria != 'UNSPECIFIED'"
+    try:
+        totals = client.query(select="date_trunc_ymd(fecha_de_publicacion_del) as d, count(*) as n",
+                              where=where, group="d", order="d", limit=500)
+        coded = client.query(select="date_trunc_ymd(fecha_de_publicacion_del) as d, count(*) as n",
+                             where=f"{where} AND {has_code}", group="d", order="d", limit=500)
+    except Exception:  # noqa: BLE001
+        return None
+    weeks_out: Dict[str, Dict[str, Any]] = {}
+    for rows, key in ((totals, "procesos"), (coded, "con_codigo")):
+        for r in rows:
+            if not r.get("d"):
+                continue
+            w = weeks_out.setdefault(week_start(r["d"]), {"semana": week_start(r["d"]), "procesos": 0, "con_codigo": 0})
+            w[key] += int(r.get("n") or 0)
+    return {"precio_min": MIN_PRICE, "semanas": [weeks_out[k] for k in sorted(weeks_out)]}
+
+
 def universe_summary(client: SocrataClient, today: datetime, days: int = GENERAL_WINDOW_DAYS) -> Optional[Dict[str, Any]]:
     """Tamaño del universo publicado en la ventana (≥ valor mínimo), por tipo de contrato y
     modalidad. Se calcula en el servidor, así que cuenta también lo que no se descarga.

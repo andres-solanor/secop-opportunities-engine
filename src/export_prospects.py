@@ -22,7 +22,7 @@ from src.enrichers.contract_enricher import ContractEnricher, normalize_nit
 from src.enrichers.open_sources import OpenSourcesEnricher
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter
-from src.harvest import GENERAL_WINDOW_DAYS, MIN_PRICE, HarvestError, harvest, universe_summary
+from src.harvest import GENERAL_WINDOW_DAYS, MIN_PRICE, HarvestError, harvest, universe_summary, unspsc_coverage
 from src.schema import SchemaError, validate_dataset
 from src.services.socrata_client import SocrataClient
 from src.sync_status import build_meta, load_json, save_json, stamp_first_seen
@@ -315,19 +315,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     reclassified = bool(history) and history[0].get("taxonomia_version") != version
     seen = stamp_first_seen(prospects, load_json(os.path.join(state_dir, "seen_ids.json"), {}), previous, finished_at,
                             reclassified_since=history[0].get("generated_at") if reclassified else None)
+    coverage = unspsc_coverage(client, today)
     meta = build_meta(prospects, previous, len(raw_records), started_at, finished_at,
                       enricher.summary, history,
                       extra_sources=open_sources.summary, paa_count=len(paa),
                       queries=harvested["consultas"], funnel=counts,
                       taxonomy_version=version, reclassified=reclassified,
-                      bidder_profile=bidder_profile)
+                      bidder_profile=bidder_profile, unspsc_coverage=coverage)
     log.info("[*] Sincronización: %d nuevas, %d salieron, %d pasaron a adjudicadas, cruce de contratos: %s.",
              meta["nuevas"], meta["salieron"], meta["nuevas_adjudicadas"], meta["cruce_contratos"])
 
     unclassified = funnel["unclassified"]
     report = render_report(
         counts, group_by_family(unclassified), meta["generated_at"], GENERAL_WINDOW_DAYS,
-        universe=universe_summary(client, today), queries=harvested["consultas"],
+        universe=universe_summary(client, today), queries=harvested["consultas"], unspsc_coverage=coverage,
         contract_types=group_by_contract_type([u for u in unclassified if not u.get("unspsc")]),
         phrases=frequent_phrases(unclassified),
     )

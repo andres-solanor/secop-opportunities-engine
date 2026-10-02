@@ -114,6 +114,7 @@ def build_meta(
     taxonomy_version: Optional[int] = None,
     reclassified: bool = False,
     bidder_profile: Optional[Dict[str, Any]] = None,
+    unspsc_coverage: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Resumen de la corrida para la web y para el historial de sincronizaciones.
 
@@ -186,4 +187,6 @@ def build_meta(
         "historial": ([run] + [h for h in history if h.get("generated_at") != run["generated_at"]])[:HISTORY_KEEP],
         # Contratos por modalidad y tipo de proponente (open_sources.fetch_bidder_profile).
         "perfil_proponente": bidder_profile,
+        # Monitor de la caída de códigos UNSPSC en SECOP II (src/harvest.py: unspsc_coverage).
+        "cobertura_unspsc": unspsc_coverage,
     }

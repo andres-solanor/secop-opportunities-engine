@@ -26,7 +26,16 @@ from src.discovery import (
 )
 from src.enrichers.scope_extractor import ScopeExtractor
 from src.filters.noise_filter import NoiseFilter, reason_group
-from src.harvest import AWARDED_MAX_ROWS, GENERAL_MAX_ROWS, HarvestError, build_queries, harvest, sector_where
+from src.harvest import (
+    AWARDED_MAX_ROWS,
+    GENERAL_MAX_ROWS,
+    HarvestError,
+    build_queries,
+    harvest,
+    sector_where,
+    unspsc_coverage,
+    week_start,
+)
 from src.services.socrata_client import SocrataClient, SocrataError
 from src.taxonomy import SIN_CLASIFICAR, TaxonomyError, fold, load_groups, load_taxonomy, normalize_unspsc
 
@@ -700,6 +709,35 @@ class TestDiscovery(unittest.TestCase):
         self.assertIn("| Valor por debajo del mínimo | 300 |", report)
         self.assertIn("| 5310 | 2 | 1 | $400 M |", report)
         self.assertIn("| `sector:acero` | ok | 7 | no |", report)
+
+    def test_unspsc_coverage_groups_days_into_weeks_and_goes_in_the_report(self):
+        class Client:
+            def __init__(self, fail=False):
+                self.fail, self.wheres = fail, []
+
+            def query(self, select=None, where=None, **kw):
+                if self.fail:
+                    raise RuntimeError("timeout")
+                self.wheres.append(where)
+                if "UNSPECIFIED" in where:  # solo los que traen código
+                    return [{"d": "2026-09-08T00:00:00.000", "n": "90"}, {"d": "2026-09-16T00:00:00.000", "n": "3"}]
+                return [{"d": "2026-09-08T00:00:00.000", "n": "60"}, {"d": "2026-09-10T00:00:00.000", "n": "40"},
+                        {"d": "2026-09-16T00:00:00.000", "n": "100"}]
+
+        self.assertEqual(week_start("2026-09-17T00:00:00.000"), "2026-09-14")
+        client = Client()
+        out = unspsc_coverage(client, datetime(2026, 10, 2))
+        self.assertEqual(out["semanas"], [{"semana": "2026-09-07", "procesos": 100, "con_codigo": 90},
+                                          {"semana": "2026-09-14", "procesos": 100, "con_codigo": 3}])
+        # Semanas completas: la ventana empieza un lunes, ocho semanas atrás.
+        self.assertIn("fecha_de_publicacion_del >= '2026-08-03T00:00:00'", client.wheres[0])
+        self.assertIsNone(unspsc_coverage(Client(fail=True), datetime(2026, 10, 2)))
+
+        counts = {"descargados": 0, "duplicados": 0, "rechazados": 0, "rechazados_por_motivo": {}, "sin_clasificar": 0,
+                  "clasificados": 0, "en_tablero": 0, "fuera_de_corte": 0}
+        report = render_report(counts, [], "2026-10-02T11:00:00Z", 14, unspsc_coverage=out)
+        self.assertIn("| 2026-09-07 | 100 | 90 | 90 % |", report)
+        self.assertIn("| 2026-09-14 | 100 | 3 | 3 % |", report)
 
 
 if __name__ == "__main__":
