@@ -131,6 +131,13 @@ def validate_meta(meta: Any) -> List[str]:
                     for k in ("persona_natural", "juridica", "sin_dato")
                 ):
                     errors.append(f"meta: fila de 'perfil_proponente' mal formada: {row!r}"[:200])
+                # Opcionales desde el 2026-10-02 (una corrida anterior reutilizada no los trae).
+                elif "top" in row and not (isinstance(row["top"], list) and all(
+                    isinstance(t, dict) and isinstance(t.get("nombre"), str)
+                    and isinstance(t.get("contratos"), int) and isinstance(t.get("persona_natural"), bool)
+                    for t in row["top"]
+                )):
+                    errors.append(f"meta: 'top' mal formado en '{row['modalidad']}'")
     return errors
 
 

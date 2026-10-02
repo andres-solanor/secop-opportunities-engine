@@ -194,6 +194,33 @@ test('activeFilters devuelve solo los controles que se apartan de su valor por d
   assert.deepStrictEqual(D.activeFilters(undefined), []);
 });
 
+test('quién gana: agrupa con y sin ofertas, suma por contratista y mide la concentración', () => {
+  const profile = { modalidades: [
+    { modalidad: 'Contratación régimen especial', persona_natural: 40, juridica: 50, sin_dato: 10, valor: 1e10,
+      top: [{ nombre: 'JARDIN BOTANICO', contratos: 8, valor: 5e9, persona_natural: false },
+        { nombre: 'Rafael Demo', contratos: 3, valor: 2e8, persona_natural: true }] },
+    { modalidad: 'Contratación régimen especial (con ofertas)', persona_natural: 0, juridica: 100, sin_dato: 0, valor: 3e10,
+      top: [{ nombre: 'Jardín Botánico', contratos: 5, valor: 4e9, persona_natural: false },
+        { nombre: 'CONINTEL S.A.', contratos: 4, valor: 9e9, persona_natural: false }] },
+    { modalidad: 'Mínima cuantía', persona_natural: 1, juridica: 1, sin_dato: 0, top: [{ nombre: 'OTRO', contratos: 99, valor: 1 }] }
+  ] };
+  const item = { modalidad: 'Contratación régimen especial (con ofertas)' };
+  assert.deepStrictEqual(D.rawModalities(profile, item), ['Contratación régimen especial', 'Contratación régimen especial (con ofertas)']);
+  const w = D.modalityWinners(profile, item);
+  assert.strictEqual(w.contratos, 200);
+  assert.strictEqual(w.valor, 4e10);
+  // "JARDIN BOTANICO" y "Jardín Botánico" son el mismo contratista: 8 + 5.
+  assert.deepStrictEqual(w.top.map(t => [t.nombre, t.contratos]), [['JARDIN BOTANICO', 13], ['CONINTEL S.A.', 4], ['Rafael Demo', 3]]);
+  assert.strictEqual(w.share, 10); // 20 de 200
+  assert.strictEqual(w.concentracion, 'atomizado');
+  assert.strictEqual(D.concentration(50), 'concentrado');
+  assert.strictEqual(D.concentration(20), 'repartido');
+  // Perfil de una corrida anterior (sin `top`), modalidad "otra" o nada que mostrar: null.
+  assert.strictEqual(D.modalityWinners({ modalidades: [{ modalidad: 'Mínima cuantía', persona_natural: 1, juridica: 1, sin_dato: 0 }] }, { modalidad: 'Mínima cuantía' }), null);
+  assert.deepStrictEqual(D.rawModalities(profile, { modalidad: 'Asociación público privada' }), []);
+  assert.strictEqual(D.summarizeWinners([], 10), null);
+});
+
 test('secopUrl reconstruye la URL desde notice_uid y respeta una URL completa', () => {
   assert.strictEqual(D.secopUrl({ notice_uid: 'CO1.NTC.9621408' }),
     'https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9621408');

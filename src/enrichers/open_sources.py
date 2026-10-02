@@ -55,6 +55,17 @@ PROFILE_CONTRACT_TYPES = ("Obra", "Suministros", "Compraventa", "Interventoría"
 NATURAL_PERSON_DOCS = (
     "cédula", "cedula", "pasaporte", "permiso", "registro civil", "tarjeta de identidad",
 )
+# Contratistas por modalidad que se publican en "quién gana". La web suma las modalidades que
+# agrupa (con y sin ofertas) y muestra los 3 primeros: 10 por modalidad bastan para ese cruce.
+PROFILE_TOP_WINNERS = 10
+
+
+def doc_kind(value: Any) -> str:
+    """Tipo de documento del contratista → 'juridica' (NIT), 'persona_natural' o 'sin_dato'."""
+    doc = str(value or "").strip().lower()
+    if doc == "nit":
+        return "juridica"
+    return "persona_natural" if any(k in doc for k in NATURAL_PERSON_DOCS) else "sin_dato"
 
 
 def is_consortium(name: Optional[str]) -> bool:
@@ -326,30 +337,45 @@ class OpenSourcesEnricher:
         """
         since = (self.today - timedelta(days=PROFILE_WINDOW_DAYS)).strftime("%Y-%m-%dT00:00:00")
         types = ", ".join("'" + t.replace("'", "''") + "'" for t in PROFILE_CONTRACT_TYPES)
+        base = (f"fecha_de_firma >= '{since}' AND valor_del_contrato >= {PROFILE_MIN_VALUE} "
+                f"AND tipo_de_contrato in ({types})")
         rows = self._query(
             CONTRACTS_DATASET,
-            select="modalidad_de_contratacion, tipodocproveedor, count(*) as n",
-            where=f"fecha_de_firma >= '{since}' AND valor_del_contrato >= {PROFILE_MIN_VALUE} "
-                  f"AND tipo_de_contrato in ({types})",
+            select="modalidad_de_contratacion, tipodocproveedor, count(*) as n, sum(valor_del_contrato) as v",
+            where=base,
             group="modalidad_de_contratacion, tipodocproveedor",
             limit=1000,
         )
-        by_modality: Dict[str, Dict[str, int]] = {}
+        by_modality: Dict[str, Dict[str, Any]] = {}
         for row in rows:
             modality = clean_name(row.get("modalidad_de_contratacion"))
             if not modality:
                 continue
-            counts = by_modality.setdefault(modality, {"persona_natural": 0, "juridica": 0, "sin_dato": 0})
-            doc = str(row.get("tipodocproveedor") or "").strip().lower()
+            counts = by_modality.setdefault(modality, {"persona_natural": 0, "juridica": 0, "sin_dato": 0, "valor": 0.0})
             n = int(to_float(row.get("n")) or 0)
-            if doc == "nit":
-                counts["juridica"] += n
-            elif any(k in doc for k in NATURAL_PERSON_DOCS):
-                counts["persona_natural"] += n
-            else:
-                counts["sin_dato"] += n
+            counts[doc_kind(row.get("tipodocproveedor"))] += n
+            counts["valor"] += to_float(row.get("v")) or 0.0
         if not by_modality:
             raise RuntimeError("la consulta no devolvió contratos")
+        # Quién gana en cada modalidad: los 10 contratistas con más contratos parecidos. Una consulta
+        # agregada por modalidad (unas 11, de 1 a 2 s cada una). Solo nombre y tipo de documento:
+        # nunca el número de documento.
+        for modality, counts in by_modality.items():
+            safe = modality.replace("'", "''")
+            top_rows = self._query(
+                CONTRACTS_DATASET,
+                select="proveedor_adjudicado, tipodocproveedor, count(*) as n, sum(valor_del_contrato) as v",
+                where=f"{base} AND modalidad_de_contratacion = '{safe}'",
+                group="proveedor_adjudicado, tipodocproveedor",
+                order="n DESC, v DESC",
+                limit=PROFILE_TOP_WINNERS,
+            )
+            counts["top"] = [
+                {"nombre": name, "contratos": int(to_float(r.get("n")) or 0), "valor": to_float(r.get("v")) or 0.0,
+                 "persona_natural": doc_kind(r.get("tipodocproveedor")) == "persona_natural"}
+                for r in top_rows
+                if (name := clean_name(r.get("proveedor_adjudicado")))
+            ]
         return {
             "dataset": CONTRACTS_DATASET,
             "desde": since[:10],

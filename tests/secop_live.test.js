@@ -73,6 +73,35 @@ test('las ofertas se ordenan, se quitan repetidas y se marca al ganador', () => 
   assert.strictEqual(L.parseOffers([]), null);
 });
 
+test('quién le gana a la entidad: mismos filtros que el perfil nacional y sin documentos', async () => {
+  const params = {
+    nitEntidad: "800223337", modalities: ["Contratación régimen especial", "Contratación régimen especial (con ofertas)"],
+    desde: '2025-10-02', valorMin: 50000000, tipos: ['Obra', 'Suministros']
+  };
+  const urls = L.entityWinnersUrls(params);
+  const where = decodeURIComponent(urls.top);
+  assert.ok(where.includes("nit_entidad = '800223337'"));
+  assert.ok(where.includes("modalidad_de_contratacion in ('Contratación régimen especial', 'Contratación régimen especial (con ofertas)')"));
+  assert.ok(where.includes("fecha_de_firma >= '2025-10-02T00:00:00'") && where.includes('valor_del_contrato >= 50000000'));
+  assert.ok(where.includes("tipo_de_contrato in ('Obra', 'Suministros')"));
+  assert.ok(urls.top.startsWith('https://www.datos.gov.co/resource/jbjy-vk9h.json?') && !where.includes('documento'));
+
+  const fetchFn = url => Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(url.includes('group')
+      ? [{ proveedor_adjudicado: 'Jardín Botánico de Medellín', tipodocproveedor: 'NIT', n: '8', v: '1000' },
+        { proveedor_adjudicado: 'Rafael Demo', tipodocproveedor: 'Cédula de Ciudadanía', n: '2', v: '50' },
+        { proveedor_adjudicado: 'No Definido', tipodocproveedor: 'No Definido', n: '1', v: '1' }]
+      : [{ n: '15', v: '2000' }])
+  });
+  L.clearCache();
+  const r = await L.entityWinners(params, { fetchFn });
+  assert.strictEqual(r.contratos, 15);
+  assert.deepStrictEqual(r.rows.map(x => [x.nombre, x.contratos, x.persona_natural]),
+    [['Jardín Botánico de Medellín', 8, false], ['Rafael Demo', 2, true]]);
+  assert.strictEqual(await L.entityWinners({ ...params, modalities: [] }, { fetchFn }), null);
+});
+
 test('las cifras de la entidad salen de una fila agregada', () => {
   assert.deepStrictEqual(L.parseEntity(ENTITY), { contratos_12m: 120, valor_12m: 2e11, pagado_sobre_facturado_pct: 91 });
   assert.strictEqual(L.parseEntity([{ contratos: '0' }]), null);

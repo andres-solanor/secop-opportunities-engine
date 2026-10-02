@@ -46,12 +46,19 @@ PAA = [
 
 # Filas agregadas de jbjy-vk9h con los valores reales de `tipodocproveedor` (2026-10-01).
 PROFILE = [
-    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Ciudadanía", "n": "19"},
-    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Extranjería", "n": "1"},
-    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "NIT", "n": "80"},
-    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "No Definido", "n": "3"},
-    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "NIT", "n": "40"},
-    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "Otro", "n": "2"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Ciudadanía", "n": "19", "v": "1900000000"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "Cédula de Extranjería", "n": "1", "v": "60000000"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "NIT", "n": "80", "v": "8000000000"},
+    {"modalidad_de_contratacion": "Mínima cuantía", "tipodocproveedor": "No Definido", "n": "3", "v": "300000000"},
+    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "NIT", "n": "40", "v": "90000000000"},
+    {"modalidad_de_contratacion": "Licitación pública", "tipodocproveedor": "Otro", "n": "2", "v": "1000000000"},
+]
+# Quién gana: contratistas agregados de una modalidad (la consulta agrupa por proveedor).
+TOP_WINNERS = [
+    {"proveedor_adjudicado": "FERRETERIA UNO SAS", "tipodocproveedor": "NIT", "n": "12", "v": "900000000",
+     "documento_proveedor": "800111222"},
+    {"proveedor_adjudicado": "Rafael Demo Pérez", "tipodocproveedor": "Cédula de Ciudadanía", "n": "5", "v": "300000000"},
+    {"proveedor_adjudicado": "No Definido", "tipodocproveedor": "No Definido", "n": "3", "v": "100000000"},
 ]
 
 
@@ -64,6 +71,8 @@ class FakeClient:
         self.calls.append({"dataset_id": dataset_id, "where": where, **kw})
         if dataset_id in self.fail:
             raise RuntimeError("timeout")
+        if dataset_id == "jbjy-vk9h" and "proveedor_adjudicado" in (kw.get("group") or ""):
+            return TOP_WINNERS
         return {"wi7w-2nvm": OFFERS, "ceth-n4bn": GROUP, "4n4q-k399": SANCTIONS, "9sue-ezhx": PAA,
                 "jbjy-vk9h": PROFILE}.get(dataset_id, [])
 
@@ -141,15 +150,33 @@ class TestOpenSources(unittest.TestCase):
         client = FakeClient()
         profile = enricher(client).bidder_profile()
         rows = {r["modalidad"]: r for r in profile["modalidades"]}
-        self.assertEqual(rows["Mínima cuantía"], {"modalidad": "Mínima cuantía", "persona_natural": 20, "juridica": 80, "sin_dato": 3})
+        minima = rows["Mínima cuantía"]
+        self.assertEqual({k: minima[k] for k in ("persona_natural", "juridica", "sin_dato")},
+                         {"persona_natural": 20, "juridica": 80, "sin_dato": 3})
+        self.assertEqual(minima["valor"], 10_260_000_000)
         self.assertEqual(rows["Licitación pública"]["sin_dato"], 2)
         self.assertEqual(profile["desde"], "2025-09-28")
         # La consulta se restringe a contratos parecidos a los del tablero: sin prestación de servicios.
-        where = client.calls[-1]["where"]
-        self.assertIn("valor_del_contrato >= 50000000", where)
-        self.assertIn("'Suministros'", where)
-        self.assertNotIn("Prestación de servicios", where)
-        self.assertEqual(client.calls[-1]["group"], "modalidad_de_contratacion, tipodocproveedor")
+        totals = client.calls[0]
+        self.assertIn("valor_del_contrato >= 50000000", totals["where"])
+        self.assertIn("'Suministros'", totals["where"])
+        self.assertNotIn("Prestación de servicios", totals["where"])
+        self.assertEqual(totals["group"], "modalidad_de_contratacion, tipodocproveedor")
+
+    def test_bidder_profile_lists_who_wins_each_modality_without_documents(self):
+        client = FakeClient()
+        profile = enricher(client).bidder_profile()
+        top = {r["modalidad"]: r for r in profile["modalidades"]}["Mínima cuantía"]["top"]
+        self.assertEqual(top, [
+            {"nombre": "FERRETERIA UNO SAS", "contratos": 12, "valor": 900_000_000, "persona_natural": False},
+            {"nombre": "Rafael Demo Pérez", "contratos": 5, "valor": 300_000_000, "persona_natural": True},
+        ])  # sin el "No Definido"
+        self.assertNotIn("800111222", repr(profile))  # nunca el documento
+        # Una consulta de contratistas por modalidad, con los mismos filtros y la modalidad exacta.
+        per_modality = [c for c in client.calls if "proveedor_adjudicado" in (c.get("group") or "")]
+        self.assertEqual(len(per_modality), 2)
+        self.assertTrue(all("valor_del_contrato >= 50000000" in c["where"] for c in per_modality))
+        self.assertIn("modalidad_de_contratacion = 'Mínima cuantía'", " ".join(c["where"] for c in per_modality))
 
     def test_bidder_profile_reuses_previous_on_failure(self):
         previous = {"desde": "2025-09-01", "modalidades": [{"modalidad": "X", "persona_natural": 1, "juridica": 1, "sin_dato": 0}]}
