@@ -151,6 +151,26 @@
   }
 
   /** La cifra de la modalidad de la oportunidad, o null si no hay dato suficiente. */
+  /**
+   * Orden de los bloques del detalle según el estado del proceso, de lo que más decide a lo que
+   * menos (pedido del dueño del 2026-10-02: "lo menos valioso estaba arriba"). Un bloque sin datos
+   * no se pinta. "Quién gana" es contexto de mercado: va al final en todos los estados.
+   *  - Abierto o en borrador (¿me presento?): qué piden, para cuándo, quién compite, cómo es la entidad.
+   *  - Cerrado, en evaluación: lo nuevo son las ofertas, así que la competencia sube.
+   *  - Adjudicado (¿le vendo al ganador?): quién ganó, si es riesgoso, qué necesita, a quién llamar.
+   */
+  const DETAIL_ORDER = {
+    abierta: ['objeto', 'cronograma', 'competencia', 'entidad', 'contrato', 'contratista', 'integrantes', 'sanciones', 'contactos', 'necesidades', 'quien_gana'],
+    cerrada: ['objeto', 'competencia', 'cronograma', 'entidad', 'contrato', 'contratista', 'integrantes', 'sanciones', 'contactos', 'necesidades', 'quien_gana'],
+    adjudicado: ['objeto', 'contratista', 'sanciones', 'necesidades', 'contactos', 'integrantes', 'contrato', 'cronograma', 'competencia', 'entidad', 'quien_gana']
+  };
+
+  /** Ids de los bloques del detalle en orden para un estado de `ProfileEngine.bidWindow`. */
+  function detailOrder(state) {
+    if (state === 'adjudicado' || state === 'cerrada') return DETAIL_ORDER[state];
+    return DETAIL_ORDER.abierta; // abierta y borrador
+  }
+
   /** Nombres exactos de SECOP II · Contratos que caen en el grupo de modalidad del proceso. */
   function rawModalities(profile, item) {
     const id = modalityOf(item);
@@ -545,6 +565,7 @@
     PERSONA_NATURAL_MIN_PCT,
     bidderShares,
     personaNaturalShare,
+    detailOrder,
     rawModalities,
     concentration,
     summarizeWinners,

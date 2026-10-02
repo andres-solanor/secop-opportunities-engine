@@ -194,6 +194,23 @@ test('activeFilters devuelve solo los controles que se apartan de su valor por d
   assert.deepStrictEqual(D.activeFilters(undefined), []);
 });
 
+test('orden del detalle: lo que más decide primero y "quién gana" al final, según el estado', () => {
+  const all = ['objeto', 'cronograma', 'competencia', 'entidad', 'contrato', 'contratista', 'integrantes', 'sanciones', 'contactos', 'necesidades', 'quien_gana'];
+  const before = (order, a, b) => order.indexOf(a) < order.indexOf(b);
+  for (const state of ['abierta', 'borrador', 'cerrada', 'adjudicado']) {
+    const order = D.detailOrder(state);
+    assert.deepStrictEqual([...order].sort(), [...all].sort(), `${state}: cada bloque una vez`);
+    assert.strictEqual(order[0], 'objeto');
+    assert.strictEqual(order[order.length - 1], 'quien_gana');
+    assert.ok(before(order, 'contrato', 'quien_gana'), `${state}: el contrato va antes que quién gana`);
+  }
+  assert.ok(before(D.detailOrder('abierta'), 'cronograma', 'competencia'));
+  assert.deepStrictEqual(D.detailOrder('borrador'), D.detailOrder('abierta'));
+  assert.ok(before(D.detailOrder('cerrada'), 'competencia', 'cronograma'));
+  const awarded = D.detailOrder('adjudicado');
+  assert.deepStrictEqual(awarded.slice(0, 5), ['objeto', 'contratista', 'sanciones', 'necesidades', 'contactos']);
+});
+
 test('quién gana: agrupa con y sin ofertas, suma por contratista y mide la concentración', () => {
   const profile = { modalidades: [
     { modalidad: 'Contratación régimen especial', persona_natural: 40, juridica: 50, sin_dato: 10, valor: 1e10,
