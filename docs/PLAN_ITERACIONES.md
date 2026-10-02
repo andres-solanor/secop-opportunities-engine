@@ -79,7 +79,32 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 
 **La v14 en español basta.** Resuelve el 100 % de los códigos de los 159.405 contratos de $50 M o más firmados en 2026 (`jbjy-vk9h`, 4552 códigos distintos): 37 % al nivel de producto y 63 % al de clase. La v26 no resuelve mejor ninguno: SECOP II usa la v14 (el prefijo "V1.").
 
-**Decisión del dueño pendiente:** el aviso de la v14 prohíbe explotarla comercialmente, y el producto piensa cobrar después. Hay que decidir si se publica (nombres de clase y de los productos que aparecen en SECOP, unos 4.500) o si se pide permiso o asesoría.
+**Base con banderas (2026-10-02, pedido del dueño).** El dueño señaló que lo que protege el aviso es la *traducción*: los códigos son públicos. `src/tools/unspsc_catalog.py` arma una base SQLite local (`local/unspsc.sqlite`, en .gitignore) que cruza cada código de CCE con los nombres que el Estado ya publica en datos abiertos, con licencia CC BY-SA 4.0:
+- SECOP I (`f789-7hwg`): familia y clase, consultadas código por código, porque agregarlo pasa del tiempo límite del servidor;
+- SECOP II (`qmzu-gj57`, `4ex9-j3n8`): categoría principal.
+
+| Nivel | Ya publicado, igual a CCE | Publicado distinto | No publicado |
+|---|---:|---:|---:|
+| Segmento | 0 | 0 | 56 |
+| Familia | 417 | 0 | 3 |
+| Clase | 2709 | 2 | 1107 |
+| Producto | 0 | 0 | 49.022 |
+
+En los 159.405 contratos de 2026:
+- **63,0 %** usa una clase cuyo nombre ya es público;
+- **37,0 %** usa un producto cuya clase es pública;
+- 24 quedan solo con la familia o sin nombre.
+
+Es decir, el 100 % se puede mostrar al menos con el nombre de su clase sin tocar la traducción de CCE. Lo publicable (3128 nombres, solo de datos abiertos, con atribución y licencia CC BY-SA 4.0) está en `config/unspsc_publico.json`. Los nombres de producto de CCE no salen de la base local.
+
+**Ideas para los productos (el único hueco), en orden de recomendación:**
+1. **Nombre público de la clase y el código del producto** (por ejemplo, "Servicios de construcción de autopistas y carreteras · 72141003"). Riesgo nulo y sirve hoy.
+2. **Etiqueta propia derivada del uso:** los términos más frecuentes del objeto de los contratos con ese producto ("pavimentación · placa huella · vías terciarias, según 312 contratos"). Es una creación propia sobre datos CC BY-SA y también sirve para el encaje.
+3. **Traducción propia desde el inglés** (v26 de UNDP). Evita la traducción de CCE, pero las condiciones de uso de UNDP están `[POR VERIFICAR]`.
+4. **Pedirle a CCE** que publique el clasificador completo con la misma licencia CC BY-SA con la que ya publica familias y clases.
+5. **No recomendado:** recortar o parafrasear los nombres de CCE. Sigue siendo una obra derivada de la traducción que protege el aviso.
+
+Esto no es asesoría legal: es cómo reducir el riesgo con lo que se pudo verificar.
 
 **Propuesta, en orden:**
 1. ~~**Vigilar la cobertura.**~~ **Hecho (2026-10-02).** `src/harvest.py: unspsc_coverage` cuenta en el servidor, por semana de publicación (8 semanas), los procesos con código. Sale en `meta.cobertura_unspsc`, en `hidden_summary.md` y en el panel de sincronización. Primera medición: 93–96 % hasta la semana del 7 de septiembre; luego 37 %, 3 % y 1 % en las semanas del 14, 21 y 28.

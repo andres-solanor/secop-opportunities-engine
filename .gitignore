@@ -35,6 +35,10 @@ playwright-report/
 # Salidas locales del pipeline (python -m src.export_prospects --out ...)
 out/
 
+# Base local del catálogo UNSPSC (src/tools/unspsc_catalog.py): contiene la traducción de
+# Colombia Compra Eficiente, que no puede explotarse comercialmente. Nunca va al repositorio.
+local/
+
 # IDEs
 .vscode/
 .idea/
