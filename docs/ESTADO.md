@@ -538,3 +538,45 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
 **Decidido por el dueño el 2026-10-02** ("aplica las recomendaciones"):
 1. `GENERAL_MAX_ROWS` pasa de 5000 a 8000 y `AWARDED_MAX_ROWS` de 3000 a 5000. Se agregó una prueba que exige al menos 1,5 veces el volumen medido, y el comentario dice ahora ~400 procesos por día hábil.
 2. `HIDDEN_WEB_MAX` se queda en 5000. Cubrir los 6033 haría el archivo cerca de 20 % más pesado, con unos +0,3 s al abrir la vista en un teléfono lento.
+
+## Estado de la sesión — 2026-10-02 (madrugada, cierre) · Claude Code · rama `pro/session-close-2`
+
+Este bloque reemplaza las "próximas acciones" de los anteriores.
+
+- **Publicado en `main`** (CI en verde en cada PR; el sitio se publica solo con cada fusión):
+
+  | PR | Contenido |
+  |---|---|
+  | #21 | Topes de descarga: publicados 8000, adjudicados 5000 |
+  | #22 | "¿Quién gana en esta modalidad?": la entidad (en vivo), el país (top 3 y concentración) y persona natural como contexto. Además, la prueba de humo de "hace 5 días" pasa a hora local |
+  | #23 | El detalle ordena sus bloques según el estado (`DashboardEngine.detailOrder`) |
+  | #24 | Plan A10, UNSPSC: hallazgos y propuesta |
+  | #25 | Monitor de cobertura UNSPSC por semana (`meta.cobertura_unspsc`, reporte y panel de sincronización) |
+  | #26 | `src/tools/unspsc_catalog.py`: base local con banderas y `config/unspsc_publico.json`, con 3128 nombres de datos abiertos (CC BY-SA 4.0) |
+  | #27 | Condiciones de UNDP para la traducción propia |
+
+- **Corridas en producción** (workflow manual): la última, `36953350399`, a las 02:08 UTC del 2026-10-02, con éxito. El sitio tiene "quién gana" con `top`, la cobertura UNSPSC y los topes nuevos.
+- **Sin commit:** nada en el repositorio.
+  - Fuera de él, a propósito: `local/unspsc.sqlite` y `local/unspsc_abiertos.json` (en .gitignore; contienen la traducción de CCE).
+  - Los archivos del clasificador siguen en la carpeta de descargas del dueño.
+  - Para regenerar la base: `python -m src.tools.unspsc_catalog descargar --cce <xlsx> --out local/unspsc_abiertos.json` (unos 12 minutos) y luego `construir` (comandos en el docstring).
+- **Decisiones del dueño en esta sesión:**
+  - "Quién gana" con las dos vistas.
+  - Orden del detalle por estado.
+  - Monitor UNSPSC.
+  - Base con banderas.
+  - Para los nombres de producto, prefiere la traducción propia desde el inglés (opción 3 del plan A10). Las condiciones de UNDP no la permiten sin el addendum comercial y un permiso escrito.
+- **Pendiente del dueño:**
+  - Enviar el correo a `info.unspsc@undp.org` (el borrador quedó en la conversación; el contenido está en el plan, A10, "Condiciones de UNDP").
+  - El `GOOGLE_CLIENT_ID`.
+  - Activar SSH en hPanel cuando empiece la fase B.
+  - La dirección visual (9.6 c).
+  - La explicación de lo que queda de A3 (PAA más preciso y sanciones), que pidió dejar para después.
+- **Errores abiertos y observaciones:**
+  - SECOP II publica casi sin código UNSPSC desde la semana del 14 de septiembre (37 %, 3 % y 1 %). El monitor dirá si vuelve.
+  - Que los nombres de SECOP I salgan de la v14 de CCE es una inferencia: los 3126 coinciden exacto, pero falta confirmarlo.
+  - Siguen abiertos: la píldora de sincronización a 390 px, los hallazgos de Impeccable (9.6 c), la vista previa genérica al compartir y los límites de datos.gov.co `[POR VERIFICAR]`.
+- **Próximas tres acciones:**
+  1. Revisar la corrida programada de las 11:00 UTC del 2026-10-02 (cron con el despliegue nuevo y los topes) y la tabla de cobertura UNSPSC.
+  2. Si el dueño lo aprueba: mostrar en el detalle el código UNSPSC con el nombre público de su clase (A10, opción 1, riesgo nulo; `config/unspsc_publico.json`).
+  3. Con la respuesta de UNDP: traducción propia de los nombres de producto (opción 3), comparando contra la de CCE para no copiarla.
