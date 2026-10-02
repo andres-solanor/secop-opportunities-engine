@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let ageTab = null; // pestaña para la que se armaron las opciones del filtro de tiempo
 
   // Etiqueta de la ficha según la ventana real de participación (ProfileEngine.bidWindow).
+  // Quién gana: lectura de la concentración nacional (DashboardEngine.concentration) y desde qué
+  // parte de los contratos de la entidad un contratista es su "proveedor habitual".
+  const CONCENTRATION_TEXT = {
+    atomizado: 'mercado atomizado, nadie domina',
+    repartido: 'mercado repartido entre varios',
+    concentrado: 'mercado concentrado en pocos contratistas'
+  };
+  const ENTITY_USUAL_SHARE = 0.3;
   const STATE_LABELS = {
     abierta: { text: 'Recibe ofertas', cls: 'stage-ofertas' },
     borrador: { text: 'Borrador de pliegos', cls: 'stage-borrador' },
@@ -1060,6 +1068,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const share = Dash.personaNaturalShare(BIDDER_SHARES, item);
     const profile = META && META.perfil_proponente;
     const suppliers = Engine.supplierSectors(item, TAXONOMY);
+    const national = profile ? Dash.modalityWinners(profile, item) : null;
+    const rawModalities = profile ? Dash.rawModalities(profile, item) : [];
+    const entityWinnersOn = Boolean(Live && item.nit_entidad && rawModalities.length && profile && profile.desde);
 
     const timeline = [
       ['Publicación', f.publicacion],
@@ -1093,11 +1104,18 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
         </section>
 
-        ${share ? `
-        <section class="detail-section">
+        ${share || national || entityWinnersOn ? `
+        <section class="detail-section who-wins">
           <h3>¿Quién gana en esta modalidad?</h3>
-          <p>Desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}, <b>${escapeHtml(String(share.pct).replace('.', ','))}%</b> de los contratos de ${escapeHtml(modalityLabel(item))} (${share.natural} de ${share.contratos} con tipo de proponente conocido) los ganó una persona natural; el resto, empresas.</p>
-          <p class="legal-note">Fuente: SECOP II · Contratos. Contratos de ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
+          ${entityWinnersOn ? `<div class="who-wins-block" id="whoWinsEntity"><p class="who-wins-loading" role="status">⏳ Consultando en SECOP II a quién le contrata esta entidad en ${escapeHtml(modalityLabel(item))}…</p></div>` : ''}
+          ${national ? `
+          <div class="who-wins-block">
+            <h4>En todo el país</h4>
+            <p>${national.contratos.toLocaleString('es-CO')} contratos parecidos en ${escapeHtml(modalityLabel(item))}. Los 3 que más ganan se llevan el <b>${national.share} %</b>: ${escapeHtml(CONCENTRATION_TEXT[national.concentracion])}.</p>
+            ${winnersList(national.top)}
+          </div>` : ''}
+          ${share ? `<p class="who-wins-natural">🧑‍💼 Persona natural: <b>${escapeHtml(String(share.pct).replace('.', ','))} %</b> de los contratos (${share.natural} de ${share.contratos} con tipo de proponente conocido).</p>` : ''}
+          <p class="legal-note">Fuente: SECOP II · Contratos firmados desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}: ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
         </section>` : ''}
 
         ${timeline.length ? `
@@ -1201,6 +1219,39 @@ document.addEventListener('DOMContentLoaded', () => {
     detailModal.dataset.itemId = item.id || '';
     detailModal.classList.add('active');
     if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
+    if (entityWinnersOn) loadEntityWinners(item, rawModalities, profile);
+  }
+
+  /** Los 3 que más ganan: nombre, persona natural si lo es, contratos y valor. */
+  function winnersList(top) {
+    return `<ol class="winners">${top.map(t => `
+      <li><span class="winner-name">${escapeHtml(t.persona_natural ? personName(t.nombre) : t.nombre)}</span>${t.persona_natural ? ' <span class="badge badge-info">persona natural</span>' : ''}
+        <span class="winner-meta">${t.contratos} ${t.contratos === 1 ? 'contrato' : 'contratos'} · ${escapeHtml(Engine.formatCopShort(t.valor || 0))}</span></li>`).join('')}</ol>`;
+  }
+
+  /** Quién le gana a la entidad del proceso en su modalidad: consulta en vivo y solo de lectura. */
+  function loadEntityWinners(item, modalities, profile) {
+    const fill = html => {
+      const box = document.getElementById('whoWinsEntity');
+      if (box && detailModal.dataset.itemId === item.id) box.innerHTML = html;
+    };
+    const entity = escapeHtml(item.entidad || 'esta entidad');
+    Live.entityWinners({
+      nitEntidad: item.nit_entidad, modalities, desde: profile.desde, valorMin: profile.valor_min, tipos: profile.tipos_contrato
+    }).then(r => {
+      if (!r || !r.contratos) {
+        fill(`<h4>Con ${entity}</h4><p>No firmó contratos parecidos en esta modalidad en el periodo: no hay un proveedor habitual.</p>`);
+        return;
+      }
+      const w = Dash.summarizeWinners(r.rows, r.contratos, r.valor);
+      const first = w && w.top[0];
+      const usual = first && r.contratos >= 3 && first.contratos / r.contratos >= ENTITY_USUAL_SHARE
+        ? ` <b>${escapeHtml(first.persona_natural ? personName(first.nombre) : first.nombre)}</b> ganó ${first.contratos} de ${r.contratos}: es su proveedor habitual.`
+        : w && r.contratos >= 3 ? ` Los 3 que más le ganan se llevan el <b>${w.share} %</b>: ${escapeHtml(CONCENTRATION_TEXT[w.concentracion])}.` : '';
+      fill(`<h4>Con ${entity}</h4>
+        <p>${r.contratos} ${r.contratos === 1 ? 'contrato parecido' : 'contratos parecidos'} en el periodo.${usual}</p>
+        ${w ? winnersList(w.top) : ''}`);
+    }).catch(() => fill('<p class="who-wins-loading">No se pudo consultar SECOP II en este momento: abre el detalle más tarde para ver a quién le contrata esta entidad.</p>'));
   }
 
   // ---------- Detalle en vivo (fuera del tablero y PAA): window.SecopLive ----------

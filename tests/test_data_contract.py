@@ -113,6 +113,14 @@ class TestHiddenAndMetaContract(unittest.TestCase):
         self.assertTrue(validate_meta(dict(meta, perfil_proponente=bad)))
         self.assertTrue(validate_meta(dict(meta, perfil_proponente={"desde": "x"})))
 
+    def test_meta_bidder_profile_top_winners_are_optional_but_checked(self):
+        row = {"modalidad": "Mínima cuantía", "persona_natural": 20, "juridica": 80, "sin_dato": 3, "valor": 1e10}
+        top = [{"nombre": "FERRETERIA UNO SAS", "contratos": 12, "valor": 9e8, "persona_natural": False}]
+        meta = build_meta([], [], 5, NOW, NOW, None, [], bidder_profile={"desde": "2025-10-01", "modalidades": [dict(row, top=top)]})
+        self.assertEqual(validate_meta(meta), [])
+        bad = {"desde": "2025-10-01", "modalidades": [dict(row, top=[{"nombre": "X", "contratos": "12", "persona_natural": False}])]}
+        self.assertTrue(validate_meta(dict(meta, perfil_proponente=bad)))
+
 
 class TestExports(unittest.TestCase):
 

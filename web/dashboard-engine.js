@@ -151,6 +151,53 @@
   }
 
   /** La cifra de la modalidad de la oportunidad, o null si no hay dato suficiente. */
+  /** Nombres exactos de SECOP II · Contratos que caen en el grupo de modalidad del proceso. */
+  function rawModalities(profile, item) {
+    const id = modalityOf(item);
+    if (id === 'otra' || id === 'sin_dato') return [];
+    return ((profile && profile.modalidades) || [])
+      .map(r => r.modalidad)
+      .filter(m => modalityOf({ modalidad: m }) === id);
+  }
+
+  /** Concentración según la parte de los contratos que se llevan los 3 primeros. */
+  function concentration(sharePct) {
+    if (sharePct >= 50) return 'concentrado';
+    if (sharePct >= 20) return 'repartido';
+    return 'atomizado';
+  }
+
+  /**
+   * Quién gana: suma por contratista las filas de varias modalidades (con y sin ofertas) y devuelve
+   * los 3 primeros por número de contratos (desempate por valor), qué parte de los contratos se
+   * llevan y cómo de concentrado está el mercado. `total` es el número de contratos del universo.
+   */
+  function summarizeWinners(rows, total, valor = null, size = 3) {
+    const merged = new Map();
+    (rows || []).forEach(r => {
+      if (!r || !r.nombre) return;
+      const key = normalize(r.nombre);
+      const acc = merged.get(key) || { nombre: r.nombre, contratos: 0, valor: 0, persona_natural: Boolean(r.persona_natural) };
+      acc.contratos += r.contratos || 0;
+      acc.valor += r.valor || 0;
+      merged.set(key, acc);
+    });
+    const top = [...merged.values()].sort((a, b) => b.contratos - a.contratos || b.valor - a.valor).slice(0, size);
+    if (!total || !top.length) return null;
+    const share = Math.round((100 * top.reduce((s, t) => s + t.contratos, 0)) / total);
+    return { contratos: total, valor, top, share, concentracion: concentration(share) };
+  }
+
+  /** Quién gana en la modalidad del proceso en todo el país (perfil publicado por el pipeline). */
+  function modalityWinners(profile, item) {
+    const names = new Set(rawModalities(profile, item));
+    const rows = ((profile && profile.modalidades) || []).filter(r => names.has(r.modalidad));
+    if (!rows.some(r => Array.isArray(r.top))) return null; // perfil de una corrida anterior al 2026-10-02
+    const total = rows.reduce((s, r) => s + (r.persona_natural || 0) + (r.juridica || 0) + (r.sin_dato || 0), 0);
+    const valor = rows.reduce((s, r) => s + (r.valor || 0), 0);
+    return summarizeWinners(rows.flatMap(r => r.top || []), total, valor);
+  }
+
   function personaNaturalShare(shares, item) {
     return (shares && shares[modalityOf(item)]) || null;
   }
@@ -498,6 +545,10 @@
     PERSONA_NATURAL_MIN_PCT,
     bidderShares,
     personaNaturalShare,
+    rawModalities,
+    concentration,
+    summarizeWinners,
+    modalityWinners,
     personaNaturalFriendly,
     stateDate,
     ageOptions,

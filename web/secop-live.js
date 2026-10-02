@@ -50,6 +50,60 @@
     });
   }
 
+  /**
+   * Quién le gana a una entidad en una modalidad: los mismos filtros que el perfil del proponente
+   * del pipeline (`meta.perfil_proponente`: desde, valor mínimo y tipos de contrato), para que la
+   * cifra de la entidad y la nacional se comparen. Dos consultas agregadas: totales y contratistas.
+   */
+  function winnersWhere({ nitEntidad, modalities, desde, valorMin, tipos }) {
+    const list = values => values.map(soqlString).join(', ');
+    return [
+      `nit_entidad = ${soqlString(nitEntidad)}`,
+      `modalidad_de_contratacion in (${list(modalities)})`,
+      `fecha_de_firma >= '${desde}T00:00:00'`,
+      `valor_del_contrato >= ${Number(valorMin) || 0}`,
+      tipos && tipos.length ? `tipo_de_contrato in (${list(tipos)})` : null
+    ].filter(Boolean).join(' AND ');
+  }
+
+  function entityWinnersUrls(params) {
+    const where = winnersWhere(params);
+    return {
+      totales: buildUrl(DATASETS.contratos, { $select: 'count(*) as n, sum(valor_del_contrato) as v', $where: where }),
+      top: buildUrl(DATASETS.contratos, {
+        $select: 'proveedor_adjudicado, tipodocproveedor, count(*) as n, sum(valor_del_contrato) as v',
+        $where: where, $group: 'proveedor_adjudicado, tipodocproveedor', $order: 'n DESC, v DESC', $limit: 10
+      })
+    };
+  }
+
+  // Como src/enrichers/open_sources.py (NATURAL_PERSON_DOCS): la empresa usa NIT.
+  const NATURAL_PERSON_DOCS = ['cédula', 'cedula', 'pasaporte', 'permiso', 'registro civil', 'tarjeta de identidad'];
+
+  /** Filas agregadas → { contratos, valor, rows } con la forma de `perfil_proponente.modalidades[].top`. */
+  function parseWinners(totalRows, topRows) {
+    const total = totalRows && totalRows[0];
+    return {
+      contratos: total ? Math.round(toNumber(total.n) || 0) : 0,
+      valor: total ? toNumber(total.v) : null,
+      rows: (topRows || []).map(r => {
+        const doc = String(r.tipodocproveedor || '').trim().toLowerCase();
+        return {
+          nombre: cleanName(r.proveedor_adjudicado),
+          contratos: Math.round(toNumber(r.n) || 0),
+          valor: toNumber(r.v) || 0,
+          persona_natural: doc !== 'nit' && NATURAL_PERSON_DOCS.some(k => doc.includes(k))
+        };
+      }).filter(r => r.nombre)
+    };
+  }
+
+  function entityWinners(params, opts = {}) {
+    if (!params || !params.nitEntidad || !(params.modalities || []).length || !params.desde) return Promise.resolve(null);
+    const urls = entityWinnersUrls(params);
+    return Promise.all([getJson(urls.totales, opts), getJson(urls.top, opts)]).then(([t, r]) => parseWinners(t, r));
+  }
+
   /** Un proceso por su id (para enlaces compartidos que ya no están en el tablero). */
   function processUrl(id) {
     return buildUrl(DATASETS.procesos, { $where: `id_del_proceso = ${soqlString(id)}`, $limit: 1 });
@@ -265,6 +319,9 @@
     offersUrl,
     entityUrl,
     processUrl,
+    entityWinnersUrls,
+    parseWinners,
+    entityWinners,
     parseContract,
     parseOffers,
     parseEntity,

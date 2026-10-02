@@ -287,9 +287,54 @@ test('persona natural: opción del filtro, badge y línea en el detalle cuando h
   await expect(page.locator('#modalBody')).toContainText('¿Quién gana en esta modalidad?');
 });
 
+test('quién gana: el país (perfil publicado) y la entidad (en vivo, simulado), con su proveedor habitual', async ({ page }) => {
+  // Se toma un proceso del tablero con NIT de entidad y modalidad conocida, y se publica un perfil
+  // con esa modalidad. datos.gov.co se simula: la prueba nunca consulta el servicio real.
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    await route.fulfill({ response: res, body: `${body}
+      (function () {
+        const D = window.DashboardEngine;
+        const it = window.PROSPECTS_DATA.find(i => i.nit_entidad && i.modalidad && !['otra', 'sin_dato'].includes((function (m) {
+          const n = m.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();
+          return ['licitacion publica', 'menor cuantia', 'subasta inversa', 'minima cuantia', 'concurso de meritos', 'regimen especial', 'contratacion directa'].some(k => n.includes(k)) ? 'ok' : 'otra';
+        })(i.modalidad)));
+        window.__whoWinsTarget = it && it.id;
+        window.PROSPECTS_META = Object.assign(window.PROSPECTS_META || {}, { perfil_proponente: {
+          desde: '2025-10-02', valor_min: 50000000, tipos_contrato: ['Obra', 'Suministros'],
+          modalidades: [{ modalidad: it.modalidad, persona_natural: 30, juridica: 170, sin_dato: 0, valor: 9e10,
+            top: [{ nombre: 'NACIONAL UNO SAS', contratos: 12, valor: 5e9, persona_natural: false },
+                  { nombre: 'MARIA DEMO RUIZ', contratos: 4, valor: 3e8, persona_natural: true }] }] } });
+      })();\n` });
+  });
+  await page.route('**/resource/jbjy-vk9h.json*', route => {
+    const grouped = decodeURIComponent(route.request().url()).includes('$group');
+    route.fulfill({ contentType: 'application/json', body: JSON.stringify(grouped
+      ? [{ proveedor_adjudicado: 'PROVEEDOR HABITUAL SAS', tipodocproveedor: 'NIT', n: '5', v: '800000000' },
+        { proveedor_adjudicado: 'OTRO SAS', tipodocproveedor: 'NIT', n: '1', v: '90000000' }]
+      : [{ n: '8', v: '1200000000' }]) });
+  });
+  await openDashboard(page);
+  const target = await page.evaluate(() => window.__whoWinsTarget);
+  test.skip(!target, 'los datos no traen un proceso con NIT y modalidad conocida');
+  await page.goto('about:blank');
+  await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
+  const section = page.locator('#modalBody .who-wins');
+  await expect(section).toContainText('En todo el país');
+  await expect(section).toContainText('NACIONAL UNO SAS');
+  await expect(section).toContainText('Maria Demo Ruiz'); // persona natural, en formato de nombre
+  await expect(section).toContainText('Los 3 que más ganan se llevan el 8 %'); // 16 de 200
+  await expect(section).toContainText('mercado atomizado');
+  await expect(section.locator('#whoWinsEntity')).toContainText('PROVEEDOR HABITUAL SAS ganó 5 de 8: es su proveedor habitual');
+});
+
 test('fichas livianas y del PAA usan la misma estructura: ganador, adjudicación y cifras de la entidad', async ({ page }) => {
   // Datos de prueba con los campos nuevos (los del repositorio pueden ser anteriores).
-  const awardedOn = new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString().slice(0, 10) + 'T00:00:00';
+  // Fecha local, no UTC: entre las 19:00 y la medianoche de Colombia la fecha UTC ya es la del día
+  // siguiente y la ficha decía "hace 4 días" (falló el 2026-10-01 a las 19:56).
+  const d = new Date(Date.now() - 5 * 24 * 3600 * 1000);
+  const awardedOn = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}T00:00:00`;
   const light = {
     id: 'CO1.REQ.TEST1', motivo: 'fuera_de_corte', entidad: 'MUNICIPIO DE PRUEBA', nit_entidad: '800000001',
     precio: 300000000, modalidad: 'Mínima cuantía', tipo_contrato: 'Suministros', descripcion: 'Suministro de prueba',
