@@ -702,3 +702,20 @@ Este bloque reemplaza la acción 1 del anterior. Las acciones 2 y 3 siguen vigen
   1. Elegir con el dueño la siguiente candidata; la sugerida es "cifras de la entidad para decidir" (fase A, con datos que ya tenemos).
   2. Confirmar con `probe_sources` la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer" (solo lectura).
   3. Proponer que las pruebas de humo usen un puerto por carpeta, o que no reutilicen el servidor, para que dos sesiones no se crucen.
+
+## Estado de la sesión — 2026-10-02 · Claude Code · rama `pro/session-close-4`
+
+Cierre de la sesión de investigación de competencia y "seguir lo guardado". Esta sesión trabajó en worktrees temporales en la carpeta de scratchpad, ya borrados. La carpeta `oportunities-engine-pro` quedó en `pro/a11-avisos`, que es de otra sesión y ya está fusionada (PR #35); esta sesión no la tocó.
+
+- **Hecho y en `main`:**
+  - PR #32, `84d37cf`: ideas de la competencia en el plan y estado de la sesión. El informe es el artifact privado https://claude.ai/artifact/PmPxvL3gRFnyNxvBdLxk2W, que no se versiona.
+  - PR #36, `fe3f724` (fusión `24f7d2d`): seguir lo guardado en el CRM y ver qué cambió. Lo detalla el bloque anterior.
+- **En curso:** nada. La línea de trabajo quedó en el punto de decisión: el dueño elige la siguiente candidata.
+- **Sin commit:** nada, ni en esta sesión ni en sus worktrees.
+- **Errores conocidos:**
+  - Las pruebas de humo locales pueden correr contra el servidor de otra carpeta si ya hay uno en el puerto 8765 (ver el bloque anterior).
+  - Ningún issue abierto con la etiqueta bug.
+- **Próximas tres acciones:**
+  1. Preguntar al dueño si la siguiente candidata es "cifras de la entidad para decidir". Si dice que sí, diseñarla sobre `ENTITY_STATS`, las ofertas (`wi7w-2nvm`) y `entityWinners`, definir qué es un proceso parecido y el mínimo de casos.
+  2. Confirmar con `python -m src.tools.probe_sources --valores` (solo lectura) la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer".
+  3. Proponer al dueño que `playwright.config.js` use un puerto por carpeta o no reutilice el servidor (`reuseExistingServer`).
