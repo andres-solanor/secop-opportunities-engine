@@ -887,6 +887,48 @@ body {
   color: var(--text-primary);
 }
 
+/* Pantalla completa del detalle: solo en escritorio; en pantallas angostas el modal ya ocupa casi todo. */
+.modal-expand {
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 3.75rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.modal-expand:hover {
+  color: var(--text-primary);
+}
+
+@media (min-width: 900px) {
+  .modal-expand {
+    display: block;
+  }
+  .modal-overlay.expanded {
+    padding: 0;
+  }
+  .modal-overlay.expanded .modal-content {
+    max-width: none;
+    max-height: none;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 2.5rem 4rem;
+  }
+  /* Columna de lectura: las líneas largas cansan; las tablas y listas ganan espacio igual. */
+  .modal-overlay.expanded #modalBody {
+    max-width: 72rem;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+  }
+}
+
 .pitch-box {
   background: var(--surface-well-deep);
   border: 1px solid var(--border-subtle);
@@ -2657,6 +2699,7 @@ body {
 .btn:focus-visible,
 .view-tab:focus-visible,
 .modal-close:focus-visible,
+.modal-expand:focus-visible,
 .filter-select:focus-visible,
 .toggle-hidden input:focus-visible {
   outline: 2px solid var(--accent-cyan);
