@@ -48,6 +48,33 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 | A8 | `GOOGLE_CLIENT_ID` real | S | El dueño crea el cliente OAuth en Google Cloud (orígenes: el dominio de GitHub Pages y `localhost`) y entrega el ID, que es público |
 | A9 | 9.6 (c) identidad visual | M | Con tope de tiempo y solo si el dueño aprueba la dirección. Va después de las demos y antes de la fase B ("lo potente, con el frente pulido") |
 | A10 | **UNSPSC: en el detalle y como criterio de encaje** (idea del dueño del 2026-10-02) | M | Ver "UNSPSC" debajo de esta tabla. Antes de construir: confirmar si los códigos que faltan desde mediados de septiembre vuelven, y conseguir el catálogo de nombres |
+| A11 | **Menos avisos en las ventanas** (pedido del dueño, 2026-10-02) | S | Ver "Avisos (A11)" debajo de esta tabla |
+
+### Avisos (A11): qué se queda, qué se va
+
+**Pedido del dueño (2026-10-02):** los avisos ocupan mucho espacio y no aportan valor real.
+- Se quedan solo los que cambian cómo se interpreta un dato.
+- Las fuentes no se publican: es ruido para el usuario.
+- La atribución de los nombres UNSPSC se retira o pasa a un pie de página.
+
+**Propuesta por aviso** (`legal-note` en `web/app.js`, leídos el 2026-10-02):
+
+| Dónde | Aviso de hoy | Propuesta |
+|---|---|---|
+| ¿Quién gana? | Fuente, periodo y filtros; "es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad" | Quitar la fuente. Dejar en una línea el periodo y "no es un requisito: el pliego define los requisitos", porque cambia cómo se lee la cifra |
+| Qué puede necesitar el ganador | "Es una posibilidad comercial…" y la atribución UNSPSC | Dejar la primera frase (ejemplo del dueño). La atribución pasa al pie de página |
+| Objeto (código UNSPSC) | "· nombre: datos abiertos, CC BY-SA 4.0" | Quitar; va en el pie de página |
+| Integrantes del consorcio | Fuente y "las compras suelen hacerlas los integrantes, sobre todo el líder" | Quitar la fuente. La frase es una pista comercial: se integra al texto o se quita |
+| Competencia | Fuente y "los que no ganaron son posibles aliados o competidores" | Quitar los dos |
+| Sanciones | Fuente y "puede no incluir sanciones recientes de otras plataformas" | Quitar la fuente y **dejar** la advertencia, porque la ausencia de sanciones no prueba que no las haya |
+| Contactos por rol | Fuente, Ley 1712, Ley 1581 y canales formales de SECOP II | Quitar la fuente. Lo de la Ley 1581 (uso de datos personales) es **decisión del dueño**: retirarlo puede tener efecto legal `[POR VERIFICAR]` con un abogado. Una opción es moverlo a los términos de uso |
+| PAA | Fuente y "es una intención de compra: la entidad puede cambiarla" | Quitar la fuente y **dejar** la advertencia |
+| PAA, procesos de la entidad | "Te ayudan a conocer cómo contrata la entidad…" | Quitar |
+| Panel de sincronización | Aviso de la caída de códigos UNSPSC y horario de la sincronización | Quitar el horario. El aviso UNSPSC se queda mientras dure la caída, porque explica la cobertura |
+
+**Atribución CC BY-SA 4.0.** La licencia de los nombres UNSPSC pide atribución, pero no exige que vaya junto a cada nombre. Un enlace "Datos y licencias" en el pie de página, con la atribución completa, la cumple `[POR VERIFICAR]` con la página de la licencia.
+
+**Pendiente:** el visto bueno del dueño a la tabla y su decisión sobre la Ley 1581. Al construir, `.legal-note` queda solo para las advertencias que se mantienen.
 
 ### UNSPSC (A10): hallazgos y propuesta
 
