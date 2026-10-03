@@ -8,6 +8,13 @@ const { test, expect } = require('@playwright/test');
 // Recursos externos que pueden fallar sin red (fuentes, Google Identity): no son errores de la app.
 const EXTERNAL = /fonts\.googleapis|fonts\.gstatic|accounts\.google|ERR_INTERNET_DISCONNECTED|ERR_NAME_NOT_RESOLVED/;
 
+// El detalle consulta SECOP II en vivo: por defecto se simula sin filas, para no consultar nunca el
+// servicio real (en CI devolvió 429). Va en el contexto, para cubrir también las páginas nuevas; las
+// rutas de página que registre cada prueba tienen prioridad sobre las del contexto.
+test.beforeEach(async ({ context }) => {
+  await context.route('**/www.datos.gov.co/resource/**', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
+});
+
 async function openDashboard(page) {
   const errors = [];
   page.on('pageerror', err => errors.push(String(err)));
