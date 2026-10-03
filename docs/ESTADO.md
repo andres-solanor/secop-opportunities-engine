@@ -580,3 +580,14 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
   1. Revisar la corrida programada de las 11:00 UTC del 2026-10-02 (cron con el despliegue nuevo y los topes) y la tabla de cobertura UNSPSC.
   2. Si el dueño lo aprueba: mostrar en el detalle el código UNSPSC con el nombre público de su clase (A10, opción 1, riesgo nulo; `config/unspsc_publico.json`).
   3. Con la respuesta de UNDP: traducción propia de los nombres de producto (opción 3), comparando contra la de CCE para no copiarla.
+
+## Estado de la sesión — 2026-10-02 (mañana) · Claude Code · rama `pro/session-close-3`
+
+- **Publicado en `main`:** PR #29 (`b10acc4`, fusión `aab96c0`), pantalla completa del detalle en escritorio. Es un botón ⤢ junto al cierre, con una columna de lectura de 72rem. Se recuerda en `secop_detail_expanded` (documentado en `AGENTS.md`), no aparece por debajo de 900 px y tiene su prueba de humo. CI en verde.
+- **Sin commit:** nada.
+- **En discusión con el dueño:** códigos UNSPSC en "🧩 Qué puede necesitar el ganador". Hallazgo: los `unspsc_prefixes` de `acero_metalmecanica` incluyen `7210`, `7212` y `7214`, que son servicios de construcción. Por eso no sirven para decirle a un proveedor de acero con qué códigos se le vende al ganador: hace falta un mapa propio de insumos → clases UNSPSC en la taxonomía. No se construyó nada hasta que el dueño elija.
+- **Errores abiertos:** los del bloque anterior, sin cambios.
+- **Próximas tres acciones:**
+  1. Con la elección del dueño, construir la versión de UNSPSC en "Qué puede necesitar el ganador" (propuesta en la conversación: códigos propios del contrato y códigos de los insumos con el nombre público de su clase).
+  2. Revisar la corrida de las 11:00 UTC del 2026-10-02 y la cobertura UNSPSC.
+  3. Lo pendiente del dueño en el bloque anterior (correo a UNDP, `GOOGLE_CLIENT_ID`, 9.6 c).
