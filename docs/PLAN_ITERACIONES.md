@@ -48,7 +48,7 @@ Respuestas del dueño en la sesión. Este bloque **manda sobre el "Orden recomen
 | A8 | `GOOGLE_CLIENT_ID` real | S | El dueño crea el cliente OAuth en Google Cloud (orígenes: el dominio de GitHub Pages y `localhost`) y entrega el ID, que es público |
 | A9 | 9.6 (c) identidad visual | M | Con tope de tiempo y solo si el dueño aprueba la dirección. Va después de las demos y antes de la fase B ("lo potente, con el frente pulido") |
 | A10 | **UNSPSC: en el detalle y como criterio de encaje** (idea del dueño del 2026-10-02) | M | Ver "UNSPSC" debajo de esta tabla. Antes de construir: confirmar si los códigos que faltan desde mediados de septiembre vuelven, y conseguir el catálogo de nombres |
-| A11 | **Menos avisos en las ventanas** (pedido del dueño, 2026-10-02) | S | Ver "Avisos (A11)" debajo de esta tabla |
+| A11 | ~~**Menos avisos en las ventanas**~~ (pedido del dueño, 2026-10-02) | S | **Hecho (2026-10-02, rama `pro/a11-avisos`)**, como dice la tabla de abajo. Lo de la Ley 1581 pasó a "Términos de uso y licencias", en el pie de página (decisión del dueño), junto con la atribución UNSPSC. Sigue abierto, para el dueño: el panel de sincronización aún lista las fuentes y los ids de los datasets |
 
 ### Avisos (A11): qué se queda, qué se va
 

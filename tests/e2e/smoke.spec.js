@@ -702,10 +702,11 @@ test('de ganadores a proveedores: el detalle dice qué puede comprar el ganador 
   await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
   await expect(page.locator('#modalBody')).toContainText('Qué puede necesitar el ganador');
   await expect(page.locator('#modalBody')).toContainText('Acero & Metalmecánica');
-  // Los códigos con los que se le vende, con su nombre público y la atribución de la licencia.
+  // Los códigos con los que se le vende, con su nombre público; el único aviso es el que cambia la lectura.
   const codes = page.locator('#modalBody .supplier-codes');
   await expect(codes.locator('li', { hasText: '301024' })).toContainText('Varillas');
-  await expect(page.locator('#modalBody')).toContainText('CC BY-SA 4.0');
+  await expect(page.locator('#modalBody')).toContainText('Es una posibilidad comercial');
+  await expect(page.locator('#modalBody')).not.toContainText('CC BY-SA');
   await page.click('#modalClose');
 
   await page.click('#tabParaTi');
@@ -741,7 +742,6 @@ test('código UNSPSC en el detalle: el del proceso; si falta, el del contrato en
   const line = page.locator('#unspscLine');
   await expect(line).toContainText('72141003');
   await expect(line).toContainText('nombre de su clase 721410');
-  await expect(line).toContainText('CC BY-SA 4.0');
   expect(live).toEqual([]); // con código propio no se consulta SECOP II
   await page.click('#modalClose');
 
@@ -767,6 +767,23 @@ test('legibilidad: ningún texto visible por debajo de 12 px y el punto de estad
   expect(await tiny()).toEqual([]);
   const animation = await page.locator('#modalBody .pulse-dot').first().evaluate(el => getComputedStyle(el).animationName);
   expect(animation).toBe('none');
+});
+
+test('avisos: el detalle no publica fuentes y los términos de uso van en el pie de página', async ({ page }) => {
+  await openDashboard(page);
+  const id = await page.evaluate(() => (window.PROSPECTS_DATA.find(i => i.contrato && i.ofertas) || window.PROSPECTS_DATA[0]).id);
+  await page.evaluate(id => { location.hash = `op=${encodeURIComponent(id)}`; }, id);
+  await expect(page.locator('#detailModal')).toHaveClass(/active/);
+  await expect(page.locator('#modalBody')).not.toContainText('Fuente:');
+  await expect(page.locator('#modalBody')).not.toContainText('Ley 1581');
+  await page.click('#modalClose');
+
+  await page.click('#termsLink');
+  await expect(page.locator('#modalBody .detail-title')).toHaveText('Términos de uso y licencias');
+  await expect(page.locator('#modalBody')).toContainText('Ley 1581 de 2012');
+  await expect(page.locator('#modalBody')).toContainText('CC BY-SA 4.0');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#detailModal')).not.toHaveClass(/active/);
 });
 
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {

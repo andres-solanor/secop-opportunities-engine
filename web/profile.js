@@ -230,7 +230,7 @@
     return detected.map(d => `
       <div class="detect-row">
         <div class="detect-name">✓ ${esc(d.name)}</div>
-        <div class="strength-bar"><span style="width:${d.strength}%"></span></div>
+        <div class="strength-bar"><span style="transform:scaleX(${Math.max(0, Math.min(100, Number(d.strength) || 0)) / 100})"></span></div>
         <div class="detect-kw">${d.keywords.slice(0, 6).map(k => `<span class="mini-tag">${esc(k)}</span>`).join('')}</div>
       </div>`).join('');
   }
