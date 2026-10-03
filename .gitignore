@@ -37,6 +37,8 @@ out/
 
 # Base local del catálogo UNSPSC (src/tools/unspsc_catalog.py): contiene la traducción de
 # Colombia Compra Eficiente, que no puede explotarse comercialmente. Nunca va al repositorio.
+# También la caché y el registro de Croma (local/croma.db) y los dossiers (local/dossiers/):
+# traen antecedentes de personas y datos que Croma no permite redistribuir.
 local/
 
 # IDEs
