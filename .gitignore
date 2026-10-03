@@ -50,5 +50,12 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
+# Documentación comercial, propuestas, presentaciones y memorandos (nunca van al repositorio)
+docs/*.html
+docs/ESTRATEGIA_GANADORES_A_PROVEEDORES.*
+docs/comercial/
+docs/propuestas/
+
 # Caché local del hook de diseño de Impeccable (instalado global para Claude)
 .impeccable/
+

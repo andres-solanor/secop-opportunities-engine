@@ -107,6 +107,7 @@ Para regenerar solo la taxonomía web sin descargar datos:
 - **Badges:** el tono es el significado (`risk`, `warn`, `good`, `info`). Un badge nuevo se agrega en `BADGES` (con `tip`) y en `cardBadges`; la guía de la UI se genera sola.
 - **`app.js`:** declara las constantes que usan las fichas al inicio del callback, antes del primer `renderView()`; si no, hay un error de "temporal dead zone" y la página queda sin fichas.
 - **Recomendaciones comerciales:** deben ser realistas para una empresa pequeña; si una recomendación supone capacidad disponible, di de dónde sale.
+- **Documentación comercial y propuestas externas:** Toda documentación nueva generada para clientes, presentaciones, propuestas comerciales, memorandos estratégicos, pitches o formatos de exportación (archivos `.html`, `.pdf` o documentos en `docs/comercial/`, `docs/propuestas/` o similares) **debe ignorarse en `.gitignore` y nunca subirse al repositorio**. Solo se versiona la documentación técnica y de relevo del motor (`docs/ESTADO.md`, `docs/HANDOFF.md`, etc.).
 
 ## Almacenamiento en el navegador (`localStorage`)
 
