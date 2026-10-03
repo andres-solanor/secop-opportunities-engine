@@ -2147,6 +2147,41 @@ body {
   color: var(--text-secondary);
 }
 
+/* Código UNSPSC del proceso (Objeto) y de lo que vende cada proveedor (Qué puede necesitar el ganador). */
+.unspsc-line {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+}
+
+.unspsc-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.unspsc-missing,
+.unspsc-credit {
+  color: var(--text-muted);
+}
+
+.supplier-codes h4 {
+  font-size: 0.88rem;
+  margin: 0.6rem 0 0.25rem;
+}
+
+.unspsc-list {
+  margin: 0 0 0 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0.2rem 1.5rem;
+  font-size: 0.88rem;
+}
+
+.unspsc-list small {
+  color: var(--text-muted);
+}
+
 .detail-section h3 {
   font-family: var(--font-heading);
   font-size: 0.95rem;

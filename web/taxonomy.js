@@ -39,7 +39,8 @@ window.SECTOR_TAXONOMY = {
     "compra_a": [
       "acero_metalmecanica",
       "vehiculos_maquinaria"
-    ]
+    ],
+    "vende_unspsc": []
   },
   "agua_saneamiento": {
     "name": "Agua Potable & Saneamiento",
@@ -60,7 +61,8 @@ window.SECTOR_TAXONOMY = {
     "compra_a": [
       "acero_metalmecanica",
       "vehiculos_maquinaria"
-    ]
+    ],
+    "vende_unspsc": []
   },
   "energia_solar_alumbrado": {
     "name": "Energía Solar & Alumbrado Público",
@@ -94,7 +96,8 @@ window.SECTOR_TAXONOMY = {
     "compra_a": [
       "acero_metalmecanica",
       "vehiculos_maquinaria"
-    ]
+    ],
+    "vende_unspsc": []
   },
   "acero_metalmecanica": {
     "name": "Acero & Metalmecánica",
@@ -136,7 +139,17 @@ window.SECTOR_TAXONOMY = {
       "acero inoxidable",
       "suministro de acero"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": [
+      "301017",
+      "301023",
+      "301024",
+      "301032",
+      "302636",
+      "302640",
+      "311522",
+      "311634"
+    ]
   },
   "horeca_industrial": {
     "name": "HORECA & Maquinaria Gastronómica",
@@ -176,6 +189,12 @@ window.SECTOR_TAXONOMY = {
     ],
     "compra_a": [
       "acero_metalmecanica"
+    ],
+    "vende_unspsc": [
+      "4810",
+      "2318",
+      "2413",
+      "5215"
     ]
   },
   "tecnologia": {
@@ -199,7 +218,8 @@ window.SECTOR_TAXONOMY = {
       "cableado estructurado",
       "redes de datos"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": []
   },
   "salud_insumos": {
     "name": "Salud: Insumos & Equipos Médicos",
@@ -229,7 +249,8 @@ window.SECTOR_TAXONOMY = {
       "osteosíntesis",
       "osteosintesis"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": []
   },
   "vehiculos_maquinaria": {
     "name": "Vehículos & Maquinaria",
@@ -256,7 +277,15 @@ window.SECTOR_TAXONOMY = {
       "vibrocompactador",
       "parque automotor"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": [
+      "221015",
+      "221016",
+      "221018",
+      "221019",
+      "251016",
+      "251021"
+    ]
   },
   "dotacion_mobiliario": {
     "name": "Dotación, Uniformes & Mobiliario",
@@ -275,7 +304,12 @@ window.SECTOR_TAXONOMY = {
       "muebles",
       "pupitres"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": [
+      "5612",
+      "5310",
+      "4618"
+    ]
   },
   "interventoria_consultoria": {
     "name": "Interventoría & Consultoría",
@@ -292,7 +326,8 @@ window.SECTOR_TAXONOMY = {
       "consultoría especializada",
       "consultoria especializada"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": []
   },
   "alimentacion_escolar": {
     "name": "Alimentación Escolar (PAE)",
@@ -314,7 +349,8 @@ window.SECTOR_TAXONOMY = {
       "horeca_industrial",
       "eventos_logistica_viveres",
       "dotacion_mobiliario"
-    ]
+    ],
+    "vende_unspsc": []
   },
   "eventos_logistica_viveres": {
     "name": "Eventos, Logística & Víveres",
@@ -341,7 +377,15 @@ window.SECTOR_TAXONOMY = {
       "kit de alimentos",
       "kits de alimentos"
     ],
-    "compra_a": []
+    "compra_a": [],
+    "vende_unspsc": [
+      "5011",
+      "5013",
+      "5022",
+      "5030",
+      "5040",
+      "5019"
+    ]
   }
 };
 window.SECTOR_GROUPS = [

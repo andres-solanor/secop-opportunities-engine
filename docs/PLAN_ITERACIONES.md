@@ -123,7 +123,11 @@ Esto no es asesoría legal: es cómo reducir el riesgo con lo que se pudo verifi
 
 **Propuesta, en orden:**
 1. ~~**Vigilar la cobertura.**~~ **Hecho (2026-10-02).** `src/harvest.py: unspsc_coverage` cuenta en el servidor, por semana de publicación (8 semanas), los procesos con código. Sale en `meta.cobertura_unspsc`, en `hidden_summary.md` y en el panel de sincronización. Primera medición: 93–96 % hasta la semana del 7 de septiembre; luego 37 %, 3 % y 1 % en las semanas del 14, 21 y 28.
-2. **Detalle.** Mostrar el código principal y los adicionales con su nombre por segmento, familia y clase. Depende de la decisión sobre la licencia del catálogo.
+2. ~~**Detalle.**~~ **Hecho (2026-10-02, rama `pro/winner-unspsc`, opciones 1 y 2 aprobadas por el dueño):**
+   - En "Objeto" va el código principal con el nombre público de su clase o familia. Si SECOP II no lo publicó, el detalle consulta en vivo el del contrato firmado.
+   - En "Qué puede necesitar el ganador" van los códigos con los que vende cada sector proveedor (`vende_unspsc`), para compararlos con el RUP.
+   - Los adicionales no se muestran: desde el 15 de septiembre ningún proceso los trae (consulta de lectura del 2026-10-02: 0 con `categorias_adicionales` distinto de "No definido").
+   - Las clases de `vende_unspsc` las eligió Claude entre los nombres públicos: **falta que el dueño las revise**.
 3. **Perfil.** Un campo opcional: "códigos UNSPSC de tu RUP", con un buscador por nombre. Es el dato que la firma de abogados ya tiene de cada empresa cliente.
 4. **Encaje.** Sumar afinidad por nivel compartido (clase de 6 dígitos > familia de 4 > segmento de 2) y un badge "Tu RUP cubre esta clasificación". Si el proceso no trae código, el encaje sigue por palabras clave, como hoy.
 

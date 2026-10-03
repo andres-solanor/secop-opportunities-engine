@@ -23,6 +23,10 @@
     "                  (opcional). En la web, un adjudicado de este sector es un lead para un perfil de esos",
     "                  sectores (\"el ganador puede comprarte\"). Es una posibilidad comercial, no una necesidad",
     "                  confirmada del contrato: no clasifica ni cambia qué se descarga.",
+    "  vende_unspsc    familias (4 dígitos) o clases (6) UNSPSC con las que un proveedor de este sector le vende",
+    "                  al ganador (opcional). La web las lista en \"Qué puede necesitar el ganador\" con su nombre",
+    "                  público (config/unspsc_publico.json; una prueba exige que esté ahí). No son unspsc_prefixes:",
+    "                  en Acero esos son servicios de construcción, no lo que vende un proveedor de acero.",
     "  Los ids de sector no se cambian: los perfiles guardados en el navegador los usan."
   ],
   "version": 3,
@@ -102,6 +106,7 @@
     "acero_metalmecanica": {
       "name": "Acero & Metalmecánica",
       "grupo": "suministros_equipos",
+      "vende_unspsc": ["301017", "301023", "301024", "301032", "302636", "302640", "311522", "311634"],
       "keywords": [
         "acero estructural", "acero de refuerzo", "perfiles de acero", "vigas de acero",
         "tubería de acero", "tuberia de acero", "tubería estructural", "tuberia estructural",
@@ -131,6 +136,7 @@
       "name": "HORECA & Maquinaria Gastronómica",
       "grupo": "suministros_equipos",
       "compra_a": ["acero_metalmecanica"],
+      "vende_unspsc": ["4810", "2318", "2413", "5215"],
       "keywords": [
         "cocina industrial", "cocinas industriales", "horno combinado", "hornos industriales",
         "cuarto frío", "cuartos fríos", "cuartos frios", "refrigeración comercial",
@@ -199,6 +205,7 @@
     "vehiculos_maquinaria": {
       "name": "Vehículos & Maquinaria",
       "grupo": "suministros_equipos",
+      "vende_unspsc": ["221015", "221016", "221018", "221019", "251016", "251021"],
       "keywords": [
         "vehículo", "vehículos", "vehiculo", "vehiculos", "camioneta", "camionetas",
         "motocicleta", "motocicletas", "ambulancia", "ambulancias", "volqueta", "volquetas",
@@ -222,6 +229,7 @@
     "dotacion_mobiliario": {
       "name": "Dotación, Uniformes & Mobiliario",
       "grupo": "suministros_equipos",
+      "vende_unspsc": ["5612", "5310", "4618"],
       "keywords": [
         "dotación de calzado", "dotacion de calzado", "calzado y vestido", "vestido de labor",
         "uniformes", "prendas de vestir", "ropa de trabajo", "elementos de protección personal",
@@ -275,6 +283,7 @@
     "eventos_logistica_viveres": {
       "name": "Eventos, Logística & Víveres",
       "grupo": "servicios",
+      "vende_unspsc": ["5011", "5013", "5022", "5030", "5040", "5019"],
       "keywords": [
         "operador logístico", "operador logistico", "organización de eventos",
         "organizacion de eventos", "logística de eventos", "logistica de eventos",

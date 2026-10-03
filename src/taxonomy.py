@@ -88,6 +88,10 @@ def load_taxonomy(path: str = TAXONOMY_PATH) -> Dict[str, Dict[str, Any]]:
         if unknown:
             raise TaxonomyError(f"sector '{key}': excluir_si usa palabras que no son keywords: {unknown}")
         data.setdefault("compra_a", [])
+        data.setdefault("vende_unspsc", [])
+        sells = data["vende_unspsc"]
+        if not isinstance(sells, list) or any(not (isinstance(c, str) and c.isdigit() and len(c) in (4, 6)) for c in sells):
+            raise TaxonomyError(f"sector '{key}': vende_unspsc debe listar familias (4 dígitos) o clases (6): {sells}")
     # compra_a nombra otros sectores: se valida cuando ya se leyeron todos.
     for key, data in sectors.items():
         buys = data["compra_a"]

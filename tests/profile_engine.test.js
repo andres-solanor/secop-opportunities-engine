@@ -68,6 +68,40 @@ test('supplierSectors: lo que suele comprar el ganador sale de compra_a, sin rep
   assert.deepStrictEqual(E.supplierSectors(opp({ sectores: [{ id: 'tecnologia', name: 'TI' }] }), TAXONOMY), []);
 });
 
+test('supplierCodes: cada sector proveedor trae sus códigos UNSPSC con nombre público', () => {
+  const names = { 301024: 'Varillas', 2210: 'Maquinaria pesada' };
+  const tax = {
+    obra: { name: 'Obra', compra_a: ['acero', 'maquinaria', 'ti'] },
+    acero: { name: 'Acero', vende_unspsc: ['301024', '999999'] },
+    maquinaria: { name: 'Maquinaria', vende_unspsc: ['2210'] },
+    ti: { name: 'TI' }
+  };
+  const out = E.supplierCodes(opp({ sectores: [{ id: 'obra', name: 'Obra' }] }), tax, names);
+  assert.deepStrictEqual(out.map(s => [s.id, s.codigos.map(k => k.codigo)]), [['acero', ['301024']], ['maquinaria', ['2210']], ['ti', []]]);
+  assert.deepStrictEqual(out[0].codigos[0], { codigo: '301024', nombre: 'Varillas', nivel: 'clase' });
+  assert.strictEqual(out[1].codigos[0].nivel, 'familia');
+});
+
+test('la taxonomía publicada: los códigos que vende cada sector tienen nombre en unspsc.js', () => {
+  require(path.join(__dirname, '..', 'web', 'unspsc.js'));
+  const names = globalThis.UNSPSC_NAMES.codigos;
+  const obra = opp({ sectores: [{ id: 'obra_civil_general', name: 'Obra' }] });
+  const steel = E.supplierCodes(obra, TAXONOMY, names).find(s => s.id === 'acero_metalmecanica');
+  assert.ok(steel.codigos.length >= 5, 'acero lista sus clases');
+  assert.ok(steel.codigos.every(k => !k.codigo.startsWith('72')), 'no son servicios de construcción');
+});
+
+test('unspscName: clase, familia, producto nombrado por su clase y código de clase con 00', () => {
+  const names = { 7214: 'Construcción pesada', 721410: 'Autopistas y carreteras' };
+  assert.deepStrictEqual(E.unspscName('V1.72141003', names), { codigo: '72141003', nombre: 'Autopistas y carreteras', nivel: 'producto', base: '721410', prestado: true });
+  assert.deepStrictEqual(E.unspscName('72141000', names), { codigo: '72141000', nombre: 'Autopistas y carreteras', nivel: 'clase', base: '721410', prestado: false });
+  const family = E.unspscName('72149900', names);
+  assert.deepStrictEqual([family.nombre, family.base, family.prestado], ['Construcción pesada', '7214', true], 'sin la clase, usa la familia');
+  assert.strictEqual(E.unspscName('UNSPECIFIED', names), null);
+  assert.strictEqual(E.unspscName(null, names), null);
+  assert.strictEqual(E.unspscName('11111111', names), null);
+});
+
 test('un adjudicado de obra civil es lead para un proveedor de acero: "el ganador puede comprarte"', () => {
   const detected = E.detectSectors(steelProfile, TAXONOMY);
   const obra = { sectores: [{ id: 'obra_civil_general', name: 'Construcción & Obra Civil General' }], materiales_detectados: [] };

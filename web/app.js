@@ -1086,7 +1086,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const step = Engine.nextStep(item);
     const share = Dash.personaNaturalShare(BIDDER_SHARES, item);
     const profile = META && META.perfil_proponente;
-    const suppliers = Engine.supplierSectors(item, TAXONOMY);
+    const suppliers = Engine.supplierCodes(item, TAXONOMY);
+    // Código UNSPSC: el del proceso; si SECOP II no lo publicó, el del contrato firmado (en vivo).
+    const code = Engine.unspscName(item.unspsc || c?.unspsc);
+    const codeLive = !code && Boolean(Live && c && item.id_portafolio);
     const national = profile ? Dash.modalityWinners(profile, item) : null;
     const rawModalities = profile ? Dash.rawModalities(profile, item) : [];
     const entityWinnersOn = Boolean(Live && item.nit_entidad && rawModalities.length && profile && profile.desde);
@@ -1107,7 +1110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ['Supervisor del contrato (entidad)', c.contactos?.supervisor, item.entidad],
       ['Ordenador de pago (entidad)', c.contactos?.ordenador_pago, item.entidad]
     ].filter(([, name]) => name) : [];
-    const blocks = detailBlocks(item, { bw, c, h, e, d, money, share, profile, suppliers, national, entityWinnersOn, timeline, now, contacts });
+    const blocks = detailBlocks(item, { bw, c, h, e, d, money, share, profile, suppliers, code, codeLive, national, entityWinnersOn, timeline, now, contacts });
 
     modalBody.innerHTML = `
       <div class="detail">
@@ -1134,6 +1137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     detailModal.classList.add('active');
     if (!opts.keepScroll) detailModal.querySelector('.modal-content').scrollTop = 0;
     if (entityWinnersOn) loadEntityWinners(item, rawModalities, profile);
+    if (codeLive) loadContractCode(item);
   }
 
   /**
@@ -1141,12 +1145,16 @@ document.addEventListener('DOMContentLoaded', () => {
    * Un bloque sin datos es ''.
    */
   function detailBlocks(item, ctx) {
-    const { bw, c, h, e, d, money, share, profile, suppliers, national, entityWinnersOn, timeline, now, contacts } = ctx;
+    const { bw, c, h, e, d, money, share, profile, suppliers, code, codeLive, national, entityWinnersOn, timeline, now, contacts } = ctx;
+    const sellCodes = suppliers.filter(s => s.codigos.length);
     return {
       objeto: `
         <section class="detail-section">
           <h3>Objeto</h3>
           <p>${escapeHtml(readableText(item.descripcion) || 'Sin descripción.')}</p>
+          <div class="unspsc-line" id="unspscLine">${code ? unspscLine(code)
+            : codeLive ? '<span class="who-wins-loading" role="status">⏳ Consultando en SECOP II el código UNSPSC del contrato…</span>'
+              : '<span class="unspsc-missing">SECOP II no publicó el código UNSPSC de este proceso.</span>'}</div>
         </section>`,
 
       quien_gana: share || national || entityWinnersOn ? `
@@ -1202,7 +1210,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="detail-section">
           <h3>🧩 Qué puede necesitar el ganador</h3>
           <p>Quien ejecuta contratos de ${escapeHtml((item.sectores || []).map(s => s.name).join(', '))} suele comprar a: ${suppliers.map(s => `<b>${escapeHtml(s.name)}</b>`).join(', ')}.</p>
-          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.</p>
+          ${sellCodes.length ? `
+          <div class="supplier-codes">
+            <p>Clasificaciones UNSPSC de lo que vende cada uno: compáralas con las de tu RUP.</p>
+            ${sellCodes.map(s => `
+            <h4>${escapeHtml(s.name)}</h4>
+            <ul class="unspsc-list">${s.codigos.map(k => `<li><code>${escapeHtml(k.codigo)}</code> ${escapeHtml(k.nombre)} <small>(${escapeHtml(k.nivel)})</small></li>`).join('')}</ul>`).join('')}
+          </div>` : ''}
+          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.${sellCodes.length ? ` ${unspscCredit()}` : ''}</p>
         </section>` : '',
 
       integrantes: (item.integrantes || []).length ? `
@@ -1252,6 +1267,35 @@ document.addEventListener('DOMContentLoaded', () => {
           </dl>
         </section>` : ''
     };
+  }
+
+  /** Código UNSPSC con su nombre público; si el nombre es de su clase o familia, se dice. */
+  function unspscLine(code) {
+    const byClass = code.prestado
+      ? ` <small>(${escapeHtml(code.nivel)}; nombre de su ${code.base.length === 4 ? 'familia' : 'clase'} ${escapeHtml(code.base)})</small>` : '';
+    const credit = escapeHtml((window.UNSPSC_NAMES || {}).atribucion || '');
+    return `<span class="unspsc-label">UNSPSC</span> <code>${escapeHtml(code.codigo)}</code> ${escapeHtml(code.nombre)}${byClass} <small class="unspsc-credit" title="${credit}">· nombre: datos abiertos, CC BY-SA 4.0</small>`;
+  }
+
+  /** Atribución que exige la licencia CC BY-SA 4.0 de los nombres UNSPSC. */
+  function unspscCredit() {
+    const names = window.UNSPSC_NAMES || {};
+    return `Nombres UNSPSC: ${escapeHtml(names.atribucion || 'datos abiertos del Estado colombiano')}`;
+  }
+
+  /** El proceso no trae código: se toma el del contrato firmado, en vivo y solo de lectura. */
+  function loadContractCode(item) {
+    const fill = html => {
+      const box = document.getElementById('unspscLine');
+      if (box && detailModal.dataset.itemId === item.id) box.innerHTML = html;
+    };
+    Live.contractCode(item.id_portafolio)
+      .then(raw => {
+        const code = Engine.unspscName(raw);
+        fill(code ? `${unspscLine(code)} <small>(del contrato firmado)</small>`
+          : '<span class="unspsc-missing">SECOP II no publicó el código UNSPSC de este proceso ni de su contrato.</span>');
+      })
+      .catch(() => fill('<span class="unspsc-missing">No se pudo consultar en SECOP II el código UNSPSC del contrato.</span>'));
   }
 
   /** Los 3 que más ganan: nombre, persona natural si lo es, contratos y valor. */

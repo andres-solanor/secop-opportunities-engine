@@ -136,6 +136,28 @@ class TestTaxonomy(unittest.TestCase):
             with self.assertRaises(TaxonomyError):
                 load_taxonomy(self._write(tmp, {"a": dict(ok, compra_a="b"), "b": ok}))
 
+    def test_vende_unspsc_lists_families_or_classes(self):
+        import tempfile
+        ok = self.OK
+        with tempfile.TemporaryDirectory() as tmp:
+            sectors = load_taxonomy(self._write(tmp, {"a": dict(ok, vende_unspsc=["3010", "301024"]), "b": ok}))
+            self.assertEqual(sectors["a"]["vende_unspsc"], ["3010", "301024"])
+            self.assertEqual(sectors["b"]["vende_unspsc"], [])  # opcional
+            for bad in (["30"], ["30102400"], ["V1.3010"], "3010", [3010]):
+                with self.assertRaises(TaxonomyError):
+                    load_taxonomy(self._write(tmp, {"a": dict(ok, vende_unspsc=bad)}))
+
+    def test_vende_unspsc_codes_have_a_public_name(self):
+        """Solo se muestran nombres de datos abiertos (config/unspsc_publico.json), nunca de la traducción de CCE."""
+        import json
+        import os
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "unspsc_publico.json")
+        with open(path, encoding="utf-8") as f:
+            names = json.load(f)["codigos"]
+        for key, data in load_taxonomy().items():
+            missing = [c for c in data["vende_unspsc"] if c not in names]
+            self.assertEqual(missing, [], f"{key}: códigos sin nombre público")
+
     def test_every_sector_needs_a_known_group(self):
         import tempfile
         without_group = {k: v for k, v in self.OK.items() if k != "grupo"}

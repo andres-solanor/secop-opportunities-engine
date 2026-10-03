@@ -197,6 +197,40 @@
     return out.map(id => ({ id, name: taxonomy[id].name }));
   }
 
+  /**
+   * Nombre público de un código UNSPSC (`window.UNSPSC_NAMES.codigos`: familias y clases de datos
+   * abiertos). Un producto (8 dígitos) no tiene nombre público: se nombra por su clase (o familia).
+   * → { codigo, nombre, nivel: nivel del código, base: código dueño del nombre } o null si no hay
+   * nombre. `prestado` = el nombre es de un nivel superior y la web lo dice.
+   */
+  function unspscName(code, names = (root.UNSPSC_NAMES || {}).codigos || {}) {
+    const digits = String(code || '').replace(/^[A-Za-z]\d*\./, '');
+    if (!/^\d{4,8}$/.test(digits)) return null;
+    const level = digits.length === 4 ? 'familia' : digits.length === 6 ? 'clase' : 'producto';
+    // Un código de 8 dígitos que termina en 00 es la clase misma (SECOP II los publica así).
+    const asClass = level === 'producto' && digits.endsWith('00') ? digits.slice(0, 6) : null;
+    const own = asClass || digits;
+    for (const base of [own, digits.slice(0, 6), digits.slice(0, 4)]) {
+      if (names[base]) {
+        return { codigo: digits, nombre: names[base], nivel: asClass ? 'clase' : level, base, prestado: base !== own };
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Lo que puede necesitar el ganador, con los códigos UNSPSC con los que un proveedor de cada
+   * sector le vende (`vende_unspsc`), ya con su nombre público. Sectores sin códigos con nombre: [].
+   */
+  function supplierCodes(item, taxonomy = root.SECTOR_TAXONOMY || {}, names = (root.UNSPSC_NAMES || {}).codigos || {}) {
+    return supplierSectors(item, taxonomy).map(s => ({
+      ...s,
+      codigos: ((taxonomy[s.id] && taxonomy[s.id].vende_unspsc) || [])
+        .filter(c => names[c])
+        .map(c => ({ codigo: c, nombre: names[c], nivel: c.length === 4 ? 'familia' : 'clase' }))
+    }));
+  }
+
   /** ¿El ganador sigue comprando insumos? Adjudicado hace 90 días o menos y contrato sin terminar. */
   function stillBuying(item, now = new Date()) {
     const awarded = toDate((item.fechas || {}).adjudicacion);
@@ -689,6 +723,8 @@
     offerCatalog,
     detectSectors,
     supplierSectors,
+    supplierCodes,
+    unspscName,
     matchOpportunity,
     analyzeProfile,
     formatCopShort

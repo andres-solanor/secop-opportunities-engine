@@ -695,10 +695,55 @@ test('de ganadores a proveedores: el detalle dice qué puede comprar el ganador 
   await page.goto(`/index.html#op=${encodeURIComponent(target)}`);
   await expect(page.locator('#modalBody')).toContainText('Qué puede necesitar el ganador');
   await expect(page.locator('#modalBody')).toContainText('Acero & Metalmecánica');
+  // Los códigos con los que se le vende, con su nombre público y la atribución de la licencia.
+  const codes = page.locator('#modalBody .supplier-codes');
+  await expect(codes.locator('li', { hasText: '301024' })).toContainText('Varillas');
+  await expect(page.locator('#modalBody')).toContainText('CC BY-SA 4.0');
   await page.click('#modalClose');
 
   await page.click('#tabParaTi');
   await expect(page.locator('#cardsGrid .match-line', { hasText: 'El ganador puede comprarte' }).first()).toBeVisible();
+});
+
+test('código UNSPSC en el detalle: el del proceso; si falta, el del contrato en vivo (simulado)', async ({ page }) => {
+  // Dos adjudicados con contrato: al primero se le pone un producto y al segundo se le quita el código.
+  await page.route('**/data.js*', async route => {
+    const res = await route.fetch();
+    const body = await res.text();
+    await route.fulfill({ response: res, body: `${body}
+      (function () {
+        const withContract = window.PROSPECTS_DATA.filter(i => i.contrato && i.id_portafolio);
+        if (withContract.length < 2) return;
+        withContract[0].unspsc = '72141003';
+        withContract[1].unspsc = null;
+        window.__unspscTargets = [withContract[0].id, withContract[1].id];
+      })();\n` });
+  });
+  const live = [];
+  await page.route('**/resource/jbjy-vk9h.json*', route => {
+    const url = decodeURIComponent(route.request().url());
+    if (url.includes('proceso_de_compra')) live.push(url);
+    const body = url.includes('proceso_de_compra') ? [{ codigo_de_categoria_principal: 'V1.30102400' }] : [];
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify(body) });
+  });
+  const errors = await openDashboard(page);
+  const targets = await page.evaluate(() => window.__unspscTargets || null);
+  test.skip(!targets, 'los datos no traen dos adjudicados con contrato');
+
+  await page.evaluate(id => { location.hash = `op=${encodeURIComponent(id)}`; }, targets[0]);
+  const line = page.locator('#unspscLine');
+  await expect(line).toContainText('72141003');
+  await expect(line).toContainText('nombre de su clase 721410');
+  await expect(line).toContainText('CC BY-SA 4.0');
+  expect(live).toEqual([]); // con código propio no se consulta SECOP II
+  await page.click('#modalClose');
+
+  await page.evaluate(id => { location.hash = `op=${encodeURIComponent(id)}`; }, targets[1]);
+  await expect(line).toContainText('30102400');
+  await expect(line).toContainText('Varillas');
+  await expect(line).toContainText('del contrato firmado');
+  expect(live.length).toBe(1);
+  expect(errors).toEqual([]);
 });
 
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {

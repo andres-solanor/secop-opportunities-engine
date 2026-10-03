@@ -31,6 +31,7 @@ from src.taxonomy import load_groups, taxonomy_version
 log = logging.getLogger("secop")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+UNSPSC_PUBLIC_PATH = os.path.join(BASE_DIR, "config", "unspsc_publico.json")
 DATASET_JSON = "prospects.json"
 DATASET_CSV = "prospects.csv"
 DATASET_SUMMARY = "prospects_summary.md"
@@ -229,7 +230,8 @@ def export_taxonomy(web_dir: str):
     uses exactly the same vocabulary as the SECOP enrichment pipeline."""
     os.makedirs(web_dir, exist_ok=True)
     taxonomy = {
-        key: {"name": data["name"], "grupo": data["grupo"], "keywords": data["keywords"], "compra_a": data["compra_a"]}
+        key: {"name": data["name"], "grupo": data["grupo"], "keywords": data["keywords"], "compra_a": data["compra_a"],
+              "vende_unspsc": data["vende_unspsc"]}
         for key, data in ScopeExtractor.TAXONOMIES.items()
     }
     groups = [{"id": g["id"], "name": g["name"]} for g in load_groups()]
@@ -238,6 +240,19 @@ def export_taxonomy(web_dir: str):
         f.write("window.SECTOR_TAXONOMY = " + json.dumps(taxonomy, ensure_ascii=False, indent=2) + ";\n")
         f.write("window.SECTOR_GROUPS = " + json.dumps(groups, ensure_ascii=False, indent=2) + ";\n")
     log.info("[+] Updated Web taxonomy: %s", path)
+    export_unspsc_names(web_dir)
+
+
+def export_unspsc_names(web_dir: str):
+    """Nombres UNSPSC públicos (familias y clases de config/unspsc_publico.json, CC BY-SA 4.0) para el
+    detalle de la web: el código del proceso y los de "Qué puede necesitar el ganador". JSON compacto."""
+    with open(UNSPSC_PUBLIC_PATH, encoding="utf-8") as f:
+        public = json.load(f)
+    path = os.path.join(web_dir, "unspsc.js")
+    payload = {"atribucion": public["atribucion"], "licencia": public.get("licencia"), "codigos": public["codigos"]}
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("window.UNSPSC_NAMES = " + compact_json(payload) + ";\n")
+    log.info("[+] Updated Web UNSPSC names: %s", path)
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:

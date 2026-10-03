@@ -591,3 +591,20 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
   1. Con la elección del dueño, construir la versión de UNSPSC en "Qué puede necesitar el ganador" (propuesta en la conversación: códigos propios del contrato y códigos de los insumos con el nombre público de su clase).
   2. Revisar la corrida de las 11:00 UTC del 2026-10-02 y la cobertura UNSPSC.
   3. Lo pendiente del dueño en el bloque anterior (correo a UNDP, `GOOGLE_CLIENT_ID`, 9.6 c).
+
+## Estado de la sesión — 2026-10-02 (tarde) · Claude Code · rama `pro/winner-unspsc`
+
+Este bloque reemplaza las "próximas acciones" del anterior.
+
+- **Hecho en esta rama** (A10, opciones 1 y 2, aprobadas por el dueño):
+  - El código UNSPSC en "Objeto". Si el proceso no lo trae, se consulta en vivo el del contrato firmado.
+  - Los códigos con los que vende cada sector proveedor, en "Qué puede necesitar el ganador".
+  - `web/unspsc.js`, generado desde `config/unspsc_publico.json`: 140.875 B, 38.313 B con gzip.
+  - Pruebas en Python, Node y de humo.
+- **Para revisar por el dueño:** las clases de `vende_unspsc` en `config/taxonomy.json`. Las eligió Claude entre los nombres públicos.
+- **Sin commit:** nada.
+- **Errores abiertos:** los del bloque de la madrugada, sin cambios.
+- **Próximas tres acciones:**
+  1. Ajustar `vende_unspsc` con lo que diga el dueño.
+  2. A10 paso 3: "códigos UNSPSC de tu RUP" en el perfil, y el paso 4 (afinidad y badge) si el dueño lo aprueba.
+  3. Revisar la corrida diaria y la cobertura UNSPSC.

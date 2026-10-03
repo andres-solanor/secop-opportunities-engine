@@ -15,7 +15,9 @@ const CONTRACTS = [
     fecha_de_firma: '2026-09-01T00:00:00.000', fecha_de_inicio_de_ejecucion: '2026-09-10T00:00:00.000', fecha_de_fin_de_ejecucion: '2026-12-31T00:00:00.000',
     dias_adicionados: '0', es_pyme: 'Si', es_grupo: 'No', proveedor_adjudicado: 'ACEROS SAS', documento_proveedor: '900123456-1',
     nombre_representante_legal: 'PAOLA SUAREZ', telefono_representante_legal: '3000000000', correo_representante: 'x@y.co',
-    origen_de_los_recursos: 'Recursos Propios', urlproceso: { url: 'https://community.secop.gov.co/x' }
+    origen_de_los_recursos: 'Recursos Propios', urlproceso: { url: 'https://community.secop.gov.co/x' },
+    // Columna comprobada contra datos.gov.co el 2026-10-02.
+    codigo_de_categoria_principal: 'V1.72141003'
   },
   { proceso_de_compra: 'CO1.BDOS.1', estado_contrato: 'En ejecución', valor_del_contrato: '500', fecha_de_firma: '2026-08-15T00:00:00.000', dias_adicionados: '10' }
 ];
@@ -63,7 +65,20 @@ test('el contrato en vivo tiene la forma del pipeline y no lleva teléfonos ni c
   assert.strictEqual(c.contactos.representante_legal, 'PAOLA SUAREZ');
   assert.ok(!JSON.stringify(c).includes('3000000000'));
   assert.ok(!JSON.stringify(c).includes('x@y.co'));
+  assert.strictEqual(c.unspsc, '72141003');
+  assert.strictEqual(L.parseContract([{ ...CONTRACTS[0], codigo_de_categoria_principal: 'UNSPECIFIED' }]).unspsc, null);
   assert.strictEqual(L.parseContract([]), null);
+});
+
+test('código UNSPSC del contrato: en vivo por portafolio; sin portafolio no consulta', async () => {
+  L.clearCache();
+  const calls = [];
+  const fetchFn = fakeFetch({ 'jbjy-vk9h': CONTRACTS }, calls);
+  assert.strictEqual(await L.contractCode('CO1.BDOS.1', { fetchFn }), '72141003');
+  assert.strictEqual(await L.contractCode(null, { fetchFn }), null);
+  assert.strictEqual(calls.length, 1);
+  L.clearCache();
+  assert.strictEqual(await L.contractCode('CO1.BDOS.2', { fetchFn: fakeFetch({ 'jbjy-vk9h': [] }) }), null);
 });
 
 test('las ofertas se ordenan, se quitan repetidas y se marca al ganador', () => {
