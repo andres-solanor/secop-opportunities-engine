@@ -608,3 +608,23 @@ Este bloque reemplaza las "próximas acciones" del anterior.
   1. Ajustar `vende_unspsc` con lo que diga el dueño.
   2. A10 paso 3: "códigos UNSPSC de tu RUP" en el perfil, y el paso 4 (afinidad y badge) si el dueño lo aprueba.
   3. Revisar la corrida diaria y la cobertura UNSPSC.
+
+## Estado de la sesión — 2026-10-02 (tarde, en paralelo) · Claude Code · rama `pro/competitor-research`
+
+Este bloque **no reemplaza** las próximas acciones del anterior (`pro/winner-unspsc`, PR #31): las dos sesiones corrieron a la vez. Esta trabajó en un worktree aparte y no tocó esa rama.
+
+- **Hecho:** investigación de competencia, fase 1 (páginas públicas, sin cuentas): Nuntaria, licitaciones.info, licitacionescolombia.co, colombialicita.com, iaLicitaciones (España), 8 jugadores colombianos más y referentes de afuera.
+  - El informe es un artifact privado del dueño: https://claude.ai/artifact/PmPxvL3gRFnyNxvBdLxk2W. Es documentación comercial y no se versiona.
+  - Las ideas candidatas quedaron en `PLAN_ITERACIONES.md`, en "Lista de deseos".
+- **Sin código.** Solo cambian este archivo y el plan.
+- **Pendiente del dueño:**
+  - Elegir qué candidatas entran a la fase A.
+  - Crear el correo dedicado para la fase 2 (pruebas gratis).
+- **Huecos de la investigación:**
+  - Licitum devolvió 403, también en el navegador.
+  - Sin precios publicados: licitacionescolombia.co, Highteck y LicitaPro.
+  - Sin investigar: México y los agregadores del TED.
+- **Próximas tres acciones (de esta línea de trabajo):**
+  1. Con la elección del dueño, diseñar la primera candidata. La sugerida es "seguir un proceso y ver qué cambió", que no necesita backend.
+  2. Confirmar con `probe_sources` la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer" (solo lectura).
+  3. Fase 2 cuando exista el correo: las mismas 5 consultas de prueba en cada competidor, para comparar el onboarding, las alertas y el análisis del pliego.
