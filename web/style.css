@@ -1515,7 +1515,9 @@ small {
   height: 100%;
   border-radius: inherit;
   background: var(--accent-emerald);
-  transition: width 0.4s ease;
+  /* La fuerza se pinta con scaleX (profile.js), no con width: no recalcula el layout. */
+  transform-origin: left center;
+  transition: transform 0.4s ease;
 }
 
 .catalog-title {
@@ -2157,9 +2159,36 @@ small {
   color: var(--text-secondary);
 }
 
-.unspsc-missing,
-.unspsc-credit {
+.unspsc-missing {
   color: var(--text-muted);
+}
+
+/* Pie de página: términos de uso y licencias (lo que no va como aviso en cada ventana). */
+.site-footer {
+  max-width: 1400px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--text-primary);
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
 }
 
 .supplier-codes h4 {

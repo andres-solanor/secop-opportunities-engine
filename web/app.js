@@ -1168,7 +1168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${winnersList(national.top)}
           </div>` : ''}
           ${share ? `<p class="who-wins-natural">🧑‍💼 Persona natural: <b>${escapeHtml(String(share.pct).replace('.', ','))} %</b> de los contratos (${share.natural} de ${share.contratos} con tipo de proponente conocido).</p>` : ''}
-          <p class="legal-note">Fuente: SECOP II · Contratos firmados desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}: ${escapeHtml((profile.tipos_contrato || []).join(', ').toLowerCase())} de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. Es una observación del mercado, no un requisito: el pliego define RUP, experiencia y capacidad.</p>
+          <p class="legal-note">Contratos firmados desde el ${escapeHtml(formatDate(new Date(`${profile.desde}T00:00:00`)))}, de ${escapeHtml(Engine.formatCopShort(profile.valor_min || 0))} o más. No es un requisito: el pliego define RUP, experiencia y capacidad.</p>
         </section>` : '',
 
       cronograma: timeline.length ? `
@@ -1217,7 +1217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4>${escapeHtml(s.name)}</h4>
             <ul class="unspsc-list">${s.codigos.map(k => `<li><code>${escapeHtml(k.codigo)}</code> ${escapeHtml(k.nombre)} <small>(${escapeHtml(k.nivel)})</small></li>`).join('')}</ul>`).join('')}
           </div>` : ''}
-          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.${sellCodes.length ? ` ${unspscCredit()}` : ''}</p>
+          <p class="legal-note">Es una posibilidad comercial según el tipo de contrato, no una necesidad confirmada de este contrato: confírmala con el contratista o en los documentos del proceso.</p>
         </section>` : '',
 
       integrantes: (item.integrantes || []).length ? `
@@ -1227,7 +1227,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <thead><tr><th>Empresa</th><th>NIT</th><th>Participación</th><th>Trayectoria en SECOP II</th></tr></thead>
             <tbody>${item.integrantes.map(m => `<tr><td>${escapeHtml(m.nombre)}${m.lider ? ' <span class="badge badge-info">Líder</span>' : ''}</td><td>${escapeHtml(m.nit || '—')}</td><td>${m.participacion != null ? `${m.participacion}%` : '—'}</td><td>${m.contratos ? `${m.contratos} contratos · ${money(m.valor_total)}` : '—'}</td></tr>`).join('')}</tbody>
           </table>
-          <p class="legal-note">Fuente: SECOP II · Grupos de proveedores. Las compras del contrato suelen hacerlas los integrantes, sobre todo el líder.</p>
         </section>` : '',
 
       competencia: item.ofertas ? `
@@ -1237,14 +1236,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <thead><tr><th>Proponente</th><th>NIT</th><th>Valor ofertado</th></tr></thead>
             <tbody>${item.ofertas.proveedores.map(o => `<tr><td>${escapeHtml(o.proveedor || '—')}${o.ganador ? ' <span class="badge badge-good">Ganador</span>' : ''}</td><td>${escapeHtml(o.nit || '—')}</td><td>${o.valor ? money(o.valor) : '—'}</td></tr>`).join('')}</tbody>
           </table>
-          <p class="legal-note">Fuente: SECOP II · Ofertas por proceso. Los proponentes que no ganaron son posibles aliados o competidores en procesos similares.</p>
         </section>` : '',
 
       sanciones: (item.sanciones || []).length ? `
         <section class="detail-section">
           <h3>⚠️ Sanciones registradas</h3>
           <ul class="contact-list">${item.sanciones.map(s => `<li><b>${escapeHtml(s.sancionado || '')}</b><span>${escapeHtml(s.entidad || '')}${s.resolucion ? ` · ${escapeHtml(s.resolucion)}` : ''}${s.valor ? ` · ${money(s.valor)}` : ''}${s.fecha ? ` · ${d(s.fecha)}` : ''}${s.url ? ` · <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">ver</a>` : ''}</span></li>`).join('')}</ul>
-          <p class="legal-note">Fuente: SECOP I · Multas y sanciones (datos abiertos). Puede no incluir sanciones recientes registradas en otras plataformas.</p>
+          <p class="legal-note">Puede no incluir sanciones recientes registradas en otras plataformas.</p>
         </section>` : '',
 
       contactos: contacts.length ? `
@@ -1253,7 +1251,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <ul class="contact-list">
             ${contacts.map(([role, name, org]) => `<li><b>${escapeHtml(personName(name))}</b><span>${escapeHtml(role)}${org ? ` · ${escapeHtml(org)}` : ''}</span></li>`).join('')}
           </ul>
-          <p class="legal-note">Fuente: SECOP II · Contratos electrónicos (datos abiertos). Son datos públicos de la contratación (Ley 1712 de 2014); úsalos solo con finalidad comercial legítima (Ley 1581 de 2012). Las comunicaciones con la entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
         </section>` : '',
 
       entidad: e ? `
@@ -1273,15 +1270,33 @@ document.addEventListener('DOMContentLoaded', () => {
   function unspscLine(code) {
     const byClass = code.prestado
       ? ` <small>(${escapeHtml(code.nivel)}; nombre de su ${code.base.length === 4 ? 'familia' : 'clase'} ${escapeHtml(code.base)})</small>` : '';
-    const credit = escapeHtml((window.UNSPSC_NAMES || {}).atribucion || '');
-    return `<span class="unspsc-label">UNSPSC</span> <code>${escapeHtml(code.codigo)}</code> ${escapeHtml(code.nombre)}${byClass} <small class="unspsc-credit" title="${credit}">· nombre: datos abiertos, CC BY-SA 4.0</small>`;
+    return `<span class="unspsc-label">UNSPSC</span> <code>${escapeHtml(code.codigo)}</code> ${escapeHtml(code.nombre)}${byClass}`;
   }
 
-  /** Atribución que exige la licencia CC BY-SA 4.0 de los nombres UNSPSC. */
-  function unspscCredit() {
+  // ---------- Términos de uso y licencias (enlace del pie de página) ----------
+  // Lo que antes iba como aviso en cada ventana y no cambia cómo se lee un dato: uso de los datos
+  // personales de la contratación y la atribución que exige la licencia de los nombres UNSPSC.
+  function openTermsModal() {
     const names = window.UNSPSC_NAMES || {};
-    return `Nombres UNSPSC: ${escapeHtml(names.atribucion || 'datos abiertos del Estado colombiano')}`;
+    modalBody.innerHTML = `
+      <div class="detail">
+        <h2 class="detail-title">Términos de uso y licencias</h2>
+        <section class="detail-section">
+          <h3>Datos de la contratación pública</h3>
+          <p>Los nombres de contratistas, representantes legales y funcionarios que muestra el tablero son datos públicos de la contratación (Ley 1712 de 2014). Úsalos solo con finalidad comercial legítima (Ley 1581 de 2012).</p>
+          <p>Las comunicaciones con una entidad sobre un proceso se hacen por los canales formales de SECOP II.</p>
+        </section>
+        ${names.atribucion ? `
+        <section class="detail-section">
+          <h3>Nombres de la clasificación UNSPSC</h3>
+          <p>${escapeHtml(names.atribucion)}</p>
+        </section>` : ''}
+      </div>`;
+    detailModal.dataset.itemId = '';
+    detailModal.classList.add('active');
+    detailModal.querySelector('.modal-content').scrollTop = 0;
   }
+  document.getElementById('termsLink').addEventListener('click', openTermsModal);
 
   /** El proceso no trae código: se toma el del contrato firmado, en vivo y solo de lectura. */
   function loadContractCode(item) {
@@ -1398,7 +1413,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${detailRow('Códigos UNSPSC', escapeHtml((item.unspsc || []).join(', ')))}
             ${detailRow('Versión del PAA', escapeHtml(item.version_paa || ''))}
           </dl>
-          <p class="legal-note">Fuente: SECOP II · Plan Anual de Adquisiciones. Es una intención de compra: la entidad puede cambiarla o no publicarla.</p>
+          <p class="legal-note">Es una intención de compra: la entidad puede cambiarla o no publicarla.</p>
         </section>
         ${stats ? `
         <section class="detail-section">
@@ -1413,7 +1428,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="detail-section">
           <h3>Procesos de esta entidad en el tablero (${onBoard.length})</h3>
           <ul class="contact-list">${onBoard.slice(0, 5).map(o => `<li><b>${escapeHtml(Engine.formatCopShort(o.precio || 0))} · ${escapeHtml(STATE_LABELS[Engine.bidWindow(o).state].text)}</b><span>${escapeHtml(readableText(o.descripcion || '').slice(0, 140))}</span></li>`).join('')}</ul>
-          <p class="legal-note">Te ayudan a conocer cómo contrata la entidad antes de que publique esta compra.</p>
         </section>` : ''}
         <div class="detail-actions">
           ${item.url_proceso ? secopLinkHtml(item.url_proceso, '🔗 Proceso relacionado en SECOP II') : '<span class="paa-note">Aún sin proceso publicado en SECOP II</span>'}
@@ -1701,7 +1715,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </table>
           <p class="legal-note">Desde mediados de septiembre de 2026, SECOP II publica casi todos los procesos sin su código UNSPSC. Mientras no vuelva, la clasificación por sector se apoya en las palabras clave.</p>
         </section>` : ''}
-        <p class="legal-note">La sincronización corre automáticamente todos los días a las 6:00 a. m. (hora Colombia) en GitHub Actions. "Nueva" significa que el proceso nunca había aparecido en la selección.</p>
+        <p class="legal-note">"Nueva" significa que el proceso nunca había aparecido en la selección.</p>
       </div>`;
     const btn = document.getElementById('showOnlyNew');
     if (btn) btn.addEventListener('click', () => {

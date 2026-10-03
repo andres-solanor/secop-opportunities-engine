@@ -619,6 +619,51 @@ Este bloque reemplaza las "próximas acciones" del anterior.
 - **Siguen abiertos** (dirección visual, 9.6 c, decisión del dueño): la fuente Inter, el borde lateral de color de las tarjetas y los resplandores del modo oscuro.
 - **Sin commit:** nada.
 - **Próximas tres acciones:** las del bloque anterior (revisión de `vende_unspsc` por el dueño, A10 paso 3 y la corrida diaria).
+- **Commit:** fusionado en `24fbf34` (PR #33). El plan A11 quedó en `1a719fe` (PR #34).
+
+## Estado de la sesión — 2026-10-02 (cierre) · Claude Code · rama `pro/a11-avisos`
+
+Este bloque reemplaza las "próximas acciones" de los anteriores.
+
+- **Hecho en esta rama:**
+  - A11: las ventanas ya no publican fuentes. Se quedan solo los avisos que cambian cómo se lee un dato:
+    - posibilidad comercial;
+    - "no es un requisito";
+    - sanciones incompletas;
+    - el PAA es una intención de compra;
+    - qué significa "Nueva";
+    - la caída de los códigos UNSPSC.
+  - "Términos de uso y licencias" en el pie de página, con la Ley 1712, la Ley 1581, los canales de SECOP II y la atribución UNSPSC.
+  - La barra de fuerza del perfil se anima con `transform` en vez de `width`.
+  - Prueba de humo "avisos".
+- **Commit:** `04f14d5`. El dueño pidió hacerlo aunque otra sesión de Claude (worktree `wt-follow`, rama `pro/follow-process`) tenía cambios sin commit en seis de los mismos archivos. Esa sesión resuelve el conflicto al fusionar encima.
+- **Sin commit:** nada.
+- **Cobertura UNSPSC** (consulta de lectura, 2026-10-02 por la noche; procesos de $50 M o más):
+
+  | Semana (desde el lunes) | Procesos | Con código |
+  |---|---:|---:|
+  | 3 al 31 de agosto (5 semanas) | entre 3745 y 4919 | 94–96 % |
+  | 7 de septiembre | 4068 | 93 % |
+  | 14 de septiembre | 3855 | 37 % |
+  | 21 de septiembre | 3402 | 3 % |
+  | 28 de septiembre (semana en curso) | 2073 | 1 % |
+
+  No hay recuperación. El código del contrato firmado (respaldo en vivo del detalle) sigue siendo la única fuente para lo reciente.
+- **Errores abiertos:**
+  - En la máquina local, dos pruebas de humo fallaron una vez por tiempo, con la máquina cargada; pasaron al repetir y en CI.
+  - Siguen abiertos de antes: la píldora de sincronización a 390 px, la vista previa genérica al compartir y los límites de datos.gov.co `[POR VERIFICAR]`.
+- **Pendiente del dueño:**
+  - Revisar las clases de `vende_unspsc`.
+  - Decidir si el panel de sincronización deja de listar fuentes.
+  - El correo a UNDP.
+  - El `GOOGLE_CLIENT_ID`.
+  - La dirección visual (9.6 c: fuente Inter, borde lateral, resplandores).
+  - Lo que queda de A3.
+  - SSH en hPanel para la fase B.
+- **Próximas tres acciones:**
+  1. A10 paso 3: "códigos UNSPSC de tu RUP" en el perfil (y en cada empresa cliente), con buscador por nombre público.
+  2. A10 paso 4: afinidad por código compartido y el badge "Tu RUP cubre esta clasificación"; con lo de "Qué puede necesitar el ganador", "tu RUP cubre lo que puede comprar el ganador".
+  3. Revisar la corrida diaria y la cobertura UNSPSC; ajustar `vende_unspsc` con lo que diga el dueño.
 
 ## Estado de la sesión — 2026-10-02 (tarde, en paralelo) · Claude Code · rama `pro/competitor-research`
 
