@@ -719,3 +719,27 @@ Cierre de la sesión de investigación de competencia y "seguir lo guardado". Es
   1. Preguntar al dueño si la siguiente candidata es "cifras de la entidad para decidir". Si dice que sí, diseñarla sobre `ENTITY_STATS`, las ofertas (`wi7w-2nvm`) y `entityWinners`, definir qué es un proceso parecido y el mínimo de casos.
   2. Confirmar con `python -m src.tools.probe_sources --valores` (solo lectura) la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer".
   3. Proponer al dueño que `playwright.config.js` use un puerto por carpeta o no reutilice el servidor (`reuseExistingServer`).
+
+## Estado de la sesión — 2026-10-03 · Claude Code (nube) · rama `ccr-10b0556a-shgkr7`
+
+- **Hecho:** evaluación de Croma y de fuentes públicas que el motor aún no usa, en `docs/FUENTES_ADICIONALES.md`.
+  - Croma es una API comercial de datos de gobierno, con servidor MCP y cobro por solicitud.
+  - Para SECOP no aporta: ya lo tenemos gratis.
+  - Encaja como fuente paga bajo demanda en la fase B: Procuraduría, Contraloría, deudores morosos, RUES detallado y estados financieros.
+  - No va en el pipeline diario: la llave no puede ir en el sitio estático y sus términos prohíben redistribuir sin autorización escrita.
+  - Diez datasets abiertos candidatos. Los primeros: Multas y Sanciones SECOP II (`it5q-hg94`) y RUES de Confecámaras (`c82u-588k`).
+  - `qmzu-gj57` es el dataset de proveedores registrados que el plan daba por no encontrado.
+  - El plan (lista de deseos e iteración 8) y `AGENTS.md` apuntan al documento.
+- **Límites:**
+  - El sandbox bloquea `docs.usecroma.com` y `datos.gov.co`. Lo de Croma sale de resultados de búsqueda web.
+  - Ningún dataset nuevo se consultó: columnas, llaves y cobertura están `[POR VERIFICAR]`.
+  - La carpeta local de la hackatón no se leyó.
+- **Sin código.** Solo documentación.
+- **Pendiente del dueño:**
+  - Decidir si entran Sanciones SECOP II y el RUES abierto, porque cambian lo que se descarga.
+  - Probar el MCP de Croma.
+  - Llevarle a Croma las preguntas de `FUENTES_ADICIONALES.md` §1: precios, redistribución y caché.
+- **Próximas tres acciones:**
+  1. Agregar los IDs de `FUENTES_ADICIONALES.md` §2 a `probe_sources.py` y correr el workflow "Probe SECOP sources" (solo lectura).
+  2. Con el visto bueno del dueño, sumar `it5q-hg94` al badge de riesgo junto a `4n4q-k399`.
+  3. Detectar adendas nuevas en lo seguido con `dmgg-8hin` (`fecha_carga`).

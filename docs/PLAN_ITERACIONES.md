@@ -188,7 +188,12 @@ Esto no es asesoría legal: es cómo reducir el riesgo con lo que se pudo verifi
 
 Ideas del dueño para una sesión futura. No hay trabajo hecho todavía.
 
-- **Croma** (pedido del 2026-10-01): ver qué se puede integrar de Croma (documentación: https://docs.usecroma.com/introduction) y leer los aprendizajes de la hackatón en `C:\Users\abner\Claude\Projects\Hackaton croma` (carpeta local del dueño, fuera del repositorio). Qué es Croma y cómo encaja `[POR VERIFICAR]`: no se ha leído ninguna de las dos fuentes.
+- **Croma** (pedido del 2026-10-01). **Evaluado el 2026-10-03** en [`FUENTES_ADICIONALES.md`](./FUENTES_ADICIONALES.md), con búsquedas web: el sandbox bloquea su documentación.
+  - Croma es una API comercial de datos de gobierno, con servidor MCP y cobro por solicitud.
+  - Para SECOP no aporta: ya lo tenemos gratis.
+  - Sirve como fuente paga bajo demanda en la fase B: Procuraduría, Contraloría, deudores morosos, RUES detallado y estados financieros.
+  - No va en el pipeline diario: la llave no puede ir en el sitio estático y sus términos prohíben redistribuir sin autorización escrita.
+  - La carpeta de la hackatón no se leyó: es local del dueño.
 - **Ideas de la competencia** (investigación del 2026-10-02, fase 1: solo páginas públicas, sin cuentas). El informe completo, con la matriz de funciones, los precios y las fuentes, está fuera del repositorio porque es documentación comercial: https://claude.ai/artifact/PmPxvL3gRFnyNxvBdLxk2W (privado del dueño). Son candidatas; ninguna está aprobada. El orden es criterio, no viene de datos de uso.
   1. ~~**Seguir un proceso y ver qué cambió**~~ (Nuntaria, licitaciones.info). **Hecho el 2026-10-02** (aprobado por el dueño, rama `pro/follow-process`), sin backend:
      - Guardar en el CRM es seguir el proceso: se guarda una foto del cierre, la apertura, la adjudicación, la fase, el estado, el valor, las ofertas y el contratista.
@@ -344,8 +349,8 @@ Estas mejoras se pueden hacer en cualquier momento:
 | Más volumen | M | **Hecho (2026-09-30):** el tablero pasa de 150 a 500 con mínimo de 20 por sector. En la corrida de prueba `web/data.js` pesó 2,24 MB (antes 0,61 MB) y la corrida tardó 449 s |
 | Sectores nuevos | S | **Hecho (2026-09-30):** 12 sectores en 3 familias, "Otros" (sin sector y seguros) en el filtro, convenios con entidades sin ánimo de lucro marcados. Muestra en `docs/DESCUBRIMIENTO_SECTORES_2026-09-30.md` |
 | Peso del repositorio | S | **Más urgente desde el 2026-09-30:** con 500 registros `web/data.js` pesa 2,24 MB y `web/hidden.js` 1,32 MB, y ambos se versionan a diario. Publicar GitHub Pages desde un artefacto del workflow evitaría esos commits |
-| Proveedores registrados | S | El diagnóstico no encontró el dataset de "proveedores registrados" de SECOP II; buscarlo con `probe_sources` ampliando las búsquedas |
-| Cobertura de sanciones | S | `4n4q-k399` es SECOP I; buscar un equivalente de SECOP II o de la Procuraduría/Contraloría con datos abiertos |
+| Proveedores registrados | S | Es `qmzu-gj57`: ya lo usa `unspsc_catalog.py`. Falta confirmar con `probe_sources` si trae el contacto empresarial (ver `FUENTES_ADICIONALES.md` §2) |
+| Cobertura de sanciones | S | `4n4q-k399` es SECOP I. El equivalente de SECOP II es `it5q-hg94` (Multas y Sanciones), por confirmar con `probe_sources`. Procuraduría y Contraloría no tienen descarga masiva: van por Croma, bajo demanda (ver `FUENTES_ADICIONALES.md`) |
 | PAA más preciso | S | Hoy se filtra por prefijos UNSPSC de los sectores; agregar palabras clave del sector sobre la descripción para descartar ruido |
 | Analítica del embudo | S | Medir inicio y fin del onboarding, registro y activación (`DISENO_PERFILES.md` §11) |
 
