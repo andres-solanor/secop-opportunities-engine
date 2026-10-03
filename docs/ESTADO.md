@@ -608,6 +608,17 @@ Este bloque reemplaza las "próximas acciones" del anterior.
   1. Ajustar `vende_unspsc` con lo que diga el dueño.
   2. A10 paso 3: "códigos UNSPSC de tu RUP" en el perfil, y el paso 4 (afinidad y badge) si el dueño lo aprueba.
   3. Revisar la corrida diaria y la cobertura UNSPSC.
+- **Commits de ese bloque:** `9c5f4b0` (función) y `d831faa` (pruebas de humo con datos.gov.co simulado por defecto), fusionados en `bd1726b` (PR #31).
+
+## Estado de la sesión — 2026-10-02 (noche) · Claude Code · rama `pro/readability`
+
+- **Hecho** (pedido del dueño, dos hallazgos de Impeccable):
+  - Ningún texto visible baja de 12 px. Los tamaños de 0,65 a 0,74rem pasan a 0,75rem, y `small` queda con `max(0.75rem, 0.85em)`.
+  - El punto de estado y el de sincronización ya no se animan.
+  - Prueba de humo "legibilidad" en el tablero y en el detalle.
+- **Siguen abiertos** (dirección visual, 9.6 c, decisión del dueño): la fuente Inter, el borde lateral de color de las tarjetas y los resplandores del modo oscuro.
+- **Sin commit:** nada.
+- **Próximas tres acciones:** las del bloque anterior (revisión de `vende_unspsc` por el dueño, A10 paso 3 y la corrida diaria).
 
 ## Estado de la sesión — 2026-10-02 (tarde, en paralelo) · Claude Code · rama `pro/competitor-research`
 
