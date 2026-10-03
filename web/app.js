@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Oculto por defecto; el archivo (hidden.js) se descarga solo cuando el usuario abre la vista
   // o elige "Otros" en el filtro de sector.
   const SHOW_HIDDEN_KEY = 'secop_show_hidden';
+  const DETAIL_EXPANDED_KEY = 'secop_detail_expanded';
   const HIDDEN_REASONS = {
     sin_sector: { label: 'Sin clasificar', tone: 'warn', tip: 'Pasa el filtro de ruido pero no coincide con ningún sector configurado.' },
     fuera_de_corte: { label: 'Clasificada, fuera del corte', tone: 'info', tip: 'Coincide con un sector, pero no entró a la selección del tablero por puntaje.' },
@@ -113,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailModal = document.getElementById('detailModal');
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
+  const modalExpand = document.getElementById('modalExpand');
 
   // KPIs
   const kpiTotalPipeline = document.getElementById('kpiTotalPipeline');
@@ -260,6 +262,23 @@ document.addEventListener('DOMContentLoaded', () => {
   modalClose.addEventListener('click', () => {
     detailModal.classList.remove('active');
     clearDeepLink();
+  });
+
+  // Pantalla completa del detalle (solo escritorio, ver style.css): ocupa toda la ventana y
+  // se recuerda entre fichas y visitas.
+  function setDetailExpanded(on) {
+    detailModal.classList.toggle('expanded', on);
+    modalExpand.setAttribute('aria-pressed', String(on));
+    const label = on ? 'Salir de pantalla completa' : 'Pantalla completa';
+    modalExpand.setAttribute('aria-label', label);
+    modalExpand.title = label;
+    modalExpand.textContent = on ? '⤡' : '⤢';
+  }
+  try { setDetailExpanded(localStorage.getItem(DETAIL_EXPANDED_KEY) === '1'); } catch { setDetailExpanded(false); }
+  modalExpand.addEventListener('click', () => {
+    const on = !detailModal.classList.contains('expanded');
+    setDetailExpanded(on);
+    try { localStorage.setItem(DETAIL_EXPANDED_KEY, on ? '1' : '0'); } catch { /* sin almacenamiento: vale solo esta visita */ }
   });
 
   detailModal.addEventListener('click', (e) => {

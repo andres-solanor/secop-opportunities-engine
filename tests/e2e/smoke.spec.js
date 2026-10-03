@@ -535,6 +535,34 @@ test('el detalle abre, recibe el foco y se cierra con Escape', async ({ page }) 
   await expect(page.locator('#detailModal')).not.toHaveClass(/active/);
 });
 
+test('pantalla completa del detalle: ocupa la ventana en escritorio, se recuerda y no aparece en el teléfono', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const errors = await openDashboard(page);
+  await page.locator('#cardsGrid .btn-detail').first().click();
+  const expand = page.locator('#modalExpand');
+  await expect(expand).toBeVisible();
+  await expect(expand).toHaveAttribute('aria-pressed', 'false');
+  await expand.click();
+  await expect(page.locator('#detailModal')).toHaveClass(/expanded/);
+  await expect(expand).toHaveAttribute('aria-pressed', 'true');
+  const box = await page.locator('#detailModal .modal-content').boundingBox();
+  expect(box.width).toBe(1440);
+  expect(box.height).toBe(900);
+  expect(await page.evaluate(() => localStorage.getItem('secop_detail_expanded'))).toBe('1');
+
+  // Se recuerda al recargar; Escape sigue cerrando.
+  await page.reload();
+  await page.locator('#cardsGrid .btn-detail').first().click();
+  await expect(page.locator('#detailModal')).toHaveClass(/expanded/);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#detailModal')).not.toHaveClass(/active/);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator('#cardsGrid .btn-detail').first().click();
+  await expect(expand).toBeHidden();
+  expect(errors).toEqual([]);
+});
+
 test('"Fuera del tablero" está oculto por defecto y se abre con el interruptor', async ({ page }) => {
   const errors = await openDashboard(page);
   await expect(page.locator('#tabHidden')).toBeHidden();
