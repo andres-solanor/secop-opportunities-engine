@@ -636,7 +636,8 @@ Este bloque reemplaza las "próximas acciones" de los anteriores.
   - "Términos de uso y licencias" en el pie de página, con la Ley 1712, la Ley 1581, los canales de SECOP II y la atribución UNSPSC.
   - La barra de fuerza del perfil se anima con `transform` en vez de `width`.
   - Prueba de humo "avisos".
-- **Sin commit: toda esta rama** (`pro/a11-avisos`, 7 archivos, las cinco verificaciones en verde). El plugin de worktrees canceló el commit: otra sesión de Claude (worktree `wt-follow`, rama `pro/follow-process`) tiene cambios sin commit en `docs/ESTADO.md`, `docs/PLAN_ITERACIONES.md`, `tests/e2e/smoke.spec.js`, `web/app.js`, `web/index.html` y `web/style.css`. Falta que el dueño diga cómo seguir: hacer el commit igual y resolver el conflicto al fusionar, o esperar a que esa sesión fusione y rehacer encima.
+- **Commit:** `04f14d5`. El dueño pidió hacerlo aunque otra sesión de Claude (worktree `wt-follow`, rama `pro/follow-process`) tenía cambios sin commit en seis de los mismos archivos. Esa sesión resuelve el conflicto al fusionar encima.
+- **Sin commit:** nada.
 - **Cobertura UNSPSC** (consulta de lectura, 2026-10-02 por la noche; procesos de $50 M o más):
 
   | Semana (desde el lunes) | Procesos | Con código |
