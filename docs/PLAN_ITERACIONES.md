@@ -193,7 +193,8 @@ Ideas del dueño para una sesión futura. No hay trabajo hecho todavía.
   - Para SECOP no aporta: ya lo tenemos gratis.
   - Sirve como fuente paga bajo demanda en la fase B: Procuraduría, Contraloría, deudores morosos, RUES detallado y estados financieros.
   - No va en el pipeline diario: la llave no puede ir en el sitio estático y sus términos prohíben redistribuir sin autorización escrita.
-  - La carpeta de la hackatón no se leyó: es local del dueño.
+  - Repositorio de la hackatón (`andres-solanor/croma-hackaton`) leído el 2026-10-03. Lo verificado contra la API real está en `FUENTES_ADICIONALES.md` §1.1; su cliente quedó portado a Python.
+  - **Hecho (2026-10-03):** `python -m src.tools.croma_dossier <NIT>`, el dossier por NIT. Es manual, con resultado local y sin publicar nada. Es la base de las ideas 1, 5, 7, 8 y 9 del brainstorming.
   - Brainstorming del 2026-10-03: 21 ideas con los datos de Croma y un mapa de valor contra esfuerzo, en el doc privado del dueño https://claude.ai/code/artifact/6d2b4201-afb3-4672-b048-2120ecf2f072. Es documentación comercial y no se versiona. La recomendación es construir un solo servicio, "dossier por NIT", con tres vistas:
     - a quién escribirle y si el ganador paga (Radar B2B);
     - el chequeo de habilitación de la propia empresa;

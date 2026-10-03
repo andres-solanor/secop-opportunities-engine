@@ -7,7 +7,9 @@ Evaluación del 2026-10-03, pedida por el dueño: qué otra información públic
 - Todo lo de Croma sale de resultados de búsqueda web sobre sus páginas públicas: documentación, términos, fuentes y *changelog*.
 - Los IDs de datasets salen de las URL de datos.gov.co que devolvió el buscador.
 - **Ningún dataset nuevo se consultó**. Las columnas, la cobertura y las llaves de cruce están `[POR VERIFICAR]` con el workflow "Probe SECOP sources".
-- La carpeta de la hackatón de Croma (`C:\Users\abner\Claude\Projects\Hackaton croma`) es local del dueño y no se leyó.
+- **Actualización del 2026-10-03 (tarde):** se leyó el repositorio de la hackatón, `andres-solanor/croma-hackaton`, que el dueño probó contra la API real con su llave.
+  - Lo que dice §1.1 sale de su `README.md`, `HANDOFF_MVP.md`, `INCIDENTS.md` y `DEPLOYMENT.md`, y corrige lo que aquí se había inferido por búsquedas.
+  - La carpeta local `C:\Users\abner\Claude\Projects\Hackaton croma` no se leyó: el repositorio parece ser su versión publicada `[POR VERIFICAR]`.
 
 ---
 
@@ -33,6 +35,50 @@ Una API comercial de datos de gobierno para Latinoamérica: Colombia, Perú y M�
 - El cobro es por uso, por solicitud, con un saldo de créditos por organización. Hay un plan gratuito para empezar. Los precios por consulta no son públicos `[POR VERIFICAR]`.
 - Lotes de hasta 50 consultas por solicitud. Cada una cuenta contra la cuota, y se responde 429 si se pasa del saldo. Los valores del límite de tasa están `[POR VERIFICAR]` (encabezados `X-RateLimit-*`).
 - Los **términos prohíben revender o redistribuir los servicios sin autorización escrita** y su uso para discriminación ilegal o fines prohibidos por la regulación de datos personales.
+
+### 1.1 Verificado contra la API real (hackatón)
+
+Corrige y completa las "condiciones conocidas". Cifras tomadas de los documentos de la hackatón, medidas en su registro de cuota.
+
+- **URL base `https://api.croma.run`.** Todos los endpoints son `POST` con cuerpo JSON y llave *bearer*. Los nombres de la documentación (`rues-entity-by-nit`) son páginas, no rutas: la ruta real es `/co/rues/entity-by-nit/v1`.
+- **La cuota es por organización y por día: 100 peticiones** (500 durante la hackatón).
+  - Emitir más llaves no la multiplica.
+  - Un lote cuenta cada ítem.
+  - Los aciertos de la caché de Croma también cuentan.
+  - Una petición mal formada (400) también cuenta. Por eso hay que validar documentos antes de llamar y tener caché propia.
+- **El límite de tasa falla abierto:** los encabezados `X-RateLimit-*` a veces no vienen. Sobre la cuota responde 429 con `Retry-After`.
+- **Latencia** (medias medidas):
+
+  | Fuente | Media |
+  |---|---:|
+  | Contaduría | 41.671 ms |
+  | Contraloría | 20.959 ms |
+  | Procuraduría | 5.273 ms |
+  | RUES | 899 ms |
+  | Sanciones SECOP | 648 ms |
+
+  Contaduría y Contraloría raspan portales oficiales: se piden en paralelo y una consulta completa tarda entre 25 y 70 s.
+- **Contaduría responde a veces 202, un trabajo asíncrono** con `data: null`: hay que sondear su `status_url`. Si se guarda en caché así, queda indistinguible de "sin reporte" (INC-02).
+- **Contaduría no trae los campos que documenta:** viene `deudor_moroso.reported`, no `delinquent_to_state` (INC-03).
+- **Procuraduría tuvo 502 sostenidos** (16 de 23 respuestas en una ventana): hace falta un cortacircuitos.
+- **El RUES ya trae `financials[]`:** el endpoint de Supersociedades es redundante para activos, pasivos, patrimonio y resultado.
+- **El RUES trae documentos truncados** en las partes relacionadas y a veces a la propia sociedad. Hay que validarlos antes de consultar antecedentes.
+- **`rues-entities-by-name` busca por razón social, no por persona.**
+- **Las entidades de régimen especial no registran adjudicación estructurada** en SECOP II.
+- **Policía (antecedentes penales) no se consume:** es dato personal sensible (Ley 1581 de 2012).
+
+**Consecuencia:** con 100 peticiones diarias para toda la organización, un dossier de una empresa con dos representantes legales (8 peticiones) da para unas 12 empresas nuevas al día. Lo repetido sale de la caché sin costo.
+
+Un servicio abierto al público necesita una de tres cosas:
+- precómputo por lotes;
+- una cuota por usuario sobre una caché compartida;
+- que cada usuario traiga su llave.
+
+`DEPLOYMENT.md` de la hackatón compara las tres.
+
+**Implementado aquí:** `python -m src.tools.croma_dossier <NIT>`, con su cliente (`src/services/croma_client.py`), sus adaptadores (`src/services/croma_endpoints.py`) y sus señales (`src/dossier.py`).
+- Es manual y deja el resultado en `local/`.
+- No toca el pipeline ni el sitio publicado.
 
 ### Cómo encaja con este motor
 
@@ -106,4 +152,4 @@ En orden de valor sobre esfuerzo:
 
    *Decisión del dueño.*
 4. **Adendas por `dmgg-8hin`** en "seguir lo guardado".
-5. **Croma**: el dueño prueba el MCP a mano y resuelve con Croma las preguntas de §1. La integración va con el backend de la fase B, como fuente paga bajo demanda.
+5. **Croma**: el dueño corre `python -m src.tools.croma_dossier` sobre 5 NIT reales (o prueba el MCP) y resuelve con Croma las preguntas de §1. La integración en la web va con el backend de la fase B, como fuente paga bajo demanda.

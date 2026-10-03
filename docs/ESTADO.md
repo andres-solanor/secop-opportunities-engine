@@ -745,3 +745,31 @@ Cierre de la sesión de investigación de competencia y "seguir lo guardado". Es
   1. Agregar los IDs de `FUENTES_ADICIONALES.md` §2 a `probe_sources.py` y correr el workflow "Probe SECOP sources" (solo lectura).
   2. Con el visto bueno del dueño, sumar `it5q-hg94` al badge de riesgo junto a `4n4q-k399`.
   3. Detectar adendas nuevas en lo seguido con `dmgg-8hin` (`fecha_carga`).
+
+## Estado de la sesión — 2026-10-03 (tarde) · Claude Code (nube) · rama `ccr-10b0556a-shgkr7`
+
+Sigue al bloque anterior (PR #38, ya en `main`).
+
+- **Hecho:** lo útil de la hackatón de Croma, portado aquí. El repositorio es `andres-solanor/croma-hackaton`, público; la carpeta local del dueño no es accesible desde la nube.
+  - `src/services/croma_client.py`: cliente con caché SQLite propia, registro, presupuesto diario, 429, cortacircuitos y trabajos 202.
+  - `src/services/croma_endpoints.py`: adaptadores de RUES, sanciones SECOP, Procuraduría, Contraloría y Contaduría, con los campos reales.
+  - `src/dossier.py`: señales puras, con tonos de badge, contra-explicación y "sin revisar".
+  - `src/tools/croma_dossier.py`: dossier por NIT, manual, con resultado en `local/dossiers/`.
+  - Pruebas: `tests/test_croma_client.py` y `tests/test_dossier.py`, con transporte simulado; nunca llaman a Croma.
+  - `FUENTES_ADICIONALES.md` §1.1 recoge lo verificado contra la API real:
+    - URL base `api.croma.run`;
+    - 100 peticiones diarias por organización;
+    - los aciertos de caché y los 400 también cobran;
+    - latencias;
+    - los incidentes de Contaduría y Procuraduría.
+- **No se hizo, a propósito:** nada entra al pipeline diario, al workflow ni a la web. Publicar lo de Croma choca con sus términos y con la Ley 1581, y cambiar lo que se descarga o publica lo decide el dueño.
+- **Sin probar contra la API real:** esta sesión no tiene llave de Croma. La forma de las respuestas sale del código y los documentos de la hackatón.
+- **Privacidad, aviso al dueño:** el snapshot "seudonimizado" del repositorio público de la hackatón deja ver nombres reales en los mensajes de Procuraduría: 6 personas, en `web/public/snapshot.json` y `web/public/analysis.json`. Esta sesión no puede escribir en ese repositorio. Los nombres no se copiaron a ningún lado.
+- **Pendiente del dueño:**
+  - Correr `python -m src.tools.croma_dossier <NIT>` con su llave sobre 5 NIT reales.
+  - Retirar o corregir el snapshot de la hackatón y limpiar el historial de ese repositorio.
+  - Elegir las ideas del brainstorming.
+- **Próximas tres acciones:**
+  1. Con el resultado del experimento, ajustar los adaptadores a lo que devuelva la API: renovaciones del RUES, `records` de Procuraduría y si los antecedentes admiten NIT además de cédula.
+  2. Diseñar el servicio "dossier por NIT" de la fase B: caché compartida, cuota por usuario y costo en créditos, sobre este mismo cliente.
+  3. Probe de solo lectura de los datasets de `FUENTES_ADICIONALES.md` §2.
