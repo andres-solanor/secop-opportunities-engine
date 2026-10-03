@@ -139,6 +139,12 @@
     return ['si', 'sí', 'true', '1', 'yes'].includes(String(value).trim().toLowerCase());
   }
 
+  /** 'V1.72141000' → '72141000' (como normalize_unspsc en Python); 'UNSPECIFIED' → null. */
+  function toUnspsc(value) {
+    const digits = String(value || '').trim().replace(/^[A-Za-z]\d*\./, '');
+    return /^\d{4,8}$/.test(digits) ? digits : null;
+  }
+
   function cleanName(value) {
     if (isEmpty(value) || typeof value !== 'string') return null;
     const name = value.replace(/\s+/g, ' ').trim();
@@ -191,6 +197,8 @@
       proveedor: cleanName(f(main, ['proveedor_adjudicado'], 'proveedor_adjudicado')),
       nit_proveedor: normalizeNit(f(main, ['documento_proveedor'], 'documento_proveedor')),
       url: urlOf(f(main, ['urlproceso'], 'urlproceso')),
+      // Código UNSPSC del contrato ('V1.72141000' → '72141000'): suple al del proceso cuando SECOP II no lo publicó.
+      unspsc: toUnspsc(f(main, ['codigo_de_categoria_principal'], 'codigo_de_categoria')),
       // Nombres por rol, como en el tablero (datos públicos de la contratación). Sin teléfonos ni correos.
       contactos: {
         representante_legal: cleanName(f(main, ['nombre_representante_legal'], 'nombre_representante_legal')),
@@ -308,6 +316,12 @@
     });
   }
 
+  /** Código UNSPSC del contrato firmado de un proceso (por su portafolio); null si no hay contrato o código. */
+  function contractCode(portfolio, opts = {}) {
+    if (!portfolio) return Promise.resolve(null);
+    return getJson(contractUrl(portfolio), opts).then(rows => (parseContract(rows) || {}).unspsc || null);
+  }
+
   /** Un proceso por id, para enlaces compartidos que ya salieron del tablero; null si no existe. */
   function lookupProcess(id, opts = {}) {
     return getJson(processUrl(id), opts).then(parseProcess);
@@ -327,6 +341,7 @@
     parseEntity,
     parseProcess,
     processDetail,
+    contractCode,
     lookupProcess,
     clearCache: () => cache.clear()
   };
