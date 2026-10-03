@@ -684,3 +684,21 @@ Este bloque **no reemplaza** las próximas acciones del anterior (`pro/winner-un
   1. Con la elección del dueño, diseñar la primera candidata. La sugerida es "seguir un proceso y ver qué cambió", que no necesita backend.
   2. Confirmar con `probe_sources` la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer" (solo lectura).
   3. Fase 2 cuando exista el correo: las mismas 5 consultas de prueba en cada competidor, para comparar el onboarding, las alertas y el análisis del pliego.
+
+## Estado de la sesión — 2026-10-02 (noche) · Claude Code · rama `pro/follow-process`
+
+Este bloque reemplaza la acción 1 del anterior. Las acciones 2 y 3 siguen vigentes.
+
+- **Hecho** (candidata 1 de la investigación de competencia, aprobada por el dueño): "seguir un proceso y ver qué cambió", sin backend.
+  - **Motor:** en `DashboardEngine`, `FOLLOW_FIELDS`, `followSnapshot`, `followChanges`, `followInit`, `followEntry`, `followAck` y `followDigest`, con sus pruebas en Node.
+  - **Tablero:** en `app.js`, un aviso al abrir, el contador "N con cambios" en la pestaña CRM, la lista del antes y el después en cada tarjeta del kanban, "✓ Visto" y "Marcar todo como visto". Además, "⏰ El cierre de ofertas es …" cuando faltan 3 días o menos.
+  - **Prueba de humo:** guardar, simular una foto vieja, recargar, ver el cambio y marcarlo como visto.
+  - **Documentación:** la clave `secop_crm_state` (`snap`, `seenAt`) en `AGENTS.md`.
+- **Decisión de diseño** (de Claude, menor): no hay un botón "Seguir" aparte. Guardar en el CRM ya es seguir, para no sumar otro concepto. El selector lo dice en su `title` y en el texto de la pestaña CRM.
+- **Ojo con las pruebas de humo locales:** `playwright.config.js` reutiliza un servidor que ya esté en el puerto 8765 (`reuseExistingServer` fuera de CI). Si otra sesión tiene uno abierto desde otra carpeta, las pruebas corren contra el código de esa carpeta y fallan sin razón aparente. Esta sesión las corrió con una configuración temporal en otro puerto: 37 de 37 en verde.
+- **Sin commit:** nada.
+- **Errores abiertos:** ninguno nuevo.
+- **Próximas tres acciones:**
+  1. Elegir con el dueño la siguiente candidata; la sugerida es "cifras de la entidad para decidir" (fase A, con datos que ya tenemos).
+  2. Confirmar con `probe_sources` la columna de fecha de fin en `jbjy-vk9h`, para "contratos por vencer" (solo lectura).
+  3. Proponer que las pruebas de humo usen un puerto por carpeta, o que no reutilicen el servidor, para que dos sesiones no se crucen.

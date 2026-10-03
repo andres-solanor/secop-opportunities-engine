@@ -2680,8 +2680,54 @@ small {
 
 .kanban-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
   justify-content: flex-end;
+}
+
+/* Seguimiento de lo guardado: qué cambió desde la última revisión y cierres próximos */
+.view-tab .badge-alert {
+  background: rgba(var(--rgb-amber), 0.18);
+  color: var(--accent-amber);
+  border: 1px solid rgba(var(--rgb-amber), 0.4);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kanban-item-changed {
+  border-color: rgba(var(--rgb-amber), 0.55);
+}
+
+.kanban-closing {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-rose);
+  margin-bottom: 0.5rem;
+}
+
+.kanban-changes {
+  background: rgba(var(--rgb-amber), 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+
+.kanban-changes-title {
+  font-weight: 700;
+  color: var(--accent-amber);
+  margin-bottom: 0.25rem;
+}
+
+.kanban-changes ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.2rem;
 }
 
 /* Modal de pitch */

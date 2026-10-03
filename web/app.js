@@ -74,6 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const MIN_MATCH_SCORE = 55;
   let matchCache = new Map();
   let crmState = JSON.parse(localStorage.getItem('secop_crm_state') || '{}');
+  // Guardar en el CRM es seguir el proceso. Lo guardado antes del seguimiento recibe la foto de hoy.
+  {
+    const init = Dash.followInit(crmState, rawData);
+    crmState = init.state;
+    if (init.added) saveCrmState();
+  }
 
   // DOM Elements
   const cardsGrid = document.getElementById('cardsGrid');
@@ -130,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyHiddenVisibility();
   if (Profile && Profile.getProfile()) activateTab('parati');
   renderView();
+  announceFollowChanges();
 
   // Tab listeners
   document.querySelectorAll('.view-tab').forEach(tabBtn => {
@@ -622,6 +629,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countProveedores').textContent = Dash.tabItems(rawData, 'proveedores').length;
     document.getElementById('countObservatorio').textContent = Dash.tabItems(rawData, 'observatorio').length;
     document.getElementById('countCrm').textContent = Dash.crmSummary(crmState, rawData).active;
+    const changedCount = followDigest().changed.length;
+    const crmChanges = document.getElementById('crmChanges');
+    crmChanges.hidden = !changedCount;
+    crmChanges.textContent = changedCount ? `${changedCount} con cambios` : '';
     document.getElementById('countPaa').textContent = PAA.length;
     document.getElementById('countParaTi').textContent = Profile && Profile.getProfile() ? forYouItems().length : '✨';
     // Todo lo que pasó el filtro y no está en el tablero: sin clasificar + clasificados que no entraron.
@@ -1055,7 +1066,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="btn btn-outline btn-detail">🔎 Detalle</button>
           ${secopLinkHtml(item.url_secop)}
           ${SHARE_BUTTON}
-          <select class="filter-select crm-select" aria-label="Guardar en CRM">
+          <select class="filter-select crm-select" aria-label="Guardar en el CRM y seguir el proceso" title="Lo guardado se sigue: al volver verás si cambió el cierre, la fase o el estado">
             <option value="ninguno" ${currentStatus === 'ninguno' ? 'selected' : ''}>📌 Guardar</option>
             <option value="nuevo" ${currentStatus === 'nuevo' ? 'selected' : ''}>📥 Nuevo Lead</option>
             <option value="contactado" ${currentStatus === 'contactado' ? 'selected' : ''}>📞 Contactado</option>
@@ -1771,6 +1782,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let counts = { nuevo: 0, contactado: 0, negociacion: 0, ganado: 0 };
+    const digest = followDigest();
+    const changesById = new Map(digest.changed.map(c => [c.id, c.changes]));
+    const closingById = new Map(digest.closingSoon.map(c => [c.id, c.item]));
 
     Object.entries(crmState).forEach(([oppId, meta]) => {
       const opp = rawData.find(o => o.id === oppId);
@@ -1779,8 +1793,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const st = meta.status;
       if (columns[st]) {
         counts[st]++;
+        const changes = changesById.get(oppId) || [];
         const itemEl = document.createElement('div');
-        itemEl.className = 'kanban-item';
+        itemEl.className = `kanban-item${changes.length ? ' kanban-item-changed' : ''}`;
+        itemEl.dataset.oppId = oppId;
         itemEl.innerHTML = `
           <div class="kanban-item-head">
             <span class="kanban-ref">${escapeHtml(opp.referencia || opp.id)}</span>
@@ -1788,7 +1804,14 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="kanban-entity">${escapeHtml(opp.entidad || '')}</div>
           <div class="kanban-contractor">${escapeHtml(opp.contratista?.nombre || 'Sin contratista')}</div>
+          ${closingById.has(oppId) ? `<div class="kanban-closing">⏰ El cierre de ofertas es ${escapeHtml(relativeDays(Engine.bidWindow(opp).date))}</div>` : ''}
+          ${changes.length ? `
+          <div class="kanban-changes">
+            <div class="kanban-changes-title">Cambió desde tu última revisión</div>
+            <ul>${changes.map(c => `<li><b>${escapeHtml(c.label)}:</b> ${escapeHtml(followValueText(c, c.before))} → ${escapeHtml(followValueText(c, c.after))}</li>`).join('')}</ul>
+          </div>` : ''}
           <div class="kanban-actions">
+            ${changes.length ? '<button class="btn btn-outline btn-sm btn-crm-seen">✓ Visto</button>' : ''}
             <button class="btn btn-outline btn-sm btn-crm-move">Mover Estado</button>
             <button class="btn btn-primary btn-sm btn-crm-pitch">Pitch</button>
           </div>
@@ -1804,6 +1827,14 @@ document.addEventListener('DOMContentLoaded', () => {
           cycleCrmStatus(opp.id);
         });
 
+        const seenBtn = itemEl.querySelector('.btn-crm-seen');
+        if (seenBtn) {
+          seenBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            markFollowSeen([opp.id]);
+          });
+        }
+
         columns[st].appendChild(itemEl);
       }
     });
@@ -1818,7 +1849,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const missing = crm.missing
       ? ` · <span class="freshness">${crm.missing} ${crm.missing === 1 ? 'guardada ya no está' : 'guardadas ya no están'} en la selección actual de SECOP II</span>`
       : '';
-    resultsCount.innerHTML = `Mostrando <b>${crm.active}</b> ${crm.active === 1 ? 'oportunidad' : 'oportunidades'} en tu Pipeline CRM${missing}`;
+    const changed = digest.changed.length;
+    const followLine = changed
+      ? ` · <b>${changed}</b> ${changed === 1 ? 'cambió' : 'cambiaron'} desde tu última revisión <button type="button" class="btn btn-outline btn-sm" id="btnFollowSeenAll">✓ Marcar todo como visto</button>`
+      : ' · <span class="freshness">Lo guardado se sigue: si cambia el cierre, la fase o el estado, lo verás aquí</span>';
+    resultsCount.innerHTML = `Mostrando <b>${crm.active}</b> ${crm.active === 1 ? 'oportunidad' : 'oportunidades'} en tu Pipeline CRM${missing}${followLine}`;
+    const seenAll = document.getElementById('btnFollowSeenAll');
+    if (seenAll) seenAll.addEventListener('click', () => markFollowSeen(digest.changed.map(c => c.id)));
+  }
+
+  // ---------- Seguimiento de lo guardado (DashboardEngine.follow*) ----------
+  function saveCrmState() {
+    localStorage.setItem('secop_crm_state', JSON.stringify(crmState));
+  }
+
+  function followDigest() {
+    return Dash.followDigest(crmState, rawData, item => Engine.bidWindow(item));
+  }
+
+  /** Valor de un campo seguido, legible: fechas como en las fichas, valor en pesos. */
+  function followValueText(change, value) {
+    if (value === null || value === undefined) return 'sin dato';
+    if (change.kind === 'date') {
+      const d = new Date(value);
+      return isNaN(d) ? String(value) : formatDate(d, { withTime: true });
+    }
+    if (change.kind === 'money') return Dash.formatCop(value);
+    return String(value);
+  }
+
+  function markFollowSeen(ids) {
+    ids.forEach(id => {
+      const item = rawData.find(o => o.id === id);
+      if (item && crmState[id]) crmState[id] = Dash.followAck(crmState[id], item);
+    });
+    saveCrmState();
+    updateKpis(getFilteredData());
+    if (currentTab === 'crm') renderCrmKanban();
+  }
+
+  /** Al abrir el tablero: un aviso si algo de lo seguido cambió o cierra pronto. */
+  function announceFollowChanges() {
+    const { changed, closingSoon } = followDigest();
+    const parts = [];
+    if (changed.length) parts.push(`${changed.length} ${changed.length === 1 ? 'proceso que sigues cambió' : 'procesos que sigues cambiaron'} desde tu última revisión`);
+    if (closingSoon.length) parts.push(`${closingSoon.length} ${closingSoon.length === 1 ? 'cierra' : 'cierran'} en ${Dash.FOLLOW_CLOSING_DAYS} días o menos`);
+    if (parts.length) showToast(`${parts.join(' y ')}. Míralos en el CRM.`, 'warning');
   }
 
   // Update CRM Status
@@ -1827,13 +1903,11 @@ document.addEventListener('DOMContentLoaded', () => {
       delete crmState[id];
       showToast('Oportunidad retirada del Pipeline CRM', 'info');
     } else {
-      crmState[id] = {
-        status: newStatus,
-        updatedAt: new Date().toISOString()
-      };
-      showToast(`Guardado en CRM como: ${newStatus.toUpperCase()}`, 'success');
+      const item = rawData.find(o => o.id === id);
+      crmState[id] = Dash.followEntry(crmState[id], newStatus, item);
+      showToast(`Guardado en CRM como: ${newStatus.toUpperCase()}. Te avisamos aquí si cambia.`, 'success');
     }
-    localStorage.setItem('secop_crm_state', JSON.stringify(crmState));
+    saveCrmState();
     // Los KPIs se recalculan con los filtros activos (antes volvían al total sin filtrar).
     updateKpis(getFilteredData());
     if (currentTab === 'crm') renderCrmKanban();

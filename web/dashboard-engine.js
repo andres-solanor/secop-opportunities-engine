@@ -463,6 +463,102 @@
     return { total: ids.length, active: active.length, missing: ids.length - active.length };
   }
 
+  // ---------- Seguimiento de lo guardado en el CRM ----------
+  // Guardar en el CRM es seguir el proceso: se guarda una foto de estos campos y, en cada
+  // visita, se compara con la sincronización del día. `kind` le dice a la web cómo mostrarlo.
+  const FOLLOW_FIELDS = [
+    { key: 'cierre', label: 'Cierre de ofertas', kind: 'date', get: i => i.fechas && i.fechas.cierre_ofertas },
+    { key: 'apertura', label: 'Apertura de ofertas', kind: 'date', get: i => i.fechas && i.fechas.apertura_ofertas },
+    { key: 'adjudicacion', label: 'Fecha de adjudicación', kind: 'date', get: i => i.fechas && i.fechas.adjudicacion },
+    { key: 'fase', label: 'Fase', kind: 'text', get: i => i.fase },
+    { key: 'estado', label: 'Estado en SECOP II', kind: 'text', get: i => i.estado_secop },
+    { key: 'precio', label: 'Valor', kind: 'money', get: i => i.precio },
+    { key: 'ofertas', label: 'Ofertas recibidas', kind: 'count', get: i => i.competencia && i.competencia.ofertas },
+    { key: 'contratista', label: 'Contratista', kind: 'text', get: i => (EMPTY_NAMES.includes(i.contratista && i.contratista.nombre) ? null : i.contratista && i.contratista.nombre) }
+  ];
+  // Aviso aparte cuando al cierre le quedan estos días o menos (como Nuntaria: tres días).
+  const FOLLOW_CLOSING_DAYS = 3;
+
+  function followValue(field, item) {
+    const v = field.get(item);
+    return v === undefined || v === '' ? null : v;
+  }
+
+  /** Foto de los campos seguidos de una oportunidad. */
+  function followSnapshot(item) {
+    const snap = {};
+    FOLLOW_FIELDS.forEach(f => { snap[f.key] = followValue(f, item); });
+    return snap;
+  }
+
+  /**
+   * Qué cambió entre la foto y la oportunidad de hoy. Un campo que la foto no tiene (una foto
+   * anterior a que existiera ese campo) no cuenta como cambio.
+   */
+  function followChanges(snap, item) {
+    if (!snap || !item) return [];
+    return FOLLOW_FIELDS
+      .filter(f => Object.prototype.hasOwnProperty.call(snap, f.key))
+      .map(f => ({ key: f.key, label: f.label, kind: f.kind, before: snap[f.key], after: followValue(f, item) }))
+      .filter(c => c.before !== c.after);
+  }
+
+  /**
+   * Las entradas del CRM sin foto (guardadas antes del seguimiento) reciben la de hoy, sin
+   * reportar cambios. Devuelve un estado nuevo y si hubo que agregar alguna foto.
+   */
+  function followInit(crmState, items) {
+    const byId = new Map(items.map(i => [i.id, i]));
+    const next = {};
+    let added = false;
+    Object.entries(crmState || {}).forEach(([id, entry]) => {
+      const item = byId.get(id);
+      if (entry && !entry.snap && item) {
+        next[id] = { ...entry, snap: followSnapshot(item) };
+        added = true;
+      } else {
+        next[id] = entry;
+      }
+    });
+    return { state: next, added };
+  }
+
+  /**
+   * Entrada del CRM al guardar o mover de estado: conserva la foto, o la toma si no hay.
+   * Sin la oportunidad no hay foto: `followInit` la toma cuando vuelva a estar en el tablero.
+   */
+  function followEntry(previous, status, item, now = new Date()) {
+    const entry = { ...(previous || {}), status, updatedAt: now.toISOString() };
+    if (!entry.snap && item) entry.snap = followSnapshot(item);
+    return entry;
+  }
+
+  /** "Visto": la foto pasa a ser la de hoy. */
+  function followAck(entry, item, now = new Date()) {
+    return { ...entry, snap: followSnapshot(item), seenAt: now.toISOString() };
+  }
+
+  /**
+   * Resumen para el tablero: lo seguido que cambió desde la última foto y lo que cierra pronto.
+   * `windowOf(item)` es ProfileEngine.bidWindow (estado real y días al cierre).
+   */
+  function followDigest(crmState, items, windowOf) {
+    const byId = new Map(items.map(i => [i.id, i]));
+    const changed = [];
+    const closingSoon = [];
+    Object.entries(crmState || {}).forEach(([id, entry]) => {
+      const item = byId.get(id);
+      if (!item || !entry) return;
+      const changes = followChanges(entry.snap, item);
+      if (changes.length) changed.push({ id, item, changes });
+      const bw = windowOf ? windowOf(item) : null;
+      if (bw && bw.state === 'abierta' && typeof bw.days === 'number' && bw.days >= 0 && bw.days < FOLLOW_CLOSING_DAYS + 1) {
+        closingSoon.push({ id, item, days: Math.floor(bw.days) });
+      }
+    });
+    return { changed, closingSoon };
+  }
+
   // ---------- CSV ----------
   function csvCell(value) {
     if (value === null || value === undefined) return '';
@@ -586,6 +682,14 @@
     otherItems,
     topSectors,
     crmSummary,
+    FOLLOW_FIELDS,
+    FOLLOW_CLOSING_DAYS,
+    followSnapshot,
+    followChanges,
+    followInit,
+    followEntry,
+    followAck,
+    followDigest,
     csvCell,
     buildCsv,
     familyOf,
