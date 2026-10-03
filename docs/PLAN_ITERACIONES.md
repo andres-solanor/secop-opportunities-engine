@@ -190,7 +190,11 @@ Ideas del dueño para una sesión futura. No hay trabajo hecho todavía.
 
 - **Croma** (pedido del 2026-10-01): ver qué se puede integrar de Croma (documentación: https://docs.usecroma.com/introduction) y leer los aprendizajes de la hackatón en `C:\Users\abner\Claude\Projects\Hackaton croma` (carpeta local del dueño, fuera del repositorio). Qué es Croma y cómo encaja `[POR VERIFICAR]`: no se ha leído ninguna de las dos fuentes.
 - **Ideas de la competencia** (investigación del 2026-10-02, fase 1: solo páginas públicas, sin cuentas). El informe completo, con la matriz de funciones, los precios y las fuentes, está fuera del repositorio porque es documentación comercial: https://claude.ai/artifact/PmPxvL3gRFnyNxvBdLxk2W (privado del dueño). Son candidatas; ninguna está aprobada. El orden es criterio, no viene de datos de uso.
-  1. **Seguir un proceso y ver qué cambió** (Nuntaria, licitaciones.info): en fase A, con localStorage y la sincronización diaria; el correo llega con la iteración 7.
+  1. ~~**Seguir un proceso y ver qué cambió**~~ (Nuntaria, licitaciones.info). **Hecho el 2026-10-02** (aprobado por el dueño, rama `pro/follow-process`), sin backend:
+     - Guardar en el CRM es seguir el proceso: se guarda una foto del cierre, la apertura, la adjudicación, la fase, el estado, el valor, las ofertas y el contratista.
+     - Al abrir el tablero aparece un aviso si algo de lo seguido cambió o cierra en 3 días o menos.
+     - La pestaña CRM muestra cuántos tienen cambios. Cada tarjeta lista el antes y el después y tiene un botón "Visto".
+     - El correo llega con la iteración 7. Los anexos y adendas nuevos quedan fuera: los datos abiertos no los traen `[POR VERIFICAR]`.
   2. **Páginas públicas indexables** por sector, departamento y proceso (licitacionescolombia.co, colombialicita.com), para captar leads. Cambia lo que se publica: lo decide el dueño.
   3. **Cifras de la entidad para decidir** sobre procesos parecidos (proponentes, % del presupuesto adjudicado, concentración, días hasta adjudicar), sin número cuando hay pocos casos (Nuntaria).
   4. **Contratos por vencer** como oportunidad futura (licitacionescolombia.co; Stotles y Tussell en el Reino Unido), desde `jbjy-vk9h`; la columna de fecha de fin está `[POR VERIFICAR]`. Es una consulta nueva: la decide el dueño.

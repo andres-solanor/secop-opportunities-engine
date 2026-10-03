@@ -122,6 +122,75 @@ test('el CRM cuenta aparte lo guardado que ya no está en el dataset', () => {
   assert.deepStrictEqual(D.crmSummary(null, ITEMS), { total: 0, active: 0, missing: 0 });
 });
 
+const FOLLOWED = opp('F', {
+  fechas: { cierre_ofertas: '2026-10-10T00:00:00', apertura_ofertas: '2026-10-10T00:00:00', adjudicacion: '2026-10-20T00:00:00' },
+  fase: 'Presentación de oferta',
+  estado_secop: 'Publicado',
+  competencia: { ofertas: 0 }
+});
+
+test('seguir: la foto guarda los campos seguidos y sin contratista queda en null', () => {
+  const snap = D.followSnapshot(FOLLOWED);
+  assert.deepStrictEqual(Object.keys(snap), D.FOLLOW_FIELDS.map(f => f.key));
+  assert.strictEqual(snap.cierre, '2026-10-10T00:00:00');
+  assert.strictEqual(snap.fase, 'Presentación de oferta');
+  assert.strictEqual(snap.precio, 500e6);
+  assert.strictEqual(snap.ofertas, 0);
+  assert.strictEqual(snap.contratista, null);
+});
+
+test('seguir: reporta lo que cambió, con el antes y el después, y nada si no cambió', () => {
+  const snap = D.followSnapshot(FOLLOWED);
+  assert.deepStrictEqual(D.followChanges(snap, FOLLOWED), []);
+  const today = { ...FOLLOWED, fechas: { ...FOLLOWED.fechas, cierre_ofertas: '2026-10-17T00:00:00' }, fase: 'Evaluación', ...AWARDED };
+  const changes = D.followChanges(snap, today);
+  assert.deepStrictEqual(changes.map(c => c.key), ['cierre', 'fase', 'contratista']);
+  assert.deepStrictEqual(changes[0], { key: 'cierre', label: 'Cierre de ofertas', kind: 'date', before: '2026-10-10T00:00:00', after: '2026-10-17T00:00:00' });
+  assert.deepStrictEqual([changes[2].before, changes[2].after], [null, 'ACEROS SAS']);
+});
+
+test('seguir: un campo que la foto no tenía no cuenta como cambio', () => {
+  const old = { cierre: '2026-10-10T00:00:00' };
+  assert.deepStrictEqual(D.followChanges(old, FOLLOWED), []);
+  assert.deepStrictEqual(D.followChanges(null, FOLLOWED), []);
+});
+
+test('seguir: lo guardado antes del seguimiento recibe la foto de hoy, sin cambios', () => {
+  const { state, added } = D.followInit({ F: { status: 'nuevo' }, VIEJA: { status: 'contactado' } }, [FOLLOWED]);
+  assert.strictEqual(added, true);
+  assert.deepStrictEqual(state.F.snap, D.followSnapshot(FOLLOWED));
+  assert.deepStrictEqual(state.VIEJA, { status: 'contactado' });
+  assert.strictEqual(D.followInit(state, [FOLLOWED]).added, false);
+  assert.deepStrictEqual(D.followDigest(state, [FOLLOWED]).changed, []);
+});
+
+test('seguir: mover de estado conserva la foto y "visto" la reemplaza por la de hoy', () => {
+  const now = new Date('2026-10-02T12:00:00');
+  const saved = D.followEntry(undefined, 'nuevo', FOLLOWED, now);
+  assert.strictEqual(saved.status, 'nuevo');
+  assert.strictEqual(saved.updatedAt, now.toISOString());
+  const today = { ...FOLLOWED, fase: 'Evaluación' };
+  const moved = D.followEntry(saved, 'contactado', today, now);
+  assert.deepStrictEqual(moved.snap, saved.snap);
+  assert.strictEqual(D.followChanges(moved.snap, today).length, 1);
+  const seen = D.followAck(moved, today, now);
+  assert.deepStrictEqual(D.followChanges(seen.snap, today), []);
+  assert.strictEqual(seen.seenAt, now.toISOString());
+  assert.strictEqual(seen.status, 'contactado');
+  assert.strictEqual('snap' in D.followEntry(undefined, 'nuevo', undefined, now), false);
+});
+
+test('seguir: el resumen separa lo que cambió de lo que cierra en 3 días o menos', () => {
+  const state = { F: D.followEntry(undefined, 'nuevo', FOLLOWED), A: D.followEntry(undefined, 'nuevo', ITEMS[0]), FUERA: { status: 'nuevo', snap: {} } };
+  const today = [{ ...FOLLOWED, estado_secop: 'Cerrado' }, ITEMS[0]];
+  const windows = { F: { state: 'cerrada' }, A: { state: 'abierta', days: 2.5 } };
+  const digest = D.followDigest(state, today, item => windows[item.id]);
+  assert.deepStrictEqual(digest.changed.map(c => [c.id, c.changes.map(x => x.key)]), [['F', ['estado']]]);
+  assert.deepStrictEqual(digest.closingSoon.map(c => [c.id, c.days]), [['A', 2]]);
+  const later = D.followDigest(state, today, () => ({ state: 'abierta', days: D.FOLLOW_CLOSING_DAYS + 1.5 }));
+  assert.deepStrictEqual(later.closingSoon, []);
+});
+
 test('el CSV escapa comillas, saltos de línea y fórmulas', () => {
   assert.strictEqual(D.csvCell('ACEROS "EL PUENTE" SAS'), '"ACEROS ""EL PUENTE"" SAS"');
   assert.strictEqual(D.csvCell('línea 1\nlínea 2'), '"línea 1\nlínea 2"');

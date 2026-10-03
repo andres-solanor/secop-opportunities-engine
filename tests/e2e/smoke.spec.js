@@ -243,6 +243,43 @@ for (const width of [390, 360]) {
   });
 }
 
+test('seguir: lo guardado en el CRM avisa qué cambió y "Visto" lo deja al día', async ({ page }) => {
+  const errors = await openDashboard(page);
+  const first = cards(page).first();
+  const id = await first.getAttribute('data-id');
+  await first.locator('.crm-select').selectOption('nuevo');
+  const saved = await page.evaluate(oppId => JSON.parse(localStorage.getItem('secop_crm_state'))[oppId], id);
+  expect(saved.snap).toBeTruthy();
+  await expect(page.locator('#crmChanges')).toBeHidden();
+
+  // Simula una foto de una visita anterior: otra fase y otro cierre.
+  await page.evaluate(oppId => {
+    const state = JSON.parse(localStorage.getItem('secop_crm_state'));
+    state[oppId].snap = { ...state[oppId].snap, fase: 'Fase anterior', cierre: '2020-01-01T00:00:00' };
+    localStorage.setItem('secop_crm_state', JSON.stringify(state));
+  }, id);
+  await page.reload();
+  await expect(page.locator('.toast').filter({ hasText: 'proceso que sigues cambió' })).toBeVisible();
+  await expect(page.locator('#crmChanges')).toHaveText('1 con cambios');
+
+  await page.click('#tabCrm');
+  const item = page.locator(`.kanban-item[data-opp-id="${id}"]`);
+  await expect(item.locator('.kanban-changes')).toContainText('Fase: Fase anterior →');
+  await expect(item.locator('.kanban-changes')).toContainText('Cierre de ofertas:');
+  await expect(page.locator('#resultsCount')).toContainText('cambió desde tu última revisión');
+
+  await item.locator('.btn-crm-seen').click();
+  await expect(page.locator(`.kanban-item[data-opp-id="${id}"] .kanban-changes`)).toHaveCount(0);
+  await expect(page.locator('#crmChanges')).toBeHidden();
+  const inSync = await page.evaluate(oppId => {
+    const entry = JSON.parse(localStorage.getItem('secop_crm_state'))[oppId];
+    const opp = window.PROSPECTS_DATA.find(o => o.id === oppId);
+    return window.DashboardEngine.followChanges(entry.snap, opp).length === 0 && entry.status === 'nuevo';
+  }, id);
+  expect(inSync).toBe(true);
+  expect(errors).toEqual([]);
+});
+
 test('el filtro de tiempo cambia su texto con la pestaña y se oculta en el CRM', async ({ page }) => {
   await openDashboard(page);
   await expect(page.locator('#ageSelect option[value="30"]')).toHaveText(/^Adjudicado:/);
