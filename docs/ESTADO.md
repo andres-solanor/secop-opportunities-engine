@@ -730,6 +730,7 @@ Cierre de la sesión de investigación de competencia y "seguir lo guardado". Es
   - Diez datasets abiertos candidatos. Los primeros: Multas y Sanciones SECOP II (`it5q-hg94`) y RUES de Confecámaras (`c82u-588k`).
   - `qmzu-gj57` es el dataset de proveedores registrados que el plan daba por no encontrado.
   - El plan (lista de deseos e iteración 8) y `AGENTS.md` apuntan al documento.
+  - Brainstorming de 21 ideas con los datos de Croma, en un doc privado del dueño que no se versiona: https://claude.ai/code/artifact/6d2b4201-afb3-4672-b048-2120ecf2f072. Recomendación: un servicio "dossier por NIT" para las ideas 1, 5, 7, 8 y 9.
 - **Límites:**
   - El sandbox bloquea `docs.usecroma.com` y `datos.gov.co`. Lo de Croma sale de resultados de búsqueda web.
   - Ningún dataset nuevo se consultó: columnas, llaves y cobertura están `[POR VERIFICAR]`.
@@ -737,6 +738,7 @@ Cierre de la sesión de investigación de competencia y "seguir lo guardado". Es
 - **Sin código.** Solo documentación.
 - **Pendiente del dueño:**
   - Decidir si entran Sanciones SECOP II y el RUES abierto, porque cambian lo que se descarga.
+  - Elegir tres ideas del brainstorming, o confirmar las recomendadas.
   - Probar el MCP de Croma.
   - Llevarle a Croma las preguntas de `FUENTES_ADICIONALES.md` §1: precios, redistribución y caché.
 - **Próximas tres acciones:**

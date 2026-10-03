@@ -194,6 +194,12 @@ Ideas del dueño para una sesión futura. No hay trabajo hecho todavía.
   - Sirve como fuente paga bajo demanda en la fase B: Procuraduría, Contraloría, deudores morosos, RUES detallado y estados financieros.
   - No va en el pipeline diario: la llave no puede ir en el sitio estático y sus términos prohíben redistribuir sin autorización escrita.
   - La carpeta de la hackatón no se leyó: es local del dueño.
+  - Brainstorming del 2026-10-03: 21 ideas con los datos de Croma y un mapa de valor contra esfuerzo, en el doc privado del dueño https://claude.ai/code/artifact/6d2b4201-afb3-4672-b048-2120ecf2f072. Es documentación comercial y no se versiona. La recomendación es construir un solo servicio, "dossier por NIT", con tres vistas:
+    - a quién escribirle y si el ganador paga (Radar B2B);
+    - el chequeo de habilitación de la propia empresa;
+    - el semáforo de aliado.
+
+    Ninguna idea está aprobada.
 - **Ideas de la competencia** (investigación del 2026-10-02, fase 1: solo páginas públicas, sin cuentas). El informe completo, con la matriz de funciones, los precios y las fuentes, está fuera del repositorio porque es documentación comercial: https://claude.ai/artifact/PmPxvL3gRFnyNxvBdLxk2W (privado del dueño). Son candidatas; ninguna está aprobada. El orden es criterio, no viene de datos de uso.
   1. ~~**Seguir un proceso y ver qué cambió**~~ (Nuntaria, licitaciones.info). **Hecho el 2026-10-02** (aprobado por el dueño, rama `pro/follow-process`), sin backend:
      - Guardar en el CRM es seguir el proceso: se guarda una foto del cierre, la apertura, la adjudicación, la fase, el estado, el valor, las ofertas y el contratista.
