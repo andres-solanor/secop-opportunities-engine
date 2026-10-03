@@ -753,6 +753,22 @@ test('código UNSPSC en el detalle: el del proceso; si falta, el del contrato en
   expect(errors).toEqual([]);
 });
 
+test('legibilidad: ningún texto visible por debajo de 12 px y el punto de estado no se anima', async ({ page }) => {
+  const tiny = () => page.evaluate(() => [...document.querySelectorAll('body *')]
+    .filter(el => el.offsetParent && [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
+    .filter(el => parseFloat(getComputedStyle(el).fontSize) < 12)
+    .map(el => `${el.tagName.toLowerCase()}.${el.className} ${getComputedStyle(el).fontSize}`));
+  await openDashboard(page);
+  expect(await tiny()).toEqual([]);
+  // Un adjudicado: el detalle tiene notas legales, <small> y el punto de estado.
+  const id = await page.evaluate(() => (window.PROSPECTS_DATA.find(i => window.ProfileEngine.bidWindow(i).state === 'adjudicado') || {}).id);
+  await page.evaluate(id => { location.hash = `op=${encodeURIComponent(id)}`; }, id);
+  await expect(page.locator('#detailModal')).toHaveClass(/active/);
+  expect(await tiny()).toEqual([]);
+  const animation = await page.locator('#modalBody .pulse-dot').first().evaluate(el => getComputedStyle(el).animationName);
+  expect(animation).toBe('none');
+});
+
 test('el onboarding del perfil abre desde "Para Ti"', async ({ page }) => {
   await openDashboard(page);
   await page.click('#tabParaTi');
